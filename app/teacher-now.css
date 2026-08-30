@@ -1,0 +1,139 @@
+.teacher-now{
+  margin:24px 0;
+  overflow:hidden;
+  border:1px solid #c5d8cf;
+  border-radius:22px;
+  background:#fff;
+  box-shadow:0 15px 35px #173f350b;
+}
+
+.teacher-now>header{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(300px,430px);
+  gap:24px;
+  padding:28px 30px;
+  background:linear-gradient(135deg,#173f35,#285d49);
+  color:#fff;
+}
+
+.teacher-now>header p{margin:0;color:#b8d5ca;font-size:11px;font-weight:950;letter-spacing:1.1px}
+.teacher-now h2{margin:6px 0 7px;font:650 35px Georgia,serif}
+.teacher-now>header blockquote{margin:0;color:#e6f0ec;font:650 18px/1.45 Georgia,serif}
+.teacher-now dl{display:grid;grid-template-columns:150px 1fr;gap:9px;margin:0}
+.teacher-now dl div{padding:14px;border:1px solid #ffffff24;border-radius:12px;background:#ffffff0b}
+.teacher-now dt{color:#b8d5ca;font-size:9px;font-weight:950;letter-spacing:1px}
+.teacher-now dd{margin:6px 0 0;color:#fff;font-size:13px;font-weight:750;line-height:1.45}
+
+.teacher-now-resource{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:16px 24px;
+  border-bottom:1px solid #d7e3dc;
+  background:#f2ead8;
+}
+
+.teacher-now-resource small,.teacher-now-resource strong,.teacher-now-resource span{display:block}
+.teacher-now-resource small{color:#735a23;font-size:9px;font-weight:950;letter-spacing:1px}
+.teacher-now-resource strong{margin-top:3px;color:#2d473d;font-size:14px}
+.teacher-now-resource span{margin-top:3px;color:#635f53;font-size:11px;line-height:1.4}
+.teacher-now-resource a,.teacher-now>footer a{
+  flex:none;
+  padding:10px 13px;
+  border-radius:9px;
+  background:#315f4d;
+  color:#fff;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:850;
+}
+
+.teacher-now-grid{display:grid;grid-template-columns:minmax(240px,.9fr) minmax(380px,1.45fr) minmax(280px,1fr);gap:1px;background:#dbe5df}
+.teacher-now-grid article{padding:25px;background:#fff}
+.teacher-now-grid small,.teacher-now-scenario-card small,.teacher-now-handoff small{display:block;margin-bottom:11px;color:#356b55;font-size:10px;font-weight:950;letter-spacing:1px}
+.teacher-now-grid p,.teacher-now-grid li,.teacher-now-handoff p{color:#40564b;font-size:13px;line-height:1.5}
+.teacher-now-grid ul{display:grid;gap:7px;margin:0;padding-left:19px}
+.teacher-now-grid article small:not(:first-child){margin-top:21px}
+.teacher-now-launch-card>blockquote{margin:0;padding:14px;border-left:4px solid #d2a74b;background:#fbf8ee;color:#29483c;font:650 16px/1.5 Georgia,serif}
+
+.teacher-now-run{display:grid;gap:0;margin:0;padding:0;list-style:none}
+.teacher-now-run li{display:grid;grid-template-columns:48px 1fr;gap:10px;padding:8px 0;border-top:1px solid #e2eae5}
+.teacher-now-run li:first-child{padding-top:0;border-top:0}
+.teacher-now-run time{padding-top:2px;color:#8b5d18;font-size:11px;font-weight:950}
+.teacher-now-run strong{color:#254d3d;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+.teacher-now-run p{margin:2px 0 0}
+
+.teacher-now-scenario-card{padding:25px 28px;border-top:1px solid #dbe5df;background:#f7faf8}
+.teacher-now-scenario-card>header{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:15px}
+.teacher-now-scenario-card h3{margin:3px 0 0;color:#203f34;font:650 23px Georgia,serif}
+.teacher-now-scenario-card>header p{max-width:420px;margin:0;color:#53665c;font-size:12px;line-height:1.45}
+.teacher-now-scenarios{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.teacher-now-scenarios section{padding:14px;border:1px solid #d5e2db;border-radius:12px;background:#fff}
+.teacher-now-scenarios section>div{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.teacher-now-scenarios strong{color:#2d483d;font-size:13px}
+.teacher-now-scenarios span{flex:none;padding:4px 6px;border-radius:6px;font-size:8px;font-weight:950;letter-spacing:.4px}
+.teacher-now-scenarios span.helps{background:#dceee3;color:#185535}
+.teacher-now-scenarios span.check{background:#fff0c9;color:#78510b}
+.teacher-now-scenarios span.stop{background:#f7dddd;color:#7a2828}
+.teacher-now-scenarios p{margin:9px 0 7px;color:#43594e;font-size:12px;line-height:1.45}
+.teacher-now-scenarios section small{margin:0;color:#6a5d48;font-size:10px;font-weight:700;letter-spacing:0;line-height:1.4}
+
+.teacher-now-handoff{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:22px;padding:20px 26px;border-top:1px solid #dbe5df;background:#edf4f0}
+.teacher-now-handoff p{margin:0}
+.teacher-now-thinking{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px}
+.teacher-now-thinking span{padding:6px 8px;border-radius:8px;background:#dbe9e1;color:#315f4d;font-size:11px;font-weight:800}
+
+.teacher-now>footer{display:flex;align-items:center;justify-content:space-between;gap:22px;padding:18px 24px;border-top:1px solid #dbe5df;background:#f3f7f4}
+.teacher-now>footer strong,.teacher-now>footer span{display:block}
+.teacher-now>footer strong{font-size:13px}
+.teacher-now>footer span{margin-top:3px;color:#5a6b62;font-size:11px}
+.teacher-now>footer nav{display:flex;flex-wrap:wrap;gap:8px}
+.teacher-now>footer button{padding:10px 12px;border:0;border-radius:9px;background:#315f4d;color:#fff;cursor:pointer;font-size:12px;font-weight:850}
+.teacher-now>footer a.secondary{border:1px solid #aabdb3;background:#fff;color:#315f4d}
+
+.os-development{margin:40px 0;border:1px solid #d7e0db;border-radius:18px;background:#eef3f0}
+.os-development>summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 24px;cursor:pointer;list-style:none}
+.os-development>summary::-webkit-details-marker{display:none}
+.os-development>summary span,.os-development>summary strong{display:block}
+.os-development>summary span{color:#5c6d64;font-size:10px;font-weight:950;letter-spacing:1px}
+.os-development>summary strong{margin-top:4px;font:650 20px Georgia,serif}
+.os-development>summary b{color:#39624f;font-size:12px}
+.os-development[open]>summary{border-bottom:1px solid #d7e0db}
+.os-development-content{padding:0 24px 26px}
+
+@media(max-width:1160px){
+  .teacher-now>header{grid-template-columns:1fr}
+  .teacher-now-grid{grid-template-columns:1fr 1fr}
+  .teacher-now-run-card{grid-column:span 1}
+  .teacher-now-launch-card{grid-column:span 2}
+  .teacher-now-scenarios{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media(max-width:760px){
+  .teacher-now-grid{grid-template-columns:1fr}
+  .teacher-now-launch-card{grid-column:auto}
+  .teacher-now-resource,.teacher-now-scenario-card>header,.teacher-now-handoff,.teacher-now>footer{align-items:flex-start;flex-direction:column}
+  .teacher-now-handoff{display:flex}
+  .teacher-now-thinking{justify-content:flex-start}
+  .teacher-now-scenarios{grid-template-columns:1fr}
+}
+
+@media(max-width:650px){
+  .teacher-now>header{padding:23px 20px}
+  .teacher-now dl{grid-template-columns:1fr}
+  .teacher-now-resource a{width:100%;text-align:center}
+  .teacher-now>footer nav{width:100%}
+  .teacher-now>footer button,.teacher-now>footer a{width:100%;text-align:center}
+  .os-development>summary{align-items:flex-start;flex-direction:column}
+}
+
+@media print{
+  .teacher-now{box-shadow:none}
+  .teacher-now>header{background:#fff;color:#000}
+  .teacher-now>header p,.teacher-now>header blockquote{color:#000}
+  .teacher-now-resource a,.teacher-now>footer nav,.os-development{display:none!important}
+  .teacher-now-grid{grid-template-columns:1fr 1fr}
+  .teacher-now-launch-card{grid-column:span 2}
+  .teacher-now-scenarios{grid-template-columns:repeat(2,1fr)}
+}

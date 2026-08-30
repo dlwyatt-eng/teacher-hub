@@ -1,0 +1,1653 @@
+.equation-balance-lab {
+  --equation-ink: #17332a;
+  --equation-copy: #385448;
+  --equation-muted: #61766b;
+  --equation-deep: #123d2e;
+  --equation-green: #2c7653;
+  --equation-green-soft: #e7f2e7;
+  --equation-brass: #d5a946;
+  --equation-brass-dark: #72521b;
+  --equation-paper: #fffdf7;
+  --equation-line: #aac0ae;
+  --equation-focus: #f5c95e;
+  --equation-rethink: #935c22;
+  max-width: 1320px;
+  margin: 26px auto;
+  overflow: hidden;
+  border: 3px solid var(--equation-deep);
+  border-radius: 24px;
+  background: var(--equation-paper);
+  color: var(--equation-ink);
+  box-shadow: 0 18px 45px #163c2d20;
+}
+
+.equation-balance-lab,
+.equation-balance-lab * {
+  box-sizing: border-box;
+}
+
+.equation-balance-lab button {
+  min-height: 48px;
+  font: inherit;
+}
+
+.equation-balance-lab button:not(:disabled) {
+  cursor: pointer;
+}
+
+.equation-balance-lab button:disabled {
+  cursor: not-allowed;
+  opacity: .52;
+}
+
+.equation-balance-lab :is(button, [tabindex="-1"]):focus-visible {
+  outline: 4px solid var(--equation-focus);
+  outline-offset: 3px;
+}
+
+.equation-lab-hero {
+  display: grid;
+  grid-template-columns: minmax(330px, .75fr) minmax(520px, 1.25fr);
+  min-height: 355px;
+  border-bottom: 6px solid var(--equation-brass);
+  background:
+    radial-gradient(circle at 8% 17%, #f7d8781f 0 3px, transparent 4px),
+    linear-gradient(125deg, #0b2d22, #18513a 72%, #286a49);
+  color: #fff;
+}
+
+.equation-lab-hero > div {
+  position: relative;
+  z-index: 2;
+  align-self: center;
+  padding: 42px clamp(27px, 4vw, 54px);
+}
+
+.equation-lab-hero > div > small {
+  display: block;
+  color: #f5d57d;
+  font-size: 14px;
+  font-weight: 950;
+  letter-spacing: .09em;
+}
+
+.equation-lab-hero h2 {
+  margin: 10px 0 14px;
+  color: #fff;
+  font: 700 clamp(39px, 4vw, 60px)/1.04 Georgia, serif;
+  letter-spacing: -.025em;
+}
+
+.equation-lab-hero > div > p {
+  max-width: 610px;
+  margin: 0;
+  color: #e8f3eb;
+  font-size: 20px;
+  line-height: 1.55;
+}
+
+.equation-lab-hero__art {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #081d16;
+}
+
+.equation-lab-hero__art::after {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 19%;
+  background: linear-gradient(90deg, #143d2f, transparent);
+  content: "";
+  pointer-events: none;
+}
+
+.equation-lab-hero__art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 355px;
+  object-fit: cover;
+  object-position: center 54%;
+}
+
+.equation-lab-hero__art figcaption {
+  position: absolute;
+  z-index: 2;
+  right: 15px;
+  bottom: 14px;
+  left: 15px;
+  padding: 11px 14px;
+  border: 1px solid #ffffff57;
+  border-radius: 10px;
+  background: #071c16d9;
+  color: #f6f2df;
+  font-size: 13px;
+  font-weight: 850;
+  line-height: 1.4;
+}
+
+.equation-teacher-note {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 17px 29px;
+  border-bottom: 2px solid #bc9844;
+  background: #fff0c8;
+  color: #46340d;
+}
+
+.equation-teacher-note strong {
+  font-size: 14px;
+  letter-spacing: .08em;
+}
+
+.equation-teacher-note p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.equation-progress {
+  padding: 19px clamp(19px, 3vw, 36px) 17px;
+  border-bottom: 2px solid #bdd0c0;
+  background: #edf5ea;
+}
+
+.equation-progress > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 9px;
+}
+
+.equation-progress > div:first-child span {
+  color: #47705a;
+  font-size: 13px;
+  font-weight: 950;
+  letter-spacing: .07em;
+}
+
+.equation-progress > div:first-child strong {
+  color: var(--equation-ink);
+  font-size: 16px;
+}
+
+.equation-progress__track {
+  height: 13px;
+  overflow: hidden;
+  border: 2px solid #73927d;
+  border-radius: 99px;
+  background: #fff;
+}
+
+.equation-progress__track i {
+  display: block;
+  height: 100%;
+  background: repeating-linear-gradient(135deg, #2f7654 0 13px, #4c936a 13px 26px);
+  transition: width .3s ease;
+}
+
+.equation-progress nav {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 13px;
+}
+
+.equation-progress nav button {
+  display: grid;
+  grid-template-columns: 37px 1fr;
+  gap: 9px;
+  align-items: center;
+  padding: 9px 10px;
+  border: 2px solid transparent;
+  border-radius: 11px;
+  background: #dfeade;
+  color: #284a3a;
+  text-align: left;
+}
+
+.equation-progress nav button > b {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 2px solid #8da491;
+  border-radius: 10px;
+  background: #fff;
+  color: #345b46;
+  font-size: 14px;
+}
+
+.equation-progress nav button span,
+.equation-progress nav button small,
+.equation-progress nav button strong {
+  display: block;
+  min-width: 0;
+}
+
+.equation-progress nav button small {
+  color: #587064;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.equation-progress nav button strong {
+  margin-top: 2px;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.equation-progress nav button[aria-current="step"] {
+  border-color: var(--equation-green);
+  background: #cfe3d1;
+}
+
+.equation-progress nav button[aria-current="step"] > b {
+  border-color: var(--equation-green);
+  background: var(--equation-green);
+  color: #fff;
+}
+
+.equation-lab-workspace {
+  padding: clamp(24px, 4vw, 48px);
+  background:
+    radial-gradient(circle at 3% 3%, #d6ba6d18 0 3px, transparent 4px),
+    linear-gradient(#fffdf7, #f5f3e9);
+  background-size: 90px 90px, auto;
+}
+
+.equation-lab-workspace > h3 {
+  max-width: 1180px;
+  margin: 0 auto 23px;
+  color: var(--equation-deep);
+  font: 700 clamp(29px, 3vw, 43px)/1.15 Georgia, serif;
+}
+
+.equation-lab-step {
+  display: grid;
+  gap: 22px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.equation-lab-step > header {
+  display: grid;
+  grid-template-columns: 55px 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 21px 24px;
+  border: 2px solid #b5c9b7;
+  border-radius: 16px;
+  background: #f2f7ee;
+}
+
+.equation-lab-step > header > span {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--equation-deep);
+  color: #fff;
+  font: 700 23px Georgia, serif;
+}
+
+.equation-lab-step > header small {
+  display: block;
+  color: var(--equation-green);
+  font-size: 13px;
+  font-weight: 950;
+  letter-spacing: .07em;
+}
+
+.equation-lab-step > header h4 {
+  margin: 5px 0 6px;
+  color: var(--equation-ink);
+  font: 700 28px/1.2 Georgia, serif;
+}
+
+.equation-lab-step > header p {
+  margin: 0;
+  color: var(--equation-copy);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.equation-scale,
+.equation-case-model {
+  position: relative;
+  min-height: 330px;
+  margin: 0;
+  overflow: hidden;
+  border: 3px solid #7d6b42;
+  border-radius: 19px;
+  background:
+    linear-gradient(#f8f4df 0 74%, #d9c59a 74% 77%, #8b7046 77%);
+}
+
+.equation-scale__beam,
+.equation-case-model__beam {
+  position: absolute;
+  top: 65px;
+  right: 10%;
+  left: 10%;
+  z-index: 1;
+  height: 18px;
+  transform-origin: center;
+  transition: transform .35s ease;
+}
+
+.equation-scale[data-balance="left"] .equation-scale__beam { transform: rotate(-4deg); }
+.equation-scale[data-balance="right"] .equation-scale__beam { transform: rotate(4deg); }
+
+.equation-scale__beam > i,
+.equation-case-model__beam > i {
+  position: absolute;
+  inset: 0;
+  border: 3px solid #62491a;
+  border-radius: 99px;
+  background: linear-gradient(#f0ca68, #b9882d);
+  box-shadow: 0 4px 0 #6b4f1d;
+}
+
+.equation-scale__beam > b,
+.equation-case-model__beam > b {
+  position: absolute;
+  z-index: 2;
+  top: 3px;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  border: 5px solid #533f1a;
+  border-radius: 50%;
+  background: #f6d979;
+  transform: translate(-50%, -2px);
+}
+
+.equation-scale__beam::after,
+.equation-case-model__beam::after {
+  position: absolute;
+  top: 15px;
+  left: calc(50% - 25px);
+  width: 50px;
+  height: 195px;
+  background: linear-gradient(90deg, transparent 0 19px, #6b4d21 19px 31px, transparent 31px);
+  clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%);
+  content: "";
+}
+
+.equation-scale__pans,
+.equation-case-model__pans {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 23%;
+  padding: 105px 7% 56px;
+}
+
+.equation-scale__pans > article,
+.equation-case-model__pans > article {
+  position: relative;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 145px;
+  padding: 17px;
+  border: 4px solid #786139;
+  border-top: 0;
+  border-radius: 10px 10px 42px 42px;
+  background: #fffef9e8;
+  box-shadow: inset 0 -12px #e8d8b4, 0 9px 16px #4e3a1d1f;
+}
+
+.equation-scale__pans > article::before,
+.equation-case-model__pans > article::before {
+  position: absolute;
+  top: -45px;
+  right: 10%;
+  left: 10%;
+  height: 46px;
+  border-right: 3px solid #7b622d;
+  border-left: 3px solid #7b622d;
+  content: "";
+}
+
+.equation-scale__pans small,
+.equation-case-model__pans small {
+  color: #6f5b34;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .06em;
+}
+
+.equation-scale__pans > article > strong,
+.equation-case-model__pans > article > strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--equation-deep);
+  font: 700 25px Georgia, serif;
+}
+
+.equation-scale > figcaption,
+.equation-case-model > figcaption {
+  position: absolute;
+  z-index: 4;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 49px;
+  padding: 13px 18px;
+  background: #133d2f;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 850;
+  text-align: center;
+}
+
+.equation-case-model > figcaption {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  align-items: center;
+}
+
+.equation-case-model > figcaption span {
+  padding: 5px 8px;
+  border-radius: 6px;
+  background: #e5bd5e;
+  color: #45300d;
+  font-size: 12px;
+  letter-spacing: .05em;
+}
+
+.equation-case-model > figcaption strong {
+  color: #fff;
+  font: 700 21px Georgia, serif;
+}
+
+.equation-case-model > figcaption b {
+  color: #dbe9df;
+  font-size: 14px;
+}
+
+.equation-weight-set {
+  display: grid;
+  place-items: center;
+  gap: 4px;
+}
+
+.equation-weight-set > span {
+  display: flex;
+  max-width: 170px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+
+.equation-weight-set i {
+  display: block;
+  width: 23px;
+  height: 23px;
+  border: 3px solid #6b4d19;
+  border-radius: 5px 5px 8px 8px;
+  background: linear-gradient(#f2ce6f, #c99532);
+  box-shadow: inset 0 3px #fff6;
+}
+
+.equation-weight-set > b {
+  color: #664a19;
+  font-size: 13px;
+}
+
+.equation-pan-controls {
+  display: grid;
+  grid-template-columns: 1fr minmax(220px, .75fr) 1fr;
+  gap: 13px;
+  align-items: stretch;
+}
+
+.equation-pan-controls > section {
+  padding: 15px;
+  border: 2px solid #aabfae;
+  border-radius: 13px;
+  background: #fff;
+}
+
+.equation-pan-controls > section > strong {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--equation-green);
+  font-size: 13px;
+  letter-spacing: .06em;
+  text-align: center;
+}
+
+.equation-pan-controls > section > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.equation-pan-controls button,
+.equation-both-sides-panel button {
+  padding: 10px 12px;
+  border: 2px solid #668e73;
+  border-radius: 10px;
+  background: #edf5e9;
+  color: #214d37;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.equation-pan-controls output {
+  display: grid;
+  place-items: center;
+  min-height: 94px;
+  padding: 15px;
+  border: 2px solid #7c6b42;
+  border-radius: 13px;
+  background: #fff8df;
+  color: #493b1f;
+  font-size: 16px;
+  font-weight: 850;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.equation-both-sides-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 17px;
+  align-items: center;
+  padding: 19px 21px;
+  border: 3px solid #9a8b63;
+  border-radius: 15px;
+  background: #f5f1e5;
+}
+
+.equation-both-sides-panel[data-ready="true"] {
+  border-color: var(--equation-green);
+  background: #eaf4e9;
+}
+
+.equation-both-sides-panel header small,
+.equation-both-sides-panel header h4,
+.equation-both-sides-panel header p {
+  display: block;
+}
+
+.equation-both-sides-panel header small {
+  color: var(--equation-green);
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .06em;
+}
+
+.equation-both-sides-panel header h4 {
+  margin: 4px 0 5px;
+  font: 700 22px/1.25 Georgia, serif;
+}
+
+.equation-both-sides-panel header p {
+  margin: 0;
+  color: var(--equation-copy);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.equation-both-sides-panel > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(170px, 1fr));
+  gap: 8px;
+}
+
+.equation-balance-proof {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin: 0;
+  padding: 13px 15px;
+  border-left: 6px solid var(--equation-brass);
+  border-radius: 6px 11px 11px 6px;
+  background: #fff;
+}
+
+.equation-balance-proof strong {
+  color: #715216;
+  font-size: 13px;
+  letter-spacing: .05em;
+}
+
+.equation-balance-proof span {
+  color: var(--equation-deep);
+  font: 700 21px Georgia, serif;
+}
+
+.equation-step-feedback {
+  display: grid;
+  grid-template-columns: minmax(180px, .36fr) 1fr;
+  gap: 15px;
+  align-items: center;
+  padding: 16px 18px;
+  border: 3px solid;
+  border-radius: 13px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.equation-step-feedback[data-kind="evidence"] {
+  border-color: #387356;
+  background: #e7f4e9;
+  color: #17472f;
+}
+
+.equation-step-feedback[data-kind="rethink"] {
+  border-color: #9b672b;
+  background: #fff2d9;
+  color: #604018;
+}
+
+.equation-step-feedback strong {
+  font-size: 16px;
+}
+
+.equation-case-picker {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 11px;
+}
+
+.equation-case-picker button {
+  display: flex;
+  flex-direction: column;
+  min-height: 230px;
+  padding: 18px;
+  border: 3px solid #b1c4b3;
+  border-radius: 15px;
+  background: #fff;
+  color: var(--equation-ink);
+  text-align: left;
+  box-shadow: 0 7px 18px #17382a0d;
+}
+
+.equation-case-picker button:hover {
+  border-color: var(--equation-green);
+}
+
+.equation-case-picker button[aria-pressed="true"] {
+  border-color: var(--equation-green);
+  background: var(--equation-green-soft);
+  box-shadow: inset 0 0 0 2px #fff, 0 8px 20px #2c76531c;
+}
+
+.equation-case-picker small {
+  color: var(--equation-green);
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .06em;
+}
+
+.equation-case-picker strong {
+  margin-top: 8px;
+  color: var(--equation-ink);
+  font: 700 22px/1.2 Georgia, serif;
+}
+
+.equation-case-picker span {
+  flex: 1;
+  margin-top: 9px;
+  color: var(--equation-copy);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.equation-case-picker b {
+  align-self: start;
+  margin-top: 14px;
+  padding: 7px 9px;
+  border-radius: 7px;
+  background: #edf3e9;
+  color: var(--equation-deep);
+  font: 700 18px Georgia, serif;
+}
+
+.equation-object-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px;
+  align-items: center;
+  min-height: 70px;
+  margin-top: 8px;
+}
+
+.equation-mystery-crate {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 65px;
+  height: 58px;
+  border: 4px solid #4b3920;
+  border-radius: 8px;
+  background:
+    linear-gradient(45deg, transparent 44%, #8a6732 45% 54%, transparent 55%),
+    linear-gradient(-45deg, transparent 44%, #8a6732 45% 54%, transparent 55%),
+    #c4954c;
+  color: #fff;
+  box-shadow: inset 0 0 0 3px #e2ba73;
+}
+
+.equation-mystery-crate > i {
+  color: #fff6d8;
+  font: 700 27px Georgia, serif;
+  font-style: normal;
+  text-shadow: 0 2px 2px #3c2917;
+}
+
+.equation-mystery-crate > b {
+  position: absolute;
+  right: 4px;
+  bottom: 3px;
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: #fff7dc;
+  color: #4b3515;
+  font-size: 12px;
+}
+
+.equation-sign {
+  color: var(--equation-deep);
+  font-size: 28px;
+  font-weight: 950;
+}
+
+.equation-removed {
+  display: grid;
+  gap: 5px;
+  justify-items: center;
+}
+
+.equation-removed > b {
+  color: #8d4b26;
+  font-size: 20px;
+}
+
+.equation-removed > i {
+  display: flex;
+  gap: 3px;
+}
+
+.equation-removed em {
+  width: 18px;
+  height: 18px;
+  border: 2px dashed #a66543;
+  border-radius: 5px;
+}
+
+.equation-split-crate {
+  display: grid;
+  gap: 5px;
+  min-width: 170px;
+}
+
+.equation-split-crate > b {
+  color: #654717;
+  font-size: 13px;
+  text-align: center;
+}
+
+.equation-split-crate > i {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  min-height: 55px;
+  overflow: hidden;
+  border: 3px solid #4e3b20;
+  border-radius: 8px;
+  background: #c49750;
+}
+
+.equation-split-crate em {
+  display: grid;
+  place-items: center;
+  border-left: 2px solid #725327;
+  color: #4d3617;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 950;
+}
+
+.equation-split-crate em:first-child {
+  border-left: 0;
+  background: #f0cf82;
+}
+
+.equation-operation-choices,
+.equation-check-choices,
+.equation-mystery-secrets,
+.equation-mystery-families,
+.equation-mystery-moves {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.equation-operation-choices legend,
+.equation-check-choices legend,
+.equation-mystery-secrets legend,
+.equation-mystery-families legend,
+.equation-mystery-moves legend {
+  padding: 0;
+  color: var(--equation-deep);
+  font: 700 23px/1.25 Georgia, serif;
+}
+
+.equation-operation-choices > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 13px;
+}
+
+.equation-operation-choices button {
+  display: grid;
+  grid-template-columns: 45px 1fr;
+  gap: 11px;
+  align-items: center;
+  min-height: 82px;
+  padding: 14px;
+  border: 3px solid #afc2b1;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--equation-ink);
+  text-align: left;
+}
+
+.equation-operation-choices button > b {
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 43px;
+  border: 2px solid #73927d;
+  border-radius: 10px;
+  background: #edf4e9;
+  color: var(--equation-green);
+  font-size: 20px;
+}
+
+.equation-operation-choices button > span {
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.equation-operation-choices button[aria-pressed="true"] {
+  border-color: var(--equation-green);
+  background: var(--equation-green-soft);
+}
+
+.equation-operation-choices button[aria-pressed="true"] > b {
+  border-color: var(--equation-green);
+  background: var(--equation-green);
+  color: #fff;
+}
+
+.equation-operation-proof {
+  overflow: hidden;
+  border: 3px solid var(--equation-deep);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.equation-operation-proof > small {
+  display: block;
+  padding: 12px 18px;
+  background: var(--equation-deep);
+  color: #f4d37b;
+  font-size: 13px;
+  font-weight: 950;
+  letter-spacing: .07em;
+}
+
+.equation-operation-proof > strong {
+  display: block;
+  padding: 22px;
+  color: var(--equation-deep);
+  font: 700 clamp(24px, 3vw, 36px)/1.25 Georgia, serif;
+  text-align: center;
+}
+
+.equation-operation-proof > div {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  align-items: center;
+  padding: 18px;
+  border-top: 2px solid #c7d4c7;
+  background: #edf5e9;
+}
+
+.equation-operation-proof > div > span {
+  font-size: 30px;
+  font-weight: 950;
+}
+
+.equation-original-card {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 24px;
+  border: 3px solid #765f2f;
+  border-radius: 15px;
+  background: #fff8df;
+  text-align: center;
+}
+
+.equation-original-card small {
+  color: #76571b;
+  font-size: 13px;
+  font-weight: 950;
+  letter-spacing: .07em;
+}
+
+.equation-original-card strong {
+  color: var(--equation-deep);
+  font: 700 clamp(31px, 4vw, 48px)/1.2 Georgia, serif;
+}
+
+.equation-original-card span {
+  color: var(--equation-copy);
+  font-size: 16px;
+}
+
+.equation-check-choices > div,
+.equation-mystery-secrets > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 13px;
+}
+
+.equation-check-choices button,
+.equation-mystery-secrets button {
+  padding: 14px;
+  border: 3px solid #aec1af;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--equation-ink);
+}
+
+.equation-check-choices button small,
+.equation-check-choices button strong {
+  display: block;
+}
+
+.equation-check-choices button small {
+  color: var(--equation-green);
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.equation-check-choices button strong,
+.equation-mystery-secrets button {
+  font: 700 24px Georgia, serif;
+}
+
+.equation-check-choices button[aria-pressed="true"],
+.equation-mystery-secrets button[aria-pressed="true"] {
+  border-color: var(--equation-green);
+  background: var(--equation-green-soft);
+  box-shadow: inset 0 0 0 2px #fff;
+}
+
+.equation-substitution-readout {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 15px;
+  align-items: center;
+  padding: 20px;
+  border: 3px solid #96622c;
+  border-radius: 15px;
+  background: #fff1d8;
+}
+
+.equation-substitution-readout[data-balanced="true"] {
+  border-color: var(--equation-green);
+  background: #e8f4e8;
+}
+
+.equation-substitution-readout > div {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  min-height: 96px;
+  align-content: center;
+  padding: 14px;
+  border: 2px solid #b9c6b7;
+  border-radius: 11px;
+  background: #fff;
+  text-align: center;
+}
+
+.equation-substitution-readout small {
+  color: var(--equation-muted);
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .05em;
+}
+
+.equation-substitution-readout strong {
+  color: var(--equation-deep);
+  font: 700 24px Georgia, serif;
+}
+
+.equation-substitution-readout > b {
+  color: var(--equation-rethink);
+  font-size: 35px;
+}
+
+.equation-substitution-readout[data-balanced="true"] > b {
+  color: var(--equation-green);
+}
+
+.equation-mystery-secrets > div {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.equation-mystery-families > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px;
+  margin-top: 13px;
+}
+
+.equation-mystery-families button {
+  display: flex;
+  flex-direction: column;
+  min-height: 142px;
+  padding: 17px;
+  border: 3px solid #aec1af;
+  border-radius: 13px;
+  background: #fff;
+  color: var(--equation-ink);
+  text-align: left;
+}
+
+.equation-mystery-families button small {
+  color: var(--equation-green);
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .05em;
+}
+
+.equation-mystery-families button strong {
+  margin-top: 7px;
+  font: 700 21px/1.25 Georgia, serif;
+}
+
+.equation-mystery-families button span {
+  margin-top: 7px;
+  color: var(--equation-copy);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.equation-mystery-families button[aria-pressed="true"] {
+  border-color: var(--equation-green);
+  background: var(--equation-green-soft);
+}
+
+.equation-mystery-draft {
+  display: grid;
+  justify-items: center;
+  gap: 7px;
+  padding: 23px;
+  border: 4px solid var(--equation-deep);
+  border-radius: 16px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 10px 25px #17382b16;
+}
+
+.equation-mystery-draft small {
+  color: var(--equation-green);
+  font-size: 13px;
+  font-weight: 950;
+  letter-spacing: .07em;
+}
+
+.equation-mystery-draft strong {
+  color: var(--equation-deep);
+  font: 700 clamp(34px, 4vw, 50px)/1.2 Georgia, serif;
+}
+
+.equation-mystery-draft span {
+  color: var(--equation-copy);
+  font-size: 16px;
+}
+
+.equation-mystery-moves > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 13px;
+}
+
+.equation-mystery-moves button {
+  padding: 13px 15px;
+  border: 3px solid #aec1af;
+  border-radius: 11px;
+  background: #fff;
+  color: var(--equation-ink);
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.equation-mystery-moves button[aria-pressed="true"] {
+  border-color: var(--equation-green);
+  background: var(--equation-green-soft);
+}
+
+.equation-mystery-card {
+  overflow: hidden;
+  border: 4px solid var(--equation-deep);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 15px 34px #14372a20;
+}
+
+.equation-mystery-card > header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  padding: 22px 24px;
+  border-bottom: 5px solid var(--equation-brass);
+  background: linear-gradient(120deg, #123d2e, #277151);
+  color: #fff;
+}
+
+.equation-mystery-card > header small {
+  color: #f4d581;
+  font-size: 13px;
+  font-weight: 950;
+  letter-spacing: .07em;
+}
+
+.equation-mystery-card > header h4 {
+  margin: 5px 0 0;
+  color: #fff;
+  font: 700 clamp(30px, 4vw, 45px)/1.15 Georgia, serif;
+}
+
+.equation-mystery-card > header > span {
+  padding: 9px 12px;
+  border: 2px solid #f4d581;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 950;
+  letter-spacing: .06em;
+  white-space: nowrap;
+}
+
+.equation-mystery-card > section {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 17px;
+  align-items: center;
+  padding: 20px 23px;
+}
+
+.equation-mystery-card > section small,
+.equation-mystery-card > section strong {
+  display: block;
+}
+
+.equation-mystery-card > section small {
+  color: var(--equation-green);
+  font-size: 13px;
+  font-weight: 950;
+  letter-spacing: .06em;
+}
+
+.equation-mystery-card > section strong {
+  margin-top: 5px;
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.equation-mystery-card > section button {
+  padding: 12px 15px;
+  border: 2px solid var(--equation-green);
+  border-radius: 10px;
+  background: var(--equation-green);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.equation-mystery-card > footer {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2px;
+  border-top: 2px solid #91ad97;
+  background: #91ad97;
+}
+
+.equation-mystery-card > footer article {
+  padding: 17px;
+  background: #edf5e9;
+}
+
+.equation-mystery-card > footer small,
+.equation-mystery-card > footer strong {
+  display: block;
+}
+
+.equation-mystery-card > footer small {
+  color: var(--equation-green);
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .05em;
+}
+
+.equation-mystery-card > footer strong {
+  margin-top: 6px;
+  color: var(--equation-deep);
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.equation-step-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 1180px;
+  margin: 22px auto 0;
+  padding-top: 17px;
+  border-top: 2px solid #c8d4c7;
+}
+
+.equation-step-actions button {
+  min-width: 175px;
+  padding: 11px 15px;
+  border: 2px solid #78927e;
+  border-radius: 10px;
+  background: #fff;
+  color: #254a37;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.equation-step-actions .equation-next-button {
+  border-color: var(--equation-deep);
+  background: var(--equation-green);
+  color: #fff;
+}
+
+.equation-lab-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  padding: 21px 29px;
+  background: var(--equation-deep);
+  color: #fff;
+}
+
+.equation-lab-footer strong,
+.equation-lab-footer span {
+  display: block;
+}
+
+.equation-lab-footer strong {
+  color: #f1d279;
+  font-size: 14px;
+  letter-spacing: .07em;
+}
+
+.equation-lab-footer span {
+  margin-top: 5px;
+  color: #e6f0e9;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.equation-lab-footer button {
+  padding: 11px 15px;
+  border: 2px solid #f1d279;
+  border-radius: 10px;
+  background: transparent;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.projector-shell .equation-balance-lab {
+  max-width: 1500px;
+  margin: 24px auto;
+}
+
+.projector-shell .equation-lab-hero h2 {
+  font-size: clamp(48px, 4.5vw, 68px);
+}
+
+.projector-shell .equation-lab-hero > div > p,
+.projector-shell .equation-lab-step > header p,
+.projector-shell .equation-step-feedback,
+.projector-shell .equation-pan-controls output,
+.projector-shell .equation-case-picker span,
+.projector-shell .equation-operation-choices button > span,
+.projector-shell .equation-mystery-families button span,
+.projector-shell .equation-mystery-card > section strong {
+  font-size: 19px;
+}
+
+.projector-shell .equation-balance-lab button {
+  min-height: 58px;
+}
+
+.projector-shell .equation-lab-hero__art figcaption,
+.projector-shell .equation-progress nav button small {
+  font-size: 15px;
+}
+
+.projector-shell .equation-progress nav button strong {
+  font-size: 16px;
+}
+
+@media (max-width: 1050px) {
+  .equation-lab-hero {
+    grid-template-columns: minmax(300px, .85fr) minmax(420px, 1.15fr);
+  }
+
+  .equation-progress nav {
+    grid-template-columns: repeat(5, minmax(155px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .equation-case-picker {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .equation-pan-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .equation-pan-controls output {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    min-height: 70px;
+  }
+
+  .equation-both-sides-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .equation-both-sides-panel > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .equation-operation-choices > div {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .equation-balance-lab {
+    margin: 12px;
+    border-width: 2px;
+    border-radius: 18px;
+  }
+
+  .equation-lab-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .equation-lab-hero > div {
+    padding: 31px 22px;
+  }
+
+  .equation-lab-hero__art img {
+    min-height: 245px;
+    max-height: 360px;
+  }
+
+  .equation-lab-hero__art::after {
+    display: none;
+  }
+
+  .equation-teacher-note,
+  .equation-lab-footer,
+  .equation-step-feedback {
+    grid-template-columns: 1fr;
+  }
+
+  .equation-progress > div:first-child {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .equation-lab-workspace {
+    padding: 24px 15px;
+  }
+
+  .equation-lab-step > header {
+    grid-template-columns: 44px 1fr;
+    padding: 18px;
+  }
+
+  .equation-lab-step > header > span {
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+    font-size: 19px;
+  }
+
+  .equation-scale,
+  .equation-case-model {
+    min-height: 490px;
+  }
+
+  .equation-scale__beam,
+  .equation-case-model__beam {
+    display: none;
+  }
+
+  .equation-scale__pans,
+  .equation-case-model__pans {
+    grid-template-columns: 1fr;
+    gap: 13px;
+    padding: 20px 16px 70px;
+  }
+
+  .equation-scale__pans > article,
+  .equation-case-model__pans > article {
+    min-height: 150px;
+    border-top: 4px solid #786139;
+    border-radius: 16px;
+  }
+
+  .equation-scale__pans > article::before,
+  .equation-case-model__pans > article::before {
+    display: none;
+  }
+
+  .equation-case-model > figcaption {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+  }
+
+  .equation-pan-controls,
+  .equation-case-picker,
+  .equation-check-choices > div,
+  .equation-mystery-secrets > div,
+  .equation-mystery-families > div,
+  .equation-mystery-moves > div,
+  .equation-mystery-card > footer {
+    grid-template-columns: 1fr;
+  }
+
+  .equation-pan-controls output {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .equation-both-sides-panel > div {
+    grid-template-columns: 1fr;
+  }
+
+  .equation-balance-proof {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .equation-substitution-readout {
+    grid-template-columns: 1fr;
+  }
+
+  .equation-substitution-readout > b {
+    text-align: center;
+  }
+
+  .equation-mystery-card > header,
+  .equation-mystery-card > section {
+    grid-template-columns: 1fr;
+  }
+
+  .equation-mystery-card > header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .equation-mystery-card > section button,
+  .equation-step-actions button,
+  .equation-lab-footer button {
+    width: 100%;
+  }
+
+  .equation-step-actions {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (max-width: 420px) {
+  .equation-pan-controls > section > div {
+    grid-template-columns: 1fr;
+  }
+
+  .equation-lab-hero__art figcaption {
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .equation-balance-lab *,
+  .equation-balance-lab *::before,
+  .equation-balance-lab *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .equation-balance-lab button[aria-pressed="true"],
+  .equation-balance-lab button[aria-current="step"],
+  .equation-step-feedback,
+  .equation-operation-proof,
+  .equation-mystery-card {
+    outline: 3px solid CanvasText;
+    outline-offset: 2px;
+  }
+
+  .equation-weight-set i,
+  .equation-mystery-crate,
+  .equation-split-crate > i {
+    border: 3px solid CanvasText;
+    background: Canvas;
+  }
+
+  .equation-scale__beam,
+  .equation-case-model__beam {
+    forced-color-adjust: none;
+  }
+}
+
+@media print {
+  .equation-balance-lab {
+    margin: 0;
+    border: 2px solid #000;
+    box-shadow: none;
+  }
+
+  .equation-lab-hero {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    background: #fff;
+    color: #000;
+  }
+
+  .equation-lab-hero > div {
+    padding: 20px;
+  }
+
+  .equation-lab-hero :is(h2, p, small) {
+    color: #000;
+  }
+
+  .equation-lab-hero__art,
+  .equation-progress,
+  .equation-teacher-note,
+  .equation-pan-controls,
+  .equation-both-sides-panel button,
+  .equation-case-picker,
+  .equation-operation-choices,
+  .equation-check-choices,
+  .equation-mystery-secrets,
+  .equation-mystery-families,
+  .equation-mystery-moves,
+  .equation-step-actions,
+  .equation-lab-footer button {
+    display: none !important;
+  }
+
+  .equation-lab-workspace {
+    padding: 20px;
+    background: #fff;
+  }
+
+  .equation-scale,
+  .equation-case-model,
+  .equation-operation-proof,
+  .equation-original-card,
+  .equation-substitution-readout,
+  .equation-mystery-card {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+
+  .equation-lab-footer {
+    background: #fff;
+    color: #000;
+  }
+
+  .equation-lab-footer :is(strong, span) {
+    color: #000;
+  }
+}

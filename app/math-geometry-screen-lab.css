@@ -1,0 +1,548 @@
+.geometry-screen-lab {
+  --geo-navy: #10243f;
+  --geo-blue: #3158bc;
+  --geo-cyan: #3be1d2;
+  --geo-yellow: #f0c74d;
+  --geo-ink: #17263c;
+  --geo-copy: #384d67;
+  --geo-paper: #fbfcff;
+  --geo-line: #afbed2;
+  --geo-good: #18784f;
+  --geo-good-soft: #e3f6eb;
+  --geo-retry: #9a4c16;
+  --geo-focus: #ffcf45;
+  max-width: 1380px;
+  margin: 28px auto;
+  overflow: hidden;
+  border: 3px solid var(--geo-navy);
+  border-radius: 26px;
+  background: var(--geo-paper);
+  color: var(--geo-ink);
+  box-shadow: 0 22px 55px #10243f24;
+}
+
+.geometry-screen-lab,
+.geometry-screen-lab * { box-sizing: border-box; }
+
+.geometry-screen-lab button {
+  min-height: 48px;
+  font: inherit;
+}
+
+.geometry-screen-lab button:not(:disabled) { cursor: pointer; }
+.geometry-screen-lab button:disabled { cursor: not-allowed; opacity: .54; }
+
+.geometry-screen-lab :is(button, [tabindex="-1"]):focus-visible {
+  outline: 4px solid var(--geo-focus);
+  outline-offset: 3px;
+}
+
+.geometry-visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.geometry-screen-hero {
+  display: grid;
+  grid-template-columns: minmax(420px, 1.1fr) minmax(390px, .9fr);
+  min-height: 330px;
+  overflow: hidden;
+  border-bottom: 7px solid var(--geo-cyan);
+  background: linear-gradient(128deg, #0d1e37, #1c3b73 70%, #3158bc);
+  color: #fff;
+}
+
+.geometry-screen-hero > div:first-child {
+  position: relative;
+  z-index: 2;
+  align-self: center;
+  padding: 42px clamp(28px, 4vw, 58px);
+}
+
+.geometry-screen-hero small {
+  color: #70f4e5;
+  font-size: 15px;
+  font-weight: 950;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.geometry-screen-hero h2 {
+  max-width: 720px;
+  margin: 10px 0 15px;
+  color: #fff;
+  font-size: clamp(42px, 5vw, 67px);
+  line-height: 1.02;
+  letter-spacing: -.045em;
+}
+
+.geometry-screen-hero p {
+  max-width: 690px;
+  margin: 0;
+  color: #e4edff;
+  font-size: 21px;
+  line-height: 1.5;
+}
+
+.geometry-screen-hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 22px;
+}
+
+.geometry-screen-hero__chips span {
+  padding: 8px 12px;
+  border: 1px solid #c3fff464;
+  border-radius: 99px;
+  background: #071a3494;
+  color: #e9fffb;
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.geometry-screen-hero__visual {
+  position: relative;
+  min-height: 330px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #1b3775, #151936);
+}
+
+.geometry-screen-hero__grid,
+.geometry-screen-hero__grid::after {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(#66f1d11d 1px, transparent 1px), linear-gradient(90deg, #66f1d11d 1px, transparent 1px);
+  background-size: 34px 34px;
+  content: "";
+}
+
+.geometry-screen-hero__grid::after { transform: perspective(260px) rotateX(55deg) scale(1.5); transform-origin: bottom; opacity: .55; }
+
+.geometry-screen-hero__ray {
+  position: absolute;
+  z-index: 2;
+  left: 42%;
+  bottom: 25%;
+  width: 48%;
+  height: 8px;
+  transform-origin: left center;
+  border-radius: 99px;
+  background: var(--geo-cyan);
+  box-shadow: 0 0 19px #3be1d2;
+}
+
+.geometry-screen-hero__ray::after {
+  position: absolute;
+  top: -8px;
+  right: -2px;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 18px solid var(--geo-cyan);
+  content: "";
+}
+
+.geometry-screen-hero__ray--two { transform: rotate(-90deg); }
+
+.geometry-screen-hero__visual > b {
+  position: absolute;
+  z-index: 3;
+  left: calc(42% - 8px);
+  bottom: calc(25% - 7px);
+  width: 22px;
+  height: 22px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  background: var(--geo-yellow);
+  box-shadow: 0 0 15px var(--geo-yellow);
+}
+
+.geometry-screen-hero__visual > strong {
+  position: absolute;
+  z-index: 3;
+  left: 54%;
+  bottom: 40%;
+  color: #fff;
+  font-size: 42px;
+}
+
+.geometry-screen-hero__visual > em {
+  position: absolute;
+  z-index: 3;
+  top: 25px;
+  right: 23px;
+  padding: 10px 14px;
+  border: 2px solid var(--geo-cyan);
+  border-radius: 9px;
+  background: #06162fc9;
+  color: var(--geo-cyan);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 950;
+  letter-spacing: .08em;
+}
+
+.geometry-teacher-strip {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 17px 30px;
+  border-bottom: 2px solid #c4a041;
+  background: #fff0bd;
+  color: #453813;
+}
+
+.geometry-teacher-strip strong { font-size: 14px; letter-spacing: .07em; }
+.geometry-teacher-strip p { margin: 0; font-size: 17px; line-height: 1.5; }
+
+.geometry-evidence-progress {
+  padding: 18px clamp(20px, 3vw, 38px) 16px;
+  border-bottom: 2px solid #b9c8dc;
+  background: #edf3ff;
+}
+
+.geometry-evidence-progress > div:first-child { display: flex; justify-content: space-between; gap: 18px; align-items: center; margin-bottom: 9px; }
+.geometry-evidence-progress > div:first-child span { color: #31548e; font-size: 14px; font-weight: 950; letter-spacing: .07em; text-transform: uppercase; }
+.geometry-evidence-progress > div:first-child strong { font-size: 17px; }
+
+.geometry-evidence-progress__bar { height: 14px; overflow: hidden; border: 2px solid #6c85ad; border-radius: 99px; background: #fff; }
+.geometry-evidence-progress__bar i { display: block; height: 100%; background: repeating-linear-gradient(135deg, #3158bc 0 14px, #3be1d2 14px 28px); transition: width .35s ease; }
+
+.geometry-evidence-progress__markers { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
+.geometry-evidence-progress__markers span { display: flex; gap: 8px; align-items: center; color: #536986; font-size: 13px; font-weight: 850; }
+.geometry-evidence-progress__markers b { display: grid; place-items: center; flex: 0 0 auto; width: 29px; height: 29px; border: 2px solid #9aabc0; border-radius: 50%; background: #fff; }
+.geometry-evidence-progress__markers span[data-verified="true"] { color: #17633f; }
+.geometry-evidence-progress__markers span[data-verified="true"] b { border-color: var(--geo-good); background: var(--geo-good); color: #fff; }
+
+.geometry-step-nav {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 7px;
+  padding: 12px clamp(14px, 2.5vw, 30px);
+  border-bottom: 2px solid #a6b4c8;
+  background: var(--geo-navy);
+}
+
+.geometry-step-nav button {
+  display: grid;
+  grid-template-columns: 31px 1fr;
+  column-gap: 7px;
+  align-items: center;
+  padding: 8px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: #243b5c;
+  color: #fff;
+  text-align: left;
+}
+
+.geometry-step-nav button > b { grid-row: 1 / span 2; display: grid; place-items: center; width: 31px; height: 31px; border: 2px solid #7890ae; border-radius: 8px; background: #10243f; font-size: 13px; }
+.geometry-step-nav button span { font-size: 14px; font-weight: 900; }
+.geometry-step-nav button small { color: #b7c7dc; font-size: 10px; font-weight: 800; text-transform: uppercase; }
+.geometry-step-nav button[aria-current="step"] { border-color: var(--geo-cyan); background: #3158bc; }
+.geometry-step-nav button[aria-current="step"] > b { border-color: var(--geo-cyan); background: var(--geo-cyan); color: var(--geo-navy); }
+
+.geometry-screen-workspace {
+  min-height: 650px;
+  padding: clamp(25px, 4vw, 50px);
+  background: radial-gradient(circle at 3% 3%, #3158bc0d 0 3px, transparent 4px), linear-gradient(#fbfcff, #f0f4fa);
+  background-size: 80px 80px, auto;
+}
+
+.geometry-step-heading { display: flex; justify-content: space-between; gap: 22px; align-items: center; max-width: 1240px; margin: 0 auto 24px; }
+.geometry-step-heading small { color: var(--geo-blue); font-size: 14px; font-weight: 950; letter-spacing: .08em; }
+.geometry-step-heading h3 { margin: 5px 0 0; color: var(--geo-navy); font-size: clamp(31px, 3.6vw, 48px); line-height: 1.12; letter-spacing: -.025em; }
+
+.geometry-reset { flex: 0 0 auto; padding: 11px 18px; border: 2px solid #8193aa; border-radius: 10px; background: #fff; color: #34465c; font-size: 16px; font-weight: 850; }
+.geometry-reset:hover { border-color: var(--geo-blue); background: #edf3ff; }
+
+.geometry-teach-panel,
+.geometry-single-task,
+.geometry-triangle-panel,
+.geometry-evidence-board { display: grid; gap: 22px; max-width: 1240px; margin: 0 auto; }
+
+.geometry-teach-panel__big-idea {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  align-items: center;
+  overflow: hidden;
+  border: 3px solid #345b8a;
+  border-radius: 19px;
+  background: #fff;
+  box-shadow: 0 12px 30px #24466f16;
+}
+
+.geometry-teach-panel__big-idea > .geometry-angle-glyph { height: 230px; padding: 20px; background: linear-gradient(145deg, #e9f3ff, #dce9fa); }
+.geometry-teach-panel__big-idea > div { padding: 28px 32px; }
+.geometry-teach-panel__big-idea small,
+.geometry-decision-panel__task > small,
+.geometry-single-task > header small,
+.geometry-measure-panel > div > small,
+.geometry-classify-panel > div > small,
+.geometry-triangle-panel > header small,
+.geometry-evidence-board__report > small { color: var(--geo-blue); font-size: 14px; font-weight: 950; letter-spacing: .08em; }
+.geometry-teach-panel__big-idea h4 { margin: 7px 0 11px; color: var(--geo-navy); font-size: 31px; line-height: 1.2; }
+.geometry-teach-panel__big-idea p { margin: 0; color: var(--geo-copy); font-size: 20px; line-height: 1.58; }
+
+.geometry-angle-glyph { display: block; width: 100%; height: 150px; overflow: visible; }
+.geometry-angle-glyph__ray { stroke: #3158bc; stroke-width: 7; stroke-linecap: round; }
+.geometry-angle-glyph__arc { fill: none; stroke: #e44a55; stroke-width: 5; stroke-linecap: round; }
+.geometry-angle-glyph__vertex { fill: var(--geo-yellow); stroke: #173154; stroke-width: 3; }
+.geometry-angle-glyph text { fill: #162b48; font-size: 18px; font-weight: 900; }
+
+.geometry-benchmark-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.geometry-benchmark-row article { display: grid; grid-template-columns: 125px 1fr; grid-template-rows: auto auto; align-items: center; min-height: 145px; padding: 12px 18px; border: 2px solid #bdc9d8; border-radius: 15px; background: #fff; }
+.geometry-benchmark-row svg { grid-row: 1 / span 2; height: 120px; }
+.geometry-benchmark-row strong { align-self: end; color: var(--geo-navy); font-size: 29px; }
+.geometry-benchmark-row span { align-self: start; color: var(--geo-copy); font-size: 17px; line-height: 1.3; }
+
+.geometry-protractor-rule { display: grid; grid-template-columns: 170px 1fr; gap: 20px; align-items: center; padding: 19px 24px; border: 2px solid #c7982d; border-radius: 15px; background: #fff5cb; }
+.geometry-protractor-rule p { margin: 0; color: #4f421b; font-size: 19px; line-height: 1.5; }
+.geometry-protractor-rule__mini { position: relative; width: 150px; height: 74px; overflow: hidden; border: 3px solid #66798b; border-bottom: 0; border-radius: 150px 150px 0 0; background: #fff9df; }
+.geometry-protractor-rule__mini > span { position: absolute; right: 0; bottom: 0; left: 0; border-top: 3px solid #66798b; }
+.geometry-protractor-rule__mini > i { position: absolute; bottom: 0; left: 50%; width: 7px; height: 7px; transform: translate(-50%, 50%); border-radius: 50%; background: var(--geo-blue); }
+.geometry-protractor-rule__mini > b { position: absolute; bottom: 0; left: 50%; width: 55px; height: 4px; transform: rotate(-52deg); transform-origin: left; background: #e44a55; }
+
+.geometry-continue,
+.geometry-check { justify-self: end; min-width: 245px; padding: 13px 21px; border: 2px solid #153e8c; border-radius: 11px; background: var(--geo-blue); color: #fff; font-size: 18px; font-weight: 950; box-shadow: 0 5px 0 #173875; }
+.geometry-continue:hover,
+.geometry-check:hover { background: #25489f; }
+.geometry-check:disabled { box-shadow: none; transform: none; }
+
+.geometry-scene-picker { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; max-width: 1240px; margin: 0 auto; }
+.geometry-scene-picker > button { overflow: hidden; padding: 0; border: 3px solid #aab9cf; border-radius: 18px; background: #fff; color: var(--geo-ink); text-align: left; box-shadow: 0 10px 24px #12294713; }
+.geometry-scene-picker > button:hover { border-color: var(--geo-cyan); box-shadow: 0 14px 28px #12294720; }
+.geometry-scene-picker > button > span { display: block; padding: 18px 19px 20px; }
+.geometry-scene-picker small { color: var(--geo-blue); font-size: 12px; font-weight: 950; letter-spacing: .07em; }
+.geometry-scene-picker strong { display: block; margin-top: 5px; color: var(--geo-navy); font-size: 24px; }
+.geometry-scene-picker p { min-height: 54px; margin: 8px 0 13px; color: var(--geo-copy); font-size: 17px; line-height: 1.45; }
+.geometry-scene-picker span > b { color: var(--geo-blue); font-size: 17px; }
+
+.geometry-scene-art { display: block; width: 100%; height: auto; background: #1b2945; }
+.geometry-scene-art__scan :is(line, path) { fill: none; stroke: #ffea58; stroke-width: 5; stroke-linecap: round; }
+.geometry-scene-art__scan circle { fill: #ffea58; stroke: #fff; stroke-width: 2; }
+.geometry-scene-art__hud { fill: none; stroke: #7cfae9; stroke-width: 2; }
+.geometry-scene-art__hud text { fill: #c8fff7; stroke: none; font-size: 10px; font-weight: 900; letter-spacing: .09em; }
+.geometry-scene-art__verified rect { fill: #0a613d; stroke: #b5ffdf; stroke-width: 2; }
+.geometry-scene-art__verified text { fill: #fff; font-size: 11px; font-weight: 950; letter-spacing: .04em; }
+
+.geometry-decision-panel,
+.geometry-measure-panel,
+.geometry-classify-panel { display: grid; grid-template-columns: minmax(350px, .9fr) minmax(500px, 1.1fr); gap: 24px; align-items: start; max-width: 1240px; margin: 0 auto; }
+.geometry-decision-panel__scene { overflow: hidden; border: 3px solid #617998; border-radius: 18px; background: #132641; }
+.geometry-decision-panel__scene p { margin: 0; padding: 17px 19px; background: #132641; color: #e9f4ff; font-size: 18px; line-height: 1.45; }
+.geometry-decision-panel__task,
+.geometry-measure-panel > div:last-child,
+.geometry-classify-panel > div:last-child { display: grid; gap: 17px; }
+.geometry-decision-panel__task h4,
+.geometry-single-task > header h4,
+.geometry-measure-panel h4,
+.geometry-classify-panel h4,
+.geometry-triangle-panel > header h4,
+.geometry-evidence-board h4 { margin: 0; color: var(--geo-navy); font-size: clamp(26px, 3vw, 36px); line-height: 1.22; }
+.geometry-single-task > header p,
+.geometry-triangle-panel > header p { margin: 8px 0 0; color: var(--geo-copy); font-size: 19px; line-height: 1.5; }
+
+.geometry-choice-grid { display: grid; gap: 11px; }
+.geometry-choice-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.geometry-choice { display: grid; align-content: start; min-width: 0; padding: 9px 10px 14px; border: 3px solid #b2bfd0; border-radius: 14px; background: #fff; color: var(--geo-ink); }
+.geometry-choice[aria-pressed="true"] { border-color: var(--geo-blue); background: #e5edff; box-shadow: inset 0 0 0 2px #fff; }
+.geometry-choice svg { height: 105px; }
+.geometry-choice strong { font-size: 18px; }
+.geometry-choice span { margin-top: 4px; color: var(--geo-copy); font-size: 14px; line-height: 1.25; }
+
+.geometry-feedback { display: grid; grid-template-columns: 190px 1fr; gap: 16px; align-items: center; min-height: 74px; padding: 15px 18px; border: 2px solid; border-radius: 13px; }
+.geometry-feedback strong { font-size: 18px; }
+.geometry-feedback span { font-size: 17px; line-height: 1.45; }
+.geometry-feedback[data-kind="verified"] { border-color: #4d9974; background: var(--geo-good-soft); color: #125537; }
+.geometry-feedback[data-kind="retry"] { border-color: #d09a65; background: #fff0dc; color: #723b13; }
+
+.geometry-single-task > header { padding: 21px 24px; border: 2px solid #b9c7da; border-radius: 15px; background: #fff; }
+.geometry-alignment-choices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.geometry-alignment-choices button { padding: 12px; border: 3px solid #aab8ca; border-radius: 15px; background: #fff; color: var(--geo-ink); }
+.geometry-alignment-choices button[aria-pressed="true"] { border-color: var(--geo-blue); background: #e5edff; }
+.geometry-alignment-choices svg { width: 100%; height: 170px; }
+.geometry-alignment-choices strong { display: block; font-size: 20px; }
+
+.geometry-measure-panel > div:first-child { overflow: hidden; padding: 18px; border: 3px solid #55738a; border-radius: 19px; background: #fff; }
+.geometry-protractor { display: block; width: 100%; height: auto; }
+.geometry-protractor text { fill: #29465a; font-size: 12px; font-weight: 800; }
+.geometry-protractor__angle { stroke: #e0444e; stroke-width: 6; stroke-linecap: round; }
+.geometry-protractor__arc { fill: none; stroke: #f1a629; stroke-width: 6; stroke-linecap: round; }
+.geometry-protractor__center { fill: var(--geo-yellow); stroke: #183d56; stroke-width: 3; }
+.geometry-protractor__crosshair { fill: none; stroke: #10243f; stroke-width: 2; }
+
+.geometry-number-choices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 11px; }
+.geometry-number-choices button { min-height: 78px; border: 3px solid #9eafc3; border-radius: 13px; background: #fff; color: var(--geo-navy); font-size: 28px; font-weight: 950; }
+.geometry-number-choices button[aria-pressed="true"] { border-color: var(--geo-blue); background: #e1eaff; box-shadow: inset 0 0 0 2px #fff; }
+
+.geometry-classify-panel__angle { display: grid; place-items: center; min-height: 350px; padding: 26px; border: 3px solid #486a92; border-radius: 19px; background: linear-gradient(145deg, #e8f2ff, #fff); }
+.geometry-classify-panel__angle svg { max-width: 430px; height: 255px; }
+.geometry-classify-panel__angle > strong { color: var(--geo-copy); font-size: 18px; }
+.geometry-class-choices { display: grid; gap: 11px; }
+.geometry-class-choices button { display: grid; grid-template-columns: 130px 1fr; gap: 15px; align-items: center; padding: 15px 17px; border: 3px solid #adbbcd; border-radius: 13px; background: #fff; color: var(--geo-ink); text-align: left; }
+.geometry-class-choices button[aria-pressed="true"] { border-color: var(--geo-blue); background: #e4edff; }
+.geometry-class-choices strong { font-size: 21px; }
+.geometry-class-choices span { color: var(--geo-copy); font-size: 17px; }
+
+.geometry-triangle-panel > header { padding: 22px 25px; border: 2px solid #aabbd1; border-radius: 15px; background: #fff; }
+.geometry-triangle-panel > header em { color: #214eb4; font-style: normal; text-decoration: underline 3px #64d8ca; text-underline-offset: 5px; }
+.geometry-triangle-choices { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.geometry-triangle-choices button { padding: 10px 10px 15px; border: 3px solid #aebcce; border-radius: 15px; background: #fff; color: var(--geo-ink); }
+.geometry-triangle-choices button[aria-pressed="true"] { border-color: var(--geo-blue); background: #e3ecff; }
+.geometry-triangle-choices svg { display: block; width: 100%; height: 185px; }
+.geometry-triangle-choices > button > strong { display: block; font-size: 19px; }
+.geometry-triangle-choices > button > span { display: block; margin-top: 4px; color: var(--geo-copy); font-size: 15px; }
+.geometry-triangle-diagram polygon { fill: #7ee0d228; stroke: #2457b1; stroke-width: 5; stroke-linejoin: round; }
+.geometry-triangle-diagram text { fill: #172d4a; font-size: 14px; font-weight: 950; }
+.geometry-triangle-diagram__right,
+.geometry-triangle-diagram__ticks path { fill: none; stroke: #d3454c; stroke-width: 4; }
+
+.geometry-evidence-board { grid-template-columns: minmax(350px, .85fr) minmax(480px, 1.15fr); }
+.geometry-evidence-board__scene { position: relative; align-self: start; overflow: hidden; border: 3px solid #31586e; border-radius: 19px; }
+.geometry-evidence-board__scene > span { position: absolute; right: 15px; bottom: 14px; padding: 10px 13px; border-radius: 9px; background: #0b5d3ce8; color: #fff; font-size: 14px; font-weight: 950; }
+.geometry-evidence-board__report { padding: 25px; border: 3px solid #8195af; border-radius: 19px; background: #fff; }
+.geometry-evidence-board__report dl { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0; }
+.geometry-evidence-board__report dl div { padding: 12px 14px; border: 2px solid #d1dbe8; border-radius: 10px; background: #f5f8fd; }
+.geometry-evidence-board__report dt { color: #526982; font-size: 13px; font-weight: 900; text-transform: uppercase; }
+.geometry-evidence-board__report dd { margin: 5px 0 0; color: var(--geo-navy); font-size: 18px; font-weight: 900; }
+.geometry-say-it { padding: 16px 18px; border-left: 6px solid var(--geo-cyan); background: #e9f9f6; }
+.geometry-say-it strong { color: #185d57; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; }
+.geometry-say-it p { margin: 6px 0 0; color: #173f3c; font-size: 18px; line-height: 1.5; }
+.geometry-optional-extension { grid-column: 1 / -1; display: grid; grid-template-columns: 200px 1fr; gap: 18px; align-items: center; padding: 17px 22px; border: 2px dashed #8b6d2a; border-radius: 14px; background: #fff6d8; }
+.geometry-optional-extension > span { color: #72550f; font-size: 14px; font-weight: 950; letter-spacing: .07em; }
+.geometry-optional-extension strong { color: #4e3c14; font-size: 18px; }
+.geometry-optional-extension p { margin: 4px 0 0; color: #5e502c; font-size: 17px; line-height: 1.45; }
+.geometry-reset--large { grid-column: 1 / -1; justify-self: end; min-width: 230px; }
+.geometry-print-companion{grid-column:1/-1;overflow:hidden;border:3px solid #31586e;border-radius:19px;background:#fff}.geometry-print-companion>header{display:flex;align-items:start;justify-content:space-between;gap:20px;padding:22px 24px;border-bottom:2px solid #aabbd1;background:linear-gradient(120deg,#edf4ff,#fff)}.geometry-print-companion>header small{color:#3158bc;font-size:12px;font-weight:950;letter-spacing:.08em}.geometry-print-companion>header h4{margin:6px 0 5px;font:750 28px/1.18 Georgia,serif}.geometry-print-companion>header p{margin:0;color:#50657e;font-size:16px}.geometry-print-companion>header>span{padding:9px 11px;border-radius:999px;background:#dfe9f8;color:#34516e;font-size:11px;font-weight:950;letter-spacing:.06em}.geometry-print-companion>div{display:grid;grid-template-columns:minmax(330px,.8fr) minmax(430px,1.2fr);gap:22px;padding:22px}.geometry-print-companion figure{margin:0;padding:12px;border:2px solid #a8b6c7;border-radius:13px;background:#f8fafc}.geometry-print-companion figure img{display:block;width:100%;height:auto;max-height:680px;object-fit:contain;background:#fff}.geometry-print-companion figcaption{margin-top:8px;color:#53667a;font-size:13px;line-height:1.4}.geometry-print-companion h5{margin:0;font:750 24px/1.2 Georgia,serif}.geometry-print-companion ol{display:grid;gap:8px;margin:15px 0 0;padding:0;list-style:none;counter-reset:angle-field}.geometry-print-companion li{counter-increment:angle-field;display:grid;grid-template-columns:38px 105px 1fr;gap:10px;align-items:start;padding:11px 12px;border:1px solid #cfd9e5;border-radius:10px;background:#f7f9fc}.geometry-print-companion li:before{content:counter(angle-field);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#3158bc;color:#fff;font-weight:950}.geometry-print-companion li b{padding-top:6px;color:#183759}.geometry-print-companion li span{padding-top:5px;color:#445b73;line-height:1.4}.geometry-print-companion section>aside{display:flex;gap:9px;margin-top:13px;padding:13px;border-left:5px solid #e3b64f;background:#fff4d7;color:#55441d}.geometry-print-companion>footer{display:flex;justify-content:flex-end;gap:10px;padding:16px 22px;border-top:2px solid #c5d1df;background:#eff4fa}.geometry-print-companion>footer :is(a,button){display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:11px 16px;border:2px solid #3158bc;border-radius:11px;background:#fff;color:#214ca5;font-size:15px;font-weight:950;text-decoration:none}.geometry-print-companion>footer button{background:#3158bc;color:#fff}
+
+@media (max-width: 1050px) {
+  .geometry-screen-hero { grid-template-columns: 1fr .72fr; }
+  .geometry-step-nav { grid-template-columns: repeat(4, 1fr); }
+  .geometry-scene-picker { grid-template-columns: 1fr; }
+  .geometry-scene-picker > button { display: grid; grid-template-columns: minmax(300px, .8fr) 1fr; }
+  .geometry-scene-picker p { min-height: 0; }
+  .geometry-choice-grid--three { grid-template-columns: 1fr; }
+  .geometry-choice { grid-template-columns: 100px 1fr; grid-template-rows: auto auto; align-items: center; text-align: left; }
+  .geometry-choice svg { grid-row: 1 / span 2; }
+  .geometry-triangle-choices { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 820px) {
+  .geometry-screen-lab { border-right: 0; border-left: 0; border-radius: 0; }
+  .geometry-screen-hero { grid-template-columns: 1fr; }
+  .geometry-screen-hero__visual { min-height: 250px; }
+  .geometry-teacher-strip,
+  .geometry-teach-panel__big-idea,
+  .geometry-decision-panel,
+  .geometry-measure-panel,
+  .geometry-classify-panel,
+  .geometry-evidence-board { grid-template-columns: 1fr; }
+  .geometry-print-companion>div { grid-template-columns: 1fr; }
+  .geometry-teach-panel__big-idea > .geometry-angle-glyph { height: 190px; }
+  .geometry-benchmark-row { grid-template-columns: 1fr; }
+  .geometry-benchmark-row article { grid-template-columns: 150px 1fr; }
+  .geometry-evidence-progress__markers { grid-template-columns: 1fr 1fr; }
+  .geometry-alignment-choices { grid-template-columns: 1fr; }
+  .geometry-alignment-choices button { display: grid; grid-template-columns: 1fr 120px; align-items: center; }
+  .geometry-alignment-choices svg { height: 135px; }
+}
+
+@media (max-width: 600px) {
+  .geometry-screen-workspace { padding: 23px 15px; }
+  .geometry-step-heading { align-items: flex-start; }
+  .geometry-step-heading h3 { font-size: 30px; }
+  .geometry-reset { padding: 9px 11px; font-size: 13px; }
+  .geometry-step-nav { grid-template-columns: repeat(2, 1fr); }
+  .geometry-scene-picker > button { display: block; }
+  .geometry-number-choices { grid-template-columns: 1fr; }
+  .geometry-triangle-choices { grid-template-columns: 1fr; }
+  .geometry-protractor-rule { grid-template-columns: 1fr; }
+  .geometry-feedback { grid-template-columns: 1fr; }
+  .geometry-class-choices button { grid-template-columns: 1fr; gap: 4px; }
+  .geometry-optional-extension { grid-template-columns: 1fr; }
+  .geometry-print-companion>header,.geometry-print-companion>footer { align-items: stretch; flex-direction: column; }
+  .geometry-print-companion>header>span { align-self: flex-start; }
+  .geometry-print-companion li { grid-template-columns: 38px 1fr; }
+  .geometry-print-companion li span { grid-column: 2; }
+  .geometry-continue,
+  .geometry-check { justify-self: stretch; min-width: 0; width: 100%; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .geometry-scene-art[data-found="true"] .geometry-scene-art__verified {
+    animation: geometry-confirm-in .28s ease-out both;
+    transform-origin: 291px 32px;
+  }
+
+  @keyframes geometry-confirm-in {
+    from { opacity: 0; transform: scale(.86); }
+    to { opacity: 1; transform: scale(1); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .geometry-screen-lab *,
+  .geometry-screen-lab *::before,
+  .geometry-screen-lab *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+}
+
+@media (forced-colors: active) {
+  .geometry-screen-lab { border-color: CanvasText; background: Canvas; color: CanvasText; }
+  .geometry-screen-lab button { border: 2px solid ButtonText; }
+  .geometry-screen-lab button[aria-pressed="true"],
+  .geometry-screen-lab button[aria-current="step"] { outline: 4px solid Highlight; }
+  .geometry-scene-art__scan :is(line, path, circle),
+  .geometry-angle-glyph :is(line, path, circle),
+  .geometry-triangle-diagram :is(polygon, path) { stroke: CanvasText; }
+  .geometry-evidence-progress__bar i { background: Highlight; }
+}
+
+@media print {
+  .geometry-screen-lab { max-width: none; margin: 0; border: 2px solid #000; box-shadow: none; }
+  .geometry-screen-hero { min-height: 0; grid-template-columns: 1fr; padding: 0; border-bottom: 3px solid #000; background: #fff !important; color: #000; }
+  .geometry-screen-hero > div:first-child { padding: 20px; }
+  .geometry-screen-hero h2,
+  .geometry-screen-hero p,
+  .geometry-screen-hero small { color: #000; }
+  .geometry-screen-hero__visual,
+  .geometry-screen-hero__chips,
+  .geometry-teacher-strip,
+  .geometry-step-nav,
+  .geometry-reset,
+  .geometry-continue,
+  .geometry-check { display: none !important; }
+  .geometry-screen-workspace { min-height: 0; padding: 20px; background: #fff; }
+  .geometry-evidence-progress { border-bottom: 2px solid #000; background: #fff; }
+  .geometry-evidence-progress__bar i { background: #555; }
+  .geometry-teach-panel__big-idea,
+  .geometry-benchmark-row article,
+  .geometry-protractor-rule,
+  .geometry-evidence-board__report { break-inside: avoid; box-shadow: none; }
+  html.printing-angle-expedition body * { visibility: hidden !important; }
+  html.printing-angle-expedition .geometry-print-companion,
+  html.printing-angle-expedition .geometry-print-companion * { visibility: visible !important; }
+  html.printing-angle-expedition .geometry-print-companion { position: absolute; inset: 0 auto auto 0; width: 100%; overflow: visible; border: 0; }
+  html.printing-angle-expedition .geometry-print-companion>header { padding: 8pt 10pt; border: 0; background: #fff; }
+  html.printing-angle-expedition .geometry-print-companion>header h4 { font-size: 18pt; }
+  html.printing-angle-expedition .geometry-print-companion>header p,html.printing-angle-expedition .geometry-print-companion>header>span { display: none; }
+  html.printing-angle-expedition .geometry-print-companion>div { grid-template-columns: 52% 48%; gap: 8pt; padding: 4pt 10pt; }
+  html.printing-angle-expedition .geometry-print-companion figure { padding: 3pt; border: 1px solid #555; }
+  html.printing-angle-expedition .geometry-print-companion figure img { max-height: 8.4in; }
+  html.printing-angle-expedition .geometry-print-companion figcaption { font-size: 8pt; }
+  html.printing-angle-expedition .geometry-print-companion h5 { font-size: 14pt; }
+  html.printing-angle-expedition .geometry-print-companion ol { gap: 3pt; margin-top: 5pt; }
+  html.printing-angle-expedition .geometry-print-companion li { grid-template-columns: 20pt 50pt 1fr; gap: 4pt; padding: 4pt; font-size: 8.5pt; }
+  html.printing-angle-expedition .geometry-print-companion li:before { width: 18pt; height: 18pt; }
+  html.printing-angle-expedition .geometry-print-companion li :is(b,span) { padding-top: 2pt; }
+  html.printing-angle-expedition .geometry-print-companion section>aside { margin-top: 5pt; padding: 5pt; font-size: 8.5pt; }
+  html.printing-angle-expedition .geometry-print-companion>footer { display: none; }
+}

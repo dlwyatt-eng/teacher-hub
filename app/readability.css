@@ -1,0 +1,69 @@
+/* Dashboard and projector-home readability pass. */
+.dashboard .welcome p:not(.eyebrow){color:#465b51;font-size:17px;line-height:1.55}
+.dashboard .eyebrow,.dashboard .section-kicker{color:#53665c;font-size:13px;letter-spacing:1.35px}
+.dashboard .section-heading h2{font-size:25px}
+.dashboard .section-heading>small{color:#52645b;font-size:14px}
+.dashboard .today-card,.dashboard .continue-card{min-height:390px}
+.dashboard .schedule-row{min-height:72px;grid-template-columns:52px 34px 1fr auto}
+.dashboard .schedule-row time{color:#52645b;font-size:13px}
+.dashboard .schedule-row strong{font-size:17px;line-height:1.35}
+.dashboard .schedule-row small{margin-top:6px;color:#52645b;font-size:14px;line-height:1.45}
+.dashboard .readiness-row em{padding:7px 9px;color:#405249;font-size:11px;letter-spacing:.45px}
+.dashboard .continue-content .subject-tag{color:#f6cf8e;font-size:12px}
+.dashboard .continue-content h2{font-size:25px;line-height:1.25}
+.dashboard .continue-content p{max-width:330px;color:#e0ece7;font-size:15px;line-height:1.55}
+.dashboard .continue-content button{font-size:14px}
+.dashboard .subject-card{min-height:116px;padding:19px}
+.dashboard .subject-copy strong{font-size:17px}
+.dashboard .subject-copy small{margin-top:7px;color:#52645b;font-size:13px;line-height:1.35}
+.dashboard .subject-card .arrow{color:#52645b;font-size:17px}
+.dashboard .year-framework-strip button small{font-size:13px}
+.dashboard .public-window-bridge p,.dashboard .year-framework-strip>div:first-child>p:last-child{font-size:15px;line-height:1.55}
+.dashboard .public-window-bridge a{font-size:14px}
+.dashboard .welcome-actions{display:flex;flex-direction:column;align-items:stretch;gap:10px;min-width:245px}
+.dashboard .welcome-actions .primary-button{justify-content:center}
+.curriculum-home-link{display:grid;grid-template-columns:38px 1fr auto;gap:11px;align-items:center;min-height:58px;padding:10px 13px;border:2px solid #cad8d0;border-radius:13px;background:#fff;color:#29483b;text-decoration:none;box-shadow:0 5px 14px #183f350c}
+.curriculum-home-link:hover,.curriculum-home-link:focus-visible{border-color:#356d57;background:#f0f7f3;outline:3px solid #90b9a744;outline-offset:2px}
+.curriculum-home-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;background:#f0c76f;color:#47320c;font-size:12px;font-weight:950}
+.curriculum-home-link strong,.curriculum-home-link small{display:block}.curriculum-home-link strong{font-size:15px}.curriculum-home-link small{margin-top:3px;color:#52645b;font-size:12px}.curriculum-home-link>b{color:#356d57;font-size:18px}
+.sidebar .official-curriculum-link strong,.sidebar .teacher-contact-link strong{font-size:13px}
+.sidebar .official-curriculum-link small,.sidebar .teacher-contact-link small{color:#52645b;font-size:11px;line-height:1.4}
+.sidebar .phase-pill{font-size:12px}
+.sidebar .profile strong{font-size:14px}.sidebar .profile small{color:#52645b;font-size:11px}.sidebar .profile b{font-size:11px}
+
+.projector-shell .student-home .eyebrow,.projector-shell .student-home .section-kicker{font-size:16px;letter-spacing:1.5px}
+.projector-shell .student-start-grid article>span{font-size:17px}
+.projector-shell .student-start-grid strong{font-size:25px}
+.projector-shell .student-start-grid p{font-size:19px}
+.projector-shell .student-section-heading h2{font-size:36px}
+.projector-shell .student-section-heading>p{font-size:20px;line-height:1.45}
+.projector-shell .student-subject-grid button{min-height:112px;padding:20px}
+.projector-shell .student-subject-copy strong{font-size:22px}
+.projector-shell .student-subject-copy small{font-size:16px;line-height:1.35}
+.student-home-hero{position:relative}
+.student-curriculum-link{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;max-width:760px;margin-top:27px;padding:14px 16px;border:2px solid #b9cec4;border-radius:15px;background:#fff;color:#28483a;text-decoration:none;box-shadow:0 8px 20px #183f3512}
+.student-curriculum-link:hover,.student-curriculum-link:focus-visible{border-color:#316b55;background:#f0f7f3;outline:4px solid #8bb6a344;outline-offset:3px}
+.student-curriculum-link>span{width:44px;height:44px;display:grid;place-items:center;border-radius:11px;background:#f0c76f;color:#453109;font-size:14px;font-weight:950}.student-curriculum-link>strong{font-size:18px}.student-curriculum-link>b{color:#356d57;font-size:14px}
+
+@media(max-width:780px){
+  .dashboard .welcome-actions{width:100%;min-width:0;margin-top:18px}
+  .dashboard .schedule-row{grid-template-columns:38px 28px 1fr}
+  .dashboard .readiness-row em{grid-column:3;margin:5px 0 10px;justify-self:start}
+  .dashboard .subject-card{min-height:102px}
+  .projector-shell .student-home .eyebrow,.projector-shell .student-home .section-kicker{font-size:14px}
+  .student-curriculum-link{grid-template-columns:44px 1fr}.student-curriculum-link>b{grid-column:2}
+}
+
+/* Shared lesson experience standard: visible rhythm, lively actions, and clear mode continuity. */
+.lesson-experience-ribbon{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 22px;padding:12px 14px;border:2px solid #b8d3c7;border-radius:15px;background:linear-gradient(115deg,#eef8f3,#fff8df);box-shadow:0 7px 18px #1e57400c}
+.lesson-experience-ribbon span{padding:7px 10px;border-radius:999px;background:#fff;color:#244d3d;font-size:13px;font-weight:950;letter-spacing:.45px;box-shadow:0 2px 7px #183f3512}
+.lesson-experience-ribbon strong{margin-left:auto;color:#365a4b;font:650 16px/1.25 Georgia,serif}
+.social-student-lesson>.lesson-experience-ribbon{margin:20px 24px 0}
+.mode-location-note{display:grid;grid-template-columns:48px 1fr;gap:13px;align-items:center;margin:18px 0;padding:14px 17px;border:2px solid #9fc6b4;border-radius:14px;background:#eff8f4;color:#193e31}
+.mode-location-note>span{width:46px;height:46px;display:grid;place-items:center;border-radius:13px;background:#2f7459;color:#fff;font-size:22px;font-weight:950}
+.mode-location-note strong,.mode-location-note small{display:block}.mode-location-note strong{font-size:17px}.mode-location-note small{margin-top:4px;color:#375c4d;font-size:14px;line-height:1.4}
+.teacher-location-note{margin:0 0 18px;background:#f3f7f5}
+.journey-student button,.lesson-projector button,.social-student-launch button{transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease,background .16s ease}
+.journey-student button:not(:disabled):hover,.lesson-projector button:not(:disabled):hover,.social-student-launch button:not(:disabled):hover{transform:translateY(-2px)}
+.journey-student button:focus-visible,.lesson-projector button:focus-visible,.social-student-launch button:focus-visible{outline:4px solid #e3ae48;outline-offset:3px}
+@media(max-width:700px){.lesson-experience-ribbon strong{width:100%;margin:4px 3px 0}.social-student-lesson>.lesson-experience-ribbon{margin-left:16px;margin-right:16px}.mode-location-note{grid-template-columns:42px 1fr}.mode-location-note>span{width:40px;height:40px}}

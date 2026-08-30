@@ -1,0 +1,47 @@
+.public-window-bridge {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 26px;
+  align-items: center;
+  margin-top: 16px;
+  padding: 24px 28px;
+  border: 1px solid #cfdcd4;
+  border-radius: 17px;
+  background: #173f35;
+  color: #fff;
+}
+
+.public-window-bridge h2 { margin: 0; font: 650 25px/1.25 Georgia, serif; }
+.public-window-bridge > div:first-child > p:last-child { margin: 8px 0 0; color: #d7e6df; font-size: 14px; line-height: 1.55; }
+.public-window-bridge .section-kicker { color: #a9c9bc; }
+.public-window-bridge > div:last-child { display: flex; gap: 9px; flex-direction: column; }
+.public-window-bridge a { padding: 11px 14px; border-radius: 9px; background: #fff; color: #173f35; text-decoration: none; font-size: 12px; font-weight: 850; white-space: nowrap; }
+.public-window-bridge a.secondary { border: 1px solid #ffffff42; background: #ffffff10; color: #fff; }
+.public-window-bridge a span { margin-left: 6px; }
+
+.teacher-spaces-link {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 14px;
+  align-items: center;
+  max-width: 610px;
+  margin: 18px 0 24px;
+  padding: 17px;
+  border: 2px solid #39765d;
+  border-radius: 14px;
+  background: #eaf5ef;
+  color: inherit;
+  text-decoration: none;
+}
+
+.teacher-spaces-link > span { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 11px; background: #2f6b53; color: #fff; font-size: 21px; }
+.teacher-spaces-link small, .teacher-spaces-link strong { display: block; }
+.teacher-spaces-link small { color: #376b56; font-size: 10px; font-weight: 950; letter-spacing: 1px; }
+.teacher-spaces-link strong { margin-top: 3px; font: 650 19px Georgia, serif; }
+.teacher-spaces-link p { margin: 5px 0 0; color: #40594c; font-size: 13px; }
+
+@media (max-width: 850px) {
+  .public-window-bridge { grid-template-columns: 1fr; }
+  .public-window-bridge > div:last-child { align-items: stretch; }
+  .public-window-bridge a { text-align: center; }
+}

@@ -1,0 +1,681 @@
+.add-to-ttoc-day {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 9px 13px;
+  border: 1px solid #244e46;
+  border-radius: 9px;
+  background: #244e46;
+  color: #fff;
+  font: 850 14px/1.15 var(--font-geist-sans, Arial, sans-serif);
+  cursor: pointer;
+}
+
+.add-to-ttoc-day > span {
+  display: grid;
+  place-items: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .16);
+  color: #f3d38d;
+  font-size: 15px;
+  font-weight: 950;
+}
+
+.add-to-ttoc-day[data-result="added"] {
+  border-color: #33725f;
+  background: #33725f;
+}
+
+.add-to-ttoc-day[data-result="exists"] {
+  border-color: #5b716b;
+  background: #5b716b;
+}
+
+.add-to-ttoc-day[data-result="blocked"] {
+  border-color: #82483f;
+  background: #82483f;
+}
+
+.add-to-ttoc-day:focus-visible {
+  outline: 4px solid #d9ac52;
+  outline-offset: 3px;
+}
+
+.ttoc-day-plan {
+  --day-ink: #203d38;
+  --day-muted: #58706b;
+  --day-deep: #244e46;
+  --day-line: #cbd9d5;
+  --day-soft: #f2f7f5;
+  --day-paper: #fff;
+  --day-gold: #d9ac52;
+  margin: 24px 27px;
+  overflow: hidden;
+  border: 2px solid #a9c0ba;
+  border-radius: 20px;
+  background: var(--day-paper);
+  color: var(--day-ink);
+  box-shadow: 0 15px 38px rgba(29, 61, 53, .1);
+}
+
+.ttoc-day-plan__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 23px 25px;
+  background: #244e46;
+  color: #fff;
+}
+
+.ttoc-day-plan__header small,
+.ttoc-day-plan__add-current small,
+.ttoc-day-plan__identity small,
+.ttoc-day-plan__block section > small,
+.ttoc-day-plan label > span {
+  display: block;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: .085em;
+  line-height: 1.2;
+}
+
+.ttoc-day-plan__header small {
+  color: #f2d594;
+}
+
+.ttoc-day-plan__header h2 {
+  margin: 5px 0 4px;
+  color: #fff;
+  font: 750 clamp(25px, 2.5vw, 34px)/1.13 Georgia, serif;
+}
+
+.ttoc-day-plan__header p {
+  max-width: 700px;
+  margin: 0;
+  color: #dce9e5;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.ttoc-day-plan__header > label {
+  flex: none;
+  min-width: 180px;
+}
+
+.ttoc-day-plan label > span {
+  margin-bottom: 5px;
+  color: inherit;
+}
+
+.ttoc-day-plan input,
+.ttoc-day-plan textarea,
+.ttoc-day-plan select {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #afc5bf;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--day-ink);
+  font: 750 15px/1.35 var(--font-geist-sans, Arial, sans-serif);
+}
+
+.ttoc-day-plan input {
+  min-height: 43px;
+  padding: 8px 10px;
+}
+
+.ttoc-day-plan textarea {
+  min-height: 64px;
+  padding: 9px 11px;
+  resize: vertical;
+}
+
+.ttoc-day-plan select {
+  min-height: 43px;
+  padding: 8px 34px 8px 10px;
+  font-weight: 800;
+}
+
+.ttoc-day-plan__add-current {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 17px 24px;
+  border-bottom: 1px solid var(--day-line);
+  background: #fff8e8;
+}
+
+.ttoc-day-plan__add-current small {
+  color: #7a5d25;
+}
+
+.ttoc-day-plan__add-current strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 17px;
+}
+
+.ttoc-day-plan__add-current span {
+  display: block;
+  margin-top: 3px;
+  color: var(--day-muted);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.ttoc-day-plan button {
+  min-height: 44px;
+  border: 1px solid #93ada6;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--day-deep);
+  font-size: 14px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.ttoc-day-plan button:disabled {
+  cursor: default;
+  opacity: .4;
+}
+
+.ttoc-day-plan__add-current button {
+  flex: none;
+  padding: 10px 15px;
+  border-color: #244e46;
+  background: #244e46;
+  color: #fff;
+}
+
+.ttoc-day-plan__week-import {
+  display: grid;
+  grid-template-columns: minmax(190px, 1.2fr) minmax(190px, 1fr) minmax(130px, .65fr) auto;
+  gap: 12px;
+  align-items: end;
+  padding: 15px 24px;
+  border-bottom: 1px solid var(--day-line);
+  background: #e8f2ef;
+}
+
+.ttoc-day-plan__week-import > div {
+  align-self: center;
+}
+
+.ttoc-day-plan__week-import small,
+.ttoc-day-plan__essentials small {
+  display: block;
+  color: #4b756c;
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: .09em;
+}
+
+.ttoc-day-plan__week-import strong,
+.ttoc-day-plan__essentials header strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--day-ink);
+  font: 750 19px/1.2 Georgia, serif;
+}
+
+.ttoc-day-plan__week-import button {
+  padding: 8px 14px;
+  border-color: var(--day-deep);
+  background: var(--day-deep);
+  color: #fff;
+}
+
+.ttoc-day-plan__essentials {
+  padding: 17px 24px 19px;
+  border-bottom: 1px solid var(--day-line);
+  background: #fff;
+}
+
+.ttoc-day-plan__essentials > header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 13px;
+}
+
+.ttoc-day-plan__essentials > header p {
+  max-width: 440px;
+  margin: 0;
+  color: var(--day-muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.ttoc-day-plan__essentials > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 12px;
+}
+
+.ttoc-day-plan__essentials label {
+  display: block;
+  padding: 10px;
+  border: 1px solid #c5d5d1;
+  border-radius: 11px;
+  background: #f7faf9;
+}
+
+.ttoc-day-plan__essentials label > span {
+  color: #4a6d66;
+}
+
+.ttoc-day-plan__essentials textarea {
+  min-height: 56px;
+  border-color: #b8cbc6;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ttoc-day-plan__essentials textarea::placeholder {
+  color: #768983;
+  opacity: 1;
+}
+
+.ttoc-day-plan__essentials-wide {
+  grid-column: 1 / -1;
+}
+
+.ttoc-day-plan__day-parts {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--day-line);
+  background: var(--day-soft);
+}
+
+.ttoc-day-plan__day-parts > span {
+  margin-right: 4px;
+  color: var(--day-muted);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.ttoc-day-plan__day-parts button {
+  min-height: 38px;
+  padding: 7px 11px;
+  font-size: 13px;
+}
+
+.ttoc-day-plan__empty {
+  padding: 43px 24px;
+  text-align: center;
+}
+
+.ttoc-day-plan__empty b {
+  font: 750 22px Georgia, serif;
+}
+
+.ttoc-day-plan__empty p {
+  margin: 7px 0 0;
+  color: var(--day-muted);
+}
+
+.ttoc-day-plan__blocks {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 18px;
+  list-style: none;
+  background: #edf3f1;
+}
+
+.ttoc-day-plan__block {
+  overflow: hidden;
+  border: 1px solid #b9cbc6;
+  border-left: 6px solid #4d8377;
+  border-radius: 13px;
+  background: #fff;
+}
+
+.ttoc-day-plan__block[data-kind="transition"] {
+  border-left-color: #7e8d9d;
+}
+
+.ttoc-day-plan__block[data-kind="recess"],
+.ttoc-day-plan__block[data-kind="lunch"] {
+  border-left-color: #d19b3b;
+}
+
+.ttoc-day-plan__block > header {
+  display: grid;
+  grid-template-columns: 38px minmax(190px, 1fr) 135px 135px auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 15px;
+  border-bottom: 1px solid var(--day-line);
+  background: #fbfdfc;
+}
+
+.ttoc-day-plan__number {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #dfece8;
+  color: #2d6257;
+  font-size: 14px;
+  font-weight: 950;
+}
+
+.ttoc-day-plan__identity small {
+  color: #4b756c;
+}
+
+.ttoc-day-plan__identity label {
+  display: block;
+}
+
+.ttoc-day-plan__identity input {
+  min-height: 38px;
+  margin-top: 4px;
+  padding: 6px 8px;
+  font: 750 17px/1.2 Georgia, serif;
+}
+
+.ttoc-day-plan__block > header label span,
+.ttoc-day-plan__notes > span {
+  color: #5b746e;
+}
+
+.ttoc-day-plan__order {
+  display: flex;
+  gap: 5px;
+}
+
+.ttoc-day-plan__order button {
+  width: 42px;
+  padding: 0;
+  font-size: 18px;
+}
+
+.ttoc-day-plan__order .remove {
+  color: #8a3e38;
+}
+
+.ttoc-day-plan__block > section {
+  padding: 15px 18px 7px;
+}
+
+.ttoc-day-plan__block > section > small {
+  color: #477168;
+}
+
+.ttoc-day-plan__block > section ol {
+  display: grid;
+  gap: 6px;
+  margin: 9px 0 0;
+  padding-left: 25px;
+}
+
+.ttoc-day-plan__block > section li {
+  padding-left: 4px;
+  color: #294a43;
+  font-size: 14px;
+  font-weight: 720;
+  line-height: 1.42;
+}
+
+.ttoc-day-plan__notes {
+  display: block;
+  padding: 10px 18px 16px;
+}
+
+.ttoc-day-plan__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 15px 20px;
+  border-top: 1px solid var(--day-line);
+  background: #f7faf9;
+}
+
+.ttoc-day-plan__footer p {
+  margin: 0;
+  color: var(--day-muted);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.ttoc-day-plan__footer > div {
+  display: flex;
+  gap: 8px;
+}
+
+.ttoc-day-plan__footer button {
+  padding: 9px 14px;
+}
+
+.ttoc-day-plan__footer .clear {
+  color: #79413b;
+}
+
+.ttoc-day-plan__footer .print {
+  border-color: #244e46;
+  background: #244e46;
+  color: #fff;
+}
+
+.ttoc-day-plan__print-value {
+  display: none;
+}
+
+.ttoc-day-plan button:focus-visible,
+.ttoc-day-plan input:focus-visible,
+.ttoc-day-plan textarea:focus-visible,
+.ttoc-day-plan select:focus-visible {
+  outline: 4px solid var(--day-gold);
+  outline-offset: 2px;
+}
+
+@media (max-width: 940px) {
+  .ttoc-day-plan__week-import {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ttoc-day-plan__block > header {
+    grid-template-columns: 38px 1fr 120px 120px;
+  }
+
+  .ttoc-day-plan__order {
+    grid-column: 2 / -1;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 680px) {
+  .ttoc-day-plan {
+    margin-right: 18px;
+    margin-left: 18px;
+  }
+
+  .ttoc-day-plan__header,
+  .ttoc-day-plan__add-current,
+  .ttoc-day-plan__essentials > header,
+  .ttoc-day-plan__footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ttoc-day-plan__header > label {
+    min-width: 0;
+  }
+
+  .ttoc-day-plan__day-parts {
+    flex-wrap: wrap;
+  }
+
+  .ttoc-day-plan__week-import,
+  .ttoc-day-plan__essentials > div {
+    grid-template-columns: 1fr;
+  }
+
+  .ttoc-day-plan__essentials > header p {
+    text-align: left;
+  }
+
+  .ttoc-day-plan__essentials-wide {
+    grid-column: auto;
+  }
+
+  .ttoc-day-plan__day-parts > span {
+    flex-basis: 100%;
+  }
+
+  .ttoc-day-plan__block > header {
+    grid-template-columns: 38px 1fr;
+  }
+
+  .ttoc-day-plan__block > header label {
+    grid-column: 2;
+  }
+
+  .ttoc-day-plan__order {
+    grid-column: 2;
+    justify-content: flex-start;
+  }
+
+  .ttoc-day-plan__footer > div {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ttoc-day-plan * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .ttoc-day-plan,
+  .ttoc-day-plan__block {
+    box-shadow: none;
+  }
+}
+
+.ttoc-day-plan.print-target { page: ttoc-plan; }
+
+@page ttoc-plan {
+  size: letter portrait;
+  margin: .4in;
+}
+
+@media print {
+  .add-to-ttoc-day {
+    display: none !important;
+  }
+
+  .ttoc-day-plan {
+    margin: 0 !important;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .ttoc-day-plan__header {
+    padding: 0 0 5mm;
+    border-bottom: 2px solid #222;
+    background: #fff;
+    color: #111;
+  }
+
+  .ttoc-day-plan__header h2,
+  .ttoc-day-plan__header small,
+  .ttoc-day-plan__header p {
+    color: #111;
+  }
+
+  .ttoc-day-plan__add-current,
+  .ttoc-day-plan__week-import,
+  .ttoc-day-plan__day-parts,
+  .ttoc-day-plan__footer,
+  .ttoc-day-plan__order {
+    display: none !important;
+  }
+
+  .ttoc-day-plan__blocks {
+    gap: 4mm;
+    padding: 5mm 0 0;
+    background: #fff;
+  }
+
+  .ttoc-day-plan__essentials {
+    padding: 4mm 0;
+    border-bottom: 1px solid #555;
+    break-inside: avoid;
+  }
+
+  .ttoc-day-plan__essentials > header {
+    display: block;
+    margin-bottom: 2mm;
+  }
+
+  .ttoc-day-plan__essentials > header p {
+    display: none;
+  }
+
+  .ttoc-day-plan__essentials > div {
+    grid-template-columns: 1fr 1fr;
+    gap: 2mm 3mm;
+  }
+
+  .ttoc-day-plan__essentials label {
+    padding: 2mm;
+    border: 1px solid #888;
+    border-radius: 0;
+    background: #fff;
+  }
+
+  .ttoc-day-plan__essentials-wide {
+    grid-column: 1 / -1;
+  }
+
+  .ttoc-day-plan__block {
+    break-inside: avoid;
+    border: 1px solid #777;
+    border-left: 4px solid #222;
+  }
+
+  .ttoc-day-plan__block > header {
+    grid-template-columns: 10mm 1fr 27mm 30mm;
+    padding: 3mm;
+    background: #fff;
+  }
+
+  .ttoc-day-plan input,
+  .ttoc-day-plan textarea,
+  .ttoc-day-plan select,
+  .ttoc-day-plan__empty {
+    display: none !important;
+  }
+
+  .ttoc-day-plan__print-value {
+    display: block;
+    margin: 0;
+    color: #111;
+    font-size: 11pt;
+    font-weight: 700;
+    white-space: pre-wrap;
+  }
+
+  .ttoc-day-plan__notes {
+    padding: 2mm 4mm 4mm;
+  }
+}

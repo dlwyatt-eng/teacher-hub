@@ -1,0 +1,67 @@
+.site-search { display: contents; }
+
+.site-search__open {
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid #d5ddd8;
+  border-radius: 12px;
+  background: #fff;
+  color: #19372d;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.site-search__open > span { font-size: 22px; line-height: 1; }
+.site-search__open kbd,
+.site-search__dialog kbd { border: 1px solid #cbd4cf; border-bottom-width: 2px; border-radius: 6px; background: #f5f7f6; padding: 2px 6px; font: 700 11px/1.2 var(--font-geist-mono), monospace; color: #52635d; }
+
+.site-search__dialog {
+  width: min(760px, calc(100vw - 28px));
+  max-height: min(760px, calc(100dvh - 28px));
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 22px;
+  background: transparent;
+  color: #17362c;
+  box-shadow: 0 32px 90px rgba(10, 35, 27, .34);
+}
+
+.site-search__dialog::backdrop { background: rgba(10, 29, 24, .66); backdrop-filter: blur(8px); }
+.site-search__dialog > section { background: #fbfcfa; border: 1px solid rgba(255,255,255,.72); border-radius: inherit; overflow: hidden; }
+.site-search__dialog header { padding: 22px 24px 14px; display: flex; justify-content: space-between; gap: 18px; align-items: start; }
+.site-search__dialog header small { color: #497264; font: 800 11px/1.2 var(--font-geist-mono), monospace; letter-spacing: .12em; }
+.site-search__dialog h2 { margin: 4px 0 0; font-size: clamp(24px, 4vw, 36px); line-height: 1.05; letter-spacing: -.035em; }
+.site-search__dialog header > button { width: 44px; height: 44px; flex: 0 0 44px; border: 1px solid #d4ded8; border-radius: 50%; background: #fff; color: #28493f; font-size: 25px; cursor: pointer; }
+
+.site-search__field { margin: 0 24px; min-height: 58px; border: 2px solid #315f50; border-radius: 16px; background: #fff; display: flex; align-items: center; gap: 10px; padding: 0 16px; box-shadow: 0 0 0 5px rgba(49,95,80,.09); }
+.site-search__field > span { font-size: 26px; color: #315f50; }
+.site-search__field input { width: 100%; border: 0; outline: 0; background: transparent; color: #17362c; font: 650 18px/1.35 inherit; }
+.site-search__field input::placeholder { color: #718079; opacity: 1; }
+.site-search__status { margin: 14px 26px 8px; color: #5b6c66; font-size: 13px; }
+.site-search__results { max-height: min(490px, calc(100dvh - 270px)); overflow: auto; padding: 0 14px 14px; }
+.site-search__results > button { width: 100%; min-height: 82px; padding: 14px 12px; border: 0; border-top: 1px solid #e1e7e3; background: transparent; color: inherit; display: flex; align-items: center; justify-content: space-between; gap: 18px; text-align: left; cursor: pointer; }
+.site-search__results > button:hover,
+.site-search__results > button:focus-visible { background: #eaf2ee; border-radius: 14px; }
+.site-search__results > button span { min-width: 0; }
+.site-search__results small { display: block; margin-bottom: 3px; color: #3d6b5c; font: 800 10px/1.2 var(--font-geist-mono), monospace; letter-spacing: .09em; }
+.site-search__results strong { display: block; font-size: 17px; line-height: 1.2; }
+.site-search__results p { margin: 4px 0 0; color: #596a64; font-size: 13px; line-height: 1.35; }
+.site-search__results b { flex: 0 0 auto; color: #315f50; font-size: 13px; }
+.site-search__empty { padding: 28px 14px 38px; text-align: center; }
+.site-search__empty p { margin: 7px 0 0; color: #63736d; }
+.site-search__dialog footer { border-top: 1px solid #e0e7e3; padding: 12px 24px; display: flex; justify-content: space-between; gap: 16px; color: #64736e; font-size: 12px; }
+
+@media (max-width: 760px) {
+  .site-search__open strong, .site-search__open kbd { display: none; }
+  .site-search__open { width: 42px; justify-content: center; padding: 0; }
+  .site-search__dialog header { padding: 18px 18px 12px; }
+  .site-search__field { margin-inline: 18px; }
+  .site-search__dialog footer { flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) { .site-search__dialog::backdrop { backdrop-filter: none; } }
+@media print { .site-search { display: none !important; } }

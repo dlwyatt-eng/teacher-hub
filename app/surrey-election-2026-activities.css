@@ -1,0 +1,115 @@
+.decision-scenario-sort {
+  margin: 18px 0 8px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #44325f;
+  color: #fff;
+}
+
+.decision-scenario-sort > header {
+  display: grid;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.decision-scenario-sort > header small {
+  color: #e8dfff;
+}
+
+.decision-scenario-sort > header strong {
+  font: 700 clamp(21px, 2.4vw, 30px) / 1.15 Georgia, serif;
+}
+
+.decision-scenario-sort > header p {
+  margin: 0;
+  color: #eee8f7;
+  font-size: 13px;
+}
+
+.decision-scenario-sort > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.decision-scenario-sort details {
+  overflow: hidden;
+  border: 1px solid #b9acd0;
+  border-radius: 11px;
+  background: #fff;
+  color: #28213a;
+}
+
+.decision-scenario-sort summary {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px 12px;
+  align-items: center;
+  min-height: 104px;
+  padding: 13px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.decision-scenario-sort summary::-webkit-details-marker {
+  display: none;
+}
+
+.decision-scenario-sort summary small,
+.decision-scenario-sort summary strong {
+  grid-column: 1;
+}
+
+.decision-scenario-sort summary strong {
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.decision-scenario-sort summary span {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  padding: 7px 9px;
+  border-radius: 8px;
+  background: #ede6f7;
+  color: #52377c;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.decision-scenario-sort details > p {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 12px 13px 14px;
+  border-top: 1px solid #d8cfea;
+  background: #f8f4ff;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.decision-scenario-sort details > p b {
+  color: #5a3b88;
+  font-size: 15px;
+}
+
+@media (max-width: 700px) {
+  .decision-scenario-sort > div {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .decision-scenario-sort {
+    background: #fff;
+    color: #111;
+  }
+
+  .decision-scenario-sort > header small,
+  .decision-scenario-sort > header p {
+    color: #333;
+  }
+
+  .decision-scenario-sort details > p {
+    display: grid;
+  }
+}
