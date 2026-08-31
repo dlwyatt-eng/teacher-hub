@@ -219,6 +219,7 @@
 /* Social Student shell: one compact lesson chooser, then one clear part. */
 .projector-shell .social-student-launch {
   max-width: 1180px;
+  color: var(--classroom-ink);
 }
 
 .projector-shell .social-student-launch > header {

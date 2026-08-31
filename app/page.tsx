@@ -1155,8 +1155,8 @@ function SubjectHub({ subject, mode, onBack, onOpenLesson }: { subject: Subject;
     else if (event.key === "End") nextIndex = tabs.length - 1;
     else return;
     event.preventDefault();
+    document.getElementById(`${tabIdBase}-tab-${nextIndex}`)?.focus();
     setTab(tabs[nextIndex]);
-    window.requestAnimationFrame(() => document.getElementById(`${tabIdBase}-tab-${nextIndex}`)?.focus());
   };
 
   if (mode === "projector") {

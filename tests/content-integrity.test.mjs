@@ -92,7 +92,13 @@ test("the AI physical-system map is projector-ready and accessibility-bounded", 
   assert.match(source, /dilemma\.id === "data-centre-community"/);
   assert.match(source, /ai-physical-system-route-v1\.svg/);
   assert.match(source, /aria-modal="true"/);
-  assert.match(source, /event\.key !== "Escape"/);
+  assert.match(source, /systemMapDialogRef/);
+  assert.match(source, /event\.key === "Escape"/);
+  assert.match(source, /event\.key !== "Tab"/);
+  assert.match(source, /dialog\.contains\(document\.activeElement\)/);
+  assert.match(source, /event\.shiftKey && document\.activeElement === first/);
+  assert.match(source, /!event\.shiftKey && document\.activeElement === last/);
+  assert.match(source, /className="ai-system-map-scrim" type="button" tabIndex=\{-1\} aria-hidden="true"/);
   assert.match(source, /Whole data-centre use is not the same as the AI share/);
   assert.match(catalog, /id: "T04"/);
   assert.match(catalog, /avoids universal per-prompt water or energy claims/);
@@ -150,6 +156,7 @@ test("major views remain lazy, recoverable, and free of the fixed-position state
   const entry = await read("pages/main.tsx");
   const science = await read("app/inquiry-experience.tsx");
   const globalCss = await read("app/globals.css");
+  const auditCss = await read("app/classroom-audit.css");
   for (const view of ["inquiry-experience", "social-studies-program", "learning-program", "first-week-mission", "ai-tensions-lab", "visual-review-studio"]) {
     assert.match(page, new RegExp(`lazy\\(\\(\\) => import\\(\"\\./${view}\"\\)`), `Missing lazy boundary for ${view}.`);
   }
@@ -161,4 +168,8 @@ test("major views remain lazy, recoverable, and free of the fixed-position state
   assert.match(science, /className=\{fairLaunch \? "is-fixed"/);
   assert.doesNotMatch(globalCss, /unfair-flight>footer span\.fixed/);
   assert.match(globalCss, /unfair-flight>footer span\.is-fixed/);
+  assert.match(auditCss, /\.projector-shell \.social-student-launch \{[^}]*color: var\(--classroom-ink\);/s);
+  const moveTabFocusStart = page.indexOf("const moveTabFocus");
+  const moveTabFocus = page.slice(moveTabFocusStart, page.indexOf("if (mode === \"projector\")", moveTabFocusStart));
+  assert.ok(moveTabFocus.indexOf("?.focus()") < moveTabFocus.indexOf("setTab(tabs[nextIndex])"), "Subject tabs must move DOM focus before activating the next tab.");
 });

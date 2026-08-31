@@ -17,6 +17,7 @@ export default function AiTensionsLab({ audience, onHome }: { audience: Audience
   const [systemMapOpen, setSystemMapOpen] = useState(false);
   const systemMapTriggerRef = useRef<HTMLButtonElement>(null);
   const systemMapCloseRef = useRef<HTMLButtonElement>(null);
+  const systemMapDialogRef = useRef<HTMLDivElement>(null);
   const dilemma = aiDilemmas[index];
   const sources = useMemo(() => aiLiteracySources.filter((source) => dilemma.sourceIds.includes(source.id)), [dilemma]);
   const hasPhysicalSystemMap = dilemma.id === "data-centre-community";
@@ -31,16 +32,42 @@ export default function AiTensionsLab({ audience, onHome }: { audience: Audience
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     window.setTimeout(() => systemMapCloseRef.current?.focus(), 0);
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key !== "Escape") return;
-      event.preventDefault();
-      setSystemMapOpen(false);
-      window.setTimeout(() => systemMapTriggerRef.current?.focus(), 0);
+    const handleSystemMapKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setSystemMapOpen(false);
+        window.setTimeout(() => systemMapTriggerRef.current?.focus(), 0);
+        return;
+      }
+      if (event.key !== "Tab") return;
+
+      const dialog = systemMapDialogRef.current;
+      if (!dialog) return;
+      const focusable = Array.from(dialog.querySelectorAll<HTMLElement>(
+        'button:not([disabled]):not([tabindex="-1"]), a[href]:not([tabindex="-1"]), input:not([disabled]):not([tabindex="-1"]), select:not([disabled]):not([tabindex="-1"]), textarea:not([disabled]):not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])',
+      )).filter((item) => item.getClientRects().length > 0 && item.getAttribute("aria-hidden") !== "true");
+      const first = focusable[0];
+      const last = focusable.at(-1);
+      if (!first || !last) {
+        event.preventDefault();
+        dialog.focus();
+        return;
+      }
+      if (!dialog.contains(document.activeElement)) {
+        event.preventDefault();
+        first.focus();
+      } else if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
-    window.addEventListener("keydown", closeOnEscape);
+    window.addEventListener("keydown", handleSystemMapKeyDown);
     return () => {
       document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", closeOnEscape);
+      window.removeEventListener("keydown", handleSystemMapKeyDown);
     };
   }, [systemMapOpen]);
 
@@ -98,8 +125,8 @@ export default function AiTensionsLab({ audience, onHome }: { audience: Audience
       <p><b>ZOOM OUT:</b> minerals → manufacturing → transport → electricity → cooling → replacement → e-waste</p>
     </section>}
 
-    {systemMapOpen && hasPhysicalSystemMap && <div className="ai-system-map-overlay" role="dialog" aria-modal="true" aria-labelledby="ai-system-map-title" aria-describedby="ai-system-map-transcript">
-      <button className="ai-system-map-scrim" type="button" aria-label="Close physical system map" onClick={closeSystemMap} />
+    {systemMapOpen && hasPhysicalSystemMap && <div ref={systemMapDialogRef} tabIndex={-1} className="ai-system-map-overlay" role="dialog" aria-modal="true" aria-labelledby="ai-system-map-title" aria-describedby="ai-system-map-transcript">
+      <button className="ai-system-map-scrim" type="button" tabIndex={-1} aria-hidden="true" aria-label="Close physical system map" onClick={closeSystemMap} />
       <section className="ai-system-map-panel">
         <header><div><small>GRADE 6 SYSTEMS MAP</small><h2 id="ai-system-map-title">An AI answer has a physical route.</h2></div><button ref={systemMapCloseRef} type="button" onClick={closeSystemMap} aria-label="Close system map">×</button></header>
         <figure><Image unoptimized priority src="/images/visual-review/ai-physical-system-route-v1.svg" width={1920} height={1080} alt="Diagram showing an AI request moving through a network to a data centre and returning as a response, alongside physical inputs, benefits, costs, outputs, and evidence-checking questions." /><figcaption>ORIGINAL CLASSROOM OS VISUAL · No fixed per-prompt water or energy claim. Use dated, bounded evidence.</figcaption></figure>
