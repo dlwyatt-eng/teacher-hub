@@ -153,13 +153,35 @@ test("Source Mosaic and Science expose their offline and full-prep routes", asyn
 
 test("major views remain lazy, recoverable, and free of the fixed-position state collision", async () => {
   const page = await read("app/page.tsx");
+  const subjectHub = await read("app/subject-hub.tsx");
+  const searchShell = await read("app/site-search.tsx");
+  const searchDialog = await read("app/site-search-dialog.tsx");
   const entry = await read("pages/main.tsx");
   const science = await read("app/inquiry-experience.tsx");
   const globalCss = await read("app/globals.css");
   const auditCss = await read("app/classroom-audit.css");
-  for (const view of ["inquiry-experience", "social-studies-program", "learning-program", "first-week-mission", "ai-tensions-lab", "visual-review-studio"]) {
+  for (const view of ["inquiry-experience", "subject-hub", "school-year-planning", "year-plan-page", "first-week-mission", "ai-tensions-lab", "visual-review-studio"]) {
     assert.match(page, new RegExp(`lazy\\(\\(\\) => import\\(\"\\./${view}\"\\)`), `Missing lazy boundary for ${view}.`);
   }
+  for (const view of ["social-studies-program", "learning-program"]) {
+    assert.match(subjectHub, new RegExp(`lazy\\(\\(\\) => import\\(\"\\./${view}\"\\)`), `Missing Subject Hub boundary for ${view}.`);
+  }
+  for (const source of ["curriculum", "core-programs", "integrated-programs", "science-program", "social-program", "year-week-registry"]) {
+    assert.doesNotMatch(page, new RegExp(`^import (?!type).*from \"\\./${source}\"`, "m"), `Entry shell eagerly imports ${source}.`);
+  }
+  assert.match(searchShell, /import\("\.\/site-search-dialog"\)/);
+  assert.match(searchShell, /Loading curriculum search/);
+  assert.match(searchShell, /Retry search/);
+  for (const source of ["core-programs", "integrated-programs", "science-program", "social-program"]) {
+    assert.doesNotMatch(searchShell, new RegExp(`from \"\\./${source}\"`), `Search shell eagerly imports ${source}.`);
+    assert.match(searchDialog, new RegExp(`from \"\\./${source}\"`), `Deferred Search index is missing ${source}.`);
+  }
+  assert.match(page, /selectedScienceLessonId/);
+  assert.doesNotMatch(page, /scienceLessons\.find/);
+  assert.match(science, /export function ScienceLessonRoute/);
+  assert.match(science, /scienceLessons\.find\(\(item\) => item\.id === lessonId\)/);
+  assert.match(science, /onOpenLesson\(nextLesson\.id\)/);
+  assert.match(science, /SCIENCE LESSON NOT FOUND/);
   assert.match(page, /<Suspense fallback=\{<RouteLoading/);
   assert.match(page, /<RouteErrorBoundary routeKey=/);
   assert.match(page, /Refresh this view/);
@@ -169,7 +191,7 @@ test("major views remain lazy, recoverable, and free of the fixed-position state
   assert.doesNotMatch(globalCss, /unfair-flight>footer span\.fixed/);
   assert.match(globalCss, /unfair-flight>footer span\.is-fixed/);
   assert.match(auditCss, /\.projector-shell \.social-student-launch \{[^}]*color: var\(--classroom-ink\);/s);
-  const moveTabFocusStart = page.indexOf("const moveTabFocus");
-  const moveTabFocus = page.slice(moveTabFocusStart, page.indexOf("if (mode === \"projector\")", moveTabFocusStart));
+  const moveTabFocusStart = subjectHub.indexOf("const moveTabFocus");
+  const moveTabFocus = subjectHub.slice(moveTabFocusStart, subjectHub.indexOf("if (mode === \"projector\")", moveTabFocusStart));
   assert.ok(moveTabFocus.indexOf("?.focus()") < moveTabFocus.indexOf("setTab(tabs[nextIndex])"), "Subject tabs must move DOM focus before activating the next tab.");
 });

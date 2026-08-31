@@ -53,6 +53,13 @@
 .site-search__results b { flex: 0 0 auto; color: #315f50; font-size: 13px; }
 .site-search__empty { padding: 28px 14px 38px; text-align: center; }
 .site-search__empty p { margin: 7px 0 0; color: #63736d; }
+.site-search__load-state > div { min-height: 210px; padding: 30px 24px 42px; display: grid; place-items: center; align-content: center; gap: 8px; text-align: center; }
+.site-search__load-state > div > span:first-child { width: 54px; height: 54px; border-radius: 18px; background: #e5efea; color: #315f50; display: grid; place-items: center; font-size: 28px; }
+.site-search__load-state > div > strong { font-size: 18px; }
+.site-search__load-state > div > p { margin: 0; color: #64736e; }
+.site-search__retry { margin-top: 12px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.site-search__retry button { min-height: 44px; padding: 0 18px; border: 1px solid #315f50; border-radius: 12px; background: #315f50; color: #fff; font: 750 14px/1 inherit; cursor: pointer; }
+.site-search__retry button:last-child { background: #fff; color: #315f50; }
 .site-search__dialog footer { border-top: 1px solid #e0e7e3; padding: 12px 24px; display: flex; justify-content: space-between; gap: 16px; color: #64736e; font-size: 12px; }
 
 @media (max-width: 760px) {

@@ -1421,3 +1421,43 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
     <div className="journey-sequence"><button disabled={!previous} onClick={() => previous && onOpenLesson(previous)}>← {previous?.title ?? "Start of unit"}</button><span>LESSON {lessonIndex + 1} OF {unit.lessons.length}</span><button disabled={!next} onClick={() => next && onOpenLesson(next)}>{next?.title ?? "End of unit"} →</button></div>
   </div>;
 }
+
+type ScienceLessonRouteProps = {
+  lessonId: string;
+  mode: "teacher" | "projector";
+  onHome: () => void;
+  onUnitStart: () => void;
+  onOpenLesson: (lessonId: string) => void;
+};
+
+export function ScienceLessonRoute({ lessonId, mode, onHome, onUnitStart, onOpenLesson }: ScienceLessonRouteProps) {
+  const lesson = scienceLessons.find((item) => item.id === lessonId);
+  if (!lesson) {
+    return (
+      <div className="page">
+        <section className="route-error" role="alert" aria-labelledby="science-route-error-title">
+          <span aria-hidden="true">?</span>
+          <div>
+            <p className="section-kicker">SCIENCE LESSON NOT FOUND</p>
+            <h2 id="science-route-error-title">This lesson link is no longer available.</h2>
+            <p>Return to the Science units to choose a current lesson. The rest of the Teacher Hub is still available.</p>
+          </div>
+          <div className="route-error-actions">
+            <button type="button" onClick={onUnitStart}>Open Science units</button>
+            <button type="button" onClick={onHome}>Return home</button>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
+  return (
+    <InquiryExperiencePlayer
+      lesson={lesson}
+      mode={mode}
+      onHome={onHome}
+      onUnitStart={onUnitStart}
+      onOpenLesson={(nextLesson) => onOpenLesson(nextLesson.id)}
+    />
+  );
+}

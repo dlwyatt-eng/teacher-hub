@@ -29,12 +29,55 @@ for (const publicFile of await files(publicDir)) {
 }
 
 const emittedFiles = (await files(dist)).filter((file) => /\.(?:html|css|js)$/.test(file));
-const emitted = (await Promise.all(emittedFiles.map((file) => readFile(file, "utf8")))).join("\n");
+const emittedEntries = await Promise.all(emittedFiles.map(async (file) => [
+  path.relative(dist, file).split(path.sep).join("/"),
+  await readFile(file, "utf8"),
+]));
+const emittedByPath = new Map(emittedEntries);
+const emitted = emittedEntries.map(([, content]) => content).join("\n");
 for (const phrase of ["Grade 6 Discovery Rotations", "Identity Constellation", "MANUAL MODE"]) {
   assert.ok(emitted.includes(phrase), `Fresh artifact is missing expected content: ${phrase}`);
 }
 assert.doesNotMatch(emitted, /\/api\/morning-draft/, "Static artifact still contains the dead same-origin Morning API route.");
 assert.doesNotMatch(emitted, /\/teacher-hub\/teacher-hub\//, "Built asset references contain a duplicated base path.");
+assert.doesNotMatch(emitted, /["'(]\/assets\//, "Built code contains a root asset reference without the repository base path.");
+
+const builtPaths = new Set(emittedByPath.keys());
+const graph = new Map([...builtPaths].map((file) => [file, new Set()]));
+function normalizeReference(reference, from) {
+  if (reference.startsWith("/teacher-hub/")) return reference.slice("/teacher-hub/".length);
+  if (reference.startsWith("assets/")) return reference;
+  if (reference.startsWith("./")) return path.posix.normalize(path.posix.join(path.posix.dirname(from), reference));
+  return null;
+}
+
+for (const [from, content] of emittedByPath) {
+  const references = [
+    ...content.matchAll(/\/teacher-hub\/(assets\/[A-Za-z0-9_.-]+\.(?:js|css))/g),
+    ...content.matchAll(/(?<![A-Za-z0-9_/])(assets\/[A-Za-z0-9_.-]+\.(?:js|css))/g),
+    ...content.matchAll(/(\.\/[A-Za-z0-9_.-]+\.(?:js|css))/g),
+  ].map((match) => match[0].startsWith("/teacher-hub/") ? match[0] : match[1]);
+  for (const reference of references) {
+    const target = normalizeReference(reference, from);
+    if (!target) continue;
+    assert.ok(builtPaths.has(target), `Built reference is missing: ${from} -> ${target}`);
+    graph.get(from)?.add(target);
+  }
+}
+
+const reachable = new Set(["index.html"]);
+const queue = ["index.html"];
+while (queue.length) {
+  const current = queue.shift();
+  for (const target of graph.get(current) ?? []) {
+    if (reachable.has(target)) continue;
+    reachable.add(target);
+    queue.push(target);
+  }
+}
+for (const builtPath of builtPaths) {
+  if (/^assets\/.*\.(?:js|css)$/.test(builtPath)) assert.ok(reachable.has(builtPath), `Emitted asset is unreachable from index.html: ${builtPath}`);
+}
 
 const htmlRefs = [...index.matchAll(/(?:src|href)="(\/teacher-hub\/[^"?#]+)["?#]/g)].map((match) => match[1]);
 for (const ref of htmlRefs) {
@@ -52,13 +95,19 @@ const [initialScript, initialStyle] = await Promise.all([
 ]);
 const initialScriptGzip = gzipSync(initialScript, { level: 9 }).byteLength;
 const initialStyleGzip = gzipSync(initialStyle, { level: 9 }).byteLength;
-assert.ok(initialScriptGzip < 350_000, `Initial JavaScript exceeded the 350 KB gzip budget: ${initialScriptGzip} bytes.`);
+assert.ok(initialScript.toString("utf8").includes("/teacher-hub/"), "Initial JavaScript is missing the Pages base path loader.");
+assert.ok(!initialScript.toString("utf8").includes("Try ‘Fleetwood’, ‘angles’, ‘forces’, or ‘weekly plan’"), "Deferred Search copy leaked into the initial JavaScript.");
+assert.ok(emittedEntries.some(([file, content]) => file.endsWith(".js") && file !== initialScriptRef.replace(/^\/teacher-hub\//, "") && content.includes("Try ‘Fleetwood’, ‘angles’, ‘forces’, or ‘weekly plan’")), "Deferred Search index was not emitted.");
+assert.ok(initialScriptGzip < 160_000, `Initial JavaScript exceeded the 160 KB gzip budget: ${initialScriptGzip} bytes.`);
 assert.ok(initialStyleGzip < 110_000, `Initial CSS exceeded the 110 KB gzip budget: ${initialStyleGzip} bytes.`);
-assert.ok(initialScriptGzip + initialStyleGzip < 450_000, `Initial code exceeded the 450 KB combined gzip budget: ${initialScriptGzip + initialStyleGzip} bytes.`);
+assert.ok(initialScriptGzip + initialStyleGzip < 270_000, `Initial code exceeded the 270 KB combined gzip budget: ${initialScriptGzip + initialStyleGzip} bytes.`);
 
 const deferredScripts = emittedFiles.filter((file) => file.endsWith(".js") && !file.endsWith(path.basename(initialScriptRef)));
 const deferredStyles = emittedFiles.filter((file) => file.endsWith(".css") && !file.endsWith(path.basename(initialStyleRef)));
 assert.ok(deferredScripts.length >= 10, "Expected major Teacher Hub views to remain code-split.");
 assert.ok(deferredStyles.length >= 8, "Expected major Teacher Hub styles to remain route-split.");
+for (const prefix of ["site-search-dialog-", "subject-hub-", "inquiry-experience-", "school-year-planning-", "year-plan-page-"]) {
+  assert.ok(deferredScripts.some((file) => path.basename(file).startsWith(prefix)), `Expected deferred chunk: ${prefix}`);
+}
 
 console.log(`Verified ${emittedFiles.length} emitted files, every copied public asset, and ${(initialScriptGzip / 1024).toFixed(1)} KB JS + ${(initialStyleGzip / 1024).toFixed(1)} KB CSS initial gzip.`);
