@@ -172,6 +172,8 @@ test("major views remain lazy, recoverable, and free of the fixed-position state
   assert.match(searchShell, /import\("\.\/site-search-dialog"\)/);
   assert.match(searchShell, /Loading curriculum search/);
   assert.match(searchShell, /Retry search/);
+  assert.match(searchDialog, /event\.key !== "Escape"/);
+  assert.match(searchDialog, /event\.preventDefault\(\);\s*onClose\(\);/);
   for (const source of ["core-programs", "integrated-programs", "science-program", "social-program"]) {
     assert.doesNotMatch(searchShell, new RegExp(`from \"\\./${source}\"`), `Search shell eagerly imports ${source}.`);
     assert.match(searchDialog, new RegExp(`from \"\\./${source}\"`), `Deferred Search index is missing ${source}.`);

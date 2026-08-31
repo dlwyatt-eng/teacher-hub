@@ -179,7 +179,19 @@ export default function SiteSearchDialog({ audience, onNavigate, onClose }: Site
       </header>
       <label className="site-search__field">
         <span aria-hidden="true">⌕</span>
-        <input ref={inputRef} type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Try ‘Fleetwood’, ‘angles’, ‘forces’, or ‘weekly plan’" autoComplete="off" />
+        <input
+          ref={inputRef}
+          type="search"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key !== "Escape") return;
+            event.preventDefault();
+            onClose();
+          }}
+          placeholder="Try ‘Fleetwood’, ‘angles’, ‘forces’, or ‘weekly plan’"
+          autoComplete="off"
+        />
       </label>
       <p className="site-search__status" role="status">{query.trim() ? `${results.length} ${results.length === 1 ? "match" : "matches"}` : "Start typing, or choose a recent starting point."}</p>
       <div className="site-search__results">
