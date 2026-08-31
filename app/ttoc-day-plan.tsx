@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import "./ttoc-day-plan.css";
 import {
   WEEKDAYS,
   dateForWeekday,

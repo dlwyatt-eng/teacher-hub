@@ -34,6 +34,22 @@ import { coreCompetencyMovesFor, runSheetAccessibilityFor, runSheetDiscussionMov
 import { mathAnticsFor } from "./math-antics-routes";
 import CurrentConnectionPlayer from "./current-connection";
 import { currentConnectionForLesson } from "./current-connections";
+import "./learning-program.css";
+import "./readiness-launch.css";
+import "./math-program.css";
+import "./infographic-system.css";
+import "./projector-lesson.css";
+import "./projector-case-deck.css";
+import "./teacher-run-sheet.css";
+import "./ela-source-mosaic-lab.css";
+import "./ela-edit-room-lab.css";
+import "./four-arts-lab.css";
+import "./math-pattern-lab.css";
+import "./math-equation-lab.css";
+import "./math-geometry-screen-lab.css";
+import "./math-scoreboard-lab.css";
+import "./math-number-scale-lab.css";
+import "./current-connection.css";
 
 type ProgramTabProps = {
   program: LearningProgram;

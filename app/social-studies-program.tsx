@@ -19,6 +19,16 @@ import CurrentConnectionPlayer from "./current-connection";
 import { currentConnectionForLesson } from "./current-connections";
 import { issueInvestigationsForLesson } from "./issue-investigations";
 import { SurreyElectionBridge, SurreyElectionPacing } from "./surrey-election-2026";
+import "./social-studies.css";
+import "./social-unit1.css";
+import "./social-unit2.css";
+import "./social-unit3.css";
+import "./social-unit4.css";
+import "./social-unit2-workbench.css";
+import "./surrey-election-2026.css";
+import "./surrey-election-2026-activities.css";
+import "./current-connection.css";
+import "./teacher-run-sheet.css";
 
 type StudentSceneCopy = { title: string; action: string; product: string };
 type StudentLessonCopy = { question: string; learning: string; success: string[]; scenes: StudentSceneCopy[] };

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { schoolAIActivities, schoolAICreationPack } from "./schoolai-activities";
+import "./ai-activity-studio.css";
 
 export default function AiActivityStudio({ onHome, initialActivityId }: { onHome: () => void; initialActivityId?: string }) {
   const initialId = schoolAIActivities.some((activity) => activity.id === initialActivityId) ? initialActivityId! : schoolAIActivities[0].id;

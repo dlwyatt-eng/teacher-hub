@@ -144,3 +144,21 @@ test("Source Mosaic and Science expose their offline and full-prep routes", asyn
   assert.match(science, /Full prep \/ print/);
   assert.match(science, /<MiniBrief lesson=\{lesson\} unit=\{unit\} onClose=\{closeBrief\}/);
 });
+
+test("major views remain lazy, recoverable, and free of the fixed-position state collision", async () => {
+  const page = await read("app/page.tsx");
+  const entry = await read("pages/main.tsx");
+  const science = await read("app/inquiry-experience.tsx");
+  const globalCss = await read("app/globals.css");
+  for (const view of ["inquiry-experience", "social-studies-program", "learning-program", "first-week-mission", "ai-tensions-lab", "visual-review-studio"]) {
+    assert.match(page, new RegExp(`lazy\\(\\(\\) => import\\(\"\\./${view}\"\\)`), `Missing lazy boundary for ${view}.`);
+  }
+  assert.match(page, /<Suspense fallback=\{<RouteLoading/);
+  assert.match(page, /<RouteErrorBoundary routeKey=/);
+  assert.match(page, /Refresh this view/);
+  assert.doesNotMatch(entry, /learning-program\.css|social-studies\.css|first-week-mission\.css|ai-tensions-lab\.css/);
+  assert.doesNotMatch(science, /className=\{fair(?:Launch|Start|Repeat) \? "fixed"/);
+  assert.match(science, /className=\{fairLaunch \? "is-fixed"/);
+  assert.doesNotMatch(globalCss, /unfair-flight>footer span\.fixed/);
+  assert.match(globalCss, /unfair-flight>footer span\.is-fixed/);
+});

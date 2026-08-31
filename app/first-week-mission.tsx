@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useId, useMemo, useState } from "react";
 import { AddToDayPlanButton, type TtocDayPlanLesson } from "./ttoc-day-plan";
+import "./first-week-mission.css";
 import {
   DISCOVERY_BOOKLET_PDF,
   ROTATION_DURATIONS,

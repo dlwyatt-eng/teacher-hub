@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { aiDilemmas, aiLiteracySources, aiSystemChain, humanAgencyProgression } from "./ai-literacy";
+import "./ai-tensions-lab.css";
 
 type Audience = "teacher" | "student";
 type Decision = "HUMAN 👤" | "AI 🤖" | "BOTH 🤝" | "NOT SURE ❓";

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { bloxelsStoryGame, priorPracticeBank, priorPracticeSummary, returningPracticeIds } from "./cross-curricular-program";
 import { printClosest } from "./print-support";
+import "./cross-curricular-projects.css";
 
 const tabs = ["Project plan", "Teacher kit", "Curriculum & Spaces", "2025–26 activity bank"] as const;
 type ProjectTab = (typeof tabs)[number];

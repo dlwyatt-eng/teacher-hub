@@ -1,26 +1,20 @@
 "use client";
 
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { Component, lazy, Suspense, useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import { curriculum, type CurriculumGroup, type CurriculumRecord } from "./curriculum";
 import { scienceInquiryProject, scienceLessons, sciencePacing, scienceUnits, type ScienceLesson } from "./science-program";
 import { assessmentHighlights, assessmentPrinciples, equityCalendar, expectationGroups, homeworkPolicy, philosophyCommitments, spacesAnnualEvidenceSummary, spacesEvidenceForMonth, spacesEvidenceRhythm, spacesPortfolioBudget, spacesPostRecipe, spacesReportingWindows, thingsToKnow, yearMonths } from "./classroom-program";
-import InquiryExperiencePlayer from "./inquiry-experience";
-import { SocialStudiesProgramTab, SocialStudiesStudentLaunch } from "./social-studies-program";
-import { LearningProgramTab, StudentLearningProgram } from "./learning-program";
 import { coreLearningPrograms } from "./core-programs";
 import { integratedLearningPrograms } from "./integrated-programs";
 import { socialLessons, socialUnits } from "./social-program";
 import { alignmentByArc, resolveAlignment, subjectCoverageNotes } from "./curriculum-alignment";
-import CrossCurricularProjects from "./cross-curricular-projects";
-import { priorPracticeSummary } from "./cross-curricular-program";
 import { printClosest } from "./print-support";
-import TeachingOsMap from "./teaching-os-map";
 import { WorldAtlasIntroduction, WorldPortal, WorldJourney } from "./unit-world-components";
 import { worldFor, worldStyle } from "./unit-worlds";
 import { StudentWorldEntry } from "./student-mission";
 import { dailyLaunchContentId, type DailyLaunch } from "./daily-launch";
 import { StudentHomePortal, StudentWorldAtlas, TeacherDailyLaunchManager } from "./student-home-portal";
-import { TtocDayPlan, type TtocWeekImportOption } from "./ttoc-day-plan";
+import type { TtocWeekImportOption } from "./ttoc-day-plan";
 import {
   SEPTEMBER_FORMED_CLASS_WEEK_STORAGE_KEY,
   SEPTEMBER_ROTATION_WEEK_STORAGE_KEY,
@@ -39,20 +33,31 @@ import {
   type Weekday,
 } from "./weekly-plan";
 import { SiteSearch, type SiteSearchTarget } from "./site-search";
-import FirstWeekMission from "./first-week-mission";
 import { studentStepsFor } from "./program-supports";
-import AiActivityStudio from "./ai-activity-studio";
-import AiTensionsLab from "./ai-tensions-lab";
-import { schoolAIActivities } from "./schoolai-activities";
-import MorningScreen, { type MorningTimelineItem } from "./morning-screen";
-import { MyInquiryHub, NewsroomHub, StudentAgencyDock } from "./student-agency-hub";
+import type { MorningTimelineItem } from "./morning-screen";
+import StudentAgencyDock from "./student-agency-dock";
 import { vancouverDateKey as morningDateKey } from "./morning-screen-state";
 import TeacherHomeOperations from "./teacher-home-operations";
-import MonthlyCalendar from "./monthly-calendar";
-import VisualReviewStudio from "./visual-review-studio";
 import { currentLearningWindow } from "./current-learning-phase";
 import { firstYearWeekLaunchForMonth, suggestedYearWeekLaunch, yearWeekLaunchForWeek, yearWeekLaunches } from "./year-week-registry";
 import currentLearningSource from "../content/current-learning-window-v2.json";
+
+const InquiryExperiencePlayer = lazy(() => import("./inquiry-experience"));
+const SocialStudiesProgramTab = lazy(() => import("./social-studies-program").then((module) => ({ default: module.SocialStudiesProgramTab })));
+const SocialStudiesStudentLaunch = lazy(() => import("./social-studies-program").then((module) => ({ default: module.SocialStudiesStudentLaunch })));
+const LearningProgramTab = lazy(() => import("./learning-program").then((module) => ({ default: module.LearningProgramTab })));
+const StudentLearningProgram = lazy(() => import("./learning-program").then((module) => ({ default: module.StudentLearningProgram })));
+const CrossCurricularProjects = lazy(() => import("./cross-curricular-projects"));
+const TeachingOsMap = lazy(() => import("./teaching-os-map"));
+const TtocDayPlan = lazy(() => import("./ttoc-day-plan").then((module) => ({ default: module.TtocDayPlan })));
+const FirstWeekMission = lazy(() => import("./first-week-mission"));
+const AiActivityStudio = lazy(() => import("./ai-activity-studio"));
+const AiTensionsLab = lazy(() => import("./ai-tensions-lab"));
+const MorningScreen = lazy(() => import("./morning-screen"));
+const NewsroomHub = lazy(() => import("./student-agency-hub").then((module) => ({ default: module.NewsroomHub })));
+const MyInquiryHub = lazy(() => import("./student-agency-hub").then((module) => ({ default: module.MyInquiryHub })));
+const MonthlyCalendar = lazy(() => import("./monthly-calendar"));
+const VisualReviewStudio = lazy(() => import("./visual-review-studio"));
 
 const learningPrograms = { ...coreLearningPrograms, ...integratedLearningPrograms };
 const teachingMonths = ["September", "October", "November", "December", "January", "February", "March", "April", "May", "June"];
@@ -486,7 +491,7 @@ const recentUpdates = [
     id: "bloxels-spaces-bank",
     title: "Bloxels, returning activity bank & SpacesEDU rhythm",
     date: "Aug. 13, 2026",
-    detail: `Restored the January Bloxels story-game as a supplied ELA/ADST project. Organized all ${priorPracticeSummary.originalRecordCount} prior SpacesEDU records into ${priorPracticeSummary.familyCount} useful families and separated portfolio highlights, optional evidence, in-class work, and private support records.`,
+    detail: "Restored the January Bloxels story-game as a supplied ELA/ADST project. Organized prior SpacesEDU records into useful evidence families and separated portfolio highlights, optional evidence, in-class work, and private support records.",
     destination: "Cross-Curricular Projects",
   },
   {
@@ -497,6 +502,42 @@ const recentUpdates = [
     destination: "Year Plan",
   },
 ];
+
+function RouteLoading({ label }: { label: string }) {
+  return (
+    <div className="page">
+      <div className="route-loading" role="status" aria-live="polite" aria-busy="true">
+        <span aria-hidden="true">W</span>
+        <div><strong>Opening {label}…</strong><small>Loading only the tools and materials for this view.</small></div>
+      </div>
+    </div>
+  );
+}
+
+class RouteErrorBoundary extends Component<{ children: ReactNode; routeKey: string }, { failed: boolean }> {
+  state = { failed: false };
+
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+
+  componentDidUpdate(previous: Readonly<{ children: ReactNode; routeKey: string }>) {
+    if (previous.routeKey !== this.props.routeKey && this.state.failed) this.setState({ failed: false });
+  }
+
+  render() {
+    if (!this.state.failed) return this.props.children;
+    return (
+      <div className="page">
+        <section className="route-error" role="alert">
+          <span aria-hidden="true">↻</span>
+          <div><p className="section-kicker">VIEW COULD NOT LOAD</p><h2>Refresh to reconnect this part of the Hub.</h2><p>The Home page is still available. This can happen when school Wi-Fi drops or the Hub was updated while this tab stayed open.</p></div>
+          <button type="button" onClick={() => window.location.reload()}>Refresh this view</button>
+        </section>
+      </div>
+    );
+  }
+}
 
 export default function Home() {
   const hydrated = useSyncExternalStore(subscribeToHydration, getClientHydrationSnapshot, getServerHydrationSnapshot);
@@ -784,6 +825,8 @@ function ClassroomHome() {
           </div>
         </header>
 
+        <RouteErrorBoundary routeKey={`${active}:${selectedSubject?.name ?? ""}:${selectedScienceLesson?.id ?? ""}`}>
+        <Suspense fallback={<RouteLoading label={selectedScienceLesson?.title ?? selectedSubject?.short ?? active} />}>
         {selectedSubject ? (
           <SubjectHub key={`${selectedSubject.name}:${subjectNavigationRevision}`} subject={selectedSubject} mode={mode} onBack={goHome} onOpenLesson={openScienceLesson} />
         ) : active === "Home" ? (
@@ -825,6 +868,8 @@ function ClassroomHome() {
         ) : (
           <PlaceholderPage title={active} onHome={goHome} />
         )}
+        </Suspense>
+        </RouteErrorBoundary>
       </main>
     </div>
   );
@@ -966,7 +1011,7 @@ function Dashboard({ onSubject, onNavigate, onOpenScienceLesson, onProjectMornin
           <button onClick={() => onNavigate("Weekly Plan")}><span>▤</span><strong>Weekly plan</strong><small>Auto-filled launch week</small></button>
           <button onClick={() => onNavigate("TTOC Day Plan")}><span>☷</span><strong>TTOC day plan</strong><small>Build and print one day</small></button>
           <button onClick={() => onNavigate("Year Plan")}><span>▦</span><strong>Year plan</strong><small>September–June</small></button>
-          <button onClick={() => onNavigate("AI Activity Studio")}><span>AI</span><strong>AI activity studio</strong><small>{schoolAIActivities.filter((activity) => activity.status === "prompt-ready").length} prompt-ready SchoolAI packs</small></button>
+          <button onClick={() => onNavigate("AI Activity Studio")}><span>AI</span><strong>AI activity studio</strong><small>Curated prompt-ready SchoolAI packs</small></button>
           <button onClick={() => onNavigate("AI Tensions Lab")}><span>↔</span><strong>AI tensions lab</strong><small>12 reusable human / AI / both dilemmas</small></button>
           <button onClick={() => onNavigate("Assessment Studio")}><span>✓</span><strong>Assessment</strong><small>8 cross-curricular highlights</small></button>
           <button onClick={() => onNavigate("Classroom Guide")}><span>⌑</span><strong>Classroom guide</strong><small>Students · families · teacher</small></button>
@@ -1510,7 +1555,7 @@ function SpacesEvidencePage({ mode, onHome, onAssessment, onProjects }: { mode: 
         <header><div><p className="section-kicker">2026–27 SINGLE SOURCE OF TRUTH</p><h2>{requiredCount} major anchors, plus evidence when learning needs it.</h2><p>No month has more than two major anchors. Shorter subject posts, student-selected work, and progress evidence can be added throughout the year; the anchor registry protects the major projects without setting an annual maximum.</p></div><span><strong>{requiredCount}</strong>major anchors</span></header>
         <nav aria-label="Filter SpacesEDU evidence rhythm">{rhythmKinds.map(kind => <button key={kind} className={rhythmFilter === kind ? "selected" : ""} onClick={() => setRhythmFilter(kind)}>{kind}<span>{spacesEvidenceRhythm.filter(item => item.kind === kind).length}</span></button>)}</nav>
         <div>{visibleRhythm.map(item => <article key={item.id} className={`rhythm-${item.kind.toLowerCase().replaceAll(" ", "-").replaceAll("/", "-")}`}><header><span>{item.month}</span><small>{item.kind}</small></header><h3>{item.title}</h3><p>{item.purpose}</p><blockquote><b>WHAT TO SAVE</b>{item.evidence}</blockquote><div>{item.subjects.map(subject => <span key={subject}>{subject}</span>)}</div><details><summary>Familiar activity sources ▾</summary><p>{item.sourceActivities.join(" · ")}</p></details></article>)}</div>
-        <footer><div><strong>Looking for last year&apos;s exact list?</strong><span>All {priorPracticeSummary.originalRecordCount} original titles and tag counts are organized into {priorPracticeSummary.familyCount} reusable activity families.</span></div><button onClick={onProjects}>Open the 2025–26 activity bank →</button></footer>
+        <footer><div><strong>Looking for last year&apos;s exact list?</strong><span>The original titles and tag counts are organized into reusable activity families.</span></div><button onClick={onProjects}>Open the 2025–26 activity bank →</button></footer>
       </section>
 
       <section className="post-recipe">

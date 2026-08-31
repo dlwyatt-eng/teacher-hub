@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { gzipSync } from "node:zlib";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "pages-dist");
@@ -41,4 +42,23 @@ for (const ref of htmlRefs) {
   await stat(path.join(dist, relative));
 }
 
-console.log(`Verified ${emittedFiles.length} emitted files and every copied public asset.`);
+const initialScriptRef = index.match(/<script[^>]+src="(\/teacher-hub\/assets\/[^"?]+\.js)"/)?.[1];
+const initialStyleRef = index.match(/<link[^>]+rel="stylesheet"[^>]+href="(\/teacher-hub\/assets\/[^"?]+\.css)"/)?.[1];
+assert.ok(initialScriptRef, "Pages HTML is missing its initial JavaScript asset.");
+assert.ok(initialStyleRef, "Pages HTML is missing its initial stylesheet.");
+const [initialScript, initialStyle] = await Promise.all([
+  readFile(path.join(dist, initialScriptRef.replace(/^\/teacher-hub\//, ""))),
+  readFile(path.join(dist, initialStyleRef.replace(/^\/teacher-hub\//, ""))),
+]);
+const initialScriptGzip = gzipSync(initialScript, { level: 9 }).byteLength;
+const initialStyleGzip = gzipSync(initialStyle, { level: 9 }).byteLength;
+assert.ok(initialScriptGzip < 350_000, `Initial JavaScript exceeded the 350 KB gzip budget: ${initialScriptGzip} bytes.`);
+assert.ok(initialStyleGzip < 110_000, `Initial CSS exceeded the 110 KB gzip budget: ${initialStyleGzip} bytes.`);
+assert.ok(initialScriptGzip + initialStyleGzip < 450_000, `Initial code exceeded the 450 KB combined gzip budget: ${initialScriptGzip + initialStyleGzip} bytes.`);
+
+const deferredScripts = emittedFiles.filter((file) => file.endsWith(".js") && !file.endsWith(path.basename(initialScriptRef)));
+const deferredStyles = emittedFiles.filter((file) => file.endsWith(".css") && !file.endsWith(path.basename(initialStyleRef)));
+assert.ok(deferredScripts.length >= 10, "Expected major Teacher Hub views to remain code-split.");
+assert.ok(deferredStyles.length >= 8, "Expected major Teacher Hub styles to remain route-split.");
+
+console.log(`Verified ${emittedFiles.length} emitted files, every copied public asset, and ${(initialScriptGzip / 1024).toFixed(1)} KB JS + ${(initialStyleGzip / 1024).toFixed(1)} KB CSS initial gzip.`);

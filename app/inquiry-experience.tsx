@@ -13,6 +13,10 @@ import { TeacherDailyLaunchButton } from "./student-home-portal";
 import { TeacherRunSheet, teacherRunSheetSaveTarget } from "./teacher-run-sheet";
 import { coreCompetencyMovesFor, runSheetAccessibilityFor, runSheetDiscussionMovesFor } from "./learning-lens";
 import { spacesPolicyForActivity } from "./classroom-program";
+import "./unit2-mixtures.css";
+import "./forces-audit.css";
+import "./science-mission-log.css";
+import "./teacher-run-sheet.css";
 
 type Props = {
   lesson: ScienceLesson;
@@ -371,7 +375,7 @@ function PaperPlaneEvidenceLab({ scene }: { scene: number }) {
           <div><b>{plane.name}</b><small>{fairLaunch ? "same launcher" : index === 0 ? "hard throw" : index === 1 ? "gentle throw" : "medium throw"}</small></div>
           <em>{fairRepeat ? "3 flights" : "1 flight"}</em>
         </div>)}
-        <footer><span className={fairLaunch ? "fixed" : ""}>Launch {fairLaunch ? "✓" : "?"}</span><span className={fairStart ? "fixed" : ""}>Start line {fairStart ? "✓" : "?"}</span><span className={fairRepeat ? "fixed" : ""}>Repeats {fairRepeat ? "✓" : "?"}</span></footer>
+        <footer><span className={fairLaunch ? "is-fixed" : ""}>Launch {fairLaunch ? "✓" : "?"}</span><span className={fairStart ? "is-fixed" : ""}>Start line {fairStart ? "✓" : "?"}</span><span className={fairRepeat ? "is-fixed" : ""}>Repeats {fairRepeat ? "✓" : "?"}</span></footer>
       </div>
       <div className="fair-question-panel"><header><small>CHOOSE THE FAIR TEST</small><b>{Object.keys(fairAnswers).length} of 3 answered</b></header>{fairQuestions.map((question, questionIndex) => <article key={question.prompt}><strong>{questionIndex + 1}. {question.prompt}</strong><div>{question.choices.map((choice, choiceIndex) => { const answered = fairAnswers[questionIndex] !== undefined; const selected = fairAnswers[questionIndex] === choiceIndex; const correct = choiceIndex === question.answer; return <button key={choice} className={selected ? (correct ? "correct" : "incorrect") : answered && correct ? "answer" : ""} onClick={() => setFairAnswers(current => ({ ...current, [questionIndex]: choiceIndex }))}>{choice}</button>; })}</div>{fairAnswers[questionIndex] !== undefined && <p className={fairAnswers[questionIndex] === question.answer ? "correct" : "incorrect"}>{fairAnswers[questionIndex] === question.answer ? "Yes. " : "Try again. "}{question.why}</p>}</article>)}{allFair && <footer><b>Now it is a fair comparison:</b> only the plane design changes. The launch, starting line, measuring method, and number of trials stay the same.</footer>}</div>
     </section>;

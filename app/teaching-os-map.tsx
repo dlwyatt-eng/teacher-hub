@@ -10,6 +10,7 @@ import {
   teachingOsCoverage,
 } from "./teaching-os-data";
 import { schoolAIActivities } from "./schoolai-activities";
+import "./teaching-os-map.css";
 
 type TeachingOsMapProps = {
   onHome: () => void;

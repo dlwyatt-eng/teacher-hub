@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useMemo, useRef, useState } from "react";
 import { authenticSourceNeeds, codeVisualConcepts, visualAuditFacts, visualCandidates, type CodeVisualConcept } from "./visual-review-catalog";
+import "./visual-review-studio.css";
 
 type Decision = "selected" | "hold" | "rejected";
 type ReviewRecord = { decision?: Decision; note?: string; allowReuse?: boolean; reviewedAt?: string };

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import "./monthly-calendar.css";
 import { yearMonths } from "./classroom-program";
 import { printClosest } from "./print-support";
 import {
