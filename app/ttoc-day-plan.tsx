@@ -264,10 +264,15 @@ export function mergeWeeklyDayIntoTtocPlan(plan: TtocDayPlanData, weeklyPlan: We
 function readPlan(storageKey: string) {
   try {
     const stored = window.localStorage.getItem(storageKey);
-    return stored ? parseTtocDayPlan(JSON.parse(stored)) : null;
+    const parsed = stored ? parseTtocDayPlan(JSON.parse(stored)) : null;
+    return parsed ? { ...parsed, essentials: { ...emptyTtocEssentials(), noTechRoute: parsed.essentials.noTechRoute } } : null;
   } catch {
     return null;
   }
+}
+
+function planForDeviceStorage(plan: TtocDayPlanData): TtocDayPlanData {
+  return { ...plan, essentials: { ...emptyTtocEssentials(), noTechRoute: plan.essentials.noTechRoute } };
 }
 
 /** Adds one prepared lesson without requiring the full day-plan workspace to be open. */
@@ -277,7 +282,7 @@ export function addLessonToDevicePlan(lesson: TtocDayPlanLesson, storageKey = TT
   if (current.blocks.length >= 24) return "blocked";
   const next = { ...current, blocks: [...current.blocks, lessonBlockFrom(lesson)] } satisfies TtocDayPlanData;
   try {
-    window.localStorage.setItem(storageKey, JSON.stringify(next));
+    window.localStorage.setItem(storageKey, JSON.stringify(planForDeviceStorage(next)));
     window.dispatchEvent(new Event(TTOC_DAY_PLAN_CHANGE_EVENT));
     return "added";
   } catch {
@@ -356,7 +361,7 @@ export function TtocDayPlan({ currentLesson, storageKey = TTOC_DAY_PLAN_STORAGE_
   useEffect(() => {
     if (!ready) return;
     try {
-      window.localStorage.setItem(storageKey, JSON.stringify(plan));
+      window.localStorage.setItem(storageKey, JSON.stringify(planForDeviceStorage(plan)));
     } catch {
       window.setTimeout(() => setStatus("This browser blocked saving. Keep this tab open or print the plan now."), 0);
     }
@@ -479,6 +484,7 @@ export function TtocDayPlan({ currentLesson, storageKey = TTOC_DAY_PLAN_STORAGE_
           <b className="ttoc-day-plan__print-value">{plan.date || "Date not set"}</b>
         </label>
       </header>
+      <p className="ttoc-day-plan__privacy-note"><strong>Planning only—this static site is not a secure student-record system.</strong> Do not enter student names, contacts, access codes, medical details, or confidential safety information anywhere in this plan. Attach the district-approved private TTOC record for those details.</p>
 
       {showCurrentLesson && currentLesson && <section className="ttoc-day-plan__add-current" aria-label="Add the current lesson">
         <div><small>CURRENT LESSON</small><strong>{currentLesson.subject} · {currentLesson.title}</strong><span>{currentLesson.timing}</span></div>
@@ -512,28 +518,28 @@ export function TtocDayPlan({ currentLesson, storageKey = TTOC_DAY_PLAN_STORAGE_
 
       <section className="ttoc-day-plan__essentials" aria-labelledby="ttoc-essentials-title">
         <header>
-          <div><small>PRIVATE · EDIT BEFORE SHARING</small><strong id="ttoc-essentials-title">TTOC Essentials</strong></div>
-          <p>Saved on this teacher computer. Add only current, school-approved details.</p>
+          <div><small>GENERAL PROCEDURES ONLY</small><strong id="ttoc-essentials-title">TTOC Essentials</strong></div>
+          <p>Attendance, emergency, supervision, and dismissal text is available for immediate printing but is deliberately not saved by this site.</p>
         </header>
         <div>
           <label>
             <span>ATTENDANCE</span>
-            <textarea value={plan.essentials.attendance} maxLength={600} rows={2} placeholder="Blank — add the attendance process and where it goes." onChange={(event) => updateEssentials("attendance", event.target.value)} />
+            <textarea value={plan.essentials.attendance} maxLength={600} rows={2} placeholder="General process only — no names, identifiers, or access codes." onChange={(event) => updateEssentials("attendance", event.target.value)} />
             <p className="ttoc-day-plan__print-value">{plan.essentials.attendance || "Not added — complete before leaving this plan."}</p>
           </label>
           <label>
             <span>OFFICE / EMERGENCY</span>
-            <textarea value={plan.essentials.officeEmergency} maxLength={600} rows={2} placeholder="Blank — add office contact and school-approved emergency directions." onChange={(event) => updateEssentials("officeEmergency", event.target.value)} />
+            <textarea value={plan.essentials.officeEmergency} maxLength={600} rows={2} placeholder="General office route only — keep contacts, codes, medical and safety details in the approved private plan." onChange={(event) => updateEssentials("officeEmergency", event.target.value)} />
             <p className="ttoc-day-plan__print-value">{plan.essentials.officeEmergency || "Not added — complete before leaving this plan."}</p>
           </label>
           <label>
             <span>SUPERVISION / SPECIALISTS</span>
-            <textarea value={plan.essentials.supervisionSpecialists} maxLength={600} rows={2} placeholder="Blank — add duty locations, transitions, and specialist blocks." onChange={(event) => updateEssentials("supervisionSpecialists", event.target.value)} />
+            <textarea value={plan.essentials.supervisionSpecialists} maxLength={600} rows={2} placeholder="General duty and transition route only — no student information." onChange={(event) => updateEssentials("supervisionSpecialists", event.target.value)} />
             <p className="ttoc-day-plan__print-value">{plan.essentials.supervisionSpecialists || "Not added — complete before leaving this plan."}</p>
           </label>
           <label>
             <span>DISMISSAL</span>
-            <textarea value={plan.essentials.dismissal} maxLength={600} rows={2} placeholder="Blank — add the dismissal routine and exceptions." onChange={(event) => updateEssentials("dismissal", event.target.value)} />
+            <textarea value={plan.essentials.dismissal} maxLength={600} rows={2} placeholder="General routine only — keep student-specific exceptions in the approved private plan." onChange={(event) => updateEssentials("dismissal", event.target.value)} />
             <p className="ttoc-day-plan__print-value">{plan.essentials.dismissal || "Not added — complete before leaving this plan."}</p>
           </label>
           <label className="ttoc-day-plan__essentials-wide">

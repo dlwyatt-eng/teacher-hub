@@ -35,10 +35,11 @@ function NewsroomSourcePage() {
 }
 
 function IssueInvestigationShelf({ audience }: { audience: AgencyAudience }) {
+  const sourceSets = issueInvestigations.length;
   return (
     <section className="issue-investigation-shelf" aria-labelledby="issue-investigation-title">
       <header>
-        <div><small>CANADIAN + WORLD ISSUES · FIVE SOURCE SETS</small><h2 id="issue-investigation-title">Questions worth returning to this year</h2></div>
+        <div><small>CANADIAN + WORLD ISSUES · {sourceSets} SOURCE SETS</small><h2 id="issue-investigation-title">Questions worth returning to this year</h2></div>
         <p>Open one issue when it strengthens the unit. Start with its real source, let teams build a careful first idea, and continue only when the question earns more time.</p>
       </header>
       <div className="issue-investigation-shelf__grid">
@@ -46,7 +47,7 @@ function IssueInvestigationShelf({ audience }: { audience: AgencyAudience }) {
           <summary><span>{issue.scope}</span><strong>{issue.title}</strong><p>{issue.question}</p><b>{issue.suggestedTiming}</b></summary>
           <div className="issue-investigation-shelf__body">
             <section className="issue-investigation-shelf__start"><small>WHY THIS ONE</small><p>{issue.whyItMatters}</p><strong>Team product</strong><span>{issue.teamProduct}</span><strong>Roles</strong><span>{issue.groupRoles}</span></section>
-            <nav aria-label={`${issue.title} sources`}>{issue.sources.map((source) => <a key={source.id} href={source.url} target="_blank" rel="noreferrer"><small>{source.kind.replaceAll("-", " ")} · {source.access.replaceAll("-", " ")}</small><strong>{source.title}</strong><span>{source.organization} ↗</span><p>{source.lookFor}</p></a>)}</nav>
+            <nav aria-label={`${issue.title} sources`}>{issue.sources.filter((source) => audience === "teacher" || source.access === "student-ready").map((source) => <a key={source.id} href={source.url} target="_blank" rel="noreferrer"><small>{source.kind.replaceAll("-", " ")} · {source.access.replaceAll("-", " ")}</small><strong>{source.title}</strong><span>{source.organization} ↗</span><p>{source.lookFor}</p></a>)}</nav>
             <section className="issue-investigation-shelf__route"><div><small>QUICK LOOK</small><ol>{issue.quickLook.map((move) => <li key={move}>{move}</li>)}</ol></div><div><small>DEEP DIVE</small><ol>{issue.deepDive.map((move) => <li key={move}>{move}</li>)}</ol></div></section>
             {audience === "teacher" && <aside><div><small>PLAN / TTOC</small><strong>{issue.teacherNote}</strong></div><div><small>IF LINKS FAIL</small><p>{issue.offlineFallback}</p></div><div><small>SPACES EDU</small><p>{issue.spacesUse === "none" ? "Discussion and class work only; no separate post." : "Use only if this becomes selected evidence inside an existing Social Studies inquiry."}</p></div></aside>}
           </div>

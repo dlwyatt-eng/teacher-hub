@@ -231,7 +231,7 @@ const vocabulary: Record<string, WordHelp> = {
 };
 
 const arcWords: Record<string, string[]> = {
-  "ela-belonging": ["active listening", "narrator", "revise"],
+  "ela-belonging": ["active listening", "narrator", "source", "context", "revise"],
   "ela-media": ["perspective", "crop", "context", "caption"],
   "ela-reading-power": ["inference", "evidence", "plot", "conflict", "turning_point", "dialogue", "story_block"],
   "ela-research": ["source", "reliable", "paraphrase", "audience"],
@@ -327,6 +327,19 @@ export const experienceKits: Record<string, ExperienceKit> = {
       { title: "ENDING · CAUSE + CHANGE", body: "Show what is different because of the turn. Connect the ending back to the object instead of simply stopping." },
       { title: "LISTENER TEST", body: "Listener: name the beginning, turn, and ending you heard. Then ask one exact question about the place where you got lost." },
       { title: "RETELL", body: "Storyteller: add the detail that answers the listener's question. Tell it again without adding unrelated length." },
+    ],
+  },
+  "semiahmoo-story-source-lab": {
+    setupMinutes: 8,
+    provided: ["Projectable attribution card", "Heard · interpreted · wondered note frame", "Permission and sharing-boundary card", "Original fictional oral-text backup"],
+    gather: ["Teacher-controlled computer and projector for the district source", "Paper or notebooks", "Pencils"],
+    shortRoute: "No Wi-Fi or TTOC: read the supplied fictional account aloud twice. Students complete the same source card and sort heard, interpreted, and wondered. This rehearses the listening skill only; reschedule the Semiahmoo source and do not count the rehearsal as First Peoples oral-tradition evidence.",
+    cards: [
+      { title: "SOURCE CARD · BEFORE LISTENING", body: "Record: exact title · speaker · community or context exactly as the source names it · host/source route · format · date accessed. Do not add a Nation, teaching, or ownership claim the source does not state." },
+      { title: "LISTEN 1 · NO STORY NOTES", body: "Listen for the whole source. After it ends, record one learning and one question. A blank is safer than a guess." },
+      { title: "LISTEN 2 · SORT THE RESPONSE", body: "HEARD: the source supports it. INTERPRETED: my thinking about it. WONDERED: a question I still have." },
+      { title: "PERMISSION CHECK", body: "Access to listen is not automatic permission to copy, download, transcribe, retell, reenact, remix, or repost. Follow current guidance and acknowledge the source and any owner the source identifies." },
+      { title: "NO-WIFI FICTIONAL REHEARSAL · TEACHER READS", body: "After lunch, Mina notices a paper envelope beneath the covered bench. The front says ‘Room 12,’ but no name. She brings it unopened to the office. The secretary calls Room 12, and a student retrieves a set of handmade game cards before dismissal. Attribute this as a teacher-read fictional Classroom OS practice text." },
     ],
   },
   "edit-room": {

@@ -29,8 +29,7 @@ import MathNumberScaleLab, { magnitudeScaleLabExperienceId } from "./math-number
 import EditRoomLab, { editRoomExperienceId } from "./ela-edit-room-lab";
 import FourArtsLab, { fourArtsExperienceId } from "./four-arts-lab";
 import { projectorReadinessFromSupport, resolveProjectorLessonSupport } from "./projector-lesson-supports";
-import { TeacherRunSheet } from "./teacher-run-sheet";
-import { StudentTeacherLayer } from "./student-teacher-layer";
+import { TeacherRunSheet, teacherRunSheetSaveTarget } from "./teacher-run-sheet";
 import { coreCompetencyMovesFor } from "./learning-lens";
 import { mathAnticsFor } from "./math-antics-routes";
 import CurrentConnectionPlayer from "./current-connection";
@@ -50,6 +49,26 @@ const spacesLabel = {
   required: "SELECTED SPACES EDU EVIDENCE",
   reuse: "FEEDS EXISTING POST · NO NEW POST",
 } as const;
+
+const elaWorkshopRhythm = [
+  { marker: "DAILY", title: "Read or listen", time: "15–25 min", body: "Choice reading, shared text, audiobook, or teacher read-aloud. Confer with a rotating few; do not require a response sheet every day." },
+  { marker: "1× / WEEK", title: "Teach one reading move", time: "10–15 min", body: "Model predict, infer, connect, summarize, question, or repair confusion in the text students are actually using." },
+  { marker: "2× / WEEK", title: "Create and revise", time: "45–60 min", body: "Draft for a real purpose. Embed one sentence, paragraph, spelling, grammar, or punctuation mini-lesson that answers a need visible in current work." },
+  { marker: "ROTATING", title: "Confer and notice growth", time: "3–5 min / student", body: "Use a reading conference, oral response, or short on-demand write. Keep most evidence in teacher notes; save only selected work to SpacesEDU." },
+] as const;
+
+function ElaWorkshopRhythm() {
+  return (
+    <section className="ela-workshop-rhythm" aria-labelledby="ela-workshop-rhythm-title">
+      <header>
+        <div><p className="section-kicker">YEAR-LONG ELA RHYTHM</p><h2 id="ela-workshop-rhythm-title">Read or listen. Learn one useful move. Create, confer, and revise.</h2><p>This rhythm continues while the six inquiry arcs supply the texts, questions, and audiences.</p></div>
+        <span>NOT AN EXTRA UNIT</span>
+      </header>
+      <div>{elaWorkshopRhythm.map((move) => <article key={move.title}><small>{move.marker}</small><h3>{move.title}</h3><b>{move.time}</b><p>{move.body}</p></article>)}</div>
+      <footer><strong>Keep evidence lean.</strong><span>Conversation notes, drafts, oral responses, and observation count; SpacesEDU remains selective.</span></footer>
+    </section>
+  );
+}
 
 function spacesDisplayFor(experience: ProgramExperience) {
   const policy = spacesPolicyForActivity(experience.id);
@@ -238,7 +257,7 @@ function ExactAnchorVisual({ experience, media }: { experience: ProgramExperienc
   if (experience.id === "packet-rescue") return <PacketRescueVisualPicker images={media.filter((item) => item.type === "image" && item.localSrc)} />;
   if (experience.id === "everyone-in-game") return <>
     {image && <figure className="program-learning-visual visual-everyone-in-game">
-      <Image unoptimized src={image.localSrc} alt="Illustrated school field where Grade 6 students contribute through passing, signalling, observing, adjusting boundaries, resting, and rejoining" width={1672} height={941} sizes="(max-width: 900px) 100vw, 1100px" />
+      <Image unoptimized src={image.localSrc!} alt="Illustrated school field where Grade 6 students contribute through passing, signalling, observing, adjusting boundaries, resting, and rejoining" width={1672} height={941} sizes="(max-width: 900px) 100vw, 1100px" />
       <figcaption><span>FICTIONAL GAME SCENE · NOTICE BEFORE CHANGING</span><strong>{image.label}</strong><p>{image.studentTask}</p></figcaption>
     </figure>}
     <section className="game-court-visual" aria-label="Top-down court diagram for the no-elimination passing game"><header><span>BASE GAME · TOP VIEW</span><strong>Five passes to five different teammates</strong></header><div><i>START</i>{["A", "B", "C", "D", "E", "F", "G", "H"].map((label, index) => <b key={label} className={`player-${index + 1}`}>{label}</b>)}<em>SAFE EDGE</em></div><p>Spread out, keep heads up, use soft equipment, and offer a seated or walking route.</p></section>
@@ -352,14 +371,21 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
         coreCompetencies={coreCompetencyMovesFor(program.subject)}
         learningQuestion={studentContract.challenge}
         learningPurpose={studentContract.why}
+        provocation={experience.hook}
         firstAction={studentContract.firstAction}
         steps={teacherRunSteps}
         finishEvidence={studentContract.finishEvidence}
-        saveMessage={studentContract.saveAction.message}
+        saveTarget={teacherRunSheetSaveTarget(spaces.decision, spaces.teacherPrompt)}
+        lookFors={experience.lookFors}
         readiness={{ ideas: readinessLaunch.background, modelTitle: readinessLaunch.example.title, modelConclusion: readinessLaunch.example.conclusion, check: readinessLaunch.questions[0], reteach: readinessLaunch.reteach }}
         prepare={experience.teacherPrep.slice(0, 3)}
         materials={kit?.gather.length ? kit.gather : experience.materials}
         shortRoute={kit?.shortRoute}
+        routes={{
+          projector: "Open Teach / Project mode and advance one class-facing part at a time; the teacher keeps sources and decisions under whole-class control.",
+          sharedDevice: "Use one teacher-controlled screen for the launch and sources. Pairs or tables complete the same thinking through talk, paper, materials, and a shared check.",
+          offline: kit?.shortRoute ?? "Read the hook and first move aloud, use the listed physical materials or plain paper, and collect the same finish evidence without an account or upload.",
+        }}
         extension={phasedCoordinateBridge ? "Continue into negative coordinates only after students can describe and verify the first-quadrant moves." : undefined}
         dayPlanLesson={{ sourceId: experience.id, subject: program.subject, title: studentTitleFor(experience), timing: experience.duration, runSteps: teacherRunSteps.map((step) => `${step.title}: ${step.action}`) }}
         launchResource={mathAntics ?? undefined}
@@ -397,6 +423,7 @@ export function LearningProgramTab({ program, record, tab, selectedExperienceId,
         <span>{program.cadence}</span>
       </section>
       <section className="program-north-star"><span>WHY THIS PROGRAM EXISTS</span><blockquote>{program.northStar}</blockquote><div>{program.principles.map((principle, index) => <p key={principle}><b>{String(index + 1).padStart(2, "0")}</b>{principle}</p>)}</div></section>
+      {program.subject === "English Language Arts" && <ElaWorkshopRhythm />}
       <WorldAtlasIntroduction />
       <MathUpMap program={program} />
       {program.subject === "Mathematics" && <MathYearImplementation program={program} />}
@@ -540,7 +567,7 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
   if (usesInteractiveLab) {
     parts.push({ label: "Explore", verb: "Try", content: <div id="mission-path" className="student-interactive-mission projector-active-object">{interactiveLab}</div> });
   } else {
-    parts.push({ label: "Look", verb: "Notice", content: <section className="projector-active-object projector-look-stage"><ExactAnchorVisual experience={selected} media={media} /><ExperienceInfographic experienceId={selected.id} />{selected.id === "graph-story-lab" && <><LocalRestorationInfographic /><ResponsibleDataInfographic /></>}</section> });
+    parts.push({ label: "Look", verb: "Notice", content: <section className="projector-active-object projector-look-stage"><ExactAnchorVisual experience={selected} media={media} /><ExperienceInfographic experienceId={selected.id} /><LocalIndigenousResourceDock experienceId={selected.id} student />{selected.id === "graph-story-lab" && <><LocalRestorationInfographic /><ResponsibleDataInfographic /></>}</section> });
     if (showProjectorQuickStart) parts.push({ label: "Learn", verb: "See it", content: <ProjectorQuickStart key={selected.id} launch={readinessLaunch} words={projectorWords} question={projectorSupport.purpose} firstMove={studentContract.firstAction} /> });
     if (projectorCards.length > 0) parts.push({ label: selected.id === "ordinary-object-story" ? "Tell" : "Discuss", verb: selected.id === "ordinary-object-story" ? "Tell" : "Choose", content: <ProjectorCaseDeck
       key={`${selected.id}-cards`}
@@ -570,19 +597,6 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
         <div><small>{program.subject.toUpperCase()} · {selectedArc.title.toUpperCase()}</small><h1>{studentTitleFor(selected)}</h1><p>{studentContract.challenge}</p></div>
         <nav aria-label="Lesson parts">{parts.map((part, index) => <button type="button" key={`${part.label}-${index}`} className={projectorPart === index ? "active" : ""} aria-current={projectorPart === index ? "step" : undefined} onClick={() => setProjectorPart(index)}><b>{index + 1}</b><span>{part.label}</span></button>)}</nav>
       </header>
-
-      <StudentTeacherLayer
-        bigIdea={selectedArc.question}
-        coreCompetencies={coreCompetencyMovesFor(program.subject)}
-        say={`Today we are asking: ${studentContract.challenge}`}
-        ask={studentContract.challenge}
-        watchFor={studentContract.finishEvidence.slice(0, 2)}
-        ifStuck={readinessLaunch.reteach ?? `Do the first small action together: ${studentContract.firstAction}`}
-        nextMove={studentContract.steps[0]?.finishCheck ?? studentContract.finishEvidence[0] ?? "One useful starting idea is visible."}
-        contentBackground={resolvedAlignment ? [`Official Grade 6 Big Idea: ${resolvedAlignment.bigIdeas[0]}`] : undefined}
-        timing={selected.duration}
-        teacherResource={mathAntics ?? undefined}
-      />
 
       <main className="projector-lesson-player__stage" aria-live="polite">
         <div className="projector-lesson-player__cue"><small>{activePart.verb.toUpperCase()}</small><strong>{activePart.label}</strong></div>

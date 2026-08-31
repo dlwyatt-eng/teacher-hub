@@ -333,8 +333,8 @@ export function starterPlanForStorageKey(storageKey: string): WeeklyPlanData {
   if (storageKey === SEPTEMBER_ROTATION_WEEK_STORAGE_KEY) {
     return weeklyPlanFromSeed({
       weekOf: "2026-09-07",
-      title: "Grade 6 rotation week · September 8–11",
-      weekNote: "Classes are not formed yet. Repeat Make the Call: Technology & AI in Grade 6 with each roughly one-hour rotation and collect one named Learning, Technology & AI Agreement per student for the receiving teacher. Monday is not an instructional day. Add exact bells, group order, supervision, support, and school events.",
+      title: "Grade 6 opening rotations · schedule pending",
+      weekNote: "Classes are not formed and the visit order, group count, duration, and end date are not confirmed. A teacher may see four of five groups each day and some groups may return in the following week. Choose a standalone Discovery organizer and 45-, 60-, or 75-minute route only after the arriving group and available block are known. Add exact bells, group history, supervision, support, and transitions. Collect named originals face-down for private transfer; display only a separately student-approved copy or excerpt.",
       lessons: [],
     });
   }
@@ -367,7 +367,7 @@ export function normalizePlanForStorageKey(plan: WeeklyPlanData, storageKey: str
     : plan.blocks
       .filter((block) => block.sourceId !== "welcome-signal-studio")
       .map((block) => {
-        const matchedDay = block.sourceId?.match(/^welcome-signal-studio-(monday|tuesday|wednesday|thursday|friday)$/)?.[1];
+        const matchedDay = block.sourceId?.match(/^(?:welcome-signal-studio|rotation-(?:identity-constellation|how-i-learn|ideal-learning-space|build-better-grade-6|grade-6-quest-map))-(monday|tuesday|wednesday|thursday|friday)$/)?.[1];
         return matchedDay && weekdaySet.has(matchedDay) ? { ...block, day: matchedDay as Weekday } : block;
       });
 

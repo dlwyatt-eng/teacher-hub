@@ -4,6 +4,7 @@ import { integratedLearningPrograms } from "./integrated-programs";
 import { scienceLessons } from "./science-program";
 import { socialLessons } from "./social-program";
 import { studentStepsFor } from "./program-supports";
+import { currentConnections } from "./current-connections";
 import {
   SCHOOL_YEAR_WEEK_MONDAYS,
   WEEKDAYS,
@@ -45,11 +46,11 @@ const monthLessonSlots: Record<string, readonly (readonly string[])[]> = {
   October: [
     ["rights-in-tension", "search-under-hood", "map-what-maps-miss"],
     ["edit-room", "civic-decision-brief", "same-facts-frame"],
-    ["fleetwood-case-file", "strategy-league", "scoreboard-rules"],
+    ["surrey-election-results-and-next-2026", "strategy-league", "scoreboard-rules"],
     ["search-under-hood", "pack-and-sync", "digital-identity-forensics"],
   ],
   November: [
-    ["character-council", "decimal-dispatch", "fraction-ratio-remix"],
+    ["fleetwood-case-file", "decimal-dispatch", "fraction-ratio-remix"],
     ["rights-in-tension", "rights-in-thirty", "sale-lab"],
     ["power-in-the-room", "leadership-relay", "access-by-design"],
     ["city-moves", "data-skyline", "turning-point-remix"],
@@ -102,8 +103,21 @@ const programExperienceById = new Map(programs.flatMap((program) =>
 ));
 const socialLessonById = new Map(socialLessons.map((lesson) => [lesson.id, lesson]));
 const scienceLessonById = new Map(scienceLessons.map((lesson) => [lesson.id, lesson]));
+const currentConnectionById = new Map(currentConnections.map((connection) => [connection.id, connection]));
 
 function lessonFromSourceId(sourceId: string): WeekPlanSeedLesson {
+  const connection = currentConnectionById.get(sourceId);
+  if (connection) {
+    return {
+      sourceId,
+      subject: "Social Studies · Source Lab",
+      title: connection.title,
+      timing: connection.minutes,
+      runSteps: connection.stages.map((stage) => `${stage.label}: ${stage.studentPrompt}`),
+      notes: `Learning question: ${connection.question}\nTeacher check: ${connection.teacher.beforeClass.join(" ")}\nOffline: ${connection.teacher.offlineFallback}\nNo separate SpacesEDU post unless the teacher deliberately carries this into existing selected evidence.`,
+    };
+  }
+
   const programEntry = programExperienceById.get(sourceId);
   if (programEntry) {
     const { program, experience } = programEntry;
@@ -188,7 +202,7 @@ function buildYearWeekLaunches(): YearWeekLaunch[] {
         seed: {
           weekOf,
           title: `${monthRecord.phase} · ${dateRange}`,
-          weekNote: `${monthRecord.focus}. Open each listed lesson for its exact sources, display, materials, and look-fors; adjust bells and closures before printing. SpacesEDU: ${monthRecord.spaces}.`,
+          weekNote: `${monthRecord.focus}. These are anchor launches, not the full timetable: also schedule 4–5 Mathematics blocks, three short fluency openers, daily reading or listening, PHE, Arts/ADST/Career rhythms, and current class routines. Open each listed lesson for exact sources, displays, materials, and look-fors; adjust bells and closures before printing. SpacesEDU: ${monthRecord.spaces}.`,
           lessons,
         },
       } satisfies YearWeekLaunch;

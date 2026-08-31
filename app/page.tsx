@@ -39,7 +39,7 @@ import {
   type Weekday,
 } from "./weekly-plan";
 import { SiteSearch, type SiteSearchTarget } from "./site-search";
-import FirstWeekMission, { FIRST_WEEK_MISSION_ID, FIRST_WEEK_ROTATION_LESSON } from "./first-week-mission";
+import FirstWeekMission from "./first-week-mission";
 import { studentStepsFor } from "./program-supports";
 import AiActivityStudio from "./ai-activity-studio";
 import AiTensionsLab from "./ai-tensions-lab";
@@ -57,17 +57,6 @@ import currentLearningSource from "../content/current-learning-window-v2.json";
 const learningPrograms = { ...coreLearningPrograms, ...integratedLearningPrograms };
 const teachingMonths = ["September", "October", "November", "December", "January", "February", "March", "April", "May", "June"];
 const STUDENT_FAMILY_SITE_URL = "https://dlwyatt-eng.github.io/learn/";
-
-function rotationWeekSession(day: Weekday) {
-  return {
-    ...FIRST_WEEK_ROTATION_LESSON,
-    sourceId: `${FIRST_WEEK_MISSION_ID}-${day}`,
-    title: "Make the Call: Technology & AI in Grade 6 · repeat with each rotation group",
-    timing: "About 60 min per group",
-    day,
-    notes: "Repeat the same decision lab with each rotating group. Add exact bell times, group order, supervision, and transition details. Print one Learning, Technology & AI Agreement per student. Students work in table teams for the four projector challenges, then write their own agreement so the handoff keeps each learner's voice.",
-  };
-}
 
 function septemberProgramSession(experienceId: string, subject: string, day: Weekday): WeekPlanSeedLesson {
   const experience = learningPrograms[subject]?.experiences.find((item) => item.id === experienceId);
@@ -90,14 +79,9 @@ function septemberProgramSession(experienceId: string, subject: string, day: Wee
 
 const septemberLaunchWeekSeed: WeekPlanSeed = {
   weekOf: "2026-09-07",
-  title: "Grade 6 rotation week · September 8–11",
-  weekNote: "Classes are not formed yet. Repeat Make the Call: Technology & AI in Grade 6 with each roughly one-hour rotation. Collect one named Learning, Technology & AI Agreement per student for the receiving teacher. Monday is not an instructional day. Add exact bells, group order, supervision, support, and school events.",
-  lessons: [
-    rotationWeekSession("tuesday"),
-    rotationWeekSession("wednesday"),
-    rotationWeekSession("thursday"),
-    rotationWeekSession("friday"),
-  ],
+  title: "Grade 6 opening rotations · schedule pending",
+  weekNote: "Classes are not formed and the visit order, group count, block length, and end date are not confirmed. A teacher may see four of five groups each day and some groups may return in the following week. Use Opening Rotations to choose one standalone Discovery organizer and a 45-, 60-, or 75-minute route only after the arriving group and available time are known. Record exact bells, group history, supervision, support, and transitions here. Collect named originals face-down for private transfer; display only a separately student-approved copy or excerpt.",
+  lessons: [],
 };
 
 const firstFormedClassWeekSeed: WeekPlanSeed = {
@@ -136,9 +120,9 @@ type WeeklyPlanLaunchOption = WeeklyPlanPresetOption & {
 const specialSeptemberWeekLaunches = [
   {
     id: "rotation-week",
-    label: "Rotation Week",
-    dateRange: "Sep 8–11, 2026",
-    description: "Repeat the Technology & AI decision lab with each rotation group; Monday is not an instructional day.",
+    label: "Opening Rotations",
+    dateRange: "Sep 8 onward · flexible",
+    description: "Choose a standalone organizer and 45-, 60-, or 75-minute route for each arriving group; order and repeat visits remain open.",
     storageKey: SEPTEMBER_ROTATION_WEEK_STORAGE_KEY,
     seed: septemberLaunchWeekSeed,
     defaultWeekday: "tuesday",
@@ -313,7 +297,7 @@ function normalizeLegacyView(active?: string) {
   return active === "Model Lesson" || active === "Lesson Template" ? "Home" : active;
 }
 
-const projectorSafePages = new Set(["Home", "First Week Mission", "Morning Screen", "Newsroom", "My Inquiry"]);
+const projectorSafePages = new Set(["Home", "First Week Mission", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab"]);
 
 function isProjectorSafePage(active: string) {
   return projectorSafePages.has(active);
@@ -408,10 +392,10 @@ const siteReadiness = [
 
 const recentUpdates = [
   {
-    id: "technology-agreement-morning-screen",
-    title: "Technology decision lab, agreement & Morning Screen",
-    date: "Aug. 16, 2026",
-    detail: "Rebuilt the rotation as a specific projector-led decision lab: detect weak evidence, sort real situations, repair a prompt, challenge a confident AI answer, and create a signed student-teacher agreement. Added an editable Morning Screen for the shape of the day, reminders, sourced daily information, and a reviewed arrival challenge.",
+    id: "discovery-rotations",
+    title: "Discovery rotations & private handoff",
+    date: "Aug. 31, 2026",
+    detail: "Added five standalone Discovery Booklet sessions with 45-, 60-, and 75-minute routes, projector screens, access choices, formative look-fors, TTOC guidance, face-down private transfer, and a separate student-consent process for community display. The earlier technology decision work remains an optional later extension.",
     destination: "First Week Mission",
   },
   {
@@ -533,6 +517,7 @@ function ClassroomHome() {
   const [selectedScienceLesson, setSelectedScienceLesson] = useState<ScienceLesson | null>(initialScienceLesson);
   const [subjectNavigationRevision, setSubjectNavigationRevision] = useState(0);
   const [weeklyPlanLaunchId, setWeeklyPlanLaunchId] = useState(suggestedWeeklyPlanLaunchId);
+  const [aiStudioInitialId, setAiStudioInitialId] = useState<string>();
   const morningTimeline = useMorningTimeline();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
@@ -631,7 +616,15 @@ function ClassroomHome() {
     window.requestAnimationFrame(() => window.requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" })));
   };
 
-  const navigateToPage = (page: string) => commitClassroomLocation(mode, page, null, null);
+  const navigateToPage = (page: string) => {
+    const destination = mode === "projector" && !isProjectorSafePage(page) ? "Home" : page;
+    commitClassroomLocation(mode, destination, null, null);
+  };
+
+  const openAiStudio = (activityId?: string) => {
+    setAiStudioInitialId(activityId);
+    navigateToPage("AI Activity Studio");
+  };
 
   const openMonthWeekPlan = (month: string) => {
     const launch = month === "September"
@@ -798,9 +791,9 @@ function ClassroomHome() {
         ) : active === "Morning Screen" ? (
           <MorningScreen audience={mode === "projector" ? "student" : "teacher"} onOpenHome={goHome} timeline={morningTimeline} />
         ) : active === "Newsroom" ? (
-          <NewsroomHub audience={mode === "projector" ? "student" : "teacher"} onHome={goHome} onInquiry={() => navigateToPage("My Inquiry")} onAiStudio={() => navigateToPage("AI Activity Studio")} />
+          <NewsroomHub audience={mode === "projector" ? "student" : "teacher"} onHome={goHome} onInquiry={() => navigateToPage("My Inquiry")} onAiStudio={() => openAiStudio("schoolai-newsroom-claim-under-pressure")} />
         ) : active === "My Inquiry" ? (
-          <MyInquiryHub audience={mode === "projector" ? "student" : "teacher"} onHome={goHome} onNewsroom={() => navigateToPage("Newsroom")} onAiStudio={() => navigateToPage("AI Activity Studio")} />
+          <MyInquiryHub audience={mode === "projector" ? "student" : "teacher"} onHome={goHome} onNewsroom={() => navigateToPage("Newsroom")} onAiStudio={() => openAiStudio("schoolai-my-inquiry-question-clinic")} />
         ) : active === "AI Tensions Lab" ? (
           <AiTensionsLab audience={mode === "projector" ? "student" : "teacher"} onHome={goHome} />
         ) : active === "Science Lesson" && selectedScienceLesson ? (
@@ -822,7 +815,7 @@ function ClassroomHome() {
         ) : active === "SpacesEDU Evidence" ? (
           <SpacesEvidencePage mode={mode} onHome={goHome} onAssessment={() => navigateToPage("Assessment Studio")} onProjects={() => navigateToPage("Cross-Curricular Projects")} />
         ) : active === "AI Activity Studio" ? (
-          <AiActivityStudio onHome={goHome} />
+          <AiActivityStudio key={aiStudioInitialId ?? "default"} onHome={goHome} initialActivityId={aiStudioInitialId} />
         ) : active === "Visual Review Studio" ? (
           <VisualReviewStudio onHome={goHome} />
         ) : active === "Assessment Studio" ? (
@@ -969,7 +962,7 @@ function Dashboard({ onSubject, onNavigate, onOpenScienceLesson, onProjectMornin
         <div><p className="section-kicker">WHOLE-YEAR FRAMEWORK</p><h2>Plan the year. Notice the evidence. Keep families oriented.</h2><p>The schedule, SpacesEDU assessment highlights, and classroom commitments now live together.</p></div>
         <div>
           <button onClick={() => onNavigate("Morning Screen")}><span>☀</span><strong>Morning Screen</strong><small>Shape of day + reviewed arrival challenge</small></button>
-          <button onClick={() => onNavigate("First Week Mission")}><span>✦</span><strong>First-week mission</strong><small>60-minute decision lab + signed agreement</small></button>
+          <button onClick={() => onNavigate("First Week Mission")}><span>✦</span><strong>Opening rotations</strong><small>5 standalone organizers · 45 / 60 / 75 min</small></button>
           <button onClick={() => onNavigate("Weekly Plan")}><span>▤</span><strong>Weekly plan</strong><small>Auto-filled launch week</small></button>
           <button onClick={() => onNavigate("TTOC Day Plan")}><span>☷</span><strong>TTOC day plan</strong><small>Build and print one day</small></button>
           <button onClick={() => onNavigate("Year Plan")}><span>▦</span><strong>Year plan</strong><small>September–June</small></button>

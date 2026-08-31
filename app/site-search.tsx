@@ -35,7 +35,7 @@ const teacherPages = [
   ["Morning Screen", "Assemble, review, edit, and project today's schedule, announcements, reminders, weather, and arrival challenge."],
   ["Weekly Plan", "Build and print the teaching week; download the one-page Excel desk planner."],
   ["Monthly Calendar", "See the month, saved weekly lessons, and short class-wide events."],
-  ["First Week Mission", "Run the Grade 6 Technology & AI decision lab and collect one signed learning agreement per student."],
+  ["First Week Mission", "Choose and run five standalone Grade 6 Discovery organizer sessions with 45-, 60-, and 75-minute routes, privacy guidance, projector screens, and teacher handoff: Identity Constellation, How I Learn Best, Ideal Learning Space, Build a Better Grade 6, and Grade 6 Quest Map."],
   ["TTOC Day Plan", "Build one clear substitute-teacher day plan."],
   ["Teaching OS Map", "See how plans, lessons, evidence, and student views connect."],
   ["Year Plan", "Open September-to-June pacing and inquiry windows."],

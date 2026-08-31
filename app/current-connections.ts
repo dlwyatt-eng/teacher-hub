@@ -1,4 +1,4 @@
-import { surreyElectionSources } from "./surrey-election-2026-data.ts";
+import { surreyElectionSources } from "./surrey-election-2026-data";
 
 export type CurrentConnectionStageId = "watch" | "notice" | "question" | "discuss" | "investigate" | "imagine";
 

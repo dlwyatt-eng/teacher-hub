@@ -272,7 +272,7 @@ export const curriculum: Record<string, CurriculumRecord> = {
     content: [
       {
         title: "Life science",
-        items: ["the basic structures and functions of body systems: excretory, reproductive, hormonal, and nervous"],
+        items: ["the basic structures and functions of body systems: excretory, reproductive, hormonal, and nervous, including First People’s understandings of body systems in humans and animals"],
       },
       {
         title: "Physical science",
@@ -288,7 +288,8 @@ export const curriculum: Record<string, CurriculumRecord> = {
         title: "Earth and space science",
         items: [
           "the overall scale, structure, and age of the universe",
-          "the position, motion, and components of our solar system in our galaxy",
+          "the position, motion, and components of our solar system in our galaxy, including First Peoples perspectives regarding aurora and other celestial phenomena",
+          "extreme environments, including Canadian contributions to exploration technologies",
         ],
       },
     ],
@@ -693,4 +694,3 @@ export const curriculum: Record<string, CurriculumRecord> = {
     },
   },
 };
-

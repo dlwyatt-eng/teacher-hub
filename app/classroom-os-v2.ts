@@ -186,15 +186,65 @@ export const aiParticipationPrinciple = {
   neverDefault: "Do not default to one student, one device, and one AI conversation.",
 } as const;
 
+const rotationLessonRecords: LessonRecordV2[] = [
+  { id: "rotation-identity-constellation", title: "Identity Constellation", question: "What people, places, interests, languages, strengths, and experiences help make you you?", product: "A student-chosen constellation of words, symbols, pictures, or colour", doneWhen: "At least three chosen details are connected and the student has made a privacy choice", privacy: "The named original stays private; only a separately copied, student-approved excerpt may be considered for display." },
+  { id: "rotation-how-i-learn", title: "How I Learn Best", question: "What conditions and actions help you begin, focus, recover when stuck, and show what you know?", product: "A practical learner user manual", doneWhen: "The page names useful conditions, a recovery strategy, a strength, and one support to try", privacy: "The named page is private learner information and is never a display artifact." },
+  { id: "rotation-ideal-learning-space", title: "Ideal Learning Space", question: "How could a learning space help different people focus, collaborate, reset, and belong?", product: "A labelled inclusive learning-space plan", doneWhen: "The plan shows a clear route, purposeful features, who they help, and one revised access problem", privacy: "A student-approved copy may join a design gallery; personal reasons and learner information remain private." },
+  { id: "rotation-build-better-grade-6", title: "Build a Better Grade 6", question: "What small, realistic change could make Grade 6 more fair, welcoming, useful, or sustainable?", product: "An improvement proposal with a need, change, affected people, trade-off, and first test", doneWhen: "The proposal names who it helps, one risk or missing voice, the right decision-maker, and a feasible next step", privacy: "An approved proposal copy may be displayed only after confidential or identifying details are removed." },
+  { id: "rotation-grade-6-quest-map", title: "Grade 6 Quest Map", question: "What meaningful goal could you begin, and what strengths, people, tools, and next step could help?", product: "A quest map linking a goal, challenge, help sources, and first step", doneWhen: "The goal is linked to a realistic first step and at least two strengths, strategies, tools, or help sources", privacy: "The full named map stays private; only a separately copied, student-selected hope or strategy may be displayed." },
+].map((session): LessonRecordV2 => ({
+  id: session.id,
+  unitId: "opening-learning-community",
+  sourcePipeline: "program",
+  title: session.title,
+  bigQuestion: session.question,
+  thinkingMoves: ["reflect", "challenge-assumptions", "shift-perspective", "weigh-trade-offs", "improve"],
+  maturity: "teacher-ready",
+  audience: {
+    sharedLearning: `Students use the Discovery Booklet to create ${session.product.toLowerCase()}, revise one part, and make a clear privacy choice.`,
+    teacher: { planningSource: "first-week-mission.tsx" },
+    student: {
+      launch: session.question,
+      grouping: "Whole-class provocation, individual creation, and optional partner or teacher check",
+      duration: "One complete 45-, 60-, or 75-minute route",
+      firstMove: "Choose a safe response mode and begin with the first small part of the organizer.",
+      choices: "Use words, symbols, pictures, dictation, a model, a fictional example, or blank space; no private disclosure is required.",
+      product: session.product,
+      doneWhen: session.doneWhen,
+      destination: session.privacy,
+      catchUp: "Every organizer is standalone. Use the shortened route, a model, word bank, scribe, or fictional example without recovering an earlier session.",
+    },
+    family: {
+      summary: `Students complete ${session.title}, one of five standalone opening organizers.`,
+      whyItMatters: "The activity gives the teacher useful low-stakes evidence while protecting student choice, privacy, and multiple ways to participate.",
+      product: session.product,
+      assessment: "Formative observation only; not graded, ranked, diagnosed, or used for placement.",
+      supportAtHome: "Ask about one safe idea or revision the student chooses to discuss. No supplies or home completion are expected.",
+    },
+  },
+  evidence: {
+    level: "practice",
+    groupEvidence: "Opening discussion and optional check conversation",
+    individualEvidence: session.product,
+    spacesDestination: "No SpacesEDU post. Named originals transfer privately; a later Learning Story is a separate student choice.",
+  },
+  deliveryRoutes: [
+    { mode: "full-tech", route: "Use one teacher-controlled projector for the question and steps; students create on paper.", equivalentLearning: "Represent, explain, check, revise, choose privacy, and complete a private handoff." },
+    { mode: "shared-tech", route: "Use one shared teacher screen or printed model; reserve an approved shared device for access support when useful.", equivalentLearning: "Represent, explain, check, revise, choose privacy, and complete a private handoff." },
+    { mode: "offline", route: "Read the provocation aloud, model on chart paper, and use the booklet or blank paper.", equivalentLearning: "Represent, explain, check, revise, choose privacy, and complete a private handoff." },
+  ],
+  toolDoors: [],
+}));
+
 export const unitRecordsV2: UnitRecordV2[] = [
   {
     id: "opening-learning-community",
     title: "Opening Our Learning Community",
     subject: "Cross-curricular",
     bigIdea: "Agency, responsible decision-making, and thoughtful collaboration make ambitious learning possible.",
-    inquiryQuestion: "When does technology strengthen our learning—and what choices keep the thinking, safety, and responsibility with us?",
-    lessonIds: ["welcome-signal-studio"],
-    familyOverview: "Students investigate realistic search, device, and AI choices, build a specific class commitment, and write an individual learning and technology agreement for their receiving teacher.",
+    inquiryQuestion: "What can we learn about ourselves and a stronger Grade 6 community while protecting each person's choices and privacy?",
+    lessonIds: rotationLessonRecords.map((lesson) => lesson.id),
+    familyOverview: "Students complete one or more standalone Discovery organizers about identity, learning conditions, inclusive space, community improvement, or a meaningful next step. Named originals transfer privately; public sharing is separate and student-approved.",
     publicStatus: "current",
   },
   {
@@ -235,17 +285,18 @@ export const unitRecordsV2: UnitRecordV2[] = [
  * the same contract without flattening their distinctive experiences.
  */
 export const lessonContractV2Exemplars: LessonRecordV2[] = [
+  ...rotationLessonRecords,
   {
-    id: "welcome-signal-studio",
+    id: "technology-ai-decision-lab",
     unitId: "opening-learning-community",
     sourcePipeline: "program",
-    title: "Make the Call: Technology & AI in Grade 6",
+    title: "Technology & AI Decision Lab · optional later extension",
     bigQuestion: "When does technology strengthen our learning—and what choices keep the thinking, safety, and responsibility with us?",
     thinkingMoves: ["ask-better-questions", "verify", "challenge-assumptions", "weigh-trade-offs", "improve", "reflect"],
-    maturity: "classroom-verified",
+    maturity: "teacher-ready",
     audience: {
       sharedLearning: "Students investigate realistic technology and AI decisions, repair weak uses, build a testable class commitment, and write an individual agreement.",
-      teacher: { planningSource: "first-week-mission.tsx" },
+      teacher: { planningSource: "ai-tensions-lab.tsx + technology agreement printable" },
       student: {
         launch: "Make the call: does this situation help learning, need checking, or require us to stop and ask? Defend the decision with evidence.",
         grouping: "Pairs and tables of 3–4 for the investigations; individual only for the personalized agreement",

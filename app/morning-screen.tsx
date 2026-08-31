@@ -161,6 +161,29 @@ function SourceNote({ source, prefix = "Source" }: { source: MorningSource; pref
 }
 
 function MorningActivityVisual({ activity, compact = false }: { activity: MorningActivity; compact?: boolean }) {
+  if (activity.id === "number-puzzle") return <div className={`morning-turn-composer${compact ? " compact" : ""}`} role="img" aria-label="A full 360 degree turn split into eight equal 45 degree sectors, with 45, 90, and 180 degree reference turns">
+    <svg viewBox="0 0 640 420" aria-hidden="true">
+      <circle cx="250" cy="210" r="156" />
+      {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => {
+        const radians = angle * Math.PI / 180;
+        return <line key={angle} x1="250" y1="210" x2={250 + Math.cos(radians) * 156} y2={210 + Math.sin(radians) * 156} />;
+      })}
+      <circle className="morning-turn-composer__centre" cx="250" cy="210" r="60" />
+      <text x="250" y="201" textAnchor="middle">FULL TURN</text>
+      <text className="morning-turn-composer__total" x="250" y="234" textAnchor="middle">360°</text>
+      <path className="morning-turn-composer__arc" d="M 406 210 A 156 156 0 0 1 360 320" />
+      <text className="morning-turn-composer__sector" x="375" y="268">45°</text>
+      <g className="morning-turn-composer__anchors">
+        <rect x="455" y="75" width="150" height="70" rx="14" />
+        <text x="530" y="105" textAnchor="middle">SQUARE CORNER</text><text x="530" y="132" textAnchor="middle">90°</text>
+        <rect x="455" y="175" width="150" height="70" rx="14" />
+        <text x="530" y="205" textAnchor="middle">STRAIGHT TURN</text><text x="530" y="232" textAnchor="middle">180°</text>
+        <rect x="455" y="275" width="150" height="70" rx="14" />
+        <text x="530" y="305" textAnchor="middle">ONE SECTOR</text><text x="530" y="332" textAnchor="middle">45°</text>
+      </g>
+    </svg>
+    <strong>Combine the three reference turns in more than one way.</strong>
+  </div>;
   if (!activity.sourceCard) return <img src={activity.imageSrc} alt={activity.imageAlt} />;
   return <div className={`morning-source-card${compact ? " compact" : ""}`}>
     <small>{activity.sourceCard.label}</small>
@@ -263,6 +286,8 @@ function MorningTeacherEditor({
   timeline: readonly MorningTimelineItem[];
   onOpenHome: () => void;
 }) {
+  const assemblyEndpoint = import.meta.env.VITE_MORNING_DRAFT_URL?.trim();
+  const liveAssemblyReady = Boolean(assemblyEndpoint && /^https:\/\//i.test(assemblyEndpoint));
   const [draft, setDraft] = useState<MorningScreenDraft>(() => saved ? draftFromMorningScreen(saved) : createMorningScreenDraft(date));
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState(saved ? "Published screen loaded." : "Ready to assemble.");
@@ -279,7 +304,10 @@ function MorningTeacherEditor({
     setWarnings([]);
     setStatus("Checking weather and the school site…");
     try {
-      const response = await fetch(`/api/morning-draft?date=${encodeURIComponent(date)}`, { cache: "no-store" });
+      if (!liveAssemblyReady || !assemblyEndpoint) throw new Error("Draft service is not configured");
+      const endpoint = new URL(assemblyEndpoint);
+      endpoint.searchParams.set("date", date);
+      const response = await fetch(endpoint, { cache: "no-store" });
       if (!response.ok) throw new Error("Draft service unavailable");
       const payload = readDraftResponse(await response.json(), date);
       if (!payload) throw new Error("Draft response was not valid");
@@ -334,7 +362,7 @@ function MorningTeacherEditor({
     <details className="morning-privacy-note"><summary>Student-safe screen</summary><p>Use general class wording only. Do not enter student names, attendance, birthdays, learning needs, grouping notes, passwords, join codes, or private messages.</p></details>
 
     <div className="morning-editor-actions">
-      <button className="morning-assemble-button" type="button" disabled={loading} onClick={assembleDraft}>{loading ? "Assembling…" : "Assemble"}</button>
+      {liveAssemblyReady ? <button className="morning-assemble-button" type="button" disabled={loading} onClick={assembleDraft}>{loading ? "Assembling…" : "Assemble from live sources"}</button> : <span className="morning-assembly-unavailable"><b>MANUAL MODE</b> Live source assembly is not configured for this static deployment.</span>}
       <p role="status">{status}</p>
       <button className="morning-publish-button" type="button" disabled={!canPublish || loading} onClick={publish}>Publish</button>
     </div>
@@ -347,7 +375,7 @@ function MorningTeacherEditor({
         {draft.weather ? <div className="morning-weather-editor">
           <div><label><span>Forecast</span><input value={draft.weather.summary} maxLength={80} onChange={(event) => updateWeather("summary", event.target.value)} /></label><label><span>High °C</span><input type="number" min="-60" max="60" value={draft.weather.highC ?? ""} onChange={(event) => updateWeather("highC", event.target.value)} /></label><label><span>Low °C</span><input type="number" min="-60" max="60" value={draft.weather.lowC ?? ""} onChange={(event) => updateWeather("lowC", event.target.value)} /></label><label><span>Rain %</span><input type="number" min="0" max="100" value={draft.weather.rainChance ?? ""} onChange={(event) => updateWeather("rainChance", event.target.value)} /></label></div>
           <SourceNote source={draft.weather.source} prefix={weatherEdited ? "Teacher-edited forecast adapted from" : "Weather"} />
-        </div> : <div className="morning-weather-missing"><span aria-hidden="true">☁</span><p><strong>No forecast in this draft.</strong> Assemble the draft to check Open-Meteo, or publish without weather.</p></div>}
+        </div> : <div className="morning-weather-missing"><span aria-hidden="true">☁</span><p><strong>No forecast in this draft.</strong> {liveAssemblyReady ? "Use live assembly, or publish without weather." : "Publish without weather; live retrieval needs a configured authenticated endpoint."}</p></div>}
       </section>
 
       <section className="morning-editor-panel morning-editor-activity">

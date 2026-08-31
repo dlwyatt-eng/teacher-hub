@@ -46,7 +46,7 @@ export const readinessLevels = [
 export const blockPressures = [
   { window: "Science spine", promise: "Dated half-year", source: "45–51 blocks", decision: "Interface and source now agree on roughly 3–4 blocks per instructional week.", level: "good" },
   { window: "Delivery Pod", promise: "3 × 60 min", source: "About 130–155 min", decision: "Duration now includes build, two tests, revision, cleanup, and individual explanation.", level: "good" },
-  { window: "June", promise: "Culminate + reflect", source: "Space, showcase, Math design, ELA/Arts curation", decision: "Move, merge, shorten, or make evidence optional.", level: "critical" },
+  { window: "June", promise: "One culmination + reflection", source: "6–7 Space blocks + 6–8 shared showcase blocks + 2–3 closure blocks", decision: "Assess ELA, Arts, ADST, and selected Math evidence inside one showcase; the separate pavilion is a replacement option only.", level: "good" },
   { window: "SpacesEDU", promise: "12 canonical anchors", source: "≤ 2 required / month", decision: "Keep subject badges derived from the registry.", level: "good" },
 ] as const;
 
@@ -77,6 +77,7 @@ export const preservationRules = [
   "Checked current and historical source capsules feeding Source Lab & Newsroom and My Inquiry",
   "Surrey Schools-first and Nation-authored source safeguards",
   "Lean SpacesEDU rhythm and one-artifact/many-lenses rule",
+  "Core learning works without AI, Wi-Fi, or one-to-one devices. SchoolAI opens only through a teacher-curated, tested student link; Copilot is normally teacher-modelled or teacher-workspace support. Never enter confidential student information. Students verify, decide, and create the final work; AI transcripts are not SpacesEDU evidence. Teacher judgment remains authoritative for feedback, assessment, and reporting.",
   "Honest audit labels and existing quality gates",
 ];
 
@@ -85,6 +86,6 @@ export const activeQueue = [
   { state: "REPAIRED", title: "Scoped print system", detail: "Each print action now targets its own teacher artifact without blanking unrelated pages." },
   { state: "ACTIVE", title: "Teaching OS control plane", detail: "Master architecture, maturity model, coverage snapshot, and timing pressures are now visible together." },
   { state: "ALIGNED", title: "Canonical evidence registry", detail: "Twelve anchors now name one primary activity; integrated contributors reuse the same post." },
-  { state: "ALIGNED", title: "Science block ledger", detail: "The dated 45–51-block plan, three-block Delivery Pod, and shorter final showcase now agree." },
+  { state: "ALIGNED", title: "Science and June block ledger", detail: "The dated Science plan, three-block Delivery Pod, 6–7-block cosmic core, 6–8-block shared showcase, and protected closure window now agree." },
   { state: "WATCH", title: "Sensitive and authentic visuals", detail: "Use approved anatomy/reproduction diagrams and authentic, attributed local or Nation-led sources." },
 ];

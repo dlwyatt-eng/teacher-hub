@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { schoolAIActivities, schoolAICreationPack } from "./schoolai-activities";
 
-export default function AiActivityStudio({ onHome }: { onHome: () => void }) {
-  const [selectedId, setSelectedId] = useState(schoolAIActivities[0].id);
+export default function AiActivityStudio({ onHome, initialActivityId }: { onHome: () => void; initialActivityId?: string }) {
+  const initialId = schoolAIActivities.some((activity) => activity.id === initialActivityId) ? initialActivityId! : schoolAIActivities[0].id;
+  const [selectedId, setSelectedId] = useState(initialId);
   const [copyMessage, setCopyMessage] = useState("");
   const activity = schoolAIActivities.find((item) => item.id === selectedId) ?? schoolAIActivities[0];
   const promptReadyCount = schoolAIActivities.filter((item) => item.status === "prompt-ready").length;

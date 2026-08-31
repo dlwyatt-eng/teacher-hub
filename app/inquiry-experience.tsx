@@ -10,9 +10,9 @@ import { worldFor, worldStyle } from "./unit-worlds";
 import { isReviewedStudentLessonId, resolveStudentLessonContract } from "./student-lesson-contract";
 import type { DailyLaunch } from "./daily-launch";
 import { TeacherDailyLaunchButton } from "./student-home-portal";
-import { TeacherRunSheet } from "./teacher-run-sheet";
-import { StudentTeacherLayer } from "./student-teacher-layer";
+import { TeacherRunSheet, teacherRunSheetSaveTarget } from "./teacher-run-sheet";
 import { coreCompetencyMovesFor } from "./learning-lens";
+import { spacesPolicyForActivity } from "./classroom-program";
 
 type Props = {
   lesson: ScienceLesson;
@@ -1320,6 +1320,9 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
     firstAction: dailyContract.reviewState === "reviewed" ? dailyContract.firstAction : sceneContracts[0]?.student.action ?? "Listen for the first class direction.",
     finish: dailyContract.reviewState === "reviewed" ? dailyContract.finishEvidence.at(-1) ?? lesson.evidence : sceneContracts.at(-1)?.student.response ?? lesson.evidence,
   } satisfies DailyLaunch;
+  const spacesPolicy = spacesPolicyForActivity(lesson.id);
+  const spacesDecision = spacesPolicy?.decision ?? (lesson.spacesPrompt ? "optional" : "none");
+  const spacesMessage = spacesPolicy?.teacherPrompt ?? lesson.spacesPrompt ?? "Keep this as in-class practice; no separate upload is needed.";
 
   useEffect(() => {
     if (lesson.id === "space-motion-lab") return;
@@ -1352,14 +1355,23 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
         coreCompetencies={coreCompetencyMovesFor("Science")}
         learningQuestion={studentContract?.challenge ?? lesson.question}
         learningPurpose={studentContract?.why ?? lesson.learning}
+        provocation={lesson.hook}
         firstAction={studentContract?.firstAction ?? teacherRunSteps[0]?.action ?? "Open the first part in Teach View."}
         steps={(studentContract?.steps ?? teacherRunSteps).map((step, index) => ({ ...step, minutes: lesson.scenes[index]?.time }))}
         finishEvidence={studentContract?.finishEvidence ?? (lesson.success.length ? lesson.success : [lesson.evidence])}
-        saveMessage={lesson.spacesPrompt}
+        saveTarget={teacherRunSheetSaveTarget(spacesDecision, spacesMessage)}
+        lookFors={lesson.success}
+        misconception={{ idea: lesson.misconception, respond: readinessLaunch.reteach }}
         readiness={{ ideas: readinessLaunch.background, modelTitle: readinessLaunch.example.title, modelConclusion: readinessLaunch.example.conclusion, check: readinessLaunch.questions[0], reteach: readinessLaunch.reteach }}
         prepare={lesson.teacherPrep?.beforeClass}
         materials={lesson.materials}
         shortRoute={lesson.teacherPrep?.offlineRoute ?? lesson.teacherPrep?.lowPrepAlternative}
+        routes={{
+          projector: "Use Teach / Project mode to show one investigation part, exact prompt, and evidence target at a time.",
+          sharedDevice: "Use one teacher-controlled screen for the visual or source; groups gather, model, discuss, and record their own evidence at tables.",
+          offline: lesson.teacherPrep?.offlineRoute ?? lesson.teacherPrep?.lowPrepAlternative ?? "Read the hook aloud, sketch the model on the board, use the listed materials or a paper evidence set, and collect the same claim and reflection.",
+        }}
+        ttocBoundary={lesson.teacherPrep?.cleanup?.join(" ")}
         launchResource={launchResource}
         dayPlanLesson={{ sourceId: lesson.id, subject: "Science", title: lesson.title, timing: lesson.duration, runSteps: (studentContract?.steps ?? teacherRunSteps).map((step) => `${step.title}: ${step.action}`) }}
       />
@@ -1377,7 +1389,7 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
     <div className="journey-sequence"><button disabled={!previous} onClick={() => previous && onOpenLesson(previous)}>← {previous?.title ?? "Start of unit"}</button><span>LESSON {lessonIndex + 1} OF {unit.lessons.length}</span><button disabled={!next} onClick={() => next && onOpenLesson(next)}>{next?.title ?? "End of unit"} →</button></div>
   </div>;
 
-  return <div className={`journey-player world-surface ${mode === "projector" ? "journey-student" : "journey-teacher"}`} data-world={theme.id} style={worldStyle(theme)}>
+  return <div className="journey-player journey-student world-surface" data-world={theme.id} style={worldStyle(theme)}>
     <header className="journey-toolbar">
       <div className="journey-home"><button onClick={onHome}>⌂ <span>Home</span></button><button onClick={onUnitStart}>← <span>Science units</span></button></div>
       <div className="journey-title"><span>{unit.icon}</span><div><small>SCIENCE 6 · UNIT {unit.number} · {lesson.journeyType.toUpperCase()}</small><strong>{lesson.title}</strong></div></div>
@@ -1385,32 +1397,18 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
     <div className="journey-body">
       <nav className="journey-scenes" aria-label="Experience flow">
         <div><small>TODAY&apos;S PARTS</small><b>{sceneContracts.length} PARTS</b></div>
-        {sceneContracts.map(({ teacher: item, student: move }, index) => <button key={item.title} className={scene === index ? "active" : ""} onClick={() => setScene(index)}><span>{index + 1}</span><div><small>{mode === "projector" ? `PART ${index + 1}` : item.label}</small><strong>{mode === "projector" ? move.label : item.title}</strong></div></button>)}
+        {sceneContracts.map(({ teacher: item, student: move }, index) => <button key={item.title} className={scene === index ? "active" : ""} onClick={() => setScene(index)}><span>{index + 1}</span><div><small>PART {index + 1}</small><strong>{move.label}</strong></div></button>)}
       </nav>
       <section className="journey-stage" aria-label={`${lesson.title} lesson stage`}>
-        <StudentTeacherLayer
-          bigIdea={lesson.learning}
-          coreCompetencies={coreCompetencyMovesFor("Science")}
-          say={[`Our bigger question is: ${unit.question}`, `Today we are asking: ${studentContract?.challenge ?? lesson.question}`]}
-          ask={studentPrompt}
-          watchFor={studentProduct}
-          ifStuck={readinessLaunch.reteach ?? `Model the first move together: ${studentMove.action}`}
-          nextMove={studentMove.response}
-          contentBackground={[`Official Grade 6 Big Idea: ${unit.bigIdea}`, lesson.learning, current.teacherCue]}
-          timing={current.time ?? lesson.duration}
-        />
-        <section className="journey-stage-head"><div><small>{mode === "projector" ? `PART ${scene + 1} OF ${lesson.scenes.length}` : `${current.label.toUpperCase()} · ${scene + 1} OF ${lesson.scenes.length}`}</small><h1>{studentTitle}</h1><p>{studentPrompt}</p></div><span>{String(scene + 1).padStart(2, "0")}</span></section>
-        {mode === "teacher" || mode === "projector" ? <>
+        <section className="journey-stage-head"><div><small>PART {scene + 1} OF {lesson.scenes.length}</small><h1>{studentTitle}</h1><p>{studentPrompt}</p></div><span>{String(scene + 1).padStart(2, "0")}</span></section>
         <ExperienceVisual lesson={lesson} scene={scene} />
-        {currentResources.length > 0 && <details className="lesson-resource-set"><summary><span><small>SOURCE / VIDEO</small><strong>Open when the class is ready</strong></span><b>Open ▾</b></summary><div>{currentResources.filter(resource => mode === "teacher" || resource.gradeFit !== "Teacher preview").map((resource, index) => {
-          const content = <><span>{resource.type === "Video" ? "▶" : resource.type === "Interactive" ? "↗" : resource.type === "Article" ? "▤" : "⌑"}</span><div><small>{resource.type.toUpperCase()} · {resource.source}</small><strong>{resource.label}</strong>{mode === "teacher" && resource.support && <p className="resource-support"><b>How to use it:</b> {resource.support}</p>}<p><b>{mode === "projector" ? "Look for:" : "Your purpose:"}</b> {resource.task}</p>{mode === "projector" && resource.studentBoundary && <p className="resource-boundary"><b>Respect and safety boundary:</b> {resource.studentBoundary}</p>}</div><b>{resource.url ? "OPEN" : mode === "projector" ? "USE CLASS SOURCE" : "TEACHER ADDS SOURCE"}</b></>;
+        {currentResources.some((resource) => resource.gradeFit !== "Teacher preview") && <details className="lesson-resource-set"><summary><span><small>SOURCE / VIDEO</small><strong>Open when the class is ready</strong></span><b>Open ▾</b></summary><div>{currentResources.filter((resource) => resource.gradeFit !== "Teacher preview").map((resource, index) => {
+          const content = <><span>{resource.type === "Video" ? "▶" : resource.type === "Interactive" ? "↗" : resource.type === "Article" ? "▤" : "⌑"}</span><div><small>{resource.type.toUpperCase()} · {resource.source}</small><strong>{resource.label}</strong><p><b>Look for:</b> {resource.task}</p>{resource.studentBoundary && <p className="resource-boundary"><b>Respect and safety boundary:</b> {resource.studentBoundary}</p>}</div><b>{resource.url ? "OPEN" : "USE CLASS SOURCE"}</b></>;
           return resource.url ? <a key={`${resource.label}-${index}`} href={resource.url} target="_blank" rel="noreferrer">{content}</a> : <article key={`${resource.label}-${index}`}>{content}</article>;
         })}</div></details>}
         {lesson.resource && <a className="journey-resource" href={lesson.resource.url} target="_blank" rel="noreferrer"><span>↗</span><div><small>TRUSTED INTERACTIVE OR VISUAL RESOURCE</small><strong>{lesson.resource.label}</strong><p>{lesson.resource.note}</p></div><b>OPEN</b></a>}
         <footer className="journey-nav"><button disabled={scene === 0} onClick={() => setScene(value => value - 1)}>← Previous scene</button><span>{lesson.scenes.map((_, index) => <i key={index} className={scene === index ? "active" : ""}></i>)}</span><button disabled={scene === lesson.scenes.length - 1} onClick={() => setScene(value => value + 1)}>Next scene →</button></footer>
-        </> : null}
       </section>
-      {mode === "teacher" && <aside className="journey-teacher-panel"><header><span>◉</span><div><strong>Teacher layer</strong><small>Hidden from students</small></div></header><section><small>THIS PART</small><p>{current.time ?? lesson.duration}{current.learningMode ? ` · ${current.learningMode}` : ""}</p></section><section><small>TEACHER MOVE</small><p>{current.teacherCue}</p></section><section><small>STUDENT EVIDENCE</small><p>{current.studentTask ?? lesson.evidence}</p></section><section><small>MATERIALS</small><p>{lesson.materials.slice(0, 4).join(" · ")}</p></section><section><small>MISCONCEPTION</small><p>{lesson.misconception}</p></section><button onClick={() => setBriefOpen(true)}>Open complete brief →</button></aside>}
     </div>
     <div className="journey-sequence"><button disabled={!previous} onClick={() => previous && onOpenLesson(previous)}>← {previous?.title ?? "Start of unit"}</button><span>LESSON {lessonIndex + 1} OF {unit.lessons.length}</span><button disabled={!next} onClick={() => next && onOpenLesson(next)}>{next?.title ?? "End of unit"} →</button></div>
     {briefOpen && <MiniBrief lesson={lesson} unit={unit} onClose={closeBrief} />}

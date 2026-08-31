@@ -11,6 +11,7 @@ export default function TeacherNow({ onNavigate }: { onNavigate: (page: string) 
   const window = currentLearningWindow();
   const state = currentLearningState(window);
   const resource = window.shared.primaryResource;
+  const scenarios = window.teacher.scenarios as readonly { title: string; situation: string; call: string; reason: string }[];
 
   return <section className="teacher-now" aria-labelledby="teacher-now-title">
     <header>
@@ -27,11 +28,11 @@ export default function TeacherNow({ onNavigate }: { onNavigate: (page: string) 
 
     {resource && <aside className="teacher-now-resource" aria-label="Primary lesson resource">
       <div>
-        <small>PRINT BEFORE THE ROTATION</small>
+        <small>PRINT WHEN THE SCHEDULE IS CONFIRMED</small>
         <strong>{resource.label}</strong>
         <span>{resource.format} · {resource.description}</span>
       </div>
-      <a href={resource.href} download>Download agreement PDF</a>
+      <a href={resource.href} download>Download PDF</a>
     </aside>}
 
     <div className="teacher-now-grid">
@@ -58,13 +59,13 @@ export default function TeacherNow({ onNavigate }: { onNavigate: (page: string) 
       </article>
     </div>
 
-    {window.teacher.scenarios.length > 0 && <article className="teacher-now-scenario-card">
+    {scenarios.length > 0 && <article className="teacher-now-scenario-card">
       <header>
         <div><small>READY-TO-RUN DECISION CARDS</small><h3>Six situations with the call and reason</h3></div>
         <p>Run at least four. Include <b>Private details</b> and <b>Confident local fact</b>.</p>
       </header>
       <div className="teacher-now-scenarios">
-        {window.teacher.scenarios.map((scenario) => <section key={scenario.title}>
+        {scenarios.map((scenario) => <section key={scenario.title}>
           <div><strong>{scenario.title}</strong><span className={scenarioClass(scenario.call)}>{scenario.call}</span></div>
           <p>{scenario.situation}</p>
           <small>{scenario.reason}</small>

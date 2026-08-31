@@ -5,6 +5,7 @@ import { AddToDayPlanButton, type TtocDayPlanLesson } from "./ttoc-day-plan";
 import { AddToWeekButton, SEPTEMBER_FORMED_CLASS_WEEK_STORAGE_KEY, septemberFormedWeekDayForSourceId, type WeekPlanSeedLesson } from "./weekly-plan";
 import { printClosest } from "./print-support";
 import { aiDilemmasForLesson } from "./ai-literacy";
+import { schoolAIActivitiesForLesson } from "./schoolai-activities";
 
 export type TeacherRunSheetMove = {
   title: string;
@@ -21,6 +22,27 @@ export type TeacherRunSheetReadiness = {
   reteach?: string;
 };
 
+export type TeacherRunSheetSaveKind = "in-class" | "spaces-optional" | "spaces-required" | "reuse-existing";
+
+export type TeacherRunSheetSaveTarget = {
+  kind: TeacherRunSheetSaveKind;
+  label: string;
+  message: string;
+};
+
+export type TeacherRunSheetDeliveryRoutes = {
+  projector: string;
+  sharedDevice: string;
+  offline: string;
+};
+
+export function teacherRunSheetSaveTarget(decision: "none" | "optional" | "required" | "reuse", message: string): TeacherRunSheetSaveTarget {
+  if (decision === "required") return { kind: "spaces-required", label: "SpacesEDU · required", message };
+  if (decision === "optional") return { kind: "spaces-optional", label: "SpacesEDU · optional", message };
+  if (decision === "reuse") return { kind: "reuse-existing", label: "Carry into existing post", message };
+  return { kind: "in-class", label: "In class · no separate upload", message };
+}
+
 export type TeacherRunSheetProps = {
   title: string;
   duration: string;
@@ -28,10 +50,17 @@ export type TeacherRunSheetProps = {
   coreCompetencies?: readonly string[];
   learningQuestion: string;
   learningPurpose?: string;
+  provocation?: string;
   firstAction: string;
   steps: readonly TeacherRunSheetMove[];
   finishEvidence: readonly string[];
-  saveMessage?: string;
+  saveTarget: TeacherRunSheetSaveTarget;
+  lookFors?: readonly string[];
+  discussionMoves?: readonly string[];
+  misconception?: { idea: string; respond: string };
+  accessibility?: readonly string[];
+  routes?: TeacherRunSheetDeliveryRoutes;
+  ttocBoundary?: string;
   readiness?: TeacherRunSheetReadiness;
   prepare?: readonly string[];
   materials?: readonly string[];
@@ -68,18 +97,18 @@ function oneClassBlock(duration: string) {
 function compactRoute(props: TeacherRunSheetProps): CompactRouteStep[] {
   const work = props.steps.map((step, index) => ({
     label: step.title || `Move ${index + 1}`,
-    minutes: step.minutes ?? "8–12 min",
+    minutes: step.minutes ?? "Flexible",
     action: sentence(step.action),
     doneWhen: sentence(step.finishCheck),
   }));
-  return work.length ? work : [{ label: "Start", minutes: "10–15 min", action: sentence(props.firstAction), doneWhen: sentence(props.finishEvidence.at(-1) ?? "One useful idea is visible.") }];
+  return work.length ? work : [{ label: "Start", minutes: "Flexible", action: sentence(props.firstAction), doneWhen: sentence(props.finishEvidence.at(-1) ?? "One useful idea is visible.") }];
 }
 
 function prepItems(props: TeacherRunSheetProps) {
   const gather = props.materials?.length
-    ? `Gather: ${props.materials.slice(0, 5).join(" · ")}${props.materials.length > 5 ? " · + lesson materials" : ""}`
+    ? `Gather: ${props.materials.slice(0, 8).join(" · ")}${props.materials.length > 8 ? " · + lesson materials" : ""}`
     : null;
-  return [gather, ...(props.prepare ?? [])].filter((item): item is string => Boolean(item)).slice(0, 3).map(sentence);
+  return [gather, ...(props.prepare ?? [])].filter((item): item is string => Boolean(item)).map(sentence);
 }
 
 export function TeacherRunSheet(props: TeacherRunSheetProps) {
@@ -90,8 +119,15 @@ export function TeacherRunSheet(props: TeacherRunSheetProps) {
     coreCompetencies = [],
     learningQuestion,
     learningPurpose,
+    provocation,
     finishEvidence,
-    saveMessage,
+    saveTarget,
+    lookFors,
+    discussionMoves,
+    misconception,
+    accessibility,
+    routes,
+    ttocBoundary,
     readiness,
     shortRoute,
     extension,
@@ -101,19 +137,26 @@ export function TeacherRunSheet(props: TeacherRunSheetProps) {
   const headingId = useId();
   const route = compactRoute(props);
   const prep = prepItems(props);
-  const watchFor = finishEvidence.slice(0, 2);
+  const watchFor = (lookFors?.length ? lookFors : finishEvidence).slice(0, 3);
   const ifStuck = readiness?.reteach ?? `Model only the first move: ${props.firstAction}`;
-  const destination = /spaces/i.test(saveMessage ?? "") ? "SpacesEDU" : "In class";
+  const ttocNotes = [
+    prep.length ? `Prep: ${prep.join(" ")}` : null,
+    routes?.offline ? `No-tech: ${routes.offline}` : null,
+    misconception ? `Watch for: ${misconception.idea} Respond: ${misconception.respond}` : null,
+    ttocBoundary ? `Safety/privacy: ${ttocBoundary}` : null,
+    `Finish: ${finishEvidence.at(-1) ?? saveTarget.message}`,
+  ].filter((item): item is string => Boolean(item)).join(" ").slice(0, 880);
   const preparedDayPlanLesson = dayPlanLesson ? {
     ...dayPlanLesson,
     timing: oneClassBlock(duration),
     runSteps: route.map((step) => `${step.minutes} · ${step.label} — ${step.action}`),
-    notes: /[×x]/.test(duration) ? "This lesson continues across classes. Mark the next move before stopping." : dayPlanLesson.notes,
+    notes: [/[×x]/.test(duration) ? "This lesson continues across classes. Mark the next move before stopping." : dayPlanLesson.notes, ttocNotes].filter(Boolean).join(" ").slice(0, 900),
   } satisfies TtocDayPlanLesson : null;
   const formedWeekDay = preparedDayPlanLesson ? septemberFormedWeekDayForSourceId(preparedDayPlanLesson.sourceId) : undefined;
   const weekStorageKey = formedWeekDay ? SEPTEMBER_FORMED_CLASS_WEEK_STORAGE_KEY : undefined;
   const preparedWeekPlanLesson = preparedDayPlanLesson ? { ...preparedDayPlanLesson, day: formedWeekDay } satisfies WeekPlanSeedLesson : null;
   const aiExtensions = preparedDayPlanLesson ? aiDilemmasForLesson(preparedDayPlanLesson.sourceId) : [];
+  const schoolAIExtensions = preparedDayPlanLesson ? schoolAIActivitiesForLesson(preparedDayPlanLesson.sourceId) : [];
 
   return (
     <section className="teacher-run-sheet" aria-labelledby={headingId}>
@@ -125,7 +168,11 @@ export function TeacherRunSheet(props: TeacherRunSheetProps) {
         </div>
       </header>
 
-      <section className="teacher-run-sheet__question"><small>ASK</small><p>{learningQuestion}</p></section>
+      <div className="teacher-run-sheet__launch">
+        {learningPurpose && <section><small>LEARN</small><p>{learningPurpose}</p></section>}
+        {provocation && <section><small>LAUNCH</small><p>{provocation}</p></section>}
+        <section className="teacher-run-sheet__question"><small>ASK</small><p>{learningQuestion}</p></section>
+      </div>
 
       <div className="teacher-run-sheet__ready">
         <section><small>PREP</small>{prep.length ? <ul>{prep.map((item) => <li key={item}>{item}</li>)}</ul> : <p>No special preparation.</p>}</section>
@@ -142,7 +189,11 @@ export function TeacherRunSheet(props: TeacherRunSheetProps) {
         <section><small>IF STUCK</small><p>{ifStuck}</p></section>
       </div>
 
-      <footer className="teacher-run-sheet__finish"><div><small>FINISH / SAVE</small><strong>{destination}</strong></div><p>{saveMessage ?? finishEvidence.at(-1) ?? "Close with one answer and one supporting detail."}</p></footer>
+      {misconception && <section className="teacher-run-sheet__misconception"><div><small>IF YOU HEAR / SEE</small><p>{misconception.idea}</p></div><div><small>RESPOND</small><p>{misconception.respond}</p></div></section>}
+
+      {routes && <section className="teacher-run-sheet__routes" aria-label="Equivalent delivery routes"><div><small>PROJECTOR</small><p>{routes.projector}</p></div><div><small>SHARED DEVICE</small><p>{routes.sharedDevice}</p></div><div><small>NO TECH</small><p>{routes.offline}</p></div></section>}
+
+      <footer className="teacher-run-sheet__finish" data-save-kind={saveTarget.kind}><div><small>FINISH / SAVE</small><strong>{saveTarget.label}</strong></div><p>{saveTarget.message || finishEvidence.at(-1) || "Close with one answer and one supporting detail."}</p></footer>
 
       <details className="teacher-run-sheet__more">
         <summary>Need more support? <span>Background, short route, and extension</span></summary>
@@ -150,9 +201,12 @@ export function TeacherRunSheet(props: TeacherRunSheetProps) {
           <section><small>BIG IDEA</small><p>{bigIdea ?? learningPurpose ?? learningQuestion}</p></section>
           {coreCompetencies.length > 0 && <section><small>CORE COMPETENCIES</small><ul>{coreCompetencies.map((item) => <li key={item}>{item}</li>)}</ul></section>}
           {shortRoute && <section><small>SHORT ROUTE</small><p>{shortRoute}</p></section>}
-          {readiness && <section><small>QUICK MODEL</small><p><b>{readiness.modelTitle}</b> {readiness.modelConclusion}</p></section>}
+          {discussionMoves?.length && <section><small>DISCUSSION MOVES</small><ul>{discussionMoves.map((item) => <li key={item}>{item}</li>)}</ul></section>}
+          {accessibility?.length && <section><small>ACCESSIBILITY + DIFFERENTIATION</small><ul>{accessibility.map((item) => <li key={item}>{item}</li>)}</ul></section>}
+          {readiness && <section><small>QUICK MODEL</small>{readiness.ideas.length > 0 && <ul>{readiness.ideas.map((item) => <li key={item}>{item}</li>)}</ul>}<p><b>{readiness.modelTitle}</b> {readiness.modelConclusion}</p>{readiness.check && <p><b>Check:</b> {readiness.check.prompt} <span>{readiness.check.feedback}</span></p>}</section>}
           {extension && <section><small>EXTENSION</small><p>{extension}</p></section>}
-          {aiExtensions.length > 0 && <section><small>AI TENSION · OPTIONAL 5–15 MIN</small><p><b>{aiExtensions[0].title}:</b> {aiExtensions[0].situation}</p><p>Open <strong>AI Tensions Lab</strong> from Student Agency. Students vote Human / AI / Both / Not sure, hear new information, then reconsider.</p></section>}
+          {aiExtensions.length > 0 && <section><small>AI TENSIONS · OPTIONAL 5–15 MIN</small><p>Choose at most one when it deepens today&apos;s learning; skip the extension otherwise.</p>{aiExtensions.slice(0, 3).map((item) => <p key={item.id}><b>{item.title}:</b> {item.situation}</p>)}<p>Open <strong>AI Tensions Lab</strong> from teacher navigation, then switch to Teach / Project. Students vote Human / AI / Both / Not sure, hear new information, then reconsider.</p></section>}
+          {schoolAIExtensions.length > 0 && <section><small>SCHOOLAI · CURATED OPTIONAL SUPPORT</small>{schoolAIExtensions.map((activity) => <div key={activity.id}><p><b>{activity.title}</b> · {activity.participation.label}</p><p><strong>PROMPT-READY — NOT A STUDENT LAUNCH.</strong> Create, test, and add the exact student link in AI Activity Studio first.</p><p><b>Before AI:</b> {activity.prerequisiteExperience}</p><p><b>Offline equivalent:</b> {activity.offlineAlternative}</p></div>)}</section>}
         </div>
       </details>
     </section>

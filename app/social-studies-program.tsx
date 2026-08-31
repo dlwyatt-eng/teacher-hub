@@ -13,8 +13,7 @@ import { isReviewedStudentLessonId, resolveStudentLessonContract } from "./stude
 import { CivicCaseWorkbench, civicTeacherGuideForScene } from "./social-unit2-experiences";
 import type { DailyLaunch } from "./daily-launch";
 import { TeacherDailyLaunchButton } from "./student-home-portal";
-import { TeacherRunSheet } from "./teacher-run-sheet";
-import { StudentTeacherLayer } from "./student-teacher-layer";
+import { TeacherRunSheet, teacherRunSheetSaveTarget } from "./teacher-run-sheet";
 import { coreCompetencyMovesFor } from "./learning-lens";
 import CurrentConnectionPlayer from "./current-connection";
 import { currentConnectionForLesson } from "./current-connections";
@@ -229,7 +228,6 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
 
 const socialWordHelp: Record<string, string> = {
   source: "where information or an idea came from",
-  evidence: "facts, examples, or data that support an idea",
   inference: "a careful idea based on clues",
   perspective: "a way of seeing an issue shaped by experience and position",
   territory: "land connected to a people, Nation, or government",
@@ -421,17 +419,6 @@ export function SocialStudiesStudentLaunch({ lessonId, onLesson, scene, onScene 
   return (
     <section className="social-student-launch world-surface" data-world={theme.id} style={worldStyle(theme)}>
       <header className="social-projector-header"><div><small>SOCIAL STUDIES · {unit ? `UNIT ${unit.number}` : "INQUIRY"} · PART {scene + 1}</small><h1>{lesson.title}</h1><p>{contract?.challenge ?? copy?.question ?? lesson.question}</p></div><button type="button" onClick={scrollToMap}>Change lesson</button></header>
-      <StudentTeacherLayer
-        bigIdea={bigIdea}
-        coreCompetencies={coreCompetencyMovesFor("Social Studies")}
-        say={civicGuide?.say.replace(/^‘|’$/g, "") ?? [`Our bigger question is: ${bigIdea}`, `Today we are asking: ${contract?.challenge ?? copy?.question ?? lesson.question}`]}
-        ask={lesson.id === "rights-in-tension" ? civicSceneQuestions[scene] ?? civicSceneQuestions[0] : studentScene?.action ?? contractStep?.action ?? lesson.scenes[scene]?.prompt}
-        watchFor={civicGuide?.listen ?? contractStep?.finishCheck ?? studentScene?.product ?? lesson.scenes[scene]?.studentTask}
-        ifStuck={civicGuide?.do ?? readinessLaunch.reteach ?? "Name one person affected, one fact we know, and one question we still have."}
-        nextMove={contractStep?.finishCheck ?? studentScene?.product ?? lesson.scenes[scene]?.studentTask}
-        contentBackground={[lesson.learning, ...lesson.teacherMoves.slice(0, 2)]}
-        timing={lesson.scenes[scene]?.time ?? lesson.duration}
-      />
       {scene === 0 && currentConnection && <details className="social-source-drawer"><summary><span><small>OPTIONAL SOURCE</small><strong>Open today&apos;s Source Lab</strong></span><b>Open ▾</b></summary><CurrentConnectionPlayer connection={currentConnection} /></details>}
       {scene === 0 && <SurreyElectionBridge lessonId={lesson.id} audience="student" />}
       {scene === 0 && <IssueSourceSetDrawer lessonId={lesson.id} audience="student" />}
@@ -519,14 +506,22 @@ function SocialLessons({ selected, onLesson, scene, onScene }: { selected: Socia
           coreCompetencies={coreCompetencyMovesFor("Social Studies")}
           learningQuestion={dailyLaunch.question}
           learningPurpose={contract.reviewState === "reviewed" ? contract.why : studentCopy?.learning ?? selected.learning}
+          provocation={selected.scenes[0]?.prompt}
           firstAction={dailyLaunch.firstAction}
           steps={plannedRunSteps.map((step, index) => ({ ...step, minutes: currentConnection && index === 0 ? currentConnection.minutes : selected.scenes[currentConnection ? index - 1 : index]?.time }))}
           finishEvidence={contract.reviewState === "reviewed" ? contract.finishEvidence : studentCopy?.success ?? selected.success}
-          saveMessage={spaces.teacherPrompt}
+          saveTarget={teacherRunSheetSaveTarget(spaces.decision, spaces.teacherPrompt)}
+          lookFors={selected.lookFors}
+          discussionMoves={selected.teacherMoves}
           readiness={selected.id === "rights-in-tension" ? undefined : { ideas: readinessLaunch.background, modelTitle: readinessLaunch.example.title, modelConclusion: readinessLaunch.example.conclusion, check: readinessLaunch.questions[0], reteach: readinessLaunch.reteach }}
           prepare={selected.beforeClass.slice(0, 3)}
           materials={selected.materials}
           shortRoute={selected.lowerPrep}
+          routes={{
+            projector: "Use Teach / Project mode for the shared source, question, and one student move at a time; keep teacher-only source notes in the planning view.",
+            sharedDevice: "Use one teacher-controlled screen and table talk. Students point, sort, annotate paper, or contribute to a shared class record.",
+            offline: selected.lowerPrep,
+          }}
           dayPlanLesson={{ sourceId: selected.id, subject: "Social Studies", title: selected.title, timing: selected.duration, runSteps: plannedRunSteps.map((step) => `${step.title}: ${step.action}`) }}
         />
         <details className="teacher-planning-details">

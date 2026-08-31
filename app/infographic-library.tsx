@@ -9,6 +9,22 @@ type Resource = {
 };
 
 const localResources: Record<string, Resource[]> = {
+  "semiahmoo-story-source-lab": [
+    {
+      label: "Chief Harley Chappell tells the Story of the Flood",
+      authority: "SURREY SCHOOLS INDIGENOUS PEOPLES LEARNING · CHIEF HARLEY CHAPPELL",
+      url: "https://surreyschoolsone.ca/indigenous/resource-post/?permalink=chief-harley-chappell-tells-the-story-of-the-flood-",
+      use: "Listen through the district page. Keep its exact title, speaker, Semiahmoo context, source route, and access date attached to the response.",
+      caution: "Do not assume that public access authorizes downloading, transcription, excerpting, retelling, reenactment, remix, or reposting; check current guidance first.",
+    },
+    {
+      label: "Storytelling protocols and source collection",
+      authority: "SURREY SCHOOLS INDIGENOUS PEOPLES LEARNING",
+      url: "https://surreyschoolsone.ca/indigenous/resources/storytelling/",
+      use: "Read the district protocol note before listening. It foregrounds permission and acknowledging the owner of a story.",
+      caution: "This page provides protocol guidance; it is not blanket permission to reproduce every source in the collection.",
+    },
+  ],
   "place-soundwalk": [
     {
       label: "hən̓q̓əmin̓əm̓ language and Katzie history with Paula James",
