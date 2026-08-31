@@ -22,7 +22,7 @@ import type { DailyLaunch } from "./daily-launch";
 import { TeacherDailyLaunchButton } from "./student-home-portal";
 import { ProjectorQuickStart } from "./projector-lesson";
 import ProjectorCaseDeck from "./projector-case-deck";
-import SourceMosaicLab from "./ela-source-mosaic-lab";
+import SourceMosaicLab, { SourceMosaicStaticPack, sourceMosaicExperienceId } from "./ela-source-mosaic-lab";
 import GeometryScreenLab from "./math-geometry-screen-lab";
 import ScoreboardRuleLab, { scoreboardRuleExperienceId } from "./math-scoreboard-lab";
 import MathNumberScaleLab, { magnitudeScaleLabExperienceId } from "./math-number-scale-lab";
@@ -30,7 +30,7 @@ import EditRoomLab, { editRoomExperienceId } from "./ela-edit-room-lab";
 import FourArtsLab, { fourArtsExperienceId } from "./four-arts-lab";
 import { projectorReadinessFromSupport, resolveProjectorLessonSupport } from "./projector-lesson-supports";
 import { TeacherRunSheet, teacherRunSheetSaveTarget } from "./teacher-run-sheet";
-import { coreCompetencyMovesFor } from "./learning-lens";
+import { coreCompetencyMovesFor, runSheetAccessibilityFor, runSheetDiscussionMovesFor } from "./learning-lens";
 import { mathAnticsFor } from "./math-antics-routes";
 import CurrentConnectionPlayer from "./current-connection";
 import { currentConnectionForLesson } from "./current-connections";
@@ -346,6 +346,7 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
     ? projectorReadinessFromSupport(resolvedProjectorSupport.support)
     : readinessFor(experience);
   const currentConnection = currentConnectionForLesson(experience.id);
+  const sourceMosaicOfflineRoute = "Use one printed Static Source Pack at the projector or teacher table, or one per group. Read each source aloud, match jobs on the board, choose two evidence pieces, then build the claim and limit on paper.";
   const teacherRunSteps = currentConnection
     ? [{ title: "Source Lab · Quick Look", action: "Open the named source on the projector. Move through Look, Notice, Claim, and Next as one class; students can point, talk, use the board, or use paper.", finishCheck: "The class builds one careful sentence that includes the source date or status and names what the source cannot prove." }, ...studentContract.steps]
     : studentContract.steps;
@@ -377,6 +378,12 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
         finishEvidence={studentContract.finishEvidence}
         saveTarget={teacherRunSheetSaveTarget(spaces.decision, spaces.teacherPrompt)}
         lookFors={experience.lookFors}
+        discussionMoves={runSheetDiscussionMovesFor(program.subject)}
+        misconception={{
+          idea: "A finished or polished product is enough even when the required thinking is not visible.",
+          respond: "Return to the first look-for, ask the student to point to where it is visible, then model one evidence-based revision.",
+        }}
+        accessibility={runSheetAccessibilityFor(program.subject)}
         readiness={{ ideas: readinessLaunch.background, modelTitle: readinessLaunch.example.title, modelConclusion: readinessLaunch.example.conclusion, check: readinessLaunch.questions[0], reteach: readinessLaunch.reteach }}
         prepare={experience.teacherPrep.slice(0, 3)}
         materials={kit?.gather.length ? kit.gather : experience.materials}
@@ -384,12 +391,14 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
         routes={{
           projector: "Open Teach / Project mode and advance one class-facing part at a time; the teacher keeps sources and decisions under whole-class control.",
           sharedDevice: "Use one teacher-controlled screen for the launch and sources. Pairs or tables complete the same thinking through talk, paper, materials, and a shared check.",
-          offline: kit?.shortRoute ?? "Read the hook and first move aloud, use the listed physical materials or plain paper, and collect the same finish evidence without an account or upload.",
+          offline: experience.id === sourceMosaicExperienceId ? sourceMosaicOfflineRoute : kit?.shortRoute ?? "Read the hook and first move aloud, use the listed physical materials or plain paper, and collect the same finish evidence without an account or upload.",
         }}
         extension={phasedCoordinateBridge ? "Continue into negative coordinates only after students can describe and verify the first-quadrant moves." : undefined}
         dayPlanLesson={{ sourceId: experience.id, subject: program.subject, title: studentTitleFor(experience), timing: experience.duration, runSteps: teacherRunSteps.map((step) => `${step.title}: ${step.action}`) }}
         launchResource={mathAntics ?? undefined}
       />
+
+      {experience.id === sourceMosaicExperienceId && <SourceMosaicStaticPack />}
 
       <details className="teacher-planning-details">
         <summary><span><small>MORE DETAIL</small><strong>Printables, sources, answers, and curriculum</strong></span><b>Open ▾</b></summary>

@@ -93,7 +93,39 @@ test("dated year registry launches election accountability before Fleetwood synt
 
 test("TTOC operational details are not persisted as student records", async () => {
   const source = await read("app/ttoc-day-plan.tsx");
+  const weeklySource = await read("app/weekly-plan.tsx");
+  const privacySource = await read("app/planning-privacy.tsx");
   assert.match(source, /planForDeviceStorage/);
   assert.match(source, /essentials:\s*\{\s*\.\.\.emptyTtocEssentials\(\),\s*noTechRoute:/);
-  assert.match(source, /Do not enter student names, contacts, access codes, medical details, or confidential safety information/);
+  assert.match(source, /PlanningPrivacyNote/);
+  assert.match(weeklySource, /PlanningPrivacyNote/);
+  assert.match(weeklySource, /no student-specific or confidential information/i);
+  assert.match(privacySource, /Do not enter student names, contacts, access codes, medical details, confidential safety information, or student-specific supports/);
+});
+
+test("multi-class TTOC plans keep the full timing and complete critical notes", async () => {
+  const runSheet = await read("app/teacher-run-sheet.tsx");
+  const ttoc = await read("app/ttoc-day-plan.tsx");
+  const weekly = await read("app/weekly-plan.tsx");
+  assert.doesNotMatch(runSheet, /one class block/i);
+  assert.match(runSheet, /multi-class sequence/i);
+  assert.match(runSheet, /SAFETY \/ PRIVACY \/ CLEANUP/);
+  assert.match(runSheet, /FINISH:/);
+  assert.doesNotMatch(runSheet, /\.slice\(0,\s*(?:880|900)\)/);
+  assert.match(ttoc, /PLAN_BLOCK_NOTE_MAX/);
+  assert.doesNotMatch(ttoc, /block\.notes\.slice/);
+  assert.match(weekly, /PLAN_BLOCK_NOTE_MAX/);
+});
+
+test("Source Mosaic and Science expose their offline and full-prep routes", async () => {
+  const mosaic = await read("app/ela-source-mosaic-lab.tsx");
+  const learningProgram = await read("app/learning-program.tsx");
+  const science = await read("app/inquiry-experience.tsx");
+  assert.match(mosaic, /export function SourceMosaicStaticPack/);
+  assert.match(mosaic, /FICTIONAL PRACTICE SOURCES/);
+  assert.match(mosaic, /TEACHER KEY/);
+  assert.match(learningProgram, /SourceMosaicStaticPack/);
+  assert.match(learningProgram, /printed Static Source Pack/);
+  assert.match(science, /Full prep \/ print/);
+  assert.match(science, /<MiniBrief lesson=\{lesson\} unit=\{unit\} onClose=\{closeBrief\}/);
 });

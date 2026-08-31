@@ -11,7 +11,7 @@ import { isReviewedStudentLessonId, resolveStudentLessonContract } from "./stude
 import type { DailyLaunch } from "./daily-launch";
 import { TeacherDailyLaunchButton } from "./student-home-portal";
 import { TeacherRunSheet, teacherRunSheetSaveTarget } from "./teacher-run-sheet";
-import { coreCompetencyMovesFor } from "./learning-lens";
+import { coreCompetencyMovesFor, runSheetAccessibilityFor, runSheetDiscussionMovesFor } from "./learning-lens";
 import { spacesPolicyForActivity } from "./classroom-program";
 
 type Props = {
@@ -1344,6 +1344,7 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
     <header className="journey-toolbar">
       <div className="journey-home"><button onClick={onHome}>⌂ <span>Home</span></button><button onClick={onUnitStart}>← <span>Science units</span></button></div>
       <div className="journey-title"><span>{unit.icon}</span><div><small>PLAN / TTOC · SCIENCE 6 · UNIT {unit.number}</small><strong>{lesson.title}</strong></div></div>
+      <div className="journey-actions"><button type="button" aria-haspopup="dialog" aria-expanded={briefOpen} onClick={() => setBriefOpen(true)}>Full prep / print</button></div>
     </header>
     <section className="science-plan-stage" aria-label={`${lesson.title} lesson plan`}>
       <WorldContextBand theme={theme} teacher />
@@ -1361,7 +1362,9 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
         finishEvidence={studentContract?.finishEvidence ?? (lesson.success.length ? lesson.success : [lesson.evidence])}
         saveTarget={teacherRunSheetSaveTarget(spacesDecision, spacesMessage)}
         lookFors={lesson.success}
+        discussionMoves={runSheetDiscussionMovesFor("Science")}
         misconception={{ idea: lesson.misconception, respond: readinessLaunch.reteach }}
+        accessibility={runSheetAccessibilityFor("Science")}
         readiness={{ ideas: readinessLaunch.background, modelTitle: readinessLaunch.example.title, modelConclusion: readinessLaunch.example.conclusion, check: readinessLaunch.questions[0], reteach: readinessLaunch.reteach }}
         prepare={lesson.teacherPrep?.beforeClass}
         materials={lesson.materials}
@@ -1371,12 +1374,12 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
           sharedDevice: "Use one teacher-controlled screen for the visual or source; groups gather, model, discuss, and record their own evidence at tables.",
           offline: lesson.teacherPrep?.offlineRoute ?? lesson.teacherPrep?.lowPrepAlternative ?? "Read the hook aloud, sketch the model on the board, use the listed materials or a paper evidence set, and collect the same claim and reflection.",
         }}
-        ttocBoundary={lesson.teacherPrep?.cleanup?.join(" ")}
+        safetyPrivacyCleanup={lesson.teacherPrep?.cleanup}
         launchResource={launchResource}
         dayPlanLesson={{ sourceId: lesson.id, subject: "Science", title: lesson.title, timing: lesson.duration, runSteps: (studentContract?.steps ?? teacherRunSteps).map((step) => `${step.title}: ${step.action}`) }}
       />
       <details className="teacher-planning-details science-planning-details">
-        <summary><span><small>PLANNING DETAILS</small><strong>Science background, assessment, misconceptions, and sources</strong></span><b>Open details ▾</b></summary>
+        <summary><span><small>PLANNING DETAILS</small><strong>Background, assessment, answers, and sources</strong></span><b>Open details ▾</b></summary>
         <div>
           <section><p className="section-kicker">JUST ENOUGH SCIENCE BACKGROUND</p><p>{lesson.learning}</p><p><b>Common misconception:</b> {lesson.misconception}</p></section>
           <section><p className="section-kicker">LOOK FOR</p><ul>{lesson.success.map((item) => <li key={item}>{item}</li>)}</ul><p><b>Final inquiry connection:</b> {lesson.projectContribution}</p></section>
@@ -1387,6 +1390,7 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
       </details>
     </section>
     <div className="journey-sequence"><button disabled={!previous} onClick={() => previous && onOpenLesson(previous)}>← {previous?.title ?? "Start of unit"}</button><span>LESSON {lessonIndex + 1} OF {unit.lessons.length}</span><button disabled={!next} onClick={() => next && onOpenLesson(next)}>{next?.title ?? "End of unit"} →</button></div>
+    {briefOpen && <MiniBrief lesson={lesson} unit={unit} onClose={closeBrief} />}
   </div>;
 
   return <div className="journey-player journey-student world-surface" data-world={theme.id} style={worldStyle(theme)}>
@@ -1411,6 +1415,5 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
       </section>
     </div>
     <div className="journey-sequence"><button disabled={!previous} onClick={() => previous && onOpenLesson(previous)}>← {previous?.title ?? "Start of unit"}</button><span>LESSON {lessonIndex + 1} OF {unit.lessons.length}</span><button disabled={!next} onClick={() => next && onOpenLesson(next)}>{next?.title ?? "End of unit"} →</button></div>
-    {briefOpen && <MiniBrief lesson={lesson} unit={unit} onClose={closeBrief} />}
   </div>;
 }

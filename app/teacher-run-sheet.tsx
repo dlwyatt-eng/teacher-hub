@@ -6,6 +6,7 @@ import { AddToWeekButton, SEPTEMBER_FORMED_CLASS_WEEK_STORAGE_KEY, septemberForm
 import { printClosest } from "./print-support";
 import { aiDilemmasForLesson } from "./ai-literacy";
 import { schoolAIActivitiesForLesson } from "./schoolai-activities";
+import { PLAN_BLOCK_NOTE_MAX } from "./planning-contract";
 
 export type TeacherRunSheetMove = {
   title: string;
@@ -56,11 +57,11 @@ export type TeacherRunSheetProps = {
   finishEvidence: readonly string[];
   saveTarget: TeacherRunSheetSaveTarget;
   lookFors?: readonly string[];
-  discussionMoves?: readonly string[];
-  misconception?: { idea: string; respond: string };
-  accessibility?: readonly string[];
-  routes?: TeacherRunSheetDeliveryRoutes;
-  ttocBoundary?: string;
+  discussionMoves: readonly string[];
+  misconception: { idea: string; respond: string };
+  accessibility: readonly string[];
+  routes: TeacherRunSheetDeliveryRoutes;
+  safetyPrivacyCleanup?: readonly string[];
   readiness?: TeacherRunSheetReadiness;
   prepare?: readonly string[];
   materials?: readonly string[];
@@ -87,11 +88,23 @@ function sentence(text: string) {
   return value && !/[.!?]$/.test(value) ? `${value}.` : value;
 }
 
-function oneClassBlock(duration: string) {
-  const match = duration.match(/(?:\d+(?:\s*[–-]\s*\d+)?\s*[×x]\s*)?(\d+(?:\s*[–-]\s*\d+)?)\s*min/i);
-  if (!match) return duration;
-  const block = `${match[1].replace(/\s+/g, " ")} min`;
-  return /[×x]/.test(duration) ? `${block} · one class block` : block;
+function planTiming(duration: string) {
+  return /[×x]/.test(duration) ? `${clean(duration)} · multi-class sequence` : clean(duration);
+}
+
+function fitCompleteNoteSegments(segments: readonly (string | null | undefined)[], maximum: number) {
+  const kept: string[] = [];
+  let omitted = false;
+  for (const segment of segments) {
+    if (!segment) continue;
+    const value = sentence(segment);
+    const candidate = [...kept, value].join(" ");
+    if (candidate.length <= maximum) kept.push(value);
+    else omitted = true;
+  }
+  const fallback = "See the full Teacher Hub plan for omitted setup details.";
+  if (omitted && [...kept, fallback].join(" ").length <= maximum) kept.push(fallback);
+  return kept.join(" ");
 }
 
 function compactRoute(props: TeacherRunSheetProps): CompactRouteStep[] {
@@ -127,7 +140,7 @@ export function TeacherRunSheet(props: TeacherRunSheetProps) {
     misconception,
     accessibility,
     routes,
-    ttocBoundary,
+    safetyPrivacyCleanup,
     readiness,
     shortRoute,
     extension,
@@ -139,18 +152,21 @@ export function TeacherRunSheet(props: TeacherRunSheetProps) {
   const prep = prepItems(props);
   const watchFor = (lookFors?.length ? lookFors : finishEvidence).slice(0, 3);
   const ifStuck = readiness?.reteach ?? `Model only the first move: ${props.firstAction}`;
-  const ttocNotes = [
-    prep.length ? `Prep: ${prep.join(" ")}` : null,
-    routes?.offline ? `No-tech: ${routes.offline}` : null,
-    misconception ? `Watch for: ${misconception.idea} Respond: ${misconception.respond}` : null,
-    ttocBoundary ? `Safety/privacy: ${ttocBoundary}` : null,
-    `Finish: ${finishEvidence.at(-1) ?? saveTarget.message}`,
-  ].filter((item): item is string => Boolean(item)).join(" ").slice(0, 880);
+  const ttocNoteSegments = [
+    safetyPrivacyCleanup?.length ? `SAFETY / PRIVACY / CLEANUP: ${safetyPrivacyCleanup.map(sentence).join(" ")}` : null,
+    `FINISH: ${finishEvidence.at(-1) ?? saveTarget.message}`,
+    /[×x]/.test(duration) ? "CONTINUITY: Full sequence across classes. For today, stop at a natural move and mark the next move" : null,
+    `NO TECH: ${routes.offline}`,
+    `WATCH / RESPOND: ${misconception.idea} ${misconception.respond}`,
+    prep.length ? `Prep: ${prep.slice(0, 3).join(" ")}` : null,
+    dayPlanLesson?.notes,
+  ];
+  const ttocNotes = fitCompleteNoteSegments(ttocNoteSegments, PLAN_BLOCK_NOTE_MAX);
   const preparedDayPlanLesson = dayPlanLesson ? {
     ...dayPlanLesson,
-    timing: oneClassBlock(duration),
+    timing: planTiming(duration),
     runSteps: route.map((step) => `${step.minutes} · ${step.label} — ${step.action}`),
-    notes: [/[×x]/.test(duration) ? "This lesson continues across classes. Mark the next move before stopping." : dayPlanLesson.notes, ttocNotes].filter(Boolean).join(" ").slice(0, 900),
+    notes: ttocNotes,
   } satisfies TtocDayPlanLesson : null;
   const formedWeekDay = preparedDayPlanLesson ? septemberFormedWeekDayForSourceId(preparedDayPlanLesson.sourceId) : undefined;
   const weekStorageKey = formedWeekDay ? SEPTEMBER_FORMED_CLASS_WEEK_STORAGE_KEY : undefined;

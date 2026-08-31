@@ -14,7 +14,7 @@ import { CivicCaseWorkbench, civicTeacherGuideForScene } from "./social-unit2-ex
 import type { DailyLaunch } from "./daily-launch";
 import { TeacherDailyLaunchButton } from "./student-home-portal";
 import { TeacherRunSheet, teacherRunSheetSaveTarget } from "./teacher-run-sheet";
-import { coreCompetencyMovesFor } from "./learning-lens";
+import { coreCompetencyMovesFor, runSheetAccessibilityFor } from "./learning-lens";
 import CurrentConnectionPlayer from "./current-connection";
 import { currentConnectionForLesson } from "./current-connections";
 import { issueInvestigationsForLesson } from "./issue-investigations";
@@ -513,6 +513,8 @@ function SocialLessons({ selected, onLesson, scene, onScene }: { selected: Socia
           saveTarget={teacherRunSheetSaveTarget(spaces.decision, spaces.teacherPrompt)}
           lookFors={selected.lookFors}
           discussionMoves={selected.teacherMoves}
+          misconception={{ idea: selected.misconceptions[0], respond: readinessLaunch.reteach }}
+          accessibility={runSheetAccessibilityFor("Social Studies")}
           readiness={selected.id === "rights-in-tension" ? undefined : { ideas: readinessLaunch.background, modelTitle: readinessLaunch.example.title, modelConclusion: readinessLaunch.example.conclusion, check: readinessLaunch.questions[0], reteach: readinessLaunch.reteach }}
           prepare={selected.beforeClass.slice(0, 3)}
           materials={selected.materials}

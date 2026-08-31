@@ -13,6 +13,8 @@ import {
   type WeeklyPlanData,
   type WeekPlanSeed,
 } from "./weekly-plan";
+import { PLAN_BLOCK_NOTE_MAX } from "./planning-contract";
+import { PlanningPrivacyNote } from "./planning-privacy";
 
 export const TTOC_DAY_PLAN_STORAGE_KEY = "mr-wyatt-ttoc-day-plan-v1";
 export const TTOC_DAY_PLAN_CHANGE_EVENT = "mr-wyatt:ttoc-day-plan-change";
@@ -154,7 +156,7 @@ function parseBlock(value: unknown): TtocDayPlanBlock | null {
   const title = text(record.title, 180);
   const startTime = text(record.startTime, 8, true);
   const timing = text(record.timing, 80, true);
-  const notes = text(record.notes, 900, true);
+  const notes = text(record.notes, PLAN_BLOCK_NOTE_MAX, true);
   const sourceId = record.sourceId === undefined ? undefined : text(record.sourceId, 120);
   const importKey = record.importKey === undefined ? undefined : text(record.importKey, 240);
   if (!id || !safeId.test(id) || !subject || !title || startTime === null || timing === null || notes === null || sourceId === null || importKey === null || (importKey && !safeImportKey.test(importKey))) return null;
@@ -195,7 +197,7 @@ export function lessonBlockFrom(lesson: TtocDayPlanLesson): TtocDayPlanBlock {
     startTime: "",
     timing,
     runSteps: runSteps.length ? runSteps : ["Open the lesson and follow the projected class route."],
-    notes: text(lesson.notes ?? "", 900, true) ?? "",
+    notes: text(lesson.notes ?? "", PLAN_BLOCK_NOTE_MAX, true) ?? "",
   };
 }
 
@@ -222,7 +224,7 @@ export function dayPlanBlockFromWeeklyBlock(block: WeeklyPlanBlock, weekOf: stri
     startTime: text(block.startTime, 8, true) ?? "",
     timing: text(block.timing, 80, true) ?? "",
     runSteps: kind === "lesson" && !runSteps.length ? ["Open the matching lesson and follow its projected class route."] : runSteps,
-    notes: text(block.notes.slice(0, 900), 900, true) ?? "",
+    notes: text(block.notes, PLAN_BLOCK_NOTE_MAX, true) ?? "",
   };
 }
 
@@ -484,7 +486,7 @@ export function TtocDayPlan({ currentLesson, storageKey = TTOC_DAY_PLAN_STORAGE_
           <b className="ttoc-day-plan__print-value">{plan.date || "Date not set"}</b>
         </label>
       </header>
-      <p className="ttoc-day-plan__privacy-note"><strong>Planning only—this static site is not a secure student-record system.</strong> Do not enter student names, contacts, access codes, medical details, or confidential safety information anywhere in this plan. Attach the district-approved private TTOC record for those details.</p>
+      <PlanningPrivacyNote />
 
       {showCurrentLesson && currentLesson && <section className="ttoc-day-plan__add-current" aria-label="Add the current lesson">
         <div><small>CURRENT LESSON</small><strong>{currentLesson.subject} · {currentLesson.title}</strong><span>{currentLesson.timing}</span></div>
@@ -514,6 +516,7 @@ export function TtocDayPlan({ currentLesson, storageKey = TTOC_DAY_PLAN_STORAGE_
           </select>
         </label>
         <button type="button" onClick={importSelectedDay}>Import selected day</button>
+        <p>Imported block notes must contain only non-confidential directions; keep student-specific information in the district-approved private record.</p>
       </section>}
 
       <section className="ttoc-day-plan__essentials" aria-labelledby="ttoc-essentials-title">
@@ -598,7 +601,7 @@ export function TtocDayPlan({ currentLesson, storageKey = TTOC_DAY_PLAN_STORAGE_
 
               <label className="ttoc-day-plan__notes">
                 <span>{block.kind === "lesson" ? "NOTES FOR THE TTOC" : "DETAILS / DUTY / WHERE TO GO"}</span>
-                <textarea value={block.notes} maxLength={900} rows={2} placeholder={block.kind === "lesson" ? "Only add what someone needs to run this block." : "Optional"} onChange={(event) => updateBlock(block.id, { notes: event.target.value })} />
+                <textarea value={block.notes} maxLength={PLAN_BLOCK_NOTE_MAX} rows={2} placeholder={block.kind === "lesson" ? "Only non-confidential directions needed to run this block." : "Optional non-confidential details"} onChange={(event) => updateBlock(block.id, { notes: event.target.value })} />
                 <p className="ttoc-day-plan__print-value">{block.notes || "—"}</p>
               </label>
             </li>

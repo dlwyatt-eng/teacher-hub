@@ -231,13 +231,21 @@
   color: #fff;
 }
 
+.ttoc-day-plan__week-import > p {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #4f665f;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
 .ttoc-day-plan__essentials {
   padding: 17px 24px 19px;
   border-bottom: 1px solid var(--day-line);
   background: #fff;
 }
 
-.ttoc-day-plan__privacy-note {
+.planning-privacy-note {
   margin: 0;
   padding: 12px 24px;
   border-bottom: 1px solid #e1c887;
@@ -247,7 +255,7 @@
   line-height: 1.5;
 }
 
-.ttoc-day-plan__privacy-note strong {
+.planning-privacy-note strong {
   margin-right: 4px;
 }
 

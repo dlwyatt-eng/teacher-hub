@@ -26,6 +26,7 @@ export type StudentLessonStep = {
   title: string;
   action: string;
   finishCheck: string;
+  minutes?: string;
 };
 
 export type StudentLessonContract = {
@@ -201,7 +202,7 @@ const reviewedStudentLessonContracts = {
     challenge: "How could a school make a hot paved outdoor area cooler and more welcoming?",
     why: "Different source types answer different questions. Combining them helps us suggest a response without pretending we know more than the evidence shows.",
     firstAction: "Open Source 1. Read the temperature table and choose the statement it actually supports.",
-    materials: ["Everything needed is in the on-screen Source Mosaic lab"],
+    materials: ["On-screen Source Mosaic lab or printed Static Source Pack", "Plain paper or notebook for the offline route"],
     choices: [{
       prompt: "How will the class respond?",
       options: [
@@ -211,11 +212,11 @@ const reviewedStudentLessonContracts = {
       ],
     }],
     steps: [
-      { title: "Meet four source types", action: "Inspect the temperature data, labelled site map, student voice excerpts, and public explanation.", finishCheck: "The class can name one useful job for each source type." },
-      { title: "Match each job", action: "Match each source type to the question it answers best.", finishCheck: "All four source jobs are verified on screen." },
-      { title: "Choose evidence", action: "Select useful evidence from at least two different source types.", finishCheck: "The evidence tray contains two source types that help answer the question." },
-      { title: "Build a careful claim", action: "Choose the recommendation that fits the selected evidence without making a guarantee.", finishCheck: "The claim responds to both heat and how people need to use the space." },
-      { title: "Name what is missing", action: "Choose the missing information, voice, or safety check needed before a permanent change.", finishCheck: "The final brief includes an honest limit and a next evidence step." },
+      { title: "Meet four source types", minutes: "20–25 min", action: "Inspect the temperature data, labelled site map, student voice excerpts, and public explanation.", finishCheck: "The class can name one useful job for each source type." },
+      { title: "Match each job", minutes: "8–10 min", action: "Match each source type to the question it answers best.", finishCheck: "All four source jobs are verified on screen." },
+      { title: "Choose evidence", minutes: "8–10 min", action: "Select useful evidence from at least two different source types.", finishCheck: "The evidence tray contains two source types that help answer the question." },
+      { title: "Build a careful claim", minutes: "8–10 min", action: "Choose the recommendation that fits the selected evidence without making a guarantee.", finishCheck: "The claim responds to both heat and how people need to use the space." },
+      { title: "Name what is missing", minutes: "8–10 min", action: "Choose the missing information, voice, or safety check needed before a permanent change, then share the brief.", finishCheck: "The final brief includes an honest limit and a next evidence step." },
     ],
     finishEvidence: ["Four matched source jobs", "Useful evidence from at least two source types", "A careful solutionary recommendation", "One honest limit and next evidence step"],
     saveAction: { kind: "keep-in-class", message: "Use this as practice for a larger inquiry. No separate SpacesEDU post is needed." },

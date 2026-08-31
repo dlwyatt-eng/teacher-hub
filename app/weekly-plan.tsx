@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { PLAN_BLOCK_NOTE_MAX } from "./planning-contract";
+import { PlanningPrivacyNote } from "./planning-privacy";
 
 export const WEEKLY_PLAN_STORAGE_KEY = "mr-wyatt-weekly-plan-v1";
 export const WEEKLY_PLAN_CHANGE_EVENT = "mr-wyatt:weekly-plan-change";
@@ -218,7 +220,7 @@ function parseBlock(value: unknown): WeeklyPlanBlock | null {
   const title = cleanText(record.title, 180);
   const startTime = cleanText(record.startTime, 5, true);
   const timing = cleanText(record.timing, 80, true);
-  const notes = cleanLongText(record.notes, 1400, true);
+  const notes = cleanLongText(record.notes, PLAN_BLOCK_NOTE_MAX, true);
   if (!id || !safeId.test(id) || !kind || !blockKindSet.has(kind as WeeklyPlanBlockKind) || !day || !subject || !title) return null;
   if (sourceId === null || startTime === null || timing === null || notes === null || (startTime && !timePattern.test(startTime))) return null;
   if (!Array.isArray(record.runSteps) || record.runSteps.length > 8) return null;
@@ -300,7 +302,7 @@ export function lessonBlockFromWeekSeed(lesson: WeekPlanSeedLesson, fallbackDay:
     startTime: timePattern.test(suppliedStart) ? suppliedStart : "",
     timing,
     runSteps: runSteps.length ? runSteps : ["Open the matching lesson and follow its projected class route."],
-    notes: cleanLongText(lesson.notes ?? "", 1400, true) ?? "",
+    notes: cleanLongText(lesson.notes ?? "", PLAN_BLOCK_NOTE_MAX, true) ?? "",
   };
 }
 
@@ -460,6 +462,7 @@ export function AddToWeekButton({ lesson, storageKey = WEEKLY_PLAN_STORAGE_KEY, 
 /** Chooses between independently saved week presets without owning either plan. */
 export function WeeklyPlanPresetSelector({ presets, value, onChange, heading = "Choose a teaching week" }: WeeklyPlanPresetSelectorProps) {
   const headingId = useId();
+  const privacyId = useId();
   const detailId = useId();
   const selected = presets.find((preset) => preset.id === value) ?? presets[0];
   if (!selected) return null;
@@ -473,6 +476,7 @@ export function WeeklyPlanPresetSelector({ presets, value, onChange, heading = "
           <p>Open the seeded week, then adjust the timetable. Every edit stays with that week on this computer.</p>
         </div>
       </header>
+      <PlanningPrivacyNote id={privacyId} />
       <div className="weekly-plan__setup">
         <label>
           <span>WEEK PRESET</span>
@@ -495,6 +499,7 @@ export function WeeklyPlan({ seed = EMPTY_SEED, storageKey = WEEKLY_PLAN_STORAGE
   const [ready, setReady] = useState(false);
   const [status, setStatus] = useState("Opening the weekly plan saved on this teacher device…");
   const headingId = useId();
+  const privacyId = useId();
   const planRef = useRef<HTMLElement>(null);
   const serializedSeed = JSON.stringify(seed);
 
@@ -628,6 +633,8 @@ export function WeeklyPlan({ seed = EMPTY_SEED, storageKey = WEEKLY_PLAN_STORAGE
         </div>
       </header>
 
+      <PlanningPrivacyNote id={privacyId} />
+
       <section className="weekly-plan__setup" aria-label="Weekly plan details">
         <label>
           <span>WEEK STARTING MONDAY</span>
@@ -641,7 +648,7 @@ export function WeeklyPlan({ seed = EMPTY_SEED, storageKey = WEEKLY_PLAN_STORAGE
         </label>
         <label className="weekly-plan__week-note">
           <span>WHOLE-WEEK NOTES FOR THE TTOC</span>
-          <textarea value={plan.weekNote} maxLength={1800} rows={2} placeholder="Routines, supervision, assemblies, support, or changes that affect several days." onChange={(event) => updatePlan({ weekNote: event.target.value })} />
+          <textarea aria-describedby={privacyId} value={plan.weekNote} maxLength={1800} rows={2} placeholder="General routines or changes only—no student-specific or confidential information." onChange={(event) => updatePlan({ weekNote: event.target.value })} />
           <p className="weekly-plan__print-value">{plan.weekNote || "No whole-week notes."}</p>
         </label>
       </section>
@@ -688,7 +695,7 @@ export function WeeklyPlan({ seed = EMPTY_SEED, storageKey = WEEKLY_PLAN_STORAGE
 
                       <label className="weekly-plan__notes">
                         <span>{block.kind === "lesson" ? "NOTES FOR THE TTOC" : "DETAILS / DUTY / WHERE TO GO"}</span>
-                        <textarea value={block.notes} maxLength={1400} rows={2} placeholder={block.kind === "lesson" ? "Only what another teacher needs to run this block." : "Optional"} onChange={(event) => updateBlock(block.id, { notes: event.target.value })} />
+                        <textarea aria-describedby={privacyId} value={block.notes} maxLength={PLAN_BLOCK_NOTE_MAX} rows={2} placeholder={block.kind === "lesson" ? "Only non-confidential directions needed to run this block." : "Optional non-confidential details"} onChange={(event) => updateBlock(block.id, { notes: event.target.value })} />
                         <p className="weekly-plan__print-value">{block.notes || "—"}</p>
                       </label>
                     </li>

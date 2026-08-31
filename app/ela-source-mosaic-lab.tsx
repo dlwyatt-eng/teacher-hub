@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { printClosest } from "./print-support";
 
 export const sourceMosaicExperienceId = "source-mosaic";
 
@@ -247,6 +248,42 @@ function SourceDisplay({ sourceId }: { sourceId: SourceId }) {
   return <GuideSource />;
 }
 
+export function SourceMosaicStaticPack() {
+  const supportedClaim = claims.find((claim) => claim.correct)!;
+  const responsibleLimit = limits.find((limit) => limit.correct)!;
+  return (
+    <details className="mosaic-static-pack-drawer">
+      <summary><span><small>NO-WIFI / SHARED-DEVICE ROUTE</small><strong>Open the printable four-source pack and teacher key</strong></span><b>Open pack ▾</b></summary>
+      <section className="mosaic-static-pack">
+        <header>
+          <div><small>FICTIONAL PRACTICE SOURCES · SOURCE MOSAIC</small><h3>Can we cool the courtyard?</h3><p>Use at the projector or print one pack per group. These invented learning sources teach source reasoning; they are not local measurements, student records, or construction approval.</p></div>
+          <button type="button" onClick={(event) => printClosest(event.currentTarget, ".mosaic-static-pack")}>Print / PDF</button>
+        </header>
+        <div className="mosaic-static-sources">
+          {sources.map((source) => <article key={source.id} data-source={source.id}><header><small>{source.number}</small><h4>{source.type}</h4><p><b>Question:</b> {source.question}</p><p><b>Best job:</b> {source.job}</p></header><SourceDisplay sourceId={source.id} /></article>)}
+        </div>
+        <section className="mosaic-static-organizer">
+          <small>STUDENT EVIDENCE ORGANIZER</small>
+          <ol>
+            <li><b>Source jobs</b><span>For each source, write what it can show and one thing it cannot prove.</span></li>
+            <li><b>Evidence 1</b><span>Source: __________ Exact clue: __________________________________________</span></li>
+            <li><b>Evidence 2</b><span>Different source: __________ Exact clue: ________________________________</span></li>
+            <li><b>Claim</b><span>We recommend __________________________________ because ______________________________.</span></li>
+            <li><b>Honest limit</b><span>Before deciding, we still need to learn __________________________________________.</span></li>
+          </ol>
+        </section>
+        <section className="mosaic-static-key">
+          <small>TEACHER KEY · KEEP WITH THE PLAN</small>
+          <p><b>Source jobs:</b> {sourceJobs.map((job) => job.label).join(" · ")}</p>
+          <p><b>Supported claim:</b> {supportedClaim.text}</p>
+          <p><b>Responsible limit:</b> {responsibleLimit.text}</p>
+          <p><b>Success:</b> Students use at least two source types including data, connect each clue to the claim, and name missing information without claiming certainty.</p>
+        </section>
+      </section>
+    </details>
+  );
+}
+
 function FeedbackPanel({ feedback }: { feedback: Feedback }) {
   if (!feedback) return null;
   return <aside className="mosaic-feedback" data-kind={feedback.kind} role="status" aria-live="polite" aria-atomic="true"><strong>{feedback.title}</strong><span>{feedback.message}</span></aside>;
@@ -406,8 +443,8 @@ export function SourceMosaicLab({ audience = "student" }: SourceMosaicLabProps) 
 
       {audience === "teacher" && (
         <aside className="mosaic-teacher-note">
-          <strong>PROJECTOR PLAN · 35–45 MIN</strong>
-          <p>Run every decision by class vote, then ask one student to justify the choice before clicking. No handouts or advance preparation are required. The sources are intentionally fictional so students can practise source reasoning without mistaking them for local evidence.</p>
+          <strong>PROJECTOR PLAN · 55–65 MIN</strong>
+          <p>Run every decision by class vote, then ask one student to justify the choice before clicking. If connectivity is uncertain, open or print the Static Source Pack first. The sources are intentionally fictional so students can practise source reasoning without mistaking them for local evidence.</p>
         </aside>
       )}
 

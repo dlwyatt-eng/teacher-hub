@@ -39,3 +39,43 @@ export function coreCompetencyMovesFor(subject: string): readonly string[] {
     "Communication — explain an idea and listen to another view",
   ];
 }
+
+const universalAccessibility = [
+  "Keep the evidence target; let students show the same thinking by speaking, writing, drawing, pointing, manipulatives, or an approved communication aid.",
+  "Read key text aloud and reveal one direction at a time. Preteach only the words needed for the current move.",
+  "Offer private think time, a partner rehearsal, and a seated or non-performance role without requiring disclosure of a disability or personal circumstance.",
+] as const;
+
+const accessibilityBySubject: Record<string, readonly string[]> = {
+  Science: [
+    ...universalAccessibility,
+    "Use teacher-handled materials, a no-lab evidence set, or observation role when sensory, mobility, allergy, or safety needs make direct handling unsuitable.",
+  ],
+  "Social Studies": [
+    ...universalAccessibility,
+    "Provide enlarged or high-contrast sources, read source excerpts aloud, and accept oral or diagrammed evidence before extended writing.",
+  ],
+  Mathematics: [
+    ...universalAccessibility,
+    "Keep manipulatives, a calculator when calculation is not the target, and worked visual examples available without attaching them to a fixed ability group.",
+  ],
+  "English Language Arts": [
+    ...universalAccessibility,
+    "Offer audiobook, shared reading, dictation, speech-to-text, and graphic or oral composition routes while keeping the meaning-making target visible.",
+  ],
+};
+
+export function runSheetAccessibilityFor(subject: string): readonly string[] {
+  return accessibilityBySubject[subject] ?? universalAccessibility;
+}
+
+const discussionBySubject: Record<string, readonly string[]> = {
+  Science: ["What did you observe—not infer?", "Which result supports that idea?", "What result would make us revise the model?"],
+  "Social Studies": ["What does the source actually show?", "Who is affected or still missing?", "What new evidence would make us revise?"],
+  Mathematics: ["What makes the strategy work?", "Where is that visible in the model?", "Can another representation verify it?"],
+  "English Language Arts": ["Which exact detail shaped your interpretation?", "What did the creator choose or leave out?", "What revision would help this audience?"],
+};
+
+export function runSheetDiscussionMovesFor(subject: string): readonly string[] {
+  return discussionBySubject[subject] ?? ["What makes you say that?", "Point to the evidence, model, or choice.", "What changed after the test or feedback?"];
+}
