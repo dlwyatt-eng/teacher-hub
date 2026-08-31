@@ -12,5 +12,5 @@ export default function Image({ fill, priority, unoptimized, style, src, ...prop
     : typeof src === "string" && src.startsWith("/")
     ? `${import.meta.env.BASE_URL}${src.slice(1)}`
     : src;
-  return <img {...props} src={resolved} loading={priority ? "eager" : props.loading} style={fill ? { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", ...style } : style} />;
+  return <img {...props} src={resolved} loading={priority ? "eager" : (props.loading ?? "lazy")} decoding={props.decoding ?? "async"} style={fill ? { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", ...style } : style} />;
 }

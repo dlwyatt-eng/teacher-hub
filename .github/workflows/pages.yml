@@ -24,11 +24,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 22.13.0
           cache: npm
       - run: npm ci
-      - run: npx vite build --config vite.pages.config.ts
-      - run: node pages/postbuild.mjs
+      - name: Validate and build the Pages artifact
+        run: npm test
       - uses: actions/configure-pages@v5
         with:
           enablement: true
