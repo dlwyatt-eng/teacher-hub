@@ -83,6 +83,21 @@ test("repaired AI dilemma mappings do not regress to obsolete lesson IDs", async
   }
 });
 
+test("the AI physical-system map is projector-ready and accessibility-bounded", async () => {
+  const source = await read("app/ai-tensions-lab.tsx");
+  const catalog = await read("app/visual-review-catalog.ts");
+  const asset = await read("public/images/visual-review/ai-physical-system-route-v1.svg");
+  assert.match(asset, /width="1920" height="1080"/);
+  assert.match(asset, /No single water or energy number applies to every prompt/);
+  assert.match(source, /dilemma\.id === "data-centre-community"/);
+  assert.match(source, /ai-physical-system-route-v1\.svg/);
+  assert.match(source, /aria-modal="true"/);
+  assert.match(source, /event\.key !== "Escape"/);
+  assert.match(source, /Whole data-centre use is not the same as the AI share/);
+  assert.match(catalog, /id: "T04"/);
+  assert.match(catalog, /avoids universal per-prompt water or energy claims/);
+});
+
 test("dated year registry launches election accountability before Fleetwood synthesis", async () => {
   const source = await read("app/year-week-registry.ts");
   const electionIndex = source.indexOf("surrey-election-results-and-next-2026");

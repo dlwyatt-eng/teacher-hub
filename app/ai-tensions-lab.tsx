@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import Image from "next/image";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { aiDilemmas, aiLiteracySources, aiSystemChain, humanAgencyProgression } from "./ai-literacy";
 
 type Audience = "teacher" | "student";
@@ -12,13 +13,41 @@ export default function AiTensionsLab({ audience, onHome }: { audience: Audience
   const [index, setIndex] = useState(0);
   const [decision, setDecision] = useState<Decision | null>(null);
   const [revealed, setRevealed] = useState(false);
+  const [systemMapOpen, setSystemMapOpen] = useState(false);
+  const systemMapTriggerRef = useRef<HTMLButtonElement>(null);
+  const systemMapCloseRef = useRef<HTMLButtonElement>(null);
   const dilemma = aiDilemmas[index];
   const sources = useMemo(() => aiLiteracySources.filter((source) => dilemma.sourceIds.includes(source.id)), [dilemma]);
+  const hasPhysicalSystemMap = dilemma.id === "data-centre-community";
+
+  const closeSystemMap = () => {
+    setSystemMapOpen(false);
+    window.setTimeout(() => systemMapTriggerRef.current?.focus(), 0);
+  };
+
+  useEffect(() => {
+    if (!systemMapOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.setTimeout(() => systemMapCloseRef.current?.focus(), 0);
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      event.preventDefault();
+      setSystemMapOpen(false);
+      window.setTimeout(() => systemMapTriggerRef.current?.focus(), 0);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [systemMapOpen]);
 
   const chooseCard = (nextIndex: number) => {
     setIndex(nextIndex);
     setDecision(null);
     setRevealed(false);
+    setSystemMapOpen(false);
   };
 
   return <div className={`page ai-tensions-lab ${audience === "student" ? "student" : "teacher"}`}>
@@ -42,6 +71,11 @@ export default function AiTensionsLab({ audience, onHome }: { audience: Audience
         <button className="ai-reveal" type="button" onClick={() => setRevealed(value => !value)}>{revealed ? "Hide new information" : "Reveal new information"}</button>
         {revealed && <div className="ai-new-information"><small>NOW RECONSIDER</small><p>{dilemma.newInformation}</p></div>}
 
+        {hasPhysicalSystemMap && <section className="ai-system-map-launch" aria-label="Physical AI system map">
+          <div><small>PROJECTOR + OFFLINE VISUAL</small><strong>Digital does not mean weightless.</strong><span>Trace the physical route, then test who benefits, who carries costs, and what evidence is still missing.</span></div>
+          <button ref={systemMapTriggerRef} type="button" onClick={() => setSystemMapOpen(true)}>Open system map</button>
+        </section>}
+
         <div className="ai-tension-balance">
           <article><small>OPPORTUNITY</small><p>{dilemma.opportunity}</p></article>
           <article><small>COULD GO WRONG</small><p>{dilemma.risk}</p></article>
@@ -57,11 +91,20 @@ export default function AiTensionsLab({ audience, onHome }: { audience: Audience
       </aside>
     </main>
 
-    <section className="ai-infrastructure" aria-labelledby="ai-infrastructure-title">
+    {!hasPhysicalSystemMap && <section className="ai-infrastructure" aria-labelledby="ai-infrastructure-title">
       <header><small>MAKE THE SYSTEM VISIBLE</small><h2 id="ai-infrastructure-title">An AI answer has a physical route.</h2></header>
       <div>{aiSystemChain.map((step, stepIndex) => <article key={step.label}><b>{stepIndex + 1}</b><strong>{step.label}</strong><span>{step.detail}</span></article>)}</div>
       <p><b>ZOOM OUT:</b> minerals → manufacturing → transport → electricity → cooling → replacement → e-waste</p>
-    </section>
+    </section>}
+
+    {systemMapOpen && hasPhysicalSystemMap && <div className="ai-system-map-overlay" role="dialog" aria-modal="true" aria-labelledby="ai-system-map-title" aria-describedby="ai-system-map-transcript">
+      <button className="ai-system-map-scrim" type="button" aria-label="Close physical system map" onClick={closeSystemMap} />
+      <section className="ai-system-map-panel">
+        <header><div><small>GRADE 6 SYSTEMS MAP</small><h2 id="ai-system-map-title">An AI answer has a physical route.</h2></div><button ref={systemMapCloseRef} type="button" onClick={closeSystemMap} aria-label="Close system map">×</button></header>
+        <figure><Image unoptimized priority src="/images/visual-review/ai-physical-system-route-v1.svg" width={1920} height={1080} alt="Diagram showing an AI request moving through a network to a data centre and returning as a response, alongside physical inputs, benefits, costs, outputs, and evidence-checking questions." /><figcaption>ORIGINAL CLASSROOM OS VISUAL · No fixed per-prompt water or energy claim. Use dated, bounded evidence.</figcaption></figure>
+        <div id="ai-system-map-transcript" className="sr-only">A request moves through a network to a data centre, where chips calculate, and a response returns. The system is built from minerals, chips, hardware, buildings, and transport. It runs with electricity, cooling by water or air, workers, and networks. It can create useful services and heat, local electricity and cooling demand, replacement equipment, and electronic waste. Possible benefits include climate models, ecosystem monitoring, electricity-grid planning, hazard warnings, and accessibility. Possible costs include land, electricity, cooling resources, infrastructure, and hardware. Benefits and costs may fall on different people and places. To check a claim, define the boundary; name the place, electricity grid, cooling method, model, workload, and date; use ranges; and ask who benefits, who carries costs, who decides, and who checks. Whole data-centre use is not the same as the AI share, and no single water or energy number applies to every prompt.</div>
+      </section>
+    </div>}
 
     {audience === "teacher" && <details className="ai-teacher-reference">
       <summary><span>TEACHER QUICK REFERENCE</span><strong>{dilemma.curriculum.join(" · ")}</strong><b>Open ↓</b></summary>
