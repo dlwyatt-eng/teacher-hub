@@ -38,7 +38,10 @@ const artForms = ["Image", "Soundtrack", "Freeze-frame", "Movement loop"] as con
 
 function playSoundtrack(ids: string[], onDone: () => void) {
   const AudioContextClass = window.AudioContext || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
-  if (!AudioContextClass || !ids.length) return;
+  if (!AudioContextClass || !ids.length) {
+    onDone();
+    return;
+  }
   const context = new AudioContextClass();
   const start = context.currentTime + .05;
   ids.forEach((id, index) => {
@@ -83,7 +86,7 @@ export function FourArtsLab({ audience = "student" }: { audience?: "student" | "
   };
 
   const toggleClue = (id: string) => setClues((current) => current.includes(id) ? current.filter((item) => item !== id) : [...current, id].slice(-3));
-  const addSound = (id: string) => setSoundtrack((current) => current.length >= 3 || current.includes(id) ? current : [...current, id]);
+  const addSound = (id: string) => setSoundtrack((current) => current.length >= 3 ? current : [...current, id]);
   const addMove = (id: string) => setMoves((current) => current.length >= 4 ? current : [...current, id]);
   const toggleMix = (name: string) => setMix((current) => current.includes(name) ? current.filter((item) => item !== name) : current.length < 2 ? [...current, name] : current);
 
@@ -94,7 +97,7 @@ export function FourArtsLab({ audience = "student" }: { audience?: "student" | "
   return (
     <section className="four-arts-lab" aria-labelledby="four-arts-title">
       <header className="four-arts-lab__hero">
-        <div><small>THE AFTER-RAIN REMIX · ONE PROJECTOR, ONE CLASS</small><h2 id="four-arts-title">One scene. Four ways to make it feel different.</h2><p>We will turn the same strange courtyard into an image story, a soundtrack, a freeze-frame, and a movement loop. Then the class chooses the best remix.</p></div>
+        <div><small>OPTIONAL AFTER-RAIN CUE LAB · USE AFTER THE FOUR FOUNDATION STUDIES</small><h2 id="four-arts-title">One scene. Four ways to guide attention.</h2><p>Use this copyright-safe practice scene to try a sound cue, a tableau, a movement phrase, and a two-form remix. The complete paper folio and authentic mentor encounters remain the core learning.</p></div>
         <aside><strong>{verified} / 5</strong><span>creative moves built</span></aside>
       </header>
 
@@ -108,7 +111,7 @@ export function FourArtsLab({ audience = "student" }: { audience?: "student" | "
           <span className="four-arts-scene__wind wind-two" aria-hidden="true" />
           <span className="four-arts-scene__ripple ripple-one" aria-hidden="true" />
           <span className="four-arts-scene__ripple ripple-two" aria-hidden="true" />
-          {step === 0 && sceneClues.map((clue, index) => <button type="button" className={`four-arts-hotspot hotspot-${clue.place} ${clues.includes(clue.id) ? "found" : ""}`} key={clue.id} onClick={() => toggleClue(clue.id)} aria-pressed={clues.includes(clue.id)}><span>{clues.includes(clue.id) ? "✓" : index + 1}</span><b>{clue.label}</b></button>)}
+          {step === 0 && sceneClues.map((clue, index) => <span aria-hidden="true" className={`four-arts-hotspot hotspot-${clue.place} ${clues.includes(clue.id) ? "found" : ""}`} key={clue.id}><span>{clues.includes(clue.id) ? "✓" : index + 1}</span><b>{clue.label}</b></span>)}
           {step > 0 && <figcaption>{step === 1 ? "What could this place sound like?" : step === 2 ? "Where should the audience look first?" : step === 3 ? "Which paths and rhythms are hiding here?" : "What feeling will your remix leave behind?"}</figcaption>}
         </figure>
 
@@ -123,10 +126,10 @@ export function FourArtsLab({ audience = "student" }: { audience?: "student" | "
 
           {step === 1 && <div className="four-arts-task">
             <p className="four-arts-callout"><b>Class job:</b> Choose three sound layers. Put them in an order that changes the mood.</p>
-            <div className="four-arts-choice-grid">{sounds.map((sound) => <button type="button" key={sound.id} disabled={soundtrack.length >= 3 || soundtrack.includes(sound.id)} onClick={() => addSound(sound.id)}><span>{sound.voice}</span><strong>{sound.label}</strong></button>)}</div>
+            <div className="four-arts-choice-grid">{sounds.map((sound) => <button type="button" key={sound.id} disabled={soundtrack.length >= 3} onClick={() => addSound(sound.id)}><span>{sound.voice}</span><strong>{sound.label}</strong></button>)}</div>
             <div className="four-arts-sequence"><small>YOUR 3-SOUND TRACK</small>{[0,1,2].map((slot) => { const sound = sounds.find((item) => item.id === soundtrack[slot]); return <button type="button" key={slot} disabled={!sound} onClick={() => setSoundtrack((current) => current.filter((_, index) => index !== slot))}><span>{slot + 1}</span>{sound ? <strong>{sound.label} ×</strong> : <em>Choose a sound</em>}</button>; })}</div>
             <button className="four-arts-play" type="button" disabled={!soundtrack.length || playing} onClick={() => { setPlaying(true); playSoundtrack(soundtrack, () => setPlaying(false)); }}>{playing ? "Playing…" : "▶ Test our soundtrack"}</button>
-            <p className="four-arts-coach">The computer gives a tiny cue. The class can make the real version with voices, body percussion, or safe classroom objects.</p>
+            <p className="four-arts-coach">The computer gives a tiny optional synthesizer cue. Repeat a sound when repetition serves the rhythm. The class makes the musical version with voices, body percussion, safe objects, or instruments—and includes intentional silence and a graphic score.</p>
           </div>}
 
           {step === 2 && <div className="four-arts-task">

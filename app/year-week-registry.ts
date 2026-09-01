@@ -33,6 +33,7 @@ const WINTER_AND_SPRING_BREAK_WEEKS = new Set([
 
 const SPECIAL_SEPTEMBER_WEEKS = new Set(["2026-09-07", "2026-09-14"]);
 const lessonDays = [WEEKDAYS[0], WEEKDAYS[2], WEEKDAYS[4]] as const;
+const artsStudioDay = WEEKDAYS[1];
 
 /**
  * Pacing only: every id resolves to the existing lesson source of truth.
@@ -40,24 +41,24 @@ const lessonDays = [WEEKDAYS[0], WEEKDAYS[2], WEEKDAYS[4]] as const;
  */
 const monthLessonSlots: Record<string, readonly (readonly string[])[]> = {
   September: [
-    ["compare-government-systems", "maps-make-arguments", "power-in-the-room"],
-    ["perspective-without-guessing", "trace-the-claim", "three-voices"],
+    ["compare-government-systems", "maps-make-arguments"],
+    ["perspective-without-guessing", "three-voices"],
   ],
   October: [
-    ["rights-in-tension", "search-under-hood", "map-what-maps-miss"],
-    ["edit-room", "civic-decision-brief", "same-facts-frame"],
+    ["rights-in-tension", "search-under-hood"],
+    ["edit-room", "civic-decision-brief"],
     ["surrey-election-results-and-next-2026", "strategy-league", "scoreboard-rules"],
     ["search-under-hood", "pack-and-sync", "digital-identity-forensics"],
   ],
   November: [
     ["fleetwood-case-file", "decimal-dispatch", "fraction-ratio-remix"],
-    ["rights-in-tension", "rights-in-thirty", "sale-lab"],
+    ["rights-in-tension", "sale-lab"],
     ["power-in-the-room", "leadership-relay", "access-by-design"],
     ["city-moves", "data-skyline", "turning-point-remix"],
   ],
   December: [
-    ["data-skyline", "same-facts-frame", "decimal-dispatch"],
-    ["supply-chain-shockwave", "rights-in-thirty", "character-council"],
+    ["data-skyline", "decimal-dispatch"],
+    ["supply-chain-shockwave", "character-council"],
     ["cooperation-control-room", "turning-point-remix", "leadership-relay"],
   ],
   January: [
@@ -68,9 +69,9 @@ const monthLessonSlots: Record<string, readonly (readonly string[])[]> = {
   ],
   February: [
     ["make-it-teachable", "hook-cold-audience", "graph-story-lab"],
-    ["expert-exchange", "audience-remix", "probability-game-audit"],
+    ["expert-exchange", "probability-game-audit"],
     ["expert-exchange", "leadership-relay", "cold-test-prototype"],
-    ["science-launch", "source-mosaic", "four-arts-languages"],
+    ["science-launch", "source-mosaic", "career-constellation"],
   ],
   March: [
     ["signal-case", "graph-story-lab", "effort-meter-trail"],
@@ -90,11 +91,85 @@ const monthLessonSlots: Record<string, readonly (readonly string[])[]> = {
     ["safer-impact-studio", "impossible-scene-repair", "space-under-constraints"],
   ],
   June: [
-    ["cosmic-zoom", "cosmic-scale-gallery", "space-under-constraints"],
+    ["cosmic-zoom", "space-under-constraints"],
     ["space-motion-lab", "impossible-scene-repair", "cosmic-mission-control"],
     ["cosmic-exhibit-studio", "live-anthology", "career-constellation"],
-    ["cosmic-exhibit-studio", "audience-remix", "live-anthology"],
+    ["cosmic-exhibit-studio", "live-anthology"],
   ],
+};
+
+type ArtsStudioSession = {
+  sourceId: "four-arts-languages" | "map-what-maps-miss" | "same-facts-frame" | "rights-in-thirty" | "audience-remix" | "cosmic-scale-gallery";
+  session: number;
+  total: number;
+  label: string;
+  stepIndexes: readonly number[];
+};
+
+const artsSession = (
+  sourceId: ArtsStudioSession["sourceId"],
+  session: number,
+  total: number,
+  label: string,
+  stepIndexes: readonly number[],
+): ArtsStudioSession => ({ sourceId, session, total, label, stepIndexes });
+
+/**
+ * One Tuesday studio most weeks. Each dated seed carries only that session's
+ * authored steps, so a four- or five-session unit never masquerades as one day.
+ */
+const artsStudioSlots: Record<string, readonly (ArtsStudioSession | null)[]> = {
+  September: [
+    artsSession("four-arts-languages", 1, 5, "Visual art study", [0]),
+    artsSession("four-arts-languages", 2, 5, "Music and graphic score", [1]),
+  ],
+  October: [
+    artsSession("four-arts-languages", 3, 5, "Drama and tableau", [2]),
+    artsSession("four-arts-languages", 4, 5, "Dance and movement score", [3]),
+    artsSession("four-arts-languages", 5, 5, "Two-form remix, response, and revision", [4]),
+    null,
+  ],
+  November: [
+    artsSession("map-what-maps-miss", 1, 4, "Artist, context, and slow look", [0]),
+    artsSession("map-what-maps-miss", 2, 4, "Technique, symbolism, and observation", [1, 2]),
+    artsSession("map-what-maps-miss", 3, 4, "Layered composition and evidence legend", [3]),
+    artsSession("map-what-maps-miss", 4, 4, "Gallery response, revision, and creator note", [4]),
+  ],
+  December: [
+    artsSession("same-facts-frame", 1, 4, "Artist encounter and music mini-labs", [0, 1]),
+    artsSession("same-facts-frame", 2, 4, "Complete graphic score", [2]),
+    artsSession("same-facts-frame", 3, 4, "No-coaching performer test", [3]),
+  ],
+  January: [
+    artsSession("same-facts-frame", 4, 4, "Revision, second performance, and composer statement", [4]),
+    null,
+    null,
+    null,
+  ],
+  February: [
+    artsSession("rights-in-thirty", 1, 4, "Mentor, case, and dramatic-form comparison", [0, 1]),
+    artsSession("rights-in-thirty", 2, 4, "Choose a form and compose before/after", [2]),
+    artsSession("rights-in-thirty", 3, 4, "Safe transition and complete score", [3]),
+    artsSession("rights-in-thirty", 4, 4, "Audience evidence, revision, and replay", [4]),
+  ],
+  March: [
+    artsSession("audience-remix", 1, 3, "Curator model and first arrangement", [0, 1]),
+    artsSession("audience-remix", 2, 3, "No-coaching audience test", [2]),
+    artsSession("audience-remix", 3, 3, "Revision, retest, and curator note", [3, 4]),
+  ],
+  April: [
+    artsSession("cosmic-scale-gallery", 1, 5, "Mentor context and technique", [0]),
+    artsSession("cosmic-scale-gallery", 2, 5, "Four complete technique trials", [1]),
+    artsSession("cosmic-scale-gallery", 3, 5, "Intention, medium, risk, and full plan", [2]),
+    artsSession("cosmic-scale-gallery", 4, 5, "Build, rehearse, and curate", [3]),
+  ],
+  May: [
+    artsSession("cosmic-scale-gallery", 5, 5, "Audience test, two revisions, and reflection", [4]),
+    null,
+    null,
+    null,
+  ],
+  June: [null, null, null, null],
 };
 
 const programs = Object.values({ ...coreLearningPrograms, ...integratedLearningPrograms });
@@ -158,6 +233,35 @@ function lessonFromSourceId(sourceId: string): WeekPlanSeedLesson {
   throw new Error(`Year week registry refers to a missing lesson: ${sourceId}`);
 }
 
+function artsStudioLessonFromSession(session: ArtsStudioSession): WeekPlanSeedLesson {
+  const entry = programExperienceById.get(session.sourceId);
+  if (!entry || entry.program.subject !== "Arts Education") {
+    throw new Error(`Arts studio registry refers to a missing Arts lesson: ${session.sourceId}`);
+  }
+  const { experience } = entry;
+  const authoredSteps = studentStepsFor(experience);
+  const selectedSteps = session.stepIndexes.map((index) => authoredSteps[index]).filter(Boolean);
+  if (!selectedSteps.length) throw new Error(`Arts studio ${session.sourceId} session ${session.session} has no authored steps.`);
+  const sessionTiming = experience.duration.replace(/^\d+\s*×\s*/, "");
+  const finalSession = session.session === session.total;
+
+  return {
+    sourceId: session.sourceId,
+    subject: "Arts Education",
+    title: `${experience.title} · ${session.session}/${session.total} · ${session.label}`,
+    timing: sessionTiming,
+    day: artsStudioDay,
+    runSteps: selectedSteps.map((step) => `${step.title}: ${step.action}`),
+    notes: [
+      `Learning question: ${experience.question}`,
+      `This is session ${session.session} of ${session.total}. Use the matching complete folio pages and keep every other section scheduled; an accommodation may change response mode or length without deleting the learning.`,
+      finalSession
+        ? `Finish/save: ${experience.product}. ${experience.spacesPrompt}`
+        : `Keep the folio in the Arts process folder and continue with session ${session.session + 1}; no separate SpacesEDU post.`,
+    ].join("\n"),
+  };
+}
+
 function addDays(date: string, days: number) {
   const [year, month, day] = date.split("-").map(Number);
   const value = new Date(Date.UTC(year, month - 1, day));
@@ -191,7 +295,9 @@ function buildYearWeekLaunches(): YearWeekLaunch[] {
       const dateRange = weekRange(weekOf);
       const sequenceIndex = slotIndex + (month === "September" ? 1 : 0);
       const sequence = monthRecord.sequence[Math.min(sequenceIndex, monthRecord.sequence.length - 1)];
-      const lessons = sourceIds.map((sourceId, index) => ({ ...lessonFromSourceId(sourceId), day: lessonDays[index] }));
+      const anchorLessons = sourceIds.map((sourceId, index) => ({ ...lessonFromSourceId(sourceId), day: lessonDays[index] }));
+      const artsStudio = artsStudioSlots[month]?.[slotIndex] ?? null;
+      const lessons = artsStudio ? [...anchorLessons, artsStudioLessonFromSession(artsStudio)] : anchorLessons;
       return {
         id: `school-week-${weekOf}`,
         month,

@@ -12,7 +12,7 @@ export const teachingOsCoverage: CoverageRow[] = [
   { subject: "Mathematics", bigIdeas: "5 / 5", competencies: "13 / 18", content: "19 / 19", signal: "strong", next: "Keep Math Antics as the visual explanation lead; use MathUP to check coverage and select games or practice." },
   { subject: "Science", bigIdeas: "4 / 4", competencies: "13 / 27", content: "8 / 8", signal: "build", next: "Resolve blocks, vocabulary, visuals, and materials." },
   { subject: "Social Studies", bigIdeas: "4 / 4", competencies: "7 / 8", content: "9 / 9", signal: "strong", next: "Finish reusable source packs, keys, and models." },
-  { subject: "Arts Education", bigIdeas: "4 / 4", competencies: "12 / 16", content: "5 / 10", signal: "build", next: "Clarify teachable mini-lessons and evidence routes." },
+  { subject: "Arts Education", bigIdeas: "4 / 4", competencies: "16 / 16", content: "8 / 10", signal: "build", next: "Pilot the complete studios; add two required, source-specific comparison encounters before claiming traditional/contemporary First Peoples and national/international content." },
   { subject: "ADST", bigIdeas: "3 / 3", competencies: "22 / 29", content: "15 / 50", signal: "selected", next: "Keep selected-module scope explicit." },
   { subject: "Physical & Health", bigIdeas: "5 / 5", competencies: "12 / 19", content: "9 / 14", signal: "build", next: "Strengthen exact lesson supply and privacy routes." },
   { subject: "Career Education", bigIdeas: "6 / 6", competencies: "12 / 13", content: "11 / 12", signal: "strong", next: "Attach clearer individual evidence routes." },

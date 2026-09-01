@@ -63,6 +63,12 @@ const accessibilityBySubject: Record<string, readonly string[]> = {
     ...universalAccessibility,
     "Offer audiobook, shared reading, dictation, speech-to-text, and graphic or oral composition routes while keeping the meaning-making target visible.",
   ],
+  "Arts Education": [
+    ...universalAccessibility,
+    "Offer standing, seated, hand-only, prop, tabletop, storyboard, composer, director, designer, narrator, technician, and documenter routes without lowering the artistic intention or technique target.",
+    "Provide captions or transcripts, audio description, enlarged/high-contrast mentor images, non-colour-only notation, low-sensory and quiet routes, and fine-motor alternatives.",
+    "Set sound volume, movement space, light, tool, material, cultural-source, consent, and cleanup boundaries before making begins; never require personal disclosure or public performance.",
+  ],
 };
 
 export function runSheetAccessibilityFor(subject: string): readonly string[] {
@@ -74,6 +80,7 @@ const discussionBySubject: Record<string, readonly string[]> = {
   "Social Studies": ["What does the source actually show?", "Who is affected or still missing?", "What new evidence would make us revise?"],
   Mathematics: ["What makes the strategy work?", "Where is that visible in the model?", "Can another representation verify it?"],
   "English Language Arts": ["Which exact detail shaped your interpretation?", "What did the creator choose or leave out?", "What revision would help this audience?"],
+  "Arts Education": ["Which exact artistic element or technique do you notice?", "What effect does that choice have—and what evidence makes you say so?", "What could change while the intention stays clear?", "How does the creator, work, place, time, or context shape our response?"],
 };
 
 export function runSheetDiscussionMovesFor(subject: string): readonly string[] {

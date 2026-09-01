@@ -90,6 +90,22 @@ function ElaWorkshopRhythm() {
   );
 }
 
+const artsStudioRhythm = [
+  { marker: "5 MIN", title: "Encounter", body: "Name the artist/performers, work, context, and exact look/listen/watch task. Use the live source, clip, audio, still, transcript, score, or teacher demonstration." },
+  { marker: "8 MIN", title: "Notice + respond", body: "Describe one precise artistic move and its effect before summarizing a story or giving an opinion." },
+  { marker: "10 MIN", title: "Technique demo", body: "Teach one visible or audible element, process, notation move, material, movement, or rehearsal strategy." },
+  { marker: "25+ MIN", title: "Make + rehearse", body: "Students complete the named study, score, scene, or trial. Offer equal visual, sound, movement, quiet, seated, tabletop, and non-performance routes." },
+  { marker: "7 MIN", title: "Respond + reset", body: "Use descriptive response, make or name one revision, clean safely, and keep the evidence in the Arts process folder unless it is selected later." },
+] as const;
+
+function ArtsStudioRhythm() {
+  return <section className="ela-workshop-rhythm arts-studio-rhythm" aria-labelledby="arts-studio-rhythm-title">
+    <header><div><p className="section-kicker">REUSABLE ARTS STUDIO RHYTHM</p><h2 id="arts-studio-rhythm-title">Encounter a work. Notice a move. Learn technique. Make, respond, and revise.</h2><p>Use the full lesson timing when a studio spans several blocks; this is the dependable shape of one ordinary class.</p></div><span>MEDIA + OFFLINE ROUTES</span></header>
+    <div>{artsStudioRhythm.map((move) => <article key={move.title}><small>{move.marker}</small><h3>{move.title}</h3><p>{move.body}</p></article>)}</div>
+    <footer><strong>Cross-curricular comes second.</strong><span>Arts intention, technique, context, and revision stay visible even when the content connects to place, rights, nature, or Science.</span></footer>
+  </section>;
+}
+
 function spacesDisplayFor(experience: ProgramExperience) {
   const policy = spacesPolicyForActivity(experience.id);
   const decision = policy?.decision ?? experience.spacesUse;
@@ -123,6 +139,44 @@ function KitCards({ kit, student = false }: { kit: ExperienceKit; student?: bool
       <div>{kit.cards.map(card => <article key={card.title}><span>{card.title}</span><p>{card.body}</p></article>)}</div>
     </section>
   );
+}
+
+type ArtsFolioWorkspaceKind = "reference" | "lines" | "canvas" | "two-frame" | "four-part" | "six-frame" | "eight-count";
+
+function artsFolioWorkspaceKind(title: string): ArtsFolioWorkspaceKind {
+  if (/^(?:CASE [A-D]|MODEL [A-B]|SUPPLIED PLACE EVIDENCE|GRAPHIC NOTATION KEY|COMMON MINI-ARTIFACT|STUDIO SAFETY|SOURCE CARE|VOLUME \+ OBJECT SAFETY|SAFETY(?: \+ REPRESENTATION)?|DRAMATIC FORMS)\b|^(?:DRAMA|DANCE \/ TRANSITION) TECHNIQUE\b/i.test(title)) return "reference";
+  if (/SIX-FRAME/i.test(title)) return "six-frame";
+  if (/TABLEAU STORYBOARD/i.test(title)) return "two-frame";
+  if (/FOUR-PART LEGEND/i.test(title)) return "four-part";
+  if (/MOVEMENT SCORE|GRAPHIC SCORE|COMPLETE SCORE|SOUNDSCAPE \/ SCORE/i.test(title)) return "eight-count";
+  if (/VISUAL STUDY|TECHNIQUE STRIP|COMPOSITION PLAN|KINETIC FORM|LIGHT \/ SHADOW/i.test(title)) return "canvas";
+  return "lines";
+}
+
+function ArtsFolioWorkspace({ title }: { title: string }) {
+  const kind = artsFolioWorkspaceKind(title);
+  if (kind === "reference") return <aside className="arts-folio-reference"><b>REFERENCE CARD</b><span>Read, discuss, or use this card while completing the response sections. Nothing needs to be written here.</span></aside>;
+  if (kind === "two-frame") return <div className="arts-folio-frames arts-folio-frames--two" aria-label="Two large storyboard frames"><span><b>BEFORE</b></span><span><b>AFTER</b></span></div>;
+  if (kind === "four-part") return <div className="arts-folio-frames arts-folio-frames--four" aria-label="Four-part legend organizer">{["SOURCE CONTEXT", "DIRECT OBSERVATION", "ARTISTIC INTERPRETATION", "UNKNOWN"].map(label => <span key={label}><b>{label}</b></span>)}</div>;
+  if (kind === "six-frame") return <div className="arts-folio-frames arts-folio-frames--six" aria-label="Six storyboard frames">{Array.from({ length: 6 }, (_, index) => <span key={index}><b>{index + 1}</b></span>)}</div>;
+  if (kind === "eight-count") return <div className="arts-folio-score" aria-label="Eight-part score organizer"><div>{Array.from({ length: 8 }, (_, index) => <span key={index}><b>{index + 1}</b></span>)}</div><p>KEY / CUES / LABELS</p></div>;
+  if (kind === "canvas") return <div className="arts-folio-canvas" aria-label="Large visual planning area"><span>SKETCH · TEST · LABEL</span><div className="arts-folio-lines" aria-hidden="true">{Array.from({ length: 3 }, (_, index) => <i key={index} />)}</div></div>;
+  return <div className="arts-folio-lines" aria-label="Writing and reflection space">{Array.from({ length: 6 }, (_, index) => <i key={index} />)}</div>;
+}
+
+function ArtsStudioFolio({ experience, kit }: { experience: ProgramExperience; kit: ExperienceKit }) {
+  return <section className="arts-studio-folio">
+    <header>
+      <div><p className="section-kicker">COMPLETE STUDENT ORGANIZER · PRINT OR COPY THE HEADINGS</p><h3>{experience.title} · studio folio</h3><p>Student / initials: ____________________ &nbsp; Date(s): ____________________</p></div>
+      <button type="button" onClick={(event) => printClosest(event.currentTarget, ".arts-studio-folio")}>Print complete folio</button>
+    </header>
+    <p className="arts-studio-folio__promise"><b>Complete the whole folio.</b> Every response section receives evidence, a purposeful attempt, or an agreed accessibility route. Add colour, symbols, borders, spacing, pattern, or drawing where they strengthen meaning; decoration is never graded.</p>
+    <div>{kit.cards.map((card, index) => <article className={`arts-folio-page arts-folio-page--${artsFolioWorkspaceKind(card.title)}`} key={card.title}>
+      <header><span>{String(index + 1).padStart(2, "0")}</span><div><h4>{card.title}</h4><p>{card.body}</p></div></header>
+      <ArtsFolioWorkspace title={card.title} />
+    </article>)}</div>
+    <footer><b>WHOLE-FOLIO CHECK</b><span>All response sections visited · source and creative credit visible · safety/access route followed · audience or performer evidence recorded · revision and next improvement named. An accommodation may reduce response length or use oral/scribed evidence without deleting the learning section.</span></footer>
+  </section>;
 }
 
 function MediaStrip({ items, student = false }: { items: ExperienceMedia[]; student?: boolean }) {
@@ -349,6 +403,33 @@ function ExactAnchorVisual({ experience, media }: { experience: ProgramExperienc
   return null;
 }
 
+const artsMisconceptions: Record<string, { idea: string; respond: string }> = {
+  "four-arts-languages": { idea: "Using more effects means the artwork communicates more strongly.", respond: "Return to the intended first notice. Compare two versions that change only one element, then keep the choice whose audience effect is visible." },
+  "map-what-maps-miss": { idea: "An artistic interpretation can be presented as a fact about a real place, artist, Nation, or community.", respond: "Sort the claim into source, direct observation, interpretation, or unknown. Credit the exact source and revise any unsupported cultural or community claim." },
+  "same-facts-frame": { idea: "A graphic score is decoration, or any collection of noises is a musical composition.", respond: "Ask a new group to perform the score. Repair its key, timing, layers, dynamics, silence, form, and ending until the intention is followable." },
+  "rights-in-thirty": { idea: "A dramatic scene becomes powerful by acting out harm or assigning someone a stereotype.", respond: "Return to the fictional system barrier. Use focus, level, distance, gesture, transition, sound, and spatial relationship to show change without reenacting harm." },
+  "audience-remix": { idea: "Audience feedback is a popularity score or an instruction to obey every preference.", respond: "Record observable first notice, route, pause, question, and barrier. Choose the one revision that best serves the stated artistic intention and access." },
+  "cosmic-scale-gallery": { idea: "A polished installation is complete even when technique trials, source/context, safe audience route, and revision are missing.", respond: "Return to one technique trial and one audience observation. Make the smallest change that strengthens meaning or access, then test that part again." },
+};
+
+const artsSafety: Record<string, readonly string[]> = {
+  "four-arts-languages": ["Set the class volume ceiling, freeze signal, movement boundary, and safe object list before making.", "Offer seated, hand-only, tabletop, storyboard, composer, designer, director, and documenter roles; no disclosure or public performance is required.", "Credit mentor works and do not copy a distinctive work or cultural style. Return materials and leave pathways clear."],
+  "map-what-maps-miss": ["Retain artist, work, place/Nation, context, and sharing guidance exactly as the selected source provides them.", "Observation only: no harvesting, tasting, recording people, cultural reenactment, or unsourced community claims.", "Use classroom-safe art materials, protect tables, and sort reusable scraps during cleanup."],
+  "same-facts-frame": ["Agree on a volume ceiling, stop signal, and safe sound-object list; no surprise noise or sound beside another person's ear.", "Provide a quiet or visual-rhythm route and captions/transcript for the selected mentor segment.", "Return instruments and objects by labelled group; no student recording or account is required."],
+  "rights-in-thirty": ["Use only supplied low-risk fictional cases; no personal disclosure, identity assignment, trauma reenactment, restraint, threat, surprise touch, or imitation of disability.", "Mark a clear movement zone and offer seated, hand-only, tabletop, storyboard, and non-performance roles.", "Use a class volume/freeze signal and return neutral props before groups rotate."],
+  "audience-remix": ["Record no-name audience actions and questions only—no photos, ratings, public comments, or personal profiles.", "Keep routes, exits, and quiet alternatives visible; audience participation is invitational.", "Return the common artifact and reusable display materials after the second test."],
+  "cosmic-scale-gallery": ["No lasers, strobe effects, hot bulbs, dark travel routes, blocked exits, hanging trip lines, surprise sound, swinging objects, climbing, or unapproved tools.", "Offer steady-light, quiet, seated, hand-only, tabletop, visual, score, director, technician, and documenter routes.", "Credit every mentor/source; reset the encounter and sort reusable materials after each audience group."],
+};
+
+const artsStepMinutes: Record<string, readonly string[]> = {
+  "four-arts-languages": ["50–60 min", "50–60 min", "50–60 min", "50–60 min", "50–60 min"],
+  "map-what-maps-miss": ["20–25 min", "45–55 min", "20–30 min", "55–60 min", "35–45 min"],
+  "same-facts-frame": ["25–35 min", "45–55 min", "45–55 min", "30–40 min", "35–45 min"],
+  "rights-in-thirty": ["20–30 min", "20–25 min", "45–55 min", "45–55 min", "35–45 min"],
+  "audience-remix": ["20–25 min", "40–50 min", "20–25 min", "35–45 min", "20–30 min"],
+  "cosmic-scale-gallery": ["25–35 min", "2 × 50–60 min", "35–45 min", "55–65 min", "50–60 min"],
+};
+
 function TeacherExperienceDetail({ experience, arc, record, program }: { experience: ProgramExperience; arc: ProgramArc; record: CurriculumRecord; program: LearningProgram }) {
   const kit = experienceKits[experience.id];
   const media = mediaFor(experience.id);
@@ -367,9 +448,10 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
     : readinessFor(experience);
   const currentConnection = currentConnectionForLesson(experience.id);
   const sourceMosaicOfflineRoute = "Use one printed Static Source Pack at the projector or teacher table, or one per group. Read each source aloud, match jobs on the board, choose two evidence pieces, then build the claim and limit on paper.";
-  const teacherRunSteps = currentConnection
+  const runSteps = currentConnection
     ? [{ title: "Source Lab · Quick Look", action: "Open the named source on the projector. Move through Look, Notice, Claim, and Next as one class; students can point, talk, use the board, or use paper.", finishCheck: "The class builds one careful sentence that includes the source date or status and names what the source cannot prove." }, ...studentContract.steps]
     : studentContract.steps;
+  const teacherRunSteps = runSteps.map((step, index) => ({ ...step, minutes: step.minutes ?? artsStepMinutes[experience.id]?.[index] }));
   const mathAntics = program.subject === "Mathematics" ? mathAnticsFor(experience.id) : null;
   const dailyLaunch = {
     kind: "generic",
@@ -399,11 +481,12 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
         saveTarget={teacherRunSheetSaveTarget(spaces.decision, spaces.teacherPrompt)}
         lookFors={experience.lookFors}
         discussionMoves={runSheetDiscussionMovesFor(program.subject)}
-        misconception={{
+        misconception={artsMisconceptions[experience.id] ?? {
           idea: "A finished or polished product is enough even when the required thinking is not visible.",
           respond: "Return to the first look-for, ask the student to point to where it is visible, then model one evidence-based revision.",
         }}
         accessibility={runSheetAccessibilityFor(program.subject)}
+        safetyPrivacyCleanup={artsSafety[experience.id]}
         readiness={{ ideas: readinessLaunch.background, modelTitle: readinessLaunch.example.title, modelConclusion: readinessLaunch.example.conclusion, check: readinessLaunch.questions[0], reteach: readinessLaunch.reteach }}
         prepare={experience.teacherPrep.slice(0, 3)}
         materials={kit?.gather.length ? kit.gather : experience.materials}
@@ -442,6 +525,15 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
         </div>
       </details>}
 
+      {program.subject === "Arts Education" && <details className="teacher-tool-drawer teacher-model-drawer">
+        <summary><span><small>WORKED EXAMPLES · REVEAL AFTER A FIRST TRY</small><strong>Four Arts proficiency models—with a next improvement at every level</strong></span><b>Open ▾</b></summary>
+        <div>
+          <Suspense fallback={<section className="teacher-model-loading" aria-live="polite">Preparing the Arts model garden…</section>}>
+            <ProficiencyModelsPanel setId="arts-intention-technique-revision" audience="teacher" display="focus" initialLevel="Proficient" />
+          </Suspense>
+        </div>
+      </details>}
+
       {experience.id === sourceMosaicExperienceId && <SourceMosaicStaticPack />}
 
       <details className="teacher-planning-details">
@@ -449,7 +541,7 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
         <div>
           {program.subject === "Mathematics" && <MathTeacherWorkshops experienceId={experience.id} placement={phasedCoordinateBridge ? "extension" : "before"} />}
           {program.subject === "Mathematics" && <MathResourceDock experience={experience} />}
-          {kit && <KitCards kit={kit} />}
+          {kit && (program.subject === "Arts Education" ? <ArtsStudioFolio experience={experience} kit={kit} /> : <KitCards kit={kit} />)}
           <WordHelpPanel experience={experience} isMath={program.subject === "Mathematics"} />
           <MediaStrip items={media} />
           <LocalIndigenousResourceDock experienceId={experience.id} />
@@ -472,11 +564,12 @@ export function LearningProgramTab({ program, record, tab, selectedExperienceId,
   if (tab === "Units") return (
     <div className="learning-program">
       <section className="program-heading">
-        <div><p className="section-kicker">FIRST-PASS YEAR-LONG PROGRAM</p><h2>{program.title}</h2><p>{program.subtitle}</p></div>
+        <div><p className="section-kicker">YEAR-LONG PROGRAM</p><h2>{program.title}</h2><p>{program.subtitle}</p></div>
         <span>{program.cadence}</span>
       </section>
       <section className="program-north-star"><span>WHY THIS PROGRAM EXISTS</span><blockquote>{program.northStar}</blockquote><div>{program.principles.map((principle, index) => <p key={principle}><b>{String(index + 1).padStart(2, "0")}</b>{principle}</p>)}</div></section>
       {program.subject === "English Language Arts" && <ElaWorkshopRhythm />}
+      {program.subject === "Arts Education" && <ArtsStudioRhythm />}
       <WorldAtlasIntroduction />
       <MathUpMap program={program} />
       {program.subject === "Mathematics" && <MathYearImplementation program={program} />}
@@ -593,7 +686,7 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
     ...selected,
     steps: steps.map((step) => step.action),
   });
-  const usesInteractiveLab = selected.id === "pattern-forecast" || selected.id === "equation-balance" || selected.id === "source-mosaic" || selected.id === "geometry-field-lab" || selected.id === scoreboardRuleExperienceId || selected.id === magnitudeScaleLabExperienceId || selected.id === editRoomExperienceId || selected.id === fourArtsExperienceId;
+  const usesInteractiveLab = selected.id === "pattern-forecast" || selected.id === "equation-balance" || selected.id === "source-mosaic" || selected.id === "geometry-field-lab" || selected.id === scoreboardRuleExperienceId || selected.id === magnitudeScaleLabExperienceId || selected.id === editRoomExperienceId;
   const resolvedProjectorSupport = resolveProjectorLessonSupport(selected);
   const projectorSupport = resolvedProjectorSupport.support;
   const useMathConceptPack = program.subject === "Mathematics" && !resolvedProjectorSupport.isCustom;
@@ -622,14 +715,16 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
           : selected.id === scoreboardRuleExperienceId ? <ScoreboardRuleLab />
             : selected.id === magnitudeScaleLabExperienceId ? <MathNumberScaleLab />
               : selected.id === editRoomExperienceId ? <EditRoomLab />
-                : selected.id === fourArtsExperienceId ? <FourArtsLab />
-                  : null;
+                : null;
 
   const parts: Array<{ label: string; verb: string; content: ReactNode }> = [];
   if (usesInteractiveLab) {
     parts.push({ label: "Explore", verb: "Try", content: <div id="mission-path" className="student-interactive-mission projector-active-object">{interactiveLab}</div> });
   } else {
-    parts.push({ label: "Look", verb: "Notice", content: <section className="projector-active-object projector-look-stage"><ExactAnchorVisual experience={selected} media={media} /><ExperienceInfographic experienceId={selected.id} /><LocalIndigenousResourceDock experienceId={selected.id} student />{selected.id === "graph-story-lab" && <><LocalRestorationInfographic /><ResponsibleDataInfographic /></>}</section> });
+    parts.push({ label: "Look", verb: "Notice", content: <section className="projector-active-object projector-look-stage"><ExactAnchorVisual experience={selected} media={media} /><ExperienceInfographic experienceId={selected.id} />{program.subject !== "Arts Education" && <LocalIndigenousResourceDock experienceId={selected.id} student />}{selected.id === "graph-story-lab" && <><LocalRestorationInfographic /><ResponsibleDataInfographic /></>}</section> });
+    if (program.subject === "Arts Education" && media.some((item) => item.type !== "image")) {
+      parts.push({ label: "Mentor", verb: "Encounter", content: <section className="projector-active-object projector-look-stage"><MediaStrip items={media} student /><LocalIndigenousResourceDock experienceId={selected.id} student /></section> });
+    }
     if (showProjectorQuickStart) parts.push({ label: "Learn", verb: "See it", content: <ProjectorQuickStart key={selected.id} launch={readinessLaunch} words={projectorWords} question={projectorSupport.purpose} firstMove={studentContract.firstAction} /> });
     if (projectorCards.length > 0) parts.push({ label: selected.id === "ordinary-object-story" ? "Tell" : "Discuss", verb: selected.id === "ordinary-object-story" ? "Tell" : "Choose", content: <ProjectorCaseDeck
       key={`${selected.id}-cards`}
@@ -649,6 +744,7 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
       {phasedCoordinateBridge && <section className="coordinate-extension-phase"><header><p className="section-kicker">OPTIONAL EXTENSION</p><h3>Cross zero after the first-quadrant check.</h3></header><MathStudentWorkshops experienceId={selected.id} placement="extension" /></section>}
       {program.subject === "Mathematics" && !phasedCoordinateBridge && <MathStudentWorkshops experienceId={selected.id} />}
     </section> });
+    if (selected.id === fourArtsExperienceId) parts.push({ label: "Cue lab", verb: "Optional", content: <section className="projector-active-object"><FourArtsLab /></section> });
   }
   if (currentConnection) parts.push({ label: "Source", verb: "Investigate", content: <CurrentConnectionPlayer connection={currentConnection} /> });
   const activePart = parts[Math.min(projectorPart, parts.length - 1)] ?? parts[0];

@@ -922,6 +922,15 @@ export function resolveStudentLessonContract(id: string): StudentLessonContract 
   return { id: safeContractId(id), ...safeFallback };
 }
 
+const reviewedExperienceLessonIds = new Set([
+  "four-arts-languages",
+  "map-what-maps-miss",
+  "same-facts-frame",
+  "rights-in-thirty",
+  "audience-remix",
+  "cosmic-scale-gallery",
+]);
+
 /**
  * Builds a task-specific contract from fields already written for students.
  * Teacher preparation, assessment notes, and SpacesEDU prose are deliberately
@@ -932,17 +941,29 @@ export function resolveStudentLessonContractForExperience(source: StudentLessonE
   if (isReviewedStudentLessonId(source.id)) return reviewedStudentLessonContracts[source.id];
 
   const id = safeContractId(source.id);
+  const preserveAuthoredSteps = reviewedExperienceLessonIds.has(id);
   const challenge = simplifyExperienceText(source.question) || "What can you find out in this lesson?";
   const mission = simplifyExperienceText(source.studentMission);
   const product = simplifyExperienceText(source.product) || "A clear response that shows what you found out";
-  const actions = splitStudentActions(source.steps);
+  // The rebuilt Arts studios are deliberately written as five complete phases.
+  // Keep each phase intact so the generic action splitter cannot turn a
+  // teacher-ready instruction into fragments such as “Draw.” or “Place.”
+  const authoredActions: SplitStudentAction[] = preserveAuthoredSteps
+    ? source.steps.map((step, sourceStepIndex) => ({
+      action: endSentence(simplifyExperienceText(step)),
+      sourceStepIndex,
+      isLastInSourceStep: true,
+      isOnlyActionInSourceStep: true,
+    })).filter(({ action }) => action !== ".")
+    : [];
+  const actions = preserveAuthoredSteps ? authoredActions : splitStudentActions(source.steps);
   const safeActions: SplitStudentAction[] = actions.length
     ? actions
     : [
       { action: "Study the question and record one useful detail.", sourceStepIndex: 0, isLastInSourceStep: true, isOnlyActionInSourceStep: true },
       { action: "Use that detail to make a clear response.", sourceStepIndex: 1, isLastInSourceStep: true, isOnlyActionInSourceStep: true },
     ];
-  const conceptSupport = conceptSupportFor(source);
+  const conceptSupport = preserveAuthoredSteps ? null : conceptSupportFor(source);
   const studentActions = conceptSupport
     ? [{ action: conceptSupport.action, sourceStepIndex: -1, isLastInSourceStep: true, isOnlyActionInSourceStep: true }, ...safeActions]
     : safeActions;
@@ -952,7 +973,7 @@ export function resolveStudentLessonContractForExperience(source: StudentLessonE
 
   return {
     id,
-    reviewState: "safe-fallback",
+    reviewState: reviewedExperienceLessonIds.has(id) ? "reviewed" : "safe-fallback",
     challenge,
     why: conceptSupport?.why ?? (mission
       ? endSentence(mission)
