@@ -105,8 +105,10 @@ test("the teacher quick-check exporter stores no responses and stays out of stud
   assert.ok((prototype.match(/□/g) ?? []).length >= 25, "Prototype feedback choices are unexpectedly incomplete.");
   assert.doesNotMatch(prototype, /_{3,}|free[- ]?text|open[- ]?response/i);
   assert.match(prototype, /Do not write your name, email, class, teacher, account/i);
-  assert.match(builder, /JOTFORM · HOLD FOR PRIVACY REVIEW/i);
-  assert.match(builder, /submission IP may be retained/i);
+  assert.match(builder, /JOTFORM · OPTIONAL NO-NAME CHECK/i);
+  assert.match(builder, /low-risk closed choices/i);
+  assert.match(builder, /equivalent paper check/i);
+  assert.match(builder, /submission IP may (?:still )?be retained/i);
   assert.match(builder, /jotform\.com\/help\/31-how-to-find-the-ip-addresses/i);
   const paperStart = builder.indexOf('if (mode === "paper")');
   const paperEnd = builder.indexOf('return `KAHOOT', paperStart);
