@@ -1,6 +1,6 @@
 "use client";
 
-import { Component, lazy, Suspense, useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
+import { Component, lazy, Suspense, useCallback, useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import { assessmentHighlights, assessmentPrinciples, expectationGroups, homeworkPolicy, philosophyCommitments, spacesAnnualEvidenceSummary, spacesEvidenceRhythm, spacesPortfolioBudget, spacesPostRecipe, spacesReportingWindows, thingsToKnow } from "./classroom-program";
 import { printClosest } from "./print-support";
 import { dailyLaunchContentId, type DailyLaunch } from "./daily-launch";
@@ -243,6 +243,8 @@ type ClassroomLocation = {
   active?: string;
   subject?: string;
   scienceLesson?: string;
+  socialLesson?: string;
+  socialScene?: number;
 };
 
 const locationKey = "wyatt-classroom-location-v2";
@@ -255,7 +257,7 @@ function readClassroomLocation(includeSessionFallback = true): ClassroomLocation
   try {
     const searchParams = new URLSearchParams(window.location.search);
     const legacyParams = new URLSearchParams(window.location.hash.replace(/^#/, ""));
-    const routeKeys = ["mode", "view", "subject", "lesson"];
+    const routeKeys = ["mode", "view", "subject", "lesson", "socialLesson", "socialScene"];
     const hasSearchRoute = routeKeys.some((key) => searchParams.has(key));
     const hasLegacyRoute = routeKeys.some((key) => legacyParams.has(key));
     const params = hasSearchRoute ? searchParams : legacyParams;
@@ -265,6 +267,10 @@ function readClassroomLocation(includeSessionFallback = true): ClassroomLocation
     const mode = params.get("mode");
     const subject = params.get("subject");
     const scienceLesson = params.get("lesson");
+    const socialLesson = params.get("socialLesson");
+    const socialSceneValue = params.get("socialScene");
+    const parsedSocialScene = socialSceneValue !== null && /^\d+$/.test(socialSceneValue) ? Number(socialSceneValue) : undefined;
+    const socialScene = Number.isSafeInteger(parsedSocialScene) && (parsedSocialScene as number) >= 0 ? parsedSocialScene : undefined;
     const active = params.get("view");
     return {
       ...saved,
@@ -272,6 +278,8 @@ function readClassroomLocation(includeSessionFallback = true): ClassroomLocation
       active: active ?? (hasExplicitRoute ? undefined : saved.active),
       subject: subject ?? (hasExplicitRoute ? undefined : saved.subject),
       scienceLesson: scienceLesson ?? (hasExplicitRoute ? undefined : saved.scienceLesson),
+      socialLesson: socialLesson ?? (hasExplicitRoute ? undefined : saved.socialLesson),
+      socialScene: socialLesson ? socialScene ?? 0 : hasExplicitRoute ? undefined : saved.socialScene,
     };
   } catch {
     return {};
@@ -280,13 +288,19 @@ function readClassroomLocation(includeSessionFallback = true): ClassroomLocation
 
 function writeClassroomLocation(location: ClassroomLocation, action: "push" | "replace") {
   const url = new URL(window.location.href);
-  for (const key of ["mode", "view", "subject", "lesson"]) url.searchParams.delete(key);
+  for (const key of ["mode", "view", "subject", "lesson", "socialLesson", "socialScene"]) url.searchParams.delete(key);
   if (location.mode === "projector") url.searchParams.set("mode", "student");
-  if (location.subject) url.searchParams.set("subject", location.subject);
+  if (location.subject) {
+    url.searchParams.set("subject", location.subject);
+    if (location.subject === "Social Studies" && location.socialLesson) {
+      url.searchParams.set("socialLesson", location.socialLesson);
+      url.searchParams.set("socialScene", String(Number.isSafeInteger(location.socialScene) && (location.socialScene as number) >= 0 ? location.socialScene : 0));
+    }
+  }
   else if (location.scienceLesson) url.searchParams.set("lesson", location.scienceLesson);
   else if (location.active && location.active !== "Home") url.searchParams.set("view", location.active);
   const legacyHash = new URLSearchParams(url.hash.replace(/^#/, ""));
-  if (["mode", "view", "subject", "lesson"].some((key) => legacyHash.has(key))) url.hash = "";
+  if (["mode", "view", "subject", "lesson", "socialLesson", "socialScene"].some((key) => legacyHash.has(key))) url.hash = "";
   const target = `${url.pathname}${url.search}${url.hash}`;
   const current = `${window.location.pathname}${window.location.search}${window.location.hash}`;
   if (action === "push" && target === current) return;
@@ -299,6 +313,15 @@ function subjectFromLocation(location: ClassroomLocation) {
 
 function scienceLessonIdFromLocation(location: ClassroomLocation) {
   return location.scienceLesson?.trim() || null;
+}
+
+function subjectHubLocationFromClassroom(location: ClassroomLocation, subject: Subject | null): SubjectHubLocation {
+  if (subject?.name !== "Social Studies" || !location.socialLesson?.trim()) return {};
+  return {
+    tab: "Lessons",
+    socialLessonId: location.socialLesson.trim(),
+    socialScene: Number.isSafeInteger(location.socialScene) && (location.socialScene as number) >= 0 ? location.socialScene : 0,
+  };
 }
 
 function normalizeLegacyView(active?: string) {
@@ -527,6 +550,7 @@ function ClassroomHome() {
   const [active, setActive] = useState(initialMode === "projector" && teacherOnlyInitialDestination ? "Home" : initialActive);
   const [selectedSubject, setSelectedSubject] = useState<Subject | null>(initialSubject);
   const [selectedScienceLessonId, setSelectedScienceLessonId] = useState<string | null>(initialScienceLessonId);
+  const [subjectHubLocation, setSubjectHubLocation] = useState<SubjectHubLocation>(() => subjectHubLocationFromClassroom(initialLocation, initialSubject));
   const [subjectNavigationRevision, setSubjectNavigationRevision] = useState(0);
   const [weeklyPlanLaunchId, setWeeklyPlanLaunchId] = useState<string>();
   const [aiStudioInitialId, setAiStudioInitialId] = useState<string>();
@@ -569,19 +593,22 @@ function ClassroomHome() {
       active,
       subject: selectedSubject?.name,
       scienceLesson: selectedScienceLessonId ?? undefined,
+      socialLesson: selectedSubject?.name === "Social Studies" && (subjectHubLocation.tab === "Lessons" || mode === "projector") ? subjectHubLocation.socialLessonId : undefined,
+      socialScene: selectedSubject?.name === "Social Studies" && (subjectHubLocation.tab === "Lessons" || mode === "projector") ? subjectHubLocation.socialScene : undefined,
     };
     try { window.sessionStorage.setItem(locationKey, JSON.stringify(location)); } catch {}
     if (!locationCanonicalizedRef.current) {
       writeClassroomLocation(location, "replace");
       locationCanonicalizedRef.current = true;
     }
-  }, [mode, active, selectedSubject, selectedScienceLessonId]);
+  }, [mode, active, selectedSubject, selectedScienceLessonId, subjectHubLocation]);
 
   useEffect(() => {
     const restoreHistoryLocation = () => {
       const location = readClassroomLocation(false);
       const restoredSubject = subjectFromLocation(location);
       const restoredLessonId = scienceLessonIdFromLocation(location);
+      const restoredSubjectHubLocation = subjectHubLocationFromClassroom(location, restoredSubject);
       const restoredMode = location.mode ?? "teacher";
       const restoredActive = normalizeLegacyView(location.active) ?? restoredSubject?.short ?? (restoredLessonId ? "Science Lesson" : "Home");
       const teacherOnlyDestination = !restoredSubject && !restoredLessonId && !isProjectorSafePage(restoredActive);
@@ -590,6 +617,8 @@ function ClassroomHome() {
       setMode(restoredMode);
       setSelectedSubject(restoredSubject);
       setSelectedScienceLessonId(restoredLessonId);
+      setSubjectHubLocation(restoredSubjectHubLocation);
+      setSubjectNavigationRevision((revision) => revision + 1);
       setActive(safeActive);
       setSidebarOpen(false);
     };
@@ -614,17 +643,22 @@ function ClassroomHome() {
     nextActive: string,
     nextSubject: Subject | null,
     nextScienceLessonId: string | null,
+    nextSubjectHubLocation: SubjectHubLocation = {},
   ) => {
+    const routeSocialLesson = nextSubject?.name === "Social Studies" && (nextSubjectHubLocation.tab === "Lessons" || nextMode === "projector");
     writeClassroomLocation({
       mode: nextMode,
       active: nextActive,
       subject: nextSubject?.name,
       scienceLesson: nextScienceLessonId ?? undefined,
+      socialLesson: routeSocialLesson ? nextSubjectHubLocation.socialLessonId : undefined,
+      socialScene: routeSocialLesson ? nextSubjectHubLocation.socialScene : undefined,
     }, "push");
     setMode(nextMode);
     setActive(nextActive);
     setSelectedSubject(nextSubject);
     setSelectedScienceLessonId(nextScienceLessonId);
+    setSubjectHubLocation(nextSubjectHubLocation);
     window.requestAnimationFrame(() => window.requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" })));
   };
 
@@ -649,7 +683,8 @@ function ClassroomHome() {
   };
 
   const chooseSubject = (subject: Subject) => {
-    commitClassroomLocation(mode, subject.short, subject, null);
+    const nextSubjectHubLocation = subject.name === "Social Studies" && selectedSubject?.name === "Social Studies" ? subjectHubLocation : {};
+    commitClassroomLocation(mode, subject.short, subject, null, nextSubjectHubLocation);
     if (sidebarOpen) closeDrawerTo("main");
   };
 
@@ -671,7 +706,12 @@ function ClassroomHome() {
     const subject = subjects.find((item) => item.name === subjectName || item.short === subjectName);
     if (!subject) return;
     if (target.kind === "social") {
-      try { window.sessionStorage.setItem(`wyatt-subject-location:${subject.name}`, JSON.stringify({ tab: "Lessons", socialLessonId: target.id, socialScene: 0 } satisfies SubjectHubLocation)); } catch {}
+      const socialTarget = { tab: "Lessons", socialLessonId: target.id, socialScene: 0 } satisfies SubjectHubLocation;
+      try { window.sessionStorage.setItem(`wyatt-subject-location:${subject.name}`, JSON.stringify(socialTarget)); } catch {}
+      setSubjectNavigationRevision((revision) => revision + 1);
+      commitClassroomLocation(mode, subject.short, subject, null, socialTarget);
+      if (sidebarOpen) closeDrawerTo("main");
+      return;
     } else if (target.kind === "generic") {
       try { window.sessionStorage.setItem(`wyatt-subject-location:${subject.name}`, JSON.stringify({ tab: "Lessons", programExperienceId: target.id } satisfies SubjectHubLocation)); } catch {}
     }
@@ -689,9 +729,22 @@ function ClassroomHome() {
   const changeMode = (nextMode: "teacher" | "projector") => {
     const teacherOnlyPage = !selectedSubject && !selectedScienceLessonId && !isProjectorSafePage(active);
     if (nextMode === "projector" && teacherOnlyPage) commitClassroomLocation(nextMode, "Home", null, null);
-    else commitClassroomLocation(nextMode, active, selectedSubject, selectedScienceLessonId);
+    else commitClassroomLocation(nextMode, active, selectedSubject, selectedScienceLessonId, subjectHubLocation);
     if (nextMode === "projector") setSidebarOpen(false);
   };
+
+  const updateSubjectHubLocation = useCallback((location: SubjectHubLocation, action: "push" | "replace") => {
+    setSubjectHubLocation(location);
+    const routeSocialLesson = selectedSubject?.name === "Social Studies" && (location.tab === "Lessons" || mode === "projector");
+    writeClassroomLocation({
+      mode,
+      active,
+      subject: selectedSubject?.name,
+      scienceLesson: selectedScienceLessonId ?? undefined,
+      socialLesson: routeSocialLesson ? location.socialLessonId : undefined,
+      socialScene: routeSocialLesson ? location.socialScene : undefined,
+    }, action);
+  }, [mode, active, selectedSubject, selectedScienceLessonId]);
 
   const projectMorning = () => {
     commitClassroomLocation("projector", "Morning Screen", null, null);
@@ -792,7 +845,7 @@ function ClassroomHome() {
         <RouteErrorBoundary routeKey={`${active}:${selectedSubject?.name ?? ""}:${selectedScienceLessonId ?? ""}`}>
         <Suspense fallback={<RouteLoading label={selectedScienceLessonId ? "Science lesson" : selectedSubject?.short ?? active} />}>
         {selectedSubject ? (
-          <SubjectHub key={`${selectedSubject.name}:${subjectNavigationRevision}`} subject={selectedSubject} mode={mode} onBack={goHome} onOpenLesson={openScienceLesson} />
+          <SubjectHub key={`${selectedSubject.name}:${subjectNavigationRevision}`} subject={selectedSubject} mode={mode} onBack={goHome} onOpenLesson={openScienceLesson} initialLocation={subjectHubLocation} onLocationChange={updateSubjectHubLocation} />
         ) : active === "Home" ? (
           <Dashboard onSubject={chooseSubject} onNavigate={navigateToPage} onOpenScienceLesson={openScienceLesson} onProjectMorning={projectMorning} morningTimeline={morningTimeline} mode={mode} />
         ) : active === "Morning Screen" ? (

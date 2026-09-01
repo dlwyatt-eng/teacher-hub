@@ -27,6 +27,15 @@ export type SubjectHubLocation = {
   programExperienceId?: string;
 };
 
+type SubjectHubProps = {
+  subject: Subject;
+  mode: "teacher" | "projector";
+  onBack: () => void;
+  onOpenLesson: (lessonId: string) => void;
+  initialLocation?: SubjectHubLocation;
+  onLocationChange?: (location: SubjectHubLocation, action: "push" | "replace") => void;
+};
+
 function readSubjectHubLocation(subjectName: string): SubjectHubLocation {
   if (typeof window === "undefined") return {};
   try {
@@ -37,24 +46,34 @@ function readSubjectHubLocation(subjectName: string): SubjectHubLocation {
   }
 }
 
-export default function SubjectHub({ subject, mode, onBack, onOpenLesson }: { subject: Subject; mode: "teacher" | "projector"; onBack: () => void; onOpenLesson: (lessonId: string) => void }) {
+export default function SubjectHub({ subject, mode, onBack, onOpenLesson, initialLocation: routedLocation, onLocationChange }: SubjectHubProps) {
   const program = learningPrograms[subject.name];
   const tabs = subject.name === "Science"
     ? ["Overview", "Big Ideas", "Competencies", "Content", "Units", "Lessons", "Alignment", "Final Inquiry", "Pacing", "Resources"]
     : subject.name === "Social Studies"
       ? ["Overview", "Big Ideas", "Competencies", "Content", "Units", "Lessons", "Alignment", "Assessments", "Pacing", "Resources"]
       : ["Overview", "Big Ideas", "Competencies", "Content", "Units", "Lessons", "Alignment", "Assessments", "Resources"];
-  const [initialLocation] = useState(() => readSubjectHubLocation(subject.name));
+  const [initialLocation] = useState<SubjectHubLocation>(() => {
+    const savedLocation = readSubjectHubLocation(subject.name);
+    if (!routedLocation?.socialLessonId) return { ...savedLocation, ...routedLocation };
+    return {
+      ...savedLocation,
+      ...routedLocation,
+      tab: "Lessons",
+      socialScene: routedLocation.socialScene ?? 0,
+    };
+  });
   const initialSocialLesson = socialLessons.find((lesson) => lesson.id === initialLocation.socialLessonId) ?? socialLessons[0];
   const initialScienceUnit = scienceUnits.find((unit) => unit.id === initialLocation.scienceUnitId) ?? scienceUnits[0];
   const initialProgramExperience = program?.experiences.find((experience) => experience.id === initialLocation.programExperienceId) ?? program?.experiences[0];
   const [tab, setTab] = useState(() => tabs.includes(initialLocation.tab ?? "") ? initialLocation.tab! : "Overview");
   const [socialLessonId, setSocialLessonId] = useState(initialSocialLesson.id);
-  const [socialScene, setSocialScene] = useState(() => initialSocialLesson.id === "rights-in-tension" ? 0 : Number.isInteger(initialLocation.socialScene) ? Math.min(Math.max(initialLocation.socialScene as number, 0), initialSocialLesson.scenes.length - 1) : 0);
+  const [socialScene, setSocialScene] = useState(() => Number.isInteger(initialLocation.socialScene) ? Math.min(Math.max(initialLocation.socialScene as number, 0), initialSocialLesson.scenes.length - 1) : 0);
   const [scienceUnitId, setScienceUnitId] = useState(initialScienceUnit.id);
   const [scienceUnitFilter, setScienceUnitFilter] = useState(() => initialLocation.scienceUnitFilter === "all" || scienceUnits.some((unit) => unit.id === initialLocation.scienceUnitFilter) ? initialLocation.scienceUnitFilter! : "all");
   const [programExperienceId, setProgramExperienceId] = useState(initialProgramExperience?.id ?? "");
   const previousModeRef = useRef(mode);
+  const locationEffectReadyRef = useRef(false);
   const tabIdBase = `subject-${subject.name.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-")}`;
 
   useEffect(() => {
@@ -63,9 +82,11 @@ export default function SubjectHub({ subject, mode, onBack, onOpenLesson }: { su
   }, [mode]);
 
   useEffect(() => {
-    const location: SubjectHubLocation = { tab, socialLessonId, socialScene: socialLessonId === "rights-in-tension" ? 0 : socialScene, scienceUnitId, scienceUnitFilter, programExperienceId };
+    const location: SubjectHubLocation = { tab, socialLessonId, socialScene, scienceUnitId, scienceUnitFilter, programExperienceId };
     try { window.sessionStorage.setItem(`wyatt-subject-location:${subject.name}`, JSON.stringify(location)); } catch {}
-  }, [subject.name, tab, socialLessonId, socialScene, scienceUnitId, scienceUnitFilter, programExperienceId]);
+    onLocationChange?.(location, locationEffectReadyRef.current ? "push" : "replace");
+    locationEffectReadyRef.current = true;
+  }, [subject.name, tab, socialLessonId, socialScene, scienceUnitId, scienceUnitFilter, programExperienceId, onLocationChange]);
 
   const resetLessonViewport = () => {
     window.requestAnimationFrame(() => window.requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" })));

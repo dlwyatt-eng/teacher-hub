@@ -38,6 +38,17 @@ const emitted = emittedEntries.map(([, content]) => content).join("\n");
 for (const phrase of ["Grade 6 Discovery Rotations", "Identity Constellation", "MANUAL MODE"]) {
   assert.ok(emitted.includes(phrase), `Fresh artifact is missing expected content: ${phrase}`);
 }
+for (const phrase of ["The Civic Evidence Room", "Open offline / print pack", "FICTIONAL PRACTICE CASE", "socialLesson", "socialScene"]) {
+  assert.ok(emitted.includes(phrase), `Fresh artifact is missing Civic Evidence Room content: ${phrase}`);
+}
+for (const sourceUrl of [
+  "https://electionsanddemocracy.ca/your-classroom/resources",
+  "https://learn.parl.ca/en/games/game4/index.html",
+  "https://www.surrey.ca/city-government/mayor-council",
+  "https://www.bcafn.ca/about-bcafn/vision-mission",
+]) {
+  assert.ok(emitted.includes(sourceUrl), `Pages postbuild changed or dropped the Civic source: ${sourceUrl}`);
+}
 assert.doesNotMatch(emitted, /\/api\/morning-draft/, "Static artifact still contains the dead same-origin Morning API route.");
 assert.doesNotMatch(emitted, /\/teacher-hub\/teacher-hub\//, "Built asset references contain a duplicated base path.");
 assert.doesNotMatch(emitted, /["'(]\/assets\//, "Built code contains a root asset reference without the repository base path.");
@@ -109,5 +120,20 @@ assert.ok(deferredStyles.length >= 8, "Expected major Teacher Hub styles to rema
 for (const prefix of ["site-search-dialog-", "subject-hub-", "inquiry-experience-", "school-year-planning-", "year-plan-page-"]) {
   assert.ok(deferredScripts.some((file) => path.basename(file).startsWith(prefix)), `Expected deferred chunk: ${prefix}`);
 }
+
+function emittedChunk(prefix, extension) {
+  const entry = emittedEntries.find(([file]) => path.basename(file).startsWith(prefix) && file.endsWith(extension));
+  assert.ok(entry, `Expected emitted ${extension} chunk: ${prefix}`);
+  return entry;
+}
+
+const [, socialProgramJs] = emittedChunk("social-program-", ".js");
+const [, socialStudiesJs] = emittedChunk("social-studies-program-", ".js");
+const [, socialStudiesCss] = emittedChunk("social-studies-program-", ".css");
+assert.ok(gzipSync(socialProgramJs, { level: 9 }).byteLength < 32_000, "Shared Social Studies data exceeded the 32 KB gzip budget.");
+assert.ok(gzipSync(socialStudiesJs, { level: 9 }).byteLength < 85_000, "Social Studies experience code exceeded the 85 KB gzip budget.");
+assert.ok(gzipSync(socialStudiesCss, { level: 9 }).byteLength < 40_000, "Social Studies experience styles exceeded the 40 KB gzip budget.");
+assert.ok(!initialScript.toString("utf8").includes("FICTIONAL JUNIPER PARK"), "Civic case copy leaked into the initial JavaScript.");
+assert.ok(socialStudiesJs.includes("FICTIONAL JUNIPER PARK"), "Deferred Social Studies chunk is missing the Juniper Park case.");
 
 console.log(`Verified ${emittedFiles.length} emitted files, every copied public asset, and ${(initialScriptGzip / 1024).toFixed(1)} KB JS + ${(initialStyleGzip / 1024).toFixed(1)} KB CSS initial gzip.`);

@@ -27,6 +27,8 @@ jobs:
           node-version: 22.13.0
           cache: npm
       - run: npm ci
+      - name: Check patch whitespace
+        run: git diff --check
       - name: Validate and build the Pages artifact
         run: npm test
       - uses: actions/configure-pages@v5

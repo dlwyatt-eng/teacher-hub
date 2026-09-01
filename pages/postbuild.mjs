@@ -18,8 +18,10 @@ for (const file of await files(root)) {
   if (!/\.(?:html|css|js)$/.test(file)) continue;
   let content = await readFile(file, "utf8");
   for (const folder of publicRoots) {
-    content = content.replaceAll(`/${folder}/`, `${base}/${folder}/`);
-    content = content.replaceAll(`${base}${base}/${folder}/`, `${base}/${folder}/`);
+    // Rewrite only root-relative public assets. A broad replace also mutates
+    // authoritative external URLs whose path happens to contain /images/,
+    // /downloads/, /printables/, or /icons/.
+    content = content.replace(new RegExp(`(?<![A-Za-z0-9])/${folder}/`, "g"), `${base}/${folder}/`);
   }
   content = content.replaceAll('href="/favicon.svg"', `href="${base}/favicon.svg"`);
   await writeFile(file, content);
