@@ -975,6 +975,49 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
     ],
     reteach: "Draw two doors: ‘split fixed supplies’ and ‘extend repeating schedules.’ Sort the two example missions before calculating.",
   }),
+
+  "each-one-teach-one": support("each-one-teach-one", {
+    purpose: "Design one short experience that helps a learner understand a verified idea, then improve it using evidence from a new learner.",
+    background: [
+      "Start with a focused learning goal and at least two teacher-approved sources. A confident explanation is not enough when its claim cannot be checked.",
+      "Draw the complete learner journey on paper before opening a build tool: invitation, action, information, choice or interaction, feedback, check, and ending.",
+      "A physical station, paper branch, Bloxels route, Minecraft model, or approved private app/site can show the same design thinking.",
+      "AI may offer questions or debugging ideas, but people verify claims, protect privacy, make the final choices, and write the final reflection.",
+    ],
+    terms: terms(
+      ["learning intention", "a clear statement of what the learner should understand or be able to do", "I can explain why a wide base helps a tower resist tipping."],
+      ["branch", "a choice that sends a learner to a different useful next step", "Choosing the narrow base opens feedback that asks the learner to compare its balance."],
+      ["feedback", "information that helps a learner know what happened and what to try next", "The card explains why the wider base stayed inside its support area."],
+      ["learner test", "watching a new learner use the first version so the designer can improve it", "The learner pauses before the first choice, so the designer adds a clear action cue."],
+      ["source limit", "something a source or test cannot establish", "One classroom trial cannot prove every tower will behave the same way."],
+    ),
+    example: {
+      title: "Plan a five-minute paper experience about stable towers",
+      steps: [
+        "Learning goal: the learner can explain how the base affects stability. Two teacher-approved sources and a small class test support the idea; the model does not cover every material or force.",
+        "Invitation: compare a tall narrow tower sketch with a shorter wide-base sketch and predict which is harder to tip.",
+        "Action and branch: choose a sketch, turn to its numbered card, and read feedback that points to the base and centre of mass rather than simply saying right or wrong.",
+        "Understanding check: choose which redesign would make a third tower more stable and explain one reason. Ending: name one situation the paper model cannot predict.",
+        "New-learner evidence: the first tester misses the numbered turn cue. Revision: enlarge the cue, add a shape as well as colour, and ask another learner to try that step.",
+      ],
+      conclusion: "The teaching works because verified content, learner action, useful feedback, an understanding check, and a tested revision form one complete path.",
+    },
+    checks: [
+      {
+        prompt: "Which first version is most ready for a learner test?",
+        choices: ["A polished homepage with no learning goal yet", "A complete paper path with a verified idea, learner action, feedback, and ending", "A long list of copied facts with no sources"],
+        answer: 1,
+        feedback: "The complete paper path is small enough to change and already shows what the learner will do, receive, and understand.",
+      },
+      {
+        prompt: "A new learner pauses because they cannot tell where to begin. What is the strongest next move?",
+        choices: ["Explain the whole project aloud every time", "Add more decoration to every screen", "Revise the first action cue, then ask another learner to try that step"],
+        answer: 2,
+        feedback: "The observation points to a specific navigation problem. Change that feature and gather new evidence without coaching.",
+      },
+    ],
+    reteach: "Show three cards only: LEARNING GOAL, LEARNER ACTION, FEEDBACK. Put them in order, add an understanding check, and ask what evidence would reveal a confusing step.",
+  }),
 };
 
 const plainFallbackText = (value: string) => value

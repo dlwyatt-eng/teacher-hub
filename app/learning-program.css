@@ -70,3 +70,24 @@
 @media(max-width:900px){.mathup-map>div,.math-resource-sequence{grid-template-columns:1fr}.packet-network{grid-template-columns:1fr;grid-template-rows:auto}.packet-device,.packet-router.router-a,.packet-router.router-b,.packet-server{grid-column:1;grid-row:auto;justify-self:stretch}.packet-network .route{display:none}.packet-picture-kit>header{grid-template-columns:1fr 140px}}
 @media(max-width:760px){.program-experience-detail>.readiness-launch,.math-resource-dock,.packet-route-visual,.packet-visual-sequence{margin-left:18px;margin-right:18px}.student-program>:is(.readiness-launch,.packet-route-visual,.packet-visual-sequence){margin-left:0;margin-right:0}.mathup-map>header,.mathup-map>footer,.math-resource-dock>header,.packet-route-visual>header,.packet-visual-sequence>header{align-items:flex-start;flex-direction:column}.packet-visual-sequence>nav{grid-template-columns:1fr}.mathup-map>div{grid-template-columns:1fr}.mathup-map>div>article>section{grid-template-columns:1fr}.mathup-map>footer strong{text-align:left}.packet-picture-kit>header{grid-template-columns:1fr}.packet-picture-kit>header figure{max-width:220px}.packet-picture-kit>div{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:1000px){.ela-workshop-rhythm>div{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:760px){.ela-workshop-rhythm>header,.ela-workshop-rhythm>footer{align-items:flex-start;flex-direction:column}.ela-workshop-rhythm>div{grid-template-columns:1fr}}
+
+/* Compact teacher-only launchers keep optional tools close without lengthening every run sheet. */
+.teacher-tool-drawer{margin:18px 27px;border:1px solid #b9cecd;border-radius:15px;background:#f2f8f6;color:#214d55}
+.teacher-tool-drawer>summary{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:62px;padding:13px 17px;cursor:pointer;list-style:none}
+.teacher-tool-drawer>summary::-webkit-details-marker{display:none}
+.teacher-tool-drawer>summary span small,.teacher-tool-drawer>summary span strong{display:block}
+.teacher-tool-drawer>summary small{color:#286873;font-size:10px;font-weight:950;letter-spacing:.08em}
+.teacher-tool-drawer>summary strong{margin-top:4px;font-size:15px;line-height:1.3}
+.teacher-tool-drawer>summary>b{flex:none;padding:7px 10px;border-radius:999px;background:#dcece8;color:#205e69;font-size:11px}
+.teacher-tool-drawer[open]>summary{border-bottom:1px solid #c8d8d6;background:#e5f1ee}
+.teacher-tool-drawer>div{padding:1px 18px 18px}
+.teacher-tool-drawer .teacher-quick-check-builder,.teacher-tool-drawer .proficiency-models-panel{margin-left:0;margin-right:0}
+.teacher-quick-check-loading,.teacher-model-loading{margin:18px 0;padding:18px;border:1px dashed #9fbfc1;border-radius:14px;background:#f2f8f6;color:#315d66;font-weight:850}
+.teacher-model-drawer{border-color:#c7b18c;background:#fcf8ef}
+.teacher-model-drawer>summary small{color:#76511d}
+.teacher-model-drawer>summary>b{background:#f1e4c9;color:#76511d}
+.teacher-tool-drawer>summary:focus-visible{outline:4px solid #dda94f;outline-offset:3px}
+
+@media(max-width:760px){.teacher-tool-drawer{margin-left:18px;margin-right:18px}.teacher-tool-drawer>summary{align-items:flex-start}.teacher-tool-drawer>summary>b{margin-top:2px}.teacher-tool-drawer>div{padding-left:10px;padding-right:10px}}
+@media print{.teacher-tool-drawer:not([open]){display:none}.teacher-tool-drawer>summary{display:none}.teacher-tool-drawer>div{padding:0}.teacher-tool-drawer{margin:0;border:0}}
+@media(forced-colors:active){.teacher-tool-drawer,.teacher-tool-drawer>summary{border-color:CanvasText}.teacher-tool-drawer>summary>b{background:Canvas;color:CanvasText}}

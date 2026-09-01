@@ -1,0 +1,97 @@
+.teacher-quick-check-builder{
+  --qc-ink:#173d46;
+  --qc-teal:#205e69;
+  --qc-gold:#dda94f;
+  --qc-paper:#f8fbf9;
+  margin:24px 0;
+  overflow:hidden;
+  border:2px solid #9fbfc1;
+  border-radius:20px;
+  background:var(--qc-paper);
+  color:var(--qc-ink);
+  box-shadow:0 14px 32px rgba(24,67,76,.08);
+}
+
+.teacher-quick-check-builder *{box-sizing:border-box;min-width:0}
+.teacher-quick-check-builder>header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 24px;background:var(--qc-teal);color:#fff}
+.teacher-quick-check-builder>header small{display:block;color:#d6eef0;font-size:11px;font-weight:950;letter-spacing:.09em}
+.teacher-quick-check-builder>header h3{margin:5px 0 3px;font:700 27px/1.1 Georgia,serif}
+.teacher-quick-check-builder>header p{max-width:720px;margin:0;color:#e5f2f3;font-size:15px;line-height:1.45}
+.teacher-quick-check-builder>header>span{flex:0 1 245px;padding:10px 13px;border:1px solid #ffffff66;border-radius:999px;background:#163f48;color:#fff;font-size:11px;font-weight:950;line-height:1.3;text-align:center;letter-spacing:.055em}
+
+.teacher-quick-check-builder>nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;padding:14px 18px;border-bottom:1px solid #c9d9d8;background:#e8f1ef}
+.teacher-quick-check-builder>nav button{min-height:72px;padding:12px;border:2px solid transparent;border-radius:12px;background:#fff;color:var(--qc-ink);cursor:pointer;text-align:left}
+.teacher-quick-check-builder>nav button strong,.teacher-quick-check-builder>nav button small{display:block}
+.teacher-quick-check-builder>nav button strong{font-size:14px;line-height:1.25}
+.teacher-quick-check-builder>nav button small{margin-top:5px;color:#536a6f;font-size:12px;line-height:1.35}
+.teacher-quick-check-builder>nav button.active{border-color:#ad701d;background:#fff8e8;box-shadow:inset 0 0 0 1px #ad701d}
+.teacher-quick-check-builder button:focus-visible,.teacher-quick-check-builder a:focus-visible,.teacher-quick-check-builder textarea:focus-visible{outline:4px solid var(--qc-gold);outline-offset:3px}
+
+.teacher-quick-check-builder__workspace{padding:22px 24px}
+.teacher-quick-check-builder__workspace>div:first-child{display:grid;grid-template-columns:auto 1fr;gap:5px 18px;align-items:end;margin-bottom:13px}
+.teacher-quick-check-builder__workspace>div:first-child small{grid-column:1/3;color:#286873;font-size:11px;font-weight:950;letter-spacing:.08em}
+.teacher-quick-check-builder__workspace h4{margin:0;font:700 22px/1.15 Georgia,serif}
+.teacher-quick-check-builder__workspace>div:first-child p{margin:0;color:#566d71;font-size:14px;line-height:1.45;text-align:right}
+.teacher-quick-check-builder textarea{display:block;width:100%;max-width:100%;padding:18px;border:1px solid #b9cccd;border-radius:13px;resize:vertical;background:#fff;color:#263f44;font:600 14px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:normal;white-space:pre-wrap}
+.teacher-quick-check-builder__workspace>footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:13px}
+.teacher-quick-check-builder__workspace>footer button{min-height:44px;padding:10px 15px;border:2px solid var(--qc-teal);border-radius:10px;background:var(--qc-teal);color:#fff;cursor:pointer;font:inherit;font-size:14px;font-weight:800;line-height:1.2}
+.teacher-quick-check-builder__workspace>footer button+button{background:#fff;color:var(--qc-teal)}
+.teacher-quick-check-builder__workspace>footer span{flex:1 1 260px;color:#5c6f72;font-size:13px;line-height:1.4;text-align:right}
+
+.teacher-quick-check-builder__answer-key{margin:0 24px 22px;border:1px solid #d4a85b;border-radius:12px;background:#fff8e8}
+.teacher-quick-check-builder__answer-key>summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:52px;padding:12px 15px;cursor:pointer;list-style:none}
+.teacher-quick-check-builder__answer-key>summary::-webkit-details-marker{display:none}
+.teacher-quick-check-builder__answer-key>summary span small,.teacher-quick-check-builder__answer-key>summary span strong{display:block}
+.teacher-quick-check-builder__answer-key>summary small{color:#82530d;font-size:10px;font-weight:950;letter-spacing:.08em}
+.teacher-quick-check-builder__answer-key>summary strong{margin-top:3px;font-size:14px}
+.teacher-quick-check-builder__answer-key>summary>b{font-size:12px}
+.teacher-quick-check-builder__answer-key>div{padding:0 15px 15px;border-top:1px solid #ead2a4}
+.teacher-quick-check-builder__answer-key pre{overflow:auto;margin:14px 0;padding:14px;border-radius:9px;background:#fff;color:#3e3427;font:600 13px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap}
+.teacher-quick-check-builder__answer-key button{min-height:44px;padding:10px 15px;border:2px solid #7a541b;border-radius:10px;background:#7a541b;color:#fff;cursor:pointer;font:inherit;font-size:14px;font-weight:800}
+.teacher-quick-check-builder__answer-key>div>span{margin-left:12px;color:#66573f;font-size:13px;line-height:1.4}
+
+.teacher-quick-check-builder__routes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:0 24px 22px}
+.teacher-quick-check-builder__routes article{padding:15px;border:1px solid #c8d9d8;border-radius:12px;background:#edf5f3}
+.teacher-quick-check-builder__routes article.caution{border-color:#d4a85b;background:#fff5df}
+.teacher-quick-check-builder__routes b{display:block;color:#1e606d;font-size:12px;letter-spacing:.06em}
+.teacher-quick-check-builder__routes p{margin:7px 0 0;font-size:13px;line-height:1.45}
+.teacher-quick-check-builder__routes a{display:inline-block;min-height:44px;margin-top:8px;padding:11px 0;color:#6f4a0d;font-size:13px;font-weight:900}
+.teacher-quick-check-builder__routes a+a{margin-left:14px}
+.teacher-quick-check-builder__guardrail{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 24px;border-top:1px solid #c9d9d8;background:#e7f1ef;font-size:13px;line-height:1.4}
+.teacher-quick-check-builder__guardrail strong{color:#1c5e6a}
+.teacher-quick-check-builder__guardrail span{text-align:right}
+
+@media(max-width:980px){
+  .teacher-quick-check-builder>header{align-items:flex-start;flex-direction:column}
+  .teacher-quick-check-builder>header>span{flex:auto;max-width:100%}
+  .teacher-quick-check-builder>nav{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .teacher-quick-check-builder__routes{grid-template-columns:1fr}
+}
+
+@media(max-width:620px){
+  .teacher-quick-check-builder>header,.teacher-quick-check-builder__workspace{padding:18px}
+  .teacher-quick-check-builder>nav{grid-template-columns:1fr;padding:12px}
+  .teacher-quick-check-builder__workspace>div:first-child{display:block}
+  .teacher-quick-check-builder__workspace h4{margin-top:5px}
+  .teacher-quick-check-builder__workspace>div:first-child p{margin-top:7px;text-align:left}
+  .teacher-quick-check-builder__workspace>footer button{width:100%}
+  .teacher-quick-check-builder__workspace>footer span{text-align:left}
+  .teacher-quick-check-builder__routes{padding:0 18px 18px}
+  .teacher-quick-check-builder__guardrail{align-items:flex-start;flex-direction:column;padding:14px 18px}
+  .teacher-quick-check-builder__guardrail span{text-align:left}
+  .teacher-quick-check-builder__answer-key{margin-left:18px;margin-right:18px}
+  .teacher-quick-check-builder__answer-key>div>span{display:block;margin:10px 0 0}
+}
+
+@media print{
+  .teacher-quick-check-builder{margin:0;border:1px solid #000;box-shadow:none}
+  .teacher-quick-check-builder>header{background:#fff!important;color:#000}
+  .teacher-quick-check-builder>header small,.teacher-quick-check-builder>header p{color:#000}
+  .teacher-quick-check-builder>header>span,.teacher-quick-check-builder>nav,.teacher-quick-check-builder__workspace>footer,.teacher-quick-check-builder__answer-key,.teacher-quick-check-builder__routes,.teacher-quick-check-builder__guardrail{display:none!important}
+  .teacher-quick-check-builder__workspace textarea{height:auto;min-height:720px;border:0;resize:none;color:#000}
+}
+
+@media(forced-colors:active){
+  .teacher-quick-check-builder,.teacher-quick-check-builder button,.teacher-quick-check-builder textarea,.teacher-quick-check-builder__routes article{border-color:CanvasText}
+  .teacher-quick-check-builder>header,.teacher-quick-check-builder>nav button.active,.teacher-quick-check-builder__workspace>footer button{background:Canvas;color:CanvasText}
+}

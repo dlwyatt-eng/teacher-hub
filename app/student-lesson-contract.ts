@@ -351,6 +351,47 @@ const reviewedStudentLessonContracts = {
     saveAction: { kind: "add-to-existing-post", message: "Keep the full learning user manual private with the teacher. Add only the student-chosen strength or goal to the existing September Learning Story when your teacher asks." },
     readiness: "none",
   },
+  "each-one-teach-one": {
+    id: "each-one-teach-one",
+    reviewState: "reviewed",
+    challenge: "Can you help someone learn one worthwhile idea through a complete, tested experience?",
+    why: "Designers learn deeply when they verify an idea, plan what another learner will do, watch the first version fail usefully, and revise from evidence instead of guessing.",
+    firstAction: "Write one safe, focused question you genuinely want to understand. Name a possible learner, such as a Grade 6 class or a younger buddy class, without naming a real person or sharing private information.",
+    materials: ["Teacher-approved source shelf", "Plain paper or index cards", "Pencils, markers, sticky notes, scissors, and tape", "Source-check, learner-test, and revision cards", "Optional teacher-approved school creation tool"],
+    choices: [
+      {
+        prompt: "Which complete creation route will help your learner best?",
+        options: [
+          { label: "Physical / no tech", detail: "Build a model, card sort, mini-demo, board game, foldable, or station." },
+          { label: "Paper branching", detail: "Link numbered cards into a choose-your-own learning path with feedback and an ending." },
+          { label: "Bloxels", detail: "Build a short teaching route after the complete paper plan, using the approved private class space." },
+          { label: "Minecraft", detail: "Build a purposeful model or knowledge world with signs, narration, or a live guide." },
+          { label: "Private app / site prototype", detail: "Wireframe first; use only a teacher-approved school route with no public publishing, comments, analytics, personal accounts, or student information." },
+        ],
+      },
+      {
+        prompt: "How will you use AI, if at all?",
+        options: [
+          { label: "No AI", detail: "Use sources, people, paper planning, testing, and your own revision." },
+          { label: "Teacher model", detail: "Help the class compare or question one teacher-run output." },
+          { label: "Approved support", detail: "Ask for questions, alternatives, or debugging ideas; verify every claim and make the final decisions yourself." },
+        ],
+      },
+    ],
+    steps: [
+      { title: "Choose the question", action: "Choose one bounded, school-appropriate question and the learner you hope to help. Avoid personal advice, private information, unsafe instructions, and topics your teacher has not approved.", finishCheck: "The question is focused enough to teach in 5–10 minutes, and the audience is described without identifying anyone.", minutes: "Block 1 · 10–15 min" },
+      { title: "Verify the idea", action: "Use at least two teacher-approved sources. Record creator or organization, title, date when available, source route, what it supports, and one limit or uncertainty.", finishCheck: "Every key teaching claim can be traced to a source, and one honest limit remains visible.", minutes: "Blocks 1–2" },
+      { title: "Set the design rules", action: "Write one student-friendly learning intention, three signs that the experience works, and limits for time, tools, safety, access, privacy, and sharing.", finishCheck: "The rules describe learner understanding and use—not decoration, device power, or how much was built.", minutes: "Block 2 · 15–20 min" },
+      { title: "Draw the whole path", action: "On paper, map the invitation, first action, information, meaningful choice or interaction, feedback, understanding check, and ending. Include a way back when a learner gets stuck.", finishCheck: "A partner can trace the complete path from beginning to ending without the designer filling a missing step.", minutes: "Block 2" },
+      { title: "Build the smallest complete version", action: "Build only enough for another learner to try the full path. Keep the paper version working even when Wi-Fi, devices, accounts, or AI are unavailable.", finishCheck: "The learner can begin, act, receive useful feedback, reach the check, and finish through the chosen route.", minutes: "Blocks 3–4" },
+      { title: "Watch a new learner", action: "Ask someone unfamiliar with the design to try it without coaching. Record the first action, pauses, understood idea, noticed feedback, and one barrier—never a name, account, image, or personal comment.", finishCheck: "The notes describe observable actions and one exact point to improve without identifying the learner.", minutes: "Block 5" },
+      { title: "Revise and retest", action: "Change one content feature and one access, navigation, or feedback feature because of the test. Ask someone to try the changed part again.", finishCheck: "The before/after record connects each change to test evidence and shows what happened in the second try.", minutes: "Blocks 5–6" },
+      { title: "Teach, check, and reflect", action: "Teach the experience and use four quick checks: identify, explain, apply, and name a source or limit. Credit sources and tools. Explain your own contribution, evidence, revision, limitation, and next improvement.", finishCheck: "The final explanation is in your own words; no raw AI output or learner responses are copied into SpacesEDU.", minutes: "Blocks 7–8" },
+    ],
+    finishEvidence: ["A focused question, audience, learning intention, success rules, and constraints", "Two teacher-approved source records with a limit", "A complete paper learner-flow map", "A usable first version through one of five equivalent routes", "A no-name learner-test record", "One content revision and one access, navigation, or feedback revision", "A four-part understanding check", "An individual reflection naming contribution, evidence, limitation, revision, and next improvement"],
+    saveAction: { kind: "add-to-existing-post", message: "If this project becomes your class expert teach-back or June showcase format, add the final artifact once to that existing SpacesEDU post with your own reflection. Do not upload learner responses, confidential information, or raw AI output, and do not make a duplicate ADST post." },
+    readiness: "teach",
+  },
   "space-motion-lab": {
     id: "space-motion-lab",
     reviewState: "reviewed",

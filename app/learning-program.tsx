@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { type ReactNode, useState } from "react";
+import { lazy, Suspense, type ReactNode, useState } from "react";
 import type { CurriculumRecord } from "./curriculum";
 import { alignmentByArc, resolveAlignment, subjectCoverageNotes } from "./curriculum-alignment";
 import { experienceKits, mediaFor, plainForStudents, spacesBookendsFor, studentStepsFor, studentTitleFor, wordHelpFor } from "./program-supports";
@@ -51,6 +51,9 @@ import "./math-geometry-screen-lab.css";
 import "./math-scoreboard-lab.css";
 import "./math-number-scale-lab.css";
 import "./current-connection.css";
+
+const TeacherQuickCheckBuilder = lazy(() => import("./teacher-quick-check-builder"));
+const ProficiencyModelsPanel = lazy(() => import("./proficiency-models-panel").then((module) => ({ default: module.ProficiencyModelsPanel })));
 
 type ProgramTabProps = {
   program: LearningProgram;
@@ -414,6 +417,30 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
         dayPlanLesson={{ sourceId: experience.id, subject: program.subject, title: studentTitleFor(experience), timing: experience.duration, runSteps: teacherRunSteps.map((step) => `${step.title}: ${step.action}`) }}
         launchResource={mathAntics ?? undefined}
       />
+
+      <details className="teacher-tool-drawer teacher-quick-check-drawer">
+        <summary><span><small>TEACHER TOOL · NO RESPONSE STORAGE</small><strong>Quick checks for Kahoot, Forms / Copilot, or paper</strong></span><b>Open ▾</b></summary>
+        <div>
+          <Suspense fallback={<section className="teacher-quick-check-loading" aria-live="polite">Preparing the no-data quick-check tools…</section>}>
+            <TeacherQuickCheckBuilder
+              key={experience.id}
+              lessonTitle={studentTitleFor(experience)}
+              learningPurpose={resolvedProjectorSupport.support.purpose}
+              questions={resolvedProjectorSupport.support.checks}
+              includePrototypeFeedback={experience.id === "each-one-teach-one"}
+            />
+          </Suspense>
+        </div>
+      </details>
+
+      {experience.id === "each-one-teach-one" && <details className="teacher-tool-drawer teacher-model-drawer">
+        <summary><span><small>WORKED EXAMPLES · REVEAL AFTER A FIRST TRY</small><strong>Four Creative / Making proficiency models</strong></span><b>Open ▾</b></summary>
+        <div>
+          <Suspense fallback={<section className="teacher-model-loading" aria-live="polite">Preparing the model garden…</section>}>
+            <ProficiencyModelsPanel setId="creative-making-reflection" audience="teacher" display="focus" initialLevel="Proficient" />
+          </Suspense>
+        </div>
+      </details>}
 
       {experience.id === sourceMosaicExperienceId && <SourceMosaicStaticPack />}
 

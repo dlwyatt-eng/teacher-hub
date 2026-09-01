@@ -102,6 +102,16 @@ const exactStudentSteps: Record<string, string[]> = {
     "Connect each role to skills, tools, technology, mentors, and more than one way to enter the work.",
     "Choose one small experience you could try next and name the first realistic step.",
   ],
+  "each-one-teach-one": [
+    "Choose one safe, focused question you want to understand well enough to teach. Name the learner you are designing for without using a real person's private information.",
+    "Use at least two teacher-approved sources. Record who made each source, its title or organization, date when available, where to find it, and one limit or uncertainty.",
+    "Write the learning intention, three signs that the experience works, and limits for time, tools, safety, access, privacy, and sharing.",
+    "Draw the whole learner journey on paper: invitation, first action, information, meaningful choice or interaction, feedback, understanding check, and ending.",
+    "Build the smallest complete version as a physical station, paper branching experience, Bloxels route, Minecraft model, or teacher-approved private app or website prototype.",
+    "Watch a new learner try it without coaching. Record only actions and points of confusion—no names, accounts, photos, or personal comments.",
+    "Change one content feature and one access, navigation, or feedback feature because of the test. Ask someone to try the changed part again.",
+    "Teach, run a no-name understanding check, credit sources and tools, and explain your contribution, evidence, limitation, revision, and next improvement in your own words.",
+  ],
 };
 
 function makePlain(step: string) {
@@ -131,6 +141,7 @@ const studentTitleOverrides: Record<string, string> = {
   "digital-identity-forensics": "What story does this profile tell?",
   "everyone-in-game": "Remix the game so everyone has a real role",
   "effort-meter-trail": "Find the pace that works for you today",
+  "each-one-teach-one": "Each One, Teach One",
 };
 
 export function plainForStudents(text: string) {
@@ -368,6 +379,25 @@ export const experienceKits: Record<string, ExperienceKit> = {
     gather: bloxelsStoryGame.gather,
     shortRoute: bloxelsStoryGame.shortRoute,
     cards: bloxelsStoryGame.printables.map(sheet => ({ title: sheet.title.toUpperCase(), body: sheet.prompts.join(" · ") })),
+  },
+  "each-one-teach-one": {
+    setupMinutes: 8,
+    provided: ["Five-route choice board", "Source and claim check", "Complete paper learner-flow map", "No-name learner-test record", "Before/after revision note", "Four-question understanding-check planner", "SpacesEDU reflection frame"],
+    gather: ["Plain paper or index cards", "Pencils, markers, sticky notes, scissors, and tape", "Two teacher-approved source routes per topic", "Optional school-managed Bloxels, Minecraft, visual-coding, or private prototype access"],
+    shortRoute: "Use four blocks and the paper branching route: choose and verify one idea; draw a complete teaching path; let a new learner try it; revise one content and one access feature; teach it with a no-name paper or whole-class check. Keep the same source, test, revision, and reflection evidence.",
+    cards: [
+      { title: "PROJECT BRIEF", body: "Help a Grade 6 learner understand one worthwhile idea in 5–10 minutes. The learner must know what to notice, do, check, and take away without the designer whispering directions." },
+      { title: "ROUTE 1 · PHYSICAL / NO TECH", body: "Use objects, cards, a mini-demo, model, board game, sort, foldable, or station. Keep the learner action, feedback, understanding check, test, and revision." },
+      { title: "ROUTE 2 · PAPER BRANCHING STORY", body: "Use numbered or linked cards. Include at least one meaningful choice, feedback for both routes, a return path when useful, and a clear ending." },
+      { title: "ROUTE 3 · BLOXELS", body: "Build one short teaching route with original or approved assets, visible feedback, private class sharing, and a complete paper route first." },
+      { title: "ROUTE 4 · MINECRAFT", body: "Build a purposeful model, demonstration, or knowledge world. Every structure must teach; include signs, narration, or a live guide plus an equivalent paper plan." },
+      { title: "ROUTE 5 · APP / WEBSITE PROTOTYPE", body: "Wireframe every screen on paper first. Use only a teacher-approved school route with private sharing. No public publishing, comments, analytics, personal accounts, or student information." },
+      { title: "SOURCE CHECK", body: "For each key claim: creator or organization · title · date when available · link or route · what it supports · what it cannot prove. Compare at least two teacher-approved sources." },
+      { title: "AI TRAFFIC LIGHT", body: "GREEN: ask for questions, alternatives, debugging ideas, or wording to compare. YELLOW: verify every claim and protect authorship. RED: no confidential information, copied final answers, fake citations, impersonation, or raw AI output in SpacesEDU." },
+      { title: "NO-NAME LEARNER TEST", body: "Watch without coaching. Record: first action · where the learner paused · what they understood · what feedback they noticed · one barrier. Record actions, not names, photos, accounts, or personal comments." },
+      { title: "UNDERSTANDING CHECK", body: "Plan four quick questions: identify the key idea · explain why or how · apply it to a new case · name one source, limit, or uncertainty. Use mini-whiteboards, corners, cards, talk, paper, or a teacher-run Kahoot." },
+      { title: "REVISION + REFLECTION", body: "I wanted learners to understand __. The test showed __. I changed __ because __. My contribution was __. One source or limit was __. My next improvement would be __." },
+    ],
   },
   "magnitude-gallery": {
     setupMinutes: 4,

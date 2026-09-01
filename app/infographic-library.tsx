@@ -159,6 +159,19 @@ export function ExperienceInfographic({ experienceId }: { experienceId: string }
       </div>
     </InfoFrame>
   );
+  if (experienceId === "each-one-teach-one") return (
+    <InfoFrame eyebrow="EACH ONE, TEACH ONE" title="Question → verified idea → learner experience" summary="Every route carries the same thinking. Build the complete paper path first, then let evidence—not the fanciest tool—decide what to improve.">
+      <div className="info-learning-path">
+        <article><small>1 · CHOOSE + VERIFY</small><strong>One safe question · two teacher-approved sources · one honest limit</strong><p>Know enough to teach without pretending the evidence says more than it does.</p></article>
+        <article><small>2 · AIM + RULES</small><strong>Audience · learning intention · signs it works · constraints</strong><p>Name what the learner should understand or do.</p></article>
+        <article><small>3 · PAPER PATH</small><strong>Invitation · action · information · choice · feedback · check · ending</strong><p>Draw the whole journey before opening a build tool.</p></article>
+        <article><small>4 · BUILD + TEST + REVISE</small><strong>Smallest complete version · no-name observation · two meaningful changes</strong><p>Change content and access, navigation, or feedback.</p></article>
+        <article><small>5 · TEACH + CHECK</small><strong>Identify · explain · apply · name a source or limit</strong><p>Credit tools, reflect in your own words, and name the next improvement.</p></article>
+      </div>
+      <div className="info-source-rule"><b>EQUIVALENT ROUTES:</b><span>PHYSICAL / NO TECH</span><span>PAPER BRANCH</span><span>BLOXELS</span><span>MINECRAFT</span><span>PRIVATE APP / SITE PROTOTYPE</span></div>
+      <p className="info-decision-rule"><b>THE PAPER ROUTE IS ALWAYS REAL:</b> Wi-Fi, a device, an account, or AI may extend the experience; none is required to learn, test, revise, teach, or show the ADST thinking.</p>
+    </InfoFrame>
+  );
   if (experienceId === "fraction-ratio-remix") return (
     <InfoFrame eyebrow="ONE BATCH · SAME BALANCE" title="Grow the amount without changing the ratio" summary="Every complete batch has 3 blue parts for every 2 gold parts. Doubling or tripling means every part grows together.">
       <div className="info-batch-model" aria-label="One batch has three blue parts and two gold parts; two batches have six blue and four gold; three batches have nine blue and six gold">
