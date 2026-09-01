@@ -1,0 +1,437 @@
+/* Classroom companions
+   Familiar B.C. wildlife acts as a visual wayfinding system only. The written
+   learning move stays primary; these drawings do not represent cultural
+   teachings or replace Nation-specific sources. */
+
+.classroom-companion,
+.companion-mark,
+.companion-trail {
+  --cc-accent: #315d77;
+  --cc-accent-2: #668da2;
+  --cc-soft: #e7f0f4;
+  --cc-bg: #f8fbfc;
+  --cc-ink: #183742;
+  --cc-line: #b9cdd5;
+  color: var(--cc-ink);
+}
+
+.companion-role-notice { --cc-accent: #315d77; --cc-accent-2: #6f97aa; --cc-soft: #e5f0f4; --cc-bg: #f7fbfc; --cc-ink: #173947; --cc-line: #b5ccd6; }
+.companion-role-question { --cc-accent: #476d4f; --cc-accent-2: #80a36e; --cc-soft: #eaf3e7; --cc-bg: #f8fbf6; --cc-ink: #264633; --cc-line: #c2d7bc; }
+.companion-role-build { --cc-accent: #80563f; --cc-accent-2: #b17b58; --cc-soft: #f3e9df; --cc-bg: #fcf9f5; --cc-ink: #4f3428; --cc-line: #dcc5b3; }
+.companion-role-connect { --cc-accent: #a44f4c; --cc-accent-2: #d98268; --cc-soft: #f8e9e6; --cc-bg: #fff9f7; --cc-ink: #573330; --cc-line: #e5c4bd; }
+.companion-role-reflect { --cc-accent: #356a68; --cc-accent-2: #75a6a0; --cc-soft: #e5f1ef; --cc-bg: #f7fbfa; --cc-ink: #244542; --cc-line: #b9d4d0; }
+
+.classroom-companion {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(124px, 176px) minmax(0, 1fr);
+  gap: clamp(15px, 2vw, 24px);
+  align-items: center;
+  min-width: 0;
+  padding: clamp(14px, 2vw, 21px);
+  overflow: hidden;
+  border: 1px solid var(--cc-line);
+  border-left: 5px solid var(--cc-accent);
+  border-radius: 17px;
+  background:
+    radial-gradient(circle at 12% 2%, color-mix(in srgb, var(--cc-soft) 88%, transparent), transparent 48%),
+    linear-gradient(118deg, var(--cc-bg), #fff 70%);
+  box-shadow: 0 11px 28px #173e3010;
+}
+
+.classroom-companion::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -34px;
+  bottom: -52px;
+  width: 154px;
+  height: 104px;
+  border: 1px solid color-mix(in srgb, var(--cc-accent) 16%, transparent);
+  border-radius: 50%;
+  transform: rotate(-9deg);
+}
+
+.cc-illustration {
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 22 / 15;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--cc-line) 78%, #fff);
+  border-radius: 13px;
+  background: linear-gradient(145deg, #fff, var(--cc-soft));
+}
+
+.cc-illustration svg,
+.companion-mark svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.cc-copy { min-width: 0; }
+.cc-eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px 10px;
+  min-width: 0;
+  margin-bottom: 7px;
+}
+.cc-eyebrow > span {
+  display: inline-flex;
+  max-width: 100%;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: var(--cc-accent);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: .75px;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+.cc-eyebrow > small {
+  color: color-mix(in srgb, var(--cc-ink) 68%, #fff);
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: .45px;
+  text-transform: uppercase;
+}
+.cc-title {
+  display: block;
+  max-width: 38ch;
+  color: var(--cc-ink);
+  font: 650 clamp(18px, 2vw, 24px)/1.18 Georgia, serif;
+  overflow-wrap: anywhere;
+}
+.cc-prompt {
+  max-width: 72ch;
+  margin-top: 8px;
+  color: color-mix(in srgb, var(--cc-ink) 82%, #fff);
+  font-size: 13px;
+  font-weight: 620;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.cc-prompt > :first-child { margin-top: 0; }
+.cc-prompt > :last-child { margin-bottom: 0; }
+
+.companion-density-compact {
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 12px;
+  padding: 10px 12px;
+  border-left-width: 4px;
+  border-radius: 12px;
+  box-shadow: none;
+}
+.companion-density-compact .cc-illustration { border: 0; background: transparent; }
+.companion-density-compact .cc-eyebrow { margin-bottom: 3px; }
+.companion-density-compact .cc-eyebrow > span { padding: 3px 6px; font-size: 8px; }
+.companion-density-compact .cc-eyebrow > small { font-size: 8px; }
+.companion-density-compact .cc-title { font: 700 14px/1.25 var(--font-geist-sans, system-ui, sans-serif); }
+.companion-density-compact .cc-prompt { margin-top: 4px; font-size: 11px; line-height: 1.4; }
+
+.companion-density-projector {
+  grid-template-columns: minmax(180px, 245px) minmax(0, 1fr);
+  gap: clamp(24px, 3.3vw, 48px);
+  padding: clamp(24px, 3.5vw, 46px);
+  border-left-width: 8px;
+  border-radius: 24px;
+  box-shadow: 0 18px 50px #173e3018;
+}
+.companion-density-projector .cc-illustration { border-width: 2px; border-radius: 19px; }
+.companion-density-projector .cc-eyebrow { gap: 10px 14px; margin-bottom: 12px; }
+.companion-density-projector .cc-eyebrow > span { padding: 7px 11px; font-size: clamp(11px, 1.15vw, 15px); }
+.companion-density-projector .cc-eyebrow > small { font-size: clamp(11px, 1.05vw, 14px); }
+.companion-density-projector .cc-title { max-width: 34ch; font-size: clamp(29px, 3vw, 45px); line-height: 1.12; }
+.companion-density-projector .cc-prompt { max-width: 62ch; margin-top: 14px; font-size: clamp(19px, 1.75vw, 28px); line-height: 1.38; }
+
+.companion-mark {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border: 1px solid var(--cc-line);
+  border-radius: 12px;
+  background: linear-gradient(145deg, #fff, var(--cc-soft));
+}
+.companion-mark-small { width: 34px; height: 34px; border-radius: 9px; }
+.companion-mark-standard { width: 54px; height: 54px; }
+.companion-mark-large { width: 76px; height: 76px; border-radius: 16px; }
+.companion-mark svg { width: 122%; height: 122%; }
+
+.companion-trail {
+  min-width: 0;
+  padding: clamp(14px, 2vw, 22px);
+  overflow: hidden;
+  border: 1px solid #d5e0da;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #fff, #f5f8f5);
+  box-shadow: 0 12px 30px #173e300d;
+}
+.companion-trail > header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px 12px;
+  margin-bottom: 13px;
+}
+.companion-trail > header span {
+  color: #49665a;
+  font-size: 9px;
+  font-weight: 950;
+  letter-spacing: 1px;
+}
+.companion-trail > header strong {
+  color: #203f34;
+  font: 650 20px/1.2 Georgia, serif;
+}
+.companion-trail ol {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.companion-trail li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 9px;
+  align-items: center;
+  min-width: 0;
+  padding: 9px;
+  border: 1px solid var(--cc-line);
+  border-radius: 13px;
+  background: var(--cc-bg);
+}
+.companion-trail li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: -7px;
+  width: 6px;
+  border-top: 2px solid #91a89d;
+}
+.companion-trail li > div { min-width: 0; }
+.companion-trail li small,
+.companion-trail li strong,
+.companion-trail li span { display: block; overflow-wrap: anywhere; }
+.companion-trail li small { color: var(--cc-accent); font-size: 8px; font-weight: 950; letter-spacing: .8px; }
+.companion-trail li strong { margin-top: 2px; color: var(--cc-ink); font-size: 11px; line-height: 1.2; }
+.companion-trail li span { margin-top: 4px; color: color-mix(in srgb, var(--cc-ink) 74%, #fff); font-size: 9px; line-height: 1.3; }
+.companion-trail li.is-active {
+  border-color: var(--cc-accent);
+  background: var(--cc-soft);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--cc-accent) 16%, transparent);
+}
+.companion-trail li.is-active::before {
+  content: "YOU ARE HERE";
+  position: absolute;
+  left: 9px;
+  top: -8px;
+  padding: 2px 5px;
+  border-radius: 999px;
+  background: var(--cc-accent);
+  color: #fff;
+  font-size: 6px;
+  font-weight: 950;
+  letter-spacing: .55px;
+}
+.companion-trail-compact { padding: 10px; border-radius: 13px; box-shadow: none; }
+.companion-trail-compact > header { margin-bottom: 8px; }
+.companion-trail-compact > header strong { font-size: 15px; }
+.companion-trail-compact li { grid-template-columns: 38px minmax(0, 1fr); padding: 6px; }
+.companion-trail-compact .companion-mark { width: 38px; height: 38px; border-radius: 9px; }
+.companion-trail-projector { padding: clamp(22px, 3vw, 38px); border-radius: 24px; }
+.companion-trail-projector > header { margin-bottom: 20px; }
+.companion-trail-projector > header span { font-size: clamp(11px, 1vw, 14px); }
+.companion-trail-projector > header strong { font-size: clamp(27px, 2.6vw, 39px); }
+.companion-trail-projector li { grid-template-columns: 76px minmax(0, 1fr); gap: 13px; padding: 13px; border-width: 2px; }
+.companion-trail-projector li small { font-size: 11px; }
+.companion-trail-projector li strong { font-size: clamp(15px, 1.3vw, 20px); }
+.companion-trail-projector li span { font-size: clamp(12px, 1.05vw, 16px); }
+
+/* Shared SVG palette. Fine detail is intentionally limited so marks remain
+   legible at compact and across-room projector sizes. */
+.cc-art-bg { fill: var(--cc-soft); }
+.cc-art-soft { fill: color-mix(in srgb, var(--cc-accent-2) 28%, #fff); }
+.cc-art-accent { fill: var(--cc-accent-2); }
+.cc-art-secondary { fill: var(--cc-accent); }
+.cc-art-ink { fill: var(--cc-ink); }
+.cc-art-eye { fill: #fff; }
+.cc-art-line,
+.cc-cue path,
+.cc-cue circle {
+  fill: none;
+  stroke: var(--cc-accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.cc-cue { opacity: .72; }
+.cc-notice-rings circle:last-child { stroke-width: 2; stroke-dasharray: 3 5; }
+.cc-system-nodes circle { fill: var(--cc-bg); }
+.cc-system-nodes path { stroke-width: 2; stroke-dasharray: 3 5; }
+.cc-reflection-lines { opacity: .45; }
+.cc-reflection-lines path { stroke-width: 2; }
+.cc-waterline { stroke-width: 2; opacity: .65; }
+
+/* Motion is opt-in by component prop. “once” gives a short arrival cue;
+   “idle” is available for a single featured/projector companion, not a wall of cards. */
+.companion-motion-once .cc-animal {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: companion-arrive .72s cubic-bezier(.2, .78, .3, 1) both;
+}
+.companion-motion-once .cc-cue {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: companion-cue 1.05s ease .18s both;
+}
+.companion-motion-idle .cc-animal {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: companion-idle 8s ease-in-out infinite;
+}
+.companion-motion-idle .cc-waterline {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: companion-water 9s ease-in-out infinite;
+}
+.companion-motion-idle .cc-waterline-two { animation-delay: -4.5s; }
+.companion-motion-none .cc-animal,
+.companion-motion-none .cc-cue,
+.companion-motion-none .cc-waterline { animation: none; }
+
+@keyframes companion-arrive {
+  0% { opacity: .2; transform: translateY(5px) scale(.97); }
+  65% { opacity: 1; transform: translateY(-1px) scale(1.005); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes companion-cue {
+  0% { opacity: 0; transform: scale(.88); }
+  60% { opacity: .86; }
+  100% { opacity: .72; transform: none; }
+}
+@keyframes companion-idle {
+  0%, 82%, 100% { transform: none; }
+  89% { transform: translateY(-2px) rotate(-.6deg); }
+  95% { transform: translateY(1px) rotate(.35deg); }
+}
+@keyframes companion-water {
+  0%, 100% { opacity: .48; transform: translateX(-2px) scaleX(.97); }
+  50% { opacity: .72; transform: translateX(2px) scaleX(1.02); }
+}
+
+@media (max-width: 1120px) {
+  .companion-trail ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .companion-trail li:not(:last-child)::after { display: none; }
+}
+
+@media (max-width: 760px) {
+  .classroom-companion:not(.companion-density-compact) {
+    grid-template-columns: minmax(92px, 125px) minmax(0, 1fr);
+    gap: 14px;
+    padding: 14px;
+    border-left-width: 5px;
+    border-radius: 15px;
+  }
+  .companion-density-projector .cc-title { font-size: clamp(22px, 6vw, 34px); }
+  .companion-density-projector .cc-prompt { font-size: clamp(17px, 4.2vw, 23px); }
+  .companion-trail ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .companion-trail-projector li { grid-template-columns: 60px minmax(0, 1fr); }
+  .companion-trail-projector .companion-mark { width: 60px; height: 60px; }
+}
+
+@media (max-width: 520px) {
+  .classroom-companion:not(.companion-density-compact),
+  .companion-density-projector {
+    grid-template-columns: 82px minmax(0, 1fr);
+    align-items: start;
+  }
+  .classroom-companion:not(.companion-density-compact) .cc-illustration { margin-top: 2px; }
+  .cc-eyebrow > small { width: 100%; }
+  .companion-trail ol { grid-template-columns: 1fr; }
+  .companion-trail li { min-height: 64px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .classroom-companion *,
+  .companion-mark *,
+  .companion-trail * {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .classroom-companion,
+  .companion-mark,
+  .companion-trail,
+  .companion-trail li,
+  .cc-illustration {
+    border-color: CanvasText;
+    background: Canvas;
+    color: CanvasText;
+    forced-color-adjust: auto;
+  }
+  .cc-eyebrow > span,
+  .companion-trail li.is-active::before {
+    border: 1px solid CanvasText;
+    background: Highlight;
+    color: HighlightText;
+  }
+  .cc-art-bg,
+  .cc-art-soft { fill: Canvas; }
+  .cc-art-accent,
+  .cc-art-secondary,
+  .cc-art-ink { fill: CanvasText; }
+  .cc-art-eye { fill: Canvas; }
+  .cc-art-line,
+  .cc-cue path,
+  .cc-cue circle { stroke: CanvasText; }
+  .companion-trail li.is-active { outline: 3px solid Highlight; }
+}
+
+@media print {
+  .classroom-companion,
+  .companion-mark,
+  .companion-trail,
+  .companion-trail li,
+  .cc-illustration {
+    border-color: #555 !important;
+    background: #fff !important;
+    color: #111 !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+  .classroom-companion *,
+  .companion-mark *,
+  .companion-trail * { animation: none !important; transition: none !important; }
+  .cc-eyebrow > span,
+  .companion-trail li.is-active::before {
+    border: 1px solid #111;
+    background: #fff !important;
+    color: #111 !important;
+  }
+  .cc-art-bg { fill: #fff !important; }
+  .cc-art-soft { fill: #eee !important; }
+  .cc-art-accent { fill: #aaa !important; }
+  .cc-art-secondary { fill: #666 !important; }
+  .cc-art-ink { fill: #222 !important; }
+  .cc-art-eye { fill: #fff !important; }
+  .cc-art-line,
+  .cc-cue path,
+  .cc-cue circle { stroke: #222 !important; }
+}
