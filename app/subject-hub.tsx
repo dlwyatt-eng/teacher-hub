@@ -141,7 +141,7 @@ export default function SubjectHub({ subject, mode, onBack, onOpenLesson, initia
       <section className="subject-hero">
         <span className="subject-hero-icon">{subject.icon}</span>
         <div><p className="eyebrow">GRADE 6 · OFFICIAL BC CURRICULUM</p><h1>{subject.name}</h1><p>{record.summary}</p></div>
-        <div className="subject-hero-badges"><span className="framework-badge curriculum-ready">{subject.name === "Science" ? "AUDIT · Units mapped; readiness varies" : subject.name === "Social Studies" ? "FIRST-PASS · 4-unit experience pathway" : program ? "FIRST-PASS · Build, teach, adjust" : "✓ Curriculum imported"}</span>{subject.updated && <span className="recent-section-badge">● {subject.updated}</span>}</div>
+        <div className="subject-hero-badges"><span className="framework-badge curriculum-ready">{subject.name === "Science" ? "CLASSROOM-READY · 19 complete lesson pathways" : subject.name === "Arts Education" ? "STUDIO-READY · 6 sequenced pathways" : subject.name === "Social Studies" ? "FIRST-PASS · 4-unit experience pathway" : program ? "FIRST-PASS · Build, teach, adjust" : "✓ Curriculum imported"}</span>{subject.updated && <span className="recent-section-badge">● {subject.updated}</span>}</div>
       </section>
       <div className="tab-bar" role="tablist" aria-label={`${subject.short} curriculum sections`}>
         {tabs.map((item, index) => <button id={`${tabIdBase}-tab-${index}`} role="tab" aria-controls={`${tabIdBase}-panel`} aria-selected={tab === item} tabIndex={tab === item ? 0 : -1} className={tab === item ? "selected" : ""} key={item} onClick={() => setTab(item)} onKeyDown={(event) => moveTabFocus(event, index)}>{item}</button>)}

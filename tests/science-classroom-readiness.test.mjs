@@ -235,3 +235,13 @@ test("lesson and scene timing stays realistic and planet data uses precise rotat
   assert.doesNotMatch(program, /planet day\/year|planetary day and year data/i);
   assert.match(packs, /suspension:[\s\S]*colloid\/emulsion:/i, "The B.C. mixture-family terminology disappeared from the offline core.");
 });
+
+test("Science public status reflects the completed classroom-readiness audit", async () => {
+  const [catalog, subjectHub] = await Promise.all([
+    read("app/subject-catalog.ts"),
+    read("app/subject-hub.tsx"),
+  ]);
+  assert.match(catalog, /name: "Science"[\s\S]*?status: "4 units · 19 classroom-ready lessons"[\s\S]*?updated: "Updated Sept\. 1"/);
+  assert.match(subjectHub, /subject\.name === "Science" \? "CLASSROOM-READY · 19 complete lesson pathways"/);
+  assert.doesNotMatch(subjectHub, /AUDIT · Units mapped; readiness varies/);
+});

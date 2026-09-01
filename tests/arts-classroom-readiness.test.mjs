@@ -285,6 +285,15 @@ test("Arts coverage counts equal the four-arc alignment union", async () => {
   assert.deepEqual([bigIdeas.size, competencies.size, content.size], [4, 16, 8], "The Arts coverage row no longer equals the union of its four taught arcs.");
 });
 
+test("Arts public status reflects the rebuilt pathway instead of the retired first-pass label", async () => {
+  const [catalog, subjectHub] = await Promise.all([
+    read("app/subject-catalog.ts"),
+    read("app/subject-hub.tsx"),
+  ]);
+  assert.match(catalog, /name: "Arts Education"[\s\S]*?status: "4 arcs · 6 complete studio pathways"[\s\S]*?updated: "Updated Sept\. 1"/);
+  assert.match(subjectHub, /subject\.name === "Arts Education" \? "STUDIO-READY · 6 sequenced pathways"/);
+});
+
 test("the year registry seeds all 25 Arts sessions once, in-window, on Tuesday", async () => {
   const [registry, weeklyPlan, { artsProgram }] = await Promise.all([
     read("app/year-week-registry.ts"),
