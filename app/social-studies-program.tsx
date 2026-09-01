@@ -11,6 +11,9 @@ import { WorldAtlasIntroduction, WorldContextBand, WorldJourney, WorldPortal } f
 import { worldFor, worldStyle } from "./unit-worlds";
 import { isReviewedStudentLessonId, resolveStudentLessonContract } from "./student-lesson-contract";
 import { CivicCaseWorkbench, civicTeacherGuideForScene } from "./social-unit2-experiences";
+import { unit2ScenarioCards } from "./civic-evidence-data";
+import { CivicEvidencePathway, CivicReasoningRoute, civicDeliveryByLesson, isCivicLessonId } from "./civic-evidence-pathway";
+import { CivicDecisionBriefLab } from "./civic-decision-brief-lab";
 import type { DailyLaunch } from "./daily-launch";
 import { TeacherDailyLaunchButton } from "./student-home-portal";
 import { TeacherRunSheet, teacherRunSheetSaveTarget } from "./teacher-run-sheet";
@@ -429,6 +432,7 @@ export function SocialStudiesStudentLaunch({ lessonId, onLesson, scene, onScene 
   return (
     <section className="social-student-launch world-surface" data-world={theme.id} style={worldStyle(theme)}>
       <header className="social-projector-header"><div><small>SOCIAL STUDIES · {unit ? `UNIT ${unit.number}` : "INQUIRY"} · PART {scene + 1}</small><h1>{lesson.title}</h1><p>{contract?.challenge ?? copy?.question ?? lesson.question}</p></div><button type="button" onClick={scrollToMap}>Change lesson</button></header>
+      {lesson.unitId === "power-rights-government" && scene === 0 && <CivicReasoningRoute compact />}
       {scene === 0 && currentConnection && <details className="social-source-drawer"><summary><span><small>OPTIONAL SOURCE</small><strong>Open today&apos;s Source Lab</strong></span><b>Open ▾</b></summary><CurrentConnectionPlayer connection={currentConnection} /></details>}
       {scene === 0 && <SurreyElectionBridge lessonId={lesson.id} audience="student" />}
       {scene === 0 && <IssueSourceSetDrawer lessonId={lesson.id} audience="student" />}
@@ -478,6 +482,7 @@ function SocialLessons({ selected, onLesson, scene, onScene }: { selected: Socia
   const studentCopy = studentLessonCopy[selected.id];
   const readinessLaunch = socialReadinessFor(selected);
   const currentConnection = currentConnectionForLesson(selected.id);
+  const civicDelivery = isCivicLessonId(selected.id) ? civicDeliveryByLesson[selected.id] : null;
   const planBigIdea = selected.id === "rights-in-tension" ? civicLessonBigIdea : unit?.question;
   const teacherRunSteps = contract.reviewState === "reviewed"
     ? contract.steps
@@ -501,6 +506,7 @@ function SocialLessons({ selected, onLesson, scene, onScene }: { selected: Socia
     <div className="social-program social-lessons-page world-surface" data-world={theme.id} style={worldStyle(theme)}>
       <WorldContextBand theme={theme} teacher />
       <SocialUnitSwitcher currentUnitId={selected.unitId} onLesson={onLesson} />
+      {selected.unitId === "power-rights-government" && <CivicEvidencePathway currentLessonId={selected.id} onLesson={onLesson} />}
       <details className="social-lesson-picker-drawer">
         <summary><span><small>CURRENT LESSON</small><strong>{socialLessons.findIndex((item) => item.id === selected.id) + 1}. {selected.title}</strong></span><b>Change lesson ▾</b></summary>
         <div className="social-lesson-picker">{socialLessons.map((lesson, index) => <button key={lesson.id} className={lesson.id === selected.id ? "selected" : ""} onClick={() => choose(lesson.id)}><span>{String(index + 1).padStart(2, "0")}</span><div><small>{lesson.kind} · {lesson.duration}</small><strong>{lesson.title}</strong><p>{lesson.question}</p></div><b>{lesson.evidenceLevel}</b></button>)}</div>
@@ -524,18 +530,21 @@ function SocialLessons({ selected, onLesson, scene, onScene }: { selected: Socia
           lookFors={selected.lookFors}
           discussionMoves={selected.teacherMoves}
           misconception={{ idea: selected.misconceptions[0], respond: readinessLaunch.reteach }}
-          accessibility={runSheetAccessibilityFor("Social Studies")}
+          accessibility={civicDelivery ? [...runSheetAccessibilityFor("Social Studies"), ...civicDelivery.accessibility] : runSheetAccessibilityFor("Social Studies")}
           readiness={selected.id === "rights-in-tension" ? undefined : { ideas: readinessLaunch.background, modelTitle: readinessLaunch.example.title, modelConclusion: readinessLaunch.example.conclusion, check: readinessLaunch.questions[0], reteach: readinessLaunch.reteach }}
-          prepare={selected.beforeClass.slice(0, 3)}
+          prepare={civicDelivery ? selected.beforeClass : selected.beforeClass.slice(0, 3)}
           materials={selected.materials}
           shortRoute={selected.lowerPrep}
-          routes={{
+          routes={civicDelivery ?? {
             projector: "Use Teach / Project mode for the shared source, question, and one student move at a time; keep teacher-only source notes in the planning view.",
             sharedDevice: "Use one teacher-controlled screen and table talk. Students point, sort, annotate paper, or contribute to a shared class record.",
             offline: selected.lowerPrep,
           }}
-          dayPlanLesson={{ sourceId: selected.id, subject: "Social Studies", title: selected.title, timing: selected.duration, runSteps: plannedRunSteps.map((step) => `${step.title}: ${step.action}`) }}
+          safetyPrivacyCleanup={civicDelivery?.safetyPrivacyCleanup}
+          extension={civicDelivery?.extension}
+          dayPlanLesson={{ sourceId: selected.id, subject: "Social Studies", title: selected.title, timing: selected.duration, runSteps: plannedRunSteps.map((step) => `${step.title}: ${step.action}`), notes: civicDelivery?.continuity }}
         />
+        {civicDelivery && <details className="teacher-planning-details civic-full-preview"><summary><span><small>FULL PREP + PRINT</small><strong>Preview the exact projector lesson and teacher-only cues</strong></span><b>Open ▾</b></summary><div><p className="civic-preview-note">Use this preview to test each part, print in-lesson materials, and prepare the handoff. Teacher-only guidance remains outside the student view.</p><SocialStudentLab lessonId={selected.id} scene={scene} audience="teacher" /></div></details>}
         <details className="teacher-planning-details">
           <summary><span><small>MORE DETAIL</small><strong>Sources, misconceptions, and assessment notes</strong></span><b>Open ▾</b></summary>
           <div>
@@ -553,7 +562,7 @@ function SocialLessons({ selected, onLesson, scene, onScene }: { selected: Socia
 }
 
 function SocialAssessment({ onLesson }: { onLesson: (id: string) => void }) {
-  const civic = unit2SocialLessons[3];
+  const civic = unit2SocialLessons.find(({ id }) => id === "civic-decision-brief") ?? unit2SocialLessons[0];
   const expert = unit4SocialLessons[3];
   const highlights = [
     { lesson: civic, unit: "UNIT 2", title: "Civic decision brief", note: "One team artifact or link + one short individual reflection", assess: ["Correct jurisdiction and power map", "Specific rights evidence and affected perspectives", "Options, consequences, safeguards, and review", "Evidence-led recommendation with a serious limit"] },
@@ -639,7 +648,7 @@ export function SocialStudentLab({ lessonId, scene, audience = "student" }: { le
   if (lessonId === "power-in-the-room") return <PowerRoomLab scene={scene} audience={audience} />;
   if (lessonId === "compare-government-systems") return <GovernmentSystemsLab scene={scene} audience={audience} />;
   if (lessonId === "rights-in-tension") return <CivicCaseWorkbench sceneIndex={scene} audience={audience} />;
-  if (lessonId === "civic-decision-brief") return <CivicHearingLab scene={scene} audience={audience} />;
+  if (lessonId === "civic-decision-brief") return <CivicDecisionBriefLab scene={scene} audience={audience} />;
   if (lessonId === "city-moves") return <CityMovesLab sceneIndex={scene} audience={audience} />;
   if (lessonId === "data-skyline") return <DataSkylineLab sceneIndex={scene} audience={audience} />;
   if (lessonId === "supply-chain-shockwave") return <SupplyChainLab sceneIndex={scene} audience={audience} />;
@@ -883,26 +892,6 @@ function ClaimTrailLab({ scene }: { scene: number }) {
   return null;
 }
 
-const unit2ScenarioCards = {
-  powerRoles: [
-    { role: "Chair · final decision", tokens: 2, power: "You announce the final room plan when time ends. You may speak at any time.", limit: "You cannot read the hidden need unless you invite the Need Knower to speak.", privateMove: "Listen if you choose—but the final call is yours." },
-    { role: "Budget Keeper · most resources", tokens: 6, power: "You hold and place six of the group’s ten counters. Nobody may move them without your permission.", limit: "You do not get the final word unless the Chair agrees with you.", privateMove: "Choose where your six counters go. You may say no to a request." },
-    { role: "Need Knower · hidden information", tokens: 1, power: "Only you may read the hidden need: at least one future room user needs a quiet area near the door with a wide, clear path.", limit: "You may explain the hidden need only if the Chair asks you to speak.", privateMove: "Place your one counter. Wait to be invited before revealing the need." },
-    { role: "Community Voice · lives with the result", tokens: 1, power: "You place one counter and may ask the group one public question before time ends.", limit: "You do not get a vote on the final plan.", privateMove: "Use your one question carefully. Notice whether anyone answers it." },
-  ],
-  powerObserver: { role: "Optional observer · group of five", power: "Do not help decide. Make tally marks for who speaks, who moves counters, whose idea changes the plan, and who is interrupted.", limit: "Share your observations only after the Chair announces the plan." },
-  systems: [
-    { name: "One leader acts", route: ["Leader receives the warning", "Leader chooses a response", "Agencies carry it out", "Public hears the decision"], tradeoff: "Fast action; few built-in voices or checks." },
-    { name: "Representatives decide", route: ["Emergency team gives evidence", "Elected representatives debate", "A majority decides", "Decision can be reviewed"], tradeoff: "More voices and reasons; decision may take longer." },
-    { name: "Community vote", route: ["Options are published", "Residents question the options", "Eligible voters choose", "Officials carry out the result"], tradeoff: "Direct participation; difficult when time or information is limited." },
-  ],
-  rightsCases: [
-    { title: "The quiet room", facts: "A community centre has one quiet study room. A new rule gives it only to students who can pay a weekly fee.", rights: "Equality and access", question: "What facts matter before deciding whether the rule is fair?" },
-    { title: "The protest poster", facts: "A student group wants to display a respectful poster criticizing a public decision. The poster names no students and includes cited facts.", rights: "Expression and responsibility", question: "What limit, if any, would cause the least harm?" },
-    { title: "The public meeting", facts: "A city meeting about a playground is held upstairs in a building with no working elevator. Remote participation is not offered.", rights: "Equality, access, and participation", question: "What remedy would make participation more equal?" },
-  ],
-} as const;
-
 function PowerRoomLab({ scene, audience }: { scene: number; audience: "teacher" | "student" }) {
   const [revealed, setRevealed] = useState(false);
   const [redesign, setRedesign] = useState("Give every role one protected turn");
@@ -950,18 +939,10 @@ function PowerRoomLab({ scene, audience }: { scene: number; audience: "teacher" 
 function GovernmentSystemsLab({ scene, audience }: { scene: number; audience: "teacher" | "student" }) {
   const [system, setSystem] = useState(0);
   const selected = unit2ScenarioCards.systems[system];
-  if (scene === 0) return <LabFrame className="unit2-government-lab" eyebrow="WATER EMERGENCY RELAY" title="A decision cannot wait." prompt="A damaged water main has cut the community’s supply. Hospitals, homes, schools, and businesses need a plan. What information must leaders know before acting?" footer="Make a prediction, but keep one question open until you test the decision models."><figure className="water-emergency-visual"><Image unoptimized src="/images/unit2-water-emergency-v1.png" alt="Generated fictional water emergency scene with repair crews, a water tower, essential services, and residents collecting water" width={1672} height={941} /><figcaption>GENERATED FICTIONAL COMMUNITY · NOT A REAL EMERGENCY OR PLACE</figcaption></figure><div className="water-emergency-scene"><div><small>FICTIONAL COMMUNITY · 8:10 A.M.</small><h4>Only 40% of the usual water supply is available.</h4><p>Repair time is uncertain. The hospital needs protected supply. Families need drinking water. Schools and businesses need clear instructions.</p></div><ol><li>Protect essential needs</li><li>Make a decision</li><li>Explain it publicly</li><li>Allow a way to correct mistakes</li></ol></div><div className="leave-screen-callout"><b>{audience === "teacher" ? "DO NOT REVEAL A BEST SYSTEM" : "MAKE A FIRST PREDICTION"}</b><span>Which matters first: speed, voice, clear reasons, rights, or correction? You will need all five by the end.</span></div></LabFrame>;
+  if (scene === 0) return <LabFrame className="unit2-government-lab" eyebrow="WATER EMERGENCY RELAY" title="A decision cannot wait." prompt="A damaged water main has cut the community’s supply. Hospitals, homes, schools, and businesses need a plan. What information must leaders know before acting?" footer="Make a prediction, but keep one question open until you test the decision models."><figure className="water-emergency-visual"><Image unoptimized src="/images/unit2-water-emergency-v1.webp" alt="Generated fictional water emergency scene with repair crews, a water tower, essential services, and residents collecting water" width={1672} height={941} /><figcaption>GENERATED FICTIONAL COMMUNITY · NOT A REAL EMERGENCY OR PLACE</figcaption></figure><div className="water-emergency-scene"><div><small>FICTIONAL COMMUNITY · 8:10 A.M.</small><h4>Only 40% of the usual water supply is available.</h4><p>Repair time is uncertain. The hospital needs protected supply. Families need drinking water. Schools and businesses need clear instructions.</p></div><ol><li>Protect essential needs</li><li>Make a decision</li><li>Explain it publicly</li><li>Allow a way to correct mistakes</li></ol></div><div className="leave-screen-callout"><b>{audience === "teacher" ? "DO NOT REVEAL A BEST SYSTEM" : "MAKE A FIRST PREDICTION"}</b><span>Which matters first: speed, voice, clear reasons, rights, or correction? You will need all five by the end.</span></div></LabFrame>;
   if (scene === 1) return <LabFrame eyebrow="DECISION-PATH RELAY" title="Build the path before the timer ends." prompt="Choose a simplified decision model. Arrange its four steps, rotate roles, and move the water-response card from warning to review." footer="These are models for comparison—not complete descriptions of real countries."><nav className="system-model-tabs" aria-label="Choose a decision model">{unit2ScenarioCards.systems.map((item, index) => <button key={item.name} className={system === index ? "selected" : ""} onClick={() => setSystem(index)}>{item.name}</button>)}</nav><div className="decision-path"><header><small>MODEL {system + 1}</small><h4>{selected.name}</h4><p>{selected.tradeoff}</p></header><div>{selected.route.map((step, index) => <article key={step}><b>{index + 1}</b><strong>{step}</strong></article>)}</div></div></LabFrame>;
   if (scene === 2) return <LabFrame eyebrow="TRADE-OFF SCOREBOARD" title="Fast for whom? Accountable to whom?" prompt="Use evidence from the relay. Place each model—not a real country—on the class comparison wall." footer="Every claim must name a feature of the decision path that supports it."><div className="systems-scoreboard">{["SPEED", "PUBLIC VOICE", "CLEAR REASONS", "RIGHTS CHECK", "WAY TO CORRECT"].map((item) => <article key={item}><strong>{item}</strong><span>Low</span><i></i><i></i><i></i><i></i><i></i><span>High</span></article>)}</div><div className="leave-screen-callout"><b>NO SINGLE TOTAL SCORE</b><span>A model can be strong on one criterion and weak on another. Explain the trade-off.</span></div></LabFrame>;
   return <LabFrame eyebrow="CANADA IS A LAYERED SYSTEM" title="Real governments do not fit one simple box." prompt="Build Canada as a stack of connected features, then revise one claim that treats a whole country like a single classroom model." footer="Compare mechanisms, not stereotypes about people or countries."><div className="canada-system-stack">{["REPRESENTATIVE PARLIAMENTARY DEMOCRACY", "CONSTITUTIONAL MONARCHY", "FEDERALISM: SHARED LEVELS OF GOVERNMENT", "CHARTER, COURTS, OPPOSITION, MEDIA, AND PUBLIC PARTICIPATION"].map((item, index) => <article key={item}><b>{index + 1}</b><strong>{item}</strong></article>)}</div><a className="official-game-link" href="https://learn.parl.ca/en/games/game4/index.html" target="_blank" rel="noreferrer">Play Parliament of Canada’s Levels of Government game ↗</a></LabFrame>;
-}
-
-function CivicHearingLab({ scene, audience }: { scene: number; audience: "teacher" | "student" }) {
-  if (scene === 0) return <LabFrame eyebrow="JURISDICTION DASH" title="Send the problem to someone who can act." prompt="Match each public issue to federal, provincial, municipal, shared, or another public institution. Then name the exact decision—not just the topic." footer="Before recommending action, check who actually has the authority to do it."><div className="jurisdiction-lanes">{["FEDERAL", "PROVINCIAL / TERRITORIAL", "MUNICIPAL", "SHARED OR ANOTHER PUBLIC BODY"].map((item) => <article key={item}><strong>{item}</strong><span>Place an issue card here, then defend the match.</span></article>)}</div><a className="official-game-link" href="https://learn.parl.ca/en/games/game4/index.html" target="_blank" rel="noreferrer">Check your thinking with the official Levels of Government game ↗</a></LabFrame>;
-  if (scene === 1) return <LabFrame eyebrow="CASE-WALL BUILD" title="Make power and rights visible." prompt="Use your team’s inquiry seed. Add three sources that do different jobs, then connect authority, influence, affected people, rights, and a missing voice." footer="Three sources repeating the same idea still count as one narrow evidence stream."><div className="civic-case-wall">{["WHO CAN DECIDE?", "WHO CAN INFLUENCE?", "WHO IS AFFECTED?", "WHICH RIGHTS MATTER?", "WHAT VOICE IS MISSING?", "WHAT EVIDENCE CHANGES THE PICTURE?"].map((item, index) => <article key={item}><b>{index + 1}</b><strong>{item}</strong></article>)}</div></LabFrame>;
-  if (scene === 2) return <LabFrame eyebrow="OPTION ARENA" title="Put more than one response under pressure." prompt="Teams rotate through Effectiveness, Rights, Consequences, and Safeguards stations. At each stop, add one challenge or improvement." footer="A popular option is not automatically effective, fair, or accountable."><div className="option-arena">{["EFFECTIVENESS", "RIGHTS IMPACT", "CONSEQUENCES", "SAFEGUARDS", "REVIEW / APPEAL"].map((item) => <article key={item}><strong>{item}</strong><p>{item === "EFFECTIVENESS" ? "Could it reach the goal?" : item === "RIGHTS IMPACT" ? "Who gains access or faces a limit?" : item === "CONSEQUENCES" ? "What else might happen?" : item === "SAFEGUARDS" ? "What reduces harm or misuse?" : "How can the decision be checked or changed?"}</p></article>)}</div></LabFrame>;
-  if (scene === 3) return <LabFrame eyebrow="90-SECOND CIVIC HEARING" title="Make the case. Face one real question. Revise." prompt="Choose a council brief, short speech, podcast, poster, slide, video, model, or another approved format. The audience gets one challenge card." footer="Say what should happen, who can act, what evidence supports it, how rights are protected, and how the decision will be reviewed."><div className="hearing-countdown"><b>90</b><span>SECONDS TO MAKE THE CASE</span></div><div className="hearing-question-grid">{["WHO HAS AUTHORITY?", "WHAT IS YOUR STRONGEST EVIDENCE?", "WHO COULD BE HARMED?", "WHAT SAFEGUARD IS MISSING?", "HOW COULD THIS BE REVIEWED?"].map((item) => <article key={item}>{item}</article>)}</div></LabFrame>;
-  return <LabFrame eyebrow="SPACES EDU · INDIVIDUAL EVIDENCE" title="Show the thinking that belongs to you." prompt="Post the team artifact or link once. Then each person adds a short audio, video, or written reflection." footer="Your reflection—not the polish of the group product—shows your individual learning."><div className="spaces-reflection-choice"><article><small>1</small><strong>What evidence or counterargument changed or complicated my thinking?</strong></article><article><small>2</small><strong>What did I contribute to the team’s reasoning or teaching?</strong></article><article><small>3</small><strong>What remains uncertain, and how could someone participate responsibly next?</strong></article></div><div className="leave-screen-callout"><b>{audience === "teacher" ? "ASSESS SUBJECTS SEPARATELY" : "CHOOSE AUDIO, VIDEO, OR TEXT"}</b><span>{audience === "teacher" ? "Use the shared artifact for Social Studies/ELA evidence and the individual response for understanding and contribution." : "Be specific. Name the evidence, idea, or action that belongs to you."}</span></div></LabFrame>;
 }
 
 function PerspectiveSimulator({ scene }: { scene: number }) {

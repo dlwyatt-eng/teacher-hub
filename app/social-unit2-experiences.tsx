@@ -9,14 +9,14 @@ export type CivicCaseWorkbenchProps = {
   audience: "student" | "teacher";
 };
 
-type AffectedId = "court-users" | "neighbours" | "access" | "park-community";
-type EvidenceTray = "know" | "ask" | "hear";
-type PlanId = "early-close" | "later-with-host" | "different-hours";
-type ImprovementId = "target-noise" | "keep-access" | "shared-review" | "clear-rules";
-type EvidenceId = "late-reports" | "noise-types" | "evening-use" | "few-alternatives";
-type ReviewId = "count-and-listen" | "community-checkin" | "compare-times";
+export type AffectedId = "court-users" | "neighbours" | "access" | "park-community";
+export type EvidenceTray = "know" | "ask" | "hear";
+export type PlanId = "early-close" | "later-with-host" | "different-hours";
+export type ImprovementId = "target-noise" | "keep-access" | "shared-review" | "clear-rules";
+export type EvidenceId = "late-reports" | "noise-types" | "evening-use" | "few-alternatives";
+export type ReviewId = "count-and-listen" | "community-checkin" | "compare-times";
 
-const affectedPeople: ReadonlyArray<{
+export const affectedPeople: ReadonlyArray<{
   id: AffectedId;
   label: string;
   short: string;
@@ -48,7 +48,7 @@ const affectedPeople: ReadonlyArray<{
   },
 ];
 
-const communityVoices = [
+export const communityVoices = [
   {
     name: "Imani, 13 · court user",
     quote: "I help my little brother with homework before I come. The court is where my friends and I can play for free, and adults can see us from the path.",
@@ -71,13 +71,13 @@ const communityVoices = [
   },
 ] as const;
 
-const evidenceTrays: ReadonlyArray<{ id: EvidenceTray; label: string; description: string }> = [
+export const evidenceTrays: ReadonlyArray<{ id: EvidenceTray; label: string; description: string }> = [
   { id: "know", label: "WE KNOW", description: "Already stated or counted in the city file" },
   { id: "ask", label: "WE NEED TO ASK", description: "A question the current file cannot answer" },
   { id: "hear", label: "WE NEED TO HEAR", description: "People whose experience matters to the decision" },
 ];
 
-const evidenceCards: ReadonlyArray<{
+export const evidenceCards: ReadonlyArray<{
   id: string;
   text: string;
   answer: EvidenceTray;
@@ -121,7 +121,7 @@ const evidenceCards: ReadonlyArray<{
   },
 ];
 
-const plans: ReadonlyArray<{
+export const plans: ReadonlyArray<{
   id: PlanId;
   title: string;
   action: string;
@@ -155,7 +155,7 @@ const plans: ReadonlyArray<{
   },
 ];
 
-const improvements: ReadonlyArray<{
+export const improvements: ReadonlyArray<{
   id: ImprovementId;
   label: string;
   detail: string;
@@ -187,14 +187,14 @@ const improvements: ReadonlyArray<{
   },
 ];
 
-const recommendationEvidence: ReadonlyArray<{ id: EvidenceId; label: string; sentence: string }> = [
+export const recommendationEvidence: ReadonlyArray<{ id: EvidenceId; label: string; sentence: string }> = [
   { id: "late-reports", label: "14 of 18 reports were about noise after 9:30.", sentence: "14 of the 18 noise reports were about noise after 9:30" },
   { id: "noise-types", label: "Most late reports named speakers or shouting.", sentence: "most late reports named speakers or shouting, so the city should test a response aimed at the noise itself" },
   { id: "evening-use", label: "Staff counted 18–31 court users between 8:00 and 10:00.", sentence: "staff counted 18 to 31 people using the court between 8:00 and 10:00 on four observation nights" },
   { id: "few-alternatives", label: "The indoor drop-in closes at 8:00; the next lit court is 3 km away.", sentence: "the indoor drop-in closes at 8:00 and the next lit public court is three kilometres away" },
 ];
 
-const reviewPlans: ReadonlyArray<{ id: ReviewId; label: string; detail: string; sentence: string }> = [
+export const reviewPlans: ReadonlyArray<{ id: ReviewId; label: string; detail: string; sentence: string }> = [
   {
     id: "count-and-listen",
     label: "Count and listen for six weeks",
@@ -279,23 +279,28 @@ function safeScene(sceneIndex: number) {
 }
 
 function NightParkIllustration() {
+  const id = useId().replaceAll(":", "");
+  const titleId = `${id}-night-park-title`;
+  const descriptionId = `${id}-night-park-desc`;
+  const skyId = `${id}-night-sky`;
+  const glowId = `${id}-lamp-glow`;
   return (
     <figure className="civic-night-park">
-      <svg viewBox="0 0 820 360" role="img" aria-labelledby="night-park-title night-park-desc">
-        <title id="night-park-title">Juniper Park basketball court at night</title>
-        <desc id="night-park-desc">Young people play on a lit basketball court. Homes sit nearby, a bus arrives, and the city is considering earlier closing hours after noise reports.</desc>
+      <svg viewBox="0 0 820 360" role="img" aria-labelledby={`${titleId} ${descriptionId}`}>
+        <title id={titleId}>Juniper Park basketball court at night</title>
+        <desc id={descriptionId}>Young people play on a lit basketball court. Homes sit nearby, a bus arrives, and the city is considering earlier closing hours after noise reports.</desc>
         <defs>
-          <linearGradient id="night-sky" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor="#171532" /><stop offset="1" stopColor="#4b3970" /></linearGradient>
-          <radialGradient id="lamp-glow"><stop offset="0" stopColor="#fff8c7" stopOpacity=".88" /><stop offset="1" stopColor="#f5d878" stopOpacity="0" /></radialGradient>
+          <linearGradient id={skyId} x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor="#171532" /><stop offset="1" stopColor="#4b3970" /></linearGradient>
+          <radialGradient id={glowId}><stop offset="0" stopColor="#fff8c7" stopOpacity=".88" /><stop offset="1" stopColor="#f5d878" stopOpacity="0" /></radialGradient>
         </defs>
-        <rect width="820" height="360" rx="26" fill="url(#night-sky)" />
+        <rect width="820" height="360" rx="26" fill={`url(#${skyId})`} />
         <g className="civic-stars" fill="#fff7bf"><circle cx="94" cy="50" r="3" /><circle cx="151" cy="83" r="2" /><circle cx="272" cy="40" r="2.5" /><circle cx="379" cy="73" r="2" /><circle cx="632" cy="42" r="3" /><circle cx="751" cy="86" r="2.5" /></g>
         <circle className="civic-moon" cx="699" cy="72" r="34" fill="#fff5bc" />
         <path d="M0 198 Q90 142 181 190 T365 179 T551 188 T820 162 V360 H0Z" fill="#26384a" />
         <g className="civic-homes"><path d="M28 176 L91 126 L154 176 V251 H28Z" fill="#302842" stroke="#9a86b2" strokeWidth="3" /><rect x="48" y="191" width="28" height="24" rx="3" fill="#f7d987" /><rect x="101" y="190" width="30" height="25" rx="3" fill="#f7d987" /><path d="M666 180 L724 139 L785 180 V247 H666Z" fill="#312943" stroke="#9a86b2" strokeWidth="3" /><rect x="687" y="195" width="27" height="23" rx="3" fill="#f7d987" /><rect x="738" y="195" width="27" height="23" rx="3" fill="#6f6181" /></g>
         <path d="M99 360 Q215 272 389 277 T720 350" fill="#c7c1b4" opacity=".45" />
         <ellipse cx="425" cy="292" rx="242" ry="63" fill="#20293a" stroke="#8fb2ae" strokeWidth="4" /><path d="M218 292 H632 M425 230 V354" stroke="#6f9a99" strokeWidth="3" opacity=".8" /><circle cx="425" cy="292" r="33" fill="none" stroke="#6f9a99" strokeWidth="3" />
-        <ellipse className="civic-lamp-glow civic-lamp-glow-one" cx="292" cy="217" rx="140" ry="126" fill="url(#lamp-glow)" /><ellipse className="civic-lamp-glow civic-lamp-glow-two" cx="560" cy="217" rx="140" ry="126" fill="url(#lamp-glow)" />
+        <ellipse className="civic-lamp-glow civic-lamp-glow-one" cx="292" cy="217" rx="140" ry="126" fill={`url(#${glowId})`} /><ellipse className="civic-lamp-glow civic-lamp-glow-two" cx="560" cy="217" rx="140" ry="126" fill={`url(#${glowId})`} />
         <g stroke="#171528" strokeWidth="9" strokeLinecap="round"><path d="M280 246 V110" /><path d="M548 246 V110" /></g><g fill="#fff2a8" stroke="#5d4c37" strokeWidth="3"><rect x="259" y="102" width="43" height="16" rx="6" /><rect x="527" y="102" width="43" height="16" rx="6" /></g>
         <g className="civic-hoop" strokeLinecap="round"><path d="M576 255 V177 H617" fill="none" stroke="#e7e3db" strokeWidth="8" /><rect x="609" y="154" width="11" height="50" rx="2" fill="#d9d4ca" /><path d="M613 189 H645" stroke="#ef7a42" strokeWidth="6" /><path d="M617 192 L627 215 L638 192" fill="none" stroke="#e5e0d6" strokeWidth="3" /></g>
         <g className="civic-players" fill="#f1b24d" stroke="#171528" strokeWidth="5" strokeLinecap="round"><circle cx="387" cy="244" r="12" /><path d="M387 258 V300 M387 272 L365 286 M387 275 L409 259 M387 300 L369 327 M387 300 L407 327" fill="none" /><circle cx="470" cy="250" r="12" /><path d="M470 264 V306 M470 278 L449 264 M470 279 L492 292 M470 306 L452 333 M470 306 L489 332" fill="none" /></g>
@@ -340,6 +345,8 @@ export function CivicCaseWorkbench({ sceneIndex, audience }: CivicCaseWorkbenchP
   const [reviewId, setReviewId] = useState<ReviewId | "">("");
   const [showRecommendation, setShowRecommendation] = useState(false);
   const [announcement, setAnnouncement] = useState("The fictional Juniper Park case is ready.");
+  const [activeVoiceIndex, setActiveVoiceIndex] = useState(0);
+  const [activeEvidenceIndex, setActiveEvidenceIndex] = useState(0);
 
   const chosenPlan = plans.find((item) => item.id === planId);
   const chosenImprovement = improvements.find((item) => item.id === improvementId);
@@ -347,6 +354,8 @@ export function CivicCaseWorkbench({ sceneIndex, audience }: CivicCaseWorkbenchP
   const chosenReview = reviewPlans.find((item) => item.id === reviewId);
   const sortedCorrectly = evidenceCards.filter((card) => assignments[card.id] === card.answer).length;
   const recommendationReady = Boolean(chosenPlan && chosenImprovement && chosenEvidence && chosenReview);
+  const activeVoice = communityVoices[activeVoiceIndex];
+  const activeEvidenceCard = evidenceCards[activeEvidenceIndex];
 
   const toggleAffected = (id: AffectedId) => {
     const alreadySeen = affectedSeen.includes(id);
@@ -362,14 +371,14 @@ export function CivicCaseWorkbench({ sceneIndex, audience }: CivicCaseWorkbenchP
   };
 
   const resetWorkbench = () => {
-    setAffectedSeen([]); setAssignments({}); setPlanId(""); setImprovementId(""); setEvidenceId(""); setReviewId(""); setShowRecommendation(false);
+    setAffectedSeen([]); setAssignments({}); setPlanId(""); setImprovementId(""); setEvidenceId(""); setReviewId(""); setShowRecommendation(false); setActiveVoiceIndex(0); setActiveEvidenceIndex(0);
     setAnnouncement("All class choices cleared. The fictional Juniper Park case is ready again.");
   };
 
   return (
     <section className="social-student-lab social-deep-lab social-unit2-lab civic-case-workbench" data-audience={audience} data-lesson-id={civicCaseWorkbenchLessonId} aria-labelledby={titleId}>
       <header className="civic-workbench-header">
-        <div className="civic-heading-copy"><small>{sceneCopy[scene].eyebrow}</small><h3 id={titleId}>{sceneCopy[scene].title}</h3><p>{sceneCopy[scene].prompt}</p></div>
+        <div className="civic-heading-copy"><small>{sceneCopy[scene].eyebrow}</small><h2 id={titleId}>{sceneCopy[scene].title}</h2><p>{sceneCopy[scene].prompt}</p></div>
         <div className="civic-big-idea"><small>THE BIG IDEA</small><strong>Fair decisions do more than count votes.</strong><span>They listen to people affected, use evidence, explain the trade-offs, and leave a way to change the rule.</span></div>
       </header>
 
@@ -400,14 +409,17 @@ export function CivicCaseWorkbench({ sceneIndex, audience }: CivicCaseWorkbenchP
         <div className="civic-workbench-body">
           <CaseReminder />
           <section className="civic-voice-deck" aria-labelledby={`${titleId}-voices`}>
-            <header><small>FOUR VOICES FROM THE FICTIONAL COMMUNITY</small><h4 id={`${titleId}-voices`}>Read a voice. Pass the microphone.</h4><p>After each reader, someone else begins: <b>“What I heard was…”</b> You may ask a question after you show that you listened.</p></header>
-            <div>{communityVoices.map((voice, index) => <article key={voice.name}><b aria-hidden="true">{index + 1}</b><div><strong>{voice.name}</strong><blockquote>“{voice.quote}”</blockquote><small>NOTICE: {voice.notice}</small></div></article>)}</div>
+            <header><small>FOUR VOICES FROM THE FICTIONAL COMMUNITY</small><h3 id={`${titleId}-voices`}>Read a voice. Pass the microphone.</h3><p>After each reader, someone else begins: <b>“What I heard was…”</b> You may ask a question after you show that you listened.</p></header>
+            <nav className="civic-deck-tabs" aria-label="Choose a community voice">{communityVoices.map((voice, index) => <button type="button" key={voice.name} aria-pressed={activeVoiceIndex === index} onClick={() => setActiveVoiceIndex(index)}><b>{index + 1}</b><span>{voice.name.split(" · ")[0]}</span></button>)}</nav>
+            <div className="civic-voice-stage" aria-live="polite"><article><b aria-hidden="true">{activeVoiceIndex + 1}</b><div><small>VOICE {activeVoiceIndex + 1} OF {communityVoices.length}</small><strong>{activeVoice.name}</strong><blockquote>“{activeVoice.quote}”</blockquote><small>NOTICE: {activeVoice.notice}</small></div></article></div>
           </section>
           <section className="civic-evidence-explainer"><strong>EVIDENCE</strong><span>Evidence is information that helps us understand what is happening. It can include counts, observations, documents, and people’s direct experience. One piece rarely tells the whole story.</span></section>
           <section className="civic-tray-key" aria-label="Evidence wall categories">{evidenceTrays.map((tray) => <article key={tray.id} data-tray={tray.id}><strong>{tray.label}</strong><span>{tray.description}</span></article>)}</section>
           <fieldset className="civic-evidence-sort">
             <legend>Build the class evidence wall</legend><p>For each clue, choose the job it does. If a clue lands in the wrong place, the screen explains what to notice—no points are lost.</p>
-            <div>{evidenceCards.map((card, index) => { const assignment = assignments[card.id]; const correct = assignment === card.answer; return <article key={card.id} data-state={!assignment ? "open" : correct ? "placed" : "rethink"}><header><b>{index + 1}</b><small>{!assignment ? "CLUE READY" : correct ? "✓ THIS FITS" : "LOOK AGAIN"}</small></header><p>{card.text}</p><div role="group" aria-label={`Choose a place for clue ${index + 1}`}>{evidenceTrays.map((tray) => <button type="button" key={tray.id} aria-pressed={assignment === tray.id} onClick={() => assignCard(card.id, tray.id)}>{tray.label}</button>)}</div>{assignment && <span className="civic-card-feedback">{correct ? card.why : `Try another place. ${card.why}`}</span>}</article>; })}</div>
+            <nav className="civic-evidence-progress" aria-label="Choose an evidence clue">{evidenceCards.map((card, index) => <button type="button" key={card.id} aria-label={`Clue ${index + 1}${assignments[card.id] === card.answer ? ", placed correctly" : ""}`} aria-pressed={activeEvidenceIndex === index} data-complete={assignments[card.id] === card.answer ? "true" : "false"} onClick={() => setActiveEvidenceIndex(index)}>{assignments[card.id] === card.answer ? "✓" : index + 1}</button>)}</nav>
+            <div className="civic-evidence-stage">{(() => { const assignment = assignments[activeEvidenceCard.id]; const correct = assignment === activeEvidenceCard.answer; return <article key={activeEvidenceCard.id} data-state={!assignment ? "open" : correct ? "placed" : "rethink"}><header><b>{activeEvidenceIndex + 1}</b><small>CLUE {activeEvidenceIndex + 1} OF {evidenceCards.length} · {!assignment ? "READY" : correct ? "✓ THIS FITS" : "LOOK AGAIN"}</small></header><p>{activeEvidenceCard.text}</p><div role="group" aria-label={`Choose a place for clue ${activeEvidenceIndex + 1}`}>{evidenceTrays.map((tray) => <button type="button" key={tray.id} aria-pressed={assignment === tray.id} onClick={() => assignCard(activeEvidenceCard.id, tray.id)}>{tray.label}</button>)}</div>{assignment && <span className="civic-card-feedback" role="status">{correct ? activeEvidenceCard.why : `Try another place. ${activeEvidenceCard.why}`}</span>}</article>; })()}</div>
+            <div className="civic-evidence-controls"><button type="button" disabled={activeEvidenceIndex === 0} onClick={() => setActiveEvidenceIndex((index) => Math.max(0, index - 1))}>← Previous clue</button><strong>{sortedCorrectly} of {evidenceCards.length} placed</strong><button type="button" disabled={activeEvidenceIndex === evidenceCards.length - 1} onClick={() => setActiveEvidenceIndex((index) => Math.min(evidenceCards.length - 1, index + 1))}>Next clue →</button></div>
           </fieldset>
           <aside className="civic-scene-check" data-ready={sortedCorrectly === evidenceCards.length ? "true" : "false"}><strong>{sortedCorrectly === evidenceCards.length ? "Evidence wall ready" : `${sortedCorrectly} of ${evidenceCards.length} clues placed`}</strong><span>{sortedCorrectly === evidenceCards.length ? "You know what the file says, what it cannot answer, and who still needs a voice." : "A fact is not a question. A question is not a person. Keeping them separate helps a class think clearly."}</span></aside>
           <SkillMove scene={scene} />

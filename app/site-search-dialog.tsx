@@ -114,7 +114,7 @@ export const siteSearchEntries: SiteSearchEntry[] = [
     title: "Social Studies",
     eyebrow: "SUBJECT",
     description: "Place, evidence, perspective, power, rights, global systems, and solutionary inquiry.",
-    terms: "Social Studies place evidence perspective Fleetwood power rights government global systems solutionary inquiry",
+    terms: "Social Studies place evidence perspective Fleetwood power rights government Civic Evidence Room global systems solutionary inquiry",
     target: { kind: "subject", subject: "Social Studies" },
   },
   ...socialUnits.map((unit) => ({
@@ -122,7 +122,7 @@ export const siteSearchEntries: SiteSearchEntry[] = [
     title: unit.title,
     eyebrow: "SOCIAL STUDIES · UNIT",
     description: unit.question,
-    terms: `Social Studies ${unit.title} ${unit.subtitle} ${unit.question} ${unit.content.join(" ")}`,
+    terms: `Social Studies ${unit.id === "power-rights-government" ? "The Civic Evidence Room" : ""} ${unit.title} ${unit.subtitle} ${unit.question} ${unit.content.join(" ")}`,
     target: { kind: "social" as const, id: socialLessons.find((lesson) => lesson.unitId === unit.id)?.id ?? socialLessons[0].id },
   })),
   ...socialLessons.map((lesson) => ({
