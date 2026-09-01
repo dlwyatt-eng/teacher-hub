@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (relativePath) => readFile(path.join(root, relativePath), "utf8");
@@ -200,7 +200,18 @@ test("every first-week session keeps the whole decorated organizer while protect
 });
 
 test("every generated first-week TTOC route keeps all core phases within the run-step limit", async () => {
-  const dataUrl = pathToFileURL(path.join(root, "app/first-week-rotation-data.ts")).href;
+  const [{ default: ts }, source] = await Promise.all([
+    import("typescript"),
+    read("app/first-week-rotation-data.ts"),
+  ]);
+  const compiled = ts.transpileModule(source, {
+    compilerOptions: {
+      module: ts.ModuleKind.ES2022,
+      target: ts.ScriptTarget.ES2022,
+    },
+    fileName: "first-week-rotation-data.ts",
+  }).outputText;
+  const dataUrl = `data:text/javascript;base64,${Buffer.from(compiled).toString("base64")}`;
   const { ROTATION_DURATIONS, rotationSessions, rotationTtocRunSteps } = await import(dataUrl);
   const mission = await read("app/first-week-mission.tsx");
   const ttocRunStepLimit = 320;
