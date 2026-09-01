@@ -16,7 +16,7 @@
       "eyebrow": "SEPTEMBER · OPENING OUR LEARNING COMMUNITY",
       "title": "Grade 6 Discovery Rotations",
       "bigQuestion": "What can we learn about ourselves and a stronger Grade 6 community while protecting each person's choices and privacy?",
-      "summary": "The opening schedule may change by group, day, and block length. For each visit, the teacher chooses one complete paper-first organizer: Identity Constellation, How I Learn Best, Ideal Learning Space, Build a Better Grade 6, or Grade 6 Quest Map. Students create in several modes, decide what remains private, and submit named originals face-down for private transfer. No student must complete all five, visit in sequence, use AI, or post this work to SpacesEDU.",
+      "summary": "The opening schedule may change by group, day, and block length. For each visit, the teacher chooses one complete paper-first organizer: Identity Constellation, How I Learn Best, Ideal Learning Space, Build a Better Grade 6, or Grade 6 Quest Map. On that selected page, students visit every labelled region, deepen safe choices, add accessible visual meaning-making across the whole organizer, decide what remains private, and submit named originals face-down for private transfer. Blank/skip needs no explanation, and accommodation may reduce substantive output without creating catch-up work. No student must complete all five, visit in sequence, use AI, or post this work to SpacesEDU.",
       "learningArc": [
         {
           "timing": "45 / 60 / 75 min",
@@ -51,7 +51,7 @@
       ],
       "visual": {
         "src": "/images/first-week/identity-constellation.webp",
-        "alt": "Preview of the My Identity Constellation page from the Grade 6 Discovery Booklet, with six optional identity categories and open space for words, symbols, pictures, and colour.",
+        "alt": "Preview of the My Identity Constellation page from the Grade 6 Discovery Booklet, with six identity regions and open space for words, symbols, pictures, accessible visual details, or a no-explanation blank or skip choice.",
         "caption": "One of five standalone Discovery organizers; the teacher chooses the page and duration for each arriving group."
       },
       "primaryResource": {
@@ -124,7 +124,7 @@
         "Open Opening Rotations and choose one organizer plus the 45-, 60-, or 75-minute route only after the arriving group and block are known.",
         "Keep the verified five-page Discovery Booklet available digitally; wait for the confirmed schedule before printing class sets.",
         "Gather pencils, optional colour supplies, and one labelled opaque folder or envelope for each room/date/rotation block.",
-        "Prepare one safe, partial model and the organizer's accessibility or fictional route; never model with confidential student information.",
+        "Prepare one concise, safe whole-page model that visits every labelled region through a response choice, including fictional, blank/skip, and privacy-marker routes; never model with confidential student information.",
         "Confirm who will privately sort named originals by final roster and transfer them to receiving teachers."
       ],
       "runOfShow": [
@@ -140,13 +140,13 @@
         },
         {
           "timing": "9–13 / 12–17 / 14–20",
-          "move": "Model + choose",
-          "teacherAction": "Show one partial safe model, one blank, and several equivalent response modes."
+          "move": "Model the whole page",
+          "teacherAction": "Briefly visit every region in a safe model using several equivalent response modes, including fictional, blank/skip, and privacy-marker choices."
         },
         {
           "timing": "13–31 / 17–40 / 20–50",
-          "move": "Create",
-          "teacherAction": "Confer for reasoning and representation without pressuring students to disclose more."
+          "move": "First pass, deepen + decorate",
+          "teacherAction": "Students visit every labelled region, deepen safe choices, and add one or more accessible visual cues across the page. Confer without pressuring disclosure or grading artistry."
         },
         {
           "timing": "31–38 / 40–50 / 50–63",
@@ -166,13 +166,14 @@
       ],
       "scenarios": [],
       "lookFors": [
-        "Represents at least three useful ideas in a mode the student can explain.",
+        "Makes a response choice in every labelled region; a fictional alternative, blank/skip, or privacy marker counts without explanation, and accommodation may reduce substantive output.",
+        "Uses accessible visual meaning-making across the whole page; colour and artistic polish are never required or assessed.",
         "Connects a design, proposal, preference, or goal to a reason, person, condition, or next step.",
         "Notices a trade-off, missing perspective, access need, or useful support when the selected organizer calls for it.",
         "Revises one part after a self, peer, or teacher check.",
         "Makes and communicates a privacy choice without being judged on the amount disclosed."
       ],
-      "evidenceHandoff": "Treat every organizer as formative only. Students label the back with name, organizer, room/date or rotation block, Complete or Continue, and PRIVATE. Collect named originals face-down in an opaque folder, sort once by final roster, and pass them privately to receiving teachers. Do not grade, rank, diagnose, use for placement, or post named originals to SpacesEDU. Display only a separately copied, student-selected excerpt or approved design after asking again.",
+      "evidenceHandoff": "Treat every organizer as formative only. Students label the back with name, organizer, room/date or rotation block, WHOLE PAGE COMPLETE—including privacy-safe blank/skip or accommodation—or PAUSED—ASK BEFORE OFFERING MORE TIME, plus the privacy/display choice. Collect named originals face-down in an opaque folder, sort once by final roster, and pass them privately to receiving teachers. Do not grade, rank, diagnose, use for placement, require catch-up for an accommodation, or post named originals to SpacesEDU. Display only a separately copied, student-selected excerpt or approved design after asking again.",
       "primaryView": "First Week Mission",
       "secondaryView": "Weekly Plan",
       "projectorView": "Teach / Project mode · First Week Mission"
@@ -181,7 +182,7 @@
       "label": "STUDENT PATH",
       "title": "Grade 6 Discovery Rotations",
       "why": "Each organizer gives you a different way to show what matters to you, what helps learning, what could improve Grade 6, or what path you want to begin. You decide what is safe to share.",
-      "summary": "Your group will complete one standalone Discovery organizer. You might use words, symbols, pictures, dictation, a model, or blank space. You do not need to complete every page or share private information.",
+      "summary": "Your group will complete and decorate one whole, standalone Discovery organizer. Visit every labelled region on today's page using words, symbols, pictures, dictation, a model, a fictional alternative, blank/skip, or a privacy marker. A skip needs no explanation, accommodation can change how much you produce, and artistic polish is not graded. You do not need to complete every page or share private information.",
       "duration": "One complete 45-, 60-, or 75-minute session",
       "grouping": "Whole-class opening, individual creation, and an optional partner or teacher check",
       "routeTitle": "One organizer · one complete session",
@@ -190,16 +191,17 @@
         "Your choices, ideas, and willingness to revise",
         "No private story, diagnosis, family detail, or public sharing is required"
       ],
-      "firstMove": "Listen for today's organizer question. Decide whether you will begin with words, symbols, pictures, a labelled plan, dictation, or a fictional example.",
+      "firstMove": "Listen for today's organizer question, then make a quick response choice in every labelled region before returning to deepen safe ideas and add visual meaning across the page.",
       "quickReference": {
-        "firstMove": "Choose a safe response mode and begin with the first small part of today's organizer.",
+        "firstMove": "Quick-pass every labelled region with a safe response, fictional alternative, blank/skip, or privacy marker; no reason is needed for a skip.",
         "handIn": "Label the back and put the named original face-down in the rotation folder. It is practice, not a grade.",
         "missed": "Ask which organizer your group completed. Every page is standalone, so no earlier session is required."
       },
-      "firstMoveNote": "You may skip a prompt, use a fictional route, ask for a scribe or word bank, or leave something blank.",
+      "firstMoveNote": "You may mark blank/skip without explaining why, use a fictional route, or ask for a scribe, word bank, or reduced-output accommodation. Those choices still complete the region and do not create catch-up work.",
       "steps": [
         "Choose: hear the question, privacy boundary, and several ways to respond.",
-        "Create: complete the essential parts of today's organizer in a mode that works for you.",
+        "First pass: make a response choice in every labelled region, including blank/skip when useful.",
+        "Deepen + decorate: develop safe choices and use drawing, symbols, borders, spacing, patterns, or colour to carry meaning across the whole page.",
         "Check: use the success clues with yourself, a partner, or the teacher.",
         "Revise: improve one part and decide what remains private.",
         "Label and submit: place the named original face-down in the correct folder."
@@ -209,10 +211,10 @@
         "Use a fictional or school-safe example, replace a prompt, choose quiet work, or leave a private area blank.",
         "Choose whether one safe idea may be copied later; the named original stays private unless a teacher asks again."
       ],
-      "product": "One completed Discovery organizer with a student-chosen level of disclosure and one visible revision or next step.",
-      "finish": "You can explain one idea or design choice, show a connection or reason, revise one part, and communicate what remains private.",
+      "product": "One complete, decorated Discovery organizer with every labelled region visited through a response choice, a student-chosen level of disclosure, and one visible revision or next step when useful.",
+      "finish": "Every labelled region has a response choice—including blank/skip when useful—visual cues help the whole page make sense, and you can explain one safe idea or revision plus what remains private. Artistry is not assessed.",
       "handInOrSave": "Label the back and submit the named original face-down. It travels privately to your receiving teacher and is not graded or used for placement.",
-      "ifAbsentOrStuck": "Every organizer starts fresh. Ask for the shortened route, a model, word bank, scribe, fictional example, or the first small step.",
+      "ifAbsentOrStuck": "Every organizer starts fresh. Ask for the whole-page shortened route, a model, word bank, scribe, fictional example, blank/skip, or a reduced-output accommodation that does not create catch-up work.",
       "spacesNote": "Discovery organizers are not posted to SpacesEDU. Later, you may choose a safe idea as part of a separate Learning Story."
     },
     "family": {
@@ -220,16 +222,16 @@
       "title": "Grade 6 Discovery Rotations",
       "summary": "During the opening rotations, each group completes one of five standalone paper organizers. Sessions explore identity, learning conditions, inclusive spaces, ideas for a better Grade 6, or a meaningful goal. The visit order and length may differ by group, and students are not expected to complete every organizer.",
       "whyThisMatters": "Several low-stakes routes help teachers notice student voice, strengths, reasoning, access needs, hopes, and community ideas without asking children to reveal private information or perform for a public display.",
-      "whatStudentsDo": "Students respond with words, symbols, pictures, dictation, design, or another accessible mode; use a simple success check; revise one part; choose what stays private; and submit the named original face-down for private teacher transfer.",
+      "whatStudentsDo": "Students visit every labelled region on one selected organizer using words, symbols, pictures, dictation, design, a fictional alternative, blank/skip, or another accessible route; add visual meaning across the whole page; use a simple success check; revise when useful; choose what stays private; and submit the named original face-down for private teacher transfer.",
       "quickReference": {
         "atSchool": "Each group completes one standalone Discovery organizer with an opening question, creation time, a check, revision, and private handoff.",
         "home": "Nothing to prepare or finish at home.",
         "assessment": "The teacher observes agency, representation, reasoning, and revision. The organizer is practice—not a grade, diagnosis, or placement decision.",
         "spaces": "Named originals stay with the teacher and are not posted. A student may later choose a safe idea for a separate Learning Story."
       },
-      "product": "One student-created Discovery organizer selected for the group and available block.",
+      "product": "One complete, decorated Discovery organizer selected for the group and available block; no-explanation blank/skip and accommodation routes remain valid completion choices.",
       "assessment": "This is low-stakes formative evidence. Teachers notice agency, reasoning, representation, access choices, and revision. The page is not graded, ranked, diagnosed, or used for class placement.",
-      "agreementNote": "Students choose what to disclose. Diagnoses, family details, difficult experiences, public sharing, and personal goals are never required. A blank or fictional route can be a thoughtful choice.",
+      "agreementNote": "Students choose what to disclose. Diagnoses, family details, difficult experiences, public sharing, and personal goals are never required. Blank/skip needs no explanation, a fictional route can be thoughtful, accommodation may reduce substantive output without catch-up, and artistic polish is not assessed.",
       "groupAndIndividualEvidence": "Whole-class questions and optional partner checks support community thinking. Named originals travel privately to receiving teachers; only a separate student-approved copy or excerpt may be considered for display.",
       "milestones": [
         {
@@ -266,17 +268,17 @@
       {
         "mode": "full-tech",
         "route": "Use one teacher-controlled projector for the organizer question and steps; students create on paper. An approved shared accessibility tool may support input when needed.",
-        "equivalentLearning": "Represent, explain, check, revise, choose privacy, and complete a private handoff."
+        "equivalentLearning": "Visit every region through a response choice, deepen safe ideas, decorate through accessible visual meaning-making, check, revise when useful, choose privacy, and complete a private handoff."
       },
       {
         "mode": "shared-tech",
         "route": "Use one shared teacher screen or printed model plus the paper organizer; devices rotate only for an approved access need.",
-        "equivalentLearning": "Represent, explain, check, revise, choose privacy, and complete a private handoff."
+        "equivalentLearning": "Visit every region through a response choice, deepen safe ideas, decorate through accessible visual meaning-making, check, revise when useful, choose privacy, and complete a private handoff."
       },
       {
         "mode": "offline",
-        "route": "Read the provocation aloud, model on chart paper, and use the Discovery Booklet or blank paper. No internet, account, AI, or device is needed.",
-        "equivalentLearning": "Represent, explain, check, revise, choose privacy, and complete a private handoff."
+        "route": "Read the provocation aloud, model a concise whole page on chart paper, and use the Discovery Booklet or blank paper. No internet, account, AI, or device is needed.",
+        "equivalentLearning": "Visit every region through a response choice, deepen safe ideas, decorate through accessible visual meaning-making, check, revise when useful, choose privacy, and complete a private handoff."
       }
     ],
     "toolActivityIds": []
@@ -1442,7 +1444,7 @@
         "eyebrow": "SEPTEMBER · OPENING OUR LEARNING COMMUNITY",
         "title": "Grade 6 Discovery Rotations",
         "bigQuestion": "What can we learn about ourselves and a stronger Grade 6 community while protecting each person's choices and privacy?",
-        "summary": "The opening schedule may change by group, day, and block length. For each visit, the teacher chooses one complete paper-first organizer: Identity Constellation, How I Learn Best, Ideal Learning Space, Build a Better Grade 6, or Grade 6 Quest Map. Students create in several modes, decide what remains private, and submit named originals face-down for private transfer. No student must complete all five, visit in sequence, use AI, or post this work to SpacesEDU.",
+        "summary": "The opening schedule may change by group, day, and block length. For each visit, the teacher chooses one complete paper-first organizer: Identity Constellation, How I Learn Best, Ideal Learning Space, Build a Better Grade 6, or Grade 6 Quest Map. On that selected page, students visit every labelled region, deepen safe choices, add accessible visual meaning-making across the whole organizer, decide what remains private, and submit named originals face-down for private transfer. Blank/skip needs no explanation, and accommodation may reduce substantive output without creating catch-up work. No student must complete all five, visit in sequence, use AI, or post this work to SpacesEDU.",
         "learningArc": [
           {
             "timing": "45 / 60 / 75 min",
@@ -1477,7 +1479,7 @@
         ],
         "visual": {
           "src": "/images/first-week/identity-constellation.webp",
-          "alt": "Preview of the My Identity Constellation page from the Grade 6 Discovery Booklet, with six optional identity categories and open space for words, symbols, pictures, and colour.",
+          "alt": "Preview of the My Identity Constellation page from the Grade 6 Discovery Booklet, with six identity regions and open space for words, symbols, pictures, accessible visual details, or a no-explanation blank or skip choice.",
           "caption": "One of five standalone Discovery organizers; the teacher chooses the page and duration for each arriving group."
         },
         "primaryResource": {
@@ -1550,7 +1552,7 @@
           "Open Opening Rotations and choose one organizer plus the 45-, 60-, or 75-minute route only after the arriving group and block are known.",
           "Keep the verified five-page Discovery Booklet available digitally; wait for the confirmed schedule before printing class sets.",
           "Gather pencils, optional colour supplies, and one labelled opaque folder or envelope for each room/date/rotation block.",
-          "Prepare one safe, partial model and the organizer's accessibility or fictional route; never model with confidential student information.",
+          "Prepare one concise, safe whole-page model that visits every labelled region through a response choice, including fictional, blank/skip, and privacy-marker routes; never model with confidential student information.",
           "Confirm who will privately sort named originals by final roster and transfer them to receiving teachers."
         ],
         "runOfShow": [
@@ -1566,13 +1568,13 @@
           },
           {
             "timing": "9–13 / 12–17 / 14–20",
-            "move": "Model + choose",
-            "teacherAction": "Show one partial safe model, one blank, and several equivalent response modes."
+            "move": "Model the whole page",
+            "teacherAction": "Briefly visit every region in a safe model using several equivalent response modes, including fictional, blank/skip, and privacy-marker choices."
           },
           {
             "timing": "13–31 / 17–40 / 20–50",
-            "move": "Create",
-            "teacherAction": "Confer for reasoning and representation without pressuring students to disclose more."
+            "move": "First pass, deepen + decorate",
+            "teacherAction": "Students visit every labelled region, deepen safe choices, and add one or more accessible visual cues across the page. Confer without pressuring disclosure or grading artistry."
           },
           {
             "timing": "31–38 / 40–50 / 50–63",
@@ -1592,13 +1594,14 @@
         ],
         "scenarios": [],
         "lookFors": [
-          "Represents at least three useful ideas in a mode the student can explain.",
+          "Makes a response choice in every labelled region; a fictional alternative, blank/skip, or privacy marker counts without explanation, and accommodation may reduce substantive output.",
+          "Uses accessible visual meaning-making across the whole page; colour and artistic polish are never required or assessed.",
           "Connects a design, proposal, preference, or goal to a reason, person, condition, or next step.",
           "Notices a trade-off, missing perspective, access need, or useful support when the selected organizer calls for it.",
           "Revises one part after a self, peer, or teacher check.",
           "Makes and communicates a privacy choice without being judged on the amount disclosed."
         ],
-        "evidenceHandoff": "Treat every organizer as formative only. Students label the back with name, organizer, room/date or rotation block, Complete or Continue, and PRIVATE. Collect named originals face-down in an opaque folder, sort once by final roster, and pass them privately to receiving teachers. Do not grade, rank, diagnose, use for placement, or post named originals to SpacesEDU. Display only a separately copied, student-selected excerpt or approved design after asking again.",
+        "evidenceHandoff": "Treat every organizer as formative only. Students label the back with name, organizer, room/date or rotation block, WHOLE PAGE COMPLETE—including privacy-safe blank/skip or accommodation—or PAUSED—ASK BEFORE OFFERING MORE TIME, plus the privacy/display choice. Collect named originals face-down in an opaque folder, sort once by final roster, and pass them privately to receiving teachers. Do not grade, rank, diagnose, use for placement, require catch-up for an accommodation, or post named originals to SpacesEDU. Display only a separately copied, student-selected excerpt or approved design after asking again.",
         "primaryView": "First Week Mission",
         "secondaryView": "Weekly Plan",
         "projectorView": "Teach / Project mode · First Week Mission"
@@ -1607,7 +1610,7 @@
         "label": "STUDENT PATH",
         "title": "Grade 6 Discovery Rotations",
         "why": "Each organizer gives you a different way to show what matters to you, what helps learning, what could improve Grade 6, or what path you want to begin. You decide what is safe to share.",
-        "summary": "Your group will complete one standalone Discovery organizer. You might use words, symbols, pictures, dictation, a model, or blank space. You do not need to complete every page or share private information.",
+        "summary": "Your group will complete and decorate one whole, standalone Discovery organizer. Visit every labelled region on today's page using words, symbols, pictures, dictation, a model, a fictional alternative, blank/skip, or a privacy marker. A skip needs no explanation, accommodation can change how much you produce, and artistic polish is not graded. You do not need to complete every page or share private information.",
         "duration": "One complete 45-, 60-, or 75-minute session",
         "grouping": "Whole-class opening, individual creation, and an optional partner or teacher check",
         "routeTitle": "One organizer · one complete session",
@@ -1616,16 +1619,17 @@
           "Your choices, ideas, and willingness to revise",
           "No private story, diagnosis, family detail, or public sharing is required"
         ],
-        "firstMove": "Listen for today's organizer question. Decide whether you will begin with words, symbols, pictures, a labelled plan, dictation, or a fictional example.",
+        "firstMove": "Listen for today's organizer question, then make a quick response choice in every labelled region before returning to deepen safe ideas and add visual meaning across the page.",
         "quickReference": {
-          "firstMove": "Choose a safe response mode and begin with the first small part of today's organizer.",
+          "firstMove": "Quick-pass every labelled region with a safe response, fictional alternative, blank/skip, or privacy marker; no reason is needed for a skip.",
           "handIn": "Label the back and put the named original face-down in the rotation folder. It is practice, not a grade.",
           "missed": "Ask which organizer your group completed. Every page is standalone, so no earlier session is required."
         },
-        "firstMoveNote": "You may skip a prompt, use a fictional route, ask for a scribe or word bank, or leave something blank.",
+        "firstMoveNote": "You may mark blank/skip without explaining why, use a fictional route, or ask for a scribe, word bank, or reduced-output accommodation. Those choices still complete the region and do not create catch-up work.",
         "steps": [
           "Choose: hear the question, privacy boundary, and several ways to respond.",
-          "Create: complete the essential parts of today's organizer in a mode that works for you.",
+          "First pass: make a response choice in every labelled region, including blank/skip when useful.",
+          "Deepen + decorate: develop safe choices and use drawing, symbols, borders, spacing, patterns, or colour to carry meaning across the whole page.",
           "Check: use the success clues with yourself, a partner, or the teacher.",
           "Revise: improve one part and decide what remains private.",
           "Label and submit: place the named original face-down in the correct folder."
@@ -1635,10 +1639,10 @@
           "Use a fictional or school-safe example, replace a prompt, choose quiet work, or leave a private area blank.",
           "Choose whether one safe idea may be copied later; the named original stays private unless a teacher asks again."
         ],
-        "product": "One completed Discovery organizer with a student-chosen level of disclosure and one visible revision or next step.",
-        "finish": "You can explain one idea or design choice, show a connection or reason, revise one part, and communicate what remains private.",
+        "product": "One complete, decorated Discovery organizer with every labelled region visited through a response choice, a student-chosen level of disclosure, and one visible revision or next step when useful.",
+        "finish": "Every labelled region has a response choice—including blank/skip when useful—visual cues help the whole page make sense, and you can explain one safe idea or revision plus what remains private. Artistry is not assessed.",
         "handInOrSave": "Label the back and submit the named original face-down. It travels privately to your receiving teacher and is not graded or used for placement.",
-        "ifAbsentOrStuck": "Every organizer starts fresh. Ask for the shortened route, a model, word bank, scribe, fictional example, or the first small step.",
+        "ifAbsentOrStuck": "Every organizer starts fresh. Ask for the whole-page shortened route, a model, word bank, scribe, fictional example, blank/skip, or a reduced-output accommodation that does not create catch-up work.",
         "spacesNote": "Discovery organizers are not posted to SpacesEDU. Later, you may choose a safe idea as part of a separate Learning Story."
       },
       "family": {
@@ -1646,16 +1650,16 @@
         "title": "Grade 6 Discovery Rotations",
         "summary": "During the opening rotations, each group completes one of five standalone paper organizers. Sessions explore identity, learning conditions, inclusive spaces, ideas for a better Grade 6, or a meaningful goal. The visit order and length may differ by group, and students are not expected to complete every organizer.",
         "whyThisMatters": "Several low-stakes routes help teachers notice student voice, strengths, reasoning, access needs, hopes, and community ideas without asking children to reveal private information or perform for a public display.",
-        "whatStudentsDo": "Students respond with words, symbols, pictures, dictation, design, or another accessible mode; use a simple success check; revise one part; choose what stays private; and submit the named original face-down for private teacher transfer.",
+        "whatStudentsDo": "Students visit every labelled region on one selected organizer using words, symbols, pictures, dictation, design, a fictional alternative, blank/skip, or another accessible route; add visual meaning across the whole page; use a simple success check; revise when useful; choose what stays private; and submit the named original face-down for private teacher transfer.",
         "quickReference": {
           "atSchool": "Each group completes one standalone Discovery organizer with an opening question, creation time, a check, revision, and private handoff.",
           "home": "Nothing to prepare or finish at home.",
           "assessment": "The teacher observes agency, representation, reasoning, and revision. The organizer is practice—not a grade, diagnosis, or placement decision.",
           "spaces": "Named originals stay with the teacher and are not posted. A student may later choose a safe idea for a separate Learning Story."
         },
-        "product": "One student-created Discovery organizer selected for the group and available block.",
+        "product": "One complete, decorated Discovery organizer selected for the group and available block; no-explanation blank/skip and accommodation routes remain valid completion choices.",
         "assessment": "This is low-stakes formative evidence. Teachers notice agency, reasoning, representation, access choices, and revision. The page is not graded, ranked, diagnosed, or used for class placement.",
-        "agreementNote": "Students choose what to disclose. Diagnoses, family details, difficult experiences, public sharing, and personal goals are never required. A blank or fictional route can be a thoughtful choice.",
+        "agreementNote": "Students choose what to disclose. Diagnoses, family details, difficult experiences, public sharing, and personal goals are never required. Blank/skip needs no explanation, a fictional route can be thoughtful, accommodation may reduce substantive output without catch-up, and artistic polish is not assessed.",
         "groupAndIndividualEvidence": "Whole-class questions and optional partner checks support community thinking. Named originals travel privately to receiving teachers; only a separate student-approved copy or excerpt may be considered for display.",
         "milestones": [
           {
@@ -1692,17 +1696,17 @@
         {
           "mode": "full-tech",
           "route": "Use one teacher-controlled projector for the organizer question and steps; students create on paper. An approved shared accessibility tool may support input when needed.",
-          "equivalentLearning": "Represent, explain, check, revise, choose privacy, and complete a private handoff."
+          "equivalentLearning": "Visit every region through a response choice, deepen safe ideas, decorate through accessible visual meaning-making, check, revise when useful, choose privacy, and complete a private handoff."
         },
         {
           "mode": "shared-tech",
           "route": "Use one shared teacher screen or printed model plus the paper organizer; devices rotate only for an approved access need.",
-          "equivalentLearning": "Represent, explain, check, revise, choose privacy, and complete a private handoff."
+          "equivalentLearning": "Visit every region through a response choice, deepen safe ideas, decorate through accessible visual meaning-making, check, revise when useful, choose privacy, and complete a private handoff."
         },
         {
           "mode": "offline",
-          "route": "Read the provocation aloud, model on chart paper, and use the Discovery Booklet or blank paper. No internet, account, AI, or device is needed.",
-          "equivalentLearning": "Represent, explain, check, revise, choose privacy, and complete a private handoff."
+          "route": "Read the provocation aloud, model a concise whole page on chart paper, and use the Discovery Booklet or blank paper. No internet, account, AI, or device is needed.",
+          "equivalentLearning": "Visit every region through a response choice, deepen safe ideas, decorate through accessible visual meaning-making, check, revise when useful, choose privacy, and complete a private handoff."
         }
       ],
       "toolActivityIds": []
@@ -2679,5 +2683,5 @@
       }
     }
   ],
-  "checksum": "sha256:cf8148488bbe00c65e8273599711d85980821e8b7609d2ad3d18826c07c31a75"
+  "checksum": "sha256:3cb7a7ad46cbdde5902b208b4de0589577f95061520b64cd04dfce76f42fd5a6"
 }

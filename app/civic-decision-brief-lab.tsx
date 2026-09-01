@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { lazy, Suspense, useEffect, useId, useState } from "react";
 import {
   communityVoices,
   improvements as civicImprovements,
@@ -12,6 +12,8 @@ import {
   type ReviewId,
 } from "./social-unit2-experiences";
 import "./civic-decision-brief-lab.css";
+
+const ProficiencyModelsPanel = lazy(() => import("./proficiency-models-panel").then((module) => ({ default: module.ProficiencyModelsPanel })));
 
 export type CivicDecisionBriefLabProps = {
   scene: number;
@@ -143,6 +145,7 @@ export function CivicDecisionBriefLab({ scene, audience }: CivicDecisionBriefLab
   const [revisionMove, setRevisionMove] = useState(0);
   const [revisionChecks, setRevisionChecks] = useState<string[]>([]);
   const [reflectionFormat, setReflectionFormat] = useState<"audio" | "writing" | "conference">("writing");
+  const [originalAttemptConfirmed, setOriginalAttemptConfirmed] = useState(false);
 
   const selectedPlan = plans.find((item) => item.id === planId);
   const selectedSafeguard = safeguards.find((item) => item.id === safeguardId);
@@ -389,6 +392,14 @@ export function CivicDecisionBriefLab({ scene, audience }: CivicDecisionBriefLab
             </div>
             <aside><b>KEEP PRIVATE · DO NOT POST</b><span>Private ballots or first choices · role cards · confidential or identifying information · raw AI chat or unchecked AI wording · an unapproved recording of classmates</span></aside>
           </section>
+
+          <section className="cdb-model-gate" aria-labelledby={`${headingId}-model-gate`}>
+            <div><small>WORKED MODEL · REVEAL AFTER AN ORIGINAL ATTEMPT</small><h4 id={`${headingId}-model-gate`}>Finish your own team brief or paper draft first.</h4><p>The model is for noticing one revision move, not borrowing its recommendation or wording.</p></div>
+            <button type="button" aria-pressed={originalAttemptConfirmed} aria-controls={`${headingId}-worked-model`} onClick={() => setOriginalAttemptConfirmed(true)}>{originalAttemptConfirmed ? "Original attempt confirmed" : "We made an original attempt · reveal model"}</button>
+          </section>
+          {originalAttemptConfirmed && <div id={`${headingId}-worked-model`} aria-live="polite"><Suspense fallback={<section className="cdb-model-loading">Opening a worked example…</section>}>
+            <ProficiencyModelsPanel setId="civic-decision-brief" audience={audience} display="focus" initialLevel="Proficient" />
+          </Suspense></div>}
         </div>
       )}
 

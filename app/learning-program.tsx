@@ -34,6 +34,7 @@ import { coreCompetencyMovesFor, runSheetAccessibilityFor, runSheetDiscussionMov
 import { mathAnticsFor } from "./math-antics-routes";
 import CurrentConnectionPlayer from "./current-connection";
 import { currentConnectionForLesson } from "./current-connections";
+import { ClassroomCompanion } from "./classroom-companions";
 import "./learning-program.css";
 import "./readiness-launch.css";
 import "./math-program.css";
@@ -543,6 +544,15 @@ type StudentProgramProps = {
   onExperience: (id: string) => void;
 };
 
+function learningCompanionRole(label: string, verb: string, index: number, total: number): "notice" | "question" | "build" | "connect" | "reflect" {
+  const move = `${label} ${verb}`.toLowerCase();
+  if (/(look|notice|source|investigate)/.test(move)) return "notice";
+  if (/(discuss|choose|wonder|question)/.test(move)) return "question";
+  if (/(work|do|try|make|tell)/.test(move)) return "build";
+  if (index === total - 1) return "reflect";
+  return "connect";
+}
+
 export function StudentLearningProgram({ program, record, selectedExperienceId, onExperience }: StudentProgramProps) {
   const selected = selectedExperience(program, selectedExperienceId);
   const [projectorPart, setProjectorPart] = useState(0);
@@ -615,6 +625,7 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
   }
   if (currentConnection) parts.push({ label: "Source", verb: "Investigate", content: <CurrentConnectionPlayer connection={currentConnection} /> });
   const activePart = parts[Math.min(projectorPart, parts.length - 1)] ?? parts[0];
+  const companionRole = learningCompanionRole(activePart.label, activePart.verb, projectorPart, parts.length);
 
   return (
     <div className="student-program projector-lesson-player world-surface" data-world={theme.id} style={worldStyle(theme)}>
@@ -624,7 +635,14 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
       </header>
 
       <main className="projector-lesson-player__stage" aria-live="polite">
-        <div className="projector-lesson-player__cue"><small>{activePart.verb.toUpperCase()}</small><strong>{activePart.label}</strong></div>
+        <ClassroomCompanion
+          key={`${selected.id}-${projectorPart}`}
+          role={companionRole}
+          density="compact"
+          motion="once"
+          title={`${activePart.verb}: ${activePart.label}`}
+          className="projector-lesson-player__companion"
+        />
         {activePart.content}
       </main>
 

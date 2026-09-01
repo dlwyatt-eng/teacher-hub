@@ -187,11 +187,11 @@ export const aiParticipationPrinciple = {
 } as const;
 
 const rotationLessonRecords: LessonRecordV2[] = [
-  { id: "rotation-identity-constellation", title: "Identity Constellation", question: "What people, places, interests, languages, strengths, and experiences help make you you?", product: "A student-chosen constellation of words, symbols, pictures, or colour", doneWhen: "At least three chosen details are connected and the student has made a privacy choice", privacy: "The named original stays private; only a separately copied, student-approved excerpt may be considered for display." },
-  { id: "rotation-how-i-learn", title: "How I Learn Best", question: "What conditions and actions help you begin, focus, recover when stuck, and show what you know?", product: "A practical learner user manual", doneWhen: "The page names useful conditions, a recovery strategy, a strength, and one support to try", privacy: "The named page is private learner information and is never a display artifact." },
-  { id: "rotation-ideal-learning-space", title: "Ideal Learning Space", question: "How could a learning space help different people focus, collaborate, reset, and belong?", product: "A labelled inclusive learning-space plan", doneWhen: "The plan shows a clear route, purposeful features, who they help, and one revised access problem", privacy: "A student-approved copy may join a design gallery; personal reasons and learner information remain private." },
-  { id: "rotation-build-better-grade-6", title: "Build a Better Grade 6", question: "What small, realistic change could make Grade 6 more fair, welcoming, useful, or sustainable?", product: "An improvement proposal with a need, change, affected people, trade-off, and first test", doneWhen: "The proposal names who it helps, one risk or missing voice, the right decision-maker, and a feasible next step", privacy: "An approved proposal copy may be displayed only after confidential or identifying details are removed." },
-  { id: "rotation-grade-6-quest-map", title: "Grade 6 Quest Map", question: "What meaningful goal could you begin, and what strengths, people, tools, and next step could help?", product: "A quest map linking a goal, challenge, help sources, and first step", doneWhen: "The goal is linked to a realistic first step and at least two strengths, strategies, tools, or help sources", privacy: "The full named map stays private; only a separately copied, student-selected hope or strategy may be displayed." },
+  { id: "rotation-identity-constellation", title: "Identity Constellation", question: "What people, places, interests, languages, strengths, and experiences help make you you?", product: "A complete, decorated constellation with all six identity circles visited", doneWhen: "Every circle has a safe response, fictional alternative, blank/skip, or privacy marker; blank/skip needs no explanation, accommodation may reduce substantive output, one accessible visual cue crosses the page, and the student has made a privacy choice", privacy: "The named original stays private; only a separately copied, student-approved excerpt may be considered for display." },
+  { id: "rotation-how-i-learn", title: "How I Learn Best", question: "What conditions and actions help you begin, focus, recover when stuck, and show what you know?", product: "A complete, decorated learner user manual", doneWhen: "All six prompt boxes have a usable response, fictional alternative, blank/skip, or privacy marker; blank/skip needs no explanation, accommodation may reduce substantive output, and artistry is not assessed", privacy: "The named page is private learner information and is never a display artifact." },
+  { id: "rotation-ideal-learning-space", title: "Ideal Learning Space", question: "How could a learning space help different people focus, collaborate, reset, and belong?", product: "A complete, decorated inclusive learning-space plan", doneWhen: "The room plan and all three explanation boxes have been visited through a response, blank/skip, or accommodation route, with purposeful access evidence and one accessible visual cue; artistry is not assessed", privacy: "A student-approved copy may join a design gallery; personal reasons and learner information remain private." },
+  { id: "rotation-build-better-grade-6", title: "Build a Better Grade 6", question: "What small, realistic change could make Grade 6 more fair, welcoming, useful, or sustainable?", product: "A complete, decorated improvement proposal", doneWhen: "The idea line, design, and all three reasoning boxes have been visited through a response, blank/skip, or accommodation route, with purposeful proposal evidence and one accessible visual cue; artistry is not assessed", privacy: "An approved proposal copy may be displayed only after confidential or identifying details are removed." },
+  { id: "rotation-grade-6-quest-map", title: "Grade 6 Quest Map", question: "What meaningful goal could you begin, and what strengths, people, tools, and next step could help?", product: "A complete, decorated quest map", doneWhen: "All six planning regions have a safe response, fictional alternative, blank/skip, or privacy marker; blank/skip needs no explanation, accommodation may reduce substantive output, and artistry is not assessed", privacy: "The full named map stays private; only a separately copied, student-selected hope or strategy may be displayed." },
 ].map((session): LessonRecordV2 => ({
   id: session.id,
   unitId: "opening-learning-community",
@@ -201,21 +201,21 @@ const rotationLessonRecords: LessonRecordV2[] = [
   thinkingMoves: ["reflect", "challenge-assumptions", "shift-perspective", "weigh-trade-offs", "improve"],
   maturity: "teacher-ready",
   audience: {
-    sharedLearning: `Students use the Discovery Booklet to create ${session.product.toLowerCase()}, revise one part, and make a clear privacy choice.`,
+    sharedLearning: `Students use the Discovery Booklet to create ${session.product.toLowerCase()}, visit every labelled region, improve one safe response and accessible visual cue when useful, and make a clear privacy choice.`,
     teacher: { planningSource: "first-week-mission.tsx" },
     student: {
       launch: session.question,
       grouping: "Whole-class provocation, individual creation, and optional partner or teacher check",
       duration: "One complete 45-, 60-, or 75-minute route",
-      firstMove: "Choose a safe response mode and begin with the first small part of the organizer.",
-      choices: "Use words, symbols, pictures, dictation, a model, a fictional example, or blank space; no private disclosure is required.",
+      firstMove: "Quick-pass every labelled region with a safe word, sketch, symbol, fictional alternative, blank/skip, or privacy marker before deepening safe choices and decorating the page.",
+      choices: "Use words, symbols, pictures, patterns, spacing, dictation, a model, a fictional example, blank/skip, or a privacy marker. A skip needs no explanation; no private disclosure, colour, or artistic polish is required.",
       product: session.product,
       doneWhen: session.doneWhen,
       destination: session.privacy,
-      catchUp: "Every organizer is standalone. Use the shortened route, a model, word bank, scribe, or fictional example without recovering an earlier session.",
+      catchUp: "Every organizer is standalone. The default whole-page rescue visits each region with a concise response or no-explanation blank/skip. When accommodation is needed, reduce substantive output without creating catch-up work; a model, word bank, scribe, icons, or fictional example are available.",
     },
     family: {
-      summary: `Students complete ${session.title}, one of five standalone opening organizers.`,
+      summary: `Students complete and decorate the whole ${session.title} organizer, one of five standalone opening activities.`,
       whyItMatters: "The activity gives the teacher useful low-stakes evidence while protecting student choice, privacy, and multiple ways to participate.",
       product: session.product,
       assessment: "Formative observation only; not graded, ranked, diagnosed, or used for placement.",
@@ -229,9 +229,9 @@ const rotationLessonRecords: LessonRecordV2[] = [
     spacesDestination: "No SpacesEDU post. Named originals transfer privately; a later Learning Story is a separate student choice.",
   },
   deliveryRoutes: [
-    { mode: "full-tech", route: "Use one teacher-controlled projector for the question and steps; students create on paper.", equivalentLearning: "Represent, explain, check, revise, choose privacy, and complete a private handoff." },
-    { mode: "shared-tech", route: "Use one shared teacher screen or printed model; reserve an approved shared device for access support when useful.", equivalentLearning: "Represent, explain, check, revise, choose privacy, and complete a private handoff." },
-    { mode: "offline", route: "Read the provocation aloud, model on chart paper, and use the booklet or blank paper.", equivalentLearning: "Represent, explain, check, revise, choose privacy, and complete a private handoff." },
+    { mode: "full-tech", route: "Use one teacher-controlled projector for the question and steps; students complete and decorate the whole paper organizer.", equivalentLearning: "Make a response choice—including blank/skip—in every region, deepen safe choices, decorate through accessible visual meaning-making, check, revise, choose privacy, and complete a private handoff." },
+    { mode: "shared-tech", route: "Use one shared teacher screen or printed model; reserve an approved shared device for access support when useful.", equivalentLearning: "Make a response choice—including blank/skip—in every region, deepen safe choices, decorate through accessible visual meaning-making, check, revise, choose privacy, and complete a private handoff." },
+    { mode: "offline", route: "Read the provocation aloud, model a concise whole page on chart paper, and use the booklet or blank paper.", equivalentLearning: "Make a response choice—including blank/skip—in every region, deepen safe choices, decorate through accessible visual meaning-making, check, revise, choose privacy, and complete a private handoff." },
   ],
   toolDoors: [],
 }));

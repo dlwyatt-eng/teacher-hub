@@ -10,3 +10,6 @@
 @media(prefers-reduced-motion:reduce){.space-mission-meter i{transition:none}}
 @media(forced-colors:active){.space-mission-log,.orbit-checkpoints,.planet-claim-check{border:2px solid CanvasText;background:Canvas;color:CanvasText}.space-mission-log :is(small,strong,p,li),.orbit-checkpoints :is(h4,p,strong),.planet-claim-check :is(h4,p,button){color:CanvasText}.space-mission-log li[data-verified="true"]{outline:3px solid Highlight}.space-mission-meter i{background:Highlight}}
 @media print{.space-mission-log,.orbit-checkpoints,.planet-claim-check{break-inside:avoid;border:1px solid #555;background:#fff!important;color:#111!important;box-shadow:none}.space-mission-log :is(small,strong,p,li),.orbit-checkpoints :is(h4,p,strong),.planet-claim-check :is(h4,p,button){color:#111!important}}
+.journey-scene-companion{margin-bottom:22px}
+.journey-student .journey-scene-companion .cc-title{font-size:20px}
+.journey-student .journey-scene-companion .cc-prompt{font-size:15px}

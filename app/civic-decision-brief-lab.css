@@ -13,6 +13,7 @@
   --cdb-line: #c9bed2;
   --cdb-focus: #f4c95e;
   box-sizing: border-box;
+  min-width: 0;
   margin: 26px;
   overflow: hidden;
   border: 3px solid var(--cdb-night);
@@ -27,15 +28,64 @@
   box-sizing: border-box;
 }
 
+.cdb-lab :where(div, section, article, aside, header, footer, fieldset) {
+  min-inline-size: 0;
+}
+
+.cdb-lab :where(h2, h3, h4, p, span, strong, b, small, blockquote, dt, dd, legend) {
+  overflow-wrap: anywhere;
+}
+
+.cdb-lab fieldset {
+  min-width: 0;
+}
+
+.cdb-lab legend {
+  max-width: 100%;
+  white-space: normal;
+}
+
 .cdb-lab button {
+  min-width: 0;
+  max-width: 100%;
   min-height: 48px;
   font: inherit;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .cdb-lab button:focus-visible {
   outline: 4px solid var(--cdb-focus);
   outline-offset: 3px;
 }
+
+.cdb-model-loading {
+  padding: 18px;
+  border: 1px dashed var(--cdb-line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--cdb-night);
+  font-weight: 800;
+}
+
+.cdb-model-gate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 20px 22px;
+  border: 2px solid var(--cdb-line);
+  border-radius: 16px;
+  background: #fff8df;
+  color: var(--cdb-night);
+}
+
+.cdb-model-gate small { color: #73561b; font-weight: 950; letter-spacing: .06em; }
+.cdb-model-gate h4 { margin: 5px 0; font: 700 22px/1.2 Georgia, serif; }
+.cdb-model-gate p { margin: 0; color: #5c5441; font-size: 14px; line-height: 1.45; }
+.cdb-model-gate button { min-height: 48px; flex: 0 0 auto; padding: 11px 16px; border: 2px solid #3d2a5b; border-radius: 11px; background: #3d2a5b; color: #fff; cursor: pointer; font-weight: 900; }
+.cdb-model-gate button:focus-visible { outline: 4px solid #e4bd51; outline-offset: 3px; }
 
 .cdb-header {
   display: grid;
@@ -779,7 +829,7 @@
 .cdb-hearing-timer > strong {
   margin: 8px 0 13px;
   color: var(--cdb-night);
-  font: 700 clamp(74px, 11vw, 118px)/.95 Georgia, serif;
+  font: 700 clamp(74px, 11vw, 118px)/1.05 Georgia, serif;
   font-variant-numeric: tabular-nums;
 }
 
@@ -788,9 +838,12 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+  width: 100%;
+  max-width: 560px;
 }
 
 .cdb-timer-controls button {
+  flex: 1 1 190px;
   padding: 12px 20px;
   border: 2px solid var(--cdb-purple);
   border-radius: 11px;
@@ -1170,10 +1223,36 @@
   background: #f5d37d;
   color: #2a2039;
   font-weight: 950;
-  white-space: nowrap;
+}
+
+/* The shared lesson rail is sticky by default. A fifth Civic part wraps onto a
+   second row, so the sticky offset can push that row over the DO panel while
+   scrolling. This route keeps all five buttons in normal document flow. */
+.social-scene-layout.cdb-scene-navigation,
+.social-scene-layout.cdb-scene-navigation > nav,
+.social-scene-layout.cdb-scene-navigation > .social-scene-action {
+  min-width: 0;
+}
+
+.social-scene-layout.cdb-scene-navigation > nav,
+.projector-shell .social-scene-layout.cdb-scene-navigation > nav {
+  position: static;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.social-scene-layout.cdb-scene-navigation > nav button,
+.social-scene-layout.cdb-scene-navigation > nav button > span,
+.social-scene-layout.cdb-scene-navigation > .social-scene-action > * {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 1100px) {
+  .cdb-header {
+    grid-template-columns: 1fr;
+  }
+
   .cdb-case-intro,
   .cdb-hearing-scene {
     grid-template-columns: 1fr;
@@ -1199,6 +1278,11 @@
     grid-column: 1 / -1;
     justify-self: center;
   }
+
+  .social-scene-layout.cdb-scene-navigation > nav,
+  .projector-shell .social-scene-layout.cdb-scene-navigation > nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 800px) {
@@ -1219,6 +1303,9 @@
   .cdb-scene-body {
     padding: 21px;
   }
+
+  .cdb-model-gate { align-items: stretch; flex-direction: column; }
+  .cdb-model-gate button { width: 100%; }
 
   .cdb-teacher-cue p + p {
     border-top: 1px solid #d1ae53;
@@ -1258,6 +1345,11 @@
   .cdb-print-button {
     grid-column: auto;
   }
+
+  .social-scene-layout.cdb-scene-navigation > nav,
+  .projector-shell .social-scene-layout.cdb-scene-navigation > nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 520px) {
@@ -1284,6 +1376,11 @@
 
   .cdb-hearing-timer > strong {
     font-size: 70px;
+  }
+
+  .social-scene-layout.cdb-scene-navigation > nav,
+  .projector-shell .social-scene-layout.cdb-scene-navigation > nav {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1326,6 +1423,10 @@
     display: none !important;
   }
 
+  body.print-civic-decision-brief .cdb-lab button {
+    min-height: 0;
+  }
+
   body.print-civic-decision-brief .cdb-header,
   body.print-civic-decision-brief .cdb-scene-body {
     padding: 16px;
@@ -1343,6 +1444,12 @@
   body.print-civic-decision-brief .cdb-choice-set > div,
   body.print-civic-decision-brief .cdb-reflection-prompts {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  body.print-civic-decision-brief .cdb-panel-questions > div,
+  body.print-civic-decision-brief .cdb-revision-moves > div,
+  body.print-civic-decision-brief .cdb-revision-checklist > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   body.print-civic-decision-brief .cdb-source-card,

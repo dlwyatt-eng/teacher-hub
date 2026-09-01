@@ -13,6 +13,7 @@ import { TeacherDailyLaunchButton } from "./student-home-portal";
 import { TeacherRunSheet, teacherRunSheetSaveTarget } from "./teacher-run-sheet";
 import { coreCompetencyMovesFor, runSheetAccessibilityFor, runSheetDiscussionMovesFor } from "./learning-lens";
 import { spacesPolicyForActivity } from "./classroom-program";
+import { ClassroomCompanion } from "./classroom-companions";
 import "./unit2-mixtures.css";
 import "./forces-audit.css";
 import "./science-mission-log.css";
@@ -1268,6 +1269,15 @@ function ExperienceVisual({ lesson, scene }: { lesson: ScienceLesson; scene: num
   return <ExhibitLab scene={scene} />;
 }
 
+function scienceCompanionRole(scene: number, total: number): "notice" | "question" | "build" | "connect" | "reflect" {
+  if (scene === 0) return "notice";
+  if (scene === total - 1) return "reflect";
+  const progress = scene / Math.max(1, total - 1);
+  if (progress <= .4) return "question";
+  if (progress <= .75) return "build";
+  return "connect";
+}
+
 export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitStart, onOpenLesson }: Props) {
   const [initialProgress] = useState(() => {
     if (typeof window === "undefined") return { scene: 0 };
@@ -1409,6 +1419,7 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
       </nav>
       <section className="journey-stage" aria-label={`${lesson.title} lesson stage`}>
         <section className="journey-stage-head"><div><small>PART {scene + 1} OF {lesson.scenes.length}</small><h1>{studentTitle}</h1><p>{studentPrompt}</p></div><span>{String(scene + 1).padStart(2, "0")}</span></section>
+        <ClassroomCompanion key={`${lesson.id}-${scene}`} role={scienceCompanionRole(scene, lesson.scenes.length)} density="compact" motion="once" className="journey-scene-companion" />
         <ExperienceVisual lesson={lesson} scene={scene} />
         {currentResources.some((resource) => resource.gradeFit !== "Teacher preview") && <details className="lesson-resource-set"><summary><span><small>SOURCE / VIDEO</small><strong>Open when the class is ready</strong></span><b>Open ▾</b></summary><div>{currentResources.filter((resource) => resource.gradeFit !== "Teacher preview").map((resource, index) => {
           const content = <><span>{resource.type === "Video" ? "▶" : resource.type === "Interactive" ? "↗" : resource.type === "Article" ? "▤" : "⌑"}</span><div><small>{resource.type.toUpperCase()} · {resource.source}</small><strong>{resource.label}</strong><p><b>Look for:</b> {resource.task}</p>{resource.studentBoundary && <p className="resource-boundary"><b>Respect and safety boundary:</b> {resource.studentBoundary}</p>}</div><b>{resource.url ? "OPEN" : "USE CLASS SOURCE"}</b></>;

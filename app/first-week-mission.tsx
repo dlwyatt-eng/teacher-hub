@@ -3,12 +3,18 @@
 import Image from "next/image";
 import { useId, useMemo, useState } from "react";
 import { AddToDayPlanButton, type TtocDayPlanLesson } from "./ttoc-day-plan";
+import { ClassroomCompanion, CompanionMark } from "./classroom-companions";
 import "./first-week-mission.css";
 import {
   DISCOVERY_BOOKLET_PDF,
   ROTATION_DURATIONS,
+  WHOLE_ORGANIZER_ACCOMMODATION,
+  WHOLE_ORGANIZER_DECORATION,
+  WHOLE_ORGANIZER_PRIVACY,
+  WHOLE_ORGANIZER_PROMISE,
   findRotationSession,
   rotationSessions,
+  rotationTtocRunSteps,
   rotationTimeline,
   type RotationDuration,
   type RotationSession,
@@ -29,12 +35,12 @@ export const FIRST_WEEK_ROTATION_LESSON = {
   timing: "Choose 45, 60, or 75 min",
   runSteps: [
     "Choose one standalone organizer for this group; no session depends on an earlier visit.",
-    "State the privacy boundary before students begin and model one safe, partial example.",
-    "Students create with words, symbols, pictures, dictation, or another accessible route.",
-    "Use a quiet check, revise one part, and make a separate display decision.",
+    "State the privacy boundary and model a concise response, fictional alternative, blank/skip, or privacy marker in every part of the organizer—not a polished exemplar.",
+    "Students first-pass every labelled section, then deepen safe choices and decorate the whole page through accessible visual meaning-making.",
+    "Use a whole-page check, improve one safe response and one visual cue when useful, then make a separate display decision.",
     "Label named originals and collect them face-down in the rotation folder for private transfer.",
   ],
-  notes: "Schedule is intentionally open. Select the organizer and duration after the group and block are known. Every route is paper-first, device-optional, and complete on its own. Do not display named originals or use the work for grading or placement.",
+  notes: "Schedule is intentionally open. Select the organizer and duration after the group and block are known. Every route is paper-first, device-optional, and completes one whole, decorated organizer. Blank/skip completes a region without explanation, and accommodation may reduce substantive output without creating catch-up work. Decoration means accessible visual meaning-making; artistry is never graded. Do not display named originals or use the work for grading or placement.",
 } as const satisfies TtocDayPlanLesson;
 
 export type FirstWeekMissionProps = {
@@ -49,7 +55,7 @@ function lessonFor(session: RotationSession, duration: RotationDuration): TtocDa
     subject: "Welcome Week · Cross-curricular",
     title: session.title,
     timing: `${duration} min · standalone rotation`,
-    runSteps: rotationTimeline(session, duration).map((step) => `${step.timing} min · ${step.label}: ${step.action}`),
+    runSteps: rotationTtocRunSteps(session, duration),
     notes: [
       `Privacy: ${session.privacy.teacher}`,
       `Shortened block: ${session.shortened}`,
@@ -61,6 +67,12 @@ function lessonFor(session: RotationSession, duration: RotationDuration): TtocDa
 
 function PrivacyBadge({ session }: { session: RotationSession }) {
   return <span className="rotation-card__privacy" data-level={session.privacy.level}>{session.privacy.label}</span>;
+}
+
+function projectorPrivacy(session: RotationSession) {
+  if (session.privacy.level === "private") return "Keep the named original private. This page is not for display.";
+  if (session.privacy.level === "display-candidate") return "The original stays private. A separate copy may be displayed only after you opt in again.";
+  return "The original transfers privately. Only a safe copied excerpt may be considered later.";
 }
 
 function SessionChooser({ selectedId, choose }: { selectedId: string; choose: (id: string) => void }) {
@@ -102,7 +114,7 @@ function DurationChooser({ duration, choose }: { duration: RotationDuration; cho
           <strong>{option}</strong><span>minutes</span>
         </button>
       ))}
-      <p><b>Unexpectedly shortened?</b> Use the rescue product below and always protect privacy, labelling, and collection time.</p>
+      <p><b>Unexpectedly shortened?</b> Use the quick-pass whole-page route below; visit each region with a concise response or no-explanation blank/skip. When accommodation is needed, use the reduced-output route below. Always protect privacy, labelling, and collection time.</p>
     </fieldset>
   );
 }
@@ -122,13 +134,18 @@ function ProjectorSession({ session, choose }: { session: RotationSession; choos
         <Image src={session.preview} alt={`Preview of ${session.bookletTitle}`} width={680} height={880} priority />
       </header>
       <div className="rotation-projector__intention"><small>TODAY I CAN</small><strong>{session.learningIntention.replace(/^I can /, "")}</strong></div>
+      <section className="rotation-projector__whole-page" aria-label="Whole-page completion target">
+        <CompanionMark role="build" size="large" motion="once" />
+        <div><small>WHOLE-PAGE TARGET</small><strong>Visit all {session.pageRegions.length} labelled areas. Blank/skip counts—no explanation.</strong></div>
+        <p>{WHOLE_ORGANIZER_DECORATION}</p>
+      </section>
       <ol className="rotation-projector__steps">
         {session.makeSteps.map((step, index) => <li key={step}><b>{index + 1}</b><span>{step}</span></li>)}
       </ol>
       <footer>
         <section><small>FINISH WHEN</small><strong>{session.success[0]}</strong></section>
-        <section><small>YOUR CHOICE</small><strong>{session.privacy.student}</strong></section>
-        <span>Paper first · no device or AI needed</span>
+        <section><small>YOUR CHOICE</small><strong>{projectorPrivacy(session)}</strong></section>
+        <span>Whole page · paper first</span>
       </footer>
     </section>
   );
@@ -167,6 +184,27 @@ function TeacherSession({ session, duration }: { session: RotationSession; durat
         <aside><small>TEACHER MOVE</small><p>{session.provocation.move}</p></aside>
       </section>
 
+      <section className="rotation-completion-map" aria-labelledby="rotation-completion-map-title">
+        <header>
+          <div><small>WHOLE-PAGE PRODUCT</small><h3 id="rotation-completion-map-title">Visit every region. Deepen safe choices. Decorate for meaning.</h3></div>
+          <p>{WHOLE_ORGANIZER_PROMISE} {WHOLE_ORGANIZER_PRIVACY}</p>
+        </header>
+        <div className="rotation-completion-map__grid">
+          <section><small>VISIT EVERY REGION</small><ul>{session.pageRegions.map((region) => <li key={region}>{region}</li>)}</ul></section>
+          <section><small>MAKE THE WHOLE PAGE YOURS</small><ul>{session.decorationChoices.map((choice) => <li key={choice}>{choice}</li>)}</ul></section>
+        </div>
+        <p className="rotation-completion-map__note"><b>Completion is not disclosure or artistic polish.</b> A brief safe answer, fictional alternative, blank/skip, or privacy symbol completes a region, and no explanation is required. One accessible visual cue can travel across the page; colour, quantity, neatness, and artistry are never graded.</p>
+      </section>
+
+      <ClassroomCompanion
+        role="build"
+        density="compact"
+        motion="once"
+        title="Build the whole page, then improve one useful detail."
+        prompt="The beaver cue means make, check, and revise. Short responses, fictional alternatives, blank/skip, and privacy symbols all complete a region without explanation."
+        className="rotation-learning-companion"
+      />
+
       <section className="rotation-timeline" aria-labelledby="rotation-timeline-title">
         <header><div><small>RUN SHEET</small><h3 id="rotation-timeline-title">{duration}-minute complete route</h3></div><p>Stop after any route; no next organizer is assumed.</p></header>
         <ol>{timeline.map((step, index) => <li key={`${step.timing}-${step.label}`}><b>{index + 1}</b><time>{step.timing} min</time><div><strong>{step.label}</strong><p>{step.action}</p></div></li>)}</ol>
@@ -194,7 +232,7 @@ function TeacherSession({ session, duration }: { session: RotationSession; durat
         <header><small>ACCESS + FLEX</small><h3 id="rotation-supports-title">Equivalent ways to participate</h3></header>
         <div>
           <section><small>ACCESSIBILITY + DIFFERENTIATION</small><ul>{session.accessibility.map((item) => <li key={item}>{item}</li>)}</ul></section>
-          <section><small>25–35 MIN RESCUE</small><p>{session.shortened}</p><small>EARLY FINISHER</small><p>{session.earlyFinisher}</p></section>
+          <section><small>25–35 MIN WHOLE-PAGE RESCUE</small><p>{session.shortened}</p><small>ACCOMMODATION · REDUCE OUTPUT WHEN NEEDED</small><p>{WHOLE_ORGANIZER_ACCOMMODATION}</p><small>EARLY FINISHER · REFINE, DON’T START OVER</small><p>{session.earlyFinisher}</p></section>
           <section><small>75-MIN DEEPENING</small><p>{session.extension75}</p><small>OFFLINE / SHARED DEVICE</small><p>The core is the paper organizer plus conversation. Project a static prompt or read it aloud; one shared teacher device is enough, and zero devices changes no learning goal.</p></section>
         </div>
       </section>
@@ -202,10 +240,10 @@ function TeacherSession({ session, duration }: { session: RotationSession; durat
       <section className="rotation-handoff" aria-labelledby="rotation-handoff-title">
         <header><small>PRIVATE TRANSFER</small><h3 id="rotation-handoff-title">Label once. Collect face-down. Sort once.</h3></header>
         <ol>
-          <li><b>Student labels the back:</b> name, organizer title, room/date or rotation block, Complete or Continue, and PRIVATE. “May copy one excerpt” is only a request to revisit later.</li>
+          <li><b>Student labels the back:</b> name, organizer title, room/date or rotation block, WHOLE PAGE COMPLETE (including blank/skip or accommodation) or PAUSED—ASK BEFORE OFFERING MORE TIME, plus one privacy choice: PRIVATE, ASK ME LATER ABOUT COPYING ONE SAFE PART, or DISPLAY-CANDIDATE when that page permits it.</li>
           <li><b>Teacher collects:</b> students place named originals face-down into an opaque folder or envelope labelled by room/date/block.</li>
           <li><b>Team transfers:</b> once classes are confirmed, staff sort by final roster and hand originals privately to the receiving teacher. Do not use them for grading or placement.</li>
-          <li><b>Receiving teacher follows up:</b> acknowledge useful learner information, clarify privately, and ask again before copying any excerpt or displaying any candidate.</li>
+          <li><b>Receiving teacher follows up:</b> acknowledge useful learner information, do not question blank/skip regions, offer more time for a PAUSED page only after asking the student, and ask again before copying any excerpt or displaying any candidate.</li>
         </ol>
         <div className="rotation-display-boundary">
           <section><small>ORIGINAL</small><strong>{session.privacy.teacher}</strong></section>
@@ -215,7 +253,7 @@ function TeacherSession({ session, duration }: { session: RotationSession; durat
 
       <details className="rotation-ttoc">
         <summary>TTOC-ready guidance and boundaries</summary>
-        <div><p><b>Say:</b> “There is no single right-looking page. You decide what is safe to include, and you may use words, symbols, pictures, dictation, or blank space.”</p><p><b>Boundary:</b> {session.ttoc}</p><p><b>Finish:</b> Use the success indicators, then protect the label and face-down collection. Leave sensitive follow-up for the classroom teacher through the school’s normal route.</p></div>
+        <div><p><b>Say:</b> “We will visit every part of this organizer and decorate across the whole page. A safe response, fictional alternative, blank/skip, or privacy symbol completes a section. You never have to explain a skip.”</p><p><b>Boundary:</b> {session.ttoc}</p><p><b>Finish:</b> Check every labelled region, one accessible visual cue, consent, the back label, and face-down collection. Artistry is not graded. Leave sensitive follow-up for the classroom teacher through the school’s normal route.</p></div>
       </details>
     </article>
   );
@@ -235,12 +273,12 @@ export default function FirstWeekMission({ audience = "teacher", initialSessionI
         <div>
           <small>OPENING WEEK · SCHEDULE-FLEXIBLE · PAPER-FIRST</small>
           <h1 id={headingId}>{FIRST_WEEK_MISSION_TITLE}</h1>
-          <p>Five complete, standalone organizer sessions for groups that may arrive in any order, more than once, or not at all. Choose one session and one block length when the schedule becomes clear.</p>
-          <div className="rotation-studio__facts"><span>No sequence required</span><span>45 / 60 / 75 min</span><span>No AI or Wi-Fi required</span><span>No SpacesEDU post</span></div>
+          <p>Five complete, standalone organizer sessions for groups that may arrive in any order, more than once, or not at all. Each route completes and decorates one whole page; choose the session and block length when the schedule becomes clear.</p>
+          <div className="rotation-studio__facts"><span>Whole-page product</span><span>No sequence required</span><span>45 / 60 / 75 min</span><span>No AI or Wi-Fi required</span><span>No SpacesEDU post</span></div>
         </div>
         <aside>
           <small>BOOKLET</small>
-          <strong>5 organizers · 5 pages</strong>
+          <strong>5 complete, decorated organizers</strong>
           <p>Digital guidance is ready. Print class sets only after groups and schedule are known.</p>
           <a href={DISCOVERY_BOOKLET_PDF} download>Download the verified booklet</a>
         </aside>
@@ -248,7 +286,7 @@ export default function FirstWeekMission({ audience = "teacher", initialSessionI
 
       <section className="rotation-studio__decision" aria-label="How to choose a session">
         <small>QUICK CHOICE</small>
-        <p><b>New group?</b> Choose the purpose they need. <b>Returning group?</b> Pick any organizer they have not completed. <b>Time changed?</b> Keep the same organizer and switch the duration; every route has its own finish.</p>
+        <p><b>New group?</b> Choose the purpose they need. <b>Returning group?</b> Pick any organizer they have not completed. <b>Time changed?</b> Keep the same organizer and switch the duration; each route still visits, develops, and decorates the whole page.</p>
       </section>
 
       <SessionChooser selectedId={selectedId} choose={setSelectedId} />

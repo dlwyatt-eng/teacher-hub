@@ -44,6 +44,7 @@ const NewsroomHub = lazy(() => import("./student-agency-hub").then((module) => (
 const MyInquiryHub = lazy(() => import("./student-agency-hub").then((module) => ({ default: module.MyInquiryHub })));
 const MonthlyCalendar = lazy(() => import("./monthly-calendar"));
 const VisualReviewStudio = lazy(() => import("./visual-review-studio"));
+const ProficiencyModelsLibrary = lazy(() => import("./proficiency-models-panel").then((module) => ({ default: module.ProficiencyModelsLibrary })));
 
 const STUDENT_FAMILY_SITE_URL = "https://dlwyatt-eng.github.io/learn/";
 
@@ -1120,6 +1121,10 @@ function AssessmentStudioPage({ mode, onHome }: { mode: "teacher" | "projector";
         </article>
       </section>
 
+      <Suspense fallback={<section className="route-loading-inline" aria-live="polite">Opening worked examples…</section>}>
+        <ProficiencyModelsLibrary audience={mode === "projector" ? "student" : "teacher"} initialSetId="civic-decision-brief" />
+      </Suspense>
+
       <section className="assessment-source-note">
         <div><p className="section-kicker">WHY THIS MODEL FITS B.C.</p><h2>Assessment is an ongoing body of evidence.</h2><p>B.C. reporting for Grades K–9 combines the Provincial Proficiency Scale, descriptive feedback, student Core Competency self-assessment, and goal setting. These highlights organize evidence without turning every engaging task into a mark.</p></div>
         <div><a href="https://www2.gov.bc.ca/gov/content/education-training/k-12/administration/legislation-policy/public-schools/student-reporting" target="_blank" rel="noreferrer">B.C. Student Reporting Policy ↗</a><a href="https://curriculum.gov.bc.ca/classroom-assessment" target="_blank" rel="noreferrer">B.C. Classroom Assessment ↗</a><a href="https://curriculum.gov.bc.ca/learning-pathways/k-12-learning-progressions" target="_blank" rel="noreferrer">Cross-Curricular Learning Progressions ↗</a></div>
@@ -1194,7 +1199,7 @@ function SpacesEvidencePage({ mode, onHome, onAssessment, onProjects }: { mode: 
           <article><span>◇</span><div><strong>Checkpoint</strong><p>Useful evidence of one or two taught competencies.</p></div></article>
           <article><span>★</span><div><strong>Assessment highlight</strong><p>A substantial, revised artifact that strengthens the body of evidence.</p></div></article>
           <article><span>◎</span><div><strong>Core Competency reflection</strong><p>Student-selected evidence, growth story, and goal.</p></div></article>
-          <button onClick={onAssessment}>See the eight highlights →</button>
+          <button onClick={onAssessment}>See assessment highlights + worked models →</button>
         </aside>
       </section>
 

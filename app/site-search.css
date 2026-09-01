@@ -1,7 +1,7 @@
 .site-search { display: contents; }
 
 .site-search__open {
-  min-height: 40px;
+  min-height: 44px;
   padding: 0 12px;
   border: 1px solid #d5ddd8;
   border-radius: 12px;
@@ -64,7 +64,7 @@
 
 @media (max-width: 760px) {
   .site-search__open strong, .site-search__open kbd { display: none; }
-  .site-search__open { width: 42px; justify-content: center; padding: 0; }
+  .site-search__open { width: 44px; justify-content: center; padding: 0; }
   .site-search__dialog header { padding: 18px 18px 12px; }
   .site-search__field { margin-inline: 18px; }
   .site-search__dialog footer { flex-direction: column; }

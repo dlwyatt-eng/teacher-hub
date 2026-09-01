@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { socialInquiryProject, socialLessons, socialPacing, socialUnits, unit1SocialLessons, unit2SocialLessons, unit4SocialLessons, type SocialLesson } from "./social-program";
 import { socialReadinessFor } from "./readiness-supports";
 import { CityMovesLab, CooperationControlRoomLab, DataSkylineLab, SupplyChainLab } from "./social-unit3-experiences";
@@ -33,8 +33,19 @@ import "./surrey-election-2026-activities.css";
 import "./current-connection.css";
 import "./teacher-run-sheet.css";
 
+const ClassroomCompanion = lazy(() => import("./classroom-companions").then((module) => ({ default: module.ClassroomCompanion })));
+
 type StudentSceneCopy = { title: string; action: string; product: string };
 type StudentLessonCopy = { question: string; learning: string; success: string[]; scenes: StudentSceneCopy[] };
+
+function socialCompanionRole(scene: number, total: number): "notice" | "question" | "build" | "connect" | "reflect" {
+  if (scene === 0) return "notice";
+  if (scene === total - 1) return "reflect";
+  const progress = scene / Math.max(1, total - 1);
+  if (progress <= .4) return "question";
+  if (progress <= .7) return "build";
+  return "connect";
+}
 
 const civicSceneQuestions = [
   "Who could be affected by this rule? What might change for them?",
@@ -595,9 +606,11 @@ function SocialStudentLesson({ lesson, scene, onScene }: { lesson: SocialLesson;
   const studentResources = lesson.id === "maps-make-arguments" ? [] : lesson.resources.filter((resource) => resource.gradeFit !== "Teacher preview");
   const spaces = socialSpacesDisplay(lesson);
   const contract = isReviewedStudentLessonId(lesson.id) ? resolveStudentLessonContract(lesson.id) : null;
+  const companionRole = socialCompanionRole(scene, lesson.scenes.length);
   return (
     <article className="social-student-lesson" id="social-mission">
-        <div className={`social-scene-layout social-scene-layout--lean ${lesson.id === "rights-in-tension" ? "civic-scene-navigation" : ""}`}><nav aria-label={`${lesson.title} parts`}>{lesson.scenes.map((item, index) => <button type="button" key={item.title} className={scene === index ? "selected" : ""} aria-current={scene === index ? "step" : undefined} onClick={() => onScene(index)}><b>{index + 1}</b><span><small>PART {index + 1}</small><strong>{copy?.scenes[index]?.title ?? item.title}</strong></span></button>)}</nav>{lesson.id !== "rights-in-tension" && <section className="social-scene-action"><small>DO</small><strong>{studentScene?.action ?? current.prompt}</strong><span><b>READY WHEN</b>{studentScene?.product ?? current.studentTask}</span></section>}</div>
+        <div className={`social-scene-layout social-scene-layout--lean ${lesson.id === "rights-in-tension" ? "civic-scene-navigation" : lesson.id === "civic-decision-brief" ? "cdb-scene-navigation" : ""}`}><nav aria-label={`${lesson.title} parts`}>{lesson.scenes.map((item, index) => <button type="button" key={item.title} className={scene === index ? "selected" : ""} aria-current={scene === index ? "step" : undefined} onClick={() => onScene(index)}><b>{index + 1}</b><span><small>PART {index + 1}</small><strong>{copy?.scenes[index]?.title ?? item.title}</strong></span></button>)}</nav>{lesson.id !== "rights-in-tension" && <section className="social-scene-action"><small>DO</small><strong>{studentScene?.action ?? current.prompt}</strong><span><b>READY WHEN</b>{studentScene?.product ?? current.studentTask}</span></section>}</div>
+        <Suspense fallback={null}><ClassroomCompanion key={`${lesson.id}-${scene}`} role={companionRole} density="compact" motion="once" className="social-scene-companion" /></Suspense>
         <SocialStudentLab lessonId={lesson.id} scene={scene} />
         <details className="social-help-drawer"><summary><span><small>HELP</small><strong>Words, sources, and finish check</strong></span><b>Open ▾</b></summary><div><section><small>FINISH</small>{(contract?.finishEvidence ?? copy?.success ?? lesson.success).slice(0, 2).map((item) => <p key={item}>✓ {item}</p>)}{(spaces.decision === "required" || spaces.decision === "reuse") && <p><b>SpacesEDU:</b> {contract?.saveAction.message ?? spaces.studentPrompt}</p>}</section><section className="social-help-words">{lesson.vocabulary.map((word) => <details key={word}><summary>{word}<span>＋</span></summary><p>{socialWordHelp[word.toLowerCase()]}</p></details>)}</section>{studentResources.length > 0 && <section className="social-resource-cards">{studentResources.map((resource) => <a href={resource.url} target="_blank" rel="noreferrer" key={resource.url}><span>↗</span><div><small>{resource.source}</small><strong>{resource.label}</strong></div></a>)}</section>}</div></details>
     </article>
