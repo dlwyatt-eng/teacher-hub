@@ -119,6 +119,209 @@ export const scienceInquiryProject = {
   ],
 };
 
+type CurriculumFocus = NonNullable<ScienceLesson["curriculumFocus"]>;
+
+const scienceCurriculumFocusByLesson: Partial<Record<string, CurriculumFocus>> = {
+  "life-systems-studio": {
+    competencies: [
+      "Identify some of the assumptions in secondary sources",
+      "Demonstrate an understanding and appreciation of evidence",
+      "Identify some of the social, ethical, and environmental implications of the findings from their own and others’ investigations",
+      "Communicate ideas, explanations, and processes in a variety of ways",
+    ],
+    content: ["the basic structures and functions of body systems: reproductive and hormonal"],
+    whyThisFits: "Students use approved health-science evidence to explain reproduction and development, audit assumptions in language and diagrams, and communicate accurately without requiring personal disclosure.",
+  },
+  "body-case-conference": {
+    competencies: [
+      "Identify patterns and connections in data",
+      "Demonstrate an openness to new ideas and consideration of alternatives",
+      "Transfer and apply learning to new situations",
+      "Communicate ideas, explanations, and processes in a variety of ways",
+    ],
+    content: ["the basic structures and functions of body systems: excretory, reproductive, hormonal, and nervous"],
+    whyThisFits: "Students transfer system knowledge to an unfamiliar evidence case, compare competing explanations, and revise a multi-system model when a clue does not fit.",
+  },
+  "mixture-mystery": {
+    competencies: [
+      "Make observations in familiar or unfamiliar contexts",
+      "Identify questions to answer or problems to solve through scientific inquiry",
+      "Make predictions about the findings of their inquiry",
+      "Demonstrate an understanding and appreciation of evidence",
+    ],
+    content: ["heterogeneous mixtures", "mixtures separated using a difference in component properties"],
+    whyThisFits: "Students separate observation from inference, use testable properties to identify possible components, and keep uncertainty visible when the evidence cannot identify a substance.",
+  },
+  "mixture-toolkit": {
+    competencies: [
+      "With support, plan appropriate investigations to answer their questions or solve problems they have identified",
+      "Choose appropriate data to collect to answer their questions",
+      "Observe, measure, and record data, using appropriate tools, including digital technologies",
+      "Use equipment and materials safely, identifying potential risks",
+    ],
+    content: ["heterogeneous mixtures", "mixtures separated using differences in density and particle size"],
+    whyThisFits: "Students test properties, match each property to a separation method, record before-and-after evidence, and explain where a method succeeds or fails.",
+  },
+  "separation-rescue": {
+    competencies: [
+      "Co-operatively design projects",
+      "Use equipment and materials safely, identifying potential risks",
+      "Evaluate whether their investigations were fair tests",
+      "Suggest improvements to their investigation methods",
+      "Generate and introduce new or refined ideas when problem solving",
+    ],
+    content: ["mixtures separated using a difference in component properties"],
+    whyThisFits: "Teams design and safely test a multi-step separation, judge recovery and purity separately, and make one visible revision from evidence rather than appearance.",
+  },
+  "water-treatment-case": {
+    competencies: [
+      "Experience and interpret the local environment",
+      "Identify patterns and connections in data",
+      "Identify some of the social, ethical, and environmental implications of the findings from their own and others’ investigations",
+      "Contribute to care for self, others, and community through personal or collaborative approaches",
+    ],
+    content: ["heterogeneous mixtures", "mixtures separated using differences in component properties"],
+    whyThisFits: "Students trace a local drinking-water system, distinguish classroom filtration from potable-water treatment, and connect prevention choices to watershed care.",
+  },
+  "place-mixtures-studio": {
+    competencies: [
+      "Experience and interpret the local environment",
+      "Identify First Peoples perspectives and knowledge as sources of information",
+      "Identify some of the assumptions in secondary sources",
+      "Express and reflect on personal, shared, or others’ experiences of place",
+    ],
+    content: ["local First Peoples knowledge of separation and extraction methods"],
+    whyThisFits: "Students learn from one named, teacher-previewed Nation, community, or knowledge-holder source, preserve attribution and sharing context, and avoid flattening distinct knowledge into a generic technique list.",
+  },
+  "force-sprint": {
+    competencies: [
+      "Make observations in familiar or unfamiliar contexts",
+      "Identify patterns and connections in data",
+      "Demonstrate an openness to new ideas and consideration of alternatives",
+      "Communicate ideas, explanations, and processes in a variety of ways",
+    ],
+    content: ["Newton’s three laws of motion", "effects of balanced and unbalanced forces"],
+    whyThisFits: "The readiness check makes first thinking visible, targets only the force ideas that need repair, and ends with a revised force model rather than a score.",
+  },
+  "force-patterns-lab": {
+    competencies: [
+      "Decide which variable should be changed and measured for a fair test",
+      "Observe, measure, and record data, using appropriate tools, including digital technologies",
+      "Identify patterns and connections in data",
+      "Evaluate whether their investigations were fair tests",
+      "Identify possible sources of error",
+    ],
+    content: ["Newton’s three laws of motion", "effects of balanced and unbalanced forces"],
+    whyThisFits: "Students change mass, force, friction, or an interaction one condition at a time and use repeated station evidence to explain patterns across Newton’s laws.",
+  },
+  "crash-lab": {
+    competencies: [
+      "Choose appropriate data to collect to answer their questions",
+      "Construct and use a variety of methods, including tables, graphs, and digital technologies, as appropriate, to represent patterns or relationships in data",
+      "Compare data with predictions and develop explanations for results",
+      "Identify possible sources of error",
+      "Suggest improvements to their investigation methods",
+    ],
+    content: ["Newton’s three laws of motion", "effects of balanced and unbalanced forces"],
+    whyThisFits: "Students compare repeated stopping-time and force evidence, graph the pattern, and explain why increasing stopping time can reduce peak force without claiming the classroom model is a real crash test.",
+  },
+  "movement-forces": {
+    competencies: [
+      "Make observations in familiar or unfamiliar contexts",
+      "Identify patterns and connections in data",
+      "Transfer and apply learning to new situations",
+      "Communicate ideas, explanations, and processes in a variety of ways",
+    ],
+    content: ["effects of balanced and unbalanced forces in daily physical activities", "force of gravity"],
+    whyThisFits: "Students apply interaction pairs, gravity, support forces, and net force to movement frames while assessing the explanation rather than athletic performance.",
+  },
+  "safer-impact-studio": {
+    competencies: [
+      "Co-operatively design projects",
+      "Use equipment and materials safely, identifying potential risks",
+      "Observe, measure, and record data, using appropriate tools, including digital technologies",
+      "Suggest improvements to their investigation methods",
+      "Generate and introduce new or refined ideas when problem solving",
+    ],
+    content: ["Newton’s three laws of motion", "force of gravity", "effects of balanced and unbalanced forces"],
+    whyThisFits: "Teams design under shared constraints, test one controlled drop at a time, revise from measured evidence, and explain the force mechanism and limits of the model.",
+  },
+  "cosmic-zoom": {
+    competencies: [
+      "Demonstrate a sustained curiosity about a scientific topic or problem of personal interest",
+      "Identify questions to answer or problems to solve through scientific inquiry",
+      "Identify some of the assumptions in secondary sources",
+      "Demonstrate an understanding and appreciation of evidence",
+      "Communicate ideas, explanations, and processes in a variety of ways",
+    ],
+    content: ["the overall scale, structure, and age of the universe", "the position of our solar system in our galaxy"],
+    whyThisFits: "Students build a nested cosmic address, compare several scale models, and state exactly what each representation enlarges, compresses, or cannot show.",
+  },
+  "space-motion-lab": {
+    competencies: [
+      "Make observations in familiar or unfamiliar contexts",
+      "Construct and use a variety of methods, including tables, graphs, and digital technologies, as appropriate, to represent patterns or relationships in data",
+      "Compare data with predictions and develop explanations for results",
+      "Demonstrate an openness to new ideas and consideration of alternatives",
+      "Communicate ideas, explanations, and processes in a variety of ways",
+    ],
+    content: ["the position, motion, and components of our solar system in our galaxy"],
+    whyThisFits: "Students distinguish sky observations from explanations, model rotation and revolution from two viewpoints, and compare rotation-period and revolution-period data without hiding outliers.",
+  },
+  "cosmic-exhibit-studio": {
+    competencies: [
+      "Demonstrate a sustained curiosity about a scientific topic or problem of personal interest",
+      "Identify some of the assumptions in secondary sources",
+      "Demonstrate an understanding and appreciation of evidence",
+      "Co-operatively design projects",
+      "Communicate ideas, explanations, and processes in a variety of ways",
+    ],
+    content: ["the overall scale, structure, and age of the universe", "extreme environments and contributions of Canadians to exploration technologies", "First Peoples perspectives regarding celestial phenomena when taught from a specific attributed source"],
+    whyThisFits: "Teams narrow one cosmic question, verify important claims with approved sources, label model distortions, revise after peer audit, and teach a two-minute museum stop.",
+  },
+};
+
+const scienceOfflineRouteByLesson: Partial<Record<string, string>> = {
+  "life-systems-studio": "Use one district-approved reproductive-system diagram, the built-in sequence statements, and plain-paper evidence cases. Read each source capsule aloud, let students pass or privately skip any question, and collect only biological explanations—never personal experiences.",
+  "body-case-conference": "Copy the fictional clue set and two-system arrow frame onto the board or chart paper. Teams sort clue cards, build two possible explanations, challenge one arrow, and revise a labelled model; no web source or device is required.",
+  "mixture-mystery": "Prepare one sealed teacher mystery jar and four safe comparison samples, or read the built-in observation cards aloud. Teams keep Observe / Infer / Test columns in notebooks and use teacher-demonstrated magnetism, particle-size, floating, and solubility evidence.",
+  "force-sprint": "Use the printable readiness record, read the six picture questions aloud, and collect votes with fingers, cards, movement corners, or mini-whiteboards. Draw only the clinic the class needs on the board; keep first and revised answers visible.",
+  "force-patterns-lab": "Use the printable four-station record with coins/cards, carts or rolling objects, two safe surfaces, and paired push-off demonstrations. If materials are limited, read the embedded station-result cards and have groups graph, diagram, and explain the same patterns on paper.",
+  "crash-lab": "Use the printable nine-trial dataset already built into the teacher brief. Students calculate or compare supplied averages, draw two paper graphs, and write the same claim–evidence–reasoning explanation; the animation and individual devices are optional.",
+  "movement-forces": "Print or sketch the built-in three-frame movement cases. Students annotate the receiving object, interaction partner, force direction, and motion change on paper; use a seated object demonstration or narration instead of filming or physical performance.",
+  "safer-impact-studio": "Run the full build with the common material kit, ruler or tape measure, teacher-controlled drop point, and printable design/result sheet. Use a reusable clay or sealed-bag payload when eggs are unsuitable; document evidence with a labelled sketch instead of a photo.",
+  "cosmic-zoom": "Use nested location cards, a 4.5 m string or one-tenth tabletop strip, metre sticks, and printed teacher fact cards. Students place, measure, sketch, and label distortions; replace videos and interactives with teacher-read evidence captions.",
+  "space-motion-lab": "Use one lamp or flashlight, a ball with a Surrey marker, printed planet rotation/revolution cards, graph paper, and two viewpoint frames. If a light model is unavailable, use four teacher-drawn Earth positions and paper arrows; the observation, graphs, explanation, and model limit stay the same.",
+  "cosmic-exhibit-studio": "Use the printable five-error audit, teacher-prepared source capsules with full credits, paper or reused-material models, citation cards, and the peer checklist. Teams can create a poster museum stop and teach it live; devices, Minecraft, video, and AI are optional formats only.",
+};
+
+const scienceEvidenceLevelByLesson: Record<string, NonNullable<ScienceLesson["evidenceLevel"]>> = {
+  "science-launch": "Practice",
+  "signal-case": "Portfolio Highlight",
+  "balance-case": "Practice",
+  "systems-jigsaw": "Practice",
+  "life-systems-studio": "Practice",
+  "body-case-conference": "Checkpoint",
+  "mixture-mystery": "Practice",
+  "mixture-toolkit": "Practice",
+  "separation-rescue": "Checkpoint",
+  "water-treatment-case": "Checkpoint",
+  "place-mixtures-studio": "Practice",
+  "force-sprint": "Practice",
+  "force-patterns-lab": "Checkpoint",
+  "crash-lab": "Checkpoint",
+  "movement-forces": "Practice",
+  "safer-impact-studio": "Portfolio Highlight",
+  "cosmic-zoom": "Practice",
+  "space-motion-lab": "Checkpoint",
+  "cosmic-exhibit-studio": "Checkpoint",
+};
+
+const scienceCleanupByLesson: Partial<Record<string, string[]>> = {
+  "force-sprint": ["Collect response cards and mini-whiteboards by table. Use carts or handheld objects for any demonstration; do not use rolling chairs."],
+  "crash-lab": ["Keep the optional cart lane clear, release one cart at a time, and retrieve it only after it stops. Use the supplied dataset when a controlled lane is unavailable."],
+};
+
 const experience = (
   id: string,
   title: string,
@@ -126,7 +329,22 @@ const experience = (
   duration: string,
   journeyType: JourneyType,
   details: Omit<ScienceLesson, "id" | "title" | "question" | "duration" | "journeyType">,
-): ScienceLesson => ({ id, title, question, duration, journeyType, ...details });
+): ScienceLesson => ({
+  id,
+  title,
+  question,
+  duration,
+  journeyType,
+  ...details,
+  auditStatus: "classroom-ready",
+  evidenceLevel: details.evidenceLevel ?? scienceEvidenceLevelByLesson[id],
+  curriculumFocus: details.curriculumFocus ?? scienceCurriculumFocusByLesson[id],
+  teacherPrep: details.teacherPrep ? {
+    ...details.teacherPrep,
+    offlineRoute: details.teacherPrep.offlineRoute ?? scienceOfflineRouteByLesson[id],
+    cleanup: details.teacherPrep.cleanup ?? scienceCleanupByLesson[id],
+  } : undefined,
+});
 
 export const scienceUnits: ScienceUnit[] = [
   {
@@ -158,7 +376,7 @@ export const scienceUnits: ScienceUnit[] = [
         },
         hook: "A paper dart makes one spectacular flight. Students decide whether that is enough evidence to call it the best design.",
         learning: "We are learning how a fair comparison and repeated results turn an educated guess into a scientific conclusion.",
-        success: ["I can make an educated hypothesis with a reason.", "I can spot what makes a comparison unfair.", "I can use a pattern across repeated trials to revise a claim."],
+        success: ["I can make an educated hypothesis with a reason.", "I can spot what makes a comparison unfair.", "I can use a pattern across repeated trials to revise a claim.", "I can write a focused comparison question that names what changes, what is measured, and important controls."],
         vocabulary: ["hypothesis", "evidence", "variable"],
         guided: "Keep the opening vote fast. Let the first dramatic flight tempt the class into a premature claim, then ask what evidence is still missing.",
         inquiry: "Compare three paper-airplane designs in a fair class flight test. Use the shared screen for the setup check, run three rounds, compare the averages and consistency, and decide which claim the evidence supports.",
@@ -220,10 +438,10 @@ export const scienceUnits: ScienceUnit[] = [
           offlineRoute: "Skip the web timer and video. Use one ruler per pair, put the six pathway labels on the board or scrap paper, and analyze the class measurements with the teacher key.",
         },
         misconception: "The brain simply tells the body to move. A response depends on receptors, sensory messages, processing, motor messages, and muscles working as a system.",
-        evidence: "Three reaction-time results, an accurate signal pathway, and one evidence-based explanation",
+        evidence: "A fair plan, at least five trials per condition, an average or median, an accurate signal pathway, a cautious claim with a limitation, and one useful next test",
         projectContribution: "The March portfolio investigation and a complete model of measuring variation, explaining a body-system pathway, and naming a limitation.",
         lessonResources: [
-          { scene: 1, type: "Website", label: "Reaction Time Ruler", url: "https://www.scienceworld.ca/resource/reaction-time-ruler/", source: "Science World", gradeFit: "Core Grade 6", support: "Use the procedure and explanation after students predict. Clarify that the activity measures a response, not a simple reflex.", task: "Identify the signal pathway and one design choice that makes partner trials more consistent." },
+          { scene: 1, type: "Website", label: "Reaction Time Ruler", url: "https://www.scienceworld.ca/resource/reaction-time-ruler/", source: "Science World", gradeFit: "Teacher preview", support: "Use only the ruler-drop procedure and conversion table. Do not use the dominant-hand causal claim, ranking/candy extension, or ‘practice makes perfect’ claim. Clarify that the activity measures a response, not a simple reflex.", task: "Prepare the ruler procedure and one design choice that makes partner trials more consistent." },
           { scene: 2, type: "Video", label: "How the Brain and Nervous System Work", url: "https://kidshealth.org/en/kids/nsmovie.html", source: "Nemours KidsHealth · medically reviewed", gradeFit: "Core Grade 6", support: "Pause after the sensory-message and movement sections. Students need the pathway, not a list of brain anatomy.", task: "Add one missing detail to the class pathway and explain what the model still simplifies." },
         ],
         scenes: [
@@ -322,6 +540,9 @@ export const scienceUnits: ScienceUnit[] = [
           { scene: 0, type: "Video", label: "Excretory-system expert source", url: "https://kidshealth.org/en/kids/usmovie.html", source: "Nemours KidsHealth · medically reviewed", gradeFit: "Core Grade 6", support: "Assign to excretory-system experts. Focus on filtering blood, returning needed materials, and the urine route.", task: "Trace blood → kidneys → ureters → bladder → urethra and explain what is regulated or removed." },
           { scene: 0, type: "Teacher-selected source", label: "Reproductive-system expert source", source: "Surrey Schools or teacher-approved health resource", gradeFit: "Core Grade 6", support: "Use one district-approved diagram or source. Do not direct students to open-web anatomy searches.", task: "Identify the biological job, approved structures, what moves or changes, one hormonal connection, and one model limit." },
           { scene: 3, type: "Website", label: "Bears and Body Systems", url: "https://www.fnesc.ca/science-first-peoples/", source: "FNESC/FNSA · Science First Peoples Teacher Resource Guide (Grades 5–9)", gradeFit: "Teacher preview", support: "Preview the guide and use its named Inside a Bear, Inside a Human, and comparison materials. Preserve the guide’s context: First Peoples’ knowledge is rich, specific, and often community-held; this resource does not authorize generic cultural claims.", studentBoundary: "Learn from and credit the FNESC/FNSA source. Compare only what the selected materials support; do not turn the activity into a claim about all First Peoples or all bears.", task: "Name the source, compare one supported bear–human structure–function relationship, and state one thing the source does not establish." },
+          { scene: 3, type: "PDF", label: "Inside a Bear · BLM 4.1", url: "https://www.fnesc.ca/wp/wp-content/uploads/2020/11/4-1-BLM-Science-5-9.pdf", source: "FNESC/FNSA · Science First Peoples", gradeFit: "Teacher preview", support: "Print or display only as directed by the FNESC/FNSA lesson and retain the source attribution.", task: "Use the supplied bear evidence for one bounded structure–function comparison." },
+          { scene: 3, type: "PDF", label: "Inside a Human · BLM 4.2", url: "https://www.fnesc.ca/wp/wp-content/uploads/2020/11/4-2-BLM-Science-5-9.pdf", source: "FNESC/FNSA · Science First Peoples", gradeFit: "Teacher preview", support: "Pair with the bear material and the FNESC/FNSA comparison instructions.", task: "Use the supplied human evidence for the same bounded structure–function comparison." },
+          { scene: 3, type: "PDF", label: "Bear–human comparison · BLM 4.3", url: "https://www.fnesc.ca/wp/wp-content/uploads/2020/11/4-3-BLM-Science-5-9.pdf", source: "FNESC/FNSA · Science First Peoples", gradeFit: "Teacher preview", support: "Use as the exact transfer organizer; do not generalize beyond the named materials.", task: "Record one supported similarity or difference and one limit on the claim." },
         ],
         scenes: [
           { label: "Become expert", title: "Build one system route", prompt: "Use your assigned source to find the job, structures, what moves, one connection, and one model limit.", teacherCue: "Approve each team's five evidence notes before construction. Redirect part-lists into a route or causal model.", time: "35–40 min", learningMode: "Expert teams · source · route model", studentTask: "Five sourced notes and one route model" },
@@ -330,7 +551,7 @@ export const scienceUnits: ScienceUnit[] = [
           { label: "Transfer", title: "What can a bear–human comparison teach?", prompt: "Use the named FNESC/FNSA source to compare one bear and human structure–function relationship. Separate what the source supports from what it does not establish.", teacherCue: "Name FNESC/FNSA and Bears and Body Systems before comparison. Keep the task evidence-bounded: one relationship, exact source notes, no generic claim about all First Peoples, and no inference beyond the supplied material.", time: "20–25 min", learningMode: "Named source · paired comparison · limits statement", studentTask: "One attributed comparison, one structure–function explanation, and one limit on the claim" },
         ],
       }),
-      experience("life-systems-studio", "Reproduction and development studio", "What evidence do we need to explain reproduction, puberty, and development accurately and respectfully?", "2 × 55–65 min", "Inquiry studio", {
+      experience("life-systems-studio", "Reproduction and development studio", "What evidence do we need to explain reproduction, puberty, and development accurately and respectfully?", "3 × 50–55 min", "Inquiry studio", {
         kind: "Apply",
         auditStatus: "needs-audit",
         hook: "Students audit claims, interpret unfamiliar evidence cases, and build a process model without being asked to explain content before it has been taught.",
@@ -356,8 +577,9 @@ export const scienceUnits: ScienceUnit[] = [
         projectContribution: "Accurate foundational knowledge that a later expert team may use; no student must choose this as an inquiry topic or post personal learning publicly.",
         lessonResources: [
           { scene: 0, type: "Teacher-selected source", label: "District-approved reproductive-system diagrams", source: "Surrey Schools or teacher-approved health resource", gradeFit: "Core Grade 6", support: "Teach from the approved diagrams before opening the evidence cases. Do not ask students to find anatomy diagrams through open web search.", task: "Add the structure names and biological jobs needed to solve the evidence cases." },
-          { scene: 2, type: "Article", label: "Physical Development, Ages 11 to 14", url: "https://www.healthlinkbc.ca/healthwise/physical-development-ages-11-14-years", source: "HealthLink BC", gradeFit: "Core Grade 6", support: "Select short excerpts showing range and variation. Avoid presenting two fixed puberty pathways as descriptions of every student's identity or experience.", task: "Find two examples showing that puberty timing, order, or body changes vary, then rewrite one overgeneralized claim." },
-          { scene: 2, type: "Article", label: "Your Endocrine System", url: "https://kidshealth.org/en/kids/endocrine.html", source: "Nemours KidsHealth · medically reviewed", gradeFit: "Supported stretch", support: "Read the opening explanation of hormones and the teacher-selected puberty section only.", task: "Explain how hormones act as messages without memorizing a list of every gland or hormone." },
+          { scene: 2, type: "Teacher-selected source", label: "Teacher-provided puberty variation excerpts", source: "HealthLinkBC + Nemours KidsHealth · teacher excerpt", gradeFit: "Core Grade 6", support: "Provide only the short, previewed passages needed for normal variation and hormonal messages. Keep every case anonymous and do not ask students to compare their bodies.", task: "Find two examples showing that timing, order, or body changes vary, then rewrite one overgeneralized claim." },
+          { scene: 2, type: "Article", label: "Physical Development, Ages 11 to 14", url: "https://www.healthlinkbc.ca/healthwise/physical-development-ages-11-14-years", source: "HealthLink BC", gradeFit: "Teacher preview", support: "Select short excerpts showing range and variation. Do not open the full page as a student reading or present two fixed puberty pathways as descriptions of every student's identity or experience.", task: "Prepare two bounded variation excerpts for the class source packet." },
+          { scene: 2, type: "Article", label: "Your Endocrine System", url: "https://kidshealth.org/en/kids/endocrine.html", source: "Nemours KidsHealth · medically reviewed", gradeFit: "Teacher preview", support: "Excerpt the opening explanation of hormones and only the section needed for the class claim audit.", task: "Prepare one short source capsule explaining how hormones act as messages." },
         ],
         scenes: [
           { label: "Learn", title: "Build the foundation before solving", prompt: "Use approved diagrams and precise terms to learn the structures, cells, messages, and basic process. Add anonymous questions without personal disclosure.", teacherCue: "Teach first. Use the opening audit only after students have enough knowledge to judge the wording.", time: "35–45 min", learningMode: "Diagram lesson · vocabulary sketch · anonymous questions", studentTask: "A labelled reference page students may keep private" },
@@ -388,7 +610,7 @@ export const scienceUnits: ScienceUnit[] = [
           lowPrepAlternative: "Run one case as a whole-class fishbowl. Small groups each propose one arrow, then the class critiques and revises the shared model.",
         },
         misconception: "A correct list of organs is an explanation. A scientific systems explanation must show causal connections, movement of matter or information, evidence, and limits.",
-        evidence: "A sourced multi-system model, a two-minute defence, a peer question, and one visible revision",
+        evidence: "A case-supported multi-system model, a two-minute defence, a peer question, and one visible revision",
         projectContribution: "A compact rehearsal for later expert-team inquiry and Minecraft teaching: research enough to explain, build a purposeful model, teach, answer questions, revise, and reflect.",
         scenes: [
           { label: "Diagnose", title: "Which evidence matters?", prompt: "Open a fictional case, separate observations from assumptions, and select the systems the evidence actually requires.", teacherCue: "Reject choices based only on familiar body words. Ask which clue requires each selected system.", time: "15 min", learningMode: "Case reading · evidence triage", studentTask: "A case claim, four evidence notes, and at least two justified systems" },
@@ -419,10 +641,10 @@ export const scienceUnits: ScienceUnit[] = [
           perGroup: ["4 clear sample cups", "1 bagged magnet", "1 hand lens", "1 stir stick", "small comparison samples of cork, steel, gravel, sand, and salt"],
           displayOrPrint: ["Project the jar image for silent observation.", "Prepare one two-column notebook page: I observe / I infer.", "Display the teacher reveal only after students record initial evidence."],
           answerKey: ["Visible components: cork, steel, gravel, sand, and water.", "Hidden component: dissolved salt.", "A visual identification is an inference until a property test supports it."],
-          cleanup: ["Collect steel and cork for reuse.", "Pour no mixed solids down the sink; strain first.", "Wipe and dry bagged magnets before storage."],
+          cleanup: ["Collect steel and cork for reuse.", "Pour no mixed solids down the sink; strain first.", "Wipe and dry bagged magnets before storage.", "Do not taste any sample or use unknown materials; wash hands after the investigation."],
           lowPrepAlternative: "Use the generated jar image and five teacher-held comparison samples. Run each property test as a class demonstration while pairs update the evidence board.",
         }, misconception: "If a substance seems to disappear, it is gone. Dissolved particles remain in the solution even when they cannot be seen.", evidence: "A dated notebook page containing observations, two revised inferences, station evidence, and an evidence-based claim", projectContribution: "A reusable inquiry routine: notice carefully, test competing ideas, revise the explanation, and name what the evidence cannot show.", lessonResources: [
-          { scene: 2, type: "Video", label: "The Great Picnic Mix Up", url: "https://youtu.be/jA0PzblYPUM", source: "Crash Course Kids · 4 min", gradeFit: "Core Grade 6", support: "Use the short, accessible explanation after students have tested the jar. Pause before examples are classified and require students to justify each decision with evidence.", task: "Before watching, classify two examples from the jar. During the video, collect one idea that improves the class definition of a mixture or solution, then test that definition against an unfamiliar example." },
+          { scene: 2, type: "Video", label: "The Great Picnic Mix Up", url: "https://www.youtube.com/watch?v=jA0PzblYPUM", source: "Crash Course Kids · 4 min", gradeFit: "Core Grade 6", support: "Use the short, accessible explanation after students have tested the jar. Pause before examples are classified and require students to justify each decision with evidence.", task: "Before watching, classify two examples from the jar. During the video, collect one idea that improves the class definition of a mixture or solution, then test that definition against an unfamiliar example." },
         ], scenes: [
           { label: "Launch", title: "Build the evidence board", prompt: "Observe the real jar silently, then separate what the class can see from what it is only inferring.", teacherCue: "Protect 8–10 minutes of silent observation and sketching before discussion. Keep at least two competing explanations alive.", time: "20–25 min", learningMode: "Real object · notebook · class talk", studentTask: "Sketch the jar, record six observations, and add two possible inferences with question marks." },
           { label: "Test", title: "Which properties give useful evidence?", prompt: "Rotate through short tests for magnetism, floating, particle size, and solubility. Use results to revise—not merely confirm—your first ideas.", teacherCue: "Set up four stations. Require a before-and-after inference at two stations. The on-screen match is the class consolidation, not the whole task.", time: "30–35 min", learningMode: "Hands-on stations · partner reasoning", studentTask: "Complete four property tests and revise at least two inferences in your notebook." },
@@ -439,7 +661,7 @@ export const scienceUnits: ScienceUnit[] = [
           lowPrepAlternative: "Run three teacher demonstrations—sieve, bagged magnet, and filtration—then use the embedded comparison cases for the other methods.",
           offlineRoute: "Print or copy the six station directions and application cases. The core jigsaw, peer teaching, and comparison chart require no web access; omit PhET or use the supplied dissolved-particle explanation.",
         }, misconception: "Each mixture has one correct method. Complex mixtures often require a sequence, and several workable paths may exist.", evidence: "An expert-team demonstration, a six-method comparison chart, and two justified application decisions", projectContribution: "Experience becoming expert on one idea and teaching classmates—an early rehearsal for the later expert-team inquiry.", lessonResources: [
-          { scene: 1, type: "Interactive", label: "Sugar and Salt Solutions", url: "https://phet.colorado.edu/en/simulation/sugar-and-salt-solutions", source: "PhET · University of Colorado Boulder", gradeFit: "Supported stretch", support: "Stay on the Macro view first. Use evaporation and concentration; do not assess ions, conductivity, or molarity unless the class asks to extend.", task: "Use evaporation to test the claim that a dissolved substance has disappeared. Record what the model shows and one limitation of the model." },
+          { scene: 1, type: "Interactive", label: "Sugar and Salt Solutions", url: "https://phet.colorado.edu/en/simulations/sugar-and-salt-solutions", source: "PhET · University of Colorado Boulder", gradeFit: "Supported stretch", support: "Stay on the Macro view first. Use evaporation and concentration; do not assess ions, conductivity, or molarity unless the class asks to extend.", task: "Use evaporation to test the claim that a dissolved substance has disappeared. Record what the model shows and one limitation of the model." },
         ], scenes: [
           { label: "Question", title: "What must be different for separation to work?", prompt: "Compare six mixture problems and predict which property difference could be useful in each.", teacherCue: "Do not teach the method list first. Let teams sort the problems by property and discover that the same method can solve different material combinations.", time: "15–20 min", learningMode: "Card sort · prediction · class model", studentTask: "Sort six mixture cases by the property difference that might make separation possible." },
           { label: "Investigate", title: "Become the expert on one method", prompt: "Test your assigned method on two suitable mixtures and one difficult case. Find its power and its limit.", teacherCue: "Give each team one method. Require a visible demonstration, a property explanation, and an honest failure case.", time: "30–35 min", learningMode: "Hands-on expert groups · PhET option", studentTask: "Gather evidence from three tests and prepare a three-minute teaching demonstration." },
@@ -473,6 +695,7 @@ export const scienceUnits: ScienceUnit[] = [
         }, misconception: "A classroom sand-and-gravel filter makes water safe to drink. It may reduce visible particles, but it does not establish that microbes or dissolved contaminants are removed.", evidence: "A sourced system diagram, annotated treatment train, filter-model observations, and a public explanation with an explicit safety warning", projectContribution: "A local solutionary-science example connecting physical science, infrastructure, public health, stewardship, and communication.", lessonResources: [
           { scene: 0, type: "Website", label: "Water resources and filtration-plant field trip", url: "https://metrovancouver.org/school-programs/water", source: "Metro Vancouver · produced for Grades 5–12", gradeFit: "Core Grade 6", support: "Show selected chapters rather than the whole resource at once. Pause for route predictions and process-job notes.", task: "Use the official video and map to trace source, treatment, storage, and delivery. Record four system parts, each job, and one question the source does not answer." },
           { scene: 1, type: "Article", label: "Where does my water come from?", url: "https://metrovancouver.org/school-programs/Documents/k-12-inquiry-spark-water-where.pdf", source: "Metro Vancouver · K–12 inquiry spark", gradeFit: "Core Grade 6", support: "Use the map and inquiry questions, not every extension. Model the difference between map evidence and an inference about the school's route.", task: "Infer the likely route from watershed to school, marking map evidence and uncertainty separately." },
+          { scene: 0, type: "Website", label: "Surrey water quality", url: "https://www.surrey.ca/services-payments/water-drainage-sewer/water/water-quality", source: "City of Surrey", gradeFit: "Core Grade 6", support: "Teacher prepares a two- or three-sentence attributed capsule from the source-water and monitoring sections for the offline pack.", task: "Confirm Surrey's water source and monitoring system, then distinguish an official fact from an inference about one school's pipe route." },
         ], scenes: [
           { label: "Trace", title: "Follow one drop to our school", prompt: "Use a local video and system map to trace source, treatment, storage, and delivery. Record evidence rather than copying every detail.", teacherCue: "Pause the video for map predictions. Ask students to distinguish what the source shows from what they infer about their own school.", time: "25–30 min", learningMode: "Local video · map reading · partner case file", studentTask: "Build a sourced route diagram with four stages, three jobs, and one uncertainty." },
           { label: "Sequence", title: "Build a treatment train", prompt: "Order process cards so each stage solves a particular water problem. More than one treatment train may be defensible.", teacherCue: "Include particle removal, disinfection, testing, storage, and source protection. Challenge groups with a changed source-water condition.", time: "20–25 min", learningMode: "Systems puzzle · evidence discussion", studentTask: "Defend the order of a treatment train and explain why filtration alone is insufficient." },
@@ -488,9 +711,10 @@ export const scienceUnits: ScienceUnit[] = [
           cleanup: ["Collect or privately store notes if the selected source includes sharing limits.", "Confirm no student has posted copied media or community knowledge outside the approved destination."],
           lowPrepAlternative: "Project one teacher-previewed excerpt and complete the source/context map as a class; pairs then write one supported learning, one careful connection, and one limit.",
           offlineRoute: "Use the saved excerpt, exact attribution, and paper organizer. No open browsing, AI, or individual device is required.",
-        }, misconception: "There is one universal First Peoples method. Knowledge is specific to Nations, places, relationships, and protocols.", evidence: "A correctly attributed source note, specific evidence, a careful science connection, and a clearly stated limit", projectContribution: "One notice and one wonder may be saved to SpacesEDU if useful; this is not a required final-topic choice.", lessonResources: [
+        }, misconception: "There is one universal First Peoples method. Knowledge is specific to Nations, places, relationships, and protocols.", evidence: "A correctly attributed source note, specific evidence, a careful science connection, and a clearly stated limit", projectContribution: "Keep the attributed source note in the local Science topic bank. Reuse it only if the student later selects this learning as evidence; no separate SpacesEDU post is required.", lessonResources: [
           { scene: 0, type: "PDF", label: "Indigenous plants to locate on nature walks", url: "https://surreyschoolsone.ca/indigenous/resource-post/?permalink=indigenous-plants-to-locate-on-nature-walks", source: "Surrey Schools Indigenous Learning · knowledge shared by Katzie members Roma Leon, Kayleigh Leon, and Paula James", gradeFit: "Core Grade 6", support: "Use for observation and attribution. Do not turn the resource into unsupervised harvesting, tasting, or expanded medicinal claims.", studentBoundary: "Observe only: do not harvest, taste, or reenact plant use. Learn from and credit the named Katzie members and source rather than imitating what is shared.", task: "Record who shared the knowledge, identify one source-supported plant relationship, and separate it from your own outdoor observation." },
           { scene: 0, type: "Video", label: "Cedar harvesting", url: "https://surreyschoolsone.ca/indigenous/resource-post/?permalink=cedar-harvesting", source: "Surrey Schools Indigenous Learning · MOA identifies Jessica Silvey as Sechelt/Squamish and Robert Joe as Sechelt · filmed along a river in Sechelt on the Sunshine Coast", gradeFit: "Core Grade 6", support: "Preview the full video and name the speakers, Nations, and place exactly as its MOA context page does. MOA states that only Indigenous people may harvest cedar this way in keeping with traditional protocols and beliefs. Students learn from the documentation; they do not reenact the harvest.", studentBoundary: "Learn from and credit the source rather than imitating it. Only Indigenous people may harvest cedar this way, in keeping with the protocols and beliefs named by the source. Do not reenact the harvest.", task: "Record the speakers, affiliations, place, purpose, and protocol before collecting three source-supported details about material, method, or responsibility." },
+          { scene: 0, type: "Website", label: "Knowledge Keepers: cedar harvesting context", url: "https://moa.ubc.ca/2020/07/knowledge-keepers-a-moa-original-video-series/", source: "Museum of Anthropology at UBC", gradeFit: "Teacher preview", support: "Use the primary context page to verify the named speakers, affiliations, place, purpose, and protocol before showing the selected film.", task: "Prepare the exact attribution and sharing boundary that will appear beside the film." },
           { scene: 0, type: "Website", label: "Local Nations source collection", url: "https://surreyschoolsone.ca/indigenous/resources/local-nations/", source: "Surrey Schools Indigenous Learning", gradeFit: "Teacher preview", support: "Use the collection to move to a specific Katzie, Kwantlen, or Semiahmoo public source when the chosen connection requires Nation-specific context.", task: "Confirm the Nation, creator or organization, place, purpose, and any sharing guidance before teaching." },
         ], scenes: [
           { label: "Prepare", title: "Start with the source—not a generic claim", prompt: "Identify who created or shared the source, the Nation or community, the place, and any guidance about sharing.", teacherCue: "Do not begin until a specific, appropriate source is selected. Spend time locating the source on a map and establishing context.", time: "15–20 min", learningMode: "Context map · source introduction", studentTask: "Record exact attribution, place, purpose, and any protocol or sharing guidance." },
@@ -542,7 +766,7 @@ export const scienceUnits: ScienceUnit[] = [
           { label: "Decide", title: "Ready to investigate?", prompt: "Use the class evidence to choose the next move, then create one question that would reveal a force pattern.", teacherCue: "Five or six secure ideas means move on. Lower readiness means use the foundations stations with extra modelling.", time: "10 min", learningMode: "Metacognition · question design", studentTask: "An exit model and investigation question" },
         ],
       }),
-      experience("force-patterns-lab", "Newton's laws in motion", "What patterns appear when force, mass, friction, and interactions change?", "2 × 60 min", "Field lab", {
+      experience("force-patterns-lab", "Newton's laws in motion", "What patterns appear when force, mass, friction, and interactions change?", "3 × 50–55 min", "Field lab", {
         kind: "Investigate", auditStatus: "classroom-ready", evidenceLevel: "Checkpoint", evidenceSubjects: ["Science", "Mathematics"],
         spacesPrompt: "Optional checkpoint: post one station graph or photo and explain the force pattern it reveals, including one limitation.",
         hook: "A cart, balloon rocket, coin, and tug-of-war can look unrelated. Teams collect evidence to decide whether the same three motion patterns explain all four.",
@@ -578,7 +802,7 @@ export const scienceUnits: ScienceUnit[] = [
           { label: "Teach", title: "Make one law useful", prompt: "Teach a new case using an object, force arrows, evidence, and one Newton pattern. Your classmates should do some thinking.", teacherCue: "Assign different cases to teams. Require one prediction question before the explanation.", time: "25–30 min", learningMode: "Expert teaching · peer check", studentTask: "A two-minute interactive explanation" },
         ],
       }),
-      experience("crash-lab", "Crash Lab", "How does padding change the force during a sudden stop?", "2 × 60 min", "Digital investigation", {
+      experience("crash-lab", "Crash Lab", "How does padding change the force during a sudden stop?", "3 × 45–50 min", "Digital investigation", {
         kind: "Investigate", auditStatus: "classroom-ready", evidenceLevel: "Checkpoint", evidenceSubjects: ["Science", "Mathematics"],
         spacesPrompt: "Checkpoint option: post the comparison graph and a claim–evidence–reasoning explanation of how padding changed the stop.",
         hook: "A passenger, helmet, or package cannot stop instantly without a force. Students investigate why a longer stopping time can reduce the largest force.",
@@ -696,7 +920,7 @@ export const scienceUnits: ScienceUnit[] = [
     assessment: "Create an evidence-based cosmic tour that communicates scale, structure, motion, and model limits.",
     resources: ["NASA image journey", "Cosmic scale comparator", "Orbit and rotation model", "Exhibit audit"],
     lessons: [
-      experience("cosmic-zoom", "You are here", "Where exactly are we in the universe—and how can a model show it honestly?", "2 × 60 min", "Launch", {
+      experience("cosmic-zoom", "You are here", "Where exactly are we in the universe—and how can a model show it honestly?", "3 × 55–65 min", "Launch", {
         kind: "Explore",
         auditStatus: "needs-audit",
         hook: "Students receive five cosmic-address cards in the wrong order, then test their first model against NASA evidence and a 45-metre distance walk.",
@@ -733,7 +957,7 @@ export const scienceUnits: ScienceUnit[] = [
           { scene: 1, type: "Website", label: "Solar System Facts", url: "https://science.nasa.gov/solar-system/solar-system-facts/", source: "NASA Science", gradeFit: "Supported stretch", task: "Confirm where our solar system sits in the Milky Way and record one fact that changes your mental picture.", support: "Use the introduction and Our Place in the Milky Way section; do not assign the entire page." },
           { scene: 2, type: "Interactive", label: "Eyes on the Solar System", url: "https://eyes.nasa.gov/apps/solar-system/", source: "NASA/JPL", gradeFit: "Supported stretch", task: "Compare the compressed screen view with the 45 m walk. Identify one distance or size the screen must distort.", support: "Demonstrate navigation first and work in pairs; the goal is model critique, not visiting every object." },
           { scene: 3, type: "Article", label: "What Is a Light-Year?", url: "https://spaceplace.nasa.gov/light-year/", source: "NASA Space Place", gradeFit: "Core Grade 6", task: "Explain why a telescope can show both far-away space and the past.", support: "Read through the Looking Back in Time section and stop before the more advanced examples if needed." },
-          { scene: 3, type: "Article", label: "What Is the Big Bang?", url: "https://spaceplace.nasa.gov/big-bang/", source: "NASA Space Place", gradeFit: "Core Grade 6", task: "Place the age of the universe on the timeline and identify one piece of evidence described in the article.", support: "Use it as a supported partner reading; distinguish expansion from an explosion at one location." },
+          { scene: 3, type: "Article", label: "Cosmic History", url: "https://science.nasa.gov/universe/overview/", source: "NASA Science", gradeFit: "Teacher preview", task: "Prepare a short class capsule: the early universe was extremely hot and dense and expanded; it was not an explosion from one location into empty space; the cosmic microwave background is evidence; important questions remain.", support: "Use the capsule and one labelled NASA visual rather than assigning the full page. Keep claims at the level the source supports." },
         ],
         resource: { label: "Explore NASA's Solar System", url: "https://science.nasa.gov/solar-system/", note: "NASA Science · optional image and fact collection after the core investigation" },
         scenes: [
@@ -742,20 +966,20 @@ export const scienceUnits: ScienceUnit[] = [
           { label: "Measure", title: "Walk a distance-only solar system", prompt: "Place each planet at a measured distance from the Sun. Then catch the trick: are the planet markers also the correct size?", teacherCue: "Use the prepared marks to reduce setup. At Earth, reveal that the real scaled Earth would be about 0.13 mm across.", time: "55–65 min", learningMode: "Measurement · movement · model audit", studentTask: "Planet placements, one checked distance calculation, and a visible model-limit warning" },
           { label: "Time", title: "Turn 13.8 billion years into 13.8 metres", prompt: "Place cosmic events on a timeline. Then use light-travel time to explain why distant space is also ancient evidence.", teacherCue: "Keep dates approximate at this level. The important pattern is the immense time before the solar system and the tiny fraction occupied by humans.", time: "50–60 min", learningMode: "Timeline model · partner reading · explanation", studentTask: "A timeline annotation and a two-sentence explanation linking distance, light, and the past" },
         ] }),
-      experience("space-motion-lab", "Patterns in motion", "How can the same motion look different from Earth and from space?", "3 × 60 min", "Field lab", {
+      experience("space-motion-lab", "Patterns in motion", "How can the same motion look different from Earth and from space?", "4 × 50–65 min", "Field lab", {
         kind: "Investigate",
         auditStatus: "needs-audit",
         hook: "Students separate what a sky time-lapse shows from what it proves, then use bodies, light, data, and a digital model to test competing explanations.",
         learning: "We are using rotation, revolution, orbit, gravity, and viewpoint to explain repeating patterns without confusing observation with explanation.",
-        success: ["I can distinguish an observation from an explanation.", "I can model how rotation causes day and night.", "I can compare planetary day and year data and identify an anomaly.", "I can explain how viewpoint changes apparent motion and name a model limit."],
+        success: ["I can distinguish an observation from an explanation.", "I can model how rotation causes day and night.", "I can compare planetary rotation and revolution data and identify an anomaly.", "I can explain how viewpoint changes apparent motion and name a model limit."],
         vocabulary: ["rotation", "revolution", "orbit", "viewpoint", "apparent motion"],
         guided: "Begin with evidence rather than vocabulary. Use the human model before the digital model, graph planetary motion data, and ask students to change viewpoint before choosing an explanation.",
         inquiry: "Collect or examine sky-pattern evidence, build a physical Sun–Earth model, compare planetary data, and use a digital model to test which explanation fits all observations.",
         reflection: "Which idea became clearer only after you changed viewpoint or changed models?",
         exit: "Explain day and night, distinguish a day from a year, and name one thing the model exaggerates or leaves out.",
-        materials: ["Lamp or strong flashlight", "Globe or foam ball with a Surrey marker", "Planet day/year data cards", "Graph paper or spreadsheet", "Optional metre stick and chalk for shadow observations", "Notebook"],
+        materials: ["Lamp or strong flashlight", "Globe or foam ball with a Surrey marker", "Planet rotation/revolution data cards", "Graph paper or spreadsheet", "Optional metre stick and chalk for shadow observations", "Notebook"],
         teacherPrep: {
-          beforeClass: ["Darken one part of the room enough for the lamp model.", "Place a removable Surrey marker on the globe or ball.", "Print or display the planet day/year data table.", "Preview the CSA movement instructions and choose only the Earth–Sun steps needed for this lesson.", "If doing shadow observations, choose a safe fixed location and never direct students to look at the Sun."],
+          beforeClass: ["Darken one part of the room enough for the lamp model.", "Place a removable Surrey marker on the globe or ball.", "Print or display the planet rotation/revolution data table; label the rotation values as rounded rotation periods, not solar-day lengths.", "Preview the CSA movement instructions and choose only the Earth–Sun steps needed for this lesson.", "If doing shadow observations, choose a safe fixed location and never direct students to look at the Sun."],
           perGroup: ["One ball or globe", "One light source shared between groups as available", "Planet data cards", "Graph paper or device"],
           displayOrPrint: ["Observation / explanation two-column organizer", "Rotation / revolution comparison", "Planet motion data table", "Model-limit checklist"],
           answerKey: ["Day and night: Earth rotates once in about 24 hours, carrying Surrey into and out of sunlight.", "A year: Earth revolves around the Sun once in about 365.25 days.", "Orbit is the curved path; revolution is one trip around another object.", "Planet-data patterns: Jupiter has a short day but a long year; Venus and Mercury are major outliers; distance from the Sun relates more clearly to year length than to day length.", "The apparent daily path of the Sun is mainly explained by Earth's rotation, not a daily orbit of the Sun around Earth."],
@@ -786,7 +1010,7 @@ export const scienceUnits: ScienceUnit[] = [
           { label: "Compare", title: "Every planet has a day and a year—but not like ours", prompt: "Graph planetary rotation and revolution data. Find a pattern, an outlier, and one question the data raises.", teacherCue: "Use separate graphs for day length and year length. Invite students to decide how to handle extreme values rather than hiding them.", time: "55–65 min", learningMode: "Data jigsaw · graphing · anomaly hunt", studentTask: "Two graphs or tables, one supported pattern, one anomaly, and one new question" },
           { label: "Viewpoint", title: "Change where you stand; change what appears to move", prompt: "Compare the same system from Earth and from space. Choose the explanation that fits both views and identify a limit of every model used.", teacherCue: "Return to the opening time-lapse and ask which explanation now fits more evidence. Do not use revolution as the cause of seasons here.", time: "45–55 min", learningMode: "Digital model · claim-evidence-reasoning · reflection", studentTask: "A corrected explanation of apparent motion using rotation, viewpoint, and one named model limit" },
         ] }),
-      experience("cosmic-exhibit-studio", "Cosmic exhibit studio", "Can you teach one cosmic idea clearly without making the model lie?", "3 × 60 min", "Inquiry studio", {
+      experience("cosmic-exhibit-studio", "Cosmic exhibit studio", "Can you teach one cosmic idea clearly without making the model lie?", "4–5 × 55 min", "Inquiry studio", {
         kind: "Assess",
         auditStatus: "needs-audit",
         hook: "Teams audit an impressive-looking space display that contains five hidden errors, then build one small museum stop that is more truthful and more useful.",
@@ -808,7 +1032,7 @@ export const scienceUnits: ScienceUnit[] = [
         },
         misconception: "A realistic-looking model is automatically accurate. A strong model serves a clear purpose, cites evidence, and states exactly what it distorts.",
         evidence: "Focused question, source notes, draft exhibit, peer audit, visible revision, two-minute teaching, and individual reflection",
-        projectContribution: "A rehearsal for expert-team teaching and one optional Earth & Space topic to keep in the SpacesEDU Topic Bank; it does not lock students into a final topic.",
+        projectContribution: "A rehearsal for expert-team teaching. Keep the exhibit in the local Science topic bank and reuse it only if selected for the June showcase; do not create a duplicate SpacesEDU post.",
         learningModes: ["Error hunt", "Source evaluation", "Team planning", "Physical/digital/Minecraft creation", "Peer critique", "Museum teaching"],
         priorKnowledge: ["Nested cosmic address", "Scale and model limitations", "Rotation and revolution", "Basic source attribution"],
         vocabularySupport: {

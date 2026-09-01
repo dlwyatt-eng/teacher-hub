@@ -14,6 +14,9 @@ import { TeacherRunSheet, teacherRunSheetSaveTarget } from "./teacher-run-sheet"
 import { coreCompetencyMovesFor, runSheetAccessibilityFor, runSheetDiscussionMovesFor } from "./learning-lens";
 import { spacesPolicyForActivity } from "./classroom-program";
 import { ClassroomCompanion } from "./classroom-companions";
+import { ProficiencyModelsPanel } from "./proficiency-models-panel";
+import { proficiencyModelSetsForActivity } from "./proficiency-models";
+import { scienceOfflinePacks } from "./science-offline-packs";
 import "./unit2-mixtures.css";
 import "./forces-audit.css";
 import "./science-mission-log.css";
@@ -246,12 +249,23 @@ function sceneContractsFor(lesson: ScienceLesson): SceneContract[] {
   if (!moves || moves.length !== lesson.scenes.length) {
     throw new Error(`Teacher/Student scene contract mismatch for ${lesson.id}: ${lesson.scenes.length} teacher scenes and ${moves?.length ?? 0} student scenes.`);
   }
-  return lesson.scenes.map((teacher, index) => ({ teacher, student: moves[index] }));
+  // The lesson scene is the single source of truth. Earlier student summaries
+  // could drift away from the visual at the same index and show a contradictory
+  // projector instruction. Keep the count guard above, but always project the
+  // reviewed scene label, student-facing prompt, and evidence target together.
+  return lesson.scenes.map((teacher, index) => ({
+    teacher,
+    student: {
+      label: teacher.title,
+      action: teacher.prompt,
+      response: teacher.studentTask ?? moves[index].response,
+    },
+  }));
 }
 
-const forcePrintContent: Record<string, { title: string; directions: string; sections: { heading: string; prompts: string[] }[] }> = {
+const sciencePrintContent: Record<string, { title: string; directions: string; sections: { heading: string; prompts: string[] }[] }> = {
   "force-sprint": { title: "Forces readiness evidence", directions: "Respond before the class explanation. Keep your first idea visible, then revise in a different colour.", sections: [
-    { heading: "Six-question record", prompts: ["1 ___   2 ___   3 ___   4 ___   5 ___   6 ___", "One answer I revised: ______________________________", "Evidence that changed my thinking: ______________________________"] },
+    { heading: "Six-question record", prompts: ["1. A foot kicks a soccer ball. Which object receives the push? A foot · B ball · C field · D goal", "2. Which force-arrow rule is correct? A beside object/motion · B starts on receiving object, points with force, labelled · C starts on force-maker and points backward · D always down", "3. Skateboard moves right while friction acts left. A instantly left · B same speed · C slows while moving right · D speeds right", "4. Equal opposite pulls predict: A change left · B change right · C no change in motion · D no forces", "5. Book on table: A no forces · B gravity only · C gravity down and table support up · D table pushes sideways", "6. Same push, empty and loaded carts: A lighter changes speed more · B heavier · C equal · D neither", "First answers: 1 ___ 2 ___ 3 ___ 4 ___ 5 ___ 6 ___ · Revised answers: 1 ___ 2 ___ 3 ___ 4 ___ 5 ___ 6 ___", "Answer key after discussion: 1 B · 2 B · 3 C · 4 C · 5 C · 6 A", "One answer I revised and the evidence that changed my thinking: ______________________________"] },
     { heading: "Exit model", prompts: ["Draw one object and every important force acting on it.", "Begin each arrow on the receiving object; label the interaction.", "The motion will / will not change because ____________________________"] },
   ] },
   "force-patterns-lab": { title: "Newton-pattern station record", directions: "At every station: predict, change one condition, repeat, and name a limitation.", sections: [
@@ -262,7 +276,7 @@ const forcePrintContent: Record<string, { title: string; directions: string; sec
   ] },
   "crash-lab": { title: "Crash Lab: nine trials + explanation", directions: "Keep mass and speed fixed. Change only padding. Record stopping time and largest force for every trial.", sections: [
     { heading: "Prediction", prompts: ["If padding changes from __________ to __________, then __________ because __________."] },
-    { heading: "Data", prompts: ["No padding · time: ____ ____ ____ · force: ____ ____ ____ · averages: ____ / ____", "Thin foam · time: ____ ____ ____ · force: ____ ____ ____ · averages: ____ / ____", "Thick foam · time: ____ ____ ____ · force: ____ ____ ____ · averages: ____ / ____"] },
+    { heading: "Nine-trial data", prompts: ["No padding · stopping time (ms): 42, 44, 43 · peak-force index: 238, 227, 233 · averages: ____ / ____", "Thin foam · stopping time (ms): 78, 82, 80 · peak-force index: 128, 122, 125 · averages: ____ / ____", "Thick foam · stopping time (ms): 145, 150, 147 · peak-force index: 69, 67, 68 · averages: ____ / ____", "Circle what stayed fixed: cart mass · starting speed · barrier · measuring system. Underline the one changed variable: padding condition."] },
     { heading: "Graph + CER", prompts: ["Graph both averages with labelled axes and a key.", "Claim: ____________________", "Two measured pieces of evidence: ____________________", "Reasoning: ____________________", "One model limitation: ____________________"] },
   ] },
   "movement-forces": { title: "Movement force-frame analysis", directions: "Analyse the evidence, not athletic ability. A video, object, seated, or standing route is equally valid.", sections: [
@@ -278,13 +292,40 @@ const forcePrintContent: Record<string, { title: string; directions: string; sec
   ] },
 };
 
-function ForcePrintPack({ lesson }: { lesson: ScienceLesson }) {
-  const pack = forcePrintContent[lesson.id];
-  if (!pack) return null;
-  return <section className="force-print-pack"><small>PRINTABLE STUDENT PAGE</small><h3>{pack.title}</h3><p>{pack.directions}</p>{pack.sections.map(section => <article key={section.heading}><h4>{section.heading}</h4>{section.prompts.map(prompt => <p key={prompt}>{prompt}</p>)}</article>)}</section>;
+function sciencePromptClassName(prompt: string) {
+  const needsLargeWorkspace = /\b(graph|diagram|draw|sketch|model|route|timeline|table|plan|score|map|arrows?|organizer)\b/i.test(prompt);
+  const needsResponse = needsLargeWorkspace || /\b(predict|record|write|explain|compare|calculate|circle|underline|identify|choose|justify|repair|finish|complete|label|state|name|sort|mark|design|audit|apply|create|revise|teach|cite|select)\b/i.test(prompt);
+  if (needsLargeWorkspace) return "science-pack-response science-pack-response--large";
+  return needsResponse ? "science-pack-response" : "science-pack-source";
 }
 
-function MiniBrief({ lesson, unit, onClose }: { lesson: ScienceLesson; unit: (typeof scienceUnits)[number]; onClose: () => void }) {
+function SciencePrintPack({ lesson }: { lesson: ScienceLesson }) {
+  const pack = sciencePrintContent[lesson.id] ?? scienceOfflinePacks[lesson.id] ?? {
+    title: `${lesson.title} · no-tech evidence record`,
+    directions: "Complete every part. Add labelled sketches, arrows, colour, or borders when they make the science easier to understand. If this page is not printed, use the same headings in a notebook or on folded plain paper.",
+    sections: lesson.scenes.map((scene, index) => ({
+      heading: `${index + 1}. ${scene.label} · ${scene.title}`,
+      prompts: [
+        scene.prompt,
+        `Evidence to finish this part: ${scene.studentTask ?? lesson.evidence}`,
+        "My evidence / model / explanation: ________________________________________________",
+        "______________________________________________________________________________",
+      ],
+    })),
+  };
+  const sources = (lesson.lessonResources ?? []).filter((resource) => resource.url);
+  return <section className="force-print-pack">
+    <header className="science-print-pack-header">
+      <div><small>OPTIONAL PRINTABLE · COMPLETE ALL PARTS</small><h3>{pack.title}</h3></div>
+      <button type="button" onClick={(event) => printClosest(event.currentTarget, ".force-print-pack")}>Print student pack</button>
+    </header>
+    <p>{pack.directions}</p>
+    {pack.sections.map(section => <article key={section.heading}><h4>{section.heading}</h4>{section.prompts.map(prompt => <p className={sciencePromptClassName(prompt)} key={prompt}>{prompt}</p>)}</article>)}
+    {sources.length > 0 && <footer className="science-print-source-trail"><h4>Source trail</h4><p>These credits travel with the pack. Teacher-preview sources are used through the teacher-prepared capsule rather than assigned as independent browsing.</p><ul>{sources.map((resource) => <li key={`${resource.source}-${resource.url}`}><b>{resource.source}</b> · {resource.label}<small>{resource.url}</small></li>)}</ul></footer>}
+  </section>;
+}
+
+function MiniBrief({ lesson, unit, spacesDecision, spacesMessage, onClose }: { lesson: ScienceLesson; unit: (typeof scienceUnits)[number]; spacesDecision: "none" | "optional" | "required" | "reuse"; spacesMessage: string; onClose: () => void }) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -326,13 +367,13 @@ function MiniBrief({ lesson, unit, onClose }: { lesson: ScienceLesson; unit: (ty
         <header><div><small>TEACHER BRIEF · UNIT {unit.number}</small><h2 id="journey-brief-title">{lesson.title}</h2><p>{lesson.duration} · {lesson.journeyType}</p></div><div className="journey-brief-actions"><button onClick={(event) => printClosest(event.currentTarget, ".journey-brief")}>Print</button><button ref={closeRef} onClick={onClose} aria-label="Close teacher brief">×</button></div></header>
         <section><small>WHY THIS EXPERIENCE EXISTS</small><h3>{lesson.projectContribution}</h3><p>{lesson.learning}</p></section>
         {lesson.teacherPrep && <section className="teacher-prep-pack"><small>READY-TO-RUN PREPARATION</small><h3>Set up once. Teach from this page.</h3><div className="prep-columns"><article><b>BEFORE CLASS</b><ul>{lesson.teacherPrep.beforeClass.map(item => <li key={item}>{item}</li>)}</ul></article>{lesson.teacherPrep.perGroup && <article><b>PER GROUP</b><ul>{lesson.teacherPrep.perGroup.map(item => <li key={item}>{item}</li>)}</ul></article>}{lesson.teacherPrep.displayOrPrint && <article><b>DISPLAY OR PRINT</b><ul>{lesson.teacherPrep.displayOrPrint.map(item => <li key={item}>{item}</li>)}</ul></article>}{lesson.teacherPrep.cleanup && <article><b>SAFETY &amp; CLEANUP</b><ul>{lesson.teacherPrep.cleanup.map(item => <li key={item}>{item}</li>)}</ul></article>}</div>{lesson.teacherPrep.answerKey && <div className="prep-answer"><b>TEACHER KEY</b><ul>{lesson.teacherPrep.answerKey.map(item => <li key={item}>{item}</li>)}</ul></div>}{lesson.teacherPrep.offlineRoute && <p className="prep-fallback"><b>No internet / device route:</b> {lesson.teacherPrep.offlineRoute}</p>}{lesson.teacherPrep.lowPrepAlternative && <p className="prep-fallback"><b>Lower-prep route:</b> {lesson.teacherPrep.lowPrepAlternative}</p>}</section>}
-        <ForcePrintPack lesson={lesson} />
+        <SciencePrintPack lesson={lesson} />
         <section><small>CURRICULUM COVERAGE</small><p><b>Big Idea:</b> {unit.bigIdea}</p>{lesson.curriculumFocus ? <><p>{lesson.curriculumFocus.whyThisFits}</p>{lesson.curriculumFocus.content?.length ? <div className="journey-brief-tags">{lesson.curriculumFocus.content.map(item => <span key={item}>{item}</span>)}</div> : null}<ul>{lesson.curriculumFocus.competencies.map(item => <li key={item}>{item}</li>)}</ul></> : <div className="journey-brief-tags">{unit.content.map(item => <span key={item}>{item}</span>)}</div>}</section>
         {lesson.learningModes && <section><small>LEARNING MODES</small><div className="journey-brief-tags">{lesson.learningModes.map(mode => <span key={mode}>{mode}</span>)}</div></section>}
         <section><small>FLOW</small>{lesson.scenes.map((scene, index) => <div className="journey-brief-step" key={scene.title}><b>{index + 1}</b><div><strong>{scene.label}: {scene.title}{scene.time ? ` · ${scene.time}` : ""}</strong>{scene.learningMode && <small>{scene.learningMode}</small>}<p>{scene.teacherCue}</p>{scene.studentTask && <p><b>Students produce:</b> {scene.studentTask}</p>}</div></div>)}</section>
         {lesson.lessonResources && <section><small>GRADE 6 RESOURCE CHECK</small>{lesson.lessonResources.map((resource, index) => <div className="journey-brief-step" key={`${resource.label}-${index}`}><b>{resource.scene + 1}</b><div><strong>{resource.type}: {resource.url ? <a href={resource.url} target="_blank" rel="noreferrer">{resource.label} ↗</a> : resource.label}</strong><small>{resource.gradeFit ?? "Teacher preview"} · {resource.source}</small>{resource.support && <p><b>Use it well:</b> {resource.support}</p>}<p><b>Student purpose:</b> {resource.task}</p></div></div>)}</section>}
         <section><small>ASSESSMENT EVIDENCE</small><p>{lesson.evidence}</p><small>COMMON MISCONCEPTION</small><p>{lesson.misconception}</p></section>
-        <section><small>SPACES EDU / FINAL INQUIRY CONNECTION</small><p>{lesson.projectContribution}</p></section>
+        <section><small>SPACES EDU / FINAL INQUIRY CONNECTION</small><p><b>{spacesDecision === "required" ? "Required portfolio evidence" : spacesDecision === "reuse" ? "Reuse inside an existing post" : spacesDecision === "optional" ? "Optional only when it fills an evidence gap" : "Keep in class · no separate upload"}:</b> {spacesMessage}</p><p><b>Inquiry connection:</b> {lesson.projectContribution}</p></section>
         <section><small>MATERIALS</small><ul>{lesson.materials.map(item => <li key={item}>{item}</li>)}</ul></section>
         <section><small>KEEP IT INQUIRY-FIRST</small><ul><li>Invite a prediction before explanation.</li><li>Teach vocabulary only when students need it to name an observed pattern.</li><li>Skip a refresher when readiness evidence is already secure.</li><li>End by saving a question, useful evidence, or a model—not a disconnected worksheet.</li></ul></section>
       </aside>
@@ -524,25 +565,17 @@ function BalanceLab({ scene }: { scene: number }) {
 function SystemsJigsaw({ scene }: { scene: number }) {
   const [system, setSystem] = useState(0);
   const [checks, setChecks] = useState<Record<number, boolean>>({});
-  const [caseIndex, setCaseIndex] = useState(0);
-  const [caseChoice, setCaseChoice] = useState<Record<number, number>>({});
   const systems = [
     { name: "Nervous", job: "Detect change, process information, and send fast targeted signals.", route: "receptor → sensory nerve → brain/spinal cord → motor nerve → target", moves: "electrical and chemical signals", connection: "The brain can influence hormone release and receives information about internal conditions." },
     { name: "Hormonal", job: "Coordinate slower or longer-lasting changes through chemical messages.", route: "gland → hormone in blood → target cells → response", moves: "hormones carried in blood", connection: "Hormones influence growth, puberty, water balance, stress responses, and reproductive processes." },
     { name: "Excretory", job: "Remove metabolic wastes and regulate water and dissolved materials in blood.", route: "blood → kidneys → ureters → bladder → urethra", moves: "blood, filtered materials, returned water/salts, and urine", connection: "Hormonal messages help kidneys adjust how much water is returned to blood." },
     { name: "Reproductive", job: "Produce reproductive cells and hormones and include structures involved in fertilization and development.", route: "varies by structure and process; use the approved diagram", moves: "reproductive cells, hormones, and materials supporting development", connection: "Hormonal signals coordinate puberty and reproductive processes; blood supplies developing tissues." },
   ];
-  const cases = [
-    { title: "The starting light turns green", clue: "Eyes detect light and fingers press a button almost immediately.", choices: ["Nervous + excretory", "Nervous + muscles", "Hormonal + reproductive"], answer: 1, why: "A fast sensory-to-motor pathway carries the signal; muscles carry out the response." },
-    { title: "A hot day with little water", clue: "Thirst rises and kidneys conserve more water.", choices: ["Nervous/hormonal + excretory", "Reproductive + nervous only", "Excretory only"], answer: 0, why: "Signals coordinate the response, while kidneys adjust water returned to blood and water leaving in urine." },
-    { title: "Changes during puberty", clue: "Chemical messages coordinate growth and reproductive-system development over time.", choices: ["Nervous only", "Hormonal + reproductive", "Excretory only"], answer: 1, why: "Hormones act as messages that influence reproductive structures and other body tissues; timing and effects vary." },
-  ];
   const current = systems[system];
   if (scene === 0) return <section className="evidence-sim system-expert-board"><header><small>ASSIGNED EXPERT LENS</small><h3>One system deeply—not four systems shallowly.</h3><p>Select a system to open its evidence brief. Your teacher assigns the final expert lens.</p></header><nav>{systems.map((item, index) => <button key={item.name} className={system === index ? "selected" : ""} onClick={() => setSystem(index)}><b>{index + 1}</b>{item.name}</button>)}</nav><article><small>EXPERT BRIEF</small><h3>{current.name} system</h3><div><b>Main job</b><p>{current.job}</p></div><div><b>Route to model</b><p>{current.route}</p></div><div><b>What moves</b><p>{current.moves}</p></div><aside><b>Connection to investigate</b><p>{current.connection}</p></aside></article></section>;
   if (scene === 1) { const items = ["One prediction classmates answer", "A labelled route—not a part list", "One token showing what moves", "One connection to another system", "One model limit", "One check question with an answer"]; return <section className="evidence-sim expert-lesson-builder"><header><small>THREE-MINUTE EXPERT LESSON</small><h3>{Object.values(checks).filter(Boolean).length} of {items.length} teaching elements planned</h3><p>Your classmates should predict, model, or decide something. They should not only listen.</p></header><div>{items.map((item, index) => <button key={item} className={checks[index] ? "checked" : ""} onClick={() => setChecks(value => ({ ...value, [index]: !value[index] }))}><b>{checks[index] ? "✓" : index + 1}</b>{item}</button>)}</div><footer><b>Rehearsal check:</b><span>Can a classmate explain the route after your lesson without reading your notes?</span></footer></section>; }
   if (scene === 2) return <section className="evidence-sim jigsaw-rotation"><header><small>MIXED-GROUP TEACHING</small><h3>Four experts build one connected body map.</h3><p>After each mini-lesson, listeners record the job, route, what moves, and one connection.</p></header><div>{systems.map((item, index) => <article key={item.name}><b>{index + 1}</b><strong>{item.name}</strong><span>job → route → what moves → connection → limit</span><small>LISTENERS ASK: What evidence supports that connection?</small></article>)}</div><footer><b>Do not copy every fact.</b><span>Record one accurate causal connection from each expert lesson.</span></footer></section>;
-  const activeCase = cases[caseIndex]; const chosen = caseChoice[caseIndex];
-  return <section className="evidence-sim multi-system-cases"><header><small>TRANSFER TO A NEW CASE</small><h3>{activeCase.title}</h3><p>{activeCase.clue}</p></header><nav>{cases.map((item, index) => <button key={item.title} className={caseIndex === index ? "selected" : caseChoice[index] === item.answer ? "solved" : ""} onClick={() => setCaseIndex(index)}>Case {index + 1}</button>)}</nav><div>{activeCase.choices.map((choice, index) => <button key={choice} className={chosen === index ? (index === activeCase.answer ? "correct" : "try-again") : ""} onClick={() => setCaseChoice(value => ({ ...value, [caseIndex]: index }))}>{choice}</button>)}</div>{chosen !== undefined && <footer className={chosen === activeCase.answer ? "correct" : "try-again"}><b>{chosen === activeCase.answer ? "Supported" : "Not enough"}</b><span>{chosen === activeCase.answer ? activeCase.why : "Select the systems required by the evidence, then explain what each contributes."}</span></footer>}</section>;
+  return <section className="evidence-sim multi-system-cases"><header><small>NAMED SOURCE TRANSFER · FNESC/FNSA</small><h3>What can one bear–human comparison teach?</h3><p>Use only the teacher-provided <em>Bears and Body Systems</em> pages. Name the source before making a comparison.</p></header><div className="source-transfer-frame"><article><b>1 · SOURCE EVIDENCE</b><span>Record one bear structure, one human structure, and the exact notes or labels that support the comparison.</span></article><article><b>2 · STRUCTURE → FUNCTION</b><span>Explain how each structure’s form connects to a job. Use an arrow and a precise verb.</span></article><article><b>3 · LIMIT THE CLAIM</b><span>State what these selected pages do not establish about every bear, human, Nation, or knowledge tradition.</span></article></div><footer><b>Credit it exactly:</b><span>FNESC/FNSA · <em>Science First Peoples Teacher Resource Guide (Grades 5–9)</em> · “Bears and Body Systems.” Do not turn a bounded source comparison into a generic cultural claim.</span></footer></section>;
 }
 
 function MixtureJar({ scene }: { scene: number }) {
@@ -741,7 +774,7 @@ function SourceLab({ scene }: { scene: number }) {
   }
 
   const saveItems = ["Exact source and attribution", "One learning the source supports", "One connection to mixture science", "One notice and one wonder for later"];
-  return <section className="evidence-sim mixtures-ui source-save"><header><small>BRIEF SPACES EDU NOTE · OPTIONAL</small><h3>Save learning—not a final topic.</h3><p>You may use a different inquiry topic later. Today’s note simply keeps useful evidence and a question from disappearing.</p></header><div>{saveItems.map((item, index) => <button key={item} className={saved.includes(index) ? "checked" : ""} onClick={() => setSaved(current => current.includes(index) ? current.filter(value => value !== index) : [...current, index])}><b>{saved.includes(index) ? "✓" : index + 1}</b><span>{item}</span></button>)}</div><footer><strong>{saved.length === saveItems.length ? "Enough for now." : "No presentation is required today."}</strong><span>Any later inquiry involving community knowledge needs teacher approval before research begins.</span></footer></section>;
+  return <section className="evidence-sim mixtures-ui source-save"><header><small>LOCAL SOURCE NOTE · KEEP IN CLASS</small><h3>Save learning—not a final topic.</h3><p>Keep this attributed note in the Science notebook or class topic bank. It is not a separate SpacesEDU post.</p></header><div>{saveItems.map((item, index) => <button key={item} className={saved.includes(index) ? "checked" : ""} onClick={() => setSaved(current => current.includes(index) ? current.filter(value => value !== index) : [...current, index])}><b>{saved.includes(index) ? "✓" : index + 1}</b><span>{item}</span></button>)}</div><footer><strong>{saved.length === saveItems.length ? "Enough for now." : "No presentation is required today."}</strong><span>Any later inquiry involving community knowledge needs teacher approval and the exact source context before research begins.</span></footer></section>;
 }
 
 function LifeSystemsStudio({ scene }: { scene: number }) {
@@ -790,7 +823,7 @@ function LifeSystemsStudio({ scene }: { scene: number }) {
 
   if (scene === 2) { const current = claims[claimIndex]; const chosen = claimAnswers[claimIndex]; return <section className="evidence-sim puberty-claim-lab"><header><small>SOURCE-BASED CLAIM AUDIT</small><h3>Common pattern or fixed rule?</h3><p>Do not use classmates’ bodies as evidence. Use the approved sources.</p></header><nav>{claims.map((_, index) => <button key={index} className={claimIndex === index ? "selected" : claimAnswers[index] === claims[index].answer ? "solved" : ""} onClick={() => setClaimIndex(index)}>Claim {index + 1}</button>)}</nav><article><p>{current.text}</p><div>{current.choices.map((choice, index) => <button key={choice} className={chosen === index ? (index === current.answer ? "correct" : "try-again") : ""} onClick={() => setClaimAnswers(value => ({ ...value, [claimIndex]: index }))}>{choice}</button>)}</div>{chosen !== undefined && <aside className={chosen === current.answer ? "correct" : "try-again"}>{chosen === current.answer ? current.why : "Return to the source. Does this wording allow variation and stay within what biological evidence can support?"}</aside>}</article></section>; }
 
-  return <section className="evidence-sim development-sequence"><header><small>SIMPLIFIED PROCESS MODEL</small><h3>{sequence.length} of {events.length} events placed</h3><p>Build the sequence, then choose the three scientifically honest model warnings.</p></header><div className="development-route">{events.map((item, index) => <span key={item} className={sequence.includes(index) ? "placed" : ""}><b>{index + 1}</b>{sequence.includes(index) ? item : "?"}</span>)}</div><div className="development-bank">{[2, 4, 0, 3, 1].map(index => <button key={events[index]} disabled={sequence.includes(index)} onClick={() => { if (index === sequence.length) setSequence(value => [...value, index]); }}>{events[index]}</button>)}</div><aside><small>MODEL-LIMIT CHECK</small>{limitOptions.map((item, index) => <button key={item} className={limits.includes(index) ? (index < 3 ? "correct" : "try-again") : ""} onClick={() => setLimits(value => value.includes(index) ? value.filter(number => number !== index) : [...value, index])}><b>{limits.includes(index) ? "✓" : "?"}</b>{item}</button>)}</aside><footer><b>Private exit option:</b><span>Explain one event accurately and one thing this model leaves out. A topic-bank post is optional, and no personal disclosure is required.</span></footer></section>;
+  return <section className="evidence-sim development-sequence"><header><small>SIMPLIFIED PROCESS MODEL</small><h3>{sequence.length} of {events.length} events placed</h3><p>Build the sequence, then choose the three scientifically honest model warnings.</p></header><div className="development-route">{events.map((item, index) => <span key={item} className={sequence.includes(index) ? "placed" : ""}><b>{index + 1}</b>{sequence.includes(index) ? item : "?"}</span>)}</div><div className="development-bank">{[2, 4, 0, 3, 1].map(index => <button key={events[index]} disabled={sequence.includes(index)} onClick={() => { if (index === sequence.length) setSequence(value => [...value, index]); }}>{events[index]}</button>)}</div><aside><small>MODEL-LIMIT CHECK</small>{limitOptions.map((item, index) => <button key={item} className={limits.includes(index) ? (index < 3 ? "correct" : "try-again") : ""} onClick={() => setLimits(value => value.includes(index) ? value.filter(number => number !== index) : [...value, index])}><b>{limits.includes(index) ? "✓" : "?"}</b>{item}</button>)}</aside><footer><b>Private exit option:</b><span>Explain one event accurately and one thing this model leaves out. Keep it private or in class; no personal disclosure or SpacesEDU post is required.</span></footer></section>;
 }
 
 function BodyCaseConference({ scene }: { scene: number }) {
@@ -809,7 +842,7 @@ function BodyCaseConference({ scene }: { scene: number }) {
   if (scene === 0) return <section className="evidence-sim case-triage"><header><small>FICTIONAL CASE · EVIDENCE TRIAGE</small><h3>{current.title}</h3><p>Select a case, then choose systems only when a clue requires them.</p></header><nav>{cases.map((item, index) => <button key={item.title} className={caseIndex === index ? "selected" : ""} onClick={() => { setCaseIndex(index); setSystems({}); }}>{item.title}</button>)}</nav><div className="case-evidence-list">{current.evidence.map((item, index) => <article key={item}><b>{index + 1}</b>{item}</article>)}</div><div className="case-system-bank">{allSystems.map(item => <button key={item} className={systems[item] ? (current.systems.includes(item) ? "supported" : "unsupported") : ""} onClick={() => setSystems(value => ({ ...value, [item]: !value[item] }))}>{item}</button>)}</div><footer><b>Missing-information marker:</b><span>{current.caution}</span></footer></section>;
   if (scene === 1) { const items = ["Every system is required by case evidence", "Every arrow begins and ends at a named part or condition", "Every arrow uses a verb: detects, sends, carries, filters, returns, removes, changes", "At least one arrow connects two systems", "One missing-information or model-limit marker is visible"]; return <section className="evidence-sim causal-model-check"><header><small>MODEL CONFERENCE BEFORE DECORATION</small><h3>{Object.values(buildChecks).filter(Boolean).length} of {items.length} checks complete</h3><p>Paper, slides, video, or Minecraft can work. First make the causal chain scientifically useful.</p></header><div>{items.map((item, index) => <button key={item} className={buildChecks[index] ? "checked" : ""} onClick={() => setBuildChecks(value => ({ ...value, [index]: !value[index] }))}><b>{buildChecks[index] ? "✓" : index + 1}</b>{item}</button>)}</div><footer><b>Required chain:</b><span>case evidence → system part → what moves or changes → response → effect</span></footer></section>; }
   if (scene === 2) { const items = ["The claim answers the case question", "At least two systems have clear jobs", "A listener can follow every arrow", "Evidence—not just vocabulary—supports the explanation", "The team names what its model cannot conclude"]; return <section className="evidence-sim peer-case-panel"><header><small>TWO-MINUTE CASE CONFERENCE</small><h3>Listeners test the explanation.</h3><p>Check only what you can hear or see. Ask one question about evidence or a causal connection.</p></header><div>{items.map((item, index) => <button key={item} className={peerChecks[index] ? "checked" : ""} onClick={() => setPeerChecks(value => ({ ...value, [index]: !value[index] }))}><b>{peerChecks[index] ? "✓" : "?"}</b>{item}</button>)}</div><aside><b>Challenge question stem</b><p>“What evidence shows that the _____ system is needed between _____ and _____?”</p></aside></section>; }
-  return <section className="evidence-sim case-revision"><header><small>VISIBLE REVISION</small><h3>Improve the explanation—not just the appearance.</h3><p>Choose the change that would help a learner most.</p></header><div>{["Repair a weak or missing arrow", "Add evidence beside a claim", "Remove a system the case does not require", "Clarify what moves between systems", "Add a specific model limitation"].map((item, index) => <article key={item}><b>{index + 1}</b><strong>{item}</strong><span>Before: _____ → After: _____ → Why this is stronger: _____</span></article>)}</div><footer><b>SpacesEDU is optional here.</b><span>Save the model only if it will support later expert-team inquiry. One individual reflection sentence is enough.</span></footer></section>;
+  return <section className="evidence-sim case-revision"><header><small>VISIBLE REVISION</small><h3>Improve the explanation—not just the appearance.</h3><p>Choose the change that would help a learner most.</p></header><div>{["Repair a weak or missing arrow", "Add evidence beside a claim", "Remove a system the case does not require", "Clarify what moves between systems", "Add a specific model limitation"].map((item, index) => <article key={item}><b>{index + 1}</b><strong>{item}</strong><span>Before: _____ → After: _____ → Why this is stronger: _____</span></article>)}</div><footer><b>Keep this model in class.</b><span>Add it to the local Science topic bank only when it will support later expert-team inquiry; no separate SpacesEDU post is needed.</span></footer></section>;
 }
 
 const readinessQuestions = [
@@ -1089,7 +1122,7 @@ function CosmicLab({ scene }: { scene: number }) {
   const currentEvent = timeEvents.find(item => item[0] === timeEvent) ?? timeEvents[0];
   return <section className="evidence-sim cosmic-time-lab">
     <header><small>COSMIC TIME · 1 M = 1 BILLION YEARS</small><h3>Most of the timeline existed before Earth.</h3><p>Use the 13.8-metre line to place events. Then connect distance to evidence: far-away light began travelling long ago.</p></header>
-    <div className="cosmic-time-track"><span>13.8 BILLION YEARS AGO</span><i></i><span>TODAY</span>{timeEvents.map((item, index) => <button key={item[0]} style={{ left: `${index === 0 ? 2 : index === 1 ? 6 : index === 2 ? 66 : index === 3 ? 67 : 96}%` }} className={timeEvent === item[0] ? "selected" : ""} onClick={() => setTimeEvent(item[0])}>{index + 1}</button>)}</div>
+    <div className="cosmic-time-track"><span>13.8 BILLION YEARS AGO</span><i></i><span>TODAY</span>{timeEvents.map((item, index) => <button key={item[0]} aria-label={`${item[0]} · ${item[1]}`} style={{ left: `${index === 0 ? 2 : index === 1 ? 6 : index === 2 ? 66 : index === 3 ? 67 : 96}%`, top: index === 2 ? "34%" : index === 3 ? "68%" : "50%" }} className={timeEvent === item[0] ? "selected" : ""} onClick={() => setTimeEvent(item[0])}>{index + 1}</button>)}</div>
     <div className="cosmic-time-detail"><small>EVENT CARD</small><strong>{currentEvent[0]}</strong><p>Place at <b>{currentEvent[1]}</b> · {currentEvent[2]}.</p></div>
     <div className="lookback-claim"><b>Why does distant light show the past?</b><p>Light takes time to travel. If a galaxy is 2 million light-years away, the light we receive today began its journey about 2 million years ago.</p></div>
   </section>;
@@ -1146,7 +1179,7 @@ function OrbitLab({ scene }: { scene: number }) {
     ];
     const current = planetData.find(item => item[0] === planet) ?? planetData[2];
     const choosePlanet = (name: string) => { setPlanet(name); setComparePlanets(currentNames => currentNames.includes(name) ? currentNames.filter(item => item !== name) : currentNames.length < 2 ? [...currentNames, name] : [currentNames[1], name]); };
-    return <>{missionLog}<section className="evidence-sim planet-data-lab"><header><small>ROTATION DATA + REVOLUTION DATA</small><h3>Choose two planets. What do their numbers show?</h3><p>Select exactly two worlds. Compare each day and year before choosing a claim.</p></header><div className="planet-data-table">{planetData.map(item => <button key={item[0]} aria-pressed={comparePlanets.includes(item[0])} className={comparePlanets.includes(item[0]) ? "selected" : ""} onClick={() => choosePlanet(item[0])}><strong>{item[0]}</strong><span>day · {item[1]}</span><span>year · {item[2]}</span></button>)}</div><aside><small>LAST WORLD SELECTED</small><h4>{current[0]}</h4><p>One rotation: <b>{current[1]}</b></p><p>One revolution: <b>{current[2]}</b></p><p><b>Compare:</b> {comparePlanets.length ? comparePlanets.join(" and ") : "Choose two planets"}</p></aside><section className="planet-claim-check"><h4>Which claim fits the data?</h4>{["A shorter day always means a shorter year.", "Day length and year length are different patterns.", "Every planet has a 24-hour day."].map((claim, index) => <button key={claim} disabled={comparePlanets.length !== 2} aria-pressed={planetClaim === index} className={planetClaim === index ? index === 1 ? "correct" : "incorrect" : ""} onClick={() => setPlanetClaim(index)}>{claim}</button>)}{planetClaim !== null && <p>{planetClaim === 1 ? `Supported. Use the exact day and year values for ${comparePlanets.join(" and ")} in your evidence log.` : "That claim does not fit all the values. Compare day and year as separate measurements."}</p>}</section><footer><b>Graphing challenge:</b><span>Mercury and Venus stretch the day-length scale; Neptune stretches the year-length scale. Keep difficult data visible.</span></footer></section></>;
+    return <>{missionLog}<section className="evidence-sim planet-data-lab"><header><small>ROTATION-PERIOD DATA + REVOLUTION DATA</small><h3>Choose two planets. What do their numbers show?</h3><p>Select exactly two worlds. Compare each rounded rotation period and revolution period before choosing a claim. Rotation period is not the same as sunrise-to-sunrise solar day.</p></header><div className="planet-data-table">{planetData.map(item => <button key={item[0]} aria-pressed={comparePlanets.includes(item[0])} className={comparePlanets.includes(item[0]) ? "selected" : ""} onClick={() => choosePlanet(item[0])}><strong>{item[0]}</strong><span>rotation · {item[1]}</span><span>revolution · {item[2]}</span></button>)}</div><aside><small>LAST WORLD SELECTED</small><h4>{current[0]}</h4><p>One rotation: <b>{current[1]}</b></p><p>One revolution: <b>{current[2]}</b></p><p><b>Compare:</b> {comparePlanets.length ? comparePlanets.join(" and ") : "Choose two planets"}</p></aside><section className="planet-claim-check"><h4>Which claim fits the data?</h4>{["A shorter rotation always means a shorter revolution.", "Rotation and revolution follow different patterns.", "Every planet rotates once in 24 hours."].map((claim, index) => <button key={claim} disabled={comparePlanets.length !== 2} aria-pressed={planetClaim === index} className={planetClaim === index ? index === 1 ? "correct" : "incorrect" : ""} onClick={() => setPlanetClaim(index)}>{claim}</button>)}{planetClaim !== null && <p>{planetClaim === 1 ? `Supported. Use the exact rotation and revolution values for ${comparePlanets.join(" and ")} in your evidence log.` : "That claim does not fit all the values. Compare rotation and revolution as separate measurements."}</p>}</section><footer><b>Graphing challenge:</b><span>Mercury and Venus stretch the rotation-period scale; Neptune stretches the revolution-period scale. Keep difficult data visible.</span></footer></section></>;
   }
 
   const claims = [
@@ -1293,6 +1326,8 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
   });
   const [scene, setScene] = useState(initialProgress.scene);
   const [briefOpen, setBriefOpen] = useState(false);
+  const stageRef = useRef<HTMLElement>(null);
+  const sceneHeadingRef = useRef<HTMLHeadingElement>(null);
   const closeBrief = useCallback(() => setBriefOpen(false), []);
   const unit = scienceUnits.find(item => item.id === lesson.unitId) ?? scienceUnits[0];
   const theme = worldFor(unit.id);
@@ -1311,7 +1346,7 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
   const studentContract = isReviewedStudentLessonId(lesson.id) ? dailyContract : null;
   const teacherRunSteps = sceneContracts.map(({ teacher, student }) => ({
     title: student.label,
-    action: teacher.learningMode ? `${teacher.learningMode}: ${student.action}` : student.action,
+    action: `${teacher.learningMode ? `${teacher.learningMode}. ` : ""}Teacher move: ${teacher.teacherCue} Student action: ${student.action}`,
     finishCheck: student.response,
   }));
   const linkedResources = lesson.lessonResources?.filter((resource): resource is typeof resource & { url: string } => Boolean(resource.url)) ?? [];
@@ -1337,12 +1372,19 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
   const spacesPolicy = spacesPolicyForActivity(lesson.id);
   const spacesDecision = spacesPolicy?.decision ?? (lesson.spacesPrompt ? "optional" : "none");
   const spacesMessage = spacesPolicy?.teacherPrompt ?? lesson.spacesPrompt ?? "Keep this as in-class practice; no separate upload is needed.";
+  const proficiencySet = proficiencyModelSetsForActivity(lesson.id)[0];
 
   useEffect(() => {
     if (lesson.id === "space-motion-lab") return;
     try { window.sessionStorage.setItem(`wyatt-science-progress-v2:${lesson.id}`, JSON.stringify({ scene })); } catch {}
   }, [lesson.id, scene]);
-  useEffect(() => { document.querySelector(".journey-stage")?.scrollTo({ top: 0 }); }, [scene]);
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      sceneHeadingRef.current?.focus({ preventScroll: true });
+      if (stageRef.current) stageRef.current.scrollTop = 0;
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [scene]);
   useEffect(() => {
     const handler = (event: KeyboardEvent) => {
       const target = event.target instanceof HTMLElement ? event.target : null;
@@ -1373,7 +1415,7 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
         provocation={lesson.hook}
         firstAction={studentContract?.firstAction ?? teacherRunSteps[0]?.action ?? "Open the first part in Teach View."}
         steps={(studentContract?.steps ?? teacherRunSteps).map((step, index) => ({ ...step, minutes: lesson.scenes[index]?.time }))}
-        finishEvidence={studentContract?.finishEvidence ?? (lesson.success.length ? lesson.success : [lesson.evidence])}
+        finishEvidence={studentContract?.finishEvidence ?? [lesson.evidence]}
         saveTarget={teacherRunSheetSaveTarget(spacesDecision, spacesMessage)}
         lookFors={lesson.success}
         discussionMoves={runSheetDiscussionMovesFor("Science")}
@@ -1402,9 +1444,12 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
           {lesson.lessonResources?.length ? <section><p className="section-kicker">SOURCES</p><ul>{lesson.lessonResources.map((item) => <li key={`${item.scene}-${item.label}`}>{item.url ? <a href={item.url} target="_blank" rel="noreferrer">{item.label} ↗</a> : <b>{item.label}</b>} · Part {item.scene + 1} · {item.task}</li>)}</ul></section> : null}
         </div>
       </details>
+      {proficiencySet && <section className="science-contextual-models" aria-label={`${lesson.title} proficiency models`}>
+        <ProficiencyModelsPanel setId={proficiencySet.id} audience="teacher" display="focus" initialLevel="Proficient" />
+      </section>}
     </section>
     <div className="journey-sequence"><button disabled={!previous} onClick={() => previous && onOpenLesson(previous)}>← {previous?.title ?? "Start of unit"}</button><span>LESSON {lessonIndex + 1} OF {unit.lessons.length}</span><button disabled={!next} onClick={() => next && onOpenLesson(next)}>{next?.title ?? "End of unit"} →</button></div>
-    {briefOpen && <MiniBrief lesson={lesson} unit={unit} onClose={closeBrief} />}
+    {briefOpen && <MiniBrief lesson={lesson} unit={unit} spacesDecision={spacesDecision} spacesMessage={spacesMessage} onClose={closeBrief} />}
   </div>;
 
   return <div className="journey-player journey-student world-surface" data-world={theme.id} style={worldStyle(theme)}>
@@ -1417,8 +1462,9 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
         <div><small>TODAY&apos;S PARTS</small><b>{sceneContracts.length} PARTS</b></div>
         {sceneContracts.map(({ teacher: item, student: move }, index) => <button key={item.title} className={scene === index ? "active" : ""} onClick={() => setScene(index)}><span>{index + 1}</span><div><small>PART {index + 1}</small><strong>{move.label}</strong></div></button>)}
       </nav>
-      <section className="journey-stage" aria-label={`${lesson.title} lesson stage`}>
-        <section className="journey-stage-head"><div><small>PART {scene + 1} OF {lesson.scenes.length}</small><h1>{studentTitle}</h1><p>{studentPrompt}</p></div><span>{String(scene + 1).padStart(2, "0")}</span></section>
+      <section ref={stageRef} className="journey-stage" aria-label={`${lesson.title} lesson stage`}>
+        <section className="journey-stage-head"><div><small>PART {scene + 1} OF {lesson.scenes.length}</small><h1 ref={sceneHeadingRef} tabIndex={-1}>{studentTitle}</h1><p>{studentPrompt}</p></div><span>{String(scene + 1).padStart(2, "0")}</span></section>
+        <section className="journey-evidence-target" aria-label="Evidence target"><small>DONE WHEN</small><strong>{studentProduct}</strong></section>
         <ClassroomCompanion key={`${lesson.id}-${scene}`} role={scienceCompanionRole(scene, lesson.scenes.length)} density="compact" motion="once" className="journey-scene-companion" />
         <ExperienceVisual lesson={lesson} scene={scene} />
         {currentResources.some((resource) => resource.gradeFit !== "Teacher preview") && <details className="lesson-resource-set"><summary><span><small>SOURCE / VIDEO</small><strong>Open when the class is ready</strong></span><b>Open ▾</b></summary><div>{currentResources.filter((resource) => resource.gradeFit !== "Teacher preview").map((resource, index) => {

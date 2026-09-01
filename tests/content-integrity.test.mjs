@@ -148,7 +148,7 @@ test("Source Mosaic and Science expose their offline and full-prep routes", asyn
   assert.match(learningProgram, /SourceMosaicStaticPack/);
   assert.match(learningProgram, /printed Static Source Pack/);
   assert.match(science, /Full prep \/ print/);
-  assert.match(science, /<MiniBrief lesson=\{lesson\} unit=\{unit\} onClose=\{closeBrief\}/);
+  assert.match(science, /<MiniBrief lesson=\{lesson\} unit=\{unit\}[\s\S]*?onClose=\{closeBrief\}/);
 });
 
 test("major views remain lazy, recoverable, and free of the fixed-position state collision", async () => {
