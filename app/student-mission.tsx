@@ -46,8 +46,8 @@ export function StudentStepPath({ steps, product, spacesPrompt }: { steps: Stude
       <header><div><small>MOVE {current + 1} OF {steps.length}</small><h2>{step.title}</h2></div><span>{current + 1}/{steps.length}</span></header>
       <nav aria-label="Mission steps">{steps.map((item, index) => <button type="button" key={`${item.title}-${index}`} className={current === index ? "active" : ""} aria-current={current === index ? "step" : undefined} onClick={() => setCurrent(index)}><b>{index + 1}</b><span>{item.title}</span></button>)}</nav>
       <article aria-live="polite" key={`${step.title}-${current}`}>
-        <div><small>DO</small><p>{step.action}</p></div>
-        <aside><small>READY WHEN</small><strong>{step.show}</strong></aside>
+        <div><small>DO THIS</small><p>{step.action}</p></div>
+        <aside><small>YOU&apos;RE DONE WHEN</small><strong>{step.show}</strong></aside>
       </article>
       {last && <section className="student-step-finish"><header><small>FINISH</small><h3>{product}</h3></header>{/spaces/i.test(spacesPrompt) && <footer><p>{spacesPrompt}</p></footer>}</section>}
       <footer>

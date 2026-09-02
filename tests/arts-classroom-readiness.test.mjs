@@ -244,10 +244,10 @@ test("LearningProgram ships a dedicated complete printable Arts folio route", as
   assert.ok(projectorAssemblyStart >= 0 && projectorAssemblyEnd > projectorAssemblyStart, "Could not isolate the Student LearningProgram projector assembly.");
   const projectorAssembly = learningProgram.slice(projectorAssemblyStart, projectorAssemblyEnd);
   const lookPart = projectorAssembly.indexOf('parts.push({ label: "Look", verb: "Notice"');
-  const artsMentorGuard = projectorAssembly.indexOf('if (program.subject === "Arts Education"');
-  const mentorPart = projectorAssembly.indexOf('parts.push({ label: "Mentor", verb: "Encounter"');
+  const mentorMedia = projectorAssembly.indexOf('program.subject === "Arts Education" && <MediaStrip items={media} student />', lookPart);
   assert.ok(lookPart >= 0, "Arts lessons lost the visual Look projector part.");
-  assert.ok(artsMentorGuard > lookPart && mentorPart > artsMentorGuard, "Arts lessons must append Mentor after Look instead of replacing the visual encounter.");
+  assert.ok(mentorMedia > lookPart, "Arts mentor media must appear inside the visual Look projector part.");
+  assert.doesNotMatch(projectorAssembly, /parts\.push\(\{ label: "Mentor"/, "Arts should not add a duplicate Mentor projector tab.");
 });
 
 test("Arts proficiency models cover every studio and always leave a next move", async () => {

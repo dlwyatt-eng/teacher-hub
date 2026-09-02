@@ -125,13 +125,13 @@ export function ExperienceInfographic({ experienceId }: { experienceId: string }
     </InfoFrame>
   );
   if (experienceId === "map-what-maps-miss") return (
-    <InfoFrame eyebrow="MAPS ARE PURPOSEFUL SOURCES" title="Put three maps in conversation" summary="Do not merge them into one ‘perfect’ map. Compare what each source helps an audience notice and what still requires another voice.">
+    <InfoFrame eyebrow="VISUAL ART FOCUS" title="Use contrast to create emphasis" summary="Start with something you truly observed. Make parts look different so the audience knows what to notice first.">
       <div className="info-map-compare">
-        <article><b>STREET MAP</b><p>routes · addresses · facilities</p><small>May miss relationships, sound, memory, and history.</small></article>
-        <article><b>PLANNING MAP</b><p>growth · proposals · public decisions</p><small>May show a future plan more clearly than present lived experience.</small></article>
-        <article><b>FIRST PEOPLES’ MAP</b><p>languages · communities · place knowledge</p><small>Language regions are not fixed property boundaries and cannot replace Nation-specific learning.</small></article>
+        <article><b>OBSERVE</b><p>shape · colour · texture · sound</p><small>Record what you can actually notice.</small></article>
+        <article><b>CONTRAST</b><p>light / dark · large / small · rough / smooth</p><small>Make two parts clearly different.</small></article>
+        <article><b>EMPHASIS</b><p>What should viewers notice first?</p><small>Circle the choice that guides their eyes.</small></article>
       </div>
-      <div className="info-source-rule"><b>LABEL EACH LAYER:</b><span>SOURCED EVIDENCE</span><span>ARTISTIC INTERPRETATION</span><span>STILL UNKNOWN</span></div>
+      <div className="info-source-rule"><b>LABEL THE LAYERS:</b><span>SOURCE FACT</span><span>MY OBSERVATION</span><span>MY ART IDEA</span><span>STILL UNKNOWN</span></div>
     </InfoFrame>
   );
   if (experienceId === "access-by-design") return (
@@ -324,12 +324,12 @@ export function ExperienceInfographic({ experienceId }: { experienceId: string }
     </InfoFrame>
   );
   if (experienceId === "audience-remix") return (
-    <InfoFrame eyebrow="COLD TEST · OBSERVE BEFORE EXPLAINING" title="Audience evidence should cause a visible revision" summary="This fictional projector example tests whether the design helps viewers find the teaching point. It does not ask which version is prettiest.">
+    <InfoFrame eyebrow="ARTS FOCUS · SEQUENCE + SPACING" title="Help the audience know where to begin" summary="Use the same fictional Night Garden pieces twice. Change their order and space, then watch what a new viewer does.">
       <div className="info-audience-remix">
-        <article><small>INTENTION</small><strong>After 45 seconds, viewers can point to the hottest courtyard zone and name one evidence-based change.</strong></article><i>→</i>
-        <article className="before"><small>VERSION 1</small><strong>Large title + six equal-size charts</strong><p>Cold test: 4 of 5 viewers read the title; only 1 of 5 found the temperature comparison.</p></article><i>→</i>
-        <article><small>REVISION</small><strong>Enlarge the temperature map and add a 1–2–3 viewing path.</strong><p>The evidence changes scale and visual order—not the facts.</p></article><i>→</i>
-        <article className="after"><small>RETEST</small><strong>4 of 5 viewers find the comparison.</strong><p>Useful improvement in a tiny test; try another audience before claiming the design is solved.</p></article>
+        <article><small>GOAL</small><strong>Notice the moth, listen at the rain, then trace the snail route.</strong></article><i>→</i>
+        <article className="before"><small>FIRST TRY</small><strong>Everything starts together.</strong><p>The viewer asks where to begin.</p></article><i>→</i>
+        <article><small>CHANGE</small><strong>Space the pieces and add a 1–2–3 path.</strong><p>Sequence shows the order; spacing groups each stop.</p></article><i>→</i>
+        <article className="after"><small>RETEST</small><strong>Watch without coaching.</strong><p>Record the route, pause, and question—not a rating.</p></article>
       </div>
     </InfoFrame>
   );
@@ -343,12 +343,12 @@ export function ExperienceInfographic({ experienceId }: { experienceId: string }
     </InfoFrame>
   );
   if (experienceId === "four-arts-languages") return (
-    <InfoFrame eyebrow="FOUR WAYS TO SHAPE AN EXPERIENCE" title="Change the art language; change what the audience notices" summary="Image, sound, movement, and drama can carry the same idea differently. Combine them because each one has a job.">
+    <InfoFrame eyebrow="ONE FOCUS PAIR FOR EACH ARTS AREA" title="Finish four studies, then combine two" summary="Each Arts area has its own job. Practise the focus pair, complete the whole folio, and use purposeful decoration to strengthen meaning.">
       <div className="info-arts-languages">
-        <article><span aria-hidden="true">◐</span><b>IMAGE</b><p>colour · line · scale · framing</p></article>
-        <article><span aria-hidden="true">≈</span><b>SOUND</b><p>rhythm · silence · pitch · texture</p></article>
-        <article><span aria-hidden="true">↗</span><b>MOVEMENT</b><p>path · level · speed · energy</p></article>
-        <article><span aria-hidden="true">◫</span><b>DRAMA</b><p>role · tension · space · focus</p></article>
+        <article><span aria-hidden="true">◐</span><b>IMAGE</b><p>contrast · emphasis</p></article>
+        <article><span aria-hidden="true">≈</span><b>SOUND</b><p>rhythm · silence</p></article>
+        <article><span aria-hidden="true">↗</span><b>MOVEMENT</b><p>pathway · timing</p></article>
+        <article><span aria-hidden="true">◫</span><b>DRAMA</b><p>focus · level</p></article>
       </div>
     </InfoFrame>
   );

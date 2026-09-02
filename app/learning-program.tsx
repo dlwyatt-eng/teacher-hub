@@ -15,7 +15,8 @@ import { spacesPolicyForActivity } from "./classroom-program";
 import { WorldAtlasIntroduction, WorldContextBand, WorldJourney, WorldPortal } from "./unit-world-components";
 import { worldFor, worldStyle } from "./unit-worlds";
 import { StudentStepPath } from "./student-mission";
-import { resolveStudentLessonContractForExperience } from "./student-lesson-contract";
+import { resolveStudentLessonContractForExperience, type StudentLessonContract } from "./student-lesson-contract";
+import { proficiencyModelSetsForActivity } from "./proficiency-models";
 import PatternTrailLab from "./math-pattern-lab";
 import EquationBalanceLab from "./math-equation-lab";
 import type { DailyLaunch } from "./daily-launch";
@@ -447,6 +448,7 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
     ? projectorReadinessFromSupport(resolvedProjectorSupport.support)
     : readinessFor(experience);
   const currentConnection = currentConnectionForLesson(experience.id);
+  const activityModelSets = proficiencyModelSetsForActivity(experience.id);
   const sourceMosaicOfflineRoute = "Use one printed Static Source Pack at the projector or teacher table, or one per group. Read each source aloud, match jobs on the board, choose two evidence pieces, then build the claim and limit on paper.";
   const runSteps = currentConnection
     ? [{ title: "Source Lab · Quick Look", action: "Open the named source on the projector. Move through Look, Notice, Claim, and Next as one class; students can point, talk, use the board, or use paper.", finishCheck: "The class builds one careful sentence that includes the source date or status and names what the source cannot prove." }, ...studentContract.steps]
@@ -516,23 +518,16 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
         </div>
       </details>
 
-      {experience.id === "each-one-teach-one" && <details className="teacher-tool-drawer teacher-model-drawer">
-        <summary><span><small>WORKED EXAMPLES · REVEAL AFTER A FIRST TRY</small><strong>Four Creative / Making proficiency models</strong></span><b>Open ▾</b></summary>
+      {activityModelSets.map((modelSet) => <details key={modelSet.id} className="teacher-tool-drawer teacher-model-drawer">
+        <summary><span><small>WORKED EXAMPLES · REVEAL AFTER A FIRST TRY</small><strong>{modelSet.title} · four levels with a next move</strong></span><b>Open ▾</b></summary>
         <div>
+          {modelSet.id === "arts-intention-technique-revision" && <p className="teacher-model-transfer-note"><b>Transfer the process—not the product.</b> The Rain-window score shows intention, technique, response, and revision. Unless this is the graphic-score lesson, students should make the product named in this lesson.</p>}
           <Suspense fallback={<section className="teacher-model-loading" aria-live="polite">Preparing the model garden…</section>}>
-            <ProficiencyModelsPanel setId="creative-making-reflection" audience="teacher" display="focus" initialLevel="Proficient" />
+            <ProficiencyModelsPanel setId={modelSet.id} audience="teacher" display="focus" initialLevel="Proficient" />
           </Suspense>
+          <aside className="teacher-model-spaces-safety"><b>SpacesEDU safety check</b><span>Follow this lesson&apos;s evidence plan. Before posting, remove other students&apos; names or usernames and unapproved faces or voices, check link access, and leave out survey responses and raw AI output.</span></aside>
         </div>
-      </details>}
-
-      {program.subject === "Arts Education" && <details className="teacher-tool-drawer teacher-model-drawer">
-        <summary><span><small>WORKED EXAMPLES · REVEAL AFTER A FIRST TRY</small><strong>Four Arts proficiency models—with a next improvement at every level</strong></span><b>Open ▾</b></summary>
-        <div>
-          <Suspense fallback={<section className="teacher-model-loading" aria-live="polite">Preparing the Arts model garden…</section>}>
-            <ProficiencyModelsPanel setId="arts-intention-technique-revision" audience="teacher" display="focus" initialLevel="Proficient" />
-          </Suspense>
-        </div>
-      </details>}
+      </details>)}
 
       {experience.id === sourceMosaicExperienceId && <SourceMosaicStaticPack />}
 
@@ -673,6 +668,65 @@ function learningCompanionRole(label: string, verb: string, index: number, total
   return "connect";
 }
 
+const knownEmptyLookExperienceIds = new Set([
+  "same-facts-frame",
+  "rights-in-thirty",
+  "cosmic-scale-gallery",
+  "cold-test-prototype",
+  "science-design-series",
+  "cosmic-mission-control",
+]);
+
+function adstProjectorMissionSteps(id: string, steps: Array<{ title: string; action: string; show: string }>) {
+  if (id !== "each-one-teach-one" || steps.length !== 8) return steps;
+  return [
+    {
+      title: "Choose + check facts",
+      action: "Choose one safe, focused question for a real audience. Check the key idea with two teacher-approved sources and record what each source cannot prove.",
+      show: "Your question is focused, your audience is named, and two credited sources support the idea.",
+    },
+    {
+      title: "Plan the lesson",
+      action: "Write one learning goal and three success checks. Draw the whole learner path: start, information, meaningful choice, feedback, understanding check, and ending.",
+      show: "A partner can follow the paper path from the first action to the ending without you filling a gap.",
+    },
+    {
+      title: "Make + test",
+      action: "Build the smallest complete version. Watch a new learner try it without coaching and record actions, pauses, and confusion without names.",
+      show: "The full route works, and the no-name test shows one content issue and one access, navigation, or feedback issue.",
+    },
+    {
+      title: "Improve + teach",
+      action: "Fix both issues, retest the changed parts, then teach the experience and run a short no-name understanding check.",
+      show: "Your evidence shows the changes helped, sources and tools are credited, and you can name one next improvement.",
+    },
+  ];
+}
+
+function projectorCardsFor(program: LearningProgram, kit: ExperienceKit | undefined) {
+  const cards = kit?.cards.filter((card) => !/(answer|answer key|core answers)/i.test(card.title)) ?? [];
+  if (program.subject !== "Arts Education" && program.subject !== "Applied Design, Skills & Technologies") return cards;
+  return cards
+    .filter((card) => !/(safety|source care|credit|graphic notation key|teacher|optional ai|volume|materials check)/i.test(card.title))
+    .slice(0, 4);
+}
+
+function projectorLearningLine(why: string) {
+  const firstSentence = why.split(/(?<=[.!?])\s+/)[0] ?? why;
+  return firstSentence.replace(/^We are learning\s+(?:to\s+)?/i, "");
+}
+
+function ProjectorRouteReady({ contract }: { contract: StudentLessonContract }) {
+  return <section className="projector-route-ready">
+    <header><small>GET READY</small><h2>Gather what you need. Choose a route that fits the learning.</h2></header>
+    <div>
+      <article><small>MATERIALS</small><ul>{contract.materials.map((item) => <li key={item}>{item}</li>)}</ul></article>
+      <section>{contract.choices.length > 0 ? contract.choices.map((choice) => <article key={choice.prompt}><small>CHOOSE</small><h3>{choice.prompt}</h3><div>{choice.options.map((option) => <p key={option.label}><b>{option.label}</b>{option.detail && <span>{option.detail}</span>}</p>)}</div></article>) : <article><small>ONE SHARED ROUTE</small><h3>Use the materials and first step shown here.</h3><p>Ask for a spoken, drawn, seated, paper, shared-device, or offline route when you need one.</p></article>}</section>
+    </div>
+    <footer>Digital tools are optional unless your teacher opens an approved route. The planning, testing, evidence, and revision stay the same offline.</footer>
+  </section>;
+}
+
 export function StudentLearningProgram({ program, record, selectedExperienceId, onExperience }: StudentProgramProps) {
   const selected = selectedExperience(program, selectedExperienceId);
   const [projectorPart, setProjectorPart] = useState(0);
@@ -699,8 +753,16 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
   const showProjectorQuickStart = !usesInteractiveLab || selected.id === magnitudeScaleLabExperienceId;
   const mathAntics = program.subject === "Mathematics" ? mathAnticsFor(selected.id) : null;
   const projectorWords = useMathConceptPack ? experienceWords(selected, true) : projectorSupport.terms;
-  const projectorCards = kit?.cards.filter((card) => !/(answer|answer key|core answers)/i.test(card.title)) ?? [];
+  const projectorCards = projectorCardsFor(program, kit);
   const missionSteps = studentContract.steps.map((step) => ({ title: step.title, action: step.action, show: step.finishCheck }));
+  const projectorMissionSteps = program.subject === "Applied Design, Skills & Technologies"
+    ? adstProjectorMissionSteps(selected.id, missionSteps)
+    : missionSteps;
+  const hasVisibleLookMedia = program.subject === "Arts Education"
+    ? media.length > 0
+    : media.some((item) => item.type === "image");
+  const showLook = !knownEmptyLookExperienceIds.has(selected.id) || hasVisibleLookMedia;
+  const learningLine = projectorLearningLine(studentContract.why);
   const theme = worldFor(selectedArc.id);
   const alignment = alignmentByArc[selectedArc.id];
   const resolvedAlignment = alignment ? resolveAlignment(record, alignment) : null;
@@ -721,12 +783,10 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
   if (usesInteractiveLab) {
     parts.push({ label: "Explore", verb: "Try", content: <div id="mission-path" className="student-interactive-mission projector-active-object">{interactiveLab}</div> });
   } else {
-    parts.push({ label: "Look", verb: "Notice", content: <section className="projector-active-object projector-look-stage"><ExactAnchorVisual experience={selected} media={media} /><ExperienceInfographic experienceId={selected.id} />{program.subject !== "Arts Education" && <LocalIndigenousResourceDock experienceId={selected.id} student />}{selected.id === "graph-story-lab" && <><LocalRestorationInfographic /><ResponsibleDataInfographic /></>}</section> });
-    if (program.subject === "Arts Education" && media.some((item) => item.type !== "image")) {
-      parts.push({ label: "Mentor", verb: "Encounter", content: <section className="projector-active-object projector-look-stage"><MediaStrip items={media} student /><LocalIndigenousResourceDock experienceId={selected.id} student /></section> });
-    }
+    if (showLook) parts.push({ label: "Look", verb: "Notice", content: <section className="projector-active-object projector-look-stage"><ExactAnchorVisual experience={selected} media={media} /><ExperienceInfographic experienceId={selected.id} />{program.subject === "Arts Education" && <MediaStrip items={media} student />}<LocalIndigenousResourceDock experienceId={selected.id} student />{selected.id === "graph-story-lab" && <><LocalRestorationInfographic /><ResponsibleDataInfographic /></>}</section> });
+    if (program.subject === "Applied Design, Skills & Technologies") parts.push({ label: "Ready", verb: "Choose", content: <ProjectorRouteReady contract={studentContract} /> });
     if (showProjectorQuickStart) parts.push({ label: "Learn", verb: "See it", content: <ProjectorQuickStart key={selected.id} launch={readinessLaunch} words={projectorWords} question={projectorSupport.purpose} firstMove={studentContract.firstAction} /> });
-    if (projectorCards.length > 0) parts.push({ label: selected.id === "ordinary-object-story" ? "Tell" : "Discuss", verb: selected.id === "ordinary-object-story" ? "Tell" : "Choose", content: <ProjectorCaseDeck
+    if (projectorCards.length > 0) parts.push({ label: selected.id === "ordinary-object-story" ? "Tell" : "Try", verb: selected.id === "ordinary-object-story" ? "Tell" : "Choose", content: <ProjectorCaseDeck
       key={`${selected.id}-cards`}
       cards={projectorCards}
       title={studentTitleFor(selected)}
@@ -739,14 +799,15 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
       classMoveTitle={selected.id === "ordinary-object-story" ? "Point to a clue. Build the next story beat. Test it aloud." : undefined}
       classMovePrompt={selected.id === "ordinary-object-story" ? "Choose a starter and tell it together." : undefined}
     /> });
-    parts.push({ label: "Work", verb: "Do", content: <section className="projector-active-object">
-      {!phasedCoordinateBridge && <StudentStepPath key={selected.id} steps={missionSteps} product={studentContract.finishEvidence.join(" · ")} spacesPrompt={studentContract.reviewState === "reviewed" ? studentContract.saveAction.message : spaces.studentPrompt} />}
+    parts.push({ label: "Do", verb: "Make", content: <section className="projector-active-object">
+      {!phasedCoordinateBridge && <StudentStepPath key={selected.id} steps={projectorMissionSteps} product={`Complete all ${studentContract.finishEvidence.length} checks in the Done part.`} spacesPrompt={studentContract.reviewState === "reviewed" ? studentContract.saveAction.message : spaces.studentPrompt} />}
       {phasedCoordinateBridge && <section className="coordinate-extension-phase"><header><p className="section-kicker">OPTIONAL EXTENSION</p><h3>Cross zero after the first-quadrant check.</h3></header><MathStudentWorkshops experienceId={selected.id} placement="extension" /></section>}
       {program.subject === "Mathematics" && !phasedCoordinateBridge && <MathStudentWorkshops experienceId={selected.id} />}
     </section> });
     if (selected.id === fourArtsExperienceId) parts.push({ label: "Cue lab", verb: "Optional", content: <section className="projector-active-object"><FourArtsLab /></section> });
   }
   if (currentConnection) parts.push({ label: "Source", verb: "Investigate", content: <CurrentConnectionPlayer connection={currentConnection} /> });
+  parts.push({ label: "Done", verb: "Check", content: <section className="projector-active-object projector-done-screen"><header><small>YOU&apos;RE DONE WHEN</small><h2>Show what you learned—not just what you made.</h2></header><ol>{studentContract.finishEvidence.map((item, index) => <li key={item}><b>{index + 1}</b><span>{item}</span></li>)}</ol><footer><strong>{studentContract.saveAction.message}</strong><span>If AI helped, check every idea and rewrite it in your own words. Never add private information or raw AI output to SpacesEDU.</span></footer></section> });
   const activePart = parts[Math.min(projectorPart, parts.length - 1)] ?? parts[0];
   const companionRole = learningCompanionRole(activePart.label, activePart.verb, projectorPart, parts.length);
 
@@ -758,6 +819,7 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
       </header>
 
       <main className="projector-lesson-player__stage" aria-live="polite">
+        <section className="projector-clarity-strip" aria-label="Learning goal, first action, and finish"><article data-learning-phase="learn"><small>WE ARE LEARNING</small><strong>{learningLine}</strong></article><article data-learning-phase="do"><small>FIRST STEP</small><strong>{studentContract.firstAction}</strong></article><article data-learning-phase="done"><small>YOU&apos;RE DONE WHEN</small><strong>All {studentContract.finishEvidence.length} checks in the Done part are complete.</strong></article></section>
         <ClassroomCompanion
           key={`${selected.id}-${projectorPart}`}
           role={companionRole}

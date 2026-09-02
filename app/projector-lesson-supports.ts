@@ -462,19 +462,17 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
   }),
 
   "map-what-maps-miss": support("map-what-maps-miss", {
-    purpose: "Respond to one exact artist and place source, then use visual-art technique and an original symbol or metaphor while separating evidence, observation, interpretation, and unknown.",
+    purpose: "Study one artist, then use repetition and emphasis to help people notice a place in a new way.",
     background: [
-      "Begin with the artist, title, context, material, and place or Nation exactly as the source names them. A source is not a generic style bank.",
-      "Visual artists guide attention through line, shape, colour and value, texture, positive and negative space, balance, contrast, repetition, unity, and emphasis.",
-      "A direct observation can be pointed to. An artistic interpretation is the maker's chosen response. Both are valid, but they must not be labelled as the same kind of knowledge.",
-      "A symbol carries an idea through a sign, object, colour, or mark; a visual metaphor shows one idea through another. Invent both from observation. Use distinct legend marks for source, observation, interpretation, and unknown.",
+      "Name the artist and work. Notice a choice you can point to instead of guessing what it means.",
+      "Repetition means using a line, shape, colour, or mark again. Emphasis makes one part stand out.",
+      "Keep source facts, direct observations, your art ideas, and unanswered questions in separate parts of the organizer.",
     ],
     terms: terms(
-      ["composition", "the way visual parts are arranged", "A repeated curved path guides the eye from the roof to the garden."],
-      ["negative space", "the open area around and between forms", "Quiet open paper around one shape creates emphasis."],
-      ["visual metaphor", "showing one idea through another visual relationship", "A widening path can suggest a growing sense of possibility when the student labels that meaning as interpretation."],
-      ["interpretation", "a meaning a viewer or artist builds from evidence and context", "The repeated curve may suggest movement, but the source must support any cultural claim."],
-      ["attribution", "a clear credit naming the creator and source", "Artist, work title, date, host organization, and link appear on the source card."],
+      ["repetition", "using a visual part again to create a pattern or path", "Blue curves repeat across the page and guide the eye."],
+      ["emphasis", "making one part stand out first", "One large bright shape stands out from smaller dark shapes."],
+      ["interpretation", "an idea you build from what you notice", "The curve may suggest movement, but that is the viewer's idea."],
+      ["credit", "naming the creator and source", "The artist, work title, and source appear on the card."],
     ),
     example: {
       title: "Build one layered response to a fictional rain-courtyard evidence card",
@@ -495,18 +493,17 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
   }),
 
   "audience-remix": support("audience-remix", {
-    purpose: "Curate a complete audience path, observe what a new viewer actually does, and revise one artistic choice from evidence.",
+    purpose: "Use sequence and spacing to guide an audience, then improve the path after a no-coaching test.",
     background: [
-      "Curation shapes an encounter through entry point, sequence, spacing, contrast, pacing, sound or silence, labels, audience action, and ending.",
-      "An intention names what the maker hopes the audience will notice, feel, think, or do. It is a hypothesis until audience evidence supports it.",
-      "A useful audience test records first notice, action, route, pause, question, misunderstanding, and barrier—not names, ratings, or popularity.",
-      "Revision should target the strongest barrier or missed intention. Adding more decoration is not automatically improvement.",
+      "Sequence is the order in which the audience meets each part. Spacing shows which parts belong together.",
+      "A clear entry point tells the audience where to begin; a clear ending shows when the experience is complete.",
+      "During a test, record what the viewer does, where they pause, and what they ask. Do not record names or ratings.",
     ],
     terms: terms(
-      ["curation", "the selection and arrangement of a work's encounter", "The moth image becomes the entry point and the snail trail becomes the ending."],
+      ["sequence", "the order in which parts are experienced", "The path moves from moth to rain to snail."],
+      ["spacing", "the distance that separates or connects parts", "Extra space shows that one section has ended."],
       ["entry point", "the place or action that tells an audience how to begin", "One large image and a short prompt invite the first look."],
-      ["pacing", "how quickly or slowly an encounter unfolds", "A silent pause separates two sound layers."],
-      ["audience evidence", "observable actions or words gathered during a test", "The viewer started at the middle label and skipped the intended opening."],
+      ["audience evidence", "an action or comment noticed during a test", "The viewer began at the middle card and asked where to start."],
     ),
     example: {
       title: "Repair the fictional Night Garden mini-exhibit",
@@ -527,19 +524,17 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
   }),
 
   "cosmic-scale-gallery": support("cosmic-scale-gallery", {
-    purpose: "Use technique trials in material, light, sound, and movement to build and safely curate one complete artistic encounter.",
+    purpose: "Try pattern and contrast with material, light, sound, and movement, then build one complete Arts experience.",
     background: [
-      "A technique trial is a small experiment made to learn what a material, sound, light, movement, or arrangement can do before choosing a final form.",
-      "Kinetic form changes through balance, pivot, air, hand movement, gravity, or another safe interaction. A trial records both rest and motion.",
-      "Light and shadow depend on opacity, translucency, colour, overlap, distance, angle, positive space, and negative space.",
-      "A complete encounter has an entry, development or change, and ending, plus source credit, a readable score or label, a quiet/access route, and a deliberate limitation.",
+      "A technique trial is a small experiment that helps you learn before choosing a final route.",
+      "Pattern repeats something. Contrast creates a clear difference such as still/moving, light/dark, sound/silence, or fast/slow.",
+      "A complete experience has a beginning, a change, an ending, a safe access route, and credit for any source that helped.",
     ],
     terms: terms(
-      ["kinetic", "involving actual or suggested movement", "A balanced paper form turns gently around one pivot."],
-      ["translucent", "allowing some light through", "Tracing paper layers make shadows lighter and colours overlap."],
-      ["spatial score", "marks or directions showing where and how movement changes in space", "Arrows, levels, counts, and pauses map an eight-count route."],
-      ["artistic intention", "the experience a creator deliberately works to shape", "The audience should notice a slow shift from separate patterns to connection."],
-      ["limitation", "something the work deliberately cannot or does not show", "The tabletop form suggests wind but does not reproduce an outdoor ecosystem."],
+      ["pattern", "a part that repeats", "The same leaf shape appears four times."],
+      ["contrast", "a clear difference between two parts", "A moving shape stops beside a still one."],
+      ["technique trial", "a small test made before the final work", "Try opaque and see-through paper under one steady light."],
+      ["artistic intention", "what the creator wants the audience to notice or experience", "The audience should notice a change from separate to connected patterns."],
     ),
     example: {
       title: "Turn four small trials into one tabletop encounter",
@@ -560,19 +555,17 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
   }),
 
   "same-facts-frame": support("same-facts-frame", {
-    purpose: "Compose, notate, rehearse, perform, and revise a short work whose beat, rhythm, silence, timbre, dynamics, texture, and form serve an intention.",
+    purpose: "Use rhythm and loud–quiet changes to draw a complete graphic score another group can perform.",
     background: [
-      "Music organizes sound and silence through time. A steady beat can support many rhythms; metre groups beats; form organizes larger sections.",
-      "Pitch names how high or low a sound is. Timbre is its tone colour. Dynamics name changes in volume. Texture describes how sound layers combine.",
-      "Graphic notation uses shapes, lines, spacing, symbols, and a key so another performer can follow the composer's intention.",
-      "A performer test reveals whether the score communicates. The composer revises notation or musical structure from evidence—not from a popularity vote.",
+      "Rhythm is a pattern of sounds and silences. Dynamics tell performers when sound becomes louder or softer.",
+      "A graphic score uses marks, spacing, a key, and a timeline instead of standard music notes.",
+      "A new group should be able to follow the score without the composer explaining it. Their pauses show what to fix.",
     ],
     terms: terms(
       ["rhythm", "a pattern of sound lengths and silences", "Tap–tap–silence–brush uses four different time events."],
-      ["timbre", "the tone colour that makes sound sources distinct", "The same rhythm sounds different on a desk, shaker, or voice."],
       ["dynamics", "how soft or loud music is and how volume changes", "The score grows from soft to medium, then stops."],
-      ["texture", "how many sound layers combine and how they relate", "A steady pulse continues beneath two alternating patterns."],
-      ["form", "the larger order of sections", "A–A–B–A repeats one idea, contrasts it, and returns."],
+      ["graphic score", "a picture or symbol map that shows how to perform sound", "Dots mean taps, an empty box means silence, and a line shows time."],
+      ["key", "a guide that explains what each mark means", "The key says a dot means one short tap."],
     ),
     example: {
       title: "Write a 24-second rain-window graphic score another group can perform",
@@ -603,19 +596,17 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
   }),
 
   "rights-in-thirty": support("rights-in-thirty", {
-    purpose: "Compare three dramatic forms, then use one safe form, movement, and optional sound to show a barrier and possible repair without acting out harm.",
+    purpose: "Use focus and a clear transition to show a safe fictional barrier changing into a possible repair.",
     background: [
-      "A right names something people should be able to have, do, or be protected from. A barrier blocks fair access or participation.",
-      "A remedy is an action that removes or reduces the barrier; it should connect directly to the problem shown.",
-      "A tableau sequence uses connected frozen images; a narrated scene links safe action with narration; readers' theatre uses vocal interpretation and little movement. Rehearse one moment in two forms, then choose for intention.",
-      "An audience response tells whether the right, barrier, and repair were understandable—not whether the performance was flashy.",
+      "A barrier blocks fair access or participation. A repair should respond to the exact barrier shown.",
+      "Focus tells the audience where to look. A transition shows how the scene changes from before to after.",
+      "Use a tableau, narrated scene, readers' theatre, or complete storyboard. Work only from the supplied fictional case and do not act out harm.",
     ],
     terms: terms(
       ["barrier", "something in a design or system that blocks access or participation", "Tiny print and stairs-only entry block some people from joining the meeting."],
-      ["dramatic form", "an organized way of shaping a drama", "The group compares a tableau sequence with readers' theatre before choosing."],
       ["tableau", "a frozen image made with bodies or arranged figures", "One figure faces a stairs-only entrance while others gather inside."],
       ["focus", "where the audience is guided to look", "Every figure turns toward the unreadable sign."],
-      ["gesture", "a body or hand movement that communicates an idea", "An open hand points from the barrier to the new route."],
+      ["transition", "the planned change from one moment to the next", "A pathway, pause, or narrator line connects the barrier to the repair."],
     ),
     example: {
       title: "Show access changing at a fictional youth meeting",

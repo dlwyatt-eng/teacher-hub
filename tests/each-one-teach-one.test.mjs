@@ -87,6 +87,27 @@ test("the projector opening remains concise, valid, and instructionally complete
   assert.match(supports.projectorSupportText(support), /revision|revise/i);
 });
 
+test("every ADST pathway resolves to a relevant worked-example set", async () => {
+  const models = await importIsolatedTs("app/proficiency-models.ts");
+  const expected = {
+    "packet-rescue": "inquiry-system-explanation",
+    "search-under-hood": "evidence-and-claim",
+    "access-by-design": "creative-making-reflection",
+    "bloxels-game-studio": "creative-making-reflection",
+    "cold-test-prototype": "creative-making-reflection",
+    "science-design-series": "creative-making-reflection",
+    "each-one-teach-one": "creative-making-reflection",
+    "cosmic-mission-control": "creative-making-reflection",
+  };
+
+  for (const [activityId, setId] of Object.entries(expected)) {
+    assert.ok(
+      models.proficiencyModelSetsForActivity(activityId).some((set) => set.id === setId),
+      `${activityId} does not resolve to ${setId}.`,
+    );
+  }
+});
+
 test("the teacher quick-check exporter stores no responses and stays out of student views", async () => {
   const [builder, learningProgram, models] = await Promise.all([
     read("app/teacher-quick-check-builder.tsx"),
@@ -121,7 +142,9 @@ test("the teacher quick-check exporter stores no responses and stays out of stud
   assert.match(learningProgram.slice(teacherStart, teacherEnd), /<TeacherQuickCheckBuilder/);
   assert.doesNotMatch(learningProgram.slice(studentStart), /<TeacherQuickCheckBuilder/);
   assert.match(learningProgram.slice(teacherStart, teacherEnd), /includePrototypeFeedback=\{experience\.id === "each-one-teach-one"\}/);
-  assert.match(learningProgram.slice(teacherStart, teacherEnd), /<ProficiencyModelsPanel setId="creative-making-reflection" audience="teacher"/);
+  assert.match(learningProgram.slice(teacherStart, teacherEnd), /proficiencyModelSetsForActivity\(experience\.id\)/);
+  assert.match(learningProgram.slice(teacherStart, teacherEnd), /activityModelSets\.map[\s\S]*<ProficiencyModelsPanel setId=\{modelSet\.id\} audience="teacher"/);
+  assert.match(learningProgram.slice(teacherStart, teacherEnd), /SpacesEDU safety check[\s\S]*names or usernames[\s\S]*raw AI output/i);
   assert.doesNotMatch(learningProgram.slice(studentStart), /<ProficiencyModelsPanel/);
   assert.match(models, /spacesEvidenceIds: \[[^\]]*"spaces-june-minecraft"[^\]]*\]/);
 });
