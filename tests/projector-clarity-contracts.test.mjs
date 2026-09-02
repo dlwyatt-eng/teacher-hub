@@ -154,3 +154,12 @@ test("the shared field-guide artwork enriches projector directions without becom
   assert.deepEqual([...artwork.subarray(0, 8)], [137, 80, 78, 71, 13, 10, 26, 10], "The field-guide asset must remain a valid PNG.");
   assert.equal(artwork[25], 6, "The field-guide asset must keep a true alpha channel rather than a fake background.");
 });
+
+test("lesson-part tabs stay readable instead of overflowing behind the projector title", async () => {
+  const css = await read("app/learning-program.css");
+
+  assert.match(
+    css,
+    /@media\(min-width:1101px\)\{\.projector-lesson-player__bar\{grid-template-columns:minmax\(250px,\.8fr\) minmax\(430px,1\.2fr\)\}\.projector-lesson-player__bar nav\{justify-content:flex-start\}\}/,
+  );
+});
