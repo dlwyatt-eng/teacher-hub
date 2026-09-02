@@ -350,3 +350,21 @@
 .social-student-words{padding:16px}
 .social-student-words summary{font-size:17px}
 }
+
+/* Student-facing clarity contract: purpose, current action, and visible finish. */
+.social-learn-do-done{position:relative;isolation:isolate;display:grid;grid-template-columns:1.05fr 1.25fr .8fr;gap:10px;margin:14px 24px 0;overflow:hidden;padding:12px;border:2px solid #b8cbd1;border-radius:16px;background-color:#edf4f5;background-image:linear-gradient(90deg,#edf4f5e8,#f7faf8f2,#edf4f5e8),url("/images/classroom-field-guide-trail-v1.png");background-repeat:no-repeat;background-position:center,center bottom;background-size:cover,100% auto}
+.social-learn-do-done article{position:relative;z-index:1;min-width:0;padding:13px 14px;border-radius:11px;background:#fffffff2;box-shadow:0 4px 13px #1638480d}
+.social-learn-do-done article:nth-child(1){border-top:5px solid #4f7892}
+.social-learn-do-done article:nth-child(2){border-top:5px solid #bc7d2a}
+.social-learn-do-done article:nth-child(3){border-top:5px solid #4e7d5b}
+.social-learn-do-done small{display:block;color:#496873;font-size:9px;font-weight:950;letter-spacing:.09em}
+.social-learn-do-done strong{display:block;margin-top:6px;color:#203945;font-size:14px;line-height:1.45}
+.social-scene-layout.social-scene-layout--lean{display:block;padding:16px 24px;background:#edf3f5}
+.social-scene-layout.social-scene-layout--lean>nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:9px}
+.social-scene-layout.social-scene-layout--lean>nav button{min-width:0}
+
+@media(max-width:800px){.social-learn-do-done{grid-template-columns:1fr;background-size:cover,auto 180px}}
+@media(max-width:600px){.social-learn-do-done{margin-left:8px;margin-right:8px;padding:8px}.social-scene-layout.social-scene-layout--lean{padding:10px}.social-scene-layout.social-scene-layout--lean>nav{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.social-learn-do-done{background-attachment:scroll}}
+@media(forced-colors:active){.social-learn-do-done,.social-learn-do-done article{border-color:CanvasText;background:Canvas;color:CanvasText}.social-learn-do-done{background-image:none}.social-learn-do-done :is(small,strong){color:CanvasText}}
+@media print{.social-learn-do-done{background:#fff;background-image:none;break-inside:avoid}.social-learn-do-done article{border:1px solid #222;background:#fff;box-shadow:none}}

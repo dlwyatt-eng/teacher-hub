@@ -1234,6 +1234,18 @@
   min-width: 0;
 }
 
+/* The Civic route has five parts. Give its navigation and action their own
+   full-width rows instead of squeezing both into the shared two-column rail. */
+.social-scene-layout.cdb-scene-navigation {
+  display: block;
+  padding: 20px 26px 0;
+  background: transparent;
+}
+
+.social-scene-layout.cdb-scene-navigation > .social-scene-action {
+  margin-top: 14px;
+}
+
 .social-scene-layout.cdb-scene-navigation > nav,
 .projector-shell .social-scene-layout.cdb-scene-navigation > nav {
   position: static;

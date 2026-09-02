@@ -22,6 +22,7 @@ import CurrentConnectionPlayer from "./current-connection";
 import { currentConnectionForLesson } from "./current-connections";
 import { issueInvestigationsForLesson } from "./issue-investigations";
 import { SurreyElectionBridge, SurreyElectionPacing } from "./surrey-election-2026";
+import { ConcentratedPowerOverlay, FairSocietyStudio, NationGovernanceTransfer, PowerCheckCard, PowerInquiryThread, PowerTermBank } from "./power-inquiry";
 import "./social-studies.css";
 import "./social-unit1.css";
 import "./social-unit2.css";
@@ -84,8 +85,8 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
   },
   "trace-the-claim": {
     question: "How can we check a post before we believe or share it?",
-    learning: "We are learning to tell what a source really shows—and what it does not show.",
-    success: ["I can pause before I share.", "I can find the truth and explain which evidence makes it believable.", "I can find the first source and point to the exact proof."],
+    learning: "We are learning to check what a source shows, who shaped it, what it leaves out, and what another source must confirm.",
+    success: ["I can pause before I share.", "I can find the first source and point to exact proof.", "I can explain how an account can use true facts and still guide what people notice."],
     scenes: [
       { title: "Pause before you share", action: "Read the field-trip post. Find the words that push you to react and the proof that is missing.", product: "Three clues to pause and one respectful reply" },
       { title: "Quick game: Two Lies and a Truth", action: "This is one practice game inside Trace the Claim. Read the source, show A, B, or C for the statement it proves, and point to the exact word or number that helped you.", product: "Three spoken choices supported by something students can point to; no writing or handout" },
@@ -128,13 +129,13 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
   },
   "compare-government-systems": {
     question: "How can different government systems change who decides and how people respond?",
-    learning: "We are learning to compare how systems share power, make decisions, protect rights, and correct mistakes.",
-    success: ["I can use the same questions to compare systems.", "I can explain a strength and a cost without saying faster is always better.", "I can remember that real countries are more complex than a simple model."],
+    learning: "We are learning to use the same questions to compare formal rules and how power works in practice.",
+    success: ["I can use the same questions to compare systems.", "I can explain who controls decisions, resources, and information and who can challenge them.", "I can explain a trade-off without turning a country into a good/bad label."],
     scenes: [
       { title: "A water decision cannot wait", action: "Study the fictional emergency. Protect essential needs and predict which decision rule may act well.", product: "A first response and one question" },
       { title: "Run the decision relay", action: "Move the same emergency through three simplified decision models. Rotate roles and cross-teach your path.", product: "One team decision path and oral cross-teach" },
       { title: "Build the trade-off scoreboard", action: "Place each model for speed, public voice, clear reasons, rights checks, and correction. Point to evidence for every placement.", product: "A class comparison wall and one defended trade-off" },
-      { title: "Build Canada as a system stack", action: "Layer representative democracy, Parliament, constitutional monarchy, federalism, the Charter, courts, media, and public participation.", product: "A Canada system stack and one corrected oversimplification" },
+      { title: "Compare real systems with the same questions", action: "Use evidence to ask who chooses leaders, who can organize or challenge, who controls money and information, which rights are protected, and which relationships and responsibilities are recognized.", product: "One fair comparison, one contradiction, and one limit in the evidence" },
     ],
   },
   "rights-in-tension": {
@@ -157,7 +158,7 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
       { title: "Build one civic case wall", action: "Use three sources that do different jobs. Connect authority, influence, rights, affected people, and a missing voice.", product: "A shared civic case wall" },
       { title: "Put options under pressure", action: "Rotate through effectiveness, rights, consequences, safeguards, and review. Improve more than one possible response.", product: "A challenged and improved set of options" },
       { title: "Hold a 90-second civic hearing", action: "Teach your recommendation in an approved format, answer one panel question, and revise one feature.", product: "A final team artifact or link" },
-      { title: "Show your own thinking", action: "Explain what changed your mind, what you contributed, and one responsible way people could take part.", product: "Your own SpacesEDU reflection" },
+      { title: "Design a fair society, then show your thinking", action: "Complete the society decision board, choose one pressure test, and revise one rule. Then explain what changed your mind, what you contributed, and how an ordinary person could take part.", product: "A tested society design and your own SpacesEDU reflection" },
     ],
   },
   "city-moves": {
@@ -258,6 +259,11 @@ const socialWordHelp: Record<string, string> = {
   unceded: "not given up through a treaty or agreement",
   claim: "an idea someone says is true",
   "original source": "the first report, data, image, or statement behind a claim",
+  framing: "choices about what to include, leave out, picture, and put first",
+  bias: "a tendency that makes some ideas, evidence, or people easier to notice; it does not make every fact false",
+  misinformation: "false or misleading information shared by someone who believes it or has not checked it",
+  disinformation: "false or misleading information deliberately created or shared to deceive",
+  propaganda: "organized messages that push a group toward a belief or action, often using emotion, repetition, symbols, and selected information",
   corroborate: "check whether another independent source supports the same idea",
   context: "details that help information make sense",
   reliable: "worthy of trust for this purpose",
@@ -282,6 +288,10 @@ const socialWordHelp: Record<string, string> = {
   accountability: "having to explain decisions and answer for their effects",
   influence: "the ability to shape a choice without making the final decision",
   democracy: "a system in which people have ways to choose leaders and take part",
+  oligarchy: "a system or situation in which a small group holds much more power than most people",
+  "political power": "power to make, change, carry out, or challenge public decisions",
+  "economic power": "influence that comes through money, work, land, ownership, or resources",
+  "information power": "influence over what people can see, hear, know, or easily find",
   authoritarian: "a system where power is held by one leader or a small group with few checks",
   constitutional: "limited and guided by a constitution or basic laws",
   federal: "power is shared between a national government and provinces or states",
@@ -443,6 +453,7 @@ export function SocialStudiesStudentLaunch({ lessonId, onLesson, scene, onScene 
   return (
     <section className="social-student-launch world-surface" data-world={theme.id} style={worldStyle(theme)}>
       <header className="social-projector-header"><div><small>SOCIAL STUDIES · {unit ? `UNIT ${unit.number}` : "INQUIRY"} · PART {scene + 1}</small><h1>{lesson.title}</h1><p>{contract?.challenge ?? copy?.question ?? lesson.question}</p></div><button type="button" onClick={scrollToMap}>Change lesson</button></header>
+      {scene === 0 && <PowerInquiryThread unitId={lesson.unitId} compact />}
       {lesson.unitId === "power-rights-government" && scene === 0 && <CivicReasoningRoute compact />}
       {scene === 0 && currentConnection && <details className="social-source-drawer"><summary><span><small>OPTIONAL SOURCE</small><strong>Open today&apos;s Source Lab</strong></span><b>Open ▾</b></summary><CurrentConnectionPlayer connection={currentConnection} /></details>}
       {scene === 0 && <SurreyElectionBridge lessonId={lesson.id} audience="student" />}
@@ -463,6 +474,7 @@ function SocialUnitsOverview({ onLesson }: { onLesson: (id: string) => void }) {
     <div className="social-program">
       <section className="social-heading"><div><span className="recent-section-badge">● FOUR SOCIAL STUDIES UNITS · AUG. 14</span><p className="section-kicker">SEPTEMBER–FEBRUARY SOCIAL STUDIES PLAN</p><h2>Four units. One connected inquiry arc.</h2><p>Each unit has games, movement, physical models, source comparisons, simulations, making, and audience testing. Most practice stays in the room; SpacesEDU holds selected portfolio evidence.</p></div><span>BUILD, TEACH, ADJUST</span></section>
       <section className="social-inquiry-arc"><div><small>SUPPORTED INQUIRY</small><strong>Read sources carefully</strong></div><b>→</b><div><small>GUIDED CASES</small><strong>Compare evidence and perspectives</strong></div><b>→</b><div><small>EXPERT TEAMS</small><strong>Investigate and teach</strong></div><b>→</b><div><small>SOLUTIONARY</small><strong>Consider responsible action</strong></div></section>
+      <PowerInquiryThread />
       <SocialInquiryOverview compact />
       <WorldAtlasIntroduction />
       <div className="social-unit-map">{socialUnits.map((unit) => {
@@ -517,6 +529,7 @@ function SocialLessons({ selected, onLesson, scene, onScene }: { selected: Socia
     <div className="social-program social-lessons-page world-surface" data-world={theme.id} style={worldStyle(theme)}>
       <WorldContextBand theme={theme} teacher />
       <SocialUnitSwitcher currentUnitId={selected.unitId} onLesson={onLesson} />
+      <PowerInquiryThread unitId={selected.unitId} compact />
       {selected.unitId === "power-rights-government" && <CivicEvidencePathway currentLessonId={selected.id} onLesson={onLesson} />}
       <details className="social-lesson-picker-drawer">
         <summary><span><small>CURRENT LESSON</small><strong>{socialLessons.findIndex((item) => item.id === selected.id) + 1}. {selected.title}</strong></span><b>Change lesson ▾</b></summary>
@@ -556,6 +569,7 @@ function SocialLessons({ selected, onLesson, scene, onScene }: { selected: Socia
           dayPlanLesson={{ sourceId: selected.id, subject: "Social Studies", title: selected.title, timing: selected.duration, runSteps: plannedRunSteps.map((step) => `${step.title}: ${step.action}`), notes: civicDelivery?.continuity }}
         />
         {civicDelivery && <details className="teacher-planning-details civic-full-preview"><summary><span><small>FULL PREP + PRINT</small><strong>Preview the exact projector lesson and teacher-only cues</strong></span><b>Open ▾</b></summary><div><p className="civic-preview-note">Use this preview to test each part, print in-lesson materials, and prepare the handoff. Teacher-only guidance remains outside the student view.</p><SocialStudentLab lessonId={selected.id} scene={scene} audience="teacher" /></div></details>}
+        {selected.id === "civic-decision-brief" && <details className="teacher-planning-details"><summary><span><small>CULMINATING TRANSFER</small><strong>Design a Fair Society · teacher preview</strong></span><b>Open ▾</b></summary><div><FairSocietyStudio teacher /></div></details>}
         <details className="teacher-planning-details">
           <summary><span><small>MORE DETAIL</small><strong>Sources, misconceptions, and assessment notes</strong></span><b>Open ▾</b></summary>
           <div>
@@ -563,6 +577,7 @@ function SocialLessons({ selected, onLesson, scene, onScene }: { selected: Socia
               <article><h3>Teacher moves</h3><ul>{selected.teacherMoves.map((item) => <li key={item}>{item}</li>)}</ul></article>
               <article><h3>Look-fors & misconceptions</h3><ul>{selected.lookFors.map((item) => <li key={item}>{item}</li>)}</ul><details><summary>Common misconceptions</summary>{selected.misconceptions.map((item) => <p key={item}>• {item}</p>)}</details></article>
             </section>
+            <PowerTermBank />
             <section className={`social-evidence ${selected.evidenceLevel.toLowerCase().replaceAll(" ", "-")}`} data-spaces={spaces.decision}><span>{selected.evidenceLevel}</span><div><strong>{selected.evidenceSubjects.join(" · ")}</strong><small className="social-spaces-status">{spaces.decision === "required" ? "REGISTERED PORTFOLIO" : spaces.decision === "reuse" ? "FEEDS REGISTERED POST · NO NEW POST" : spaces.decision === "optional" ? "OPTIONAL PORTFOLIO EVIDENCE" : "IN-CLASS EVIDENCE"}</small><p>{spaces.teacherPrompt}</p>{spaces.activityPrompt && <p><b>Activity-specific evidence:</b> {spaces.activityPrompt}</p>}</div></section>
             <section className="social-resource-cards"><small>PURPOSEFUL SOURCES</small>{selected.resources.map((resource) => <a href={resource.url} target="_blank" rel="noreferrer" key={resource.url}><span>↗</span><div><small>{resource.gradeFit} · {resource.source}</small><strong>{resource.label}</strong><p>{resource.purpose}</p></div></a>)}</section>
           </div>
@@ -599,6 +614,11 @@ function SocialResources() {
   return <div className="social-program"><section className="social-heading"><div><p className="section-kicker">PURPOSEFUL SOURCES · RECHECK BEFORE TEACHING</p><h2>Every link has a named job.</h2><p>Sources are labelled for intended Grade 6 use, but live pages can move or change. Reopen each assigned source, save the needed excerpt or screenshot, and prepare an offline route before class. Teacher-preview items are not assigned without adaptation.</p></div><span>{resources.length} UNIT 1–4 LINKS</span></section><div className="social-resource-index">{resources.map((resource) => <a href={resource.url} target="_blank" rel="noreferrer" key={`${resource.lesson}-${resource.url}`}><small>{resource.gradeFit} · {resource.lesson}</small><strong>{resource.label}</strong><p>{resource.purpose}</p><b>{resource.source} ↗</b></a>)}</div></div>;
 }
 
+function socialLearningLine(text: string) {
+  const firstSentence = text.split(/(?<=[.!?])\s+/)[0] ?? text;
+  return firstSentence.replace(/^We are learning\s+(?:to\s+)?/i, "");
+}
+
 function SocialStudentLesson({ lesson, scene, onScene }: { lesson: SocialLesson; scene: number; onScene: (scene: number) => void }) {
   const current = lesson.scenes[scene];
   const copy = studentLessonCopy[lesson.id];
@@ -606,12 +626,16 @@ function SocialStudentLesson({ lesson, scene, onScene }: { lesson: SocialLesson;
   const studentResources = lesson.id === "maps-make-arguments" ? [] : lesson.resources.filter((resource) => resource.gradeFit !== "Teacher preview");
   const spaces = socialSpacesDisplay(lesson);
   const contract = isReviewedStudentLessonId(lesson.id) ? resolveStudentLessonContract(lesson.id) : null;
+  const learningLine = socialLearningLine(contract?.why ?? copy?.learning ?? lesson.learning);
   const companionRole = socialCompanionRole(scene, lesson.scenes.length);
   return (
     <article className="social-student-lesson" id="social-mission">
-        <div className={`social-scene-layout social-scene-layout--lean ${lesson.id === "rights-in-tension" ? "civic-scene-navigation" : lesson.id === "civic-decision-brief" ? "cdb-scene-navigation" : ""}`}><nav aria-label={`${lesson.title} parts`}>{lesson.scenes.map((item, index) => <button type="button" key={item.title} className={scene === index ? "selected" : ""} aria-current={scene === index ? "step" : undefined} onClick={() => onScene(index)}><b>{index + 1}</b><span><small>PART {index + 1}</small><strong>{copy?.scenes[index]?.title ?? item.title}</strong></span></button>)}</nav>{lesson.id !== "rights-in-tension" && <section className="social-scene-action"><small>DO</small><strong>{studentScene?.action ?? current.prompt}</strong><span><b>READY WHEN</b>{studentScene?.product ?? current.studentTask}</span></section>}</div>
+        <div className={`social-scene-layout social-scene-layout--lean ${lesson.id === "rights-in-tension" ? "civic-scene-navigation" : lesson.id === "civic-decision-brief" ? "cdb-scene-navigation" : ""}`}><nav aria-label={`${lesson.title} parts`}>{lesson.scenes.map((item, index) => <button type="button" key={item.title} className={scene === index ? "selected" : ""} aria-current={scene === index ? "step" : undefined} onClick={() => onScene(index)}><b>{index + 1}</b><span><small>PART {index + 1}</small><strong>{copy?.scenes[index]?.title ?? item.title}</strong></span></button>)}</nav></div>
+        <section className="social-learn-do-done" aria-label="Lesson goal, action, and finish check"><article data-learning-phase="learn"><small>WE ARE LEARNING</small><strong>{learningLine}</strong></article><article data-learning-phase="do"><small>DO THIS</small><strong>{studentScene?.action ?? current.prompt}</strong></article><article data-learning-phase="done"><small>YOU'RE DONE WHEN</small><strong>{studentScene?.product ?? current.studentTask}</strong></article></section>
         <Suspense fallback={null}><ClassroomCompanion key={`${lesson.id}-${scene}`} role={companionRole} density="compact" motion="once" className="social-scene-companion" /></Suspense>
         <SocialStudentLab lessonId={lesson.id} scene={scene} />
+        <PowerCheckCard compact quick />
+        {lesson.id === "civic-decision-brief" && scene === lesson.scenes.length - 1 && <FairSocietyStudio />}
         <details className="social-help-drawer"><summary><span><small>HELP</small><strong>Words, sources, and finish check</strong></span><b>Open ▾</b></summary><div><section><small>FINISH</small>{(contract?.finishEvidence ?? copy?.success ?? lesson.success).slice(0, 2).map((item) => <p key={item}>✓ {item}</p>)}{(spaces.decision === "required" || spaces.decision === "reuse") && <p><b>SpacesEDU:</b> {contract?.saveAction.message ?? spaces.studentPrompt}</p>}</section><section className="social-help-words">{lesson.vocabulary.map((word) => <details key={word}><summary>{word}<span>＋</span></summary><p>{socialWordHelp[word.toLowerCase()]}</p></details>)}</section>{studentResources.length > 0 && <section className="social-resource-cards">{studentResources.map((resource) => <a href={resource.url} target="_blank" rel="noreferrer" key={resource.url}><span>↗</span><div><small>{resource.source}</small><strong>{resource.label}</strong></div></a>)}</section>}</div></details>
     </article>
   );
@@ -954,8 +978,8 @@ function GovernmentSystemsLab({ scene, audience }: { scene: number; audience: "t
   const selected = unit2ScenarioCards.systems[system];
   if (scene === 0) return <LabFrame className="unit2-government-lab" eyebrow="WATER EMERGENCY RELAY" title="A decision cannot wait." prompt="A damaged water main has cut the community’s supply. Hospitals, homes, schools, and businesses need a plan. What information must leaders know before acting?" footer="Make a prediction, but keep one question open until you test the decision models."><figure className="water-emergency-visual"><Image unoptimized src="/images/unit2-water-emergency-v1.webp" alt="Generated fictional water emergency scene with repair crews, a water tower, essential services, and residents collecting water" width={1672} height={941} /><figcaption>GENERATED FICTIONAL COMMUNITY · NOT A REAL EMERGENCY OR PLACE</figcaption></figure><div className="water-emergency-scene"><div><small>FICTIONAL COMMUNITY · 8:10 A.M.</small><h4>Only 40% of the usual water supply is available.</h4><p>Repair time is uncertain. The hospital needs protected supply. Families need drinking water. Schools and businesses need clear instructions.</p></div><ol><li>Protect essential needs</li><li>Make a decision</li><li>Explain it publicly</li><li>Allow a way to correct mistakes</li></ol></div><div className="leave-screen-callout"><b>{audience === "teacher" ? "DO NOT REVEAL A BEST SYSTEM" : "MAKE A FIRST PREDICTION"}</b><span>Which matters first: speed, voice, clear reasons, rights, or correction? You will need all five by the end.</span></div></LabFrame>;
   if (scene === 1) return <LabFrame eyebrow="DECISION-PATH RELAY" title="Build the path before the timer ends." prompt="Choose a simplified decision model. Arrange its four steps, rotate roles, and move the water-response card from warning to review." footer="These are models for comparison—not complete descriptions of real countries."><nav className="system-model-tabs" aria-label="Choose a decision model">{unit2ScenarioCards.systems.map((item, index) => <button key={item.name} className={system === index ? "selected" : ""} onClick={() => setSystem(index)}>{item.name}</button>)}</nav><div className="decision-path"><header><small>MODEL {system + 1}</small><h4>{selected.name}</h4><p>{selected.tradeoff}</p></header><div>{selected.route.map((step, index) => <article key={step}><b>{index + 1}</b><strong>{step}</strong></article>)}</div></div></LabFrame>;
-  if (scene === 2) return <LabFrame eyebrow="TRADE-OFF SCOREBOARD" title="Fast for whom? Accountable to whom?" prompt="Use evidence from the relay. Place each model—not a real country—on the class comparison wall." footer="Every claim must name a feature of the decision path that supports it."><div className="systems-scoreboard">{["SPEED", "PUBLIC VOICE", "CLEAR REASONS", "RIGHTS CHECK", "WAY TO CORRECT"].map((item) => <article key={item}><strong>{item}</strong><span>Low</span><i></i><i></i><i></i><i></i><i></i><span>High</span></article>)}</div><div className="leave-screen-callout"><b>NO SINGLE TOTAL SCORE</b><span>A model can be strong on one criterion and weak on another. Explain the trade-off.</span></div></LabFrame>;
-  return <LabFrame eyebrow="CANADA IS A LAYERED SYSTEM" title="Real governments do not fit one simple box." prompt="Build Canada as a stack of connected features, then revise one claim that treats a whole country like a single classroom model." footer="Compare mechanisms, not stereotypes about people or countries."><div className="canada-system-stack">{["REPRESENTATIVE PARLIAMENTARY DEMOCRACY", "CONSTITUTIONAL MONARCHY", "FEDERALISM: SHARED LEVELS OF GOVERNMENT", "CHARTER, COURTS, OPPOSITION, MEDIA, AND PUBLIC PARTICIPATION"].map((item, index) => <article key={item}><b>{index + 1}</b><strong>{item}</strong></article>)}</div><a className="official-game-link" href="https://learn.parl.ca/en/games/game4/index.html" target="_blank" rel="noreferrer">Play Parliament of Canada’s Levels of Government game ↗</a></LabFrame>;
+  if (scene === 2) return <LabFrame eyebrow="TRADE-OFF SCOREBOARD" title="Fast for whom? Accountable to whom?" prompt="Use evidence from the relay. Place each model—not a real country—on the class comparison wall." footer="Every claim must name a feature of the decision path that supports it."><div className="systems-scoreboard">{["SPEED", "PUBLIC VOICE", "CLEAR REASONS", "RIGHTS CHECK", "WAY TO CORRECT"].map((item) => <article key={item}><strong>{item}</strong><span>Low</span><i></i><i></i><i></i><i></i><i></i><span>High</span></article>)}</div><ConcentratedPowerOverlay /><div className="leave-screen-callout"><b>NO SINGLE TOTAL SCORE</b><span>A model can be strong on one criterion and weak on another. Explain the trade-off.</span></div></LabFrame>;
+  return <LabFrame eyebrow="REAL SYSTEMS ARE LAYERED" title="A country does not fit one simple box." prompt="Use the same questions for Canada and every other evidence-rich case. Separate the formal rules from how power works in practice." footer="Compare mechanisms, not stereotypes about people or countries."><div className="canada-system-stack">{["WHO CHOOSES AND REMOVES LEADERS?", "WHO CAN SPEAK, ORGANIZE, VOTE, PROTEST, OR CHALLENGE?", "WHO CONTROLS MONEY, LAND, WORK, RESOURCES, AND MAJOR INFORMATION?", "WHICH RIGHTS, CHECKS, RELATIONSHIPS, AND RESPONSIBILITIES ARE RECOGNIZED?"].map((item, index) => <article key={item}><b>{index + 1}</b><strong>{item}</strong></article>)}</div><ConcentratedPowerOverlay /><NationGovernanceTransfer /><a className="official-game-link" href="https://learn.parl.ca/en/games/game4/index.html" target="_blank" rel="noreferrer">Play Parliament of Canada’s Levels of Government game ↗</a></LabFrame>;
 }
 
 function PerspectiveSimulator({ scene }: { scene: number }) {

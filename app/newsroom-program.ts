@@ -6,7 +6,7 @@ export const newsroomProgram = {
   shared: {
     eyebrow: "SOURCE LAB & NEWSROOM · CURRENT + HISTORICAL",
     title: "Source Lab & Newsroom",
-    bigQuestion: "What does this source show—and what would we need to check before believing more?",
+    bigQuestion: "What does this source show, who shaped it, and what should we check before believing more?",
     summary: "Begin with one real photograph, map, graph, quotation, headline, short text, or video. Students examine it together before they receive an explanation, make a claim, or decide what to investigate next.",
     cadence: "Use a Quick Look for an 8–12 minute source conversation or a Deep Dive when the source deserves comparison, research, or a longer response.",
     sourcePromise: "Every source is visible, named, dated when possible, and linked to its publisher or archive. Current sources receive a review date; historical sources keep their archive credit and context.",
@@ -18,8 +18,8 @@ export const newsroomProgram = {
       { id: "watch", label: "LOOK", title: "Meet the source", prompt: "Study it quietly once. What is literally here before anyone explains it?" },
       { id: "notice", label: "NOTICE", title: "Collect clues", prompt: "Point to exact words, dates, numbers, labels, objects, sounds, or visible details." },
       { id: "question", label: "CLAIM", title: "Make a careful first idea", prompt: "What might the source show or suggest? What question or uncertainty must stay attached?" },
-      { id: "discuss", label: "COMPARE", title: "Test the idea with other people", prompt: "In a pair or team, compare interpretations. Which clues support each idea, and where are we relying on assumptions?" },
-      { id: "investigate", label: "CHECK", title: "Open the source record", prompt: "Who made it, when, for what purpose, and what changes after reading its caption, context, data notes, or another source?" },
+      { id: "discuss", label: "COMPARE", title: "Test the idea with other people", prompt: "Compare another interpretation or account. Which facts are shared? What was included, skipped, pictured, or put first?" },
+      { id: "investigate", label: "CHECK", title: "Open the source record", prompt: "Who made it, who funds or owns it, when, for what audience and purpose? What changes after reading its full context or another source?" },
       { id: "imagine", label: "NEXT", title: "Choose how this source ends", prompt: "Revise the claim, stop after a useful discussion, save a strong question, or continue into research, writing, data, art, design, or action." },
     ] satisfies readonly { id: NewsroomRoutineId; label: string; title: string; prompt: string }[],
     endings: [
@@ -69,6 +69,9 @@ export const newsroomProgram = {
       { label: "Surrey then-and-now tools", url: "https://www.surrey.ca/arts-culture/heritage/online-heritage-tools", use: "Use a historic image, time-lapse, or 1949/1966 map to compare place across time." },
       { label: "Surrey Schools", url: "https://www.surreyschools.ca/", use: "Check school and district information at its official source before presenting it as current." },
       { label: "Statistics Canada", url: "https://www.statcan.gc.ca/en/start", use: "Use dated official data when a story needs scale, trend, or comparison." },
+      { label: "Elections Canada · Digital Skills for Democracy", url: "https://electionsanddemocracy.ca/digital-skills-democracy", use: "Use the non-partisan verification sequence and classroom-ready source checks for a deeper media investigation." },
+      { label: "MediaSmarts · Reading Media", url: "https://mediasmarts.ca/teacher-resources/reading-media", use: "Teach how construction, framing, audience, ownership, and commercial purpose shape a media message." },
+      { label: "Canadian Centre for Cyber Security", url: "https://www.cyber.gc.ca/en/guidance/how-identify-misinformation-disinformation-and-malinformation-itsap00300", use: "Check official Canadian definitions before distinguishing misinformation, disinformation, and other misleading information." },
     ],
     clueGamePreflight: [
       "Preview the exact round before class, including the first image, controls, reveal, and next-screen behaviour.",

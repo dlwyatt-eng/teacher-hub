@@ -7,6 +7,7 @@ import { issueInvestigations } from "./issue-investigations";
 import { newsroomProgram } from "./newsroom-program";
 import { printClosest } from "./print-support";
 import { socialInquiryProject } from "./social-program";
+import { PowerCheckCard, SameEventSourceLab } from "./power-inquiry";
 import "./student-agency-hub.css";
 import "./current-connection.css";
 
@@ -66,6 +67,12 @@ export function NewsroomHub({ audience, onHome, onInquiry, onAiStudio }: { audie
 
       <section className="newsroom-feature-intro"><div><small>2 · OPEN THE SOURCE · {feature.publicWindow?.topic ?? "CURRENT CONNECTION"}</small><h2>{feature.title}</h2><p>{feature.publicWindow?.studentFirstMove ?? newsroomProgram.student.firstMove}</p></div><span>CHECKED {feature.checkedOn}<b>REVIEW BY {feature.reviewBy}</b></span></section>
       <CurrentConnectionPlayer key={sourceRoute} connection={feature} audience={audience} route={sourceRoute} />
+
+      <details className="newsroom-secondary newsroom-media-framing" open={sourceRoute === "deep" ? true : undefined}>
+        <summary>Deep Dive practice: one event, eight different media frames</summary>
+        <SameEventSourceLab />
+        <PowerCheckCard title="Power Check the information" />
+      </details>
 
       <IssueInvestigationShelf audience={audience} />
 

@@ -1,0 +1,50 @@
+/* Projector and offline refinements for the recurring Social Studies inquiry. */
+.same-event-record>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:13px}
+.same-event-record article{padding:13px;border-radius:10px;background:#eff5f5}
+.same-event-record h4{margin:0;color:#2c6370;font-size:10px;letter-spacing:.08em}
+.same-event-record ol{columns:auto;margin:10px 0 0;padding-left:20px}
+.same-event-record--print,.same-event-print-sources,.fair-society-print-tests{display:none!important}
+
+.same-event-source-tabs small{color:#415963;font-size:11px}
+.same-event-source-tabs strong{font-size:14px}
+.same-event-source-start{margin:0 15px 15px;padding:22px;border:2px dashed #72939c;border-radius:16px;background:#fff}
+.same-event-source-start small{color:#386a75;font-size:10px;font-weight:950;letter-spacing:.08em}
+.same-event-source-start h3{margin:6px 0;font:700 25px Georgia,serif}
+.same-event-source-start p{margin:0;color:#425e68;font-size:15px;line-height:1.5}
+.same-event-source-card>header small{font-size:11px}
+.same-event-source-card>header>span{font-size:14px}
+.same-event-source-meta p,.same-event-analysis p{font-size:15px}
+.same-event-source-meta b,.same-event-analysis b{font-size:10px}
+.same-event-routine article>b{font-size:10px}
+.same-event-routine strong{font-size:11px}
+.same-event-routine p{color:#405a64;font-size:13px}
+.same-event-lab>footer span{font-size:14px}
+
+.power-thread--compact>header p{display:none}
+.power-thread--compact>header{padding:14px 18px}
+.power-thread--compact h2{font-size:clamp(20px,2.1vw,28px)}
+.power-thread--compact .power-lens-grid{gap:7px;padding:8px}
+.power-thread--compact .power-lens-grid>article{grid-template-columns:28px 1fr;gap:8px;padding:8px}
+.power-thread--compact .power-lens-grid>article>span{width:28px;height:28px}
+.power-thread--compact .power-lens-grid strong{font-size:15px}
+.power-thread--compact .power-lens-grid p{margin:3px 0 0;font-size:12px}
+
+@media(max-width:820px){.same-event-record>div{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.same-event-record>div{grid-template-columns:1fr}}
+
+@media print{
+  .same-event-source-tabs,.same-event-record-toggle,.same-event-reveal,.same-event-record--screen,.same-event-source-card,.same-event-source-start,.fair-society-pressure nav,.fair-society-pressure>article{display:none!important}
+  .same-event-record--print,.same-event-print-sources,.fair-society-print-tests{display:block!important}
+  .same-event-lab{margin:0;box-shadow:none;break-inside:auto!important}
+  .same-event-print-sources>article{margin:10pt 0;padding:10pt;border:1px solid #555;break-inside:avoid}
+  .same-event-print-sources header{display:grid;grid-template-columns:1fr auto;gap:3pt 10pt}
+  .same-event-print-sources header small,.same-event-print-sources header h3{grid-column:1}
+  .same-event-print-sources h3{margin:2pt 0;font-size:16pt}
+  .same-event-print-sources p{font-size:10pt;line-height:1.4}
+  .same-event-print-sources dl{display:grid;grid-template-columns:1fr 1fr;gap:5pt}
+  .same-event-print-sources dl div{padding:5pt;background:#f5f5f5}
+  .same-event-print-sources dt{font-size:8pt;font-weight:800}
+  .same-event-print-sources dd{margin:2pt 0 0;font-size:9pt}
+  .fair-society-print-tests{padding-left:22pt}
+  .fair-society-print-tests li{margin:6pt 0}
+}
