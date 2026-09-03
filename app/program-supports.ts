@@ -59,10 +59,10 @@ const exactStudentSteps: Record<string, string[]> = {
     "Draw the simplified system and explain the request, server, packets, routers, routes, check, and repair. Name one way the model is simpler than a real network.",
   ],
   "magnitude-gallery": [
-    "Place each number near a useful benchmark before you calculate anything.",
-    "Zoom between the four number lines. Say what each scale can and cannot show.",
-    "Put six numbers in order and defend the two placements most likely to fool someone.",
-    "Create one exact visual comparison that makes a surprising size difference clear.",
+    "Start with 0.8 on the 0-to-1 line. Read both endpoints and work out one equal jump.",
+    "Predict, reveal, and repair the location. Keep the number fixed while changing the endpoint twice.",
+    "Repeat the read, predict, reveal, and scale-change routine with one millions-or-billions card.",
+    "Draw the same number on two equal-length lines with different endpoints and explain why its spot changed.",
   ],
   "zoo-design-studio": [
     "Finish the polygon, perimeter/formula, and area workshops your teacher opens. Keep the check beside your design page.",
@@ -439,7 +439,7 @@ export const experienceKits: Record<string, ExperienceKit> = {
     setupMinutes: 4,
     provided: ["Interactive number-line lab", "Mixed-up number cards", "Accurate zoom scales", "Immediate placement checks"],
     gather: ["Board or scrap paper", "Pencils or markers"],
-    shortRoute: "Repair the decimal trio, place the billion cards on one accurate scale, and explain one surprising position.",
+    shortRoute: "Test 0.8 on two decimal scales, test one billion card, and finish one labelled two-line comparison.",
     cards: [
       { title: "NUMBER CARDS A", body: "0.004 · 0.04 · 0.4 · 4 · 40 · 400" },
       { title: "NUMBER CARDS B", body: "4,000 · 40,000 · 4,000,000 · 4,000,000,000" },

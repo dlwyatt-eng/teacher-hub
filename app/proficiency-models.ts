@@ -1,3 +1,8 @@
+import { mathProficiencyModelSets } from "./proficiency-models-math";
+import { careerProficiencyModelSets } from "./proficiency-models-career";
+import { elaProficiencyModelSets } from "./proficiency-models-ela";
+import { pheProficiencyModelSets } from "./proficiency-models-phe";
+
 export const proficiencyLevels = ["Emerging", "Developing", "Proficient", "Extending"] as const;
 
 export type ProficiencyLevel = (typeof proficiencyLevels)[number];
@@ -307,6 +312,10 @@ export const proficiencyModelSets = [
       },
     ],
   },
+  ...mathProficiencyModelSets,
+  ...elaProficiencyModelSets,
+  ...careerProficiencyModelSets,
+  ...pheProficiencyModelSets,
 ] as const satisfies readonly ProficiencyModelSet[];
 
 export type ProficiencyModelSetId = (typeof proficiencyModelSets)[number]["id"];

@@ -3,17 +3,13 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { importIsolatedTsFile } from "./helpers/import-isolated-ts.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (relativePath) => readFile(path.join(root, relativePath), "utf8");
 
 async function importIsolatedTs(relativePath) {
-  const [{ default: ts }, source] = await Promise.all([import("typescript"), read(relativePath)]);
-  const compiled = ts.transpileModule(source, {
-    compilerOptions: { module: ts.ModuleKind.ES2022, target: ts.ScriptTarget.ES2022 },
-    fileName: relativePath,
-  }).outputText;
-  return import(`data:text/javascript;base64,${Buffer.from(compiled).toString("base64")}`);
+  return importIsolatedTsFile(root, relativePath);
 }
 
 async function importIntegratedPrograms() {

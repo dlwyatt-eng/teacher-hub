@@ -13,6 +13,7 @@
   --scale-border: #8ba7b2;
   --scale-focus: #ffcf4d;
   position: relative;
+  container-type: inline-size;
   margin: 26px;
   overflow: hidden;
   border: 3px solid var(--scale-night);
@@ -380,7 +381,8 @@
 }
 
 .number-scale-card-deck strong {
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  white-space: nowrap;
   color: var(--scale-ink);
   font: 800 clamp(22px, 2.2vw, 31px)/1.1 Georgia, serif;
   font-variant-numeric: tabular-nums;
@@ -557,7 +559,8 @@
 }
 
 .number-scale-selected-card strong {
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  white-space: nowrap;
   color: #fff;
   font: 800 clamp(20px, 2.2vw, 29px)/1.1 Georgia, serif;
   font-variant-numeric: tabular-nums;
@@ -1406,13 +1409,71 @@
 }
 
 @media (max-width: 440px) {
-  .number-scale-tick:nth-of-type(even) > b {
-    visibility: hidden;
-  }
-
   .number-scale-prediction-zones button span {
     font-size: 12px;
   }
+}
+
+/* Respond to the room the activity actually has when it is embedded. */
+@container (max-width: 900px) {
+  .number-scale-header,
+  .number-scale-workbench > header,
+  .number-scale-range-control {
+    grid-template-columns: 1fr;
+  }
+
+  .number-scale-class-routine {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .number-scale-class-routine article:nth-child(3) {
+    border-top: 1px solid #a8bec5;
+    border-left: 0;
+  }
+
+  .number-scale-class-routine article:nth-child(4) {
+    border-top: 1px solid #a8bec5;
+  }
+
+  .number-scale-axis,
+  .number-scale-prediction-zones {
+    right: 42px;
+    left: 42px;
+  }
+
+  .number-scale-zone-key { left: 42px; }
+  .number-scale-past-end { right: 42px; }
+}
+
+@container (max-width: 680px) {
+  .number-scale-header,
+  .number-scale-class-routine,
+  .number-scale-lenses,
+  .number-scale-card-heading,
+  .number-scale-card-deck,
+  .number-scale-check-row,
+  .number-scale-comparison,
+  .number-scale-paper-route {
+    grid-template-columns: 1fr;
+  }
+
+  .number-scale-header { padding: 23px 19px; }
+  .number-scale-workbench { padding: 18px 13px; }
+  .number-scale-card-heading > button { width: 100%; }
+  .number-scale-card-deck > button,
+  .number-scale-card-deck > button:nth-child(even),
+  .number-scale-card-deck > button:nth-child(3n) {
+    min-height: 88px;
+    transform: none;
+  }
+  .number-scale-range-stops { grid-template-columns: 1fr; }
+  .number-scale-comparison > div {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+  .number-scale-comparison > p { grid-column: auto; }
+  .number-scale-card-deck strong,
+  .number-scale-selected-card strong { font-size: clamp(17px, 6cqi, 27px); }
 }
 
 @media (prefers-reduced-motion: reduce) {

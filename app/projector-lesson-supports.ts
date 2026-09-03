@@ -981,12 +981,12 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
   }),
 
   "magnitude-gallery": support("magnitude-gallery", {
-    purpose: "Place large whole numbers on the same scale and explain how place value changes their size.",
+    purpose: "Read, compare, and place numbers from thousandths to billions on a number line.",
     background: [
-      "A digit's value depends on its position. Moving one place left makes its value ten times as large.",
-      "Commas separate groups of three digits: ones, thousands, millions, and billions.",
-      "A benchmark such as 0, 10 million, or 50 million helps locate a number before exact calculation.",
-      "Two numbers should be compared on the same scale; changing the scale can make a difference look larger or smaller.",
+      "Read the left endpoint, right endpoint, and equal jumps before placing a number.",
+      "On a 0-to-1 line split into ten equal sections, each jump is one tenth, or 0.1.",
+      "The number does not change when the endpoint changes, but it can use more or less of the line.",
+      "Moving a digit one place left makes its value ten times as large.",
     ],
     terms: terms(
       ["place value", "the value a digit has because of its position", "The 4 in 42,800,000 means forty million."],
@@ -995,31 +995,31 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
       ["scale", "the values shown and the spacing between marks", "Each mark increases by 10 million."],
     ),
     example: {
-      title: "Place 4,280,000 and 42,800,000 on one number line",
+      title: "Place 0.8 on a 0-to-1 number line",
       steps: [
-        "Use a 0-to-50,000,000 line marked every 10,000,000. The halfway point is 25,000,000.",
-        "4,280,000 is a little less than halfway from 0 to 10,000,000, so place it near 4.3 million.",
-        "42,800,000 is a little more than two tenths of the way from 40,000,000 to 50,000,000, so place it near 42.8 million.",
-        "The digits are the same, but every digit in 42,800,000 is one place farther left than in 4,280,000.",
-        "Therefore 42,800,000 is exactly ten times 4,280,000.",
+        "Read the endpoints: 0 and 1.",
+        "The line has ten equal sections, so one jump is 1 ÷ 10 = 0.1.",
+        "Count eight jumps from 0: 0.1, 0.2, 0.3 … 0.8.",
+        "Place 0.8 in section 8. It is eight tenths of the way across.",
+        "If the endpoint becomes 0.1, 0.8 is past the line. The number stayed the same; the scale changed.",
       ],
-      conclusion: "Place value and a shared scale make the tenfold size difference visible.",
+      conclusion: "Endpoints and equal jumps tell us where the number belongs.",
     },
     checks: [
       {
-        prompt: "Which number belongs just past 40 million on a 0-to-50-million line?",
-        choices: ["4,280,000", "42,800,000", "428,000"],
-        answer: 1,
-        feedback: "42.8 million lies between 40 million and 50 million, close to 40 million.",
+        prompt: "On a 0-to-1 line split into ten equal sections, where does 0.8 belong?",
+        choices: ["Section 1", "Section 5", "Section 8"],
+        answer: 2,
+        feedback: "Each section is 0.1, so eight jumps reach 0.8.",
       },
       {
-        prompt: "What happens when 4,280,000 becomes 42,800,000?",
-        choices: ["Each digit moves one place left, so the number becomes ten times as large.", "The number becomes twice as large.", "Only a zero is added, so the value stays the same."],
-        answer: 0,
-        feedback: "Moving every digit one place left multiplies its place value by ten.",
+        prompt: "What changes when 0.8 is shown first on 0-to-1 and then on 0-to-0.1?",
+        choices: ["The number changes.", "Only the scale and visible position change.", "Nothing changes."],
+        answer: 1,
+        feedback: "0.8 stays 0.8. On the smaller scale it is past the endpoint.",
       },
     ],
-    reteach: "Place both numbers in a place-value chart. Slide every digit one column left, then connect the columns to the same 0-to-50-million line.",
+    reteach: "Cover every label except 0 and the endpoint. Divide the endpoint by ten, label the halfway point, and count equal jumps to the number.",
   }),
 
   "pack-and-sync": support("pack-and-sync", {

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { lazy, Suspense, type ReactNode, useState } from "react";
+import { lazy, Suspense, type ReactNode, useEffect, useRef, useState } from "react";
 import type { CurriculumRecord } from "./curriculum";
 import { alignmentByArc, resolveAlignment, subjectCoverageNotes } from "./curriculum-alignment";
 import { experienceKits, mediaFor, plainForStudents, spacesBookendsFor, studentStepsFor, studentTitleFor, wordHelpFor } from "./program-supports";
@@ -675,6 +675,11 @@ const knownEmptyLookExperienceIds = new Set([
   "cold-test-prototype",
   "science-design-series",
   "cosmic-mission-control",
+  "strengths-action-quest",
+  "digital-identity-forensics",
+  "leadership-relay",
+  "strategy-remix-league",
+  "safety-help-circuit",
 ]);
 
 function adstProjectorMissionSteps(id: string, steps: Array<{ title: string; action: string; show: string }>) {
@@ -730,6 +735,11 @@ function ProjectorRouteReady({ contract }: { contract: StudentLessonContract }) 
 export function StudentLearningProgram({ program, record, selectedExperienceId, onExperience }: StudentProgramProps) {
   const selected = selectedExperience(program, selectedExperienceId);
   const [projectorPart, setProjectorPart] = useState(0);
+  const partNavRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const currentPart = partNavRef.current?.querySelector<HTMLElement>('[aria-current="step"]');
+    currentPart?.scrollIntoView?.({ block: "nearest", inline: "center" });
+  }, [projectorPart, selected.id]);
   const selectedArc = program.arcs.find((arc) => arc.id === selected.arcId) ?? program.arcs[0];
   const steps = studentStepsFor(selected);
   const kit = experienceKits[selected.id];
@@ -781,6 +791,9 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
 
   const parts: Array<{ label: string; verb: string; content: ReactNode }> = [];
   if (usesInteractiveLab) {
+    // Magnitude Gallery needs a short, explicit model before students enter the
+    // lab. Other interactive labs teach their idea inside the interaction.
+    if (showProjectorQuickStart) parts.push({ label: "Learn", verb: "See it", content: <ProjectorQuickStart key={selected.id} launch={readinessLaunch} words={projectorWords} question={projectorSupport.purpose} firstMove={studentContract.firstAction} /> });
     parts.push({ label: "Explore", verb: "Try", content: <div id="mission-path" className="student-interactive-mission projector-active-object">{interactiveLab}</div> });
   } else {
     if (showLook) parts.push({ label: "Look", verb: "Notice", content: <section className="projector-active-object projector-look-stage"><ExactAnchorVisual experience={selected} media={media} /><ExperienceInfographic experienceId={selected.id} />{program.subject === "Arts Education" && <MediaStrip items={media} student />}<LocalIndigenousResourceDock experienceId={selected.id} student />{selected.id === "graph-story-lab" && <><LocalRestorationInfographic /><ResponsibleDataInfographic /></>}</section> });
@@ -810,16 +823,21 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
   parts.push({ label: "Done", verb: "Check", content: <section className="projector-active-object projector-done-screen"><header><small>YOU&apos;RE DONE WHEN</small><h2>Show what you learned—not just what you made.</h2></header><ol>{studentContract.finishEvidence.map((item, index) => <li key={item}><b>{index + 1}</b><span>{item}</span></li>)}</ol><footer><strong>{studentContract.saveAction.message}</strong><span>If AI helped, check every idea and rewrite it in your own words. Never add private information or raw AI output to SpacesEDU.</span></footer></section> });
   const activePart = parts[Math.min(projectorPart, parts.length - 1)] ?? parts[0];
   const companionRole = learningCompanionRole(activePart.label, activePart.verb, projectorPart, parts.length);
+  const clarityPhase = activePart.label === "Done"
+    ? "done"
+    : /^(Ready|Explore|Try|Tell|Do|Cue lab)$/.test(activePart.label)
+      ? "do"
+      : "learn";
 
   return (
     <div className="student-program projector-lesson-player world-surface" data-world={theme.id} style={worldStyle(theme)}>
       <header className="projector-lesson-player__bar">
         <div><small>{program.subject.toUpperCase()} · {selectedArc.title.toUpperCase()}</small><h1>{studentTitleFor(selected)}</h1><p>{studentContract.challenge}</p></div>
-        <nav aria-label="Lesson parts">{parts.map((part, index) => <button type="button" key={`${part.label}-${index}`} className={projectorPart === index ? "active" : ""} aria-current={projectorPart === index ? "step" : undefined} onClick={() => setProjectorPart(index)}><b>{index + 1}</b><span>{part.label}</span></button>)}</nav>
+        <nav ref={partNavRef} aria-label="Lesson parts">{parts.map((part, index) => <button type="button" key={`${part.label}-${index}`} className={projectorPart === index ? "active" : ""} aria-current={projectorPart === index ? "step" : undefined} onClick={() => setProjectorPart(index)}><b>{index + 1}</b><span>{part.label}</span></button>)}</nav>
       </header>
 
       <main className="projector-lesson-player__stage" aria-live="polite">
-        <section className="projector-clarity-strip" aria-label="Learning goal, first action, and finish"><article data-learning-phase="learn"><small>WE ARE LEARNING</small><strong>{learningLine}</strong></article><article data-learning-phase="do"><small>FIRST STEP</small><strong>{studentContract.firstAction}</strong></article><article data-learning-phase="done"><small>YOU&apos;RE DONE WHEN</small><strong>All {studentContract.finishEvidence.length} checks in the Done part are complete.</strong></article></section>
+        <section className="projector-clarity-strip" aria-label="Learning goal, first action, and finish"><article data-learning-phase="learn" data-current={clarityPhase === "learn"}><small>WE ARE LEARNING</small><strong>{learningLine}</strong></article><article data-learning-phase="do" data-current={clarityPhase === "do"}><small>FIRST STEP</small><strong>{studentContract.firstAction}</strong></article><article data-learning-phase="done" data-current={clarityPhase === "done"}><small>YOU&apos;RE DONE WHEN</small><strong>All {studentContract.finishEvidence.length} checks in the Done part are complete.</strong></article></section>
         <ClassroomCompanion
           key={`${selected.id}-${projectorPart}`}
           role={companionRole}
@@ -829,6 +847,11 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
           className="projector-lesson-player__companion"
         />
         {activePart.content}
+        <details className="student-program-picker student-unit-map-drawer" id="unit-map">
+          <summary><span><small>UNIT MAP</small><strong>{selectedArc.title}</strong></span><b>Open ▾</b></summary>
+          <div>{program.arcs.map((arc) => <section key={arc.id}><p>{arc.number} · {arc.title}</p>{arc.experienceIds.map((id) => {const experience = program.experiences.find((item) => item.id === id);return experience ? <button key={id} className={selected.id === id ? "selected" : ""} onClick={() => onExperience(id)}>{studentTitleFor(experience)}</button> : null;})}</section>)}</div>
+          <WorldJourney theme={theme} stops={worldStops} activeId={selected.id} onSelect={onExperience} />
+        </details>
       </main>
 
       <footer className="projector-lesson-player__controls">
@@ -837,11 +860,6 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
         <button type="button" disabled={projectorPart === parts.length - 1} onClick={() => setProjectorPart((value) => Math.min(parts.length - 1, value + 1))}>Next →</button>
       </footer>
 
-      <details className="student-program-picker student-unit-map-drawer" id="unit-map">
-        <summary><span><small>UNIT MAP</small><strong>{selectedArc.title}</strong></span><b>Open ▾</b></summary>
-        <div>{program.arcs.map((arc) => <section key={arc.id}><p>{arc.number} · {arc.title}</p>{arc.experienceIds.map((id) => {const experience = program.experiences.find((item) => item.id === id);return experience ? <button key={id} className={selected.id === id ? "selected" : ""} onClick={() => onExperience(id)}>{studentTitleFor(experience)}</button> : null;})}</section>)}</div>
-        <WorldJourney theme={theme} stops={worldStops} activeId={selected.id} onSelect={onExperience} />
-      </details>
     </div>
   );
 }

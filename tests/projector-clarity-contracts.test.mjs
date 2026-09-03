@@ -3,17 +3,13 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { importIsolatedTsFile } from "./helpers/import-isolated-ts.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (relativePath) => readFile(path.join(root, relativePath), "utf8");
 
 async function importIsolatedTs(relativePath) {
-  const [{ default: ts }, source] = await Promise.all([import("typescript"), read(relativePath)]);
-  const compiled = ts.transpileModule(source, {
-    compilerOptions: { module: ts.ModuleKind.ES2022, target: ts.ScriptTarget.ES2022 },
-    fileName: relativePath,
-  }).outputText;
-  return import(`data:text/javascript;base64,${Buffer.from(compiled).toString("base64")}`);
+  return importIsolatedTsFile(root, relativePath);
 }
 
 test("every projector route keeps a visible learning, first-step, and complete finish strip", async () => {
@@ -24,9 +20,10 @@ test("every projector route keeps a visible learning, first-step, and complete f
   assert.ok(stripStart >= 0, "The projector clarity strip is missing.");
   assert.ok(activeContent > stripStart, "The clarity strip must appear before the active lesson content.");
   assert.match(source, /aria-label="Learning goal, first action, and finish"/);
-  assert.match(source, /data-learning-phase="learn"><small>WE ARE LEARNING<\/small><strong>\{learningLine\}<\/strong>/);
-  assert.match(source, /data-learning-phase="do"><small>FIRST STEP<\/small><strong>\{studentContract\.firstAction\}<\/strong>/);
-  assert.match(source, /data-learning-phase="done"><small>YOU'RE DONE WHEN<\/small><strong>All \{studentContract\.finishEvidence\.length\} checks in the Done part are complete\.<\/strong>/);
+  assert.match(source, /data-learning-phase="learn"[^>]*><small>WE ARE LEARNING<\/small><strong>\{learningLine\}<\/strong>/);
+  assert.match(source, /data-learning-phase="do"[^>]*><small>FIRST STEP<\/small><strong>\{studentContract\.firstAction\}<\/strong>/);
+  assert.match(source, /data-learning-phase="done"[^>]*><small>YOU'RE DONE WHEN<\/small><strong>All \{studentContract\.finishEvidence\.length\} checks in the Done part are complete\.<\/strong>/);
+  assert.match(source, /data-current=\{clarityPhase === "learn"\}/);
   assert.match(source, /product=\{`Complete all \$\{studentContract\.finishEvidence\.length\} checks in the Done part\.`\}/);
 });
 
@@ -58,6 +55,11 @@ test("known empty Look routes are suppressed unless real media is available", as
     "cold-test-prototype",
     "science-design-series",
     "cosmic-mission-control",
+    "strengths-action-quest",
+    "digital-identity-forensics",
+    "leadership-relay",
+    "strategy-remix-league",
+    "safety-help-circuit",
   ]);
   assert.match(source, /const hasVisibleLookMedia = program\.subject === "Arts Education"[\s\S]*?media\.some\(\(item\) => item\.type === "image"\);/);
   assert.match(source, /const showLook = !knownEmptyLookExperienceIds\.has\(selected\.id\) \|\| hasVisibleLookMedia;/);

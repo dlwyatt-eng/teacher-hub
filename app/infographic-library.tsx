@@ -312,13 +312,12 @@ export function ExperienceInfographic({ experienceId }: { experienceId: string }
     </InfoFrame>
   );
   if (experienceId === "rhythm-movement-lab") return (
-    <InfoFrame eyebrow="TEN-COUNT MOVEMENT SCORE" title="A movement phrase is designed, not just remembered" summary="Level, direction, timing, balance, pathway, and transition make the pattern readable. The same score can use standing, seated, directing, or card-based movement.">
+    <InfoFrame eyebrow="EIGHT-COUNT MOVEMENT SCORE" title="A movement phrase is designed, not just remembered" summary="Level, direction, timing, balance, pathway, and transition make the pattern readable. The same score can use standing, seated, directing, or card-based movement.">
       <div className="info-movement-score">
         <article><b>1–2</b><strong>ROOT</strong><p>low level · hold · balanced</p></article><i>→</i>
         <article><b>3–4</b><strong>REACH</strong><p>high level · diagonal · smooth</p></article><i>→</i>
-        <article><b>5</b><strong>TURN</strong><p>one quarter turn · controlled</p></article><i>→</i>
-        <article><b>6–8</b><strong>TRAVEL</strong><p>side pathway · three even beats</p></article><i>→</i>
-        <article><b>9–10</b><strong>LAND</strong><p>new shape · hold · balanced</p></article>
+        <article><b>5–6</b><strong>TURN</strong><p>one quarter turn · controlled</p></article><i>→</i>
+        <article><b>7–8</b><strong>LAND</strong><p>new direction · hold · balanced</p></article>
       </div>
       <div className="info-movement-options"><span><b>SAME DESIGN GOAL</b> Show level, direction, timing, and a clear transition.</span><span><b>VALID ROUTES</b> full-body · seated · hands/props · director cards · music or silence.</span><span><b>EXPLAIN</b> “I used ___ between counts ___ because ___.”</span></div>
     </InfoFrame>

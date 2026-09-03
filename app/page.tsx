@@ -77,7 +77,7 @@ const firstFormedClassWeekSeed: WeekPlanSeed = {
     {
       sourceId: "magnitude-gallery",
       subject: "Mathematics",
-      title: "The magnitude gallery",
+      title: "How big is this number?",
       timing: "2 × 45–55 min",
       day: "tuesday",
       runSteps: [
@@ -352,7 +352,7 @@ const studentWorldAtlasLaunches = [
   {
     kind: "generic", genericId: "magnitude-gallery", worldId: "math-number", subject: "Mathematics", unit: "Number Sense & Operations",
     title: "How big is this number?", question: "Where does this number belong—and how do you know?",
-    firstAction: "Place one number near a benchmark before you calculate.", finish: "A number-line placement and one exact visual comparison.",
+    firstAction: "Read both endpoints and one equal jump before you place the number.", finish: "The same number on two scales, plus one clear explanation.",
   },
   {
     kind: "generic", genericId: "source-mosaic", worldId: "ela-research", subject: "English Language Arts", unit: "Research, Synthesis & Teaching",
@@ -382,8 +382,8 @@ const studentWorldAtlasLaunches = [
 ] as const satisfies readonly DailyLaunch[];
 
 const siteReadiness = [
-  { label: "Language Arts & Mathematics", detail: "Both year-long cores now have six connected arcs, varied signature experiences, Teacher preparation, lean assessment routes, and linked Student projection views", color: "#eee4f4", state: "BROAD FIRST PASS · ADJUST IN USE" },
-  { label: "Arts · ADST · PHE · Career", detail: "ADST now restores the recurring Bloxels ELA story-game project as a fifth arc; Arts, PHE, and Career retain their distinct four-arc pathways and honest subject-specific evidence", color: "#e4eee7", state: "BROAD FIRST PASS · ADJUST IN USE" },
+  { label: "Language Arts & Mathematics", detail: "All 29 signature experiences now use reviewed student directions, exact finish evidence, accessible routes, and clearer Student projection views; priority activities include levelled examples with visible next steps", color: "#eee4f4", state: "CLASSROOM-READY CORE · REFINE IN USE" },
+  { label: "Arts · ADST · PHE · Career", detail: "Distinct subject pathways now share the same launch standard: clear purpose, usable sequence, access and offline routes, honest evidence, and privacy-safe save decisions", color: "#e4eee7", state: "CLASSROOM-READY CORE · REFINE IN USE" },
   { label: "Claims lesson", detail: "The lesson now uses a simple whole-class Two Lies and a Truth game: students vote, defend the truth with source evidence, and then trace a rumour to its first source", color: "#dce7f4", state: "REBUILT · VERIFY IN CLASS" },
   { label: "Science", detail: "All 19 lessons were checked for sequence, preparation, evidence, and projection; only audited lessons keep a ready label while corrections continue", color: "#d9e9df", state: "AUDIT IN PROGRESS" },
   { label: "Social Studies", detail: "All four units now have first-pass experiences: games, movement, physical data, system webs, authentic source comparisons, prototype studios, and expert teaching", color: "#f4e6c9", state: "4-UNIT BASELINE · ADJUST IN USE" },
@@ -437,7 +437,7 @@ const recentUpdates = [
     id: "ela-math-programs",
     title: "Language Arts & Mathematics · year-long programs",
     date: "Aug. 12, 2026",
-    detail: "Added six connected arcs for each core subject, now 13 Language Arts and 14 Mathematics signature experiences, Teacher preparation, student projection missions, curated resource routes, and only selected SpacesEDU evidence.",
+    detail: "Added six connected arcs for each core subject, now 14 Language Arts and 15 Mathematics signature experiences, Teacher preparation, student projection missions, curated resource routes, and only selected SpacesEDU evidence.",
     destination: "Language Arts",
   },
   {

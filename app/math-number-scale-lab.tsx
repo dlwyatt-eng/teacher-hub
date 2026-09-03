@@ -60,9 +60,9 @@ const lenses: readonly ScaleLens[] = [
       { id: "decimal-8", label: "0.8", spoken: "eight tenths", value: 0.8 },
     ],
     views: [
-      { id: "decimal-001", max: 0.01, label: "0 → 0.01", scene: "Thousandths close-up" },
-      { id: "decimal-01", max: 0.1, label: "0 → 0.1", scene: "Hundredths view" },
       { id: "decimal-1", max: 1, label: "0 → 1", scene: "One-whole view" },
+      { id: "decimal-01", max: 0.1, label: "0 → 0.1", scene: "Hundredths close-up" },
+      { id: "decimal-001", max: 0.01, label: "0 → 0.01", scene: "Thousandths close-up" },
     ],
     paperMove: "Draw three equal-length lines ending at 0.01, 0.1, and 1. Place 0.008 on each without changing the number.",
   },
@@ -77,9 +77,9 @@ const lenses: readonly ScaleLens[] = [
       { id: "million-4280", label: "42,800,000", spoken: "forty-two million eight hundred thousand", value: 42_800_000 },
     ],
     views: [
-      { id: "million-50", max: 50_000_000, label: "0 → 50 million", scene: "City-block view" },
-      { id: "million-100", max: 100_000_000, label: "0 → 100 million", scene: "Whole-city view" },
-      { id: "million-500", max: 500_000_000, label: "0 → 500 million", scene: "Regional view" },
+      { id: "million-500", max: 500_000_000, label: "0 → 500 million", scene: "Wide view" },
+      { id: "million-100", max: 100_000_000, label: "0 → 100 million", scene: "Closer view" },
+      { id: "million-50", max: 50_000_000, label: "0 → 50 million", scene: "Closest view" },
     ],
     paperMove: "Draw a 0-to-50-million line and a 0-to-500-million line. Place 42.8 million on both and explain why it moves.",
   },
@@ -94,9 +94,9 @@ const lenses: readonly ScaleLens[] = [
       { id: "billion-100m", label: "100,000,000", spoken: "one hundred million", value: 100_000_000 },
     ],
     views: [
-      { id: "billion-100", max: 100_000_000, label: "0 → 100 million", scene: "Province view" },
-      { id: "billion-500", max: 500_000_000, label: "0 → 500 million", scene: "Country view" },
-      { id: "billion-1", max: 1_000_000_000, label: "0 → 1 billion", scene: "Planet view" },
+      { id: "billion-1", max: 1_000_000_000, label: "0 → 1 billion", scene: "Wide view" },
+      { id: "billion-500", max: 500_000_000, label: "0 → 500 million", scene: "Closer view" },
+      { id: "billion-100", max: 100_000_000, label: "0 → 100 million", scene: "Closest view" },
     ],
     paperMove: "Draw one line from 0 to 1 billion. Place 1 million, 100 million, and 500 million. Which one almost disappears beside zero?",
   },
@@ -197,9 +197,9 @@ function ScalePlot({
       <div className="number-scale-axis" role="img" aria-label={card ? `${card.label} on a number line from 0 to ${formatExact(view.max)}. ${revealed ? explainPosition(card, view) : "Its exact location is covered for the class prediction."}` : `Empty number line from 0 to ${formatExact(view.max)}.`}>
         <div className="number-scale-axis-line" aria-hidden="true" />
         {ticks.map((value, index) => (
-          <span className="number-scale-tick" data-edge={index === 0 ? "start" : index === 10 ? "end" : "middle"} key={`${view.id}-${index}`} style={{ left: `${index * 10}%` }}>
+          <span className="number-scale-tick" data-edge={index === 0 ? "start" : index === 10 ? "end" : "middle"} data-labelled={index === 0 || index === 5 || index === 10 ? "true" : "false"} key={`${view.id}-${index}`} style={{ left: `${index * 10}%` }}>
             <i aria-hidden="true" />
-            <b>{formatCompact(value, view.max)}</b>
+            {index === 0 || index === 5 || index === 10 ? <b>{formatCompact(value, view.max)}</b> : null}
           </span>
         ))}
 
@@ -290,14 +290,13 @@ export function MathNumberScaleLab({ audience = "student" }: MathNumberScaleLabP
   const titleId = useId();
   const [lensIndex, setLensIndex] = useState(0);
   const [viewIndex, setViewIndex] = useState(0);
-  const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
+  const [selectedCardId, setSelectedCardId] = useState<string | null>("decimal-8");
   const [prediction, setPrediction] = useState<Prediction>(null);
   const [revealed, setRevealed] = useState(false);
   const [previous, setPrevious] = useState<PreviousView | null>(null);
   const [feedback, setFeedback] = useState<Feedback | null>(null);
   const [mixTurns, setMixTurns] = useState(() => lenses.map((_, index) => index + 1));
-  const [testedViews, setTestedViews] = useState<Set<string>>(() => new Set());
-  const [announcement, setAnnouncement] = useState("Scale City is ready. Choose any mixed-up number card.");
+  const [announcement, setAnnouncement] = useState("Start with 0.8 on the 0-to-1 line. Read the endpoints and one equal jump before predicting.");
 
   const lens = lenses[lensIndex] ?? lenses[0];
   const view = lens.views[viewIndex] ?? lens.views[0];
@@ -309,12 +308,12 @@ export function MathNumberScaleLab({ audience = "student" }: MathNumberScaleLabP
     const next = lenses[index] ?? lenses[0];
     setLensIndex(index);
     setViewIndex(0);
-    setSelectedCardId(null);
+    setSelectedCardId(index === 0 ? "decimal-8" : null);
     setPrediction(null);
     setRevealed(false);
     setPrevious(null);
     setFeedback(null);
-    setAnnouncement(`${next.tab} open. Choose any card; the lesson does not name the answer for you.`);
+    setAnnouncement(index === 0 ? "Tiny decimals open. Start with 0.8 on the 0-to-1 line." : `${next.tab} open. Choose one card, read the scale, and predict.`);
   };
 
   const chooseCard = (card: NumberCard) => {
@@ -346,9 +345,8 @@ export function MathNumberScaleLab({ audience = "student" }: MathNumberScaleLabP
     setFeedback({
       kind: correct ? "correct" : "revise",
       title: correct ? "That prediction fits this scale." : "The scale changed the picture—revise the prediction.",
-      message: correct ? `${message} Now move the scale slider without changing the card.` : `${message} Read the endpoint again, then compare the part to the whole line.`,
+      message: correct ? `${message} Now choose another scale without changing the card.` : `${message} Read the endpoint again, then compare the part to the whole line.`,
     });
-    setTestedViews((current) => new Set(current).add(`${lens.id}:${selectedCard.id}:${view.id}`));
     setAnnouncement(`${correct ? "Prediction confirmed." : "Prediction tested."} ${message}`);
   };
 
@@ -377,31 +375,30 @@ export function MathNumberScaleLab({ audience = "student" }: MathNumberScaleLabP
   const reset = () => {
     setLensIndex(0);
     setViewIndex(0);
-    setSelectedCardId(null);
+    setSelectedCardId("decimal-8");
     setPrediction(null);
     setRevealed(false);
     setPrevious(null);
     setFeedback(null);
-    setTestedViews(new Set());
-    setAnnouncement("Scale City reset. Choose any mixed-up decimal card.");
+    setAnnouncement("Scale City reset. Start with 0.8 on the 0-to-1 line.");
   };
 
   return (
     <section className="math-number-scale-lab" data-audience={audience} data-experience-id={magnitudeScaleLabExperienceId} aria-labelledby={titleId}>
       <header className="number-scale-header">
         <div>
-          <small>SCALE CITY · SAME NUMBER, DIFFERENT MAP</small>
-          <h2 id={titleId}>Make the scale do the moving.</h2>
-          <p>Choose any card. Point to where it belongs. Reveal it. Then change the line’s endpoint—not the number—and watch what happens.</p>
+          <small>SCALE CITY · SAME NUMBER, NEW SCALE</small>
+          <h2 id={titleId}>The number stays. The scale changes.</h2>
+          <p>Start with 0.8 on the 0-to-1 line. Predict its spot, reveal it, then change only the endpoint and predict again.</p>
         </div>
-        <aside><strong><b>{testedViews.size}</b> scale views tested</strong><span>A strong explanation names the number, the endpoint, and how far across it sits.</span></aside>
+        <aside><strong>START HERE · 0.8 ON 0 → 1</strong><span>Say the number, both endpoints, and one equal jump before anyone predicts.</span></aside>
       </header>
 
       <section className="number-scale-class-routine" aria-label="Shared-screen class routine">
-        <article><b>1 · PICK</b><span>Choose any shuffled card. No answer is named first.</span></article>
-        <article><b>2 · READ</b><span>Say both endpoints and work out one equal jump.</span></article>
-        <article><b>3 · POINT</b><span>Everyone points, votes, or sketches before one tap.</span></article>
-        <article><b>4 · TEST</b><span>Reveal it, then slide the scale while the number stays fixed.</span></article>
+        <article><b>1 · READ</b><span>Say the number, 0, the endpoint, and one equal jump.</span></article>
+        <article><b>2 · PREDICT</b><span>Point, vote, or sketch before the marker appears.</span></article>
+        <article><b>3 · REVEAL</b><span>Check the exact spot. Repair the idea if needed.</span></article>
+        <article><b>4 · CHANGE SCALE</b><span>Keep the number. Choose a new endpoint and try again.</span></article>
       </section>
 
       <nav className="number-scale-lenses" aria-label="Choose a number scale lab">
@@ -421,7 +418,7 @@ export function MathNumberScaleLab({ audience = "student" }: MathNumberScaleLabP
         </header>
 
         <section className="number-scale-card-area">
-          <div className="number-scale-card-heading"><div><small>STEP 1 · MIXED NUMBER CARDS</small><h4>Which one should we test?</h4><p>Say the numbers aloud. Choose any card—the lesson does not tell you which answer to match.</p></div><button type="button" onClick={mixAgain}>Mix cards again ↻</button></div>
+          <div className="number-scale-card-heading"><div><small>CHOOSE A NUMBER</small><h4>Begin with 0.8. Then try another.</h4><p>Say each card aloud. Keep one number fixed while the scale changes.</p></div><button type="button" onClick={mixAgain}>Mix cards ↻</button></div>
           <div className="number-scale-card-deck">
             {cards.map((card, index) => (
               <button type="button" key={card.id} aria-label={`Card ${index + 1}: ${card.spoken}`} aria-pressed={selectedCard?.id === card.id} onClick={() => chooseCard(card)}>
@@ -432,19 +429,9 @@ export function MathNumberScaleLab({ audience = "student" }: MathNumberScaleLabP
         </section>
 
         <section className="number-scale-range-control">
-          <div><small>STEP 2 · SCALE / RANGE SLIDER</small><h4>Change only the right-hand endpoint</h4><p>The selected number is locked. Sliding this control redraws the map around it.</p></div>
+          <div><small>CHANGE THE SCALE</small><h4>Choose a new right-hand endpoint</h4><p>The selected number stays fixed. Only the number line changes.</p></div>
           <div className="number-scale-slider">
-            <label htmlFor={`${titleId}-range`}>Scale range: <strong>{view.label}</strong></label>
-            <input
-              id={`${titleId}-range`}
-              type="range"
-              min={0}
-              max={lens.views.length - 1}
-              step={1}
-              value={viewIndex}
-              aria-valuetext={`${view.label}, ${view.scene}`}
-              onChange={(event) => changeView(Number(event.target.value))}
-            />
+            <p>Current line: <strong>{view.label}</strong></p>
             <div className="number-scale-range-stops">
               {lens.views.map((item, index) => <button type="button" key={item.id} aria-pressed={index === viewIndex} onClick={() => changeView(index)}>{item.label}</button>)}
             </div>
@@ -485,7 +472,7 @@ export function MathNumberScaleLab({ audience = "student" }: MathNumberScaleLabP
             <li>Play the matching Math Antics place-value explanation, then open this shared screen.</li>
             <li>Do not name a target card. Mix the cards and let the class choose one.</li>
             <li>Read 0, the right endpoint, and one jump. Students point or sketch before you tap their section.</li>
-            <li>Reveal the exact spot. Leave it visible and move the range slider so the same number visibly shifts.</li>
+            <li>Reveal the exact spot. Keep the card and choose another endpoint so the same number visibly shifts.</li>
             <li>Cover the marker before the next prediction. Ask: “The number stayed fixed—what changed?”</li>
           </ol>
           <p><b>Optional blank tool:</b> The <a href="https://apps.mathlearningcenter.org/number-line/" target="_blank" rel="noreferrer">Math Learning Center Number Line</a>. The activity above already contains everything needed to teach it.</p>

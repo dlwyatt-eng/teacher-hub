@@ -7,6 +7,11 @@
  * A final neutral fallback keeps malformed or incomplete data usable.
  */
 
+import { pheStudentLessonContracts } from "./student-lesson-contracts-phe";
+import { careerStudentLessonContracts } from "./student-lesson-contracts-career";
+import { elaStudentLessonContracts } from "./student-lesson-contracts-ela";
+import { mathStudentLessonContracts } from "./student-lesson-contracts-math";
+
 export type StudentReadinessKind = "none" | "quick" | "teach";
 
 export type StudentSaveActionKind =
@@ -92,58 +97,63 @@ const reviewedStudentLessonContracts = {
   "magnitude-gallery": {
     id: "magnitude-gallery",
     reviewState: "reviewed",
-    challenge: "Is 0.8 closer to 0, 1, or 10? Where would one billion even fit?",
-    why: "The same digits can name wildly different amounts. Seeing a number's size before calculating helps you make sense of money, distance, data, and space—and catch answers that cannot be right.",
-    firstAction: "Look at 0.8, 0.08, and 0.008 on the 0-to-1 line. Point to the number you think belongs closest to 1. You can change your mind after the class zooms in.",
+    challenge: "Where does a number belong when the number line changes size?",
+    why: "We are learning to read a number line from its endpoints and equal jumps. The number stays the same when the scale changes, but its spot on the line can move.",
+    firstAction: "Open Tiny decimals on the 0-to-1 line. Choose one card, read both endpoints, and work out the value of one equal jump.",
     materials: ["The shared on-screen number line", "Board or paper", "Pencils and colours", "Optional number cards"],
     choices: [
       {
-        prompt: "How will you show where a number belongs?",
+        prompt: "How will you make your first prediction?",
         options: [
-          { label: "Control the screen", detail: "Move one card or ask the teacher to move it for you." },
-          { label: "Vote and repair", detail: "Point to a spot, hear another idea, then move the card if the class changes its mind." },
-          { label: "Sketch the line", detail: "Draw the endpoints and halfway mark, then place the number." },
+          { label: "Point or vote", detail: "Choose section 1–10 before the teacher reveals the marker." },
+          { label: "Sketch it", detail: "Draw the endpoints and ten equal jumps, then mark your prediction." },
+          { label: "Say it", detail: "Tell a partner which section you chose and why." },
         ],
       },
     ],
     steps: [
       {
-        title: "Place the decimal trio",
-        action: "Use 0, one half, and 1 as landmarks. Place 0.8, 0.08, and 0.008 on the same line before revealing their spots.",
-        finishCheck: "The three cards are in order, and you can point to the digit that means tenths, hundredths, or thousandths.",
+        title: "Read the line",
+        action: "Start with Tiny decimals and the 0-to-1 scale. Choose one card. Read 0, 1, and the value of one jump.",
+        finishCheck: "You can say what each small section is worth before placing the card.",
+        minutes: "5–8 min",
       },
       {
-        title: "Zoom the scale",
-        action: "Change the line from 0-to-1 to 0-to-1,000, then 0-to-1 billion. Predict which cards will spread out and which will bunch near zero.",
-        finishCheck: "You can explain why a number can be visible on one scale but look almost stuck to zero on another.",
+        title: "Predict + reveal",
+        action: "Point, vote, or sketch the section where the card belongs. Reveal its exact spot and repair your idea if needed.",
+        finishCheck: "Your explanation names the number, both endpoints, and a useful jump or benchmark.",
+        minutes: "8–10 min",
       },
       {
-        title: "Build a billion",
-        action: "Place 1 million, 100 million, 500 million, and 1 billion on the giant line. Use the halfway point before checking the exact locations.",
-        finishCheck: "One billion is at the end, 500 million is halfway, and 1 million is correctly shown very close to zero.",
+        title: "Change only the scale",
+        action: "Keep the same card. Choose a new endpoint button, predict again, and reveal. Repeat once more.",
+        finishCheck: "You can explain: ‘The number stayed __. The endpoint changed from __ to __, so its spot __.’",
+        minutes: "10–12 min",
       },
       {
-        title: "Find the number trap",
-        action: "Order six class number cards. Circle two that look similar but have very different sizes, then tell what the decimal point or place value changes.",
-        finishCheck: "The cards are ordered from least to greatest, and your circled pair has a clear place-value explanation.",
+        title: "Try a giant number",
+        action: "Open Millions or Up to a billion. Choose one card and repeat the read, predict, reveal, and scale-change routine.",
+        finishCheck: "Your group uses the endpoint and equal jumps instead of guessing from the number of digits.",
+        minutes: "10–12 min",
       },
       {
-        title: "Make one size story",
-        action: "Draw one number-line comparison. Add a plain sentence such as ‘0.8 is 10 times as large as 0.08’ or ‘1 billion is 1,000 groups of 1 million.’",
-        finishCheck: "A classmate can use your line and sentence to see how the two numbers compare without guessing.",
+        title: "Show what changed",
+        action: "Draw the same number on two equal-length lines with different endpoints. Add one sentence explaining why its spot changed.",
+        finishCheck: "A classmate can read both scales and understand that the number did not change.",
+        minutes: "12–15 min",
       },
     ],
     finishEvidence: [
-      "A first guess that you were allowed to change",
-      "The decimal trio placed on a 0-to-1 line",
-      "Four large-number cards placed on a 0-to-1-billion line",
-      "A hand-drawn number line and one plain size-comparison sentence",
+      "One tested decimal prediction",
+      "The same number tested on two different scales",
+      "One tested millions-or-billions prediction",
+      "A two-line drawing and a plain sentence that explains what changed",
     ],
     saveAction: {
       kind: "keep-in-class",
       message: "Keep the comparison in your Math folder. No SpacesEDU post is needed.",
     },
-    readiness: "none",
+    readiness: "teach",
   },
   "pattern-forecast": {
     id: "pattern-forecast",
@@ -742,6 +752,10 @@ const reviewedStudentLessonContracts = {
     },
     readiness: "teach",
   },
+  ...pheStudentLessonContracts,
+  ...careerStudentLessonContracts,
+  ...elaStudentLessonContracts,
+  ...mathStudentLessonContracts,
 } as const satisfies Record<string, StudentLessonContract>;
 
 export type ReviewedStudentLessonId = keyof typeof reviewedStudentLessonContracts;

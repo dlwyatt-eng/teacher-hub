@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { importIsolatedTsFile } from "./helpers/import-isolated-ts.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (relativePath) => readFile(path.join(root, relativePath), "utf8");
@@ -17,12 +18,7 @@ const artsIds = [
 ];
 
 async function importIsolatedTs(relativePath) {
-  const [{ default: ts }, source] = await Promise.all([import("typescript"), read(relativePath)]);
-  const compiled = ts.transpileModule(source, {
-    compilerOptions: { module: ts.ModuleKind.ES2022, target: ts.ScriptTarget.ES2022 },
-    fileName: relativePath,
-  }).outputText;
-  return import(`data:text/javascript;base64,${Buffer.from(compiled).toString("base64")}`);
+  return importIsolatedTsFile(root, relativePath);
 }
 
 async function importWithCrossCurricular(relativePath) {
@@ -240,7 +236,7 @@ test("LearningProgram ships a dedicated complete printable Arts folio route", as
   assert.match(learningProgram, /An accommodation may reduce response length or use oral\/scribed evidence without deleting the learning section\./, "Accessibility may change response mode or length without silently deleting the learning.");
 
   const projectorAssemblyStart = learningProgram.indexOf("const parts: Array<{ label: string; verb: string; content: ReactNode }> = [];");
-  const projectorAssemblyEnd = learningProgram.indexOf("if (showProjectorQuickStart)", projectorAssemblyStart);
+  const projectorAssemblyEnd = learningProgram.indexOf("if (currentConnection)", projectorAssemblyStart);
   assert.ok(projectorAssemblyStart >= 0 && projectorAssemblyEnd > projectorAssemblyStart, "Could not isolate the Student LearningProgram projector assembly.");
   const projectorAssembly = learningProgram.slice(projectorAssemblyStart, projectorAssemblyEnd);
   const lookPart = projectorAssembly.indexOf('parts.push({ label: "Look", verb: "Notice"');
