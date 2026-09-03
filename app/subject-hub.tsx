@@ -331,7 +331,7 @@ function StudentCurriculumView({ subject, onBack, onOpenLesson, socialLessonId, 
   }
   if (program) {
     return (
-      <div className="page student-curriculum" style={{ "--subject": subject.color, "--soft": subject.soft } as CSSProperties}>
+      <div className="page student-curriculum student-curriculum--program" style={{ "--subject": subject.color, "--soft": subject.soft } as CSSProperties}>
         <button className="back-link" onClick={onBack}>← All subjects</button>
         <header className="student-space-header">
           <span className="student-space-icon" style={{ background: subject.soft, color: subject.color }}>{subject.icon}</span>

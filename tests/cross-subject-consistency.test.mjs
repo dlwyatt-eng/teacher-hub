@@ -63,7 +63,13 @@ test("the first Math lesson teaches the idea before the lab and starts on the wi
 });
 
 test("projector layout reserves separate rows for route, content, and controls", async () => {
-  const css = await read("app/learning-program.css");
+  const [css, subjectHub] = await Promise.all([
+    read("app/learning-program.css"),
+    read("app/subject-hub.tsx"),
+  ]);
+  assert.match(subjectHub, /student-curriculum student-curriculum--program/);
+  assert.match(css, /\.projector-shell \.student-curriculum--program\{height:calc\(100svh - 78px\);height:calc\(100dvh - 78px\)/);
+  assert.match(css, /\.projector-shell \.student-curriculum--program \.projector-lesson-player\{height:100%\}/);
   assert.match(css, /grid-template-rows:auto minmax\(0,1fr\) auto/);
   assert.match(css, /projector-shell \.projector-lesson-player__stage\{min-height:0;overflow-y:auto/);
   assert.match(css, /projector-clarity-strip article:not\(\[data-current="true"\]\)\{display:none\}/);

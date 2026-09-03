@@ -134,8 +134,16 @@
 /* Keep every lesson-part tab visible at common classroom-projector widths. */
 @media(min-width:1101px){.projector-lesson-player__bar{grid-template-columns:minmax(250px,.8fr) minmax(430px,1.2fr)}.projector-lesson-player__bar nav{justify-content:flex-start}}
 
+/* A projected program fits beneath the global toolbar. Its compact context row and
+   lesson player share the remaining viewport, so the controls are visible on launch. */
+.projector-shell .student-curriculum--program{height:calc(100svh - 78px);height:calc(100dvh - 78px);min-height:0;display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);gap:10px 18px;overflow:hidden;padding:12px 50px 0!important}
+.projector-shell .student-curriculum--program>.back-link{align-self:center;margin:0;white-space:nowrap}
+.projector-shell .student-curriculum--program>.student-space-header{min-width:0;margin:0}
+.projector-shell .student-curriculum--program>.student-program{grid-column:1/-1;width:100%;height:100%;min-height:0;overflow:hidden}
+
 /* A projected lesson is a three-row workspace: route, active content, controls. */
-.projector-shell .projector-lesson-player{height:calc(100svh - 78px);height:calc(100dvh - 78px);min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto;overflow:hidden;padding-bottom:0}
+.projector-shell .student-curriculum--program .projector-lesson-player{height:100%}
+.projector-shell .projector-lesson-player{min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto;overflow:hidden;padding-bottom:0}
 .projector-shell .projector-lesson-player__bar{position:relative;top:auto}
 .projector-shell .projector-lesson-player__stage{min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
 .projector-shell .projector-active-object{min-height:0}
@@ -145,7 +153,9 @@
 .projector-lesson-player__bar nav button:focus-visible,.projector-lesson-player__controls button:focus-visible{outline:3px solid #fff;box-shadow:0 0 0 6px #b56f16}
 .projector-lesson-player__stage>.student-unit-map-drawer{margin:14px 0 0}
 
-@media(max-width:780px){.projector-shell .projector-lesson-player{height:calc(100svh - 61px);height:calc(100dvh - 61px)}}
+@media(max-width:780px){.projector-shell .student-curriculum--program{height:calc(100svh - 61px);height:calc(100dvh - 61px);padding:8px 14px 0!important;gap:8px 12px}.projector-shell .student-curriculum--program>.student-space-header{margin:0}.projector-shell .student-curriculum--program>.student-space-header .student-space-icon{width:48px;height:48px}.projector-shell .student-curriculum--program>.student-space-header strong{font-size:17px}}
+
+@media(max-width:520px){.projector-shell .student-curriculum--program{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr)}.projector-shell .student-curriculum--program>.student-space-header{display:none}.projector-shell .student-curriculum--program>.student-program{grid-column:1}}
 
 /* Short classroom projectors show the one clarity card needed for this part. */
 @media(max-height:820px) and (min-width:781px){
