@@ -1,5 +1,7 @@
 # Classroom OS master completion and release ledger
 
+> **Later language release:** [September 5 student-language pass](STUDENT_LANGUAGE_RELEASE_2026-09-05.md) records the subsequent implementation, rendered-language tests, current publication baseline and verification. The release evidence below remains historical; do not reset a later checkout to these older commits.
+
 > **Status: PUBLISHED RELEASE RECORD — automated gates verified; human review limits remain**
 > Evidence captured: **2026-09-05 UTC**
 > Governing brief: **Teacher Hub Master Completion Sprint**

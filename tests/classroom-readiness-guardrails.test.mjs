@@ -182,12 +182,12 @@ test("every first-week session keeps the whole decorated organizer while protect
   assert.match(mission, /session\.pageRegions/);
   assert.match(mission, /session\.decorationChoices/);
   assert.match(mission, /WHOLE_ORGANIZER_ACCOMMODATION/);
-  assert.match(mission, /Blank\/skip counts[—-]no explanation/i);
+  assert.match(mission, /ROTATION_STUDENT_CHOICES/);
   assert.match(mission, /WHOLE_ORGANIZER_PROMISE|Complete the whole organizer[—-]not only one favourite section\./i);
-  assert.match(canonical, /complete, decorated/i);
-  assert.match(canonical, /blank\/skip/i);
-  assert.match(canonical, /accommodation may reduce substantive output/i);
-  assert.match(canonical, /decorat/i);
+  assert.match(canonical, /rotationSessions\.map/);
+  assert.match(canonical, /session\.student\.finish/);
+  assert.match(canonical, /session\.student\.help/);
+  assert.match(canonical, /ROTATION_STUDENT_DECORATION/);
 
   for (const retired of [
     "Choose three or more sections",

@@ -246,7 +246,7 @@ export function ResponsesUnderPressureLab({ sceneIndex, audience }: Unit4Experie
         ))}
       </div>
       <article className="u4-design-principle">
-        <small>ONE EVIDENCE-BACKED DESIGN PRINCIPLE</small>
+        <small>ONE PROJECT RULE SUPPORTED BY EVIDENCE</small>
         <p>We would <b>{moves[move][0].toLowerCase()}</b> [specific feature] because [evidence]. This may help [people or purpose], but [important limit or possible consequence].</p>
       </article>
     </ExperienceFrame>
@@ -311,7 +311,7 @@ export function MakeItTeachableLab({ sceneIndex, audience }: Unit4ExperienceProp
       ["Respect and uncertainty", "Affected people are not stereotyped, and unknowns remain visible."],
     ];
     return (
-      <ExperienceFrame audience={audience} sceneIndex={scene} tone="make" eyebrow="MAKE IT TEACHABLE · PART 3" title="Pass the accuracy gate before polishing." prompt="A beautiful product with weak evidence is not ready. Point to the proof for every check." teacherNote="Run a short accuracy conference. Ask one student at random to explain each check so one expert cannot carry the whole team. Give a specific next step rather than a score at this stage." footer="Our strongest evidence is… A claim we still need to fix or qualify is…">
+      <ExperienceFrame audience={audience} sceneIndex={scene} tone="make" eyebrow="MAKE IT TEACHABLE · PART 3" title="Check your ideas and evidence before finishing." prompt="A beautiful product with weak evidence is not ready. Point to the proof for every check." teacherNote="Run a short accuracy conference. Ask one student at random to explain each check so one expert cannot carry the whole team. Give a specific next step rather than a score at this stage." footer="Our strongest evidence is… A claim we still need to fix or qualify is…">
         <div className="u4-accuracy-gate">
           <div className={`u4-gate-arch ${accuracy.every(Boolean) ? "open" : ""}`} aria-hidden="true"><span>ACCURACY</span><i></i></div>
           <div className="u4-gate-checks">
@@ -322,19 +322,19 @@ export function MakeItTeachableLab({ sceneIndex, audience }: Unit4ExperienceProp
             ))}
           </div>
         </div>
-        <ProgressLine ready={accuracy.filter(Boolean).length} total={gate.length} readyText="Content gate passed. Build only what the learning needs." waitingText="Evidence first. Production waits." />
+        <ProgressLine ready={accuracy.filter(Boolean).length} total={gate.length} readyText="All five checks marked. Be ready to show the evidence for each one." waitingText="Check the evidence before adding finishing details." />
       </ExperienceFrame>
     );
   }
 
   const spine = [
-    ["UNDERSTAND", "Three essential ideas, not twenty facts"],
-    ["EVIDENCE", "Sources beside the ideas they support"],
-    ["PARTICIPATE", "A real audience choice, task, or response"],
-    ["QUESTION", "A limit, debate, or uncertainty that remains"],
+    ["UNDERSTAND", "Teach three key ideas instead of listing twenty facts"],
+    ["EVIDENCE", "Place each source beside the idea it supports"],
+    ["PARTICIPATE", "Give the audience a choice to make, a task to try, or a question to answer"],
+    ["QUESTION", "Show one limit, disagreement, or question that remains"],
   ];
   return (
-    <ExperienceFrame audience={audience} sceneIndex={scene} tone="make" eyebrow="MAKE IT TEACHABLE · PART 4" title="Build the minimum experience that truly teaches." prompt="Finish the learning spine first. Add production polish only if it makes the experience clearer, more accessible, or more engaging." teacherNote="Protect studio time, but set a firm minimum viable product. Evaluate content accuracy and learning design before technical sophistication. Production polish is not a Social Studies criterion." footer="We cut… because it did not help learning. We kept… because it helps the audience…">
+    <ExperienceFrame audience={audience} sceneIndex={scene} tone="make" eyebrow="MAKE IT TEACHABLE · PART 4" title="Build the minimum experience that truly teaches." prompt="First connect the three key ideas, their evidence, an audience task, and a question that remains. Add finishing details only if they help classmates understand, take part, or stay interested." teacherNote="Protect studio time, but set a firm minimum viable product. Evaluate content accuracy and learning design before technical sophistication. Production polish is not a Social Studies criterion." footer="We cut… because it did not help learning. We kept… because it helps the audience…">
       <div className="u4-learning-spine">
         {spine.map(([title, detail], index) => (
           <button key={title} aria-pressed={minimum[index]} className={minimum[index] ? "ready" : ""} onClick={() => setMinimum((current) => current.map((value, i) => i === index ? !value : value))}>
@@ -357,12 +357,12 @@ export function ExpertExchangeLab({ sceneIndex, audience }: Unit4ExperienceProps
 
   if (scene === 0) {
     const testerMoves = [
-      ["ENTER COLD", "Try the experience without the creators explaining what to do."],
+      ["TRY WITHOUT HINTS", "Try the experience without the creators explaining what to do."],
       ["THINK ALOUD", "Say where you feel curious, confident, confused, or overloaded."],
       ["LEAVE SIGNALS", "Finish: I learned… I got stuck… I need proof for…"],
     ];
     return (
-      <ExperienceFrame audience={audience} sceneIndex={scene} tone="exchange" eyebrow="EXPERT EXCHANGE · PART 1" title="Let another team test it cold." prompt="Creators stay quiet at first. Testers use the experience exactly as it is and show where the design teaches—or gets in the way." teacherNote="Pair teams with different topics. Give testers 10–12 minutes and creators an observation sheet. Testers critique the experience, never the people who made it." footer="Testers understood… They became unsure when… The experience itself showed…">
+      <ExperienceFrame audience={audience} sceneIndex={scene} tone="exchange" eyebrow="EXPERT EXCHANGE · PART 1" title="Let another team try it without hints." prompt="Creators stay quiet at first. Testers use the experience exactly as it is and show where the design teaches—or gets in the way." teacherNote="Pair teams with different topics. Give testers 10–12 minutes and creators an observation sheet. Testers critique the experience, never the people who made it." footer="Testers understood… They became unsure when… The experience itself showed…">
         <div className="u4-cold-test">
           {testerMoves.map(([title, detail], index) => (
             <button key={title} aria-pressed={coldTest[index]} className={coldTest[index] ? "done" : ""} onClick={() => setColdTest((current) => current.map((value, i) => i === index ? !value : value))}>
@@ -384,7 +384,7 @@ export function ExpertExchangeLab({ sceneIndex, audience }: Unit4ExperienceProps
     return (
       <ExperienceFrame audience={audience} sceneIndex={scene} tone="exchange" eyebrow="EXPERT EXCHANGE · PART 2" title="Can the audience teach it back?" prompt="A tester explains the main idea in their own words. The creators listen for accuracy instead of helping." teacherNote="Choose the teach-back student, not the presenting team. This is a quick measure of what the experience communicated—not a grade for the visitor. Ask creators what the result tells them to revise." footer="I think the main idea is… The evidence that helped me understand was…">
         <div className="u4-teachback-stage">
-          <article><small>60-SECOND TEACH-BACK</small><h4>No notes. No rescue.</h4><p>Explain the issue, one important cause or system connection, and what the evidence says about a response.</p></article>
+          <article><small>60-SECOND TEACH-BACK</small><h4>Explain without notes or hints.</h4><p>Explain the issue, one important cause or system connection, and what the evidence says about a response.</p></article>
           <div role="group" aria-label="Choose the teach-back result">
             {(Object.keys(results) as Array<keyof typeof results>).map((key) => (
               <button key={key} aria-pressed={teachBack === key} className={teachBack === key ? "selected" : ""} onClick={() => setTeachBack(key)}>
@@ -399,8 +399,8 @@ export function ExpertExchangeLab({ sceneIndex, audience }: Unit4ExperienceProps
   }
 
   if (scene === 2) {
-    const contentFixes = ["Clarify one cause or system link", "Add proof beside one claim", "Represent a missing perspective carefully", "Qualify a response or limitation"];
-    const experienceFixes = ["Make the path easier to follow", "Shorten a section that overloads", "Strengthen the audience task", "Add an access or participation route"];
+    const contentFixes = ["Clarify one cause or system link", "Add proof beside one claim", "Represent a missing perspective carefully", "Make clear what a response can do and where its limits are"];
+    const experienceFixes = ["Make the path easier to follow", "Shorten a section that gives too much information at once", "Strengthen the audience task", "Add another way for classmates to take part"];
     return (
       <ExperienceFrame audience={audience} sceneIndex={scene} tone="exchange" eyebrow="EXPERT EXCHANGE · PART 3" title="Revise one idea and one experience feature." prompt="Use the test evidence. Fix what matters most instead of rebuilding everything or adding decoration." teacherNote="Require one content revision and one audience-experience revision. Ask teams to keep before/after evidence. A smaller evidence-led revision is stronger than a rushed total redesign." footer="We changed… because testers showed… Now the audience can…">
         <div className="u4-revision-board">

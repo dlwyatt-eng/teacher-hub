@@ -201,6 +201,11 @@
   .rotation-projector__picker{grid-template-columns:1fr}.rotation-projector__picker button:last-child{grid-column:auto}.rotation-projector h1{font-size:40px}.rotation-projector>header p{font-size:21px}.rotation-projector__intention{grid-template-columns:1fr}.rotation-projector__steps{padding:14px}.rotation-projector__steps li{grid-template-columns:44px 1fr}.rotation-projector__steps b{width:42px;height:42px}.rotation-projector__steps span{font-size:19px}
 }
 
+.rotation-class-directions{margin:0 22px 24px;padding:20px;border:1px solid #b5cec0;border-radius:16px;background:#f3faf5;color:#163c31}
+.rotation-class-directions h3{margin:0 0 12px;font-size:1.35rem}.rotation-class-directions p,.rotation-class-directions li{font-size:1.05rem;line-height:1.6}.rotation-class-directions li+li{margin-top:8px}
+.rotation-projector__help{margin:0 22px 20px;border:1px solid #93b4a4;border-radius:12px;padding:14px 18px;color:#163c31;background:#f3faf5}
+.rotation-projector__help summary{font-size:1.2rem;font-weight:800;cursor:pointer}.rotation-projector__help p{font-size:1.2rem;line-height:1.6}.rotation-projector__help summary:focus-visible{outline:3px solid #126b4a;outline-offset:5px}
+.large-text-mode .rotation-projector__help :is(summary,p){font-size:1.5rem}.large-text-mode .rotation-class-directions :is(p,li){font-size:1.3rem}
 @media(prefers-reduced-motion:reduce){.rotation-card{transition:none}}
 @media(forced-colors:active){
   .rotation-studio__hero,.rotation-chooser,.rotation-session,.rotation-launch,.rotation-supports,.rotation-handoff,.rotation-projector{border-color:CanvasText;background:Canvas;color:CanvasText}

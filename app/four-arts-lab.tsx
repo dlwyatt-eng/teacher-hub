@@ -97,7 +97,7 @@ export function FourArtsLab({ audience = "student" }: { audience?: "student" | "
   return (
     <section className="four-arts-lab" aria-labelledby="four-arts-title">
       <header className="four-arts-lab__hero">
-        <div><small>OPTIONAL AFTER-RAIN CUE LAB · USE AFTER THE FOUR FOUNDATION STUDIES</small><h2 id="four-arts-title">One scene. Four ways to guide attention.</h2><p>Use this copyright-safe practice scene to try a sound cue, a tableau, a movement phrase, and a two-form remix. The complete paper folio and authentic mentor encounters remain the core learning.</p></div>
+        <div><small>OPTIONAL AFTER-RAIN CUE LAB · USE AFTER THE FOUR FOUNDATION STUDIES</small><h2 id="four-arts-title">One scene. Four ways to guide attention.</h2><p>Look closely at the scene after the rain. Try a sound, a frozen group pose (a tableau), and a short movement sequence. Then combine two art forms. This is extra practice alongside your paper work and the artists you study.</p></div>
         <aside><strong>{verified} / 5</strong><span>creative moves built</span></aside>
       </header>
 
@@ -129,7 +129,7 @@ export function FourArtsLab({ audience = "student" }: { audience?: "student" | "
             <div className="four-arts-choice-grid">{sounds.map((sound) => <button type="button" key={sound.id} disabled={soundtrack.length >= 3} onClick={() => addSound(sound.id)}><span>{sound.voice}</span><strong>{sound.label}</strong></button>)}</div>
             <div className="four-arts-sequence"><small>YOUR 3-SOUND TRACK</small>{[0,1,2].map((slot) => { const sound = sounds.find((item) => item.id === soundtrack[slot]); return <button type="button" key={slot} disabled={!sound} onClick={() => setSoundtrack((current) => current.filter((_, index) => index !== slot))}><span>{slot + 1}</span>{sound ? <strong>{sound.label} ×</strong> : <em>Choose a sound</em>}</button>; })}</div>
             <button className="four-arts-play" type="button" disabled={!soundtrack.length || playing} onClick={() => { setPlaying(true); playSoundtrack(soundtrack, () => setPlaying(false)); }}>{playing ? "Playing…" : "▶ Test our soundtrack"}</button>
-            <p className="four-arts-coach">The computer gives a tiny optional synthesizer cue. Repeat a sound when repetition serves the rhythm. The class makes the musical version with voices, body percussion, safe objects, or instruments—and includes intentional silence and a graphic score.</p>
+            <p className="four-arts-coach">The computer can play a short electronic sound to help you practise. Repeat a sound if it helps the rhythm. Make the class musical version with voices, body percussion, safe objects, or instruments. Choose where silence belongs and draw a graphic score to show the sounds and pauses.</p>
           </div>}
 
           {step === 2 && <div className="four-arts-task">

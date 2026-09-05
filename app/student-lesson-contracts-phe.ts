@@ -14,14 +14,14 @@ export const pheStudentLessonContracts = {
       options: [
         { label: "Active play", detail: "Move into space, pass, receive, and rejoin at a pace that is safe for you." },
         { label: "Lower intensity", detail: "Use a smaller area, walking or wheeling pace, rolling passes, or a planned rest and return." },
-        { label: "Observer-designer", detail: "Keep the no-name tally, notice access patterns, and suggest the next rule change. Rotate when ready." },
+        { label: "Observer-designer", detail: "Keep the tally without names. Notice who gets a chance to join in, make choices, or rejoin, and suggest one rule change. Rotate when ready." },
       ],
     }],
     steps: [
       { title: "Learn Gate Pass", action: "In teams of four or five, pass a soft ball through any cone gate to a teammate to score. Hold it for no more than three counts and do not run with it. Defenders intercept passes only—no contact, grabbing, body blocking, or elimination.", finishCheck: "Everyone can show the freeze signal, three-count rule, and one safe pass or roll.", minutes: "8 min" },
       { title: "Play + notice", action: "Play one four-minute round. One rotating observer marks no names—only how many players received a pass, made a choice, mostly waited, or found a quick way back into play.", finishCheck: "The tally describes the round without ranking, naming, or blaming a player.", minutes: "10 min" },
       { title: "Change + replay", action: "Change one rule, space, team-size, equipment, or role. Predict how it may improve access, then replay for four minutes with the same safe-play rules.", finishCheck: "The group changed one feature and gathered a second no-name tally for a fair comparison.", minutes: "10 min" },
-      { title: "Decide from evidence", action: "Compare both rounds. Decide whether to keep, revise, or reject the change using the tally, one feedback pattern, and one thing the evidence cannot show.", finishCheck: "The decision checks participation, choice, safety, and enjoyment—not touches alone.", minutes: "9 min" },
+      { title: "Decide from evidence", action: "Compare both rounds. Look at the tally and find one pattern in what players said. Name one thing the evidence cannot show. Use all three to decide whether to keep, revise, or reject the change.", finishCheck: "The decision checks participation, choice, safety, and enjoyment—not touches alone.", minutes: "9 min" },
     ],
     finishEvidence: ["Safe participation in an active or observer-designer role", "Two no-name round tallies", "One tested change", "A keep, revise, or reject decision with evidence", "One limit or next test"],
     saveAction: { kind: "keep-in-class", message: "Keep the team tally and decision in class. Do not post names, body information, rankings, photos, or video to SpacesEDU." },
@@ -95,7 +95,7 @@ export const pheStudentLessonContracts = {
     steps: [
       { title: "Name source + purpose", action: "Identify who made the fictional message, who may benefit, its audience, and what it wants people to think, feel, buy, or do.", finishCheck: "You can point to message details that support your source and purpose ideas.", minutes: "8 min" },
       { title: "Check claim + evidence", action: "Separate the main claim from its evidence. Mark missing details such as a named expert, study, date, ingredients, limits, or a source that can be checked.", finishCheck: "The claim and evidence are separate, and one important missing detail is named.", minutes: "10 min" },
-      { title: "Compare a trusted source", action: "Use the provided district or provincial health-source capsule. Record what it supports, what it does not prove, and whether it matches the ad's exact claim.", finishCheck: "Your comparison says only what the source can support and keeps one uncertainty visible.", minutes: "10 min" },
+      { title: "Compare a trusted source", action: "Read the provided information from the school district or province. Record what it supports, what it does not prove, and whether it answers the ad's exact claim.", finishCheck: "Your comparison says only what the source can support and keeps one uncertainty visible.", minutes: "10 min" },
       { title: "Repair the response", action: "Write or say a safer response: what we know, what we do not know, what not to share or do, and which trusted adult or qualified professional could help next.", finishCheck: "The response protects private information and names an appropriate help route.", minutes: "10 min" },
     ],
     finishEvidence: ["The message creator and purpose", "The exact claim and evidence", "One missing detail or limit", "A trusted-source comparison", "A privacy-safe help route"],

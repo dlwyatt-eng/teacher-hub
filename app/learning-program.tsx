@@ -16,6 +16,7 @@ import { WorldAtlasIntroduction, WorldContextBand, WorldJourney, WorldPortal } f
 import { worldFor, worldStyle } from "./unit-worlds";
 import { StudentStepPath } from "./student-mission";
 import { resolveStudentLessonContractForExperience, type StudentLessonContract } from "./student-lesson-contract";
+import { studentFinishSummary } from "./student-finish-summaries";
 import { proficiencyModelSetsForActivity } from "./proficiency-models";
 import PatternTrailLab from "./math-pattern-lab";
 import EquationBalanceLab from "./math-equation-lab";
@@ -475,7 +476,7 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
     title: studentTitleFor(experience),
     question: studentContract.challenge,
     firstAction: studentContract.firstAction,
-    finish: studentContract.finishEvidence.at(-1) ?? plainForStudents(experience.product),
+    finish: studentFinishSummary(experience.id, plainForStudents(experience.product)),
   } satisfies DailyLaunch;
   return (
     <article className="program-experience-detail">
@@ -703,23 +704,23 @@ function adstProjectorMissionSteps(id: string, steps: Array<{ title: string; act
   return [
     {
       title: "Choose + check facts",
-      action: "Choose one safe, focused question for a real audience. Check the key idea with two teacher-approved sources and record what each source cannot prove.",
-      show: "Your question is focused, your audience is named, and two credited sources support the idea.",
+      action: "Choose one small question to teach someone about. Check your facts with two sources your teacher approves. Write down where each fact came from and what each source cannot tell you.",
+      show: "Name who you will teach and what they will learn. Show the two sources you checked.",
     },
     {
       title: "Plan the lesson",
-      action: "Write one learning goal and three success checks. Draw the whole learner path: start, information, meaningful choice, feedback, understanding check, and ending.",
-      show: "A partner can follow the paper path from the first action to the ending without you filling a gap.",
+      action: "Write what you want your learner to learn and three ways to check it. Draw every part of your lesson: the start, facts, a choice that matters, feedback, a question to check learning, and an ending. Show how someone can go back if stuck.",
+      show: "A partner can follow your paper plan from start to finish without you explaining a missing part.",
     },
     {
       title: "Make + test",
-      action: "Build the smallest complete version. Watch a new learner try it without coaching and record actions, pauses, and confusion without names.",
-      show: "The full route works, and the no-name test shows one content issue and one access, navigation, or feedback issue.",
+      action: "Make a small version of the whole lesson. Ask someone new to try it without your help. Note what they do, where they pause, and what confuses them. Do not record names.",
+      show: "Find one problem with what your lesson teaches and one problem with using it, following it, or getting helpful feedback.",
     },
     {
       title: "Improve + teach",
-      action: "Fix both issues, retest the changed parts, then teach the experience and run a short no-name understanding check.",
-      show: "Your evidence shows the changes helped, sources and tools are credited, and you can name one next improvement.",
+      action: "Fix both problems and test the changed parts again. Teach your lesson. Ask your learner to name the main idea, explain it, try it in a new example, and name a source or limit. Do not record names.",
+      show: "Show whether your changes helped. Name the sources and tools you used and one thing you could improve next.",
     },
   ];
 }
@@ -840,7 +841,7 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
       classMovePrompt={selected.id === "ordinary-object-story" ? "Choose a starter and tell it together." : undefined}
     /> });
     parts.push({ label: "Do", verb: "Make", content: <section className="projector-active-object">
-      <StudentStepPath key={selected.id} steps={projectorMissionSteps} product={`Complete all ${studentContract.finishEvidence.length} checks in the Done part.`} spacesPrompt={studentContract.reviewState === "reviewed" ? studentContract.saveAction.message : spaces.studentPrompt} />
+      <StudentStepPath key={selected.id} steps={projectorMissionSteps} product={studentFinishSummary(selected.id, plainForStudents(selected.product))} spacesPrompt={studentContract.reviewState === "reviewed" ? studentContract.saveAction.message : spaces.studentPrompt} />
       {phasedCoordinateBridge && <section className="coordinate-extension-phase"><header><p className="section-kicker">OPTIONAL EXTENSION</p><h3>Cross zero after the first-quadrant check.</h3></header><MathStudentWorkshops experienceId={selected.id} placement="extension" /></section>}
     </section> });
     if (selected.id === fourArtsExperienceId) parts.push({ label: "Cue lab", verb: "Optional", content: <section className="projector-active-object"><FourArtsLab /></section> });
@@ -863,7 +864,7 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
       </header>
 
       <main className="projector-lesson-player__stage" aria-live="polite">
-        <section className="projector-clarity-strip" aria-label="Learning goal, first action, and finish"><article data-learning-phase="learn" data-current={clarityPhase === "learn"}><small>WE ARE LEARNING</small><strong>{learningLine}</strong></article><article data-learning-phase="do" data-current={clarityPhase === "do"}><small>FIRST STEP</small><strong>{studentContract.firstAction}</strong></article><article data-learning-phase="done" data-current={clarityPhase === "done"}><small>YOU&apos;RE DONE WHEN</small><strong>All {studentContract.finishEvidence.length} checks in the Done part are complete.</strong></article></section>
+        <section className="projector-clarity-strip" aria-label="Learning goal, first action, and finish"><article data-learning-phase="learn" data-current={clarityPhase === "learn"}><small>WE ARE LEARNING</small><strong>{learningLine}</strong></article><article data-learning-phase="do" data-current={clarityPhase === "do"}><small>FIRST STEP</small><strong>{studentContract.firstAction}</strong></article><article data-learning-phase="done" data-current={clarityPhase === "done"}><small>WE WILL MAKE / SHOW</small><strong>{studentFinishSummary(selected.id, plainForStudents(selected.product))}</strong></article></section>
         <ClassroomCompanion
           key={`${selected.id}-${projectorPart}`}
           role={companionRole}

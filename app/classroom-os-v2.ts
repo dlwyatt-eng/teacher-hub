@@ -6,6 +6,8 @@
  * at a time while keeping one curriculum and distinct audience projections.
  */
 
+import { rotationSessions, ROTATION_STUDENT_CHOICES, ROTATION_STUDENT_DECORATION } from "./first-week-rotation-data";
+
 export const thinkingToolkit = [
   { id: "ask-better-questions", label: "Ask better questions", prompt: "What question would open this up?" },
   { id: "investigate", label: "Investigate", prompt: "What could we observe, test, read, or ask?" },
@@ -186,13 +188,7 @@ export const aiParticipationPrinciple = {
   neverDefault: "Do not default to one student, one device, and one AI conversation.",
 } as const;
 
-const rotationLessonRecords: LessonRecordV2[] = [
-  { id: "rotation-identity-constellation", title: "Identity Constellation", question: "What people, places, interests, languages, strengths, and experiences help make you you?", product: "A complete, decorated constellation with all six identity circles visited", doneWhen: "Every circle has a safe response, fictional alternative, blank/skip, or privacy marker; blank/skip needs no explanation, accommodation may reduce substantive output, one accessible visual cue crosses the page, and the student has made a privacy choice", privacy: "The named original stays private; only a separately copied, student-approved excerpt may be considered for display." },
-  { id: "rotation-how-i-learn", title: "How I Learn Best", question: "What conditions and actions help you begin, focus, recover when stuck, and show what you know?", product: "A complete, decorated learner user manual", doneWhen: "All six prompt boxes have a usable response, fictional alternative, blank/skip, or privacy marker; blank/skip needs no explanation, accommodation may reduce substantive output, and artistry is not assessed", privacy: "The named page is private learner information and is never a display artifact." },
-  { id: "rotation-ideal-learning-space", title: "Ideal Learning Space", question: "How could a learning space help different people focus, collaborate, reset, and belong?", product: "A complete, decorated inclusive learning-space plan", doneWhen: "The room plan and all three explanation boxes have been visited through a response, blank/skip, or accommodation route, with purposeful access evidence and one accessible visual cue; artistry is not assessed", privacy: "A student-approved copy may join a design gallery; personal reasons and learner information remain private." },
-  { id: "rotation-build-better-grade-6", title: "Build a Better Grade 6", question: "What small, realistic change could make Grade 6 more fair, welcoming, useful, or sustainable?", product: "A complete, decorated improvement proposal", doneWhen: "The idea line, design, and all three reasoning boxes have been visited through a response, blank/skip, or accommodation route, with purposeful proposal evidence and one accessible visual cue; artistry is not assessed", privacy: "An approved proposal copy may be displayed only after confidential or identifying details are removed." },
-  { id: "rotation-grade-6-quest-map", title: "Grade 6 Quest Map", question: "What meaningful goal could you begin, and what strengths, people, tools, and next step could help?", product: "A complete, decorated quest map", doneWhen: "All six planning regions have a safe response, fictional alternative, blank/skip, or privacy marker; blank/skip needs no explanation, accommodation may reduce substantive output, and artistry is not assessed", privacy: "The full named map stays private; only a separately copied, student-selected hope or strategy may be displayed." },
-].map((session): LessonRecordV2 => ({
+const rotationLessonRecords: LessonRecordV2[] = rotationSessions.map((session): LessonRecordV2 => ({
   id: session.id,
   unitId: "opening-learning-community",
   sourcePipeline: "program",
@@ -201,24 +197,24 @@ const rotationLessonRecords: LessonRecordV2[] = [
   thinkingMoves: ["reflect", "challenge-assumptions", "shift-perspective", "weigh-trade-offs", "improve"],
   maturity: "teacher-ready",
   audience: {
-    sharedLearning: `Students use the Discovery Booklet to create ${session.product.toLowerCase()}, visit every labelled region, improve one safe response and accessible visual cue when useful, and make a clear privacy choice.`,
+    sharedLearning: `${session.student.why} ${ROTATION_STUDENT_CHOICES}`,
     teacher: { planningSource: "first-week-mission.tsx" },
     student: {
-      launch: session.question,
-      grouping: "Whole-class provocation, individual creation, and optional partner or teacher check",
-      duration: "One complete 45-, 60-, or 75-minute route",
-      firstMove: "Quick-pass every labelled region with a safe word, sketch, symbol, fictional alternative, blank/skip, or privacy marker before deepening safe choices and decorating the page.",
-      choices: "Use words, symbols, pictures, patterns, spacing, dictation, a model, a fictional example, blank/skip, or a privacy marker. A skip needs no explanation; no private disclosure, colour, or artistic polish is required.",
-      product: session.product,
-      doneWhen: session.doneWhen,
-      destination: session.privacy,
-      catchUp: "Every organizer is standalone. The default whole-page rescue visits each region with a concise response or no-explanation blank/skip. When accommodation is needed, reduce substantive output without creating catch-up work; a model, word bank, scribe, icons, or fictional example are available.",
+      launch: session.student.learningGoal,
+      grouping: "Start together, work on your page, and check it yourself or with someone you choose",
+      duration: "45, 60, or 75 minutes with your group",
+      firstMove: session.student.firstAction,
+      choices: `${ROTATION_STUDENT_CHOICES} ${ROTATION_STUDENT_DECORATION}`,
+      product: `One ${session.title} page with your ideas and a design across the page.`,
+      doneWhen: session.student.finish,
+      destination: session.student.privacy,
+      catchUp: session.student.help,
     },
     family: {
-      summary: `Students complete and decorate the whole ${session.title} organizer, one of five standalone opening activities.`,
-      whyItMatters: "The activity gives the teacher useful low-stakes evidence while protecting student choice, privacy, and multiple ways to participate.",
-      product: session.product,
-      assessment: "Formative observation only; not graded, ranked, diagnosed, or used for placement.",
+      summary: `Students work on and decorate one ${session.title} page. They look at every part and may skip any question without giving a reason.`,
+      whyItMatters: session.student.why,
+      product: `One ${session.title} page with the student's own ideas and design choices.`,
+      assessment: "This is practice, not a grade or a way to decide class placement. It is not used to diagnose students.",
       supportAtHome: "Ask about one safe idea or revision the student chooses to discuss. No supplies or home completion are expected.",
     },
   },

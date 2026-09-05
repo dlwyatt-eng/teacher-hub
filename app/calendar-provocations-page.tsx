@@ -31,6 +31,7 @@ type ListeningRehearsal = NonNullable<(typeof provocations)[number]["listeningRe
 
 export function CalendarListeningRehearsal({ rehearsal, onReturn, audience = "teacher" }: { rehearsal: ListeningRehearsal; onReturn: () => void; audience?: CalendarProvocationsAudience }) {
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const directions = audience === "student" ? rehearsal.student : rehearsal;
 
   useEffect(() => {
     headingRef.current?.focus();
@@ -41,9 +42,9 @@ export function CalendarListeningRehearsal({ rehearsal, onReturn, audience = "te
       <header>
         <p className="calendar-rehearsal__label">FICTIONAL LISTENING REHEARSAL · CLASSROOM OS</p>
         <h1 id="calendar-rehearsal-title" ref={headingRef} tabIndex={-1}>{rehearsal.title}</h1>
-        <p><strong>Learning goal:</strong> {rehearsal.goal}</p>
+        <p><strong>Learning goal:</strong> {directions.goal}</p>
         <p className="calendar-rehearsal__attribution"><strong>Credit:</strong> {rehearsal.attribution}</p>
-        <p id="calendar-rehearsal-boundary" className="calendar-rehearsal__boundary">{rehearsal.boundary}</p>
+        <p id="calendar-rehearsal-boundary" className="calendar-rehearsal__boundary">{directions.boundary}</p>
         <div className="calendar-rehearsal__actions">
           <button type="button" onClick={onReturn}>← Back to authentic-source lesson</button>
           <button type="button" onClick={(event) => printClosest(event.currentTarget, ".calendar-rehearsal")}>Print fictional rehearsal</button>
@@ -61,7 +62,7 @@ export function CalendarListeningRehearsal({ rehearsal, onReturn, audience = "te
       </div>
       <section aria-labelledby="calendar-rehearsal-prompts">
         <h2 id="calendar-rehearsal-prompts">Try three listening moves</h2>
-        <ol>{rehearsal.prompts.map((prompt) => <li key={prompt}>{prompt}</li>)}</ol>
+        <ol>{directions.prompts.map((prompt) => <li key={prompt}>{prompt}</li>)}</ol>
       </section>
       <section aria-labelledby="calendar-rehearsal-finish">
         <h2 id="calendar-rehearsal-finish">Finish in words, drawing, or talk</h2>
@@ -70,7 +71,8 @@ export function CalendarListeningRehearsal({ rehearsal, onReturn, audience = "te
       <aside className="calendar-rehearsal__care" aria-labelledby="calendar-rehearsal-care">
         <h2 id="calendar-rehearsal-care">Careful use of this fictional practice</h2>
         {audience === "teacher" && <p>{rehearsal.teacherNote}</p>}
-        <p>{rehearsal.returnToAuthentic}</p>
+        {audience === "student" && <p>{rehearsal.student.care}</p>}
+        <p>{directions.returnToAuthentic}</p>
       </aside>
     </section>
   );
@@ -82,55 +84,56 @@ function validProvocationId(candidate?: string): CalendarProvocationId {
     : provocations[0].id;
 }
 
-function projectorPartsFor(provocation: (typeof provocations)[number]): ProjectorPart[] {
+export function projectorPartsFor(provocation: (typeof provocations)[number]): ProjectorPart[] {
+  const student = provocation.student;
   return [
     {
       label: "Look",
       verb: "Start",
-      eyebrow: "TEACHER OPENS THE SOURCE",
-      title: provocation.before,
-      body: provocation.hook,
+      eyebrow: "LOOK OR LISTEN TOGETHER",
+      title: student.before,
+      body: student.lookListen,
     },
     {
       label: "Notice",
       verb: "Point",
-      eyebrow: "EVIDENCE BEFORE EXPLANATION",
-      title: provocation.noticeWonder[0],
-      body: "Look quietly first. Name details you can point to. Leave feelings, motives, and missing context as questions.",
+      eyebrow: "WHAT DO YOU NOTICE?",
+      title: student.noticeWonder[0],
+      body: "Point to a detail you can see or hear. Do not guess what someone thinks or feels.",
     },
     {
       label: "Wonder",
       verb: "Ask",
       eyebrow: "KEEP A REAL QUESTION OPEN",
-      title: provocation.noticeWonder[1],
+      title: student.noticeWonder[1],
       body: "Choose a question that the source cannot answer by itself.",
-      items: provocation.questions,
+      items: student.questions,
     },
     {
       label: "Discuss",
       verb: "Test",
       eyebrow: "LISTEN · USE EVIDENCE · RECONSIDER",
-      title: provocation.questions[0],
-      body: provocation.discussion,
-      items: provocation.questions.slice(1),
+      title: student.questions[0],
+      body: student.discussion,
+      items: student.questions.slice(1),
     },
     {
       label: "Create",
       verb: "Make",
       eyebrow: "SHOW THE THINKING",
-      title: provocation.product,
-      body: "Use the named source carefully. Make one claim you can support and keep one limit or uncertainty visible.",
+      title: "Make your response",
+      body: student.product,
     },
     {
       label: "Check",
       verb: "Finish",
       eyebrow: "YOU ARE DONE WHEN",
-      title: "Your response is evidence-based, useful, and careful.",
-      body: `Credit ${provocation.source.label}. Separate what the source shows from your interpretation, complete the product, and name one responsible next step or open question.`,
+      title: "Show what you know and what you still need to check.",
+      body: `Name your source: ${provocation.source.label}. Explain what it shows and what you think it means. Finish your response and name a next step or a question to check.`,
       items: [
-        "I used a detail another person can inspect.",
+        "I used a detail another person can find in the source.",
         "I did not guess about a person's feelings, identity, or experience.",
-        "I named what remains uncertain or needs another source.",
+        "I named something we do not know yet or need another source to check.",
       ],
     },
   ];
@@ -213,8 +216,8 @@ function TeacherProvocationPlan({ provocation }: { provocation: (typeof provocat
   );
 }
 
-function StudentProvocationPlayer({ provocation }: { provocation: (typeof provocations)[number] }) {
-  const [partIndex, setPartIndex] = useState(0);
+export function StudentProvocationPlayer({ provocation, initialPartIndex = 0 }: { provocation: (typeof provocations)[number]; initialPartIndex?: number }) {
+  const [partIndex, setPartIndex] = useState(initialPartIndex);
   const parts = projectorPartsFor(provocation);
   const part = parts[partIndex] ?? parts[0];
 
@@ -228,9 +231,9 @@ function StudentProvocationPlayer({ provocation }: { provocation: (typeof provoc
       </header>
 
       <section className="calendar-provocations__clarity-strip" aria-label="Learning goal, first move, and finish">
-        <article><small>WE ARE LEARNING</small><strong>{provocation.learning.replace(/^We are learning\s+/i, "")}</strong></article>
-        <article><small>FIRST MOVE</small><strong>{provocation.noticeWonder[0]}</strong></article>
-        <article><small>WE WILL MAKE</small><strong>{provocation.product}</strong></article>
+        <article><small>WE ARE LEARNING</small><strong>{provocation.student.learning.replace(/^We are learning\s+/i, "")}</strong></article>
+        <article><small>FIRST MOVE</small><strong>{provocation.student.noticeWonder[0]}</strong></article>
+        <article><small>WE WILL MAKE</small><strong>{provocation.student.productSummary}</strong></article>
       </section>
 
       <section className="calendar-provocations__projector-stage" aria-live="polite">
@@ -245,7 +248,7 @@ function StudentProvocationPlayer({ provocation }: { provocation: (typeof provoc
 
       <footer className="calendar-provocations__projector-footer">
         <span><b>SOURCE</b>{provocation.source.label}</span>
-        <strong>{provocation.lens}</strong>
+        <strong>Use details. Ask questions. Listen carefully.</strong>
         <div><button type="button" disabled={partIndex === 0} onClick={() => setPartIndex((value) => Math.max(0, value - 1))}>← Previous</button><button type="button" disabled={partIndex === parts.length - 1} onClick={() => setPartIndex((value) => Math.min(parts.length - 1, value + 1))}>Next →</button></div>
       </footer>
     </section>
@@ -270,7 +273,7 @@ function CalendarProvocationRoute({ provocation, audience }: { provocation: (typ
     <>
       {rehearsal && (
         <aside className="calendar-rehearsal-launch" aria-labelledby="calendar-rehearsal-option">
-          <div><h2 id="calendar-rehearsal-option">Need the bundled listening practice?</h2><p>This separate fictional school story practises listening only. Prepare the attributed source before returning to the authentic lesson.</p></div>
+          <div><h2 id="calendar-rehearsal-option">Practise careful listening with a made-up story</h2><p>This made-up school story is for listening practice only. It does not teach the history of residential schools or replace learning from real sources. Your teacher will guide the next lesson.</p></div>
           <button ref={openButtonRef} type="button" onClick={() => { hasOpenedRehearsal.current = true; setRehearsalOpen(true); }}>Open fictional listening rehearsal</button>
         </aside>
       )}

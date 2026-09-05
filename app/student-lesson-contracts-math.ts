@@ -90,10 +90,10 @@ export const mathStudentLessonContracts = {
       { label: "Decimal grid", detail: "Build each amount, then combine the parts." }, { label: "Place-value chart", detail: "Keep every digit in its correct column." }, { label: "Written route", detail: "Use repeated addition or clear multiplication steps." },
     ] }],
     steps: [
-      { title: "Predict the size", action: "Use nearby whole dollars to write a sensible low-to-high window.", finishCheck: "Your window shows the total should be a little more than $12, not about $141.", minutes: "Session 1 · 15 min" },
+      { title: "Predict the size", action: "Use nearby whole-dollar amounts to write a low estimate and a high estimate for the total.", finishCheck: "Your window shows the total should be a little more than $12, not about $141.", minutes: "Session 1 · 15 min" },
       { title: "Model + calculate", action: "Find 6 × $2.35 using a visible method, then compare it with the prediction.", finishCheck: "Your method gives $14.10 and keeps dollars and cents aligned.", minutes: "Session 1 · 40 min" },
       { title: "Check three invoices", action: "Estimate each invoice, inspect or calculate its total, and mark it ‘makes sense’ or ‘send back.’", finishCheck: "Every decision has a size prediction and exact number evidence.", minutes: "Session 2 · 55 min" },
-      { title: "Repair one invoice", action: "Correct one misplaced decimal, show the calculation, and restore the unit.", finishCheck: "The repaired total fits the calculation and situation.", minutes: "Session 3 · 35 min" },
+      { title: "Repair one invoice", action: "Correct one misplaced decimal point. Show your calculation and label the answer with the correct unit, such as dollars.", finishCheck: "The repaired total fits the calculation and situation.", minutes: "Session 3 · 35 min" },
       { title: "Explain + check", action: "Complete: ‘I knew ___ could not be right because ___.’ Then use a calculator or opposite operation to check.", finishCheck: "Your reason names the estimate, place value, or unit that exposed the error.", minutes: "Session 3 · 20 min" },
     ],
     finishEvidence: ["A useful estimate", "One visible calculation", "Three invoice decisions", "One repaired invoice", "A plain-language explanation and check"],
@@ -167,7 +167,7 @@ export const mathStudentLessonContracts = {
     ] }],
     steps: [
       { title: "Predict from the design", action: "Write the chosen result as favourable outcomes over all equally likely outcomes.", finishCheck: "The fraction matches the game design.", minutes: "Session 1 · 30–35 min" },
-      { title: "Test 20 times", action: "Run 20 fair trials and tally every result without erasing surprising streaks.", finishCheck: "The table contains exactly 20 trials.", minutes: "Session 1 · 20 min" },
+      { title: "Test 20 times", action: "Test the game 20 times in the same way. Tally every result, including repeated results that surprise you.", finishCheck: "The table contains exactly 20 trials.", minutes: "Session 1 · 20 min" },
       { title: "Combine + compare", action: "Add class results and compare the experimental fraction with the design prediction.", finishCheck: "You name both fractions and describe the difference without calling normal variation cheating.", minutes: "Session 2 · 50–55 min" },
       { title: "Change the chance", action: "Alter one section, face, or counter. Predict the new chance before testing.", finishCheck: "The changed design and prediction agree.", minutes: "Session 3 · 45–55 min" },
       { title: "Retest + explain", action: "Run another fair test and explain what changed, what varied, and what a larger test might show.", finishCheck: "Your conclusion uses the design and trial evidence.", minutes: "Session 4 · 45–55 min" },

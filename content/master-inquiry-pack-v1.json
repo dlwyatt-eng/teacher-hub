@@ -109,6 +109,23 @@
   "calendarProvocations": [
     {
       "id": "terry-fox-access-and-action",
+      "student": {
+        "learning": "We are learning to tell Terry Fox's story respectfully and notice barriers that can keep people from taking part.",
+        "lookListen": "Look at the Terry Fox Foundation image and the route or fundraising graph your teacher shares. Find one detail in each.",
+        "before": "What can you see about Terry's actions and the support that helped make them possible?",
+        "noticeWonder": [
+          "Point to three details. Do not guess how someone feels from an image.",
+          "Who helped make this event possible? What might make it hard for someone to join a school event?"
+        ],
+        "questions": [
+          "How can a fundraising message respect people instead of making them feel guilty?",
+          "What could stop someone from getting cancer treatment or benefiting from research?",
+          "How could we check whether a school action helped?"
+        ],
+        "discussion": "With a partner, sort the fictional messages: respects a person's choice, makes it easier to join, puts pressure on people, or needs more information. Explain one choice using words from the card. You do not need to share a personal story.",
+        "product": "Rewrite one fictional school fundraising message. Say what the event supports, offer a way to join without donating, make participation a choice, and explain how the school will report the results. Credit the Terry Fox Foundation source you used.",
+        "productSummary": "A fundraising message that invites people without pressuring them."
+      },
       "title": "Terry Fox: Access, Action & the Stories We Tell",
       "lens": "Disability justice · health-care access · ethical fundraising",
       "timing": "35–50 minutes",
@@ -127,6 +144,23 @@
     },
     {
       "id": "harvest-reciprocity",
+      "student": {
+        "learning": "We are learning how food reaches us and how people can care for the land, water, and workers along the way.",
+        "lookListen": "Look at the food package and its path to the table. Follow the steps from land and water to growing or gathering, work, travel, the store, and a meal.",
+        "before": "Which people and places helped this food reach the table but are not named on the package?",
+        "noticeWonder": [
+          "Name two things the package actually tells you.",
+          "What would you need to find out about the work, land, water, knowledge, or waste behind this food?"
+        ],
+        "questions": [
+          "Who makes choices at each step of this food's journey?",
+          "What could people do to care for the land, water, and workers they depend on?",
+          "What could a school or company change to waste less food?"
+        ],
+        "discussion": "Place the cards beside the steps they connect to. At each step, name one thing a person or organization could take responsibility for. Use the source to check your ideas; do not guess a Nation's knowledge or practices. You may use the fictional food example without discussing your family's food or spending.",
+        "product": "Make a new label that tells more of one food's journey. Name a person or place it depends on, one responsibility, and one question you still have. Credit the source of your facts. Do not fill gaps with guesses.",
+        "productSummary": "A food label showing where food comes from and who helps it reach us."
+      },
       "title": "Harvest: Who Helps Food Reach Us?",
       "lens": "Food sovereignty · harvest labour · waste · reciprocity",
       "timing": "40–60 minutes",
@@ -145,6 +179,23 @@
     },
     {
       "id": "remembrance-public-memory",
+      "student": {
+        "learning": "We are learning how memorials show some experiences and how to ask whose stories are missing.",
+        "lookListen": "Look closely at the two memorial images. When your teacher reveals the captions, read who made each memorial and what it remembers. Check your first ideas against those details.",
+        "before": "What does each memorial draw your attention to?",
+        "noticeWonder": [
+          "Point to names, symbols, people, empty spaces, or details of the setting.",
+          "Whose experiences, or work for peace, would you need another source to learn about?"
+        ],
+        "questions": [
+          "How can we honour people who served and also learn about civilians—people who were not members of the armed forces?",
+          "How might propaganda—messages designed to shape beliefs—change what people remember about war?",
+          "What action for peace or care could follow remembrance?"
+        ],
+        "discussion": "Share one detail you can point to, one idea supported by a caption or source, and one question. Listen without deciding whose suffering or sacrifice matters most. You may write or draw a response; you do not need to share a family story.",
+        "product": "Design a small display panel about remembrance. Include a credited source, a perspective that needs more attention, and one action for peace or care. If you lack a source for that perspective, write a research question instead of inventing a person's story.",
+        "productSummary": "A remembrance display panel with a source, a missing perspective, and an action for peace."
+      },
       "title": "Remembrance: Who and What Do We Remember?",
       "lens": "Civilians · peace-building · propaganda · excluded service · public memory",
       "timing": "35–55 minutes",
@@ -163,6 +214,23 @@
     },
     {
       "id": "truth-records-responsibility",
+      "student": {
+        "learning": "We are learning how people's accounts, records, and knowledge of language or place help us understand the past and our responsibilities today.",
+        "lookListen": "Listen to or read the real source your teacher shares from the National Centre for Truth and Reconciliation or a specific Nation. Record the creator, date, and Nation only as they are named in the source. Notice any instructions about using it.",
+        "before": "How can we listen with care? Being able to view a source does not mean we have permission to copy or share it.",
+        "noticeWonder": [
+          "Who created this source, and what do they tell us about why it was shared?",
+          "What could another source help us understand? A question about missing information is not a reason to dismiss a person's account."
+        ],
+        "questions": [
+          "What does each source help us learn? How do the sources connect?",
+          "Why is it harmful to deny harms that evidence has already established?",
+          "What responsibility could our school take on and keep working at?"
+        ],
+        "discussion": "Connect what the shared sources tell you: a person's account, a record, or knowledge of language or place. Use only what has been shared with permission. Leave missing information as a question, not a reason to deny documented harms. Nobody needs to share a personal story or speak for a Nation.",
+        "product": "Make a source-care card: name the source and creator, one thing you learned, and the instructions for using it. Add one realistic school responsibility and a date to check what the school has done. Learning and responsibility continue beyond this lesson.",
+        "productSummary": "A card naming what a source teaches us and a responsibility our school can act on."
+      },
       "title": "Truth & Reconciliation: How Do We Know? What Do We Owe?",
       "lens": "Testimony · records · language revitalization · children's rights · local responsibility",
       "timing": "30–50 minutes",
@@ -177,6 +245,17 @@
       "differentiation": "Use a fictional listening rehearsal when an authentic source is unavailable; provide quiet, drawing, dictation, and no-personal-disclosure routes.",
       "fallback": "Postpone the authentic lesson until its exact source, attribution, and protocol are prepared. Choose Open fictional listening rehearsal for the bundled school-story practice; it is not a replacement for the authentic learning.",
       "listeningRehearsal": {
+        "student": {
+          "goal": "We are learning to compare what a person says happened with a written notice, and explain what we know and still need to check.",
+          "boundary": "All people, events, and records in this story are made up. This is listening practice. It is not survivor testimony, Indigenous knowledge, or evidence about history. It must not be used as a comparison with residential schools. This practice does not replace the real-source lesson or complete our learning about reconciliation.",
+          "prompts": [
+            "What does Jordan say they saw? What did they hear later? Point to words that show the difference.",
+            "What plan is written in the notice? Does the notice prove that the meeting happened or that everyone got the message?",
+            "Choose one respectful question to check next. What should the club organizers check about how they share the next message?"
+          ],
+          "care": "The notice tells us the plan. It does not prove what happened. Do not guess anyone's reasons or feelings. You can write, draw, dictate, or talk with a partner. You do not need to act the story out or share a personal experience.",
+          "returnToAuthentic": "Next, your teacher will choose when the real-source lesson is ready. That lesson uses a source from the National Centre for Truth and Reconciliation or a specific Nation, with its own creator, context, and instructions for use. Keep its credit separate: this made-up practice was created by Classroom OS, not by the Centre or a Nation."
+        },
         "id": "changed-library-club-room-v1",
         "title": "Fictional listening rehearsal: The changed library-club room",
         "goal": "We are learning to listen carefully, compare an account with a written notice, and name what each source does and does not establish.",
@@ -215,6 +294,23 @@
     },
     {
       "id": "black-futures-bc",
+      "student": {
+        "learning": "We are learning to notice whose stories are shared in B.C. and include Black people's ideas, creativity, joy, and futures alongside histories of harm.",
+        "lookListen": "Look at the two works or profiles from the B.C. Black History Awareness Society Learning Centre. Read the names and source credits. Find one idea or detail in each.",
+        "before": "What strengths, ideas, places, or hopes can you point to in these sources?",
+        "noticeWonder": [
+          "Name a detail the source actually shows or states. Do not guess from someone's appearance.",
+          "What other people, experiences, or kinds of work could help make this collection fuller?"
+        ],
+        "questions": [
+          "What would we miss if we learned only about racism and harm?",
+          "Who chooses the stories in a museum collection, textbook, or online feed?",
+          "What ideas for the future do you notice in this person's work or profile?"
+        ],
+        "discussion": "Name the creator or person featured. Share one detail, connect it to another detail you have learned, and ask one question. One person or work does not speak for every Black person. Nobody needs to explain their own identity or speak for a community.",
+        "product": "Imagine a possible B.C. in 2040. Make a postcard, audio note, or small exhibit label that builds on an idea from one credited source. Make clear which idea comes from the source and which future idea is yours.",
+        "productSummary": "A postcard, audio note, or exhibit label imagining a possible B.C. in 2040."
+      },
       "title": "Black Futures in B.C.: Beyond a Single Story",
       "lens": "Contemporary community · joy · creativity · representation · local histories",
       "timing": "35–55 minutes",
@@ -233,6 +329,23 @@
     },
     {
       "id": "earth-day-systems",
+      "student": {
+        "learning": "We are learning to check an environmental claim and choose a school change we can measure.",
+        "lookListen": "Read the made-up environmental advertisement. Then look at the graph or action from the City of Surrey's Climate Action Tracker. Keep the fictional ad separate from the real city source.",
+        "before": "Which words sound impressive? Which details could you check?",
+        "noticeWonder": [
+          "Underline what the ad wants you to believe. Circle any evidence it gives. It is okay to find that evidence is missing.",
+          "Who can make this change? Who would be affected by it?"
+        ],
+        "questions": [
+          "Does this show a measured result, make a promise, or just look environmentally friendly?",
+          "What can companies, governments, and schools change? What choices can individuals make?",
+          "What could our school measure without blaming students for problems they do not control?"
+        ],
+        "discussion": "Check three things: What is the claim? What evidence supports it? Who could be helped or harmed? Then choose one school action. Decide what you would measure before the change and when you would measure again.",
+        "product": "Make an action card. State what is happening now, who can approve a change, the first step, what you will measure, and when you will share the results. Credit the evidence you used. Mark anything you still do not know.",
+        "productSummary": "A plan for one school change and a way to measure what happens."
+      },
       "title": "Earth Day: Which Change Can We Actually Track?",
       "lens": "Corporate responsibility · greenwashing · Surrey adaptation · biodiversity · resilient schools",
       "timing": "35–60 minutes",
@@ -251,6 +364,23 @@
     },
     {
       "id": "pink-shirt-bystander-power",
+      "student": {
+        "learning": "We are learning safe ways to respond when someone is being hurt or excluded, and what adults must do to help.",
+        "lookListen": "Read the fictional group-chat or hallway story. Look at what happens before, during, and after the harm. You do not need to act it out or share a personal experience.",
+        "before": "If you saw this happen, what could you safely do? When would you need an adult's help?",
+        "noticeWonder": [
+          "Notice what people say and do, who is watching, and whether messages are being spread.",
+          "What could you ask the person who was hurt to find out what support they want? Do not guess or speak for them."
+        ],
+        "questions": [
+          "Which response could safely reduce the harm right now?",
+          "What does a trusted adult need to know? How could you report it without spreading the harm?",
+          "What should adults check or change afterward so the harm does not continue?"
+        ],
+        "discussion": "Match each card to a safe action: interrupt if safe, offer support, tell an adult, keep a private record if safe, help repair the harm, or get immediate help. More than one action may be needed. Nobody has to confront someone or act out the harm.",
+        "product": "Make a response plan for the fictional story. Include a safe first move, support for the person, an adult to tell, a safe way to record what happened, what adults should change or repair, and a follow-up check. Respect the person's choices; do not force an apology or forgiveness.",
+        "productSummary": "A safe response plan that supports the person and names what adults should do."
+      },
       "title": "Pink Shirt Day: What Can Bystanders Change?",
       "lens": "Group dynamics · online amplification · belonging · institutional responsibility · repair",
       "timing": "30–45 minutes",

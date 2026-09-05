@@ -252,7 +252,7 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
       "A hook is the first moment that gives an audience a reason to pay attention.",
       "Attention is not the same as learning. A surprising opening still needs a clear path into the main idea.",
       "A useful audience test records what people notice, think the project is about, and still find confusing.",
-      "Revision should answer the audience evidence, not simply make the opening louder or flashier.",
+      "Use what the audience said or did to decide what to change. Louder sound or more effects will not always help them understand.",
     ],
     terms: terms(
       ["hook", "an opening that draws an audience into the main idea", "‘Where would you stand if the pavement reached 38°C?’ begins with a question."],
@@ -898,7 +898,7 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
     purpose: "Turn a stressful fictional project into small ordered tasks, fair roles, a check-in, and a backup plan.",
     background: [
       "A clear outcome says what will be finished and what ‘working’ will look like.",
-      "Large work becomes manageable when it is divided into small visible tasks with an owner and a time window.",
+      "Break a large project into small tasks. For each task, show who will do it and when it needs to be done.",
       "Some tasks must happen before others: facts need checking before final labels are printed.",
       "A planned check-in catches problems early, and a backup plan protects the goal when something changes.",
     ],
@@ -959,7 +959,7 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
         "Skill links: measuring connects the builder and irrigation technician; clear communication connects the translator, designer, educator, and coordinator.",
         "Tool links: soil tests, mapping software, hand tools, budgets, signs, and scheduling tools support different parts of the same garden.",
         "Pathways differ: community volunteering, a school garden, a mentor, technical training, university study, and workplace practice can all add experience.",
-        "Low-risk sample next step: interview a fictional role card on screen and choose one tiny task that lets a student try its skill.",
+        "Safe practice step: use a fictional role card to answer questions about that person's work. Choose one small task to try a skill from the card.",
       ],
       conclusion: "The constellation replaces one ‘hero job’ with a connected system of roles, skills, tools, service, and learning routes.",
     },

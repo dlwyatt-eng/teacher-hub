@@ -58,10 +58,10 @@ test("Each One, Teach One stays a complete, equivalent-choice ADST pathway", asy
 
   const text = contracts.studentContractText(contract);
   assert.match(text, /at least two teacher-approved sources/i);
-  assert.match(text, /complete paper learner-flow map/i);
+  assert.match(text, /Draw the whole path on paper[\s\S]*go back if they get stuck/i);
   assert.match(text, /Wi-Fi, devices, accounts, or AI are unavailable/i);
-  assert.match(text, /never a name, account, image, or personal comment/i);
-  assert.match(text, /one content revision and one access, navigation, or feedback revision/i);
+  assert.match(text, /Never record their name, account, image, or a personal comment/i);
+  assert.match(text, /One change to what you teach, plus one change that helps people take part, find their way, or use feedback/i);
   assert.match(text, /add-to-existing-post|existing SpacesEDU post/i);
   assert.match(text, /no raw AI output|raw AI output/i);
   assert.doesNotMatch(text, /public publishing[^.]*required/i);

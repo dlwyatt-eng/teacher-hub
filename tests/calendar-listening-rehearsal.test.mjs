@@ -84,7 +84,7 @@ test("the authentic teacher and student routes preserve NCTR attribution until r
 test("the student rehearsal omits teacher facilitation notes while preserving its boundary and return guidance", () => {
   const html = renderToStaticMarkup(createElement(CalendarListeningRehearsal, { rehearsal, audience: "student", onReturn() {} }));
   assert.equal(html.includes(escapedText(rehearsal.teacherNote)), false);
-  for (const text of [rehearsal.boundary, rehearsal.returnToAuthentic, ...rehearsal.sourceCards.map((card) => card.text)]) assert.ok(html.includes(escapedText(text)));
+  for (const text of [rehearsal.student.boundary, rehearsal.student.returnToAuthentic, rehearsal.student.care, ...rehearsal.sourceCards.map((card) => card.text)]) assert.ok(html.includes(escapedText(text)));
 });
 
 test("other lessons do not expose the reconciliation-only rehearsal action", () => {

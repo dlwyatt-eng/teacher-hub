@@ -242,13 +242,13 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
   },
   "make-it-teachable": {
     question: "How can we turn strong research into an experience that helps classmates think?",
-    learning: "We are learning to choose a useful form, prototype before polishing, and check accuracy before production.",
-    success: ["I can choose a form that fits the learning.", "I can build a strong learning spine in any format.", "I can revise accuracy and experience design from feedback."],
+    learning: "We are learning to choose a useful way to teach, try a rough version, and check that our ideas are accurate before finishing it.",
+    success: ["I can choose a form that fits the learning.", "I can connect the key ideas, evidence, and audience task in any format.", "I can use feedback to correct an idea and improve how classmates use my work."],
     scenes: [
-      { title: "Match the form to the learning", action: "Decide what classmates must understand and do, then test which format actually helps that happen.", product: "A justified format and learning spine" },
-      { title: "Make it on paper first", action: "Storyboard the opening, three essential ideas, evidence, perspectives, audience decision, and honest ending.", product: "A complete paper prototype" },
-      { title: "Pass the accuracy gate", action: "Check claims, sources, timeline, significance, causes, power, responses, and limits before adding polish.", product: "An approved evidence passport" },
-      { title: "Build the minimum useful experience", action: "Create only what classmates need to learn and respond. Make roles, access, timing, citations, and a realistic action pathway clear.", product: "A testable experience; polish is not assessed" },
+      { title: "Match the form to the learning", action: "Decide what classmates must understand and do, then test which format actually helps that happen.", product: "A chosen format with a reason, plus the key ideas, evidence, and audience task" },
+      { title: "Make it on paper first", action: "Sketch the whole sequence: an opening, three key ideas with evidence, different perspectives, a decision for the audience, and an ending that shows what you know and what is still uncertain.", product: "A complete paper prototype" },
+      { title: "Check the ideas and evidence", action: "Before adding finishing details, check your claims against the sources. Check the event order, why the issue matters, its causes, who has power, the responses, and what your evidence cannot show.", product: "Your completed evidence checklist, checked and approved by your teacher" },
+      { title: "Build the minimum useful experience", action: "Build what classmates need to learn and respond. Show each person's job, ways to take part, the time needed, and where each idea came from. Include a realistic next action people could take.", product: "A testable experience; polish is not assessed" },
     ],
   },
   "expert-exchange": {
@@ -256,9 +256,9 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
     learning: "We are learning to use audience evidence to revise, teach accurately, and explain our own contribution and growth.",
     success: ["I can collect useful audience feedback.", "I can revise one idea and one experience feature for clear reasons.", "I can teach, answer questions, and reflect on my own learning."],
     scenes: [
-      { title: "Run a cold test", action: "Another team tries your experience without a preview. Observe; do not coach. Collect: I learned / I got stuck / I need proof for.", product: "Three kinds of audience evidence" },
-      { title: "Listen to the audience teach back", action: "Testers explain the main idea, why it matters, evidence, and one limit. Compare that with what you meant to teach.", product: "A learning-gap map" },
-      { title: "Revise an idea and the experience", action: "Correct one content claim and improve one direction, interaction, access feature, or evidence moment. Name the signal behind each change.", product: "A before-and-after revision record" },
+      { title: "Test with a new audience", action: "Another team tries your experience without a preview. Observe; do not coach. Collect: I learned / I got stuck / I need proof for.", product: "Three kinds of audience evidence" },
+      { title: "Listen to the audience teach back", action: "Testers explain the main idea, why it matters, evidence, and one limit. Compare that with what you meant to teach.", product: "Notes comparing what you meant to teach with what the testers understood" },
+      { title: "Revise an idea and the experience", action: "Correct one claim. Also improve one direction, audience task, way to take part, or place where you show evidence. For each change, name what the testers said or did that showed it was needed.", product: "A before-and-after revision record" },
       { title: "Hold the expert exchange", action: "Teach, answer questions, and post the team artifact once. Then add your own short audio, video, or text reflection.", product: "One shared product plus your own SpacesEDU reflection" },
     ],
   },

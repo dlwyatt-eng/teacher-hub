@@ -8,6 +8,9 @@ import "./first-week-mission.css";
 import {
   DISCOVERY_BOOKLET_PDF,
   ROTATION_DURATIONS,
+  ROTATION_STUDENT_CHOICES,
+  ROTATION_STUDENT_DECORATION,
+  ROTATION_STUDENT_HAND_IN,
   WHOLE_ORGANIZER_ACCOMMODATION,
   WHOLE_ORGANIZER_DECORATION,
   WHOLE_ORGANIZER_PRIVACY,
@@ -69,12 +72,6 @@ function PrivacyBadge({ session }: { session: RotationSession }) {
   return <span className="rotation-card__privacy" data-level={session.privacy.level}>{session.privacy.label}</span>;
 }
 
-function projectorPrivacy(session: RotationSession) {
-  if (session.privacy.level === "private") return "Keep the named original private. This page is not for display.";
-  if (session.privacy.level === "display-candidate") return "The original stays private. A separate copy may be displayed only after you opt in again.";
-  return "The original transfers privately. Only a safe copied excerpt may be considered later.";
-}
-
 function SessionChooser({ selectedId, choose }: { selectedId: string; choose: (id: string) => void }) {
   return (
     <section className="rotation-chooser" aria-labelledby="rotation-chooser-title">
@@ -129,23 +126,30 @@ function ProjectorSession({ session, choose }: { session: RotationSession; choos
         <div>
           <small>GRADE 6 DISCOVERY · PAGE {session.page}</small>
           <h1 id="rotation-projector-title">{session.title}</h1>
-          <p>{session.question}</p>
+          <p>{session.student.why}</p>
         </div>
         <Image src={session.preview} alt={`Preview of ${session.bookletTitle}`} width={680} height={880} priority />
       </header>
-      <div className="rotation-projector__intention"><small>TODAY I CAN</small><strong>{session.learningIntention.replace(/^I can /, "")}</strong></div>
-      <section className="rotation-projector__whole-page" aria-label="Whole-page completion target">
+      <div className="rotation-projector__intention"><small>TODAY I CAN</small><strong>{session.student.learningGoal.replace(/^I can /, "")}</strong></div>
+      <section className="rotation-projector__whole-page" aria-label="Start here and choose what to share">
         <CompanionMark role="build" size="large" motion="once" />
-        <div><small>WHOLE-PAGE TARGET</small><strong>Visit all {session.pageRegions.length} labelled areas. Blank/skip counts—no explanation.</strong></div>
-        <p>{WHOLE_ORGANIZER_DECORATION}</p>
+        <div><small>START HERE</small><strong>{session.student.firstAction}</strong></div>
+        <p>{ROTATION_STUDENT_CHOICES}</p>
       </section>
       <ol className="rotation-projector__steps">
-        {session.makeSteps.map((step, index) => <li key={step}><b>{index + 1}</b><span>{step}</span></li>)}
+        {session.student.steps.map((step, index) => <li key={step}><b>{index + 1}</b><span>{step}</span></li>)}
       </ol>
+      <details className="rotation-projector__help">
+        <summary>See an example or get help</summary>
+        <p><b>One example:</b> {session.student.example}</p>
+        <p><b>Make it yours:</b> {ROTATION_STUDENT_DECORATION}</p>
+        <p><b>Need help?</b> {session.student.help}</p>
+        <p><b>Hand it in:</b> {ROTATION_STUDENT_HAND_IN}</p>
+      </details>
       <footer>
-        <section><small>FINISH WHEN</small><strong>{session.success[0]}</strong></section>
-        <section><small>YOUR CHOICE</small><strong>{projectorPrivacy(session)}</strong></section>
-        <span>Whole page · paper first</span>
+        <section><small>MY FINISH CHECK</small><strong>{session.student.finish}</strong></section>
+        <section><small>YOUR PAGE STAYS PRIVATE</small><strong>{session.student.privacy}</strong></section>
+        <span>One page today · Not graded</span>
       </footer>
     </section>
   );
@@ -163,7 +167,7 @@ function TeacherSession({ session, duration }: { session: RotationSession; durat
           <small>SELECTED · PAGE {session.page} · {duration} MINUTES</small>
           <h2 id="rotation-session-title">{session.title}</h2>
           <p className="rotation-session__question">{session.question}</p>
-          <div className="rotation-session__intention"><b>LEARNING INTENTION</b><span>{session.learningIntention}</span></div>
+          <div className="rotation-session__intention"><b>LEARNING GOAL</b><span>{session.student.learningGoal}</span></div>
           <PrivacyBadge session={session} />
           <p className="rotation-session__privacy">{session.privacy.student}</p>
           <div className="rotation-session__actions">
@@ -182,6 +186,16 @@ function TeacherSession({ session, duration }: { session: RotationSession; durat
       <section className="rotation-launch">
         <div><small>OPENING PROVOCATION</small><strong>{session.provocation.display}</strong><p>Ask: “{session.provocation.ask}”</p></div>
         <aside><small>TEACHER MOVE</small><p>{session.provocation.move}</p></aside>
+      </section>
+
+      <section className="rotation-class-directions" aria-label="Directions to share with the class">
+        <h3>Say it to the class</h3>
+        <p><b>Start here:</b> {session.student.firstAction}</p>
+        <p><b>One example:</b> {session.student.example}</p>
+        <ol>{session.student.steps.map((step) => <li key={step}>{step}</li>)}</ol>
+        <p>{ROTATION_STUDENT_CHOICES}</p>
+        <p><b>Finish check:</b> {session.student.finish}</p>
+        <p><b>Help:</b> {session.student.help}</p>
       </section>
 
       <section className="rotation-completion-map" aria-labelledby="rotation-completion-map-title">
@@ -253,7 +267,7 @@ function TeacherSession({ session, duration }: { session: RotationSession; durat
 
       <details className="rotation-ttoc">
         <summary>TTOC-ready guidance and boundaries</summary>
-        <div><p><b>Say:</b> “We will visit every part of this organizer and decorate across the whole page. A safe response, fictional alternative, blank/skip, or privacy symbol completes a section. You never have to explain a skip.”</p><p><b>Boundary:</b> {session.ttoc}</p><p><b>Finish:</b> Check every labelled region, one accessible visual cue, consent, the back label, and face-down collection. Artistry is not graded. Leave sensitive follow-up for the classroom teacher through the school’s normal route.</p></div>
+        <div><p><b>Say:</b> “{ROTATION_STUDENT_CHOICES} {ROTATION_STUDENT_DECORATION}”</p><p><b>Boundary:</b> {session.ttoc}</p><p><b>Finish:</b> Check every labelled region, one accessible visual cue, consent, the back label, and face-down collection. Artistry is not graded. Leave sensitive follow-up for the classroom teacher through the school’s normal route.</p></div>
       </details>
     </article>
   );

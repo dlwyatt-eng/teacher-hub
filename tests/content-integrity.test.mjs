@@ -47,9 +47,9 @@ test("canonical opening content stays schedule-neutral and privacy-bounded", asy
   assert.equal(source.window.shared.title, "Grade 6 Discovery Rotations");
   assert.match(source.window.teacher.timing, /schedule, order, and end date still flexible/i);
   assert.doesNotMatch(source.window.shared.summary, /every group visits once|Tuesday|Wednesday|Thursday|Friday/i);
-  assert.match(source.window.shared.summary, /No student must complete all five/i);
+  assert.match(source.window.shared.summary, /You do not have to do all five pages/i);
   assert.match(source.window.shared.summary, /face-down/i);
-  assert.match(source.window.shared.summary, /No student must.*post this work to SpacesEDU/i);
+  assert.match(source.window.shared.summary, /You do not have to.*upload these pages to SpacesEDU/i);
 });
 
 test("local public asset references resolve", async () => {

@@ -2,6 +2,18 @@ export type RotationDuration = 45 | 60 | 75;
 
 export type RotationPrivacyLevel = "private" | "selected-excerpt" | "display-candidate";
 
+/** Authored for students; staff preparation must never become projector copy. */
+export type RotationStudentDirections = {
+  learningGoal: string;
+  why: string;
+  firstAction: string;
+  example: string;
+  steps: readonly string[];
+  finish: string;
+  privacy: string;
+  help: string;
+};
+
 export type RotationSession = {
   id: string;
   title: string;
@@ -10,6 +22,7 @@ export type RotationSession = {
   preview: string;
   question: string;
   learningIntention: string;
+  student: RotationStudentDirections;
   bestFor: string;
   product: string;
   pageRegions: readonly string[];
@@ -59,6 +72,10 @@ export const WHOLE_ORGANIZER_PRIVACY = "Visit every labelled section. A brief re
 export const WHOLE_ORGANIZER_DECORATION = "Decorate across the page with accessible visual meaning-making—colour, drawing, symbols, borders, spacing, or repeating patterns. One simple repeated cue is enough; artistry is never graded.";
 export const WHOLE_ORGANIZER_ACCOMMODATION = "When an accommodation is needed, reduce the number or length of substantive responses to the smallest useful evidence of the learning intention. Keep the whole organizer available, let blank/skip complete any other region without explanation, and do not create catch-up work.";
 
+export const ROTATION_STUDENT_CHOICES = "Look at every part of the page. You may leave any part blank or write SKIP. You never have to explain why. You can use made-up examples instead of personal ones.";
+export const ROTATION_STUDENT_DECORATION = "Make the page yours with drawings, symbols, borders, or patterns. One simple pattern across the page is enough. Colour is optional. Your art skills are not graded.";
+export const ROTATION_STUDENT_HAND_IN = "Write your name, the date, and your group on the back. Put your page face-down in the folder your teacher shows you.";
+
 export const rotationTimings: Record<RotationDuration, readonly Omit<RotationTimelineStep, "action">[]> = {
   45: [
     { timing: "0–4", label: "Welcome + privacy" },
@@ -101,6 +118,21 @@ export const rotationSessions: readonly RotationSession[] = [
     preview: "/images/first-week/identity-constellation.webp",
     question: "What people, places, interests, languages, strengths, and experiences help make you you?",
     learningIntention: "I can represent parts of my identity and choose what I want others to know.",
+    student: {
+      learningGoal: "I can use words and pictures to show some things that make me who I am.",
+      why: "We can get to know each other while choosing what to keep private.",
+      firstAction: "Look at the six circles. Choose one to start with and add a word or picture.",
+      example: "If you enjoy soccer, you could draw a ball in Interests. Your ideas can be different.",
+      steps: [
+        "Look at each circle. Add words or pictures, or choose to leave it blank.",
+        "Add a few details to the ideas you choose to use.",
+        "Draw lines between three ideas that connect. Include a strength you would like to grow.",
+        "Add stars, lines, or patterns across the page. Check that your page includes only ideas you want your teacher to read.",
+      ],
+      finish: "I looked at all six circles, connected my ideas, and added a design across the page. Parts I chose to skip count as finished.",
+      privacy: "Your original page stays private. Later, your teacher may ask you again before copying a safe part you choose onto a separate page for display. You can say no.",
+      help: "Ask for an example or someone to help you write or draw. You and your teacher can agree on fewer ideas. Skipped parts and agreed shorter work do not become catch-up work.",
+    },
     bestFor: "belonging, low-risk connection, and student voice",
     product: "A complete, decorated constellation with every identity circle visited through a safe response, fictional alternative, blank/skip, or privacy marker.",
     pageRegions: ["People", "Places", "Interests", "Languages & cultures", "Strengths", "Experiences"],
@@ -151,6 +183,21 @@ export const rotationSessions: readonly RotationSession[] = [
     preview: "/images/first-week/brain-user-manual.webp",
     question: "What conditions and actions help you begin, focus, recover when stuck, and show what you know?",
     learningIntention: "I can notice useful learning conditions and name one support I can try.",
+    student: {
+      learningGoal: "I can name something that helps me learn and choose one idea to try.",
+      why: "This helps your teacher understand what supports you at school.",
+      firstAction: "Find ‘I learn best when’. Write or draw one thing that helps you, or skip this box.",
+      example: "‘Seeing one example helps me start.’ What helps you might change with the activity.",
+      steps: [
+        "Read each of the six boxes. Write or draw an idea, or choose to skip it.",
+        "Add details about what helps you start, focus, feel comfortable, or get unstuck.",
+        "Circle one idea you would like to try. A made-up learner's idea is fine too.",
+        "Use symbols or patterns across the page. Keep your words easy to read.",
+      ],
+      finish: "I looked at all six boxes, chose one idea to try, and added a design across the page. Parts I chose to skip count as finished.",
+      privacy: "This page stays with your teacher. It will not go on display. You do not need to explain private things about yourself or your family.",
+      help: "Ask for a list of ideas or someone to write your words. You and your teacher can agree on fewer answers. Skipped parts and agreed shorter work do not become catch-up work.",
+    },
     bestFor: "learner agency, routines, and teacher planning",
     product: "A complete, decorated learner user manual with every prompt box visited through a safe response, fictional alternative, blank/skip, or privacy marker.",
     pageRegions: ["I learn best when", "I focus better when", "I feel comfortable when", "When I get stuck, it helps if", "Something I’m proud of", "One thing teachers should know"],
@@ -201,6 +248,21 @@ export const rotationSessions: readonly RotationSession[] = [
     preview: "/images/first-week/ideal-learning-space.webp",
     question: "How could a learning space help different people focus, collaborate, reset, and belong?",
     learningIntention: "I can design a learning space and explain how features support different learners.",
+    student: {
+      learningGoal: "I can design a room and explain how it helps different people learn.",
+      why: "A helpful classroom gives people space to move, work together, focus, and take a quiet break.",
+      firstAction: "Sketch the shape of your room. Draw a clear path people can use to move around.",
+      example: "A wide path lets people reach the shelves without squeezing past chairs.",
+      steps: [
+        "Sketch places to work quietly, work together, store supplies, and take a break.",
+        "Label four things in your room. Say who each one helps.",
+        "Read the three boxes below your drawing. Add ideas or skip a box. Check your teacher's room limits.",
+        "Find one thing that could make the room hard to use and improve it. Add arrows, symbols, or patterns.",
+      ],
+      finish: "My page shows a room plan and why its features help people. I looked at all three boxes. Parts I chose to skip count as finished.",
+      privacy: "Your original page stays private. Later, your teacher may ask you again before copying a safe part you choose onto a separate page for display. You can say no.",
+      help: "Ask for a room outline, picture labels, or someone to draw your ideas. You and your teacher can agree on fewer labels. Skipped parts and agreed shorter work do not become catch-up work.",
+    },
     bestFor: "inclusive design, spatial reasoning, and classroom routines",
     product: "A complete, decorated learning-space plan with the room design and all three explanation boxes visited through a response, blank/skip, or accommodation route.",
     pageRegions: ["Room plan and clear movement path", "Must-have features", "How people work together", "A place to reset"],
@@ -251,6 +313,21 @@ export const rotationSessions: readonly RotationSession[] = [
     preview: "/images/first-week/build-better-grade-6.webp",
     question: "What small, realistic change could make Grade 6 more fair, welcoming, useful, or sustainable?",
     learningIntention: "I can propose a change, explain who it helps, and improve it after testing a trade-off.",
+    student: {
+      learningGoal: "I can suggest a small change to Grade 6 and explain who it would help.",
+      why: "We can improve school by listening to people and checking how an idea might affect them.",
+      firstAction: "Think of one small change that could help at school. Write it on the ‘My idea’ line.",
+      example: "Picture labels on supply bins could help people find and return what they need.",
+      steps: [
+        "Draw your idea and add labels. Describe the problem without naming or blaming anyone.",
+        "Read each lower box. Add what might happen, who it helps, and why it is worth trying. Skipping is allowed.",
+        "Name one possible problem, or someone we should ask before trying the idea.",
+        "Plan one small, safe test with your teacher. Add arrows, drawings, or patterns to explain your idea.",
+      ],
+      finish: "I looked at the idea line, drawing space, and three boxes. My page explains a change and who it helps. Parts I chose to skip count as finished.",
+      privacy: "Your original page stays private. Later, your teacher may ask you again before copying a safe part you choose onto a separate page for display. You can say no. A display does not promise the change will happen.",
+      help: "You can invent a school problem instead of sharing a real one. Ask for help with words or drawing. You and your teacher can agree on less writing, with no catch-up work.",
+    },
     bestFor: "student agency, democratic decision-making, and design thinking",
     product: "A complete, decorated improvement proposal with the idea line, central design, and all three reasoning boxes visited through a response, blank/skip, or accommodation route.",
     pageRegions: ["My idea", "Draw and label your idea", "What would happen?", "Who would it help?", "Why should we try it?"],
@@ -264,7 +341,7 @@ export const rotationSessions: readonly RotationSession[] = [
       label: "DISPLAY-CANDIDATE IDEA · STUDENT OPT-IN",
       student: "Your original stays private. After you review it, you may approve a separate copy for sharing. Do not name or blame a real person or reveal a private incident.",
       teacher: "Transfer the original privately. Screen any display copy for identifiable complaints, confidential circumstances, and promises the school cannot make. Feedback addresses the proposal, not the student.",
-      display: "Only a separate student-approved or anonymous copy may enter the community idea board. Display does not mean automatic adoption.",
+      display: "Only a separate copy of a safe part the student chooses and approves again may enter the community idea board. Names are optional. Display does not mean the idea will be adopted.",
     },
     materials: ["Discovery Booklet page 4 or blank paper", "Pencils", "Optional sticky notes", "Opaque collection folder"],
     prepare: ["Post four lenses: belonging, learning, fairness, sustainability.", "Choose a harmless teacher model such as a better material-return routine.", "Prepare a ‘possible now / investigate / needs approval’ sorting space."],
@@ -301,6 +378,21 @@ export const rotationSessions: readonly RotationSession[] = [
     preview: "/images/first-week/grade-6-quest-map.webp",
     question: "What meaningful goal could you begin, and what strengths, people, tools, and next step could help?",
     learningIntention: "I can map a meaningful goal into a realistic next step and a help route.",
+    student: {
+      learningGoal: "I can choose a goal and plan one small step toward it.",
+      why: "A small first step and someone to help can make a goal easier to start.",
+      firstAction: "Find the goal flag. Write or draw something you would like to try or improve.",
+      example: "Goal: learn a new game. First step: ask someone to show me how to start.",
+      steps: [
+        "Look at the goal flag and each scroll. Add your ideas or choose to leave a part blank.",
+        "Add something that could be hard and two strengths, tools, or ideas that could help.",
+        "Name someone who could help. Choose one small step you could start next school week.",
+        "Connect the map with a path, patterns, or pictures. Show how you might get around a challenge.",
+      ],
+      finish: "I looked at all six parts. My map connects a goal to help and a small first step. Parts I chose to skip count as finished.",
+      privacy: "Your original page stays private. Later, your teacher may ask you again before copying a safe part you choose onto a separate page for display. You can say no.",
+      help: "You can make a goal for an invented character. Ask for picture ideas or help writing. You and your teacher can agree on fewer answers. Skipped parts and agreed shorter work do not become catch-up work.",
+    },
     bestFor: "goal setting, hope, help-seeking, and transition",
     product: "A complete, decorated quest map with every planning region visited through a safe response, fictional alternative, blank/skip, or privacy marker.",
     pageRegions: ["My hopes", "My Grade 6 goal", "Possible challenges", "Tools & strengths", "People who can help", "My next step"],
@@ -355,7 +447,7 @@ export function rotationTimeline(session: RotationSession, duration: RotationDur
     duration === 75
       ? `Use the success indicators plus a quiet gallery, partner conference, or teacher check. Ask: ${session.discuss[0]} ${session.discuss[1]} Then use the 75-minute deepening only after the whole page is complete: ${session.extension75}`
       : `Use the success indicators for a whole-page check. Ask: ${session.discuss[0]} Confirm that every region has a response choice—including blank/skip—and that one accessible visual cue travels across the page.`,
-    `Students improve one safe response and one accessible visual cue when useful, then mark a private display decision. Do not fill or question blank/skip regions. The named original remains private unless the receiving teacher later reconfirms a permitted display choice.`,
+    `Students improve one safe response and one accessible visual cue when useful, then mark a private display decision. Do not fill or question blank/skip regions. The named original always stays private. For pages that allow sharing, the receiving teacher asks again before copying only a safe part the student chooses onto a separate display page.`,
     "Students label the back with name, organizer title, room/date or rotation block, WHOLE PAGE COMPLETE (including privacy-safe blank/skip or accommodation) or PAUSED—ASK BEFORE OFFERING MORE TIME, plus the privacy/display choice; submit face-down to the labelled opaque folder.",
   ];
 
@@ -372,7 +464,7 @@ export function rotationTtocRunSteps(session: RotationSession, duration: Rotatio
     duration === 75
       ? "Use the success indicators for a whole-page check, then offer a quiet gallery, partner conference, or teacher check. Use the 75-minute extension only after every region is complete."
       : "Use the success indicators for a whole-page check. Confirm that every region has a response choice and one accessible visual cue travels across the page.",
-    "Students improve one safe response and one visual cue when useful, then record a private display choice. Keep named originals private unless consent is reconfirmed.",
+    "Improve a safe idea and visual cue if useful. Originals always stay private. On pages that allow sharing, ask again before copying a safe part the student chooses to a separate display page. Never fill or question skips.",
     "Students label the back with name, organizer, block, WHOLE PAGE COMPLETE—including blank/skip or accommodation—or PAUSED—ASK BEFORE OFFERING MORE TIME, plus privacy choice; submit face-down.",
   ];
 

@@ -22,9 +22,9 @@ test("every projector route keeps a visible learning, first-step, and complete f
   assert.match(source, /aria-label="Learning goal, first action, and finish"/);
   assert.match(source, /data-learning-phase="learn"[^>]*><small>WE ARE LEARNING<\/small><strong>\{learningLine\}<\/strong>/);
   assert.match(source, /data-learning-phase="do"[^>]*><small>FIRST STEP<\/small><strong>\{studentContract\.firstAction\}<\/strong>/);
-  assert.match(source, /data-learning-phase="done"[^>]*><small>YOU'RE DONE WHEN<\/small><strong>All \{studentContract\.finishEvidence\.length\} checks in the Done part are complete\.<\/strong>/);
+  assert.match(source, /data-learning-phase="done"[^>]*><small>WE WILL MAKE \/ SHOW<\/small><strong>\{studentFinishSummary\(selected\.id, plainForStudents\(selected\.product\)\)\}<\/strong>/);
   assert.match(source, /data-current=\{clarityPhase === "learn"\}/);
-  assert.match(source, /product=\{`Complete all \$\{studentContract\.finishEvidence\.length\} checks in the Done part\.`\}/);
+  assert.match(source, /product=\{studentFinishSummary\(selected\.id, plainForStudents\(selected\.product\)\)\}/);
 });
 
 test("every projector lesson ends with a real Done part backed by its contract", async () => {
@@ -119,14 +119,16 @@ test("Each One, Teach One keeps eight authored phases but uses four purpose-writ
     "Make + test",
     "Improve + teach",
   ]);
-  assert.match(chunks[0].action, /focused question[\s\S]*two teacher-approved sources/i);
-  assert.match(chunks[0].show, /question[\s\S]*audience[\s\S]*two credited sources/i);
-  assert.match(chunks[1].action, /learning goal[\s\S]*success checks[\s\S]*whole learner path/i);
-  assert.match(chunks[1].show, /partner[\s\S]*follow[\s\S]*paper path/i);
-  assert.match(chunks[2].action, /smallest complete version[\s\S]*without coaching[\s\S]*without names/i);
-  assert.match(chunks[2].show, /no-name test[\s\S]*content issue[\s\S]*(?:access|navigation|feedback) issue/i);
-  assert.match(chunks[3].action, /fix both issues[\s\S]*retest[\s\S]*teach[\s\S]*understanding check/i);
-  assert.match(chunks[3].show, /changes helped[\s\S]*credited[\s\S]*next improvement/i);
+  assert.match(chunks[0].action, /one small question[\s\S]*two sources your teacher approves/i);
+  assert.match(chunks[0].action, /where each fact came from[\s\S]*cannot tell you/i);
+  assert.match(chunks[0].show, /who you will teach[\s\S]*two sources/i);
+  assert.match(chunks[1].action, /learn[\s\S]*three ways to check[\s\S]*every part/i);
+  for (const phase of ["start", "facts", "choice", "feedback", "check learning", "ending"]) assert.ok(chunks[1].action.includes(phase));
+  assert.match(chunks[1].show, /partner[\s\S]*paper plan from start to finish/i);
+  assert.match(chunks[2].action, /small version of the whole lesson[\s\S]*without your help[\s\S]*Do not record names/i);
+  assert.match(chunks[2].show, /one problem with what[\s\S]*one problem with using[\s\S]*feedback/i);
+  assert.match(chunks[3].action, /Fix both problems[\s\S]*test[\s\S]*Teach[\s\S]*main idea, explain it, try it in a new example, and name a source or limit/i);
+  assert.match(chunks[3].show, /whether your changes helped[\s\S]*sources and tools[\s\S]*improve next/i);
   assert.doesNotMatch(helper, /indexes\.map|\.join\(" Then: "\)/, "Projector chunks must be authored for the screen, not concatenated from two long contract steps.");
   assert.match(source, /program\.subject === "Applied Design, Skills & Technologies"[\s\S]*?adstProjectorMissionSteps\(selected\.id, missionSteps\)/);
 });
