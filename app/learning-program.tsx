@@ -1,5 +1,7 @@
 "use client";
 
+import { LessonExplorations, explorationsForLesson } from "./virtual-explorations";
+
 import Image from "next/image";
 import { lazy, Suspense, type ReactNode, useEffect, useRef, useState } from "react";
 import type { CurriculumRecord } from "./curriculum";
@@ -481,6 +483,7 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
   return (
     <article className="program-experience-detail">
       <TeacherDailyLaunchButton launch={dailyLaunch} />
+      <LessonExplorations lessonId={experience.id} audience="teacher" />
       <TeacherRunSheet
         title={studentTitleFor(experience)}
         duration={experience.duration}
@@ -788,7 +791,8 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
   const hasVisibleLookMedia = program.subject === "Arts Education"
     ? media.length > 0
     : media.some((item) => item.type === "image");
-  const showLook = !knownEmptyLookExperienceIds.has(selected.id) || hasVisibleLookMedia;
+  const hasExploration = explorationsForLesson(selected.id).length > 0;
+  const showLook = hasExploration || !knownEmptyLookExperienceIds.has(selected.id) || hasVisibleLookMedia;
   const learningLine = projectorLearningLine(studentContract.why);
   const theme = worldFor(selectedArc.id);
   const alignment = alignmentByArc[selectedArc.id];
@@ -826,7 +830,7 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
     if (learnStage) parts.push({ label: "Learn", verb: "See it", content: learnStage });
     parts.push({ label: "Explore", verb: "Try", content: <div id="mission-path" className="student-interactive-mission projector-active-object">{interactiveLab}</div> });
   } else {
-    if (showLook) parts.push({ label: "Look", verb: "Notice", content: <section className="projector-active-object projector-look-stage"><ExactAnchorVisual experience={selected} media={media} /><ExperienceInfographic experienceId={selected.id} />{program.subject === "Arts Education" && <MediaStrip items={media} student />}<LocalIndigenousResourceDock experienceId={selected.id} student />{selected.id === "graph-story-lab" && <><LocalRestorationInfographic /><ResponsibleDataInfographic /></>}</section> });
+    if (showLook) parts.push({ label: "Look", verb: "Notice", content: hasExploration ? <LessonExplorations lessonId={selected.id} initiallyOpen /> : <section className="projector-active-object projector-look-stage"><ExactAnchorVisual experience={selected} media={media} /><ExperienceInfographic experienceId={selected.id} />{program.subject === "Arts Education" && <MediaStrip items={media} student />}<LocalIndigenousResourceDock experienceId={selected.id} student />{selected.id === "graph-story-lab" && <><LocalRestorationInfographic /><ResponsibleDataInfographic /></>}</section> });
     if (program.subject === "Applied Design, Skills & Technologies") parts.push({ label: "Ready", verb: "Choose", content: <ProjectorRouteReady contract={studentContract} /> });
     if (learnStage) parts.push({ label: "Learn", verb: "See it", content: learnStage });
     if (projectorCards.length > 0) parts.push({ label: selected.id === "ordinary-object-story" ? "Tell" : "Try", verb: selected.id === "ordinary-object-story" ? "Tell" : "Choose", content: <ProjectorCaseDeck

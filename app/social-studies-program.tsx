@@ -1,5 +1,7 @@
 "use client";
 
+import { LessonExplorations } from "./virtual-explorations";
+
 import Image from "next/image";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { socialInquiryProject, socialLessons, socialPacing, socialUnits, unit1SocialLessons, unit2SocialLessons, unit4SocialLessons, type SocialLesson } from "./social-program";
@@ -556,7 +558,8 @@ function SocialLessons({ selected, onLesson, scene, onScene }: { selected: Socia
         <TeacherDailyLaunchButton launch={dailyLaunch} />
         <SurreyElectionBridge lessonId={selected.id} audience="teacher" />
         <IssueSourceSetDrawer lessonId={selected.id} audience="teacher" />
-        <TeacherRunSheet
+        <LessonExplorations lessonId={selected.id} audience="teacher" />
+      <TeacherRunSheet
           title={selected.title}
           duration={selected.duration}
           bigIdea={planBigIdea}
@@ -673,6 +676,7 @@ function SocialStudentLesson({ lesson, scene, onScene }: { lesson: SocialLesson;
         <div className={`social-scene-layout social-scene-layout--lean ${lesson.id === "rights-in-tension" ? "civic-scene-navigation" : lesson.id === "civic-decision-brief" ? "cdb-scene-navigation" : ""}`}><nav aria-label={`${lesson.title} parts`}>{lesson.scenes.map((item, index) => <button type="button" key={item.title} className={scene === index ? "selected" : ""} aria-current={scene === index ? "step" : undefined} onClick={() => onScene(index)}><b>{index + 1}</b><span><small>PART {index + 1}</small><strong>{copy?.scenes[index]?.title ?? item.title}</strong></span></button>)}</nav></div>
         <section className="social-learn-do-done" aria-label="Lesson goal, action, and finish check"><article data-learning-phase="learn"><small>WE ARE LEARNING</small><strong>{learningLine}</strong></article><article data-learning-phase="do"><small>DO THIS</small><strong>{studentScene?.action ?? current.prompt}</strong></article><article data-learning-phase="done"><small>YOU'RE DONE WHEN</small><strong>{studentScene?.product ?? current.studentTask}</strong></article></section>
         <Suspense fallback={null}><ClassroomCompanion key={`${lesson.id}-${scene}`} role={companionRole} density="compact" motion="once" className="social-scene-companion" /></Suspense>
+        <LessonExplorations lessonId={lesson.id} scene={scene} initiallyOpen />
         <SocialStudentLab lessonId={lesson.id} scene={scene} />
         {(lesson.id === "trace-the-claim" || lesson.id === "who-drew-the-world") && scene === lesson.scenes.length - 1 && <EvidenceCareProtocol compact student />}
         <PowerCheckCard compact quick />

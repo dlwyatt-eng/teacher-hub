@@ -42,7 +42,7 @@ test("every projector lesson ends with a real Done part backed by its contract",
   assert.match(done, /Never add private information or raw AI output to SpacesEDU\./);
 });
 
-test("known empty Look routes are suppressed unless real media is available", async () => {
+test("known empty Look routes are suppressed unless real media or an authored exploration is available", async () => {
   const source = await read("app/learning-program.tsx");
   const declaration = source.match(/const knownEmptyLookExperienceIds = new Set\(\[([\s\S]*?)\]\);/);
   assert.ok(declaration, "The known-empty Look guard is missing.");
@@ -67,7 +67,7 @@ test("known empty Look routes are suppressed unless real media is available", as
     "safety-help-circuit",
   ]);
   assert.match(source, /const hasVisibleLookMedia = program\.subject === "Arts Education"[\s\S]*?media\.some\(\(item\) => item\.type === "image"\);/);
-  assert.match(source, /const showLook = !knownEmptyLookExperienceIds\.has\(selected\.id\) \|\| hasVisibleLookMedia;/);
+  assert.match(source, /const showLook = hasExploration \|\| !knownEmptyLookExperienceIds\.has\(selected\.id\) \|\| hasVisibleLookMedia;/);
   assert.match(source, /if \(showLook\) parts\.push\(\{ label: "Look"/);
 });
 

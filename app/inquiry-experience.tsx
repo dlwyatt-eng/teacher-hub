@@ -1,5 +1,7 @@
 "use client";
 
+import { LessonExplorations } from "./virtual-explorations";
+
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { scienceLessons, scienceUnits, type ScienceLesson } from "./science-program";
@@ -1405,6 +1407,7 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
     <section className="science-plan-stage" aria-label={`${lesson.title} lesson plan`}>
       <WorldContextBand theme={theme} teacher />
       <TeacherDailyLaunchButton launch={dailyLaunch} />
+      <LessonExplorations lessonId={lesson.id} audience="teacher" />
       <TeacherRunSheet
         title={lesson.title}
         duration={lesson.duration}
@@ -1466,6 +1469,7 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
         <section className="journey-stage-head"><div><small>PART {scene + 1} OF {lesson.scenes.length}</small><h1 ref={sceneHeadingRef} tabIndex={-1}>{studentTitle}</h1><p>{studentPrompt}</p></div><span>{String(scene + 1).padStart(2, "0")}</span></section>
         <section className="journey-evidence-target" aria-label="Evidence target"><small>DONE WHEN</small><strong>{studentProduct}</strong></section>
         <ClassroomCompanion key={`${lesson.id}-${scene}`} role={scienceCompanionRole(scene, lesson.scenes.length)} density="compact" motion="once" className="journey-scene-companion" />
+        <LessonExplorations lessonId={lesson.id} scene={scene} initiallyOpen />
         <ExperienceVisual lesson={lesson} scene={scene} />
         {currentResources.some((resource) => resource.gradeFit !== "Teacher preview") && <details className="lesson-resource-set"><summary><span><small>SOURCE / VIDEO</small><strong>Open when the class is ready</strong></span><b>Open ▾</b></summary><div>{currentResources.filter((resource) => resource.gradeFit !== "Teacher preview").map((resource, index) => {
           const content = <><span>{resource.type === "Video" ? "▶" : resource.type === "Interactive" ? "↗" : resource.type === "Article" ? "▤" : "⌑"}</span><div><small>{resource.type.toUpperCase()} · {resource.source}</small><strong>{resource.label}</strong><p><b>Look for:</b> {resource.task}</p>{resource.studentBoundary && <p className="resource-boundary"><b>Respect and safety boundary:</b> {resource.studentBoundary}</p>}</div><b>{resource.url ? "OPEN" : "USE CLASS SOURCE"}</b></>;

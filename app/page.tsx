@@ -248,6 +248,7 @@ type ClassroomLocation = {
   scienceLesson?: string;
   socialLesson?: string;
   socialScene?: number;
+  programExperience?: string;
 };
 
 const locationKey = "wyatt-classroom-location-v2";
@@ -260,7 +261,7 @@ function readClassroomLocation(includeSessionFallback = true): ClassroomLocation
   try {
     const searchParams = new URLSearchParams(window.location.search);
     const legacyParams = new URLSearchParams(window.location.hash.replace(/^#/, ""));
-    const routeKeys = ["mode", "view", "subject", "lesson", "socialLesson", "socialScene"];
+    const routeKeys = ["mode", "view", "subject", "lesson", "socialLesson", "socialScene", "experience"];
     const hasSearchRoute = routeKeys.some((key) => searchParams.has(key));
     const hasLegacyRoute = routeKeys.some((key) => legacyParams.has(key));
     const params = hasSearchRoute ? searchParams : legacyParams;
@@ -283,6 +284,7 @@ function readClassroomLocation(includeSessionFallback = true): ClassroomLocation
       scienceLesson: scienceLesson ?? (hasExplicitRoute ? undefined : saved.scienceLesson),
       socialLesson: socialLesson ?? (hasExplicitRoute ? undefined : saved.socialLesson),
       socialScene: socialLesson ? socialScene ?? 0 : hasExplicitRoute ? undefined : saved.socialScene,
+      programExperience: params.get("experience") ?? (hasExplicitRoute ? undefined : saved.programExperience),
     };
   } catch {
     return {};
@@ -291,10 +293,11 @@ function readClassroomLocation(includeSessionFallback = true): ClassroomLocation
 
 function writeClassroomLocation(location: ClassroomLocation, action: "push" | "replace") {
   const url = new URL(window.location.href);
-  for (const key of ["mode", "view", "subject", "lesson", "socialLesson", "socialScene"]) url.searchParams.delete(key);
+  for (const key of ["mode", "view", "subject", "lesson", "socialLesson", "socialScene", "experience"]) url.searchParams.delete(key);
   if (location.mode === "projector") url.searchParams.set("mode", "student");
   if (location.subject) {
     url.searchParams.set("subject", location.subject);
+    if (location.subject !== "Social Studies" && location.programExperience) url.searchParams.set("experience", location.programExperience);
     if (location.subject === "Social Studies" && location.socialLesson) {
       url.searchParams.set("socialLesson", location.socialLesson);
       url.searchParams.set("socialScene", String(Number.isSafeInteger(location.socialScene) && (location.socialScene as number) >= 0 ? location.socialScene : 0));
@@ -303,7 +306,7 @@ function writeClassroomLocation(location: ClassroomLocation, action: "push" | "r
   else if (location.scienceLesson) url.searchParams.set("lesson", location.scienceLesson);
   else if (location.active && location.active !== "Home") url.searchParams.set("view", location.active);
   const legacyHash = new URLSearchParams(url.hash.replace(/^#/, ""));
-  if (["mode", "view", "subject", "lesson", "socialLesson", "socialScene"].some((key) => legacyHash.has(key))) url.hash = "";
+  if (["mode", "view", "subject", "lesson", "socialLesson", "socialScene", "experience"].some((key) => legacyHash.has(key))) url.hash = "";
   const target = `${url.pathname}${url.search}${url.hash}`;
   const current = `${window.location.pathname}${window.location.search}${window.location.hash}`;
   if (action === "push" && target === current) return;
@@ -319,6 +322,7 @@ function scienceLessonIdFromLocation(location: ClassroomLocation) {
 }
 
 function subjectHubLocationFromClassroom(location: ClassroomLocation, subject: Subject | null): SubjectHubLocation {
+  if (subject && subject.name !== "Social Studies" && location.programExperience?.trim()) return { tab: "Lessons", programExperienceId: location.programExperience.trim() };
   if (subject?.name !== "Social Studies" || !location.socialLesson?.trim()) return {};
   return {
     tab: "Lessons",
@@ -402,6 +406,7 @@ const siteReadiness = [
 ];
 
 const recentUpdates = [
+  { id: "virtual-explorations-2026", title: "Virtual explorations · world, body, space and animal viewpoints", date: "Sept. 5, 2026", detail: "Eight guided visits now fit existing lessons, with source notes, observation stops and ready text or hands-on backups. Open Year Plan for the flexible annual map; preview media before class.", destination: "Year Plan" },
   {
     id: "discovery-rotations",
     title: "Discovery rotations & private handoff",
@@ -614,6 +619,7 @@ function ClassroomHome() {
       scienceLesson: selectedScienceLessonId ?? undefined,
       socialLesson: selectedSubject?.name === "Social Studies" && (subjectHubLocation.tab === "Lessons" || mode === "projector") ? subjectHubLocation.socialLessonId : undefined,
       socialScene: selectedSubject?.name === "Social Studies" && (subjectHubLocation.tab === "Lessons" || mode === "projector") ? subjectHubLocation.socialScene : undefined,
+      programExperience: selectedSubject?.name !== "Social Studies" && (subjectHubLocation.tab === "Lessons" || mode === "projector") ? subjectHubLocation.programExperienceId : undefined,
     };
     try { window.sessionStorage.setItem(locationKey, JSON.stringify(location)); } catch {}
     if (!locationCanonicalizedRef.current) {
@@ -672,6 +678,7 @@ function ClassroomHome() {
       scienceLesson: nextScienceLessonId ?? undefined,
       socialLesson: routeSocialLesson ? nextSubjectHubLocation.socialLessonId : undefined,
       socialScene: routeSocialLesson ? nextSubjectHubLocation.socialScene : undefined,
+      programExperience: nextSubject?.name !== "Social Studies" && (nextSubjectHubLocation.tab === "Lessons" || nextMode === "projector") ? nextSubjectHubLocation.programExperienceId : undefined,
     }, "push");
     setMode(nextMode);
     setActive(nextActive);
@@ -762,6 +769,7 @@ function ClassroomHome() {
       scienceLesson: selectedScienceLessonId ?? undefined,
       socialLesson: routeSocialLesson ? location.socialLessonId : undefined,
       socialScene: routeSocialLesson ? location.socialScene : undefined,
+      programExperience: selectedSubject?.name !== "Social Studies" && (location.tab === "Lessons" || mode === "projector") ? location.programExperienceId : undefined,
     }, action);
   }, [mode, active, selectedSubject, selectedScienceLessonId]);
 

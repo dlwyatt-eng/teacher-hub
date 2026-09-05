@@ -1,5 +1,6 @@
 "use client";
 
+import { ExplorationAnnualMap } from "./virtual-explorations";
 import { useState } from "react";
 import { equityCalendar, spacesEvidenceForMonth, yearMonths } from "./classroom-program";
 import { coreLearningPrograms } from "./core-programs";
@@ -38,6 +39,8 @@ export default function YearPlanPage({ mode, onHome, onAssessment, onWeeklyPlan 
         <div>{mode === "teacher" && <span className="recent-section-badge">● RECENTLY UPDATED · AUG. 11</span>}<p className="eyebrow">COMPLETE 2026–27 TEACHING SEQUENCE</p><h1>Teach inquiry before asking for independence.</h1><p>Built around Surrey&apos;s Sept. 8–June 24 school year: Social Studies develops source, rights, systems, and inquiry work first; Science deepens testing, modelling, and design after the February bridge.</p><div className="year-source-links"><a href="https://www.surreyschools.ca/school-year-calendars" target="_blank" rel="noreferrer">Surrey 2026–27 calendar ↗</a><a href="https://curriculum.gov.bc.ca/curriculum" target="_blank" rel="noreferrer">Official B.C. Curriculum ↗</a><a href="https://ca.spacesedu.com/" target="_blank" rel="noreferrer">SpacesEDU Canada ↗</a></div></div>
         <div className="year-arc" aria-label="Year learning arc"><span>SUPPORTED INQUIRY</span><i>→</i><span>EXPERT TEAMS</span><i>→</i><span>SOLUTIONARY INQUIRY</span></div>
       </section>
+
+      {mode === "teacher" && <ExplorationAnnualMap />}
 
       <section className="calendar-reality" aria-label="School year timing notes">
         <article><small>SCHOOL OPENS</small><strong>Tuesday, Sept. 8</strong><p>Use the first two weeks for belonging, routines, learning profiles, and inquiry habits.</p></article>
