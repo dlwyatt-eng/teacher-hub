@@ -1,5 +1,7 @@
 # Mathematics teaching repair — September 5, 2026
 
+Later verification: [Opening lesson rehearsal](OPENING_REHEARSAL_2026-09-05.md) records public browser checks, additional repairs and the remaining limits.
+
 This review supersedes any broad claim that automated checks established the Mathematics lessons as classroom-ready. It does not undo or replace the earlier release: it repairs the current source and preserves the other subjects, artwork, navigation, public/private choices and existing resources.
 
 ## What failed in the previous review
