@@ -47,4 +47,12 @@ Before recommending the Mathematics program to colleagues as a finished teaching
 
 Baseline: GitHub `main` commit `8b6bfbae0393c9f0969c8017caf1481a01adf44e`, tree `6ba76206c74a3861dfdba0534310d1c6e0ef9fa1`, matching the retained local source. Do not reset to the older tracking branch or force a remote update.
 
-Publication status will be recorded after the exact tested tree is published and the GitHub Pages workflow and live asset checks complete. Teacher Hub contains the full Mathematics and projector experience; this repair does not require unrelated Learn or Equity edits.
+Published to the existing [Teacher Hub](https://dlwyatt-eng.github.io/teacher-hub/). Teacher Hub contains the full Mathematics and projector experience; this repair did not require unrelated Learn or Equity edits.
+
+- Main repair: GitHub `dab3a4a4b98da5f7cf941baeda3113dbf284d1c2`; [Pages run 33940699185](https://github.com/dlwyatt-eng/teacher-hub/actions/runs/33940699185) succeeded.
+- Final student-summary alignment: GitHub `d7452d23b7584571c96554f0e34159a2d3597048`; [Pages run 33940811193](https://github.com/dlwyatt-eng/teacher-hub/actions/runs/33940811193) succeeded.
+- The final tested local commit is `009a596c35f00c82cb106c6a01e0a95960b2d6b9`. It and GitHub `d7452d23` share exactly the same tree: `f345e890f11939fe4410e295f1601f309162366d`. Different commit IDs reflect publication through the GitHub connector, not lost changes.
+- A fresh final full gate passed all 116 tests, type checking, production build and artifact validation.
+- Live HTML returned HTTP 200 and referenced the expected entry JS/CSS. The entry JS/CSS, Mathematics lesson JS/CSS and shared lesson-support JS all returned 200 and matched the local production build byte for byte.
+- Representative live lesson JavaScript SHA-256: `bf88367d4cc59ac78136958c728a79294552c88ce8630a0a1e2f10427b7bf137`.
+- This final documentation-only record does not alter the deployed application. Browser and classroom limitations above remain open.
