@@ -1,5 +1,7 @@
 "use client";
 
+import { MagnitudePaperSheets } from "./math-magnitude-models";
+
 import { LessonExplorations, explorationsForLesson } from "./virtual-explorations";
 
 import Image from "next/image";
@@ -136,11 +138,12 @@ function selectedExperience(program: LearningProgram, id: string) {
   return program.experiences.find((experience) => experience.id === id) ?? program.experiences[0];
 }
 
-function KitCards({ kit, student = false }: { kit: ExperienceKit; student?: boolean }) {
+function KitCards({ kit, experienceId, student = false }: { kit: ExperienceKit; experienceId?: string; student?: boolean }) {
   const studentCards = kit.cards.filter((card) => !/(?:answer|core answers|teacher key)/i.test(card.title));
   const answerCards = kit.cards.filter((card) => /(?:answer|core answers|teacher key)/i.test(card.title));
   const studentCopy = <section className={`experience-kit experience-kit-student-copy ${student ? "student-experience-kit" : ""}`}>
     <header><div><p className="section-kicker">READY-TO-USE STUDENT KIT</p><h3>{student ? "Use these cards for the activity." : "Project these cards or print a clean student copy."}</h3></div>{!student && <button type="button" onClick={(event) => printClosest(event.currentTarget, ".experience-kit")}>Print student kit</button>}</header>
+    {experienceId === "magnitude-gallery" && <MagnitudePaperSheets />}
     <div>{studentCards.map(card => <article key={card.title}><span>{card.title}</span><p>{card.body}</p></article>)}</div>
   </section>;
 
@@ -551,7 +554,7 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
         <div>
           {program.subject === "Mathematics" && <MathTeacherWorkshops experienceId={experience.id} placement={phasedCoordinateBridge ? "extension" : "before"} />}
           {program.subject === "Mathematics" && <MathResourceDock experience={experience} />}
-          {kit && (program.subject === "Arts Education" ? <ArtsStudioFolio experience={experience} kit={kit} /> : <KitCards kit={kit} />)}
+          {kit && (program.subject === "Arts Education" ? <ArtsStudioFolio experience={experience} kit={kit} /> : <KitCards kit={kit} experienceId={experience.id} />)}
           <WordHelpPanel experience={experience} isMath={program.subject === "Mathematics"} />
           <MediaStrip items={media} />
           <LocalIndigenousResourceDock experienceId={experience.id} />

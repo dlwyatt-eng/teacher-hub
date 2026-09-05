@@ -74,7 +74,7 @@ export const WHOLE_ORGANIZER_ACCOMMODATION = "When an accommodation is needed, r
 
 export const ROTATION_STUDENT_CHOICES = "Look at every part of the page. You may leave any part blank or write SKIP. You never have to explain why. You can use made-up examples instead of personal ones.";
 export const ROTATION_STUDENT_DECORATION = "Make the page yours with drawings, symbols, borders, or patterns. One simple pattern across the page is enough. Colour is optional. Your art skills are not graded.";
-export const ROTATION_STUDENT_HAND_IN = "Write your name, the date, and your group on the back. Put your page face-down in the folder your teacher shows you.";
+export const ROTATION_STUDENT_HAND_IN = "Leave the front name line blank. Write your name, date and group on the back. Add PAUSED if you want a check-in. Put your page face-down in your group’s folder.";
 
 export const rotationTimings: Record<RotationDuration, readonly Omit<RotationTimelineStep, "action">[]> = {
   45: [
@@ -381,21 +381,21 @@ export const rotationSessions: readonly RotationSession[] = [
     student: {
       learningGoal: "I can choose a goal and plan one small step toward it.",
       why: "A small first step and someone to help can make a goal easier to start.",
-      firstAction: "Find the goal flag. Write or draw something you would like to try or improve.",
+      firstAction: "Find the My Hopes scroll. Write or draw something you would like to try or improve. Draw an arrow toward the goal flag.",
       example: "Goal: learn a new game. First step: ask someone to show me how to start.",
       steps: [
-        "Look at the goal flag and each scroll. Add your ideas or choose to leave a part blank.",
+        "Use My Hopes for your goal. The flag is a signpost, not a writing space. Look at each scroll; add ideas or leave a part blank.",
         "Add something that could be hard and two strengths, tools, or ideas that could help.",
         "Name someone who could help. Choose one small step you could start next school week.",
         "Connect the map with a path, patterns, or pictures. Show how you might get around a challenge.",
       ],
-      finish: "I looked at all six parts. My map connects a goal to help and a small first step. Parts I chose to skip count as finished.",
+      finish: "I looked at all five scrolls. My map connects a goal to help and a small first step. Parts I chose to skip count as finished.",
       privacy: "Your original page stays private. Later, your teacher may ask you again before copying a safe part you choose onto a separate page for display. You can say no.",
       help: "You can make a goal for an invented character. Ask for picture ideas or help writing. You and your teacher can agree on fewer answers. Skipped parts and agreed shorter work do not become catch-up work.",
     },
     bestFor: "goal setting, hope, help-seeking, and transition",
     product: "A complete, decorated quest map with every planning region visited through a safe response, fictional alternative, blank/skip, or privacy marker.",
-    pageRegions: ["My hopes", "My Grade 6 goal", "Possible challenges", "Tools & strengths", "People who can help", "My next step"],
+    pageRegions: ["My hopes (write the goal here)", "Possible challenges", "Tools & strengths", "People who can help", "My next step"],
     decorationChoices: [
       "Colour, shade, or pattern the route so the eye can follow it from start to goal.",
       "Add trail symbols, creatures, plants, weather, landmarks, or signs that represent supports and detours.",
@@ -416,7 +416,7 @@ export const rotationSessions: readonly RotationSession[] = [
       move: "Model a detour: a challenge does not end the quest; it changes the next move or help source.",
     },
     makeSteps: [
-      "First-pass the whole map: use one safe phrase, picture, symbol, fictional alternative, blank/SKIP, or PRIVATE marker in every scroll and the goal flag; no reason is needed for a privacy choice.",
+      "First-pass the whole map: use one safe phrase, picture, symbol, fictional alternative, blank/SKIP, or PRIVATE marker in each of the five scrolls; the goal belongs in My Hopes, with an arrow toward the labelled flag; no reason is needed for a privacy choice.",
       "Develop one hope into a goal you can influence; add a likely challenge plus at least two strengths, tools, or strategies.",
       "Name one person or role that could help and a first step small enough to begin next school week; confidential details are not needed.",
       "Decorate the whole route with colour, shading, symbols, creatures, plants, landmarks, borders, or patterns that show supports and detours.",
@@ -427,11 +427,11 @@ export const rotationSessions: readonly RotationSession[] = [
       idea: "A good goal must be large, private struggle means weakness, or success depends only on effort.",
       respond: "Emphasize realistic control, systems and supports, multiple paths, help-seeking, feedback, and revision.",
     },
-    success: ["All six planning regions have been visited; a safe response, fictional alternative, blank/skip, or privacy marker completes a region without explanation.", "The substantive route links a safe goal or fictional goal to a realistic first step appropriate to the agreed output goal.", "It includes challenge, strength, strategy, or help-source evidence appropriate to the agreed route.", "Accessible visual cues connect the page; one repeated line, spacing choice, symbol, or pattern is enough, and artistry is not assessed."],
+    success: ["All five scrolls have been visited; a safe response, fictional alternative, blank/skip, or privacy marker completes a region without explanation.", "The substantive route links a safe goal or fictional goal to a realistic first step appropriate to the agreed output goal.", "It includes challenge, strength, strategy, or help-source evidence appropriate to the agreed route.", "Accessible visual cues connect the page; one repeated line, spacing choice, symbol, or pattern is enough, and artistry is not assessed."],
     accessibility: ["Use words, symbols, movable cards, adult scribing, an audio rehearsal followed by brief labels, or blank/SKIP without explanation.", "Offer a fictional-character route or a shared class goal for students not ready to name an individual goal.", "Colour is optional: textures, line styles, stamps, stickers, spacing, or high-contrast symbols can decorate and connect the route.", "Reduce the number of substantive planning responses when accommodation is needed; blank/skip completes the other regions without catch-up work.", "Accept goals about contribution, belonging, healthful routines, making, or curiosity—not academics only."],
     earlyFinisher: "Refine the entire map only if useful: add a checkpoint, clarify a help source, or strengthen one visual route cue without filling privacy-safe blanks.",
     extension75: "After the entire map is complete, students may conference with a partner using ‘notice, wonder, possible next step,’ add one checkpoint, and revise without sharing the private goal aloud.",
-    shortened: "Quick-pass all six regions with one safe phrase, picture, symbol, fictional alternative, blank/SKIP, or PRIVATE marker. Make one safe next step specific when available, then trace or pattern the route with one repeated visual cue.",
+    shortened: "Quick-pass all five scrolls with one safe phrase, picture, symbol, fictional alternative, blank/SKIP, or PRIVATE marker. Make one safe next step specific when available, then trace or pattern the route with one repeated visual cue.",
     ttoc: "Keep goals private and low stakes. Do not rank them, require public sharing, or interpret a missing section as lack of motivation.",
     displayIdea: "Create an opt-in ‘Many Paths Through Grade 6’ trail from copied hopes, strengths, or next-step verbs—never whole named maps.",
   },
@@ -447,8 +447,8 @@ export function rotationTimeline(session: RotationSession, duration: RotationDur
     duration === 75
       ? `Use the success indicators plus a quiet gallery, partner conference, or teacher check. Ask: ${session.discuss[0]} ${session.discuss[1]} Then use the 75-minute deepening only after the whole page is complete: ${session.extension75}`
       : `Use the success indicators for a whole-page check. Ask: ${session.discuss[0]} Confirm that every region has a response choice—including blank/skip—and that one accessible visual cue travels across the page.`,
-    `Students improve one safe response and one accessible visual cue when useful, then mark a private display decision. Do not fill or question blank/skip regions. The named original always stays private. For pages that allow sharing, the receiving teacher asks again before copying only a safe part the student chooses onto a separate display page.`,
-    "Students label the back with name, organizer title, room/date or rotation block, WHOLE PAGE COMPLETE (including privacy-safe blank/skip or accommodation) or PAUSED—ASK BEFORE OFFERING MORE TIME, plus the privacy/display choice; submit face-down to the labelled opaque folder.",
+    `Students improve one safe response and one accessible visual cue when useful. Do not fill or question blank/skip regions. The named original always stays private. For pages that allow sharing, the receiving teacher asks again before copying only a safe part the student chooses onto a separate display page.`,
+    `${ROTATION_STUDENT_HAND_IN} Teacher records organizer and status on the folder list; do not ask children to copy long labels.`,
   ];
 
   return rotationTimings[duration].map((step, index) => ({ ...step, action: actions[index] }));
@@ -465,7 +465,7 @@ export function rotationTtocRunSteps(session: RotationSession, duration: Rotatio
       ? "Use the success indicators for a whole-page check, then offer a quiet gallery, partner conference, or teacher check. Use the 75-minute extension only after every region is complete."
       : "Use the success indicators for a whole-page check. Confirm that every region has a response choice and one accessible visual cue travels across the page.",
     "Improve a safe idea and visual cue if useful. Originals always stay private. On pages that allow sharing, ask again before copying a safe part the student chooses to a separate display page. Never fill or question skips.",
-    "Students label the back with name, organizer, block, WHOLE PAGE COMPLETE—including blank/skip or accommodation—or PAUSED—ASK BEFORE OFFERING MORE TIME, plus privacy choice; submit face-down.",
+    `${ROTATION_STUDENT_HAND_IN} Teacher records organizer and status.`,
   ];
 
   return rotationTimings[duration].map((step, index) => `${step.timing} min · ${step.label}: ${actions[index]}`);

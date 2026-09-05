@@ -32,7 +32,7 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
   "Write 0.008 in a chart: 0 ones, 0 tenths, 0 hundredths, 8 thousandths. Compare it with 0.080, which has 8 hundredths.",
   "Draw 0 to 0.01 with ten equal spaces. Label every mark from 0.001 to 0.010, then place 0.008.",
   "Widen the range to 0–0.1, then 0–1. Ask which two marks enclose 0.008. Draw a magnified section to show its exact position.",
-  "Write 3 | 405 | 000 | 000 and read the periods: 3 billion, 405 million. Compare 3,405,000,000 with 3,450,000,000 from left to right.",
+  "Use the supplied model to compare 2,306,000,000 with 2,360,000,000 from left to right. Then let partners try the different 3-billion pair.",
   "Show 0.45 and 0.405 as 0.450 and 0.405. The tenths match; compare the hundredths: 5 is greater than 0."
 ],
     studentMoves: [
@@ -42,7 +42,7 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       "Read two large numbers by periods, locate the first unequal place, and justify the comparison.",
       "Create a two-scale trap for a partner, then revise any label that allowed two interpretations.",
     ],
-    supplied: ["Thousandths place-value chart","Number line for 0.008","Decimal and large-number comparison questions","Worked steps, practice and independent check","Separate teacher answers"],
+    supplied: ["Thousandths place-value chart","Three worked number lines for 0.008", "Reusable blank scales and period chart", "Two-page printable maths sheet", "Worked billions comparison","Decimal and large-number comparison questions","Worked steps, practice and independent check","Separate teacher answers"],
     gather: ["Board or projector", "Plain paper or printed lines", "Pencils and two colours", "Optional place-value disks"],
     vocabulary: words(
       ["place value", "the value a digit has because of its position", "The 8 in 0.008 means eight thousandths"],
@@ -52,16 +52,19 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       ["period", "a group of three digits in a large number", "3 | 405 | 000 | 000 has billions, millions, thousands, and ones periods"],
     ),
     model: {
-  "label": "WORKED EXAMPLE · EIGHT THOUSANDTHS",
-  "prompt": "Where does 0.008 belong on each number line?",
+  "label": "WORKED EXAMPLES · THOUSANDTHS AND BILLIONS",
+  "prompt": "Place 0.008 on three scales. Then compare two large numbers.",
   "steps": [
     "Read 0.008 as eight thousandths. One hundredth, 0.01, is ten thousandths, so 0.008 is less than 0.01.",
     "Start with the 0-to-0.01 line. Ten equal spaces divide ten thousandths into jumps of one thousandth: 0.001.",
     "Count eight jumps from 0. The eighth mark is 0.008. It is three jumps after the halfway point, 0.005.",
     "On the 0-to-0.1 line, each jump is 0.01. Since 0.008 is less than 0.01, place it between 0 and the first mark.",
-    "On the 0-to-1 line, each jump is 0.1. The point is very close to 0. Enlarge the first hundredth if you need to mark 0.008 exactly."
+    "On the 0-to-1 line, each jump is 0.1. The point is very close to 0. Enlarge the first hundredth if you need to mark 0.008 exactly.",
+    "Now compare 2,306,000,000 and 2,360,000,000. Group the digits into billions, millions, thousands and ones periods.",
+    "Read from the left. Both numbers have 2 billions and 3 hundred-millions. The ten-millions digits are the first to differ: 0 and 6.",
+    "Six ten-millions is greater than zero ten-millions, so 2,360,000,000 is greater than 2,306,000,000."
   ],
-  "conclusion": "The number stays eight thousandths. A line covering a larger range puts the same number closer to 0."
+  "conclusion": "The number stays eight thousandths. A line covering a larger range puts the same number closer to 0. For large numbers, compare from the greatest place and stop at the first different digit."
 },
     partnerCards: [
   {

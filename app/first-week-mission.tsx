@@ -144,10 +144,10 @@ function ProjectorSession({ session, choose }: { session: RotationSession; choos
         <p><b>One example:</b> {session.student.example}</p>
         <p><b>Make it yours:</b> {ROTATION_STUDENT_DECORATION}</p>
         <p><b>Need help?</b> {session.student.help}</p>
-        <p><b>Hand it in:</b> {ROTATION_STUDENT_HAND_IN}</p>
       </details>
       <footer>
         <section><small>MY FINISH CHECK</small><strong>{session.student.finish}</strong></section>
+        <section><small>HAND IT IN</small><strong>{ROTATION_STUDENT_HAND_IN}</strong></section>
         <section><small>YOUR PAGE STAYS PRIVATE</small><strong>{session.student.privacy}</strong></section>
         <span>One page today · Not graded</span>
       </footer>
@@ -254,8 +254,8 @@ function TeacherSession({ session, duration }: { session: RotationSession; durat
       <section className="rotation-handoff" aria-labelledby="rotation-handoff-title">
         <header><small>PRIVATE TRANSFER</small><h3 id="rotation-handoff-title">Label once. Collect face-down. Sort once.</h3></header>
         <ol>
-          <li><b>Student labels the back:</b> name, organizer title, room/date or rotation block, WHOLE PAGE COMPLETE (including blank/skip or accommodation) or PAUSED—ASK BEFORE OFFERING MORE TIME, plus one privacy choice: PRIVATE, ASK ME LATER ABOUT COPYING ONE SAFE PART, or DISPLAY-CANDIDATE when that page permits it.</li>
-          <li><b>Teacher collects:</b> students place named originals face-down into an opaque folder or envelope labelled by room/date/block.</li>
+          <li><b>Student hand-in:</b> {ROTATION_STUDENT_HAND_IN}</li>
+          <li><b>Teacher collects:</b> students place named originals face-down into an opaque folder or envelope labelled by room/date/group. Teacher records the organizer and completion or check-in status on the folder list. Blank/skip and agreed shorter work count as complete.</li>
           <li><b>Team transfers:</b> once classes are confirmed, staff sort by final roster and hand originals privately to the receiving teacher. Do not use them for grading or placement.</li>
           <li><b>Receiving teacher follows up:</b> acknowledge useful learner information, do not question blank/skip regions, offer more time for a PAUSED page only after asking the student, and ask again before copying any excerpt or displaying any candidate.</li>
         </ol>

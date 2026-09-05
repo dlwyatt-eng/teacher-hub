@@ -6,6 +6,7 @@ import { MathDeliveryModePanel } from "./math-delivery-mode-panel";
 import { mathStudentPacksFor, type MathStudentWorkshopPlacement } from "./math-student-route";
 import type { LearningProgram, ReadinessLevel } from "./program-types";
 import { printClosest } from "./print-support";
+import { MagnitudeWorkedModel, MagnitudePaperSheets } from "./math-magnitude-models";
 
 const levelCopy: Record<ReadinessLevel, { label: string; time: string; description: string }> = {
   full: { label: "Full background lesson", time: "40–55 MIN", description: "Teach the model, guided practice, partner task, and independent check." },
@@ -14,19 +15,7 @@ const levelCopy: Record<ReadinessLevel, { label: string; time: string; descripti
 };
 
 function MathModelVisual({ pack, step }: { pack: MathSupportPack; step?: number }) {
-  if (pack.id === "magnitude-place-value-pack") return (
-    <div className="math-model-magnitude">
-      <div className="math-place-value-row" aria-label="Zero ones, zero tenths, zero hundredths and eight thousandths">{["Ones", "Tenths", "Hundredths", "Thousandths"].map((label, index) => <span key={label}><small>{label}</small><b>{index === 3 ? 8 : 0}</b></span>)}</div>
-      <svg viewBox="0 0 640 110" role="img" aria-label="A number line from zero to one hundredth. Ten equal jumps each worth one thousandth. Eight jumps reach zero point zero zero eight.">
-        <title>0.008 is eight jumps of 0.001 from zero.</title>
-        <path d="M35 48H605"/>
-        {Array.from({length:11}, (_,index)=><path key={index} d={`M${35+index*57} 38V58`}/>)}
-        <circle cx="491" cy="48" r="8"/>
-        <text x="35" y="90">0</text><text x="320" y="90" textAnchor="middle">0.005</text><text x="605" y="90" textAnchor="end">0.010</text><text x="491" y="22" textAnchor="middle">0.008</text>
-      </svg>
-      <p><b>EACH JUMP = 0.001</b><span>8 jumps = 0.008</span><small>0.010 is the same number as 0.01.</small></p>
-    </div>
-  );
+  if (pack.id === "magnitude-place-value-pack") return <MagnitudeWorkedModel step={step} />;
   if (pack.id === "factors-multiples-pack") return (
     <div className="math-model-factors" role="img" aria-label="A packing model uses the greatest common factor of twenty-four and thirty-six to make twelve packs, while timelines show twenty-four and thirty-six first meeting at seventy-two">
       <section><small>24 BLUE + 36 GOLD BADGES</small><div>{Array.from({ length: 12 }, (_, index) => <i key={index}><b>2</b><b>3</b></i>)}</div><p><strong>24 ÷ 12 = 2 blue</strong><strong>36 ÷ 12 = 3 gold</strong></p><em>12 identical packs. None left over.</em></section>
@@ -214,6 +203,7 @@ function StudentMathPack({ pack }: { pack: MathSupportPack }) {
         </section>
         <section className="math-partner-cards math-workshop-panel" data-panel="practice" aria-label="Partner practice"><header><span>TRY TOGETHER</span><strong>Draw or write your method. Explain it to your partner.</strong></header><div>{pack.partnerCards.map((item, index) => <article key={item.title} data-current={index === card}><b>{item.title}</b><p>{item.body}</p></article>)}</div><nav className="math-workshop-controls" aria-label="Practice questions"><button type="button" disabled={card === 0} onClick={() => setCard(value => value - 1)}>Previous question</button><span>Question {card + 1} of {pack.partnerCards.length}</span><button type="button" disabled={card === pack.partnerCards.length - 1} onClick={() => setCard(value => value + 1)}>Next question</button></nav></section>
         <section className="math-independent-check student-math-check math-workshop-panel" data-panel="check" aria-label="Independent check"><header><span>TRY ON YOUR OWN</span><strong>Show your thinking. Your teacher will check it with you.</strong></header><div>{pack.check.map((item, index) => <article key={item.prompt} data-current={index === check}><b>{index + 1}</b><p>{item.prompt}</p></article>)}</div><nav className="math-workshop-controls" aria-label="Check questions"><button type="button" disabled={check === 0} onClick={() => setCheck(value => value - 1)}>Previous question</button><span>Question {check + 1} of {pack.check.length}</span><button type="button" disabled={check === pack.check.length - 1} onClick={() => setCheck(value => value + 1)}>Next question</button></nav></section>
+        {pack.id === "magnitude-place-value-pack" && <MagnitudePaperSheets />}
         <details className="math-workshop-help"><summary>Need a word or a hint?</summary><section className="student-math-words"><div>{pack.vocabulary.map(word => <article key={word.term}><b>{word.term}</b><p>{word.meaning}</p><small>{word.example}</small></article>)}</div></section><p>{pack.supportRoute}</p></details>
       </div>
     </article>

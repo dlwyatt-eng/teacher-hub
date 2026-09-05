@@ -45,7 +45,7 @@ test("staff planning fields cannot leak into first-week student screens", () => 
 });
 
 test("first-week quantities, no-reason skips, private originals and saved TTOC steps survive", () => {
-  const expected = [/six circles[\s\S]*three/i, /six boxes/i, /four[\s\S]*three/i, /three boxes/i, /(?=[\s\S]*six parts)(?=[\s\S]*two)/i];
+  const expected = [/six circles[\s\S]*three/i, /six boxes/i, /four[\s\S]*three/i, /three boxes/i, /(?=[\s\S]*five scrolls)(?=[\s\S]*two)/i];
   for (const [i, session] of rotationSessions.entries()) {
     const text = [session.student.firstAction, ...session.student.steps, session.student.finish].join(" ");
     assert.match(text, expected[i], session.id);

@@ -342,11 +342,12 @@ export function MathNumberScaleLab({ audience = "student" }: MathNumberScaleLabP
     const next = lens.views[bounded] ?? lens.views[0];
     if (selectedCard && revealed) {
       setPrevious({ lensId: lens.id, cardId: selectedCard.id, view });
-      setFeedback({ kind: "watch", title: "Same card. New map.", message: `The number stayed ${selectedCard.label}. Only the endpoint changed from ${formatExact(view.max)} to ${formatExact(next.max)}.` });
     }
     setViewIndex(bounded);
     setPrediction(null);
-    setAnnouncement(`${next.label}. The selected number has not changed; the scale has.`);
+    setRevealed(false);
+    setFeedback(null);
+    setAnnouncement(`${next.label}. The selected number has not changed; the scale has. Predict its position before revealing it.`);
   };
 
   const coverForPrediction = () => {
@@ -456,7 +457,7 @@ export function MathNumberScaleLab({ audience = "student" }: MathNumberScaleLabP
           <strong>TEACHER / TTOC ROUTE</strong>
           <ol>
             <li>Choose the route: teach from this shared model, show the useful part of a matching Math Antics explanation first, or combine both.</li>
-            <li>Do not name a target card. Mix the cards and let the class choose one.</li>
+            <li>Begin with 0.008 on the 0-to-0.01 line. After comparing scales, mix the cards and let the class choose another.</li>
             <li>Read 0, the right endpoint, and one jump. Students point or sketch before you tap their section.</li>
             <li>Reveal the exact spot. Keep the card and choose another endpoint so the same number visibly shifts.</li>
             <li>Cover the marker before the next prediction. Ask: “The number stayed fixed—what changed?”</li>

@@ -445,7 +445,7 @@ export const experienceKits: Record<string, ExperienceKit> = {
     cards: [
   {
     "title": "THREE-SCALE SHEET",
-    "body": "Draw equal-length lines from 0 to 0.01, 0 to 0.1 and 0 to 1. Give each ten equal spaces. Label one jump on each line. Place 0.008 exactly on the first line, then show which two marks enclose it on the other lines."
+    "body": "Use the supplied blank lines from 0 to 0.01, 0 to 0.1 and 0 to 1. Each has ten equal spaces. Label one jump on each line. Place 0.008 exactly on the first line, then show which two marks enclose it on the other lines."
   },
   {
     "title": "NUMBER CARDS A",
