@@ -719,6 +719,18 @@ function ClassroomHome() {
     if (sidebarOpen) closeDrawerTo("main");
   };
 
+  const openExploration = (destination: { subject: string; lessonId: string; kind: string; scene?: number }, student: boolean) => {
+    const nextMode = student ? "projector" : "teacher";
+    if (destination.kind === "science") { commitClassroomLocation(nextMode, "Science Lesson", null, destination.lessonId); return; }
+    const subject = subjects.find(item => item.name === destination.subject);
+    if (!subject) return;
+    const location: SubjectHubLocation = destination.kind === "social"
+      ? { tab: "Lessons", socialLessonId: destination.lessonId, socialScene: destination.scene ?? 0 }
+      : { tab: "Lessons", programExperienceId: destination.lessonId };
+    setSubjectNavigationRevision(revision => revision + 1);
+    commitClassroomLocation(nextMode, subject.short, subject, null, location);
+  };
+
   const openSearchTarget = (target: SiteSearchTarget) => {
     if (target.kind === "page") {
       navigateToPage(target.page);
@@ -904,7 +916,7 @@ function ClassroomHome() {
         ) : active === "Teaching OS Map" ? (
           <TeachingOsMap onHome={goHome} onYearPlan={() => navigateToPage("Year Plan")} onSpaces={() => navigateToPage("SpacesEDU Evidence")} onAiStudio={() => navigateToPage("AI Activity Studio")} onScience={() => chooseSubject(subjects[2])} />
         ) : active === "Year Plan" ? (
-          <YearPlanPage mode={mode} onHome={goHome} onAssessment={() => navigateToPage("Assessment Studio")} onWeeklyPlan={openMonthWeekPlan} />
+          <YearPlanPage mode={mode} onHome={goHome} onAssessment={() => navigateToPage("Assessment Studio")} onWeeklyPlan={openMonthWeekPlan} onExplore={openExploration} />
         ) : active === "SpacesEDU Evidence" ? (
           <SpacesEvidencePage mode={mode} onHome={goHome} onAssessment={() => navigateToPage("Assessment Studio")} onProjects={() => navigateToPage("Cross-Curricular Projects")} />
         ) : active === "AI Activity Studio" ? (

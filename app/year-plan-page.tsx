@@ -1,6 +1,6 @@
 "use client";
 
-import { ExplorationAnnualMap } from "./virtual-explorations";
+import { ExplorationAnnualMap, type ExplorationDestination } from "./virtual-explorations";
 import { useState } from "react";
 import { equityCalendar, spacesEvidenceForMonth, yearMonths } from "./classroom-program";
 import { coreLearningPrograms } from "./core-programs";
@@ -19,7 +19,7 @@ function programArcsForMonth(month: string) {
     return monthIndex >= start && monthIndex <= end;
   }).map((arc) => ({ subject: program.subject, title: arc.title, question: arc.question })));
 }
-export default function YearPlanPage({ mode, onHome, onAssessment, onWeeklyPlan }: { mode: "teacher" | "projector"; onHome: () => void; onAssessment: () => void; onWeeklyPlan: (month: string) => void }) {
+export default function YearPlanPage({ mode, onHome, onAssessment, onWeeklyPlan, onExplore }: { mode: "teacher" | "projector"; onHome: () => void; onAssessment: () => void; onWeeklyPlan: (month: string) => void; onExplore?: (destination: ExplorationDestination, student: boolean) => void }) {
   const [phase, setPhase] = useState("All year");
   const [calendarScope, setCalendarScope] = useState("All");
   const phases = ["All year", "Social Studies first", "Inquiry bridge", "Science second"];
@@ -40,7 +40,7 @@ export default function YearPlanPage({ mode, onHome, onAssessment, onWeeklyPlan 
         <div className="year-arc" aria-label="Year learning arc"><span>SUPPORTED INQUIRY</span><i>→</i><span>EXPERT TEAMS</span><i>→</i><span>SOLUTIONARY INQUIRY</span></div>
       </section>
 
-      {mode === "teacher" && <ExplorationAnnualMap />}
+      {mode === "teacher" && <ExplorationAnnualMap onExplore={onExplore} />}
 
       <section className="calendar-reality" aria-label="School year timing notes">
         <article><small>SCHOOL OPENS</small><strong>Tuesday, Sept. 8</strong><p>Use the first two weeks for belonging, routines, learning profiles, and inquiry habits.</p></article>
