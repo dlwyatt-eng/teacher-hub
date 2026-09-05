@@ -12,7 +12,7 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
   {
     id: "magnitude-place-value-pack",
     anchorIds: ["magnitude-gallery"],
-    title: "Read the scale before placing the number",
+    title: "Read and compare numbers on a number line",
     shortTitle: "Magnitude and place-value workshop",
     timing: "September · Weeks 1–2",
     blocks: "2 × 45–55 min + short retrieval",
@@ -20,7 +20,7 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
     readinessLevel: "full",
     mathUpTopics: ["Whole Numbers Greater Than One Million", "Representing, Estimating, and Comparing Decimal Numbers"],
     prerequisite: "Read whole numbers to one million and connect tenths and hundredths to equal parts of one whole.",
-    learningGoal: "Use place value, endpoints, and equal intervals to locate, compare, and explain numbers from thousandths to billions.",
+    learningGoal: "read numbers from thousandths to billions, compare their place values, and place them on a labelled number line.",
     whyBefore: "The Magnitude Gallery becomes meaningful only when students can name what one interval is worth. This complete paper-and-projector lesson teaches that idea before the interactive scale changes.",
     background: [
       "A digit has a face value and a place value. In 0.008, the 8 means eight thousandths; in 0.08 it means eight hundredths.",
@@ -29,12 +29,12 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       "For large numbers, group digits in threes and name the periods: ones, thousands, millions, billions. Compare the greatest place first.",
     ],
     teacherMoves: [
-      "Build 0.008 with a place-value chart: 0 ones, 0 tenths, 0 hundredths, and 8 thousandths.",
-      "Model a 0-to-1 line divided into ten equal spaces, then subdivide the first tenth so 0.008 can be placed honestly.",
-      "Keep 0.008 fixed while changing only the endpoint to 0.1 and 0.01. Narrate how the interval value changes.",
-      "Build 3,405,000,000 in a period chart and compare it with 3,450,000,000 from the greatest unequal place.",
-      "Repair a scale with unequal-looking jumps or a point placed from digit length instead of interval value.",
-    ],
+  "Write 0.008 in a chart: 0 ones, 0 tenths, 0 hundredths, 8 thousandths. Compare it with 0.080, which has 8 hundredths.",
+  "Draw 0 to 0.01 with ten equal spaces. Label every mark from 0.001 to 0.010, then place 0.008.",
+  "Widen the range to 0–0.1, then 0–1. Ask which two marks enclose 0.008. Draw a magnified section to show its exact position.",
+  "Write 3 | 405 | 000 | 000 and read the periods: 3 billion, 405 million. Compare 3,405,000,000 with 3,450,000,000 from left to right.",
+  "Show 0.45 and 0.405 as 0.450 and 0.405. The tenths match; compare the hundredths: 5 is greater than 0."
+],
     studentMoves: [
       "Label the endpoints and calculate one equal interval before placing any card.",
       "Build 0.008 in a place-value chart and place it on three differently scaled lines.",
@@ -42,7 +42,7 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       "Read two large numbers by periods, locate the first unequal place, and justify the comparison.",
       "Create a two-scale trap for a partner, then revise any label that allowed two interpretations.",
     ],
-    supplied: ["Three-scale 0.008 number-line sheet", "Decimal place-value chart", "Millions/billions period chart", "Scale trap cards", "Guided cards and separate teacher answers", "Independent check"],
+    supplied: ["Thousandths place-value chart","Number line for 0.008","Decimal and large-number comparison questions","Worked steps, practice and independent check","Separate teacher answers"],
     gather: ["Board or projector", "Plain paper or printed lines", "Pencils and two colours", "Optional place-value disks"],
     vocabulary: words(
       ["place value", "the value a digit has because of its position", "The 8 in 0.008 means eight thousandths"],
@@ -52,40 +52,66 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       ["period", "a group of three digits in a large number", "3 | 405 | 000 | 000 has billions, millions, thousands, and ones periods"],
     ),
     model: {
-      label: "SAME NUMBER · THREE SCALES",
-      prompt: "Where does 0.008 belong when the right endpoint changes?",
-      steps: [
-        "Write 0.008 as eight thousandths in the place-value chart.",
-        "On 0 to 1, it is 0.008 of the full interval, so it is very close to zero.",
-        "On 0 to 0.1, it is 0.008 ÷ 0.1 = 0.08, or 8% of the way across.",
-        "On 0 to 0.01, it is 0.008 ÷ 0.01 = 0.8, or 80% of the way across.",
-      ],
-      conclusion: "The value 0.008 never changes. Its visible position changes because the whole interval represented by the line changes.",
-    },
+  "label": "WORKED EXAMPLE · EIGHT THOUSANDTHS",
+  "prompt": "Where does 0.008 belong on each number line?",
+  "steps": [
+    "Read 0.008 as eight thousandths. One hundredth, 0.01, is ten thousandths, so 0.008 is less than 0.01.",
+    "Start with the 0-to-0.01 line. Ten equal spaces divide ten thousandths into jumps of one thousandth: 0.001.",
+    "Count eight jumps from 0. The eighth mark is 0.008. It is three jumps after the halfway point, 0.005.",
+    "On the 0-to-0.1 line, each jump is 0.01. Since 0.008 is less than 0.01, place it between 0 and the first mark.",
+    "On the 0-to-1 line, each jump is 0.1. The point is very close to 0. Enlarge the first hundredth if you need to mark 0.008 exactly."
+  ],
+  "conclusion": "The number stays eight thousandths. A line covering a larger range puts the same number closer to 0."
+},
     partnerCards: [
-      { title: "TINY DECIMAL", body: "Divide 0 to 0.01 into ten equal spaces. What is each space worth, and where does 0.006 belong?", answer: "Each space is 0.001; 0.006 belongs at the sixth mark after zero." },
-      { title: "CHANGE THE ENDPOINT", body: "Place 0.04 on a 0-to-1 line and a 0-to-0.1 line. Describe the change without saying the number grew.", answer: "It is 4% across the 0-to-1 line and 40% across the 0-to-0.1 line; 0.04 stays fixed." },
-      { title: "COMPARE BY PLACE", body: "Compare 0.405 and 0.045. Name the first place that decides.", answer: "0.405 > 0.045; the tenths place decides because 4 tenths is greater than 0 tenths." },
-      { title: "BILLION VIEW", body: "Compare 3,405,000,000 and 3,450,000,000. Name the first unequal place.", answer: "3,450,000,000 is greater; after equal billions and hundred-millions, the ten-millions digits 5 and 0 decide." },
-    ],
+  {
+    "title": "TINY DECIMAL",
+    "body": "Draw a line from 0 to 0.01 with ten equal spaces. Label the value of one jump, then place 0.006.",
+    "answer": "Each jump is 0.001. Place 0.006 at the sixth mark after 0."
+  },
+  {
+    "title": "CHANGE THE ENDPOINT",
+    "body": "Place 0.04 on two lines with ten equal spaces: 0 to 0.1 and 0 to 1. Which marks enclose it on each line?",
+    "answer": "On 0–0.1, each jump is 0.01, so 0.04 is at the fourth mark. On 0–1, it lies between 0 and the first mark, 0.1. Its value stays the same."
+  },
+  {
+    "title": "COMPARE BY PLACE",
+    "body": "Which is greater: 0.405 or 0.045? Compare the tenths first and explain your answer.",
+    "answer": "0.405 > 0.045. Four tenths is greater than zero tenths."
+  },
+  {
+    "title": "BILLION VIEW",
+    "body": "Read 3,405,000,000 and 3,450,000,000. Compare them from left to right. Which place first has different digits?",
+    "answer": "3 billion 405 million and 3 billion 450 million. The ten-millions digits first differ: 0 and 5. Therefore 3,450,000,000 is greater."
+  }
+],
     check: [
-      { prompt: "On a 0-to-0.1 line split into ten equal spaces, what is one space worth?", answer: "0.01." },
-      { prompt: "Place 0.008 on a 0-to-0.01 line and explain the position.", answer: "At the eighth of ten equal spaces, or 80% across, because each space is 0.001." },
-      { prompt: "Which is greater: 807,090,000 or 870,009,000? Explain from the first unequal place.", answer: "870,009,000; the ten-millions digits are 7 and 0 after both have 8 hundred-millions." },
-    ],
+  {
+    "prompt": "A line from 0 to 0.1 has ten equal spaces. What is each jump worth?",
+    "answer": "0.01, or one hundredth."
+  },
+  {
+    "prompt": "A line from 0 to 0.01 has ten equal spaces. Where does 0.008 belong? Explain using the value of one jump.",
+    "answer": "At the eighth mark after 0. Each jump is 0.001, and eight thousandths is 0.008."
+  },
+  {
+    "prompt": "Which is greater: 807,090,000 or 870,009,000? Name the first place that decides.",
+    "answer": "870,009,000. Both have 8 hundred-millions. The ten-millions digits are 0 and 7, so the second number is greater."
+  }
+],
     readinessQuestions: [
       { prompt: "Ten equal spaces run from 0 to 0.1. What is one space?", choices: ["0.1", "0.01", "0.001"], answer: 1, feedback: "Divide the whole interval, 0.1, by ten equal spaces." },
       { prompt: "Which number is eight thousandths?", choices: ["0.8", "0.08", "0.008"], answer: 2, feedback: "The third place to the right of the decimal is thousandths." },
     ],
     likelyMisconceptions: ["Counting tick marks instead of equal spaces", "Assuming every interval is worth one", "Treating a farther-right display as a larger value when the scale changed", "Comparing decimals by digit count"],
-    supportRoute: "Use only the 0-to-0.01 line first. Colour each 0.001 interval, build the decimal in a place-value chart, and say the endpoint and one-jump value aloud before placing it.",
+    supportRoute: "Start with 0 to 0.01 only. Label all ten jumps, then count to 0.008. Compare 0.008 with 0.005 and 0.010 before changing the scale.",
     extensionRoute: "Design two accurate scales that make the same change look visually steep and gentle, then explain why neither changes the underlying values.",
     spaces: "Keep the scale comparison in the Math folder; no separate SpacesEDU post is required.",
   },
   {
     id: "factors-multiples-pack",
     anchorIds: ["pack-and-sync"],
-    title: "Equal packs or repeating meetings?",
+    title: "Make equal packs and time flashing lights",
     shortTitle: "Factors, multiples, GCF, and LCM workshop",
     timing: "October · Weeks 7–8",
     blocks: "3 × 45–55 min",
@@ -93,7 +119,7 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
     readinessLevel: "full",
     mathUpTopics: ["Factors and Multiples", "BC_Working With Factors and Multiples"],
     prerequisite: "Build equal groups and use multiplication/division facts within 100 with a chart or manipulatives when needed.",
-    learningGoal: "Choose factor reasoning for splitting fixed amounts and multiple reasoning for finding when repeating events meet.",
+    learningGoal: "find common factors to make identical packs, and find common multiples to work out when two lights next flash together.",
     whyBefore: "Pack It / Sync It asks students to select the idea from context. This workshop makes factors, multiples, greatest common factor, and least common multiple visible before the mission.",
     background: [
       "A factor divides an amount into equal whole-number groups with no leftovers. Factor pairs multiply to make the amount.",
@@ -115,7 +141,7 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       "Choose the least positive common multiple and connect it to the first meeting time.",
       "Sort new stories into factor, multiple, or not enough information, then justify the clue used.",
     ],
-    supplied: ["24-and-36 supply mat", "Factor-pair organizer", "Two-signal timeline", "GCF-or-LCM story sort", "Guided cards with separate teacher answers", "Independent check"],
+    supplied: ["Twelve-pack diagram","Factor lists and flashing-light times","Worked steps, practice and independent check","Separate teacher answers"],
     gather: ["Two colours of counters or small objects", "Paper plates, hoops, or drawn group circles", "Timeline strips", "Pencils"],
     vocabulary: words(
       ["factor", "a whole number that divides an amount exactly", "6 is a factor of 24 because 24 ÷ 6 = 4"],
@@ -125,40 +151,66 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       ["least common multiple", "the first positive multiple shared by repeating sequences", "LCM(4,6)=12"],
     ),
     model: {
-      label: "SAME NUMBERS · DIFFERENT QUESTION",
-      prompt: "What do 24 and 36 tell us in a packing story and in a repeating-event story?",
-      steps: [
-        "Packing: list common factors of 24 and 36: 1, 2, 3, 4, 6, 12.",
-        "Choose 12 because the story asks for the greatest number of identical packs; each gets 2 and 3.",
-        "Repeating: list multiples of 24 and 36 until both lists reach 72.",
-        "Choose 72 because the story asks when the two cycles first meet again.",
-      ],
-      conclusion: "GCF divides fixed supplies into greatest identical groups. LCM finds the first shared point in repeating sequences.",
-    },
+  "label": "WORKED EXAMPLE · THE SAME NUMBERS, TWO JOBS",
+  "prompt": "How do 24 and 36 help us make packs and time flashing lights?",
+  "steps": [
+    "Packing problem: use 24 blue and 36 gold badges to make as many identical packs as possible, with none left over. Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24. Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36.",
+    "The shared factors are 1, 2, 3, 4, 6 and 12. Choose the greatest, 12. Each pack gets 24 ÷ 12 = 2 blue and 36 ÷ 12 = 3 gold badges.",
+    "Check the supplies: 12 × 2 = 24 blue and 12 × 3 = 36 gold. All badges are used in 12 identical packs.",
+    "Light problem: two lights flash together at 0 seconds. One flashes every 24 seconds: 24, 48, 72. One flashes every 36 seconds: 36, 72.",
+    "The first shared time after 0 is 72 seconds. This is the least common multiple of 24 and 36. The lights next flash together after 72 seconds."
+  ],
+  "conclusion": "The pack count must divide both supplies exactly. The shared flash time must be a multiple of both time intervals."
+},
     partnerCards: [
-      { title: "RESCUE PACKS", body: "Make the greatest number of identical kits from 18 blue and 30 gold badges with none left. State kits and contents.", answer: "GCF(18,30)=6, so 6 kits with 3 blue and 5 gold badges each." },
-      { title: "SIGNAL MEETING", body: "One signal flashes every 9 seconds and another every 12 seconds. When do they first meet again?", answer: "LCM(9,12)=36 seconds." },
-      { title: "CHOOSE THE TOOL", body: "A teacher has 28 pencils and 42 erasers for the greatest possible identical prize bags. Factor or multiple reasoning?", answer: "Factor reasoning; GCF(28,42)=14 bags, each with 2 pencils and 3 erasers." },
-      { title: "REPAIR THE CLAIM", body: "A student says LCM(4,6)=24 because 24 is in both lists. What did the student miss?", answer: "24 is common but not least; 12 is the first positive common multiple." },
-    ],
+  {
+    "title": "RESCUE PACKS",
+    "body": "Use 18 blue and 30 gold badges to make the greatest possible number of identical kits with none left. List the common factors, then state the number of kits and each kit's contents.",
+    "answer": "Common factors: 1, 2, 3, 6. Make 6 kits, each with 3 blue and 5 gold badges. Check: 6 × 3 = 18 and 6 × 5 = 30."
+  },
+  {
+    "title": "SIGNAL MEETING",
+    "body": "Two lights flash together at 0 seconds. One repeats every 9 seconds and one every 12 seconds. List both sets of flash times until you find their next shared flash.",
+    "answer": "9, 18, 27, 36 and 12, 24, 36. They next flash together at 36 seconds."
+  },
+  {
+    "title": "CHOOSE THE TOOL",
+    "body": "Use 28 pencils and 42 erasers to make as many identical prize bags as possible, with none left. Do you need common factors or common multiples? Solve and check.",
+    "answer": "Common factors. GCF(28,42) = 14. Make 14 bags with 2 pencils and 3 erasers each. Check: 14 × 2 = 28 and 14 × 3 = 42."
+  },
+  {
+    "title": "REPAIR THE CLAIM",
+    "body": "A learner says the LCM of 4 and 6 is 24 because both lists include 24. Write the first six positive multiples of 4 and first four of 6. Find and explain the mistake.",
+    "answer": "4: 4, 8, 12, 16, 20, 24. 6: 6, 12, 18, 24. Both include 12 before 24, so the least common multiple is 12."
+  }
+],
     check: [
-      { prompt: "Find the GCF of 20 and 32 and explain what it means for identical packs.", answer: "GCF=4; four greatest identical packs, with 5 of the first item and 8 of the second." },
-      { prompt: "Find the LCM of 5 and 8.", answer: "40." },
-      { prompt: "Write one clue that tells you a story needs GCF rather than LCM.", answer: "It splits fixed amounts into the greatest number of identical whole groups with no leftovers." },
-    ],
+  {
+    "prompt": "Use 20 red and 32 blue counters in the greatest possible number of identical groups, with none left. How many groups, and what is in each?",
+    "answer": "GCF(20,32) = 4. Four groups, each with 5 red and 8 blue counters."
+  },
+  {
+    "prompt": "Two lights flash together now, then every 5 seconds and every 8 seconds. When is their next shared flash? Show both lists.",
+    "answer": "5, 10, 15, 20, 25, 30, 35, 40 and 8, 16, 24, 32, 40. Next together at 40 seconds."
+  },
+  {
+    "prompt": "Why must a pack count be a factor of both supply amounts?",
+    "answer": "Every pack needs the same whole-number count of each item, with none left. Dividing either supply by the pack count must give no remainder."
+  }
+],
     readinessQuestions: [
       { prompt: "Which number is a factor of both 24 and 36?", choices: ["5", "6", "8"], answer: 1, feedback: "Both 24 and 36 divide exactly by 6." },
       { prompt: "Which list shows multiples of 4?", choices: ["1, 2, 4", "4, 8, 12", "4, 6, 8"], answer: 1, feedback: "Multiples of 4 are reached by counting 4, 8, 12, and onward." },
     ],
     likelyMisconceptions: ["Calling factors and multiples the same thing", "Choosing any common value instead of the greatest or least one requested", "Using GCF for a repeating meeting story", "Assuming prime factorization is required"],
-    supportRoute: "Keep quantities within known facts. Build every candidate grouping with counters and every repeating event on one labelled strip; use a multiplication chart without turning support into a speed test.",
+    supportRoute: "Try 2, 3 and 6 equal packs with 12 blue and 18 gold counters. Divide each colour separately. For multiples, mark every fourth and sixth second on one line from 0 to 12.",
     extensionRoute: "Design two stories using the same pair of numbers—one requiring GCF and one requiring LCM—and peer-test whether the clues are unambiguous.",
     spaces: "Keep the packing mat and timeline in class; teacher observation is sufficient evidence.",
   },
   {
     id: "pattern-relations-pack",
     anchorIds: ["pattern-forecast"],
-    title: "Show one pattern five ways",
+    title: "Describe growing and shrinking patterns",
     shortTitle: "Increasing and decreasing relations workshop",
     timing: "January · before Pattern Forest",
     blocks: "3 × 45–55 min",
@@ -166,7 +218,7 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
     readinessLevel: "full",
     mathUpTopics: ["Patterns"],
     prerequisite: "Continue a numeric or visual pattern and plot ordered pairs in the first quadrant.",
-    learningGoal: "Connect an increasing or decreasing pattern across a model, table, graph, words, and an expression, then decide when the rule fits the context.",
+    learningGoal: "show a pattern in a table and graph, write a rule, and use the rule to find a later stage.",
     whyBefore: "Pattern Forest interactively develops increasing rules. This full workshop adds an equally visible decreasing route and connects both directions to tables, graphs, expressions, forecasts, and context limits.",
     background: [
       "A relation connects an input, such as stage number n, with one output value. Each table row and graph point must describe the same stage.",
@@ -188,7 +240,7 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       "Write the rule in words and symbols; test Stage 1 before making a far forecast.",
       "Compare one increasing and one decreasing route, including the stage where a physical interpretation no longer makes sense.",
     ],
-    supplied: ["Increasing and decreasing stage cards", "Model-table-graph-expression organizer", "Pre-labelled and blank axes", "Rule-test strip", "Context-limit card", "Guided practice and teacher answers"],
+    supplied: ["Growing and shrinking pattern tables","Worked stage rules","Worked steps, practice and independent check","Separate teacher answers"],
     gather: ["Counters or tiles", "Grid paper", "Pencils and two colours", "Ruler"],
     vocabulary: words(
       ["relation", "a connection between an input and an output", "Stage 3 connects to 15 lights"],
@@ -198,16 +250,17 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       ["coordinate", "an ordered pair locating one input and output on a graph", "(3,15) means Stage 3 has value 15"],
     ),
     model: {
-      label: "GROWING + SHRINKING · SAME REPRESENTATION ROUTE",
-      prompt: "How can one rule make 7, 11, 15, 19 while another makes 42, 37, 32, 27?",
-      steps: [
-        "Growing route: table the pairs (1,7), (2,11), (3,15), (4,19); each output rises by 4.",
-        "Write 4n+3 and test Stage 1: 4(1)+3=7; Stage 10 is 43.",
-        "Decreasing route: table (1,42), (2,37), (3,32), (4,27); each output falls by 5.",
-        "Write 42−5(n−1); Stage 9 is 2 and Stage 10 is −3, so a story counting physical objects must stop after Stage 9.",
-      ],
-      conclusion: "Model, table, graph, words, and expression must agree. The expression can also reveal when a real context reaches its limit.",
-    },
+  "label": "WORKED EXAMPLE · WRITE A RULE THAT FITS STAGE 1",
+  "prompt": "How many lights are at Stage 10 if Stage 1 has 7 and each new stage adds 4?",
+  "steps": [
+    "Write the first four stages: 1 → 7, 2 → 11, 3 → 15, 4 → 19. The number of lights increases by 4 each time.",
+    "From Stage 1 to Stage 10 there are 9 increases. Start with 7, then add nine groups of 4: 7 + 9 × 4 = 43 lights.",
+    "Let n stand for the stage number. There are n − 1 increases after Stage 1. The rule is 7 + 4 × (n − 1), which is also 4n + 3.",
+    "Check Stage 1: 4 × 1 + 3 = 7. Plot (1,7), (2,11), (3,15), (4,19), with stage across and lights up. Each point must match the table.",
+    "For a shrinking pattern starting at 42 and losing 5 each stage, use 42 − 5 × (n − 1). Stage 9 has 2 left. Stage 10 would give −3, so this count of objects stops at Stage 9."
+  ],
+  "conclusion": "Start with Stage 1 and count the changes. Test the rule at Stage 1 before using it to predict a later stage."
+},
     partnerCards: [
       { title: "INCREASING ROUTE", body: "Stage 1 has 6 tiles and each new stage adds 3. List Stages 1–5, write a rule, and find Stage 10.", answer: "6,9,12,15,18; rule 3n+3; Stage 10=33." },
       { title: "DECREASING ROUTE", body: "Stage 1 has 50 tickets and each stage uses 6. List Stages 1–5 and write a rule using n−1.", answer: "50,44,38,32,26; rule 50−6(n−1)." },
@@ -224,14 +277,14 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       { prompt: "Which rule gives 7 at Stage 1 and then adds 4 each stage?", choices: ["4n+3", "7n+4", "4n+7"], answer: 0, feedback: "Test n=1: 4+3=7." },
     ],
     likelyMisconceptions: ["Using the Stage 1 value as the coefficient", "Putting value on the horizontal axis without defining it", "Writing a decreasing rule that already subtracts once at Stage 1", "Treating a negative symbolic output as a possible count of physical objects"],
-    supportRoute: "Use counters and a pre-labelled two-column table. Colour the fixed part and repeated change separately; plot only four points before writing the rule in words.",
+    supportRoute: "Draw Stage 1 with 7 counters. Add 4 for Stage 2 and another 4 for Stage 3. Record each total beside its stage. Count the number of additions before writing a letter rule.",
     extensionRoute: "Compare two rules with the same constant change but different starting values and explain why their graphs cannot meet. Then change one rate and design a context where the revised graphs do meet or where one must stop.",
     spaces: "A model-table-graph-rule page may serve as selected evidence; it is not a default upload.",
   },
   {
     id: "one-step-equations-pack",
     anchorIds: ["equation-balance"],
-    title: "Keep both sides true",
+    title: "Find the missing number and check it",
     shortTitle: "One-step equation workshop",
     timing: "Late January–early February",
     blocks: "2 × 45–55 min + retrieval",
@@ -239,7 +292,7 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
     readinessLevel: "full",
     mathUpTopics: ["Algebra"],
     prerequisite: "Use fact families and explain that the equals sign means both expressions have the same value.",
-    learningGoal: "Model and solve one-step whole-number equations by keeping both sides equal, then substitute to check the solution.",
+    learningGoal: "solve an equation by making the same calculation on both sides, then put the answer back to check.",
     whyBefore: "The Equation Balance Room is an application and feedback lab. This pack supplies the physical model, inverse-operation explanation, guided cases, and independent check needed to teach without a video.",
     background: [
       "An equals sign means the value on the left is the same as the value on the right. It does not mean ‘the answer comes next.’",
@@ -261,7 +314,7 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       "Substitute the value into the original equation and calculate both sides.",
       "Write a one-step mystery for a partner and revise it if more than one reading is possible.",
     ],
-    supplied: ["Balance mats", "Cup and counter cards", "Inverse-operation reference", "Four guided equation cards", "Error-repair cards", "Independent check with teacher answers"],
+    supplied: ["Balance example","Four equation questions","Worked steps, practice and independent check","Separate teacher answers"],
     gather: ["Counters", "Cups or folded paper covers", "Plain paper", "Optional balance scale"],
     vocabulary: words(
       ["equation", "a statement that two expressions have equal value", "x+4=11"],
@@ -271,22 +324,38 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       ["substitute", "replace a variable with a value to test it", "7+4=11 verifies x=7"],
     ),
     model: {
-      label: "BUILD · UNDO BOTH SIDES · CHECK",
-      prompt: "A covered cup plus 4 counters balances 11 counters. What is in the cup?",
-      steps: [
-        "Represent the balance as x+4=11.",
-        "Remove 4 from both sides: x+4−4=11−4.",
-        "Simplify to x=7.",
-        "Substitute into the original equation: 7+4=11, so both sides are equal.",
-      ],
-      conclusion: "The solution is not a guessed answer. It is the value that survives an equality-preserving move and makes the original equation true.",
-    },
+  "label": "WORKED EXAMPLE · x + 4 = 11",
+  "prompt": "A cup holds an unknown number of counters. The cup and 4 extra counters make 11. How many are in the cup?",
+  "steps": [
+    "Use x for the number in the cup. Write x + 4 = 11. The equals sign means the two sides have the same value.",
+    "Subtract 4 from both sides: x + 4 − 4 = 11 − 4. This removes the extra counters without changing the balance.",
+    "On the left, +4 and −4 cancel. On the right, 11 − 4 = 7. Therefore x = 7.",
+    "Check by replacing x in the original equation: 7 + 4 = 11. Both sides equal 11, so the cup holds 7 counters."
+  ],
+  "conclusion": "A solution is a number that makes the original equation true. Show the calculation on both sides and check your answer."
+},
     partnerCards: [
-      { title: "ADDITION MYSTERY", body: "Solve x+17=45. Show the same change on both sides and substitute to check.", answer: "x=28; 28+17=45." },
-      { title: "MULTIPLICATION MYSTERY", body: "Solve 4x=52 with four equal groups and check.", answer: "x=13; 4×13=52." },
-      { title: "DIVISION MYSTERY", body: "Solve x÷6=9. Name the inverse move and check.", answer: "x=54; 54÷6=9." },
-      { title: "SUBTRACTION TRAP", body: "Solve 72−x=29 without reversing the original subtraction. Check by substitution.", answer: "x=43; 72−43=29." },
-    ],
+  {
+    "title": "ADDITION MYSTERY",
+    "body": "Solve x + 17 = 45. Subtract the same amount from each side, then check in the original equation.",
+    "answer": "Subtract 17: x = 45 − 17 = 28. Check: 28 + 17 = 45."
+  },
+  {
+    "title": "MULTIPLICATION MYSTERY",
+    "body": "4x means four equal groups of x. Solve 4x = 52 by dividing both sides by 4. Check your answer.",
+    "answer": "x = 52 ÷ 4 = 13. Check: 4 × 13 = 52."
+  },
+  {
+    "title": "DIVISION MYSTERY",
+    "body": "Solve x ÷ 6 = 9. Which operation undoes dividing by 6? Apply it to both sides and check.",
+    "answer": "Multiply both sides by 6: x = 9 × 6 = 54. Check: 54 ÷ 6 = 9."
+  },
+  {
+    "title": "SUBTRACTION TRAP",
+    "body": "Solve 72 − x = 29. Think: 29 remains after x is taken from 72. Find the missing part, then check using 72 − x.",
+    "answer": "The missing part is 72 − 29 = 43, so x = 43. Check: 72 − 43 = 29. An equality method is to add x to both sides, then subtract 29."
+  }
+],
     check: [
       { prompt: "Solve y+26=70 and check.", answer: "y=44; 44+26=70." },
       { prompt: "Solve 8m=96 and check.", answer: "m=12; 8×12=96." },
@@ -297,14 +366,14 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       { prompt: "Which operation undoes multiplication by 6?", choices: ["Add 6", "Subtract 6", "Divide by 6"], answer: 2, feedback: "Division by the same non-zero number undoes multiplication." },
     ],
     likelyMisconceptions: ["Reading equals as ‘write the answer’", "Changing only one side", "Using a memorized opposite operation without reading the equation", "Checking a rearranged equation instead of the original"],
-    supportRoute: "Use one physical cup and counters. Keep each written line beside the matching physical move, and limit early equations to facts students can verify without extra computation load.",
+    supportRoute: "Draw x + 4 = 11 as one cup plus 4 counters on the left and 11 counters on the right. Cross out 4 counters on each side. Count what remains, then put the number back into the equation.",
     extensionRoute: "Create and diagnose a false solution line, or compare two different one-step equations that share the same solution.",
     spaces: "Keep the balance proof and substitution check in the Math folder; no default post.",
   },
   {
     id: "first-quadrant-transformations-pack",
     anchorIds: ["transformation-cipher"],
-    title: "Move the shape without changing the shape",
+    title: "Move a shape using coordinates",
     shortTitle: "First-quadrant transformation workshop",
     timing: "May · before Transformation Cipher",
     blocks: "2–3 × 45–55 min",
@@ -312,7 +381,7 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
     readinessLevel: "full",
     mathUpTopics: ["Location and Movement"],
     prerequisite: "Plot and read positive whole-number ordered pairs in the first quadrant, always moving across for x and then up for y.",
-    learningGoal: "Apply and describe a combination of translations, reflections, and rotations in the first quadrant while preserving size and shape.",
+    learningGoal: "plot points in the first quadrant and move a shape twice, checking every point after each move.",
     whyBefore: "The Cipher asks students to combine moves. This core pack explicitly teaches each move, coordinate recording, overlay checking, and sequencing before the optional negative-coordinate extension.",
     background: [
       "A translation slides every point the same distance and direction. The image keeps its size, shape, and orientation.",
@@ -334,7 +403,7 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       "Use tracing paper, equal distances, or matching side lengths to verify size and shape stayed fixed.",
       "Write a two-move cipher, trade it, and revise any instruction a partner could not reproduce.",
     ],
-    supplied: ["First-quadrant grids", "Starting creature card", "Translation/reflection/rotation reference", "Tracing-overlay directions", "Two-move cipher record", "Guided cards and teacher answers"],
+    supplied: ["Start, translation and reflection diagrams","Starting point list and move instructions","Worked steps, practice and independent check","Separate teacher answers"],
     gather: ["Grid paper", "Tracing paper or transparent sleeve", "Pencils", "Ruler", "Optional coordinate pegboard"],
     vocabulary: words(
       ["translation", "a slide that moves every point the same distance and direction", "Move every point 3 right and 1 up"],
@@ -344,16 +413,17 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       ["combination", "two or more transformations applied in a stated order", "Translate, then reflect"],
     ),
     model: {
-      label: "MOVE 1 → MOVE 2 · RECORD EVERY POINT",
-      prompt: "What happens to A(2,2), B(5,2), C(5,4), D(3,6), E(2,4) after a translation and reflection?",
-      steps: [
-        "Translate 3 right and 1 up: A′(5,3), B′(8,3), C′(8,5), D′(6,7), E′(5,5).",
-        "Draw the vertical mirror line x=6.",
-        "Reflect each primed point across x=6: A″(7,3), B″(4,3), C″(4,5), D″(6,7), E″(7,5).",
-        "Overlay or compare side lengths to verify the final image has the same size and shape as the start.",
-      ],
-      conclusion: "Every point follows both moves in order. Coordinate labels and an overlay make the combination reproducible and prove the figure was not distorted.",
-    },
+  "label": "WORKED EXAMPLE · SLIDE, THEN REFLECT",
+  "prompt": "Move A(2,2), B(5,2), C(5,4), D(3,6), E(2,4) three right and one up, then reflect across x = 6.",
+  "steps": [
+    "Plot each point by moving right for x and up for y. Join A–B–C–D–E–A to make the starting shape.",
+    "Translate three right and one up: add 3 to every x-coordinate and 1 to every y-coordinate. A(2,2) becomes A′(5,3).",
+    "The other translated points are B′(8,3), C′(8,5), D′(6,7) and E′(5,5). Join them in the same order.",
+    "Draw the vertical mirror line x = 6. A′(5,3) is 1 unit left of it, so A″ is 1 unit right, at (7,3). Keep the y-coordinate unchanged.",
+    "Reflect the remaining points: B″(4,3), C″(4,5), D″(6,7), E″(7,5). D stays on the mirror line. Check that matching points are equally far from the line."
+  ],
+  "conclusion": "A translation moves every point the same distance and direction. A reflection puts each point equally far across the mirror line. Both keep the shape's size."
+},
     partnerCards: [
       { title: "TRANSLATE", body: "Move P(2,3), Q(4,3), R(3,5) two right and three up.", answer: "P′(4,6), Q′(6,6), R′(5,8)." },
       { title: "REFLECT", body: "Reflect A(3,2) across the vertical line x=5. Keep the same y-coordinate.", answer: "A′(7,2), two units on the other side of x=5." },
@@ -364,13 +434,14 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       { prompt: "Translate (1,4) four right and two up.", answer: "(5,6)." },
       { prompt: "A point is 3 units left of x=7 at (4,5). Where is its reflection across x=7?", answer: "(10,5), three units right of the mirror line." },
       { prompt: "Name two pieces of evidence that a transformation preserved the figure.", answer: "Examples: an overlay matches; corresponding side lengths and angles remain equal; every point followed the same defined move." },
+    {"prompt":"Plot A(1,1), B(3,1), C(1,3). Translate two right and one up. Then reflect that new triangle across x = 4. Record the points after each move.","answer":"After translation: A′(3,2), B′(5,2), C′(3,4). After reflection: A″(5,2), B″(3,2), C″(5,4). Apply the reflection to the translated points; keep all points in the first quadrant."},
     ],
     readinessQuestions: [
       { prompt: "How do you plot (3,5) in the first quadrant?", choices: ["3 right, then 5 up", "5 right, then 3 up", "3 left, then 5 down"], answer: 0, feedback: "Read x first, then y." },
       { prompt: "Which move is a reflection?", choices: ["Slide 4 right", "Flip across x=6", "Turn 90° around a point"], answer: 1, feedback: "A reflection flips across a named mirror line." },
     ],
     likelyMisconceptions: ["Moving only one vertex", "Swapping x and y without a defined rule", "Measuring reflection distance diagonally instead of perpendicular to the mirror line", "Applying both moves to the original instead of using the first image"],
-    supportRoute: "Use a three-point figure, colour-coded x-then-y arrows, and tracing paper. Complete one move and check every point before beginning the second.",
+    supportRoute: "Start with A(2,2) only. Plot it, move three right and one up to (5,3), then reflect it across x = 6 to (7,3). Draw the one-unit distances on both sides of the mirror before moving the other points.",
     extensionRoute: "Compare two move orders or open the separately labelled negative-coordinate bridge only after the first-quadrant combination is independently secure.",
     spaces: "Keep the decoded cipher in class; assess the first-quadrant combination before any optional four-quadrant work.",
   },

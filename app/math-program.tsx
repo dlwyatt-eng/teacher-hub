@@ -13,22 +13,24 @@ const levelCopy: Record<ReadinessLevel, { label: string; time: string; descripti
   review: { label: "Already taught / review", time: "3–6 MIN", description: "Start with the check; reteach only the missed idea." },
 };
 
-function MathModelVisual({ pack }: { pack: MathSupportPack }) {
+function MathModelVisual({ pack, step }: { pack: MathSupportPack; step?: number }) {
   if (pack.id === "magnitude-place-value-pack") return (
     <div className="math-model-magnitude">
-      <svg viewBox="0 0 640 205" role="img" aria-label="The number zero point zero zero eight shown on three number lines: very close to zero on a zero-to-one line, eight percent across a zero-to-zero-point-one line, and eighty percent across a zero-to-zero-point-zero-one line">
-        <title>The value 0.008 stays fixed while its visible position changes with the scale.</title>
-        <g><text x="18" y="28">0 to 1</text><path d="M110 24H600"/><circle cx="114" cy="24" r="7"/><text className="marker-label" x="125" y="30">0.008 · 0.8% across</text><text x="104" y="49">0</text><text x="590" y="49">1</text></g>
-        <g><text x="18" y="94">0 to 0.1</text><path d="M110 90H600"/><circle cx="149" cy="90" r="7"/><text className="marker-label" x="162" y="96">0.008 · 8% across</text><text x="104" y="115">0</text><text x="578" y="115">0.1</text></g>
-        <g><text x="18" y="160">0 to 0.01</text><path d="M110 156H600"/><circle cx="502" cy="156" r="7"/><text className="marker-label" x="390" y="146">0.008 · 80% across</text><text x="104" y="181">0</text><text x="568" y="181">0.01</text></g>
+      <div className="math-place-value-row" aria-label="Zero ones, zero tenths, zero hundredths and eight thousandths">{["Ones", "Tenths", "Hundredths", "Thousandths"].map((label, index) => <span key={label}><small>{label}</small><b>{index === 3 ? 8 : 0}</b></span>)}</div>
+      <svg viewBox="0 0 640 110" role="img" aria-label="A number line from zero to one hundredth. Ten equal jumps each worth one thousandth. Eight jumps reach zero point zero zero eight.">
+        <title>0.008 is eight jumps of 0.001 from zero.</title>
+        <path d="M35 48H605"/>
+        {Array.from({length:11}, (_,index)=><path key={index} d={`M${35+index*57} 38V58`}/>)}
+        <circle cx="491" cy="48" r="8"/>
+        <text x="35" y="90">0</text><text x="320" y="90" textAnchor="middle">0.005</text><text x="605" y="90" textAnchor="end">0.010</text><text x="491" y="22" textAnchor="middle">0.008</text>
       </svg>
-      <p><b>SAME VALUE</b><span>0.008 = eight thousandths</span><small>Read the endpoints. Divide the interval. Then place the number.</small></p>
+      <p><b>EACH JUMP = 0.001</b><span>8 jumps = 0.008</span><small>0.010 is the same number as 0.01.</small></p>
     </div>
   );
   if (pack.id === "factors-multiples-pack") return (
     <div className="math-model-factors" role="img" aria-label="A packing model uses the greatest common factor of twenty-four and thirty-six to make twelve packs, while timelines show twenty-four and thirty-six first meeting at seventy-two">
-      <section><small>FIXED SUPPLIES · GCF</small><div>{Array.from({ length: 12 }, (_, index) => <i key={index}><b>2</b><b>3</b></i>)}</div><p><strong>24 ÷ 12 = 2</strong><strong>36 ÷ 12 = 3</strong></p><em>12 greatest identical packs</em></section>
-      <section><small>REPEATING CYCLES · LCM</small><div className="math-cycle-row"><b>24</b><span>24</span><span>48</span><mark>72</mark></div><div className="math-cycle-row"><b>36</b><span>36</span><mark>72</mark></div><em>72 is the first shared meeting</em></section>
+      <section><small>24 BLUE + 36 GOLD BADGES</small><div>{Array.from({ length: 12 }, (_, index) => <i key={index}><b>2</b><b>3</b></i>)}</div><p><strong>24 ÷ 12 = 2 blue</strong><strong>36 ÷ 12 = 3 gold</strong></p><em>12 identical packs. None left over.</em></section>
+      <section><small>LIGHTS FLASH TOGETHER AT 0 SECONDS</small><div className="math-cycle-row"><b>Every 24 s</b><span>24</span><span>48</span><mark>72</mark></div><div className="math-cycle-row"><b>Every 36 s</b><span>36</span><mark>72</mark></div><em>The next shared flash is at 72 seconds.</em></section>
     </div>
   );
   if (pack.id === "pattern-relations-pack") return (
@@ -87,9 +89,14 @@ function MathModelVisual({ pack }: { pack: MathSupportPack }) {
     </div>
   );
   if (pack.id === "fraction-ratio-percent-pack") return (
-    <div className="math-model-percent" aria-label="Twenty-five shaded squares out of one hundred connected to one quarter and zero point two five">
+    <div className="math-fraction-examples">
+      <section data-current={step === undefined || step === 0} className="math-quarter-model" aria-label="Seven quarters grouped into one whole and three quarters"><h4>7 quarter pieces = 1 whole + 3 quarters</h4><div>{[4,3].map((filled, group) => <span key={group}>{Array.from({length:4},(_,index)=><i key={index} data-filled={index<filled}>{index<filled ? "¼" : ""}</i>)}</span>)}</div><p>7/4 = 4/4 + 3/4 = 1 3/4</p></section>
+      <section data-current={step === undefined || step === 1} className="math-fraction-compare" aria-label="Five sixths is fifteen eighteenths; seven ninths is fourteen eighteenths"><p><b>5/6 = 15/18</b> · multiply top and bottom by 3</p><p><b>7/9 = 14/18</b> · multiply top and bottom by 2</p><p>15 eighteenth-parts &gt; 14 eighteenth-parts</p></section>
+      <section data-current={step === undefined || step === 2} className="math-ratio-model"><p><b>One batch:</b> 2 blue + 3 gold</p><p><b>Three batches:</b> 6 blue + 9 gold</p><p>More tiles; the same colour proportions.</p></section>
+      <div data-current={step === undefined || step >= 3} className="math-model-percent" aria-label="Twenty-five shaded squares out of one hundred connected to one quarter and zero point two five">
       <div>{Array.from({ length: 100 }, (_, index) => <i key={index} className={index < 25 ? "filled" : ""} />)}</div>
       <p><b>25%</b><span>=</span><b>25/100</b><span>=</span><b>1/4</b><span>=</span><b>0.25</b></p>
+      </div>
     </div>
   );
   if (pack.id === "decimal-operations-pack") return (
@@ -113,11 +120,10 @@ function MathModelVisual({ pack }: { pack: MathSupportPack }) {
   );
   if (pack.id === "angle-triangle-pack") return (
     <div className="math-model-angles">
-      <svg viewBox="0 0 600 220" role="img" aria-label="Reference angles and triangle classification">
-        <g transform="translate(70 165)"><path d="M0 0H125 M0 0L90-90"/><path className="arc" d="M43 0A43 43 0 0 0 30-30"/><text x="42" y="-15">45°</text></g>
-        <g transform="translate(260 165)"><path d="M0 0H125 M0 0V-125"/><path className="arc" d="M43 0A43 43 0 0 0 0-43"/><text x="22" y="-22">90°</text></g>
-        <g transform="translate(470 170)"><path d="M-80 0L0-125L80 0Z"/><text x="-35" y="30">isosceles</text></g>
+      <svg viewBox="0 0 440 250" role="img" aria-label="An angle of 120 degrees opening counterclockwise from a ray pointing right. A dashed vertical ray shows 90 degrees for comparison.">
+        <path d="M170 200H350M170 200L90 61.44"/><path className="arc" d="M230 200A60 60 0 0 0 140 148.04"/><path className="math-shape-guide" d="M170 200V35"/><text x="245" y="185">0° start</text><text x="185" y="50">90°</text><text x="185" y="130">120°</text><text x="113" y="230">vertex</text>
       </svg>
+      <p>120° opens wider than a right angle. Start at the 0° on your first ray.</p>
     </div>
   );
   if (pack.id === "polygon-classification-pack") return (
@@ -126,18 +132,22 @@ function MathModelVisual({ pack }: { pack: MathSupportPack }) {
     </div>
   );
   if (pack.id === "formula-perimeter-pack") return (
-    <div className="math-model-formula" aria-label="Eight by three rectangle showing perimeter and area">
-      <div>{Array.from({ length: 24 }, (_, index) => <i key={index} />)}</div>
-      <p><span>AROUND</span><b>P = 8 + 3 + 8 + 3 = 22 cm</b></p><p><span>COVER</span><b>A = 8 × 3 = 24 cm²</b></p>
+    <div className="math-dimensioned-shape">
+      <svg viewBox="0 0 420 330" role="img" aria-label="An L-shape made by removing a four by three centimetre corner from the upper right of a ten by eight centimetre rectangle. The six boundary lengths clockwise are six, three, four, five, ten and eight centimetres.">
+        <title>Trace all six outside edges, including the two edges of the cut.</title>
+        <path className="math-shape-fill" d="M65 45H245V135H365V285H65Z"/>
+        <path className="math-shape-guide" d="M245 45H365V135"/>
+        <text x="150" y="30">6 cm</text><text x="190" y="98">3 cm</text><text x="283" y="122">4 cm</text><text x="370" y="215">5 cm</text><text x="180" y="318">10 cm</text><text x="8" y="170">8 cm</text>
+      </svg>
+      <p><b>Perimeter:</b> 6 + 3 + 4 + 5 + 10 + 8 = 36 cm</p>
+      <p><b>Area:</b> 10 × 8 − 4 × 3 = 68 cm²</p>
     </div>
   );
   if (pack.id === "area-recompose-pack") return (
-    <div className="math-model-area">
-      <svg viewBox="0 0 720 250" role="img" aria-label="Parallelogram, triangle pair, and trapezoid pair used to derive area formulas">
-        <g transform="translate(25 25)"><path d="M45 155L95 15H250L200 155Z"/><path className="height" d="M95 15V155"/><text x="110" y="190">A = b × h</text></g>
-        <g transform="translate(290 25)"><path d="M0 155L115 15L230 155Z"/><path className="copy" d="M0 155L115 15L230 155L115 155Z"/><text x="45" y="190">A = b × h ÷ 2</text></g>
-        <g transform="translate(540 25)"><path d="M0 155L45 15H145L205 155Z"/><path className="copy" d="M0 155L45 15H145L205 155L160 15H60Z"/><text x="0" y="190">A = (a + b) × h ÷ 2</text></g>
-      </svg>
+    <div className="math-area-models">
+      <article><h4>Move the corner to make a rectangle.</h4><svg viewBox="0 0 400 210" role="img" aria-label="A parallelogram cut vertically at its top-left vertex. Moving the left triangle to the right forms a rectangle with the same base and perpendicular height."><path className="math-shape-fill" d="M25 155L75 35H315L265 155Z"/><path className="math-shape-guide" d="M75 35V155H315V35"/><path className="math-shape-copy" d="M265 155L315 35V155Z"/><path className="math-shape-guide" d="M75 140H90V155"/><text x="110" y="193">Area = base × height</text></svg><p>Cut the left triangle along the height. Slide it to the dashed space on the right. No area is added or lost.</p></article>
+      <article><h4>Two matching triangles make a parallelogram.</h4><svg viewBox="0 0 400 210" role="img" aria-label="Two congruent triangles join along a diagonal to form a parallelogram. Each triangle has half its area."><path className="math-shape-fill" d="M25 155L95 35L285 155Z"/><path className="math-shape-copy" d="M95 35H355L285 155Z"/><path className="math-shape-guide" d="M95 35V155M95 140H110V155"/><text x="90" y="193">Area = base × height ÷ 2</text></svg><p>Both triangles have the same area. Find the parallelogram's area, then divide by 2.</p></article>
+      <article><h4>Two matching trapezoids make a parallelogram.</h4><svg viewBox="0 0 400 220" role="img" aria-label="Two congruent trapezoids, one turned half a turn, form a parallelogram. Its base is the sum of a trapezoid's parallel sides, a plus b."><path className="math-shape-fill" d="M15 155L55 35H175L215 155Z"/><path className="math-shape-copy" d="M175 35H375L335 155H215Z"/><path className="math-shape-guide" d="M55 35V155M55 140H70V155"/><text x="108" y="25">b</text><text x="110" y="179">a</text><text x="270" y="179">b</text><text x="50" y="213">Area = (a + b) × height ÷ 2</text></svg><p>Add the two parallel sides, a and b. Multiply by the perpendicular height. Divide by 2 for one trapezoid.</p></article>
     </div>
   );
   if (pack.id === "volume-capacity-pack") return (
@@ -176,10 +186,37 @@ export function MathTeacherWorkshops({ experienceId, placement = "before" }: { e
   const hasCoreAndBridge = packs.some(pack => pack.role === "BC CORE") && packs.some(pack => pack.role === "MATHUP / WNCP BRIDGE");
   return (
     <section className="math-workshop-stack teacher-math-workshops">
-      <header><div><p>{hasCoreAndBridge ? "B.C. CORE FIRST · OPTIONAL BRIDGE LAST" : placement === "extension" ? "OPEN AFTER THE REQUIRED CORE" : "TEACH, CHECK, THEN APPLY"}</p><h2>{hasCoreAndBridge ? "The complete first-quadrant lesson comes before the optional four-quadrant bridge." : packs.length === 1 ? "One complete background lesson is ready." : `${packs.length} background lessons are sequenced here.`}</h2><span>Choose Math Antics supported, hybrid, or teacher-led replacement. In every mode, the Hub model, guided practice, authentic task, and independent check remain available.</span></div><b>{packs.length} READY-TO-PROJECT + PRINT PACK{packs.length === 1 ? "" : "S"}</b></header>
+      <header><div><p>{hasCoreAndBridge ? "B.C. CORE FIRST · OPTIONAL BRIDGE LAST" : placement === "extension" ? "OPEN AFTER THE REQUIRED CORE" : "TEACH, CHECK, THEN APPLY"}</p><h2>{hasCoreAndBridge ? "The complete first-quadrant lesson comes before the optional four-quadrant bridge." : packs.length === 1 ? "Background lesson and practice" : `${packs.length} background lessons are available.`}</h2><span>Choose Math Antics supported, hybrid, or teacher-led replacement. In every mode, the Hub model, guided practice, authentic task, and independent check remain available.</span></div><b>{packs.length} TEACHING PACK{packs.length === 1 ? "" : "S"}</b></header>
       <MathDeliveryModePanel experienceId={experienceId} />
       {packs.map(pack => <TeacherMathPack key={pack.id} pack={pack} />)}
     </section>
+  );
+}
+
+function StudentMathPack({ pack }: { pack: MathSupportPack }) {
+  const [stage, setStage] = useState<"example" | "practice" | "check">("example");
+  const [step, setStep] = useState(0);
+  const [card, setCard] = useState(0);
+  const [check, setCheck] = useState(0);
+  const stages = [{ id: "example", label: "1 · See an example" }, { id: "practice", label: "2 · Try together" }, { id: "check", label: "3 · Try on your own" }] as const;
+  return (
+    <article className="student-math-workshop-pack" data-stage={stage} data-model-step={step}>
+      <header className="student-math-print-heading"><h3>{pack.title}</h3><button className="student-math-print" type="button" onClick={(event) => printClosest(event.currentTarget, ".student-math-workshop-pack")}>Print student workshop</button></header>
+      <div className="student-math-workshop-body">
+        <section className="student-math-goal"><small>WE ARE LEARNING TO</small><p>{pack.learningGoal}</p></section>
+        <nav className="math-workshop-stages" aria-label={`${pack.shortTitle}: lesson steps`}>{stages.map(item => <button key={item.id} type="button" aria-pressed={stage === item.id} onClick={() => setStage(item.id)}>{item.label}</button>)}</nav>
+        <section className="math-pack-model math-workshop-panel" data-panel="example" aria-label="Worked example">
+          <header><span>WORKED EXAMPLE</span><h4>{pack.model.prompt}</h4></header>
+          <MathModelVisual pack={pack} step={step} />
+          <ol className="math-model-steps">{pack.model.steps.map((text, index) => <li key={text} data-current={index === step} value={index + 1}>{text}</li>)}</ol>
+          <nav className="math-workshop-controls" aria-label="Example steps"><button type="button" disabled={step === 0} onClick={() => setStep(value => value - 1)}>Previous step</button><span>Step {step + 1} of {pack.model.steps.length}</span><button type="button" disabled={step === pack.model.steps.length - 1} onClick={() => setStep(value => value + 1)}>Next step</button></nav>
+          <p className="math-model-conclusion" data-visible={step === pack.model.steps.length - 1}><b>WHAT WE FOUND:</b> {pack.model.conclusion}</p>
+        </section>
+        <section className="math-partner-cards math-workshop-panel" data-panel="practice" aria-label="Partner practice"><header><span>TRY TOGETHER</span><strong>Draw or write your method. Explain it to your partner.</strong></header><div>{pack.partnerCards.map((item, index) => <article key={item.title} data-current={index === card}><b>{item.title}</b><p>{item.body}</p></article>)}</div><nav className="math-workshop-controls" aria-label="Practice questions"><button type="button" disabled={card === 0} onClick={() => setCard(value => value - 1)}>Previous question</button><span>Question {card + 1} of {pack.partnerCards.length}</span><button type="button" disabled={card === pack.partnerCards.length - 1} onClick={() => setCard(value => value + 1)}>Next question</button></nav></section>
+        <section className="math-independent-check student-math-check math-workshop-panel" data-panel="check" aria-label="Independent check"><header><span>TRY ON YOUR OWN</span><strong>Show your thinking. Your teacher will check it with you.</strong></header><div>{pack.check.map((item, index) => <article key={item.prompt} data-current={index === check}><b>{index + 1}</b><p>{item.prompt}</p></article>)}</div><nav className="math-workshop-controls" aria-label="Check questions"><button type="button" disabled={check === 0} onClick={() => setCheck(value => value - 1)}>Previous question</button><span>Question {check + 1} of {pack.check.length}</span><button type="button" disabled={check === pack.check.length - 1} onClick={() => setCheck(value => value + 1)}>Next question</button></nav></section>
+        <details className="math-workshop-help"><summary>Need a word or a hint?</summary><section className="student-math-words"><div>{pack.vocabulary.map(word => <article key={word.term}><b>{word.term}</b><p>{word.meaning}</p><small>{word.example}</small></article>)}</div></section><p>{pack.supportRoute}</p></details>
+      </div>
+    </article>
   );
 }
 
@@ -188,24 +225,11 @@ export function MathStudentWorkshops({ experienceId, placement = "before" }: { e
   if (!packs.length) return null;
   return (
     <section className="student-math-workshops">
-      <header><span>{placement === "extension" ? "OPTIONAL · AFTER THE FIRST-QUADRANT WORK" : "LEARN THESE IDEAS FIRST"}</span><h2>{placement === "extension" ? "Open this bridge only when your teacher chooses the four-quadrant challenge." : "Open the workshop your teacher chooses."}</h2><p>{placement === "extension" ? "The required Grade 6 evidence is already complete. This picture, worked example, and practice extend the coordinate grid across zero." : "Your teacher may use a short Math Antics explanation, teach directly from this Hub model, or combine both. The picture, worked example, partner task, and support route work without the video."}</p></header>
+      <header><span>{placement === "extension" ? "OPTIONAL CHALLENGE" : "MATH WORKSHOP"}</span><h2>{placement === "extension" ? "Try coordinates on both sides of zero." : "See it. Try it. Explain it."}</h2><p>{placement === "extension" ? "Start here after your teacher checks your first-quadrant work." : "Use paper or a whiteboard. Start with the example, then try a question together."}</p></header>
       {packs.map((pack, packIndex) => (
         <details key={pack.id} open={packIndex === 0}>
-          <summary><span><small>{pack.role} · {pack.blocks}</small><strong>{pack.title}</strong></span><b>Open workshop ▾</b></summary>
-          <article className="student-math-workshop-pack">
-            <header className="student-math-print-heading">
-              <div><small>{pack.role} · STUDENT WORKSHOP</small><h3>{pack.title}</h3></div>
-              <button className="student-math-print" type="button" onClick={(event) => printClosest(event.currentTarget, ".student-math-workshop-pack")}>Print student workshop</button>
-            </header>
-            <div className="student-math-workshop-body">
-              <section className="student-math-goal"><small>WE ARE LEARNING TO</small><p>{pack.learningGoal}</p></section>
-              <section className="math-pack-model"><header><span>{pack.model.label}</span><h4>{pack.model.prompt}</h4></header><MathModelVisual pack={pack} /><ol>{pack.model.steps.map(step => <li key={step}>{step}</li>)}</ol><p><b>WHAT IT SHOWS:</b> {pack.model.conclusion}</p></section>
-              <section className="student-math-words"><span>WORD HELP</span><div>{pack.vocabulary.map(word => <article key={word.term}><b>{word.term}</b><p>{word.meaning}</p><small>Example: {word.example}</small></article>)}</div></section>
-              <section className="math-partner-cards"><header><span>PARTNER / GROUP CARDS</span><strong>Show your method before asking for an answer check.</strong></header><div>{pack.partnerCards.map(card => <article key={card.title}><b>{card.title}</b><p>{card.body}</p></article>)}</div></section>
-              <section className="math-independent-check student-math-check"><header><span>INDEPENDENT CHECK</span><strong>Complete each prompt before asking your teacher to check it.</strong></header><div>{pack.check.map((item, index) => <article key={item.prompt}><b>{index + 1}</b><p>{item.prompt}</p></article>)}</div></section>
-              <footer><b>IF YOU NEED A SMALLER FIRST STEP</b><p>{pack.supportRoute}</p></footer>
-            </div>
-          </article>
+          <summary><span><strong>{pack.title}</strong></span><b>Open / close ▾</b></summary>
+          <StudentMathPack key={pack.id} pack={pack} />
         </details>
       ))}
     </section>

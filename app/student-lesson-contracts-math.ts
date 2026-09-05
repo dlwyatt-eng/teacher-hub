@@ -25,20 +25,45 @@ export const mathStudentLessonContracts = {
   },
   "pack-and-sync": {
     id: "pack-and-sync", reviewState: "reviewed",
-    challenge: "When do factors help us split supplies, and when do multiples help repeating events meet?",
-    why: "Factors divide fixed amounts into equal groups with no leftovers. Multiples help us find when repeating patterns meet.",
+    challenge: "How many identical packs can you make from 24 red and 36 blue counters, with none left over? When will two flashing lights next flash together?",
+    why: "Factors tell us which numbers divide the supplies exactly. Multiples tell us the times reached by counting equal intervals.",
     firstAction: "Use 24 red counters and 36 blue counters to make two identical kits with no leftovers.",
     materials: ["24 counters of one colour and 36 of another", "Kit circles or plates", "Mission cards", "Paper timeline strips", "Pencils and markers"],
     choices: [{ prompt: "How will you make the pattern visible?", options: [
       { label: "Build it", detail: "Move counters or tap the repeating signals." }, { label: "List it", detail: "Record factor pairs or growing multiples." }, { label: "Draw it", detail: "Use group circles, a table, or a number line." },
     ] }],
     steps: [
-      { title: "Try one kit size", action: "Build two identical kits from 24 red and 36 blue counters.", finishCheck: "Each kit has 12 red and 18 blue with no leftovers.", minutes: "Session 1 · 10 min" },
-      { title: "Find every kit size", action: "Test more numbers of identical kits. Record every number that divides both supplies exactly.", finishCheck: "The record matches the counter layouts.", minutes: "Session 1 · 35 min" },
-      { title: "Find the greatest", action: "Use the greatest shared factor to make the greatest possible number of identical kits.", finishCheck: "You show 12 kits with 2 red and 3 blue in each and explain why 12 is greatest.", minutes: "Session 1 · 10 min" },
-      { title: "Sync two signals", action: "Tap one signal every 4 counts and another every 6. Record when they meet, then try a new pair.", finishCheck: "Your first timeline marks 12 as the first shared multiple.", minutes: "Session 2 · 55 min" },
-      { title: "Design + trade", action: "Create a packing or signal mission. Trade, solve, and repair any unclear clue.", finishCheck: "The other group chooses factors or multiples and shows why.", minutes: "Session 3 · 55 min" },
-    ],
+  {
+    "title": "Make two identical kits",
+    "action": "Share 24 red and 36 blue counters equally between two kits. Use every counter.",
+    "finishCheck": "Each kit has 12 red and 18 blue counters.",
+    "minutes": "Session 1 · 10 min"
+  },
+  {
+    "title": "Find the possible numbers of kits",
+    "action": "List the factors of 24 and the factors of 36. Circle numbers in both lists. Test one circled number with counters.",
+    "finishCheck": "The shared factors are 1, 2, 3, 4, 6 and 12. Each divides both supplies exactly.",
+    "minutes": "Session 1 · 35 min"
+  },
+  {
+    "title": "Make the most kits",
+    "action": "Choose the greatest shared factor. Divide each colour by that number to find what belongs in one kit.",
+    "finishCheck": "You make 12 kits with 2 red and 3 blue in each. Check: 12 × 2 = 24 and 12 × 3 = 36.",
+    "minutes": "Session 1 · 10 min"
+  },
+  {
+    "title": "Find the next shared flash",
+    "action": "Two lights flash together at 0. One flashes every 4 seconds and one every 6 seconds. Write both sets of times until a time appears in both lists.",
+    "finishCheck": "4, 8, 12 and 6, 12 first share 12 seconds. Use the same method on the 6-second and 8-second kit card.",
+    "minutes": "Session 2 · 55 min"
+  },
+  {
+    "title": "Design + trade",
+    "action": "Create a packing or signal mission. Trade, solve, and repair any unclear clue.",
+    "finishCheck": "The other group chooses factors or multiples and shows why.",
+    "minutes": "Session 3 · 55 min"
+  }
+],
     finishEvidence: ["A correct kit layout", "A common-factor record", "A repeating-signal timeline", "One checked mission", "An explanation of when each idea is useful"],
     saveAction: { kind: "keep-in-class", message: "Keep the kit record and signal timeline in class. No SpacesEDU post is needed." }, readiness: "teach",
   },
@@ -52,31 +77,81 @@ export const mathStudentLessonContracts = {
       { label: "Move tiles", detail: "Build the expression and group completed moves." }, { label: "Mark the order", detail: "Number each calculation move." }, { label: "Point + explain", detail: "Follow the shared screen and name the next move." },
     ] }],
     steps: [
-      { title: "Test both claims", action: "Recreate the thinking that produces 32 and the thinking that produces 17.", finishCheck: "You can point to the different first move.", minutes: "Session 1 · 10 min" },
-      { title: "Use the shared order", action: "Use brackets first, then multiplication or division, then addition or subtraction.", finishCheck: "Your marked moves produce 17.", minutes: "Session 1 · 20 min" },
-      { title: "Change the brackets", action: "Build (5 + 3) × 4 and compare it with the first expression.", finishCheck: "Your work produces 32 and identifies why.", minutes: "Session 1 · 20 min" },
-      { title: "Design a score card", action: "Invent a whole-number expression. Put the ordered moves and checked score on a hidden answer side.", finishCheck: "The front is clear and the hidden solution is correct.", minutes: "Session 2 · 25 min" },
-      { title: "Trade + repair", action: "Solve another team's card, compare results, and repair the rule if two readings were possible.", finishCheck: "Both teams now read the rule the same way.", minutes: "Session 2 · 25 min" },
-    ],
+  {
+    "title": "Test both claims",
+    "action": "Recreate the thinking that produces 32 and the thinking that produces 17.",
+    "finishCheck": "You can point to the different first move.",
+    "minutes": "Session 1 · 10 min"
+  },
+  {
+    "title": "Use the calculation order",
+    "action": "Calculate inside brackets first. Then multiply or divide from left to right. Finally add or subtract from left to right.",
+    "finishCheck": "5 + 3 × 4 becomes 5 + 12 = 17. Multiplication and division have equal priority; so do addition and subtraction.",
+    "minutes": "Session 1 · 20 min"
+  },
+  {
+    "title": "Change the brackets",
+    "action": "Build (5 + 3) × 4 and compare it with the first expression.",
+    "finishCheck": "Your work produces 32 and identifies why.",
+    "minutes": "Session 1 · 20 min"
+  },
+  {
+    "title": "Design a score card",
+    "action": "Invent a whole-number expression. Put the ordered moves and checked score on a hidden answer side.",
+    "finishCheck": "The front is clear and the hidden solution is correct.",
+    "minutes": "Session 2 · 25 min"
+  },
+  {
+    "title": "Trade + repair",
+    "action": "Solve another team's card, compare results, and repair the rule if two readings were possible.",
+    "finishCheck": "Both teams now read the rule the same way.",
+    "minutes": "Session 2 · 25 min"
+  }
+],
     finishEvidence: ["5 + 3 × 4 solved as 17", "(5 + 3) × 4 solved as 32", "One checked score card", "A partner solution", "Any needed repair"],
     saveAction: { kind: "keep-in-class", message: "Keep the score card with the game materials or in your Math folder. No post is needed." }, readiness: "teach",
   },
   "fraction-ratio-remix": {
     id: "fraction-ratio-remix", reviewState: "reviewed",
     challenge: "How can we grow a 2:3 colour pattern without changing its balance, and rename 7/4 without changing its amount?",
-    why: "Amounts can stay equal when both ratio parts grow by the same factor or when fraction pieces regroup into wholes.",
+    why: "Equivalent fractions name the same amount. Equivalent ratios keep the same proportions even when the total amount changes.",
     firstAction: "Build 2 blue tiles beside 3 gold tiles. Repeat that entire batch once.",
     materials: ["Coloured tiles or paper squares", "Fraction strips", "Broken-batch example", "Plain paper", "Scissors, glue, pencils, and colours"],
     choices: [{ prompt: "How will you build the models?", options: [
       { label: "Move pieces", detail: "Use tiles and fraction strips." }, { label: "Cut paper", detail: "Make equal parts and repeated batches." }, { label: "Draw + colour", detail: "Draw equal boxes or strips and label each amount." },
     ] }],
     steps: [
-      { title: "Build one batch", action: "Build 2 blue beside 3 gold. Record the comparison as 2:3.", finishCheck: "The model and labels agree.", minutes: "Session 1 · 10 min" },
-      { title: "Grow the batch", action: "Repeat the complete batch to make 4:6 and 6:9. Record the pairs in a table.", finishCheck: "Both parts use the same multiplier in every row.", minutes: "Session 1 · 45 min" },
-      { title: "Rename seven quarters", action: "Build seven quarter pieces. Circle each complete group of four and write 7/4 and 1 3/4.", finishCheck: "The model shows one whole and three quarters.", minutes: "Session 2 · 40 min" },
-      { title: "Connect model + numbers", action: "Explain what stayed equal when the ratio grew or the fraction name changed.", finishCheck: "A partner can match equivalent models and numbers.", minutes: "Session 2 · 15 min" },
-      { title: "Repair the remix", action: "Explain why 4 blue to 5 gold breaks the pattern, repair it, and finish the combined model.", finishCheck: "The repaired patch is 4:6 and every label agrees.", minutes: "Session 3 · 55 min" },
-    ],
+  {
+    "title": "Build one batch",
+    "action": "Build 2 blue beside 3 gold. Record the comparison as 2:3.",
+    "finishCheck": "The model and labels agree.",
+    "minutes": "Session 1 · 10 min"
+  },
+  {
+    "title": "Grow the batch",
+    "action": "Repeat the complete batch to make 4:6 and 6:9. Record the pairs in a table.",
+    "finishCheck": "Both parts use the same multiplier in every row.",
+    "minutes": "Session 1 · 45 min"
+  },
+  {
+    "title": "Rename seven quarters",
+    "action": "Build seven quarter pieces. Circle each complete group of four and write 7/4 and 1 3/4.",
+    "finishCheck": "The model shows one whole and three quarters.",
+    "minutes": "Session 2 · 40 min"
+  },
+  {
+    "title": "Explain what stays the same",
+    "action": "Compare 2:3 with 6:9: the batch is larger but keeps the same colour proportions. Compare 7/4 with 1 3/4: both names describe the same amount.",
+    "finishCheck": "Your explanation distinguishes a larger batch with the same proportions from two names for the same amount.",
+    "minutes": "Session 2 · 15 min"
+  },
+  {
+    "title": "Repair the remix",
+    "action": "Explain why 4 blue to 5 gold breaks the pattern, repair it, and finish the combined model.",
+    "finishCheck": "The repaired patch is 4:6 and every label agrees.",
+    "minutes": "Session 3 · 55 min"
+  }
+],
     finishEvidence: ["Models for 2:3, 4:6, and 6:9", "A correct ratio table", "A model proving 7/4 = 1 3/4", "A repaired batch", "An explanation of what stayed equal"],
     saveAction: { kind: "keep-in-class", message: "Keep the completed models in your Math folder. No post is needed." }, readiness: "teach",
   },
@@ -90,12 +165,37 @@ export const mathStudentLessonContracts = {
       { label: "Decimal grid", detail: "Build each amount, then combine the parts." }, { label: "Place-value chart", detail: "Keep every digit in its correct column." }, { label: "Written route", detail: "Use repeated addition or clear multiplication steps." },
     ] }],
     steps: [
-      { title: "Predict the size", action: "Use nearby whole-dollar amounts to write a low estimate and a high estimate for the total.", finishCheck: "Your window shows the total should be a little more than $12, not about $141.", minutes: "Session 1 · 15 min" },
-      { title: "Model + calculate", action: "Find 6 × $2.35 using a visible method, then compare it with the prediction.", finishCheck: "Your method gives $14.10 and keeps dollars and cents aligned.", minutes: "Session 1 · 40 min" },
-      { title: "Check three invoices", action: "Estimate each invoice, inspect or calculate its total, and mark it ‘makes sense’ or ‘send back.’", finishCheck: "Every decision has a size prediction and exact number evidence.", minutes: "Session 2 · 55 min" },
-      { title: "Repair one invoice", action: "Correct one misplaced decimal point. Show your calculation and label the answer with the correct unit, such as dollars.", finishCheck: "The repaired total fits the calculation and situation.", minutes: "Session 3 · 35 min" },
-      { title: "Explain + check", action: "Complete: ‘I knew ___ could not be right because ___.’ Then use a calculator or opposite operation to check.", finishCheck: "Your reason names the estimate, place value, or unit that exposed the error.", minutes: "Session 3 · 20 min" },
-    ],
+  {
+    "title": "Estimate a range",
+    "action": "Each $2.35 notebook costs between $2 and $3. Calculate 6 × $2 and 6 × $3 to set a range for the total.",
+    "finishCheck": "The total is between $12 and $18, so $141 cannot be correct.",
+    "minutes": "Session 1 · 15 min"
+  },
+  {
+    "title": "Calculate dollars and cents",
+    "action": "Split $2.35 into $2 + $0.30 + $0.05. Multiply each part by 6, then add the three amounts.",
+    "finishCheck": "$12 + $1.80 + $0.30 = $14.10, which is between $12 and $18.",
+    "minutes": "Session 1 · 40 min"
+  },
+  {
+    "title": "Check three invoices",
+    "action": "Estimate each invoice, inspect or calculate its total, and mark it ‘makes sense’ or ‘send back.’",
+    "finishCheck": "Every decision has a size prediction and exact number evidence.",
+    "minutes": "Session 2 · 55 min"
+  },
+  {
+    "title": "Repair one invoice",
+    "action": "Correct one misplaced decimal point. Show your calculation and label the answer with the correct unit, such as dollars.",
+    "finishCheck": "The repaired total fits the calculation and situation.",
+    "minutes": "Session 3 · 35 min"
+  },
+  {
+    "title": "Explain + check",
+    "action": "Complete: ‘I knew ___ could not be right because ___.’ Then use a calculator or opposite operation to check.",
+    "finishCheck": "Your reason names the estimate, place value, or unit that exposed the error.",
+    "minutes": "Session 3 · 20 min"
+  }
+],
     finishEvidence: ["A useful estimate", "One visible calculation", "Three invoice decisions", "One repaired invoice", "A plain-language explanation and check"],
     saveAction: { kind: "keep-in-class", message: "Keep the repaired invoice in your Math folder. No post is needed." }, readiness: "teach",
   },
@@ -196,21 +296,21 @@ export const mathStudentLessonContracts = {
   },
   "transformation-cipher": {
     id: "transformation-cipher", reviewState: "reviewed",
-    challenge: "Can a partner reproduce your creature's exact move using only coordinates and a clear code?",
-    why: "We are learning to read ordered pairs and describe a slide, flip, or turn so another person gets the same result.",
+    challenge: "Can a partner follow two moves in your code and place the shape exactly?",
+    why: "We are learning to combine two slides, flips or turns on a coordinate grid. Every point must follow both moves in order.",
     firstAction: "Plot one point in the first quadrant. Read the ordered pair across first, then up.",
     materials: ["First-quadrant grids", "Optional four-quadrant extension grid", "Creature point cards", "Tracing paper", "Rulers, pencils, and colours"],
-    choices: [{ prompt: "Which move will your code use?", options: [
+    choices: [{ prompt: "Which two moves will your code use?", options: [
       { label: "Slide", detail: "Move every point the same distance and direction." }, { label: "Flip", detail: "Reflect every point across the named line." }, { label: "Turn", detail: "Rotate every point around the named centre." },
     ] }],
     steps: [
       { title: "Plot the creature", action: "Plot and connect the supplied positive-coordinate points.", finishCheck: "Every ordered pair is read x first, then y.", minutes: "Session 1 · 15 min" },
-      { title: "Learn one exact move", action: "Apply one slide, flip, or turn and record what happens to every point.", finishCheck: "The new figure keeps its size and shape.", minutes: "Session 1 · 30–35 min" },
-      { title: "Write the code", action: "Create a creature and record enough information for another team to reproduce its move.", finishCheck: "The code names starting points, move, direction, distance or turn, and final points.", minutes: "Session 2 · 30 min" },
+      { title: "Combine two moves", action: "Apply a slide, flip or turn. Then apply a second move. Record every point after each move. Keep all points in the first quadrant.", finishCheck: "Both new figures keep the starting shape's size and shape.", minutes: "Session 1 · 30–35 min" },
+      { title: "Write the code", action: "Create a shape and write a code for two moves in order. Name any mirror line or turn centre. Record the points after both moves.", finishCheck: "The code names starting points, both moves in order, and points after each move.", minutes: "Session 2 · 30 min" },
       { title: "Decode without coaching", action: "Exchange codes and build the other team's result without asking what they meant.", finishCheck: "The decoded figure can be compared point by point with the original.", minutes: "Session 2 · 25 min" },
       { title: "Find + repair", action: "Circle the first mismatch, identify the unclear instruction, and test a repaired version.", finishCheck: "A new reader can now reproduce the move.", minutes: "Optional Session 3 · 20–30 min" },
     ],
-    finishEvidence: ["An accurate first-quadrant figure", "One correct transformation", "A complete code", "A partner's decoded drawing", "One repaired instruction if needed"],
+    finishEvidence: ["An accurate first-quadrant figure", "Two correct transformations in order", "A complete code", "A partner's decoded drawing", "One repaired instruction if needed"],
     saveAction: { kind: "keep-in-class", message: "Keep the cipher card with the partner game or in your Math folder. No post is needed." }, readiness: "teach",
   },
   "space-under-constraints": {

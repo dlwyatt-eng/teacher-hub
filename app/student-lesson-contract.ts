@@ -99,7 +99,7 @@ const reviewedStudentLessonContracts = {
     reviewState: "reviewed",
     challenge: "Where does a number belong when the number line changes size?",
     why: "We are learning to read a number line from its endpoints and equal jumps. The number stays the same when the scale changes, but its spot on the line can move.",
-    firstAction: "Open Tiny decimals on the 0-to-1 line. Choose one card, read both endpoints, and work out the value of one equal jump.",
+    firstAction: "Open Tiny decimals on the 0-to-0.01 line. Each jump is 0.001. Count eight jumps from zero to place 0.008.",
     materials: ["The shared on-screen number line", "Board or paper", "Pencils and colours", "Optional number cards"],
     choices: [
       {
@@ -114,7 +114,7 @@ const reviewedStudentLessonContracts = {
     steps: [
       {
         title: "Read the line",
-        action: "Start with Tiny decimals and the 0-to-1 scale. Choose one card. Read 0, 1, and the value of one jump.",
+        action: "Start with 0.008 on the line from 0 to 0.01. Read the endpoints. Each of the ten equal jumps is 0.001.",
         finishCheck: "You can say what each small section is worth before placing the card.",
         minutes: "5–8 min",
       },

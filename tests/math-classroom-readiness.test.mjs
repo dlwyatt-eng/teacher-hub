@@ -41,9 +41,9 @@ test("the first scale lesson begins with the visible 0.008 comparison", async ()
   const lab = await read("app/math-number-scale-lab.tsx");
   const program = await read("app/core-programs.ts");
   assert.match(lab, /useState<string \| null>\("decimal-008"\)/);
-  assert.match(lab, /START HERE · 0\.008 ON 0 → 1/);
-  assert.match(program, /Start with 0\.008 on the 0-to-1 line/);
-  assert.match(program, /0\.8 as a deliberate off-scale challenge/);
+  assert.match(lab, /START HERE · 0\.008 ON 0 → 0\.01/);
+  assert.match(program, /Start with 0\.008 on the 0-to-0\.01 line/);
+  assert.match(program, /0\.8 on the 0-to-0\.1 line as an off-scale challenge/);
 });
 
 test("known mathematical wording and convention errors stay repaired", async () => {

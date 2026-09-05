@@ -981,89 +981,141 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
   }),
 
   "magnitude-gallery": support("magnitude-gallery", {
-    purpose: "Read, compare, and place numbers from thousandths to billions on a number line.",
-    background: [
-      "Read the left endpoint, right endpoint, and equal jumps before placing a number.",
-      "On a 0-to-1 line split into ten equal sections, each jump is one tenth, or 0.1.",
-      "The number does not change when the endpoint changes, but it can use more or less of the line.",
-      "Moving a digit one place left makes its value ten times as large.",
-    ],
-    terms: terms(
-      ["place value", "the value a digit has because of its position", "The 4 in 42,800,000 means forty million."],
-      ["magnitude", "the size of a number or amount", "42,800,000 has ten times the magnitude of 4,280,000."],
-      ["benchmark", "a familiar value used for comparison", "25,000,000 is the halfway benchmark on a 0-to-50-million line."],
-      ["scale", "the values shown and the spacing between marks", "Each mark increases by 10 million."],
-    ),
-    example: {
-      title: "Place 0.8 on a 0-to-1 number line",
-      steps: [
-        "Read the endpoints: 0 and 1.",
-        "The line has ten equal sections, so one jump is 1 ÷ 10 = 0.1.",
-        "Count eight jumps from 0: 0.1, 0.2, 0.3 … 0.8.",
-        "Place 0.8 in section 8. It is eight tenths of the way across.",
-        "If the endpoint becomes 0.1, 0.8 is past the line. The number stayed the same; the scale changed.",
-      ],
-      conclusion: "Endpoints and equal jumps tell us where the number belongs.",
+  "purpose": "Use place value to compare numbers. Read the scale to decide where each number belongs.",
+  "background": [
+    "In 0.008, the 8 means eight thousandths. In 0.08, it means eight hundredths. Eight hundredths is ten times as much as eight thousandths.",
+    "A number line has equal spaces. Subtract the endpoints, then divide by the number of spaces to find the value of one jump.",
+    "On a line from 0 to 0.01 with ten equal spaces, each jump is 0.001. Eight jumps reach 0.008.",
+    "Changing a line's scale does not change the number. Check both endpoints before deciding where to place it."
+  ],
+  "terms": [
+    {
+      "term": "place value",
+      "meaning": "the value of a digit because of its position",
+      "example": "The 8 in 0.008 is worth eight thousandths."
     },
-    checks: [
-      {
-        prompt: "On a 0-to-1 line split into ten equal sections, where does 0.8 belong?",
-        choices: ["Section 1", "Section 5", "Section 8"],
-        answer: 2,
-        feedback: "Each section is 0.1, so eight jumps reach 0.8.",
-      },
-      {
-        prompt: "What changes when 0.8 is shown first on 0-to-1 and then on 0-to-0.1?",
-        choices: ["The number changes.", "Only the scale and visible position change.", "Nothing changes."],
-        answer: 1,
-        feedback: "0.8 stays 0.8. On the smaller scale it is past the endpoint.",
-      },
+    {
+      "term": "thousandth",
+      "meaning": "one of 1,000 equal parts of one whole",
+      "example": "0.001 is one thousandth; 0.008 is eight thousandths."
+    },
+    {
+      "term": "scale",
+      "meaning": "the values covered by a line and the value of each equal jump",
+      "example": "From 0 to 0.01, ten equal jumps are worth 0.001 each."
+    },
+    {
+      "term": "benchmark",
+      "meaning": "a familiar number that helps you judge another number",
+      "example": "0.005 is halfway between 0 and 0.01."
+    }
+  ],
+  "example": {
+    "title": "Place eight thousandths on a number line",
+    "steps": [
+      "Read 0.008 as eight thousandths. Compare it with 0.01, which is ten thousandths: 0.008 is smaller.",
+      "Use a line from 0 to 0.01 with ten equal spaces. Each jump is one thousandth: 0.001.",
+      "Count from 0: 0.001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007, 0.008. Place the point at the eighth mark after 0.",
+      "Now use a line from 0 to 0.1. Its first mark is 0.01. Since 0.008 is smaller than 0.01, it belongs between 0 and that first mark.",
+      "The number is still eight thousandths. The new line covers more numbers, so the point appears closer to 0."
     ],
-    reteach: "Cover every label except 0 and the endpoint. Divide the endpoint by ten, label the halfway point, and count equal jumps to the number.",
-  }),
+    "conclusion": "Read the number, read the endpoints, and find the value of one jump. Then place the point."
+  },
+  "checks": [
+    {
+      "prompt": "A line from 0 to 0.01 has ten equal spaces. What is each jump worth?",
+      "choices": [
+        "0.1",
+        "0.01",
+        "0.001"
+      ],
+      "answer": 2,
+      "feedback": "0.01 is ten thousandths. Ten equal jumps each have a value of one thousandth, or 0.001."
+    },
+    {
+      "prompt": "Where does 0.006 belong on that line?",
+      "choices": [
+        "At the sixth mark after 0",
+        "At the first mark after 0",
+        "Past the 0.01 endpoint"
+      ],
+      "answer": 0,
+      "feedback": "Six jumps of 0.001 reach 0.006. It is one jump after the halfway value, 0.005."
+    }
+  ],
+  "reteach": "Start with 0 to 0.01. Label all ten jumps: 0.001 to 0.010. Count to 0.008 together. Then change the endpoint and ask whether the first jump is now larger or smaller."
+}),
 
   "pack-and-sync": support("pack-and-sync", {
-    purpose: "Decide when factors build equal kits and when multiples predict repeating events meeting again.",
-    background: [
-      "A factor divides a whole number with no remainder. Factors help when a fixed collection must be split into identical groups.",
-      "A multiple is found by multiplying a whole number. Multiples help when a pattern repeats again and again.",
-      "For the greatest number of identical kits, look for the greatest factor shared by every quantity.",
-      "For the first time two schedules meet again, list multiples until the first shared value appears.",
-    ],
-    terms: terms(
-      ["factor", "a whole number that divides another whole number with no remainder", "12 is a factor of 24 and 36."],
-      ["common factor", "a factor shared by two or more numbers", "1, 2, 3, 4, 6, and 12 are common factors of 24 and 36."],
-      ["greatest common factor", "the largest factor shared by the numbers", "The greatest common factor of 24 and 36 is 12."],
-      ["multiple", "a number in a repeated multiplication pattern", "Multiples of 4 are 4, 8, 12, 16, and so on."],
-      ["least common multiple", "the first positive multiple shared by two or more numbers", "The least common multiple of 4 and 6 is 12."],
-    ),
-    example: {
-      title: "Solve one packing mission and one signal mission",
-      steps: [
-        "Packing: split 24 blue badges and 36 gold badges into the greatest possible number of identical kits with no leftovers.",
-        "The greatest shared factor is 12, so make 12 kits. Each kit receives 24 ÷ 12 = 2 blue and 36 ÷ 12 = 3 gold badges.",
-        "Signal: one beacon flashes every 4 seconds and another every 6 seconds. Find the first time after 0 when they flash together.",
-        "Multiples of 4: 4, 8, 12. Multiples of 6: 6, 12. The first shared time is 12 seconds.",
-        "Factors answer ‘how many equal groups?’ Multiples answer ‘when will repeating patterns meet?’",
-      ],
-      conclusion: "The story of the problem—not a keyword alone—tells us whether to group with factors or extend repeats with multiples.",
+  "purpose": "Find the greatest number of identical packs with no items left over. Then find when two flashing lights will next flash together.",
+  "background": [
+    "A factor divides a whole number exactly. For example, 6 is a factor of 24 because 24 ÷ 6 = 4 with no remainder.",
+    "To use 24 blue and 36 gold badges in identical packs, the number of packs must be a factor of both 24 and 36. The greatest common factor gives the most packs.",
+    "Multiples count equal repeats: 4, 8, 12, 16 are multiples of 4. A light that flashes every 4 seconds flashes at those times.",
+    "If two lights flash together at 0 seconds, their next shared flash is at the least positive common multiple of their intervals."
+  ],
+  "terms": [
+    {
+      "term": "factor",
+      "meaning": "a positive whole number that divides another whole number exactly",
+      "example": "6 is a factor of 24: 24 ÷ 6 = 4."
     },
-    checks: [
-      {
-        prompt: "Which idea fits making the greatest number of identical kits from fixed supplies?",
-        choices: ["Greatest common factor", "Least common multiple", "A random larger number"],
-        answer: 0,
-        feedback: "The number of kits must divide every supply amount with no leftovers.",
-      },
-      {
-        prompt: "Lights flash every 3 seconds and 5 seconds. When do they first flash together after 0?",
-        choices: ["8 seconds", "15 seconds", "30 seconds"],
-        answer: 1,
-        feedback: "15 is the first positive number that appears in both the multiples of 3 and the multiples of 5.",
-      },
+    {
+      "term": "common factor",
+      "meaning": "a factor of both numbers",
+      "example": "6 divides both 24 and 36 exactly."
+    },
+    {
+      "term": "greatest common factor (GCF)",
+      "meaning": "the largest factor that two numbers share",
+      "example": "The GCF of 24 and 36 is 12."
+    },
+    {
+      "term": "multiple",
+      "meaning": "a number made by multiplying a number by a whole number",
+      "example": "4, 8 and 12 are the first three positive multiples of 4."
+    },
+    {
+      "term": "least common multiple (LCM)",
+      "meaning": "the smallest positive multiple that two numbers share",
+      "example": "The LCM of 4 and 6 is 12."
+    }
+  ],
+  "example": {
+    "title": "Pack 24 blue and 36 gold badges; then time two lights",
+    "steps": [
+      "List factors of 24: 1, 2, 3, 4, 6, 8, 12, 24. List factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36.",
+      "Both lists contain 1, 2, 3, 4, 6 and 12. The greatest is 12. Make 12 identical packs, each with 24 ÷ 12 = 2 blue and 36 ÷ 12 = 3 gold badges.",
+      "Check: 12 × 2 = 24 blue and 12 × 3 = 36 gold. Every badge is used. No larger number divides both supplies exactly.",
+      "Now two lights flash together at 0 seconds. One repeats every 4 seconds: 4, 8, 12. The other repeats every 6 seconds: 6, 12.",
+      "The first time in both lists is 12 seconds. That is their next shared flash. We use factors to split supplies and multiples to count repeats."
     ],
-    reteach: "Draw two doors: ‘split fixed supplies’ and ‘extend repeating schedules.’ Sort the two example missions before calculating.",
-  }),
+    "conclusion": "For packs, find a number that divides both supplies. For lights, find a time reached by counting in both intervals."
+  },
+  "checks": [
+    {
+      "prompt": "Use 18 blue and 30 gold badges to make as many identical packs as possible, with none left. How many packs?",
+      "choices": [
+        "3 packs",
+        "6 packs",
+        "12 packs"
+      ],
+      "answer": 1,
+      "feedback": "6 is the greatest shared factor. Each of 6 packs gets 3 blue and 5 gold badges. Twelve packs would require splitting badges."
+    },
+    {
+      "prompt": "Two lights flash together now. One flashes every 3 seconds and one every 5 seconds. When is their next shared flash?",
+      "choices": [
+        "8 seconds",
+        "15 seconds",
+        "30 seconds"
+      ],
+      "answer": 1,
+      "feedback": "Multiples of 3 are 3, 6, 9, 12, 15. Multiples of 5 are 5, 10, 15. The first shared time is 15 seconds."
+    }
+  ],
+  "reteach": "For packs, try 2, 3 and 6 groups using 12 blue and 18 gold counters. Check both colours. For lights, write 0–12 on one line and mark every fourth and sixth second in different colours."
+}),
 
   "each-one-teach-one": support("each-one-teach-one", {
     purpose: "Design one short experience that helps a learner understand a verified idea, then improve it using evidence from a new learner.",

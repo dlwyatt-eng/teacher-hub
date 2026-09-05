@@ -28,14 +28,35 @@ export const mathExperienceKits: Record<string, ExperienceKit> = {
     gather: ["Counters or linking cubes", "Paper strips", "Pencils", "Optional two-colour markers"],
     shortRoute: "Sort the numbers, build one factor tree, then solve either the equal-pack GCF mission or repeating-event LCM mission and explain why that tool fits.",
     cards: [
-      { title: "QUICK SORT", body: "Sort 17, 24, 29, 36, 45, and 51 as prime or composite. For every composite number, write one factor pair." },
-      { title: "DIVISIBILITY STRIP", body: "2: even last digit · 3: digit sum divisible by 3 · 5: ends in 0 or 5 · 9: digit sum divisible by 9 · 10: ends in 0. Test 270, 324, 455, and 1,026." },
-      { title: "FACTOR TREE", body: "Break 84 into prime factors in two different ways. Both trees must finish with the same prime factors." },
-      { title: "PACK IT · GCF", body: "A club has 24 blue badges and 36 gold badges. Make the greatest possible number of identical packs with no badges left. How many packs? What goes in each?" },
-      { title: "SYNC IT · LCM", body: "A blue signal flashes every 6 seconds and a gold signal every 8 seconds. They flash together now. When will they next flash together? Show multiples or a timeline." },
-      { title: "CHOOSE THE TOOL", body: "Circle GCF when you are splitting into the greatest number of equal groups. Circle LCM when repeating events must meet. Explain the clue in the story." },
-      { title: "ANSWER KEY · PACK AND SYNC", body: "Prime: 17, 29. Composite: 24, 36, 45, 51. 84 = 2² × 3 × 7. Badges: GCF(24,36)=12 packs; 2 blue and 3 gold each. Signals: LCM(6,8)=24 seconds." },
-    ],
+  {
+    "title": "QUICK SORT",
+    "body": "A prime number has exactly two positive factors: 1 and itself. A composite number has more than two. Sort 17, 24, 29, 36, 45 and 51. Show a factor pair other than 1 × the number for each composite."
+  },
+  {
+    "title": "DIVISIBILITY STRIP",
+    "body": "2: even last digit · 3: digit sum divisible by 3 · 5: ends in 0 or 5 · 9: digit sum divisible by 9 · 10: ends in 0. Test 270, 324, 455, and 1,026."
+  },
+  {
+    "title": "FACTOR TREE",
+    "body": "Start one tree with 84 = 2 × 42 and another with 84 = 7 × 12. Keep splitting composite factors until every end number is prime. Write each result as a multiplication of primes."
+  },
+  {
+    "title": "PACK IT · GCF",
+    "body": "A club has 24 blue badges and 36 gold badges. Make the greatest possible number of identical packs with no badges left. How many packs? What goes in each?"
+  },
+  {
+    "title": "SYNC IT · LCM",
+    "body": "A blue signal flashes every 6 seconds and a gold signal every 8 seconds. They flash together now. When will they next flash together? Show multiples or a timeline."
+  },
+  {
+    "title": "CHOOSE THE TOOL",
+    "body": "For the badge packs, explain why the number of packs must divide both 24 and 36 exactly. For the lights, explain why the next shared time must appear in both lists of multiples."
+  },
+  {
+    "title": "ANSWER KEY · PACK AND SYNC",
+    "body": "Prime: 17, 29. Composite examples: 24 = 4 × 6; 36 = 6 × 6; 45 = 5 × 9; 51 = 3 × 17. Divisibility: 270 by 2,3,5,9,10; 324 by 2,3,9; 455 by 5; 1,026 by 2,3,9. Both trees give 84 = 2 × 2 × 3 × 7. Badges: GCF(24,36) = 12 packs, each with 2 blue and 3 gold. Lights: 6,12,18,24 and 8,16,24 first share 24 seconds."
+  }
+],
   },
   "scoreboard-rules": {
     setupMinutes: 4,
@@ -58,14 +79,35 @@ export const mathExperienceKits: Record<string, ExperienceKit> = {
     gather: ["Paper strips", "Two colours of counters or pencil crayons", "Pencils"],
     shortRoute: "Build one equivalent-fraction strip, complete one ratio batch, and repair one batch whose parts were scaled by different factors.",
     cards: [
-      { title: "FRACTION STRIPS", body: "Fold equal-length strips into halves, fourths, and eighths. Shade 1/2, 2/4, and 4/8. Align the strips and write what the model proves." },
-      { title: "BATCH A", body: "A trail mix uses 2 scoops oats for every 3 scoops seeds. Complete batches with 4, 6, and 10 scoops of oats." },
-      { title: "RATIO TABLE", body: "Oats: 2 | 4 | 6 | 10. Seeds: 3 | __ | __ | __. Total parts: 5 | __ | __ | __." },
-      { title: "PART TO PART / PART TO WHOLE", body: "In the base batch, write oats:seeds, oats:total, seeds:total, and the fraction of the mix that is seeds." },
-      { title: "BROKEN BATCH", body: "A learner changes 2:3 into 6:6. Explain exactly what went wrong and repair the equivalent ratio." },
-      { title: "COMPARE", body: "Which has a greater seed share: Mix A at 2:3 or Mix B at 3:4? Use a table, common total, fraction, or diagram." },
-      { title: "ANSWER KEY · FRACTION AND RATIO", body: "Seeds: 6, 9, 15; totals: 10, 15, 25. Base batch oats:seeds=2:3, oats:whole=2:5, seeds:whole=3:5, seeds=3/5. Repair 6:6 to 6:9. Mix A has 3/5=0.60 seeds; Mix B has 4/7≈0.57, so A." },
-    ],
+  {
+    "title": "FRACTION STRIPS",
+    "body": "Fold equal-length strips into halves, fourths, and eighths. Shade 1/2, 2/4, and 4/8. Align the strips and write what the model proves."
+  },
+  {
+    "title": "BATCH A",
+    "body": "A trail mix uses 2 scoops oats for every 3 scoops seeds. Complete batches with 4, 6, and 10 scoops of oats."
+  },
+  {
+    "title": "RATIO TABLE",
+    "body": "Oats: 2 | 4 | 6 | 10. Seeds: 3 | __ | __ | __. Total parts: 5 | __ | __ | __."
+  },
+  {
+    "title": "PART TO PART / PART TO WHOLE",
+    "body": "In the base batch, write oats:seeds, oats:total, seeds:total, and the fraction of the mix that is seeds."
+  },
+  {
+    "title": "BROKEN BATCH",
+    "body": "A learner changes 2 scoops oats to 6 and 3 scoops seeds to 6. Which multiplier did they use for each ingredient? Keep 6 scoops oats and repair the number of seeds."
+  },
+  {
+    "title": "COMPARE",
+    "body": "Which has a greater seed share: Mix A at 2:3 or Mix B at 3:4? Use a table, common total, fraction, or diagram."
+  },
+  {
+    "title": "ANSWER KEY · FRACTION AND RATIO",
+    "body": "Strips: 1/2 = 2/4 = 4/8 for equal-sized wholes. Seeds: 6,9,15; totals: 10,15,25. Oats:seeds = 2:3; oats:total = 2:5; seeds:total = 3:5, so seeds are 3/5 of the mix. Broken batch: oats ×3 but seeds ×2. Use ×3 for both to make 6:9. Compare seed shares: A is 3/5 = 21/35; B is 4/7 = 20/35. Mix A has the greater seed share."
+  }
+],
   },
   "decimal-dispatch": {
     setupMinutes: 5,
@@ -145,15 +187,33 @@ export const mathExperienceKits: Record<string, ExperienceKit> = {
     setupMinutes: 8,
     provided: ["Reference-angle strip", "Rotated triangle sort", "Straight/reflex angle prompts", "Polygon-angle investigation", "Separate answer key"],
     gather: ["Protractors", "Rulers", "Pencils", "Scrap paper for folding"],
-    shortRoute: "Estimate and measure six angles, classify four rotated triangles from evidence, and complete one straight/reflex or polygon-angle challenge.",
+    shortRoute: "Construct and check three angles, classify the four triangles from their given sides or angles, then find the reflex angle paired with 125°.",
     cards: [
-      { title: "REFERENCE ANGLES", body: "Fold or draw 45°, 90°, and 180°. Estimate first. Place the protractor centre on the vertex and line up zero with one ray before reading." },
-      { title: "ANGLE SET", body: "Estimate, measure, and classify: 35°, 89°, 90°, 125°, 180°, 235°. Use acute, right, obtuse, straight, or reflex." },
-      { title: "TRIANGLE SORT", body: "A: sides 5,5,7 · B: angles 90°,45°,45° · C: sides 6,6,6 · D: angles 30°,60°,90°. Give every name supported by the class's inclusive definitions." },
-      { title: "POLYGON TURN", body: "Draw a triangle, quadrilateral, and pentagon. At one vertex of each, mark the inside angle. Explain why a polygon angle can be acute, right, obtuse, or reflex depending on the shape." },
-      { title: "FULL TURN", body: "Use 360° around a point. If the smaller angle is 125°, find the reflex angle that completes the turn." },
-      { title: "ANSWER KEY · ANGLE EXPEDITION", body: "35° acute; 89° acute; 90° right; 125° obtuse; 180° straight; 235° reflex. A isosceles; B right and isosceles; C equilateral and also isosceles under ‘at least two equal sides’; D right and scalene. Reflex partner of 125° is 235°." },
-    ],
+  {
+    "title": "REFERENCE ANGLES",
+    "body": "Fold or draw 45°, 90°, and 180°. Estimate first. Place the protractor centre on the vertex and line up zero with one ray before reading."
+  },
+  {
+    "title": "ANGLE SET",
+    "body": "Choose three angles from 35°, 89°, 90°, 125°, 180° and 235°. Draw each accurately. Hide the number and ask a partner to estimate, measure and classify it. For 235°, mark the larger turn around the vertex."
+  },
+  {
+    "title": "TRIANGLE SORT",
+    "body": "A: sides 5,5,7 · B: angles 90°,45°,45° · C: sides 6,6,6 · D: angles 30°,60°,90°. Give every name supported by the class's inclusive definitions."
+  },
+  {
+    "title": "POLYGON TURN",
+    "body": "Draw a triangle, a quadrilateral and a pentagon. Mark and classify an inside angle in each. A triangle has no reflex inside angle. To make a reflex inside angle in another polygon, draw a corner pointing inward."
+  },
+  {
+    "title": "FULL TURN",
+    "body": "Use 360° around a point. If the smaller angle is 125°, find the reflex angle that completes the turn."
+  },
+  {
+    "title": "ANSWER KEY · ANGLE EXPEDITION",
+    "body": "35° acute; 89° acute; 90° right; 125° obtuse; 180° straight; 235° reflex. A isosceles; B right and isosceles; C equilateral and also isosceles under ‘at least two equal sides’; D right and scalene. Reflex partner of 125° is 235°."
+  }
+],
   },
   "transformation-cipher": {
     setupMinutes: 6,

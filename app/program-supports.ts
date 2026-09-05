@@ -60,7 +60,7 @@ const exactStudentSteps: Record<string, string[]> = {
     "Draw the simplified system and explain the request, server, packets, routers, routes, check, and repair. Name one way the model is simpler than a real network.",
   ],
   "magnitude-gallery": [
-    "Start with 0.008 on the 0-to-1 line. Read both endpoints and work out one equal jump.",
+    "Start with 0.008 on the 0-to-0.01 line. Read both endpoints and work out one equal jump.",
     "Predict, reveal, and repair the location. Keep the number fixed while changing the endpoint twice.",
     "Repeat the read, predict, reveal, and scale-change routine with one millions-or-billions card.",
     "Draw the same number on two equal-length lines with different endpoints and explain why its spot changed.",
@@ -441,15 +441,33 @@ export const experienceKits: Record<string, ExperienceKit> = {
     setupMinutes: 4,
     provided: ["Interactive number-line lab", "Three printable decimal scales", "Mixed-up number cards", "Accurate zoom scales", "Separate answer key"],
     gather: ["Board or scrap paper", "Pencils or markers"],
-    shortRoute: "Test 0.008 on all three decimal scales, use 0.8 as the off-scale challenge, test one billion card, and finish one labelled two-line comparison.",
+    shortRoute: "Place 0.008 on a 0-to-0.01 line first. Then locate it between marks on wider lines. Compare one pair of large numbers and explain the first place that differs.",
     cards: [
-      { title: "THREE-SCALE SHEET", body: "Draw three equal-length lines with ten equal sections. Label the right endpoints 1, 0.1, and 0.01. Place 0.008 on each; the number stays fixed while the jump changes." },
-      { title: "NUMBER CARDS A", body: "0.004 · 0.04 · 0.4 · 4 · 40 · 400" },
-      { title: "NUMBER CARDS B", body: "4,000 · 40,000 · 4,000,000 · 4,000,000,000" },
-      { title: "BENCHMARKS", body: "0 · 0.5 · 1 · 10 · 100 · 1,000 · 1 million · 1 billion" },
-      { title: "DEFEND", body: "I placed __ between __ and __ because the digit __ has a value of __." },
-      { title: "ANSWER KEY · MAGNITUDE", body: "On 0–1, 0.008 is 0.8% across and remains in the first tenth. On 0–0.1, it is 8% across and remains in the first tenth. On 0–0.01, it is 80% across at the eighth mark. The later 0.8 card fits 0–1 but is beyond the endpoints 0.1 and 0.01." },
-    ],
+  {
+    "title": "THREE-SCALE SHEET",
+    "body": "Draw equal-length lines from 0 to 0.01, 0 to 0.1 and 0 to 1. Give each ten equal spaces. Label one jump on each line. Place 0.008 exactly on the first line, then show which two marks enclose it on the other lines."
+  },
+  {
+    "title": "NUMBER CARDS A",
+    "body": "0.004 · 0.04 · 0.4 · 4 · 40 · 400"
+  },
+  {
+    "title": "NUMBER CARDS B",
+    "body": "4,000 · 40,000 · 4,000,000 · 4,000,000,000"
+  },
+  {
+    "title": "BENCHMARKS",
+    "body": "0 · 0.5 · 1 · 10 · 100 · 1,000 · 1 million · 1 billion"
+  },
+  {
+    "title": "DEFEND",
+    "body": "I placed __ between __ and __ because the digit __ has a value of __."
+  },
+  {
+    "title": "ANSWER KEY · MAGNITUDE",
+    "body": "On 0–0.01, each jump is 0.001, so 0.008 is at the eighth mark after 0. On 0–0.1, it lies between 0 and 0.01. On 0–1, it lies between 0 and 0.1, very close to 0. All three show the same eight thousandths. The 0.8 card fits 0–1 but is beyond endpoints 0.1 and 0.01."
+  }
+],
   },
   "zoo-design-studio": {
     setupMinutes: 8,
@@ -457,20 +475,59 @@ export const experienceKits: Record<string, ExperienceKit> = {
     gather: ["1 cm grid paper", "Rulers", "Pencils and coloured pencils", "Calculator after a method is shown", "Scissors optional"],
     shortRoute: "Use four core habitats on a 24 m × 18 m site. Require one rectangle, one right triangle, one parallelogram, the 2 m path, and one checked revision.",
     cards: [
-      { title: "FICTIONAL SITE BRIEF", body: "The site is 30 m by 24 m. On 1 cm grid paper, 1 square represents 1 m. Keep a continuous 2 m-wide route from the entry to every habitat. Add one 4 m × 4 m quiet area. Habitats may share a fence but may not overlap the path." },
-      { title: "HABITAT A · FOREST RED PANDA", body: "Rectangle: 8 m × 6 m. Show area and perimeter. One 6 m side must face the main path." },
-      { title: "HABITAT B · RESCUE CRANE", body: "Right triangle: legs 6 m and 8 m; third side 10 m. Show area and perimeter. Mark the right angle and perpendicular height." },
-      { title: "HABITAT C · RIVER OTTER", body: "Parallelogram: base 9 m, perpendicular height 4 m, slanted side 5 m. Show area and perimeter. Do not use the slanted side as height." },
-      { title: "HABITAT D · DESERT TORTOISE", body: "Isosceles trapezoid: parallel bases 10 m and 16 m, height 4 m, legs 5 m each. Show area and perimeter. Mark the two parallel sides." },
-      { title: "HABITAT E · POLLINATOR GARDEN", body: "Square: side 7 m. Show area and perimeter. Connect it to the quiet area without blocking the main path." },
-      { title: "HABITAT F · FROG WETLAND", body: "L-shape made by removing a 4 m × 3 m corner from a 10 m × 8 m rectangle. Show remaining area and complex perimeter. Label the missing side lengths." },
-      { title: "CHOICE G · NOCTURNAL HOUSE", body: "Rectangle with area 48 m² and one side 6 m. Find the missing side and perimeter before placing it." },
-      { title: "CHOICE H · AVIARY", body: "Right triangle with area 30 m² and base 12 m. Find the perpendicular height. The three sides are 5 m, 12 m, and 13 m." },
-      { title: "CALCULATION RECORD", body: "Shape · dimensions shown · formula built from the model · substitution · answer with units · reasonableness check. Circle every perpendicular height." },
-      { title: "PARTNER CHECK", body: "Check one area · one perimeter · one shape property · the 2 m route · one shared fence · one place where the plan could be clearer. Ask before changing another team's work." },
-      { title: "REVISION NOTE", body: "My first plan showed __. The check found __. I changed __ because the Mathematics showed __." },
-      { title: "CORE ANSWERS", body: "A: A48 m², P28 m · B: A24 m², P24 m · C: A36 m², P28 m · D: A52 m², P36 m · E: A49 m², P28 m · F: A68 m², P36 m · G: missing side 8 m, P28 m · H: height 5 m, P30 m." },
-    ],
+  {
+    "title": "FICTIONAL SITE BRIEF",
+    "body": "The site is 30 m by 24 m. On 1 cm grid paper, each square's side represents 1 m, so each square represents 1 m². Keep a continuous 2 m-wide route from the entry to every habitat. Add a 4 m by 4 m quiet area. Habitats may share a fence but may not overlap the path."
+  },
+  {
+    "title": "HABITAT A · FOREST RED PANDA",
+    "body": "Rectangle: 8 m × 6 m. Show area and perimeter. One 6 m side must face the main path."
+  },
+  {
+    "title": "HABITAT B · RESCUE CRANE",
+    "body": "Right triangle: legs 6 m and 8 m; third side 10 m. Show area and perimeter. Mark the right angle and perpendicular height."
+  },
+  {
+    "title": "HABITAT C · RIVER OTTER",
+    "body": "Parallelogram: base 9 m, perpendicular height 4 m, slanted side 5 m. Show area and perimeter. Do not use the slanted side as height."
+  },
+  {
+    "title": "HABITAT D · DESERT TORTOISE",
+    "body": "Isosceles trapezoid: parallel bases 10 m and 16 m, height 4 m, legs 5 m each. Show area and perimeter. Mark the two parallel sides."
+  },
+  {
+    "title": "HABITAT E · POLLINATOR GARDEN",
+    "body": "Square: side 7 m. Show area and perimeter. Connect it to the quiet area without blocking the main path."
+  },
+  {
+    "title": "HABITAT F · FROG WETLAND",
+    "body": "L-shape made by removing a 4 m × 3 m corner from a 10 m × 8 m rectangle. Show remaining area and complex perimeter. Label the missing side lengths."
+  },
+  {
+    "title": "CHOICE G · NOCTURNAL HOUSE",
+    "body": "Rectangle with area 48 m² and one side 6 m. Find the missing side and perimeter before placing it."
+  },
+  {
+    "title": "CHOICE H · AVIARY",
+    "body": "Right triangle with area 30 m² and base 12 m. Find the perpendicular height. The three sides are 5 m, 12 m, and 13 m."
+  },
+  {
+    "title": "CALCULATION RECORD",
+    "body": "Shape · dimensions shown · formula built from the model · substitution · answer with units · reasonableness check. Circle every perpendicular height."
+  },
+  {
+    "title": "PARTNER CHECK",
+    "body": "Check one area · one perimeter · one shape property · the 2 m route · one shared fence · one place where the plan could be clearer. Ask before changing another team's work."
+  },
+  {
+    "title": "REVISION NOTE",
+    "body": "My first plan showed __. The check found __. I changed __ because the Mathematics showed __."
+  },
+  {
+    "title": "CORE ANSWERS",
+    "body": "A: A48 m², P28 m · B: A24 m², P24 m · C: A36 m², P28 m · D: A52 m², P36 m · E: A49 m², P28 m · F: A68 m², P36 m · G: missing side 8 m, P28 m · H: height 5 m, P30 m."
+  }
+],
   },
   "graph-story-lab": {
     setupMinutes: 3,

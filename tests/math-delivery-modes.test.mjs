@@ -134,7 +134,7 @@ test("the teacher UI exposes mode choice and the five depth packs have specific 
   const panel = await read("app/math-delivery-mode-panel.tsx");
   assert.match(program, /<MathDeliveryModePanel experienceId=\{experienceId\}/);
   assert.match(program, /pack\.role === "MATHUP \/ WNCP BRIDGE"/);
-  assert.match(program, /teach directly from this Hub model/);
+  assert.match(program, /Math Antics supported, hybrid, or teacher-led replacement/);
   assert.match(panel, /Object\.values\(plan\.modes\)/);
   assert.match(panel, /aria-pressed=\{selectedMode === item\.id\}/);
   assert.match(panel, /setSelectedMode\(item\.id\)/);
@@ -146,7 +146,7 @@ test("the teacher UI exposes mode choice and the five depth packs have specific 
 test("student workshops include printable checks without exposing answers", async () => {
   const program = await read("app/math-program.tsx");
   const layoutStyles = await read("app/learning-program.css");
-  const workshop = program.match(/export function MathStudentWorkshops[\s\S]*?\n}\n\nexport function MathYearImplementation/)?.[0] ?? "";
+  const workshop = program.match(/function StudentMathPack[\s\S]*?\n}\n\nexport function MathYearImplementation/)?.[0] ?? "";
   assert.match(workshop, /mathStudentPacksFor\(experienceId, placement\)/);
   assert.match(workshop, /Print student workshop/);
   assert.match(workshop, /pack\.check\.map/);

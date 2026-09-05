@@ -1574,3 +1574,25 @@
     box-shadow: none;
   }
 }
+
+/* Keep explanatory text in normal flow, separate from points and tick labels. */
+.math-number-scale-lab .number-scale-plot{display:grid;gap:1rem;padding:1.5rem;min-height:0;overflow:visible}
+.math-number-scale-lab .number-scale-selected-card{position:relative;inset:auto;max-width:none;width:fit-content;padding:1rem}
+.math-number-scale-lab .number-scale-selected-card strong{white-space:normal;overflow-wrap:anywhere}
+.math-number-scale-lab .number-scale-selected-card :is(small,span){font-size:1rem;line-height:1.4}
+.number-scale-plot-caption{position:relative;z-index:5;margin:0;max-width:55ch;padding:.75rem;background:#071827;color:#fff;font-size:1.2rem;line-height:1.5}
+.math-number-scale-lab .number-scale-axis{position:relative;inset:auto;margin:0 2rem;height:180px}
+.math-number-scale-lab .number-scale-marker--exact>i{top:14px;height:91px}
+.math-number-scale-lab .number-scale-tick>b{font-size:1rem;line-height:1.4}
+.math-number-scale-lab .number-scale-zone-key{position:relative;inset:auto;display:grid;gap:.4rem}
+.math-number-scale-lab .number-scale-zone-key :is(small,span){font-size:1rem;line-height:1.5}
+.math-number-scale-lab .number-scale-prediction-zones{position:relative;inset:auto;min-height:48px;gap:.35rem;margin:0 2rem}
+.math-number-scale-lab .number-scale-prediction-zones button{min-width:0;height:auto;min-height:48px;padding:.4rem 0;font-size:1rem}
+.math-number-scale-lab .number-scale-past-end{position:relative;inset:auto;justify-self:start;max-width:100%;min-height:48px;white-space:normal;font-size:1rem;line-height:1.4}
+.math-number-scale-lab .number-scale-range-control{grid-template-columns:minmax(0,1fr);gap:1rem}
+.math-number-scale-lab .number-scale-slider{min-width:0}
+.math-number-scale-lab .number-scale-slider label{display:flex;flex-wrap:wrap;gap:.5rem;line-height:1.5}
+.math-number-scale-lab .number-scale-range-stops{display:flex;flex-wrap:wrap;gap:.6rem}
+.math-number-scale-lab .number-scale-range-stops button{flex:1 1 9rem;min-width:0;min-height:48px;height:auto;font-size:1rem;line-height:1.4;padding:.7rem;white-space:normal}
+.math-number-scale-lab .number-scale-off-map{max-width:80%}
+@media(max-width:600px){.math-number-scale-lab .number-scale-plot{padding:1rem}.math-number-scale-lab .number-scale-axis,.math-number-scale-lab .number-scale-prediction-zones{margin-left:.75rem;margin-right:.75rem}.math-number-scale-lab .number-scale-selected-card{max-width:100%}.math-number-scale-lab .number-scale-tick{min-width:0}}

@@ -806,7 +806,9 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
               : selected.id === editRoomExperienceId ? <EditRoomLab />
                 : null;
   const interactiveInfographic = selected.id === "pattern-forecast" || selected.id === "equation-balance";
-  const projectorQuickStart = showProjectorQuickStart
+  // Mathematics already has a complete worked example in its concept pack.
+  // A second introductory lesson here duplicated it and sometimes contradicted it.
+  const projectorQuickStart = showProjectorQuickStart && program.subject !== "Mathematics"
     ? <ProjectorQuickStart key={selected.id} launch={readinessLaunch} words={projectorWords} question={projectorSupport.purpose} firstMove={studentContract.firstAction} />
     : null;
   const studentMathWorkshop = program.subject === "Mathematics"
