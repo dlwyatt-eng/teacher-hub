@@ -1,6 +1,6 @@
 # Student language release — September 5, 2026
 
-Status at checkpoint: implemented and locally verified; publication verification is recorded below after deployment.
+Status: published. All three GitHub Pages workflows and production HTTP checks passed. Browser and classroom review limits are recorded below.
 
 ## Why another pass was needed
 
@@ -52,3 +52,19 @@ Start from these live bases, whose trees matched the local baseline before editi
 Before publication, recheck each live head. Publish the exact tested local tree with that head as parent and a non-forced update. If the remote moved, integrate it rather than replacing it. Then verify GitHub Actions, remote tree equality, live asset fingerprints and release-specific text.
 
 Future changes must keep this sequence: inspect current remote and local work; edit the current source; regenerate public projections; test rendered student text and preserved task requirements; commit; publish; verify the live release; record what is local versus live. Never report a local checkpoint as published.
+
+## Verified publication
+
+All three code releases were published from the live parents above using non-forced ref updates. Their GitHub trees matched the tested local trees exactly.
+
+| Hub | Code release | Successful GitHub Pages run |
+|---|---|---|
+| Teacher | [ad265396](https://github.com/dlwyatt-eng/teacher-hub/commit/ad265396df1818ea9965f210156a617fb46749ad) | [33938543615](https://github.com/dlwyatt-eng/teacher-hub/actions/runs/33938543615) |
+| Learn | [607863f9](https://github.com/dlwyatt-eng/learn/commit/607863f9dc703c21548fc44abf9575a425c6256d) | [33938509343](https://github.com/dlwyatt-eng/learn/actions/runs/33938509343) |
+| Equity | [1585679f](https://github.com/dlwyatt-eng/equity-hub/commit/1585679f01226f9990a5093f1e02f73ce26bf2f1) | [33938516370](https://github.com/dlwyatt-eng/equity-hub/actions/runs/33938516370) |
+
+Production HTTP checks returned 200 for all three hubs. Live HTML references the tested JavaScript and CSS filenames. Learn and Equity entry assets matched the local builds byte for byte. Teacher's first-week, calendar and learning-program chunks and generated public window also matched byte for byte.
+
+The final follow-up commit updates only this release record; it does not change the deployed application. Future work must use these code releases or descendants as the minimum baseline, then inspect the current live heads again.
+
+Live sites: [Teacher](https://dlwyatt-eng.github.io/teacher-hub/) · [Learn](https://dlwyatt-eng.github.io/learn/) · [Equity](https://dlwyatt-eng.github.io/equity-hub/).
