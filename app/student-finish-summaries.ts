@@ -1,7 +1,7 @@
 // Authored student-facing summaries. Full assessment criteria stay in each lesson contract.
 export const STUDENT_FINISH_SUMMARIES: Record<string, string> = {
   "ordinary-object-story": "A spoken story and six-sentence draft that help a listener follow the beginning, turning point, and ending.",
-  "magnitude-gallery": "Two number-line drawings and a sentence explaining why the same number moves when the scale changes.",
+  "magnitude-gallery": "Two number lines showing 0.008, with an explanation of how the scale changes its position.",
   "pattern-forecast": "A pattern card showing how your rule predicts Stage 10 without building every stage.",
   "source-mosaic": "A suggestion for a cooler, more welcoming outdoor area, using facts from more than one source.",
   "geometry-field-lab": "An angle you have measured and named, and a triangle you can prove matches the given rules.",
@@ -24,7 +24,7 @@ export const STUDENT_FINISH_SUMMARIES: Record<string, string> = {
   "each-one-teach-one": "A short lesson you have tested and improved so another student can learn from it.",
   "space-motion-lab": "A day-and-night diagram and planet graphs or tables that help explain Earth's rotation and the lengths of days and years.",
   "strategy-league": "A multiplication or division solution showing how two methods connect and why the answer makes sense.",
-  "pack-and-sync": "Equal supply kits and a timeline showing when two repeating signals happen together, explained using factors and multiples.",
+  "pack-and-sync": "Identical supply kits and a timeline of shared flashes. Show your factor lists and multiples.",
   "scoreboard-rules": "A score card that shows another team how brackets and calculation order affect the answer.",
   "fraction-ratio-remix": "Models showing how to grow a ratio without changing its balance and rename a fraction without changing its amount.",
   "decimal-dispatch": "A corrected invoice with calculations showing how you spotted and fixed a decimal mistake.",
@@ -33,7 +33,7 @@ export const STUDENT_FINISH_SUMMARIES: Record<string, string> = {
   "graph-story-lab": "A line graph and explanation showing what the numbers tell us and how the scale changes their appearance.",
   "probability-game-audit": "A changed chance game and a record of your trials explaining why results do not always match predictions.",
   "zoo-design-studio": "A zoo map with measurements and calculations showing how the habitats, fences, and paths fit the rules.",
-  "transformation-cipher": "A grid drawing and code that let another team repeat your creature's exact slide, flip, or turn.",
+  "transformation-cipher": "A grid drawing and code showing two moves in order, plus a partner's drawing to check.",
   "space-under-constraints": "A measured plan and small model showing how a learning space can fit the site, visitors, and budget.",
   "semiahmoo-story-source-lab": "A card explaining what you learned from a story, who shared it, and what you have permission to share.",
   "three-voices": "Three versions of one scene showing what each narrator notices differently while keeping the same facts.",

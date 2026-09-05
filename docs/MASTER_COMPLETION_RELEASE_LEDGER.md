@@ -1,5 +1,7 @@
 # Classroom OS master completion and release ledger
 
+> **Later Mathematics repair:** [September 5 teaching repair](MATH_TEACHING_REPAIR_2026-09-05.md) supersedes the broad Mathematics readiness labels below. It records real content and curriculum-depth defects, their repairs, and the remaining blocked visual review.
+
 > **Later language release:** [September 5 student-language pass](STUDENT_LANGUAGE_RELEASE_2026-09-05.md) records the subsequent implementation, rendered-language tests, current publication baseline and verification. The release evidence below remains historical; do not reset a later checkout to these older commits.
 
 > **Status: PUBLISHED RELEASE RECORD — automated gates verified; human review limits remain**
