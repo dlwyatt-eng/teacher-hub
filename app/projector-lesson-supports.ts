@@ -33,6 +33,133 @@ const terms = (...items: [term: string, meaning: string, example: string][]): Wo
   items.map(([term, meaning, example]) => ({ term, meaning, example }));
 
 export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
+  "digital-identity-forensics": support("digital-identity-forensics", {
+    "purpose": "Read a made-up profile, separate facts from guesses, and explain changes that protect privacy and trust.",
+    "background": [
+      "Use only Rowan's fictional Maker Page in the case cards. Do not search for real accounts.",
+      "Evidence is something the page actually shows. An inference is a possible explanation, not a proven fact.",
+      "A public audience may include people the creator did not expect. A location or routine can reveal more than intended.",
+      "Removing a post or changing its audience can reduce future exposure, but cannot erase copies already made."
+    ],
+    "terms": [
+      {
+        "term": "evidence",
+        "meaning": "a detail you can point to in the source",
+        "example": "The fictional page's audience setting says Public."
+      },
+      {
+        "term": "inference",
+        "meaning": "an idea suggested by evidence but not proved by it",
+        "example": "A reader might think the uncredited drawing belongs to Rowan; the page does not prove who drew it."
+      },
+      {
+        "term": "audience",
+        "meaning": "the people who can see or hear a message",
+        "example": "Public means the post is not limited to Rowan's chosen group."
+      },
+      {
+        "term": "credit",
+        "meaning": "naming the creator and source of work you use",
+        "example": "Ask permission where needed and name the drawing's creator; credit alone is not permission."
+      }
+    ],
+    "example": {
+      "title": "Repair one post from Rowan's fictional Maker Page",
+      "steps": [
+        "Visible facts: the audience says Public. The model photo's caption says, 'At the fictional Oak Park every weekday at 4.' The model is made from folded card.",
+        "Possible inference: a stranger might expect to find Rowan there. We cannot prove where Rowan really is or what any reader will do.",
+        "Audience check: a friend can appreciate the model; a family member may worry about the routine; an unknown viewer can read the location clue too.",
+        "Repair: remove the routine and use 'My folded-card model.' Keep the work visible only to an approved audience. The useful model detail stays; the location clue goes.",
+        "Limit and rule: changing a post cannot erase earlier copies. Before sharing, check whether words or images reveal a place, routine, or another person's information."
+      ],
+      "conclusion": "The repair names a visible clue, a possible risk, a useful change, and what that change cannot guarantee."
+    },
+    "checks": [
+      {
+        "prompt": "Which statement is evidence from the fictional post?",
+        "choices": [
+          "Rowan is always at the park.",
+          "The caption gives a weekday time and fictional place.",
+          "Every reader will visit the park."
+        ],
+        "answer": 1,
+        "feedback": "We can read the caption. It does not prove Rowan's real routine or another person's intentions."
+      },
+      {
+        "prompt": "Which repair keeps the model-sharing purpose while reducing the location risk?",
+        "choices": [
+          "Keep the routine and add more location details.",
+          "Remove the routine and check the audience setting.",
+          "Claim that deleting the post removes every copy."
+        ],
+        "answer": 1,
+        "feedback": "The work can still be shared appropriately without the routine. Copies may remain outside the creator's control."
+      }
+    ],
+    "reteach": "Read only the audience setting and caption. Sort 'the page says' from 'someone might think,' then cross out one unnecessary location detail."
+  }),
+
+  "strengths-action-quest": support("strengths-action-quest", {
+    "purpose": "Try two small team challenges. Use an action, a moment, and a result to explain how someone helped.",
+    "background": [
+      "A strength is useful here when we can describe an action and how it helped this task. It is not a permanent label for a person.",
+      "Building, explaining, organizing, checking, listening, and helping someone join can all support a team.",
+      "Try the bridge and task-order challenges in the cards. Choose a useful role, then rotate for the next challenge.",
+      "Record one action without names, rankings, or private information. Choose one different action to practise next."
+    ],
+    "terms": [
+      {
+        "term": "action",
+        "meaning": "something someone does that you can see or hear",
+        "example": "A teammate read the five-second test rule aloud."
+      },
+      {
+        "term": "result",
+        "meaning": "what happened after the action",
+        "example": "The group tested its bridge for the full five seconds."
+      },
+      {
+        "term": "role",
+        "meaning": "a useful job for this task that can change",
+        "example": "The checker watches the test now and can build in the next round."
+      }
+    ],
+    "example": {
+      "title": "Turn 'good teamwork' into a useful action note",
+      "steps": [
+        "Bridge goal: one sheet of paper spans a 10 cm gap between two books and supports a pencil for five seconds. Work at table height; nobody climbs or stands on the bridge.",
+        "Fictional moment: the group starts to move on after one second. A teammate says, 'The card asks for five seconds. Let's count together.'",
+        "Action: the teammate reread the test rule and invited the group to count. Moment: just before the group ended its first test.",
+        "Result: the group tested for the full five seconds and saw the pencil stay supported. Note: 'I heard the rule reread before our test ended. It helped us check the full five seconds.'",
+        "Next move: in the task-order challenge, I will ask someone to explain one different order and listen before our team chooses."
+      ],
+      "conclusion": "The note shows an action, when it happened, and its effect. It does not rank a person or call them a fixed type."
+    },
+    "checks": [
+      {
+        "prompt": "Which note gives an action, a moment, and a result?",
+        "choices": [
+          "Our group is the smartest.",
+          "Before testing, someone checked the gap; we found it was too wide and reset it to 10 cm.",
+          "Everyone did great."
+        ],
+        "answer": 1,
+        "feedback": "The note identifies a visible action, when it happened, and the change it caused."
+      },
+      {
+        "prompt": "Which next move lets someone practise a different useful action?",
+        "choices": [
+          "Always give the same person the building job.",
+          "Rank everyone by speed.",
+          "Rotate from building to checking and explain the test result."
+        ],
+        "answer": 2,
+        "feedback": "Rotating a task role creates another chance to practise. It does not label or rank the person."
+      }
+    ],
+    "reteach": "Read the sample note in three parts: what someone did, when, and what changed. Point to one part at a time before trying your own note."
+  }),
+
   "ordinary-object-story": support("ordinary-object-story", {
     purpose: "Turn one ordinary object into a short story a listener can follow, then fix one confusing part.",
     background: [
@@ -766,46 +893,69 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
   }),
 
   "everyone-in-game": support("everyone-in-game", {
-    purpose: "Use a fictional participation tally to change one game rule so more players have useful choices and ways back into play.",
-    background: [
-      "A game can use the same rule for everyone and still give most choices, space, or touches to only a few players.",
-      "Fair play includes safety, respect, useful participation, and a quick route back after a mistake.",
-      "A tally can show patterns in the game design without ranking real classmates or judging skill.",
-      "Change one feature, replay, and compare evidence before deciding whether the rule helped.",
+    "purpose": "Use a fictional Gate Pass tally to change one rule so more players have useful choices and ways back into play.",
+    "background": [
+      "Gate Pass uses teams of four or five. Score by passing a soft ball through a cone gate to a teammate.",
+      "Hold for three counts. Do not run with the ball. Defenders intercept passes only: no contact, grabbing, body blocking, or elimination.",
+      "A no-name tally shows one pattern in the game. It does not rank classmates or tell us how they feel.",
+      "Change one feature, keep the others the same, replay, and compare the tallies plus player feedback."
     ],
-    terms: terms(
-      ["participation", "taking a useful part in an activity", "A player can pass, move into space, defend, coach, or restart play."],
-      ["fair play", "safe and respectful play that gives people meaningful ways to join", "The rule has no elimination and uses calm restarts."],
-      ["re-entry", "a clear way to return after leaving or pausing", "After a miss, the player returns through the side zone on the next pass."],
-      ["open space", "an area a player can move into safely", "Spreading toward the sidelines creates another passing option."],
-      ["evidence", "information used to judge whether a change worked", "The second-round tally shows touches spread across all four fictional players."],
-    ),
-    example: {
-      title: "Compare two fictional rounds of a four-player passing game",
-      steps: [
-        "Round 1 rule: any player may score after one pass; a missed catch means sitting out until the next score. Touch tally: A 9, B 1, C 0, D 2.",
-        "Problem shown: one player controls most touches, one has none, and sitting out removes chances to practise.",
-        "Change: no elimination; the ball must reach two different teammates before a score; the restart begins with a player who had no touch in the last play.",
-        "Round 2 fictional tally: A 4, B 3, C 3, D 4. Every player now has repeated choices and quick re-entry.",
-        "Limit: touches do not show everything about safety, enjoyment, or movement quality, so observers also record those patterns.",
+    "terms": [
+      {
+        "term": "participation",
+        "meaning": "taking a useful part in an activity",
+        "example": "A player can pass, move into space, defend, or restart play."
+      },
+      {
+        "term": "fair play",
+        "meaning": "safe and respectful play that gives people ways to join",
+        "example": "The game has no elimination and uses calm restarts."
+      },
+      {
+        "term": "re-entry",
+        "meaning": "a way to return after leaving or pausing",
+        "example": "Ask to rejoin safely at the next restart."
+      },
+      {
+        "term": "evidence",
+        "meaning": "information used to judge whether a change helped",
+        "example": "The second-round tally shows that every position received at least one pass."
+      }
+    ],
+    "example": {
+      "title": "Compare two fictional rounds of Gate Pass",
+      "steps": [
+        "Two teams of four play Gate Pass for four minutes: pass through a cone gate to score, hold for three counts, no running with the ball, no contact, and no elimination. Team A's received-pass tally is 9, 1, 0, 2.",
+        "The tally shows that one position received no passes. It does not tell us why or how anyone felt.",
+        "Change only the restart rule: on the restarting team, give the ball to someone who has not received a pass in this round; otherwise take turns. Keep teams, time, space, equipment, scoring, and safety rules the same.",
+        "Round 2's fictional tally is 4, 3, 3, 4. All four positions received passes. The group still needs player feedback and observations of safety and choices before deciding whether to keep the change.",
+        "Keep, revise, or reject the change using both tallies and feedback. One pair of rounds is not proof that this rule will work for every group."
       ],
-      conclusion: "The rule is kept because the new evidence shows wider participation, while the class still names what the tally cannot prove.",
+      "conclusion": "Changing one rule makes the comparison clearer. Received passes show one part of participation, not feelings, safety, or every useful role."
     },
-    checks: [
+    "checks": [
       {
-        prompt: "Which change most directly addresses Player C receiving zero touches?",
-        choices: ["Eliminate players after one miss.", "Restart with a player who had no touch and require passes to two teammates.", "Let Player A keep the ball longer."],
-        answer: 1,
-        feedback: "The change creates a real route into play instead of asking the excluded player to wait.",
+        "prompt": "Which single change directly creates a way into play for a teammate who has received no passes?",
+        "choices": [
+          "Eliminate players after one miss.",
+          "Restart with a teammate who has not yet received a pass.",
+          "Let one player hold the ball longer."
+        ],
+        "answer": 1,
+        "feedback": "The restart change creates another chance to receive the ball while the scoring and safety rules stay the same."
       },
       {
-        prompt: "What can the touch tally show?",
-        choices: ["How choices were spread during the fictional rounds", "Every player's private feelings", "Which person is best"],
-        answer: 0,
-        feedback: "The tally shows one participation pattern. It cannot measure feelings or rank people.",
-      },
+        "prompt": "What can a received-pass tally show?",
+        "choices": [
+          "How received passes were spread during these fictional rounds.",
+          "Every player's private feelings.",
+          "Which person is best."
+        ],
+        "answer": 0,
+        "feedback": "It shows one participation pattern. Ask separately about safety, enjoyment, useful choices, and ways back into play."
+      }
     ],
-    reteach: "Show only the two tallies first. Ask what changed, then reveal the rule change and connect one part of the rule to one change in the numbers.",
+    "reteach": "Show only the two tallies. Name what changed and what the counts cannot tell us. Then connect the single restart-rule change to a new chance to receive a pass."
   }),
 
   "trusted-health-studio": support("trusted-health-studio", {

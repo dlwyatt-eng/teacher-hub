@@ -167,7 +167,7 @@ export const currentConnections: readonly CurrentConnection[] = [
     wonderChoices: [
       "How can a country estimate people between censuses?",
       "Why could a careful estimate change later?",
-      "How much is 0.1% of about 41.4 million?",
+      "Optional later percent extension: after learning percent, estimate 0.1% of about 41.4 million. This is not part of the opening magnitude check.",
     ],
     claims: [
       { statement: "Canada had exactly 41,417,056 people when we opened this lesson.", verdict: "NOT SUPPORTED", explanation: "The release gives a preliminary estimate for April 1, 2026. It is not a live population counter." },

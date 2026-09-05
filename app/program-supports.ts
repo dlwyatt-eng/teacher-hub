@@ -315,6 +315,84 @@ export function wordHelpFor(arcId: string): WordHelp[] {
 }
 
 export const experienceKits: Record<string, ExperienceKit> = {
+  "digital-identity-forensics": {
+    "setupMinutes": 2,
+    "provided": [
+      "Fictional profile and post cards",
+      "Audience prompts",
+      "One new fictional post for checking decision rules"
+    ],
+    "gather": [
+      "Plain paper or shared board",
+      "Pencil or marker"
+    ],
+    "shortRoute": "Read the fictional profile, repair one post, and explain one fact, one possible risk, and one limit.",
+    "cards": [
+      {
+        "title": "FICTIONAL PROFILE",
+        "body": "Rowan's Maker Page. Audience setting: Public. About: 'I share models and drawings.' All people, places, posts, and replies in this case are made up; there is no account to find."
+      },
+      {
+        "title": "POST 1 · MODEL PHOTO",
+        "body": "4 September. Picture description: a folded-card bridge holding a pencil. Caption: 'At the fictional Oak Park every weekday at 4. Here is my newest model.'"
+      },
+      {
+        "title": "POST 2 · DRAWING",
+        "body": "3 September. Picture description: a carefully shaded dragon. Caption: 'Found this online—great design!' No artist, source, or reuse permission is named."
+      },
+      {
+        "title": "POST 3 · OLD JOKE + REPLY",
+        "body": "20 August. Post: 'Our team took forever—so slow!' Reply: 'That joke felt unfair.' Rowan's reply: 'Thanks for telling me. I will change the caption to explain the model, not judge the team.'"
+      },
+      {
+        "title": "AUDIENCE CHECK",
+        "body": "Consider a friend, a family member, and someone Rowan does not know. For each, name a visible clue, something they might think, and one privacy, credit, tone, or trust concern. Do not claim to know their thoughts."
+      },
+      {
+        "title": "REPAIR + LIMIT",
+        "body": "Choose one change: remove a routine, check the audience, ask permission and add credit, rewrite a caption, or remove a post. Explain what it helps and what it cannot guarantee. Do not assume credit gives permission or deletion erases copies."
+      },
+      {
+        "title": "NEW FICTIONAL POST",
+        "body": "A made-up club wants to share a model photo. A teammate's full name is written on the desk card in the picture, and an online background image has no source credit. Test each of your three rules: what should the club check or change before sharing?"
+      }
+    ]
+  },
+  "strengths-action-quest": {
+    "setupMinutes": 4,
+    "provided": [
+      "Two challenge cards",
+      "Action-note model",
+      "Rotating-role choices"
+    ],
+    "gather": [
+      "Two books, two sheets of paper, one pencil, and a ruler per group",
+      "Plain paper or shared board for the note"
+    ],
+    "shortRoute": "Try both challenges, rotate one role, and record one action + moment + result note.",
+    "cards": [
+      {
+        "title": "SAMPLE ACTION NOTE",
+        "body": "'I heard the test rule reread just before our bridge test ended. It helped us test for the full five seconds.' Point to the action, the moment, and the result. No person's name or fixed label is needed."
+      },
+      {
+        "title": "CHALLENGE 1 · PAPER BRIDGE",
+        "body": "Place two books 10 cm apart on a table. With one sheet of paper, make a bridge that holds one pencil across the gap for five seconds. Fold the paper if useful. Keep hands, feet, and bodies off the bridge; test only the pencil. Try one repair."
+      },
+      {
+        "title": "CHALLENGE 2 · PUT THE JOBS IN ORDER",
+        "body": "These jobs are mixed up: test the bridge; gather materials; explain the goal; build; record the result. Point to, say, or write a workable order. Explain two links using 'This comes before that because…'. Listen to another order before choosing."
+      },
+      {
+        "title": "CHOOSE + ROTATE",
+        "body": "Choose builder/tester, explainer/listener, organizer/checker, or observer/supporter. Everyone helps in a useful way. Rotate for challenge 2; then try the bridge again while practising one different action. No race or ranking."
+      },
+      {
+        "title": "NOTICE + NEXT MOVE",
+        "body": "Use 'I saw or heard __ when __. It helped because __.' Choose one action to practise in the next class team task. Name the task and what you will look for to check whether the action helped."
+      }
+    ]
+  },
   ...mathExperienceKits,
   "learning-user-manual": {
     setupMinutes: 4,
@@ -660,17 +738,42 @@ export const experienceKits: Record<string, ExperienceKit> = {
     ],
   },
   "everyone-in-game": {
-    setupMinutes: 5,
-    provided: ["Exact no-elimination base game", "Observer tally", "Three tested rule remixes", "Access and safety choices"],
-    gather: ["6–10 soft balls or beanbags", "8 cones", "Pinnies optional"],
-    shortRoute: "Play 4 minutes, change one rule, replay 4 minutes, and compare participation evidence.",
-    cards: [
-      { title: "BASE GAME", body: "Teams score by completing five passes to five different teammates. No running with the ball. If it drops or leaves the area, the other team starts. Nobody is eliminated." },
-      { title: "REMIX A", body: "A point counts only after every teammate has had a useful role in the play." },
-      { title: "REMIX B", body: "Add safe end zones and a neutral connector who can help either team." },
-      { title: "REMIX C", body: "Use two smaller games, a larger ball, walking pace, or a seated passing route." },
-      { title: "OBSERVER TALLY", body: "Touches · choices · open-space moves · long waits · quick re-entry. Count team patterns, not named students." },
+    "setupMinutes": 5,
+    "provided": [
+      "Gate Pass rules",
+      "No-name observer-tally prompts",
+      "Three rule changes to test",
+      "Access and safety choices"
     ],
+    "gather": [
+      "One soft ball per game",
+      "8 cones for four gates",
+      "Plain paper and pencil for a no-name tally",
+      "Pinnies optional"
+    ],
+    "shortRoute": "Play four minutes, change one feature, replay four minutes, and compare the tallies plus player feedback.",
+    "cards": [
+      {
+        "title": "BASE GAME",
+        "body": "In teams of four or five, score by passing a soft ball through a cone gate to a teammate. Hold it for no more than three counts; do not run with it. Defenders intercept passes only: no contact, grabbing, body blocking, or elimination. If the ball drops or leaves the area, the other team restarts safely."
+      },
+      {
+        "title": "REMIX A · RESTART",
+        "body": "Change only the restart rule. On the restarting team, give the ball to someone who has not received a pass in this round; otherwise take turns. Keep scoring, teams, space, equipment, and safety rules the same."
+      },
+      {
+        "title": "REMIX B · GATE WIDTH",
+        "body": "Change only the width of the four cone gates. Predict how the wider or narrower gates may change useful passing choices. Keep teams, space, time, equipment, scoring, and safety rules the same."
+      },
+      {
+        "title": "REMIX C · PACE",
+        "body": "Use walking or wheeling pace for everyone who moves. Keep the same teams, gates, scoring, time, equipment, and no-contact rules. Preserve any seated or rolling-pass access route."
+      },
+      {
+        "title": "OBSERVER TALLY",
+        "body": "For each four-minute round, mark counts without names: players who received a pass; players who made a useful choice; players who mostly waited; players who found a way back into play. These groups may overlap. Add one player comment without names and one safety observation."
+      }
+    ]
   },
   "career-constellation": {
     setupMinutes: 4,
@@ -725,9 +828,9 @@ export const experienceMedia: Record<string, ExperienceMedia[]> = {
   "place-soundwalk": [{ type: "activity", label: "Make a 20-second sound map", source: "Student-created local observation", purpose: "Treat listening as a way of gathering precise place evidence.", studentTask: "Recreate three sound layers with voices, body percussion, or classroom objects and name where each came from.", fallback: "Write sound words and mark their distance on paper." }],
   "four-arts-languages": [
     { type: "website", label: "SKWA WACH :: STURGEON", source: "Roxanne Charles and Easton Arnouse · Semiahmoo First Nation · installed 2025 · City of Surrey Public Art", url: "https://www.surrey.ca/arts-culture/public-art/permanent-public-art-collection/skwa-wach-sturgeon", purpose: "Begin visual-art study with an exact local contemporary public artwork, artist context, place, and ecosystem relationship.", studentTask: "Record artist, title, context, one exact visual choice, and one question. If a requested detail such as material is absent, write ‘not stated.’ Respond through your own technique study; do not copy the work or a cultural style.", fallback: "Project the live official page when available or read the supplied text-only credited artist/context capsule, then lead the same slow-look prompts. Do not copy or rehost an image without permission." },
-    { type: "video", label: "Great Canadian Orchestra Field Trip", source: "National Arts Centre · Arts Alive", url: "https://nac-cna.ca/en/orchestrafieldtrip", duration: "Teacher registers in advance and records one chosen episode + 3–5 minute segment", purpose: "Use one exact registered performance to hear a change in timbre, dynamics, texture, rhythm, or form. The official on-demand series is free but currently asks schools to register.", studentTask: "Listen once for the whole effect, then again for one named musical change. Mark the exact moment.", fallback: "Use the supplied listening card while the teacher performs or describes a four-layer Classroom OS sound model with voice, body percussion, and objects." },
-    { type: "video", label: "Foundational Elements of Dance: Aspects of Space", source: "Allison Carrier · National Arts Centre", url: "https://nac-cna.ca/en/video/map-foundational-elements-of-dance-2-space", duration: "13:09 · teacher previews and selects one short comparison", purpose: "Model pathways, direction, level, size, and relationship with an exact artist-led source before students compose.", studentTask: "Freeze two moments and record how the use of space changes. The standing, seated, hand-only, or prop adaptation is a Classroom OS route.", fallback: "Teacher demonstrates the supplied eight-count phrase standing, seated, hand-only, or with a paper prop; students compare two changes using the same notice card." },
-    { type: "video", label: "Theatre Works: Kevin Loring", source: "Kevin Loring · Nlaka'pamux (Lytton First Nation) · National Arts Centre", url: "https://nac-cna.ca/en/video/theatre-works-kevin-loring", duration: "2:55 · captions available", purpose: "Show how an artistic director helps shape story, relationships, purpose, and audience experience—not only dialogue.", studentTask: "Record the artist and role, then name one decision a director can guide in focus, place, tension, mood, relationship, light, sound, or transition.", fallback: "Read the credited Kevin Loring role/context capsule and use the supplied six-frame tableau model before students compose." },
+    { type: "video", label: "Great Canadian Orchestra Field Trip", source: "National Arts Centre · Arts Alive", url: "https://nac-cna.ca/en/orchestrafieldtrip", duration: "Teacher registration required · exact episode/segment pending · suggested budget up to 3 min", purpose: "Use one exact registered performance to hear a change in timbre, dynamics, texture, rhythm, or form. The official on-demand series is free but currently asks schools to register; no student account is required.", studentTask: "Listen once for the whole effect, then again for one named musical change. Mark the exact moment.", fallback: "Use the supplied listening card while the teacher performs or describes a four-layer Classroom OS sound model with voice, body percussion, and objects." },
+    { type: "video", label: "Foundational Elements of Dance: Aspects of Space", source: "Allison Carrier · National Arts Centre", url: "https://nac-cna.ca/en/video/map-foundational-elements-of-dance-2-space", duration: "Runtime unverified · preview-selected comparison up to 3 min", purpose: "Model pathways, direction, level, size, and relationship with an exact artist-led source before students compose.", studentTask: "Freeze two moments and record how the use of space changes. The standing, seated, hand-only, or prop adaptation is a Classroom OS route.", fallback: "Teacher demonstrates the supplied eight-count phrase standing, seated, hand-only, or with a paper prop; students compare two changes using the same notice card." },
+    { type: "video", label: "Theatre Works: Kevin Loring", source: "Kevin Loring · Nlaka'pamux (Lytton First Nation) · National Arts Centre", url: "https://nac-cna.ca/en/video/theatre-works-kevin-loring", duration: "Runtime/captions require preview · suggested viewing budget up to 3 min", purpose: "Show how an artistic director helps shape story, relationships, purpose, and audience experience—not only dialogue.", studentTask: "Record the artist and role, then name one decision a director can guide in focus, place, tension, mood, relationship, light, sound, or transition.", fallback: "Read the credited Kevin Loring role/context capsule and use the supplied six-frame tableau model before students compose." },
     { type: "image", label: "After-rain courtyard practice scene", source: "Original generated Classroom OS observation scene", localSrc: "/images/four-arts-rain-courtyard-v1.webp", purpose: "Provide one copyright-safe shared scene for the two-form remix after all four foundation studies are complete.", studentTask: "Choose one visible detail and use two completed Arts studies to guide the audience toward it.", fallback: "Arrange six ordinary classroom objects after an imaginary gust of wind and make a direct-observation thumbnail." },
   ],
   "map-what-maps-miss": [
@@ -736,9 +839,9 @@ export const experienceMedia: Record<string, ExperienceMedia[]> = {
     { type: "article", label: "Sharing Perspectives · exact teacher-selected artist page", source: "Surrey Art Gallery · Grades 4–12 teacher guide", url: "https://www.surrey.ca/files/Teachers%20Guide_4-12_Indigenous%20Contemporary%20Art%20Workshop_Surrey%20Art%20Gallerly_online.pdf", purpose: "Use one exact page to supply credited artist context, observation routines, differentiation, and material processes from a local gallery source. Keep the title/date shown on that exact source; do not merge conflicting metadata from another page.", studentTask: "Work only with the assigned artist and page. Record artist, work, context, an observed technique, and a question before making your own response.", fallback: "Teacher reads a text-only credited context capsule; students complete the same technique study without copying or reproducing the work." },
   ],
   "same-facts-frame": [
-    { type: "video", label: "Rhythms of Resilience · Music Alive Song Activity", source: "Sherryl Sewepagaham · Cree-Dene songwriter and educator · National Arts Centre", url: "https://nac-cna.ca/en/artsalive/resource/all-my-relations-rhythmic-fun-with-music-alive/module/36164", duration: "Teacher previews the Grade 4–6 module and selects one short activity/performance segment", purpose: "Meet rhythm, voice, relationship, and artist context through an exact artist-led Canadian music module.", studentTask: "Credit the artist and source. Listen for one exact use of beat, rhythm, silence, timbre, dynamics, texture, form, or interaction and mark the moment.", fallback: "Teacher reads the credited artist/context capsule and performs the supplied four-layer Classroom OS rhythm model; students use the same listening-evidence card." },
-    { type: "video", label: "Autorickshaw · Raga, Tala, and Solkattu module", source: "Autorickshaw · resource by Suba Sankaran · National Arts Centre Arts Alive", url: "https://nac-cna.ca/en/artsalive/resource/autorickshaw/module/39055", duration: "Teacher previews the exact concert/resource module and records one chosen segment", purpose: "Encounter raga, tala, and solkattu through an artist-led resource and widen the class listening beyond one musical tradition.", studentTask: "Credit the artists and source. Notice one exact melodic or rhythmic move the resource names; compare elements without ranking cultures or copying a tradition out of context.", fallback: "Teacher reads the credited source capsule and uses the supplied rhythm/notation mini-labs; reschedule the artist encounter rather than presenting the fallback as Carnatic music instruction." },
-    { type: "video", label: "Great Canadian Orchestra Field Trip", source: "National Arts Centre · Arts Alive", url: "https://nac-cna.ca/en/orchestrafieldtrip", duration: "Optional registered 3–5 minute segment", purpose: "Compare how a different ensemble organizes timbre, dynamics, texture, rhythm, and form. The official on-demand series is free but currently asks schools to register.", studentTask: "Compare one musical element across the two sources; do not rank cultures, performers, or genres.", fallback: "Compare two teacher-performed versions of the supplied score using different sound sources." },
+    { type: "video", label: "Rhythms of Resilience: Raps, Rhymes, and Improvisations", source: "Sherryl Sewepagaham · Cree-Dene songwriter and educator · National Arts Centre", url: "https://nac-cna.ca/en/artsalive/resource/all-my-relations-rhythmic-fun-with-music-alive/module/36164", duration: "Module · exact media/segment pending · suggested budget up to 3 min", purpose: "Meet rhythm, voice, relationship, and artist context through an exact artist-led Canadian music module.", studentTask: "Credit the artist and source. Listen for one exact use of beat, rhythm, silence, timbre, dynamics, texture, form, or interaction and mark the moment.", fallback: "Teacher reads the credited artist/context capsule and performs the supplied four-layer Classroom OS rhythm model; students use the same listening-evidence card. Reschedule the artist encounter; the model is original classroom practice." },
+    { type: "video", label: "South Indian Carnatic Music with Autorickshaw", source: "Autorickshaw · resource by Suba Sankaran · National Arts Centre Arts Alive", url: "https://nac-cna.ca/en/artsalive/resource/autorickshaw/module/39055", duration: "Module · exact media/segment pending · suggested budget up to 3 min", purpose: "Encounter raga, tala, and solkattu through an artist-led resource and widen the class listening beyond one musical tradition.", studentTask: "Credit the artists and source. Notice one exact melodic or rhythmic move the resource names; compare elements without ranking cultures or copying a tradition out of context.", fallback: "Teacher reads the credited source capsule and uses the supplied rhythm/notation mini-labs; reschedule the artist encounter rather than presenting the fallback as Carnatic music instruction." },
+    { type: "video", label: "Great Canadian Orchestra Field Trip", source: "National Arts Centre · Arts Alive", url: "https://nac-cna.ca/en/orchestrafieldtrip", duration: "Optional · teacher registration and exact segment pending · suggested budget up to 3 min", purpose: "Compare how a different ensemble organizes timbre, dynamics, texture, rhythm, and form. The official on-demand series is free but currently asks schools to register; no student account is required.", studentTask: "Compare one musical element across the two sources; do not rank cultures, performers, or genres.", fallback: "Compare two teacher-performed versions of the supplied score using different sound sources." },
   ],
   "rights-in-thirty": [
     { type: "video", label: "The power of storytelling in theatre: The Artistic Director's role", source: "Kevin Loring · Nlaka'pamux (Lytton First Nation) · National Arts Centre", url: "https://nac-cna.ca/en/video/theatre-works-kevin-loring", duration: "2:55 · captions available", purpose: "Meet one Canadian theatre artist and notice how an artistic director shapes purpose, story, relationships, and audience experience.", studentTask: "Record the artist, role, and source. Name one artistic decision the role guides, then connect it to a focus, place, tension, mood, or relationship choice in your fictional scene.", fallback: "Read the credited Kevin Loring role/context capsule, then use the supplied before–transition–after model and teacher narration." },

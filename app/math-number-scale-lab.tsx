@@ -428,7 +428,7 @@ export function MathNumberScaleLab({ audience = "student" }: MathNumberScaleLabP
         <ScalePlot view={view} card={selectedCard} prediction={prediction} revealed={revealed} previous={previous} onPredict={predict} />
 
         <section className="number-scale-check-row">
-          <div><small>STEP 3 · TEST THE CLASS IDEA</small><strong>{selectedCard ? prediction === null ? "Point first, then tap one numbered section—or choose past the endpoint." : "The class prediction is locked. Ready to reveal?" : "Choose any mixed-up card to begin."}</strong></div>
+          <div><small>STEP 3 · TEST THE CLASS IDEA</small><strong>{selectedCard ? revealed ? "The point is revealed. Explain its position, then change the scale or cover it to try again." : prediction === null ? "Point first, then tap one numbered section—or choose past the endpoint." : "The class prediction is locked. Ready to reveal?" : "Choose any mixed-up card to begin."}</strong></div>
           <div>
             <button type="button" disabled={!selectedCard || prediction === null || revealed} onClick={revealLocation}>Reveal and test</button>
             <button type="button" disabled={!selectedCard || !revealed} onClick={coverForPrediction}>Cover for a new prediction</button>

@@ -25,6 +25,15 @@
 @media print{body.print-target-active .student-math-workshops{display:block!important}body.print-target-active .student-math-workshop-pack{display:block!important;color:#000;background:#fff}.student-math-print{display:none!important}.student-math-print-heading{border-bottom:2px solid #000}.student-math-workshop-pack :is(section,article,footer){box-shadow:none!important}}
 
 /* Mathematics is taught one example or question at a time; print retains the full workshop. */
+@media screen{
+  .large-text-mode .student-math-workshops :is(.math-model-steps li,.math-partner-cards article p,.math-independent-check article p){font-size:clamp(1.6rem,2.1vw,2rem);line-height:1.55}
+  .large-text-mode .student-math-workshops :is(.student-math-goal p,.math-workshop-controls button,.math-workshop-stages button,.math-division-worked p,.math-division-worked caption,.math-division-worked th,.math-division-worked td,.magnitude-scale p,.magnitude-period-chart th,.math-model-operation b){font-size:1.45rem;line-height:1.5}
+  .large-text-mode .student-math-workshops :is(.math-place-value-row small,.math-pack-model>header>span,.math-workshop-controls span){font-size:1.15rem;line-height:1.5}
+  .large-text-mode .student-math-workshops .magnitude-period-chart td{font-size:1.8rem}
+}
+.math-operation-examples{display:grid;gap:1rem}.math-operation-examples>section{min-width:0;padding:1rem;border:1px solid #acc5ce;border-radius:12px;background:#f1f7f8}.math-operation-examples h4{margin:0 0 1rem}.math-operation-examples .math-model-operation small{font-size:.9rem;line-height:1.4}.math-operation-examples .math-model-operation b{font-size:1.15rem;line-height:1.5}.math-division-worked p,.math-division-worked caption{font-size:1.1rem;line-height:1.5}.math-division-worked table{width:100%;table-layout:fixed;border-collapse:collapse}.math-division-worked caption{text-align:left;margin-bottom:.75rem}.math-division-worked th,.math-division-worked td{padding:.7rem;border:1px solid #7896a0;text-align:left;font-size:1.1rem;line-height:1.5;overflow-wrap:anywhere}.math-division-worked thead{background:#dcecef}
+@media screen{.math-operation-examples>[data-current=false]{display:none}}
+@media print{.math-operation-examples>[data-current]{display:block!important}.math-operation-examples>section{break-inside:avoid}.math-division-worked th,.math-division-worked td,.math-division-worked p,.math-division-worked caption{font-size:11pt}.math-operation-examples .math-model-operation b{font-size:11pt}.math-operation-examples .math-model-operation small{font-size:10pt}}
 .math-workshop-stages,.math-workshop-controls{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin:1rem 0}
 .math-workshop-stages button,.math-workshop-controls button{position:static;min-width:0;min-height:48px;height:auto;padding:.75rem 1rem;border:2px solid #286478;border-radius:10px;background:#fff;color:#153d4a;font-family:inherit;font-size:1rem;font-weight:700;line-height:1.4;white-space:normal;overflow-wrap:anywhere}
 .math-workshop-stages button[aria-pressed=true]{background:#184d5d;color:#fff}

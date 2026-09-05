@@ -128,7 +128,7 @@ export const mathSupportPacks: MathSupportPack[] = [
     timing: "September–October, then spiral all year",
     blocks: "3 × 40–50 min + 8–10 min recurring",
     role: "FLUENCY ROUTINE",
-    readinessLevel: "review",
+    readinessLevel: "full",
     mathUpTopics: ["Whole Number Operations"],
     prerequisite: "Recall or derive multiplication and division facts to 100 with a strategy or reference chart.",
     learningGoal: "estimate products and quotients, calculate with a clear method, and use multiplication or division to check.",
@@ -141,12 +141,12 @@ export const mathSupportPacks: MathSupportPack[] = [
     ],
     teacherMoves: [
       "Model 23 × 16 as (23 × 10) + (23 × 6), then connect it to the standard algorithm.",
-      "Model 864 ÷ 24 with an estimate, partial quotients, and multiplication to check.",
+      "Model 936 ÷ 24 with an estimate, partial quotients, and multiplication to check. Then let partners try the different 864 ÷ 24 question.",
       "Compare methods by number fit, accuracy, and clarity—not by who finishes first.",
       "Start three weekly 8–10 minute routines: strategy compare, computation/check, and puzzle/game.",
     ],
     studentMoves: ["Make a quick prediction with nearby friendly numbers before doing the exact work.", "Choose a route: draw groups, split a number, stack the written steps, or use a fact you already know.", "Check from a different direction—for division, multiply the answer back.", "Put two correct routes side by side and point to the one you would actually choose for these numbers."],
-    supplied: ["Worked multiplication example","Multiplication and division questions","Worked steps, practice and independent check","Separate teacher answers"],
+    supplied: ["Worked multiplication and division examples","Partial-quotients table","Multiplication and division questions","Worked steps, practice and independent check","Separate teacher answers"],
     gather: ["Mini-whiteboards", "Multiplication chart as an access tool", "Base-ten blocks optional"],
     vocabulary: words(
       ["estimate", "a close, sensible value used to predict or check", "23 × 16 is about 20 × 20, or 400"],
@@ -155,15 +155,19 @@ export const mathSupportPacks: MathSupportPack[] = [
       ["decompose", "break a number into useful parts", "16 becomes 10 + 6"],
     ),
     model: {
-  "label": "WORKED EXAMPLE · 23 × 16",
-  "prompt": "There are 16 packs with 23 cards in each. How many cards are there?",
+  "label": "WORKED EXAMPLES · 23 × 16 AND 936 ÷ 24",
+  "prompt": "Find the cards in 16 packs of 23. Then find how many packs of 24 cards can be made from 936 cards.",
   "steps": [
     "Estimate: 23 is near 20 and 16 is near 20. Since 20 × 20 = 400, expect a total around 400 cards.",
     "Split 16 packs into 10 packs and 6 packs. Ten packs hold 23 × 10 = 230 cards. Six packs hold 23 × 6 = 138 cards.",
     "Add both parts: 230 + 138 = 368 cards. Both groups of packs have been counted once.",
-    "Check a different way: 23 × (8 × 2) = 184 × 2 = 368. The result matches and is close to the estimate."
+    "Check a different way: 23 × (8 × 2) = 184 × 2 = 368. The result matches and is close to the estimate.",
+    "Division problem: pack 936 cards with 24 cards in each pack. Estimate: 40 packs would use 24 × 40 = 960 cards. Since 936 is slightly less than 960, expect slightly fewer than 40 packs.",
+    "Make 30 packs first. They use 24 × 30 = 720 cards. Subtract those cards: 936 − 720 = 216 cards remain.",
+    "Use the remaining 216 cards to make 9 more packs, because 24 × 9 = 216. No cards remain. Add the pack counts, not the card counts: 30 + 9 = 39 packs.",
+    "Check: 39 × 24 = (40 × 24) − 24 = 960 − 24 = 936 cards. Therefore 936 ÷ 24 = 39 packs, just below the estimate of 40 packs."
   ],
-  "conclusion": "Breaking 16 into 10 + 6 makes two easier products. Add them to count all 16 packs."
+  "conclusion": "For multiplication, add the cards in both groups of packs. For division, subtract cards in friendly groups, then add the pack counts. Multiply the quotient by the cards per pack to check that it returns to the starting total."
 },
     partnerCards: [
   {
@@ -844,7 +848,7 @@ export const mathSupportPacks: MathSupportPack[] = [
 ];
 
 export const mathYearSequence: MathYearBlock[] = [
-  { timing: "September · Weeks 1–2", focus: "Magnitude and place value", blocks: "7–9 blocks", mathUpTopics: ["Whole Numbers Greater Than One Million", "Representing, Estimating, and Comparing Decimal Numbers"], lessonIds: ["magnitude-place-value-pack", "magnitude-gallery"], fluency: "Place-value talks and benchmark estimates", check: "Place, compare, and justify one value on an appropriate scale.", spaces: "No post" },
+  { timing: "September · first two teaching weeks after rotations", focus: "Magnitude and place value", blocks: "4 core blocks + practice or reteaching as needed", mathUpTopics: ["Whole Numbers Greater Than One Million", "Representing, Estimating, and Comparing Decimal Numbers"], lessonIds: ["magnitude-place-value-pack", "magnitude-gallery"], fluency: "Place-value talks and benchmark estimates", check: "Place, compare, and justify one value on an appropriate scale.", spaces: "No post" },
   { timing: "September–October · Weeks 3–6", focus: "Whole-number operations and fluency", blocks: "12–14 blocks + spiral", mathUpTopics: ["Whole Number Operations"], lessonIds: ["operations-fluency-pack", "strategy-league", "scoreboard-rules"], fluency: "Three 8–10 minute routines each week; no speed ranking", check: "Estimate, calculate, and verify with another route.", spaces: "Optional strategy snapshot only if needed" },
   { timing: "October · Weeks 7–8", focus: "Factors, multiples, and order", blocks: "7–8 blocks", mathUpTopics: ["Factors and Multiples", "BC_Working With Factors and Multiples"], lessonIds: ["factors-multiples-pack", "pack-and-sync", "scoreboard-rules"], fluency: "Fact families, divisibility, and factor puzzles", check: "Choose factor or multiple reasoning and defend it.", spaces: "No post" },
   { timing: "Late October–November", focus: "Fractions, ratios, and friendly percents", blocks: "12–15 blocks", mathUpTopics: ["Representing, Comparing, and Ordering Fractions", "Proportional Reasoning"], lessonIds: ["fraction-ratio-percent-pack", "fraction-ratio-remix"], fluency: "Benchmarks, equivalence, and ratio batches", check: "Connect a model, symbol, and comparison.", spaces: "No separate post" },

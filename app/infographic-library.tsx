@@ -1,5 +1,7 @@
 "use client";
 
+import { TeacherMediaPreparation } from "./teacher-media-preparation";
+
 type Resource = {
   label: string;
   authority: string;
@@ -59,11 +61,11 @@ const localResources: Record<string, Resource[]> = {
   ],
   "four-arts-languages": [
     {
-      label: "Our Grandmother the Inlet",
+      label: "Our Grandmother the Inlet · SD36 clean film",
       authority: "SURREY SCHOOLS · TSLEIL-WAUTUTH FILM · CLASSROOM SCREENING RIGHTS",
       url: "https://surreyschoolsone.ca/indigenous/resource-post/?permalink=our-grandmother-the-inlet",
-      use: "Co-directed by Kayah George (Tulalip and Tsleil-Waututh) and Jaime Leigh Gianopoulos, the film centres Kayah, her grandmother Ta7a, and their relationship to Burrard Inlet. Use the district’s clean classroom route as a visual and audio mentor text.",
-      caution: "Keep the directors, featured family, Tsleil-Waututh Nation, and Burrard Inlet attached to the response. Do not imitate cultural designs, extract teachings as decoration, or repost the film.",
+      use: "Co-directed by Kayah George (Tulalip and Tsleil-Waututh) and Jaime Leigh Gianopoulos, the film centres Kayah, her grandmother Ta7a, and their relationship to Burrard Inlet. Optional 8:45 clean film: the teacher needs the SD36 password and must preview it first; no student account is required.",
+      caution: "Use only the district’s clean classroom route, not the original or 45-minute interview. Keep the directors, featured family, Tsleil-Waututh Nation, and Burrard Inlet attached to the response. Do not imitate cultural designs, extract teachings as decoration, or repost the film. If access is unavailable, use the supplied original Arts models and reschedule this film encounter.",
     },
   ],
   "graph-story-lab": [
@@ -261,15 +263,15 @@ export function ExperienceInfographic({ experienceId }: { experienceId: string }
     </InfoFrame>
   );
   if (experienceId === "everyone-in-game") return (
-    <InfoFrame eyebrow="CHANGE ONE RULE · REPLAY · CHECK" title="Fair on paper is not always full participation" summary="Use anonymous group evidence to see whether a rule opens the play. This fictional two-round example tests access—not who is best.">
+    <InfoFrame eyebrow="CHANGE ONE RULE · REPLAY · CHECK" title="Fair on paper is not always full participation" summary="Fictional Gate Pass rounds: eight players in two teams of four. Use no-name counts plus player feedback; do not rank people.">
       <div className="info-participation-test">
-        <article><small>ROUND 1 · 12 PLAYERS</small><div className="participation-dots" role="img" aria-label="Five of twelve players joined a ball action; seven mostly waited">{Array.from({ length: 12 }, (_, index) => <i className={index < 5 ? "active" : "waiting"} key={index}>{index < 5 ? "joined" : "waited"}</i>)}</div><strong>5 joined a ball action · 7 mostly waited</strong></article>
+        <article><small>ROUND 1 · 8 PLAYERS</small><div className="participation-dots" role="img" aria-label="Three of eight players received a pass; five mostly waited">{Array.from({ length: 8 }, (_, index) => <i className={index < 3 ? "active" : "waiting"} key={index}>{index < 3 ? "received" : "waited"}</i>)}</div><strong>3 received a pass · 5 mostly waited</strong></article>
         <i>→</i>
-        <article className="rule-change"><small>CHANGE ONE RULE</small><strong>A point counts after four different teammates touch the ball.</strong><p>Keep the space, equipment, and teams the same so the rule is the change being tested.</p></article>
+        <article className="rule-change"><small>CHANGE ONLY THE RESTART RULE</small><strong>On the restarting team, give the ball to someone who has not received a pass in this round; otherwise take turns.</strong><p>Keep the teams, time, space, equipment, gate scoring, and safety rules the same.</p></article>
         <i>→</i>
-        <article><small>ROUND 2 · SAME 12 PLAYERS</small><div className="participation-dots" role="img" aria-label="Ten of twelve players joined a ball action; two mostly waited">{Array.from({ length: 12 }, (_, index) => <i className={index < 10 ? "active" : "waiting"} key={index}>{index < 10 ? "joined" : "waited"}</i>)}</div><strong>10 joined a ball action · 2 mostly waited</strong></article>
+        <article><small>ROUND 2 · SAME 8 PLAYERS</small><div className="participation-dots" role="img" aria-label="Six of eight players received a pass; two mostly waited">{Array.from({ length: 8 }, (_, index) => <i className={index < 6 ? "active" : "waiting"} key={index}>{index < 6 ? "received" : "waited"}</i>)}</div><strong>6 received a pass · 2 mostly waited</strong></article>
       </div>
-      <p className="info-decision-rule"><b>HONEST CLAIM:</b> Participation improved in this trial. One round is not proof that the rule works for everyone; ask players, notice safety and enjoyment, and test again.</p>
+      <p className="info-decision-rule"><b>HONEST CLAIM:</b> More players received a pass in this trial. Counts do not show every useful choice, private feeling, or safety concern. Ask players, observe, and test again before deciding to keep the change.</p>
     </InfoFrame>
   );
   if (experienceId === "effort-meter-trail") return (
@@ -394,6 +396,7 @@ export function LocalIndigenousResourceDock({ experienceId, student = false }: {
     <section className="local-resource-dock">
       <header><span>LOCAL &amp; AUTHENTIC SOURCE ROUTES</span><div><h3>{student ? "Open the exact source your teacher chooses." : "Start with Surrey Schools, Nation-authored, or First Nations-led sources."}</h3><p>{student ? "Keep the speaker, Nation, place, and source attached to what you learn." : "A trusted link is permission to learn from the public source—not blanket permission to copy, remix, or republish its knowledge, maps, audio, stories, or art."}</p></div></header>
       <div>{resources.map(resource => <a key={resource.label} href={resource.url} target="_blank" rel="noreferrer"><span>{resource.authority}</span><strong>{resource.label}</strong><p>{resource.use}</p><small><b>USE WITH CARE:</b> {resource.caution}</small><i>OPEN SOURCE ↗</i></a>)}</div>
+      {!student && <TeacherMediaPreparation urls={resources.map(resource => resource.url)} />}
     </section>
   );
 }

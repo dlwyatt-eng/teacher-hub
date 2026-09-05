@@ -23,6 +23,7 @@ import type { MorningTimelineItem } from "./morning-screen";
 import StudentAgencyDock from "./student-agency-dock";
 import { vancouverDateKey as morningDateKey } from "./morning-screen-state";
 import TeacherHomeOperations from "./teacher-home-operations";
+import { OpeningWeekCockpit, OpeningWelcome } from "./opening-week";
 import { currentLearningWindow } from "./current-learning-phase";
 import { subjects, type Subject } from "./subject-catalog";
 import type { SubjectHubLocation } from "./subject-hub";
@@ -83,12 +84,12 @@ const firstFormedClassWeekSeed: WeekPlanSeed = {
       timing: "2 × 45–55 min",
       day: "tuesday",
       runSteps: [
-        "Look: Place each number near a useful benchmark before you calculate anything.",
-        "Choose: Zoom between the four number lines. Say what each scale can and cannot show.",
-        "Try it: Put six numbers in order and defend the two placements most likely to fool someone.",
-        "Show why: Create one exact visual comparison that makes a surprising size difference clear.",
+        "Read the 0-to-0.01 line. Ten equal intervals mean each jump is 0.001. Model eight jumps to 0.008.",
+        "Keep 0.008 fixed. Predict and reveal its position on 0-to-0.1, then 0-to-1. Explain what changed.",
+        "Model the 2-billion comparison, then let partners try a different large-number card from the workshop.",
+        "Finish with a labelled two-scale comparison and an interval explanation. Use the independent check to choose practice or reteaching.",
       ],
-      notes: "Learning question: Is 0.8 closer to 0 or 1? Where would one billion fit?\nFinish with: A repaired on-screen number line and one clear paper or board comparison.\nKeep the class comparison in Math folders or on the board; no upload.",
+      notes: "Learning question: Where does 0.008 belong when the scale changes?\nFinish with: Two labelled lines showing the same number and an explanation of one equal jump. Use the supplied period chart for a separate large-number comparison.\nKeep the work in Math folders; no upload. The population-percent source is an optional later connection.",
     },
     {
       sourceId: "learning-user-manual",
@@ -332,7 +333,7 @@ function subjectHubLocationFromClassroom(location: ClassroomLocation, subject: S
 }
 
 const standaloneViews = new Set([
-  "Home", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Weekly Plan", "Monthly Calendar",
+  "Home", "Opening Welcome", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Weekly Plan", "Monthly Calendar",
   "Calendar Provocations", "First Week Mission", "TOC & Emergency Plans", "TTOC Day Plan", "Cross-Curricular Projects",
   "Project Template", "Teaching OS Map", "Year Plan", "SpacesEDU Evidence", "AI Activity Studio", "Visual Review Studio",
   "Assessment Studio", "Classroom Guide",
@@ -344,7 +345,7 @@ function normalizeLegacyView(active?: string) {
   return "Home";
 }
 
-const projectorSafePages = new Set(["Home", "First Week Mission", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Calendar Provocations"]);
+const projectorSafePages = new Set(["Home", "Opening Welcome", "First Week Mission", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Calendar Provocations"]);
 
 function isProjectorSafePage(active: string) {
   return projectorSafePages.has(active);
@@ -889,6 +890,8 @@ function ClassroomHome() {
           <SubjectHub key={`${selectedSubject.name}:${subjectNavigationRevision}`} subject={selectedSubject} mode={mode} onBack={goHome} onOpenLesson={openScienceLesson} initialLocation={subjectHubLocation} onLocationChange={updateSubjectHubLocation} />
         ) : active === "Home" ? (
           <Dashboard onSubject={chooseSubject} onNavigate={navigateToPage} onOpenScienceLesson={openScienceLesson} onProjectMorning={projectMorning} morningTimeline={morningTimeline} mode={mode} />
+        ) : active === "Opening Welcome" ? (
+          <OpeningWelcome />
         ) : active === "Morning Screen" ? (
           <MorningScreen audience={mode === "projector" ? "student" : "teacher"} onOpenHome={goHome} timeline={morningTimeline} />
         ) : active === "Newsroom" ? (
@@ -969,7 +972,8 @@ function Dashboard({ onSubject, onNavigate, onOpenScienceLesson, onProjectMornin
 
   return (
     <div className="page dashboard">
-      <TeacherHomeOperations timeline={morningTimeline} onNavigate={onNavigate} onProjectMorning={onProjectMorning} publicSiteHref={STUDENT_FAMILY_SITE_URL} />
+      <OpeningWeekCockpit onNavigate={onNavigate} />
+      <details className="opening-daily-tools"><summary>Daily screen, week plan and classroom tools</summary><TeacherHomeOperations timeline={morningTimeline} onNavigate={onNavigate} onProjectMorning={onProjectMorning} publicSiteHref={STUDENT_FAMILY_SITE_URL} /></details>
       <TeacherDailyLaunchManager />
 
       <section className="subjects-section">

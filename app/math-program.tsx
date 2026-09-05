@@ -14,6 +14,32 @@ const levelCopy: Record<ReadinessLevel, { label: string; time: string; descripti
   review: { label: "Already taught / review", time: "3–6 MIN", description: "Start with the check; reteach only the missed idea." },
 };
 
+export function WholeNumberWorkedModel({ step }: { step?: number }) {
+  return <div className="math-operation-examples">
+    <section data-current={step === undefined || step < 4} aria-label="Worked multiplication: sixteen packs of twenty-three cards">
+      <h4>16 packs, with 23 cards in each</h4>
+      <div className="math-model-operation">
+        <span><small>ESTIMATE</small><b>20 × 20 = 400 cards</b></span><i aria-hidden="true">→</i><span><small>BREAK APART</small><b>230 + 138 = 368 cards</b></span><i aria-hidden="true">→</i><span><small>CHECK ANOTHER WAY</small><b>23 × 8 × 2 = 368 cards</b></span>
+      </div>
+    </section>
+    <section data-current={step === undefined || step >= 4} className="math-division-worked" aria-label="Worked division: nine hundred thirty-six cards divided into packs of twenty-four">
+      <h4>936 cards, with 24 cards in each pack</h4>
+      <p><b>Estimate:</b> 24 × 40 = 960 cards, so expect slightly fewer than 40 packs.</p>
+      <table>
+        <caption>Make some packs. Subtract the cards used. Keep a count of the packs.</caption>
+        <thead><tr><th scope="col">Packs made</th><th scope="col">Cards used</th><th scope="col">Cards left</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Start</th><td>0</td><td>936</td></tr>
+          <tr><th scope="row">30 packs</th><td>30 × 24 = 720</td><td>936 − 720 = 216</td></tr>
+          <tr><th scope="row">9 more packs</th><td>9 × 24 = 216</td><td>216 − 216 = 0</td></tr>
+        </tbody>
+      </table>
+      <p><b>Total:</b> 30 + 9 = 39 packs.</p>
+      <p><b>Check:</b> 39 × 24 = 960 − 24 = 936 cards.</p>
+    </section>
+  </div>;
+}
+
 function MathModelVisual({ pack, step }: { pack: MathSupportPack; step?: number }) {
   if (pack.id === "magnitude-place-value-pack") return <MagnitudeWorkedModel step={step} />;
   if (pack.id === "factors-multiples-pack") return (
@@ -72,11 +98,7 @@ function MathModelVisual({ pack, step }: { pack: MathSupportPack; step?: number 
       </svg>
     </div>
   );
-  if (pack.id === "operations-fluency-pack") return (
-    <div className="math-model-operation" aria-label="Worked multiplication with an estimate, decomposed method, and check">
-      <span><small>ESTIMATE</small><b>20 × 20 ≈ 400</b></span><i>→</i><span><small>BREAK APART</small><b>23 × 10 + 23 × 6</b></span><i>→</i><span><small>EXACT + CHECK</small><b>368 · 368 ÷ 16 = 23</b></span>
-    </div>
-  );
+  if (pack.id === "operations-fluency-pack") return <WholeNumberWorkedModel step={step} />;
   if (pack.id === "fraction-ratio-percent-pack") return (
     <div className="math-fraction-examples">
       <section data-current={step === undefined || step === 0} className="math-quarter-model" aria-label="Seven quarters grouped into one whole and three quarters"><h4>7 quarter pieces = 1 whole + 3 quarters</h4><div>{[4,3].map((filled, group) => <span key={group}>{Array.from({length:4},(_,index)=><i key={index} data-filled={index<filled}>{index<filled ? "¼" : ""}</i>)}</span>)}</div><p>7/4 = 4/4 + 3/4 = 1 3/4</p></section>

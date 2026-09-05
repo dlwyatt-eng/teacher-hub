@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { TeacherMediaPreparation } from "./teacher-media-preparation";
 
 export type StudentTeacherLayerText = string | readonly string[];
 
@@ -89,6 +90,7 @@ export function StudentTeacherLayer({
             <strong>{teacherResource.title}</strong>
             <p>{teacherResource.pausePrompt}</p>
             <div><a href={teacherResource.url} target="_blank" rel="noreferrer">Play ↗</a>{teacherResource.secondary && <a href={teacherResource.secondary.url} target="_blank" rel="noreferrer">Also useful ↗</a>}</div>
+            <TeacherMediaPreparation urls={[teacherResource.url, teacherResource.secondary?.url]} />
           </section>}
 
           <div className="student-teacher-layer__quick">

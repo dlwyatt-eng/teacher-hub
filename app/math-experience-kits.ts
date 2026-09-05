@@ -24,7 +24,7 @@ export const mathExperienceKits: Record<string, ExperienceKit> = {
   },
   "pack-and-sync": {
     setupMinutes: 7,
-    provided: ["Divisibility strip", "Factor-tree cards", "Supply-kit mission", "Sync-timeline mission", "Separate answer key"],
+    provided: ["Prime/composite sorting card", "Divisibility reference strip", "Factor-tree task", "Supply-kit mission card", "Sync-timeline mission card", "Separate answer key"],
     gather: ["Counters or linking cubes", "Paper strips", "Pencils", "Optional two-colour markers"],
     shortRoute: "Sort the numbers, build one factor tree, then solve either the equal-pack GCF mission or repeating-event LCM mission and explain why that tool fits.",
     cards: [

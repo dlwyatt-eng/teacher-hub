@@ -267,7 +267,7 @@ function sceneContractsFor(lesson: ScienceLesson): SceneContract[] {
 
 const sciencePrintContent: Record<string, { title: string; directions: string; sections: { heading: string; prompts: string[] }[] }> = {
   "force-sprint": { title: "Forces readiness evidence", directions: "Respond before the class explanation. Keep your first idea visible, then revise in a different colour.", sections: [
-    { heading: "Six-question record", prompts: ["1. A foot kicks a soccer ball. Which object receives the push? A foot · B ball · C field · D goal", "2. Which force-arrow rule is correct? A beside object/motion · B starts on receiving object, points with force, labelled · C starts on force-maker and points backward · D always down", "3. Skateboard moves right while friction acts left. A instantly left · B same speed · C slows while moving right · D speeds right", "4. Equal opposite pulls predict: A change left · B change right · C no change in motion · D no forces", "5. Book on table: A no forces · B gravity only · C gravity down and table support up · D table pushes sideways", "6. Same push, empty and loaded carts: A lighter changes speed more · B heavier · C equal · D neither", "First answers: 1 ___ 2 ___ 3 ___ 4 ___ 5 ___ 6 ___ · Revised answers: 1 ___ 2 ___ 3 ___ 4 ___ 5 ___ 6 ___", "Answer key after discussion: 1 B · 2 B · 3 C · 4 C · 5 C · 6 A", "One answer I revised and the evidence that changed my thinking: ______________________________"] },
+    { heading: "Six-question record", prompts: ["1. A foot kicks a soccer ball. Which object receives the push? A foot · B ball · C field · D goal", "2. Which force-arrow rule is correct? A beside object/motion · B starts on receiving object, points with force, labelled · C starts on force-maker and points backward · D always down", "3. Skateboard moves right while friction acts left. A instantly left · B same speed · C slows while moving right · D speeds right", "4. Equal opposite pulls predict: A change left · B change right · C no change in motion · D no forces", "5. Book on table: A no forces · B gravity only · C gravity down and table support up · D table pushes sideways", "6. Same push, empty and loaded carts: A lighter changes speed more · B heavier · C equal · D neither", "First answers: 1 ___ 2 ___ 3 ___ 4 ___ 5 ___ 6 ___ · Revised answers: 1 ___ 2 ___ 3 ___ 4 ___ 5 ___ 6 ___", "One answer I revised and the evidence that changed my thinking: ______________________________"] },
     { heading: "Exit model", prompts: ["Draw one object and every important force acting on it.", "Begin each arrow on the receiving object; label the interaction.", "The motion will / will not change because ____________________________"] },
   ] },
   "force-patterns-lab": { title: "Newton-pattern station record", directions: "At every station: predict, change one condition, repeat, and name a limitation.", sections: [
@@ -301,7 +301,7 @@ function sciencePromptClassName(prompt: string) {
   return needsResponse ? "science-pack-response" : "science-pack-source";
 }
 
-function SciencePrintPack({ lesson }: { lesson: ScienceLesson }) {
+export function SciencePrintPack({ lesson }: { lesson: ScienceLesson }) {
   const pack = sciencePrintContent[lesson.id] ?? scienceOfflinePacks[lesson.id] ?? {
     title: `${lesson.title} · no-tech evidence record`,
     directions: "Complete every part. Add labelled sketches, arrows, colour, or borders when they make the science easier to understand. If this page is not printed, use the same headings in a notebook or on folded plain paper.",

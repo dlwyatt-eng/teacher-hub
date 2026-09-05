@@ -7,6 +7,7 @@ import { printClosest } from "./print-support";
 import { aiDilemmasForLesson } from "./ai-literacy";
 import { schoolAIActivitiesForLesson } from "./schoolai-activities";
 import { PLAN_BLOCK_NOTE_MAX } from "./planning-contract";
+import { TeacherMediaPreparation } from "./teacher-media-preparation";
 
 export type TeacherRunSheetMove = {
   title: string;
@@ -192,7 +193,7 @@ export function TeacherRunSheet(props: TeacherRunSheetProps) {
 
       <div className="teacher-run-sheet__ready">
         <section><small>PREP</small>{prep.length ? <ul>{prep.map((item) => <li key={item}>{item}</li>)}</ul> : <p>No special preparation.</p>}</section>
-        {launchResource && <section className="teacher-run-sheet__media"><small>OPEN</small><strong>{launchResource.title}</strong><p>{launchResource.pausePrompt}</p><div><a href={launchResource.url} target="_blank" rel="noreferrer">Play ↗</a>{launchResource.secondary && <a href={launchResource.secondary.url} target="_blank" rel="noreferrer">Also useful ↗</a>}</div></section>}
+        {launchResource && <section className="teacher-run-sheet__media"><small>OPEN</small><strong>{launchResource.title}</strong><p>{launchResource.pausePrompt}</p><div><a href={launchResource.url} target="_blank" rel="noreferrer">Play ↗</a>{launchResource.secondary && <a href={launchResource.secondary.url} target="_blank" rel="noreferrer">Also useful ↗</a>}</div><TeacherMediaPreparation urls={[launchResource.url, launchResource.secondary?.url]} /></section>}
       </div>
 
       <ol className="teacher-run-sheet__route" aria-label="Lesson route">

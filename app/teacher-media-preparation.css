@@ -1,0 +1,15 @@
+.teacher-media-preparation{margin:16px 0;padding:16px;border:1px solid #b7c9c1;border-radius:12px;background:#f6faf7;color:#193c30;overflow-wrap:anywhere}
+.teacher-media-preparation h4{margin:0 0 8px;font:700 18px/1.35 system-ui,sans-serif;color:#193c30}
+.teacher-media-preparation .teacher-media-preparation__boundary{margin:0 0 12px;font:400 15px/1.5 system-ui,sans-serif;color:#334f44}
+.teacher-media-preparation .teacher-media-preparation__plan{margin:0;padding:14px 0;border:0;border-top:1px solid #cddbd4;border-radius:0;background:transparent;color:#193c30}
+.teacher-media-preparation h5{margin:0 0 10px;font:700 17px/1.35 system-ui,sans-serif;color:#193c30}
+.teacher-media-preparation dl{display:block;margin:0}
+.teacher-media-preparation dt{margin:10px 0 3px;font:700 14px/1.4 system-ui,sans-serif;color:#254e3d}
+.teacher-media-preparation dd{margin:0;font:400 15px/1.5 system-ui,sans-serif;color:#334f44}
+.teacher-media-preparation .teacher-media-preparation__direct{margin:12px 0 0}
+.teacher-media-preparation .teacher-media-preparation__direct a{position:static;display:inline-flex;align-items:center;min-height:44px;padding:8px 12px;border:1px solid #254e3d;border-radius:8px;background:#254e3d;color:#fff;font:700 14px/1.4 system-ui,sans-serif;text-decoration:underline}
+.teacher-media-preparation a:focus-visible{outline:3px solid #a66810;outline-offset:3px}
+.teacher-media-preparation summary{font:700 15px/1.5 system-ui,sans-serif;cursor:pointer;padding:10px 0;color:#254e3d}.teacher-media-preparation summary:focus-visible{outline:3px solid #a66810;outline-offset:3px}
+@media print{.teacher-media-preparation details::details-content{display:block!important}.teacher-media-preparation summary{display:none}}
+.math-resource-dock>.teacher-media-preparation,.local-resource-dock>.teacher-media-preparation{margin:14px}
+@media print{.teacher-media-preparation{display:block!important;margin:10px 0;padding:10px;border:1px solid #444;background:#fff!important;box-shadow:none}.teacher-media-preparation h5,.teacher-media-preparation dt{break-after:avoid}.teacher-media-preparation dd{break-inside:avoid}.teacher-media-preparation :is(h4,h5,dt,dd,p){color:#000!important}.teacher-media-preparation .teacher-media-preparation__direct a{min-height:0;background:#fff;color:#000}}

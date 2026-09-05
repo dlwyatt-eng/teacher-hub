@@ -38,6 +38,7 @@ import { projectorReadinessFromSupport, resolveProjectorLessonSupport } from "./
 import { TeacherRunSheet, teacherRunSheetSaveTarget } from "./teacher-run-sheet";
 import { coreCompetencyMovesFor, runSheetAccessibilityFor, runSheetDiscussionMovesFor } from "./learning-lens";
 import { mathAnticsFor } from "./math-antics-routes";
+import { TeacherMediaPreparation } from "./teacher-media-preparation";
 import CurrentConnectionPlayer from "./current-connection";
 import { currentConnectionForLesson } from "./current-connections";
 import { ClassroomCompanion } from "./classroom-companions";
@@ -199,13 +200,13 @@ function MediaStrip({ items, student = false }: { items: ExperienceMedia[]; stud
   const routes = items.filter(item => item.type !== "image");
   if (!routes.length) return null;
   return (
-    <section className={`program-media-strip ${student ? "student-media-strip" : ""}`}>
+    <><section className={`program-media-strip ${student ? "student-media-strip" : ""}`}>
       <header><p className="section-kicker">MEDIA &amp; SOURCES WITH A JOB</p><h3>{student ? "Open only when your teacher asks." : "Every link includes a task and an offline route."}</h3></header>
       <div>{routes.map(item => {
         const content = <><span>{item.type.toUpperCase()}{item.duration ? ` · ${item.duration}` : ""}</span><strong>{item.label}</strong><small>{item.source}</small><p><b>{student ? "Your job: " : "Use it to: "}</b>{student ? item.studentTask : item.purpose}</p><em><b>If it will not open:</b> {item.fallback}</em></>;
         return item.url ? <a key={`${item.type}-${item.label}`} href={item.url} target="_blank" rel="noreferrer">{content}<i>OPEN ↗</i></a> : <article key={`${item.type}-${item.label}`}>{content}</article>;
       })}</div>
-    </section>
+    </section>{!student && <TeacherMediaPreparation urls={routes.map(item => item.url)} />}</>
   );
 }
 
@@ -258,6 +259,7 @@ function MathResourceDock({ experience }: { experience: ProgramExperience }) {
       </div>
       <div className="math-resource-topics">{topics.map(topic => <span key={`${topic.strand}-${topic.title}`}><b>{topic.strand}</b>{topic.starred && "★ "}{topic.title}<small>{topic.timing}</small></span>)}</div>
       <footer><a href={mathAntics?.url ?? mathResourceRoutes.mathAntics} target="_blank" rel="noreferrer">Open Math Antics{mathAntics ? ` · ${mathAntics.title}` : " library"} ↗</a>{mathAntics?.secondary && <a href={mathAntics.secondary.url} target="_blank" rel="noreferrer">Also useful · {mathAntics.secondary.title} ↗</a>}{experience.id === "magnitude-gallery" && <a href="https://apps.mathlearningcenter.org/number-line/" target="_blank" rel="noreferrer">Open free number-line tool ↗</a>}<a href={mathResourceRoutes.mathUp} target="_blank" rel="noreferrer">Open school MathUP access ↗</a><p>Math Antics is optional explanation support. MathUP remains the curriculum cross-check and optional game/practice shelf. This site supplies the shared-screen model and investigation.</p></footer>
+      {mathAntics && <TeacherMediaPreparation urls={[mathAntics.url, mathAntics.secondary?.url]} />}
     </section>
   );
 }
@@ -341,8 +343,24 @@ function PacketRescueVisualPicker({ images }: { images: ExperienceMedia[] }) {
   </section>;
 }
 
+function CareerCaseCards({ experienceId }: { experienceId: string }) {
+  const kit = experienceKits[experienceId];
+  const digital = experienceId === "digital-identity-forensics";
+  const sourceCount = digital ? 4 : 3;
+  return <ProjectorCaseDeck
+    cards={kit.cards.slice(0, sourceCount)}
+    title={digital ? "Rowan's fictional Maker Page" : "Two team challenges and an action note"}
+    mission={digital ? "Read the made-up page and posts. Point to a fact before making a guess." : "Read the sample note, then try both challenges with rotating roles."}
+    nextMove={digital ? "Start with the audience setting. Then open each post." : "Find the action, moment, and result in the sample note."}
+    eyebrow="READ THE SUPPLIED CASE"
+    cardNoun="SOURCE CARD"
+    progressNoun="SOURCE CARDS DISCUSSED"
+  />;
+}
+
 function ExactAnchorVisual({ experience, media }: { experience: ProgramExperience; media: ExperienceMedia[] }) {
   const image = media.find(item => item.type === "image" && item.localSrc);
+  if (experience.id === "digital-identity-forensics" || experience.id === "strengths-action-quest") return <CareerCaseCards experienceId={experience.id} />;
   if (experience.id === "ordinary-object-story") return <ObjectStoryImagePicker images={media.filter((item) => item.type === "image" && item.localSrc)} />;
   if (experience.id === "packet-rescue") return <PacketRescueVisualPicker images={media.filter((item) => item.type === "image" && item.localSrc)} />;
   if (experience.id === "everyone-in-game") return <>
@@ -350,7 +368,25 @@ function ExactAnchorVisual({ experience, media }: { experience: ProgramExperienc
       <Image unoptimized src={image.localSrc!} alt="Illustrated school field where Grade 6 students contribute through passing, signalling, observing, adjusting boundaries, resting, and rejoining" width={1672} height={941} sizes="(max-width: 900px) 100vw, 1100px" />
       <figcaption><span>FICTIONAL GAME SCENE · NOTICE BEFORE CHANGING</span><strong>{image.label}</strong><p>{image.studentTask}</p></figcaption>
     </figure>}
-    <section className="game-court-visual" aria-label="Top-down court diagram for the no-elimination passing game"><header><span>BASE GAME · TOP VIEW</span><strong>Five passes to five different teammates</strong></header><div><i>START</i>{["A", "B", "C", "D", "E", "F", "G", "H"].map((label, index) => <b key={label} className={`player-${index + 1}`}>{label}</b>)}<em>SAFE EDGE</em></div><p>Spread out, keep heads up, use soft equipment, and offer a seated or walking route.</p></section>
+    <section className="game-court-visual" aria-label="Top-down Gate Pass court with four cone gates and two teams of four">
+      <header><span>GATE PASS · TOP VIEW</span><strong>Pass through a cone gate to a teammate to score</strong></header>
+      <svg className="gate-pass-court" viewBox="0 0 720 360" role="img" aria-labelledby="gate-pass-title gate-pass-description">
+        <title id="gate-pass-title">Four cone gates and eight players</title>
+        <desc id="gate-pass-description">Four pairs of cones form gates inside the court. Team A has players A1 to A4, and team B has B1 to B4. These are example positions, not assigned spots.</desc>
+        <rect x="6" y="6" width="708" height="348" rx="16" fill="#315f4d" stroke="#f4eed7" strokeWidth="6" />
+        {[[240,90],[480,90],[240,270],[480,270]].map(([x,y],index) => <g key={index} data-cone-gate={index + 1}>
+          <rect x={x - 40} y={y - 10} width="16" height="20" rx="3" fill="#ffd17a" stroke="#fff" strokeWidth="2" />
+          <rect x={x + 24} y={y - 10} width="16" height="20" rx="3" fill="#ffd17a" stroke="#fff" strokeWidth="2" />
+          <path d={`M ${x - 22} ${y} h 44`} stroke="#fff" strokeWidth="2" strokeDasharray="5 4" />
+          <text x={x} y={y + 34} fill="#fff" textAnchor="middle" fontSize="18">Gate {index + 1}</text>
+        </g>)}
+        {[{x:80,y:90,label:"A1"},{x:155,y:180,label:"A2"},{x:310,y:310,label:"A3"},{x:325,y:45,label:"A4"},{x:640,y:90,label:"B1"},{x:565,y:180,label:"B2"},{x:410,y:310,label:"B3"},{x:395,y:45,label:"B4"}].map(player => <g key={player.label} data-gate-player={player.label}>
+          <circle cx={player.x} cy={player.y} r="22" fill={player.label.startsWith("A") ? "#f4d59a" : "#d6ebf2"} stroke="#fff" strokeWidth="3" />
+          <text x={player.x} y={player.y + 6} textAnchor="middle" fontSize="18" fontWeight="700" fill="#193729">{player.label}</text>
+        </g>)}
+      </svg>
+      <p>Two teams of four are shown. Use four cone gates. Hold for three counts, use a soft ball, and defend without contact. Offer walking, wheeling, rolling, or seated routes. Nobody is eliminated.</p>
+    </section>
   </>;
   const imageAlt = image?.alt ?? (experience.id === "edit-room"
     ? "Wide fictional school art-room scene showing a calm, supervised cleanup after supplies spill while other activities continue"
@@ -467,9 +503,8 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
   const currentConnection = currentConnectionForLesson(experience.id);
   const activityModelSets = proficiencyModelSetsForActivity(experience.id);
   const sourceMosaicOfflineRoute = "Use one printed Static Source Pack at the projector or teacher table, or one per group. Read each source aloud, match jobs on the board, choose two evidence pieces, then build the claim and limit on paper.";
-  const runSteps = currentConnection
-    ? [{ title: "Source Lab · Quick Look", action: "Open the named source on the projector. Move through Look, Notice, Claim, and Next as one class; students can point, talk, use the board, or use paper.", finishCheck: "The class builds one careful sentence that includes the source date or status and names what the source cannot prove." }, ...studentContract.steps]
-    : studentContract.steps;
+  const sourceStep = { title: experience.id === "magnitude-gallery" ? "Optional later source connection" : "Source Lab · Quick Look", minutes: undefined as string | undefined, action: "Open the named source on the projector. Move through Look, Notice, Claim, and Next as one class; students can point, talk, use the board, or use paper.", finishCheck: "The class builds one careful sentence that includes the source date or status and names what the source cannot prove." };
+  const runSteps = !currentConnection ? studentContract.steps : experience.id === "magnitude-gallery" ? [...studentContract.steps, sourceStep] : [sourceStep, ...studentContract.steps];
   const teacherRunSteps = runSteps.map((step, index) => ({ ...step, minutes: step.minutes ?? artsStepMinutes[experience.id]?.[index] }));
   const mathAntics = program.subject === "Mathematics" ? mathAnticsFor(experience.id) : null;
   const dailyLaunch = {
@@ -693,8 +728,6 @@ const knownEmptyLookExperienceIds = new Set([
   "cold-test-prototype",
   "science-design-series",
   "cosmic-mission-control",
-  "strengths-action-quest",
-  "digital-identity-forensics",
   "leadership-relay",
   "strategy-remix-league",
   "strategy-league",

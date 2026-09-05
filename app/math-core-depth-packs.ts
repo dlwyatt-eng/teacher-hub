@@ -142,7 +142,7 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       "Choose the greatest common factor and prove what belongs in each pack.",
       "Tap, step, list, or draw two repeating sequences and circle every meeting point.",
       "Choose the least positive common multiple and connect it to the first meeting time.",
-      "Sort new stories into factor, multiple, or not enough information, then justify the clue used.",
+      "Compare the supplied packing and flashing-light stories, then explain why each needs factors or multiples.",
     ],
     supplied: ["Twelve-pack diagram","Factor lists and flashing-light times","Worked steps, practice and independent check","Separate teacher answers"],
     gather: ["Two colours of counters or small objects", "Paper plates, hoops, or drawn group circles", "Timeline strips", "Pencils"],

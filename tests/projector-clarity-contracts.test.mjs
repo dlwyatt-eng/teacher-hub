@@ -55,8 +55,6 @@ test("known empty Look routes are suppressed unless real media or an authored ex
     "cold-test-prototype",
     "science-design-series",
     "cosmic-mission-control",
-    "strengths-action-quest",
-    "digital-identity-forensics",
     "leadership-relay",
     "strategy-remix-league",
     "strategy-league",

@@ -754,7 +754,7 @@ export const scienceUnits: ScienceUnit[] = [
         teacherPrep: {
           beforeClass: ["Open the six-question check and test full-screen visibility.", "Prepare A–D response cards or mini whiteboards.", "Open the three on-screen clinic cards: arrows, balanced forces, same force/different mass."],
           displayOrPrint: ["One-object force-arrow example", "Balanced/unbalanced comparison", "Exit-ticket frame"],
-          answerKey: ["A force arrow begins on the receiving object, points in the force direction, and names the interaction.", "Balanced forces give a net force of zero; this does not require the object to be at rest.", "With the same applied force, a smaller mass has a larger change in motion than a larger mass."],
+          answerKey: ["Six-question readiness key, for discussion after independent responses: 1 B · 2 B · 3 C · 4 C · 5 C · 6 A.", "A force arrow begins on the receiving object, points in the force direction, and names the interaction.", "Balanced forces give a net force of zero; this does not require the object to be at rest.", "With the same applied force, a smaller mass has a larger change in motion than a larger mass."],
           lowPrepAlternative: "Run the six questions as a whole-class vote and use only the on-screen clinics. Students respond on scrap paper.",
         },
         misconception: "A force arrow shows the direction an object is moving. It shows a force acting on a named object; motion and force can point in different directions.",
