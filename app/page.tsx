@@ -43,6 +43,8 @@ const MorningScreen = lazy(() => import("./morning-screen"));
 const NewsroomHub = lazy(() => import("./student-agency-hub").then((module) => ({ default: module.NewsroomHub })));
 const MyInquiryHub = lazy(() => import("./student-agency-hub").then((module) => ({ default: module.MyInquiryHub })));
 const MonthlyCalendar = lazy(() => import("./monthly-calendar"));
+const CalendarProvocationsPage = lazy(() => import("./calendar-provocations-page"));
+const TocResourceLibrary = lazy(() => import("./toc-resource-library"));
 const VisualReviewStudio = lazy(() => import("./visual-review-studio"));
 const ProficiencyModelsLibrary = lazy(() => import("./proficiency-models-panel").then((module) => ({ default: module.ProficiencyModelsLibrary })));
 
@@ -325,11 +327,20 @@ function subjectHubLocationFromClassroom(location: ClassroomLocation, subject: S
   };
 }
 
+const standaloneViews = new Set([
+  "Home", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Weekly Plan", "Monthly Calendar",
+  "Calendar Provocations", "First Week Mission", "TOC & Emergency Plans", "TTOC Day Plan", "Cross-Curricular Projects",
+  "Project Template", "Teaching OS Map", "Year Plan", "SpacesEDU Evidence", "AI Activity Studio", "Visual Review Studio",
+  "Assessment Studio", "Classroom Guide",
+]);
+
 function normalizeLegacyView(active?: string) {
-  return active === "Model Lesson" || active === "Lesson Template" ? "Home" : active;
+  if (!active || active === "Model Lesson" || active === "Lesson Template") return active ? "Home" : undefined;
+  if (standaloneViews.has(active) || subjects.some((subject) => subject.short === active)) return active;
+  return "Home";
 }
 
-const projectorSafePages = new Set(["Home", "First Week Mission", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab"]);
+const projectorSafePages = new Set(["Home", "First Week Mission", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Calendar Provocations"]);
 
 function isProjectorSafePage(active: string) {
   return projectorSafePages.has(active);
@@ -385,8 +396,8 @@ const siteReadiness = [
   { label: "Language Arts & Mathematics", detail: "All 29 signature experiences now use reviewed student directions, exact finish evidence, accessible routes, and clearer Student projection views; priority activities include levelled examples with visible next steps", color: "#eee4f4", state: "CLASSROOM-READY CORE · REFINE IN USE" },
   { label: "Arts · ADST · PHE · Career", detail: "Distinct subject pathways now share the same launch standard: clear purpose, usable sequence, access and offline routes, honest evidence, and privacy-safe save decisions", color: "#e4eee7", state: "CLASSROOM-READY CORE · REFINE IN USE" },
   { label: "Claims lesson", detail: "The lesson now uses a simple whole-class Two Lies and a Truth game: students vote, defend the truth with source evidence, and then trace a rumour to its first source", color: "#dce7f4", state: "REBUILT · VERIFY IN CLASS" },
-  { label: "Science", detail: "All 19 lessons were checked for sequence, preparation, evidence, and projection; only audited lessons keep a ready label while corrections continue", color: "#d9e9df", state: "AUDIT IN PROGRESS" },
-  { label: "Social Studies", detail: "All four units now have first-pass experiences: games, movement, physical data, system webs, authentic source comparisons, prototype studios, and expert teaching", color: "#f4e6c9", state: "4-UNIT BASELINE · ADJUST IN USE" },
+  { label: "Science", detail: "All 19 lessons were checked for sequence, preparation, evidence, offline delivery, and projection, with complete classroom routes across the four strands", color: "#d9e9df", state: "CLASSROOM-READY CORE · REFINE IN USE" },
+  { label: "Social Studies", detail: "All four units now include classroom-ready source work, simulations, systems thinking, evidence protocols, projection inquiry, and expert teaching", color: "#f4e6c9", state: "CLASSROOM-READY CORE · REFINE IN USE" },
   { label: "Build direction", detail: "Build broad, enjoyable curriculum coverage now; refine individual lessons when the real class schedule, student needs, and current events make the next decision meaningful", color: "#e8def4", state: "BUILD · TEACH · ADJUST" },
 ];
 
@@ -428,9 +439,9 @@ const recentUpdates = [
   },
   {
     id: "integrated-programs",
-    title: "Arts, PHE & Career · first-pass pathways",
+    title: "Arts, PHE & Career · classroom-ready pathways",
     date: "Aug. 12, 2026",
-    detail: "Added four arcs and six signature experiences for Arts, PHE, and Career, with dedicated mini-studios, authentic links to Social Studies and Science, access and safety guidance, and no extra upload stream.",
+    detail: "Completed the four-arc and six-studio Arts pathway plus reviewed PHE and Career experiences, with task-specific models, access and safety guidance, authentic cross-curricular links, and no extra upload stream.",
     destination: "Arts Education",
   },
   {
@@ -548,6 +559,9 @@ function ClassroomHome() {
   const teacherOnlyInitialDestination = !initialSubject && !initialScienceLessonId && !isProjectorSafePage(initialActive);
   const initialMode = initialLocation.mode ?? "teacher";
   const [mode, setMode] = useState<"teacher" | "projector">(initialMode);
+  const [largeText, setLargeText] = useState(() => {
+    try { return window.localStorage.getItem("wyatt-large-text-v1") === "true"; } catch { return false; }
+  });
   const [active, setActive] = useState(initialMode === "projector" && teacherOnlyInitialDestination ? "Home" : initialActive);
   const [selectedSubject, setSelectedSubject] = useState<Subject | null>(initialSubject);
   const [selectedScienceLessonId, setSelectedScienceLessonId] = useState<string | null>(initialScienceLessonId);
@@ -563,6 +577,10 @@ function ClassroomHome() {
   const navigationFocusReadyRef = useRef(false);
   const locationCanonicalizedRef = useRef(false);
   const announcement = `${selectedScienceLessonId ? "Science lesson" : selectedSubject?.short ?? active} opened in ${mode === "projector" ? "Projector" : "Plan"} view.`;
+
+  useEffect(() => {
+    try { window.localStorage.setItem("wyatt-large-text-v1", String(largeText)); } catch {}
+  }, [largeText]);
   const closeDrawerTo = (destination: "menu" | "main") => {
     setSidebarOpen(false);
     window.requestAnimationFrame(() => (destination === "menu" ? menuButtonRef.current : mainContentRef.current)?.focus({ preventScroll: true }));
@@ -757,12 +775,12 @@ function ClassroomHome() {
   const contextCurriculumLabel = selectedSubject?.short ?? (selectedScienceLessonId || active === "Science Lesson" ? "Science" : "Grade 6");
 
   return (
-    <div className={`app-shell ${mode === "projector" ? "projector-shell" : ""}`}>
+    <div className={`app-shell ${mode === "projector" ? "projector-shell" : ""} ${largeText ? "large-text-mode" : ""}`}>
       <a className="skip-link" href="#main-content" tabIndex={sidebarOpen ? -1 : undefined}>Skip to main content</a>
       <aside ref={sidebarRef} id="primary-sidebar" className={`sidebar ${sidebarOpen ? "open" : ""}`}>
         <div className="brand" aria-label="Mr. Wyatt's Teacher Hub">
           <span className="brand-mark"><span>W</span></span>
-          <span><strong>Mr. Wyatt&apos;s</strong><small>TEACHER HUB · PRIVATE</small></span>
+          <span><strong>Mr. Wyatt&apos;s</strong><small>TEACHER HUB · TEACHER-FACING</small></span>
         </div>
 
         <nav aria-label="Main navigation">
@@ -796,7 +814,8 @@ function ClassroomHome() {
             { label: "First Week Mission", icon: "✦" },
             { label: "Weekly Plan", icon: "▤" },
             { label: "Monthly Calendar", icon: "▦" },
-            { label: "TTOC Day Plan", icon: "☷" },
+            { label: "Calendar Provocations", icon: "◇" },
+            { label: "TOC & Emergency Plans", icon: "☷" },
             { label: "Teaching OS Map", icon: "⧉" },
             { label: "Year Plan", icon: "▥" },
             { label: "Cross-Curricular Projects", icon: "✣" },
@@ -833,6 +852,7 @@ function ClassroomHome() {
           <div className="breadcrumbs"><span>{mode === "teacher" ? "Plan / TTOC" : "Teach / Project"}</span><b>/</b><strong>{active}</strong></div>
           <div className="top-actions">
             <SiteSearch audience={mode === "teacher" ? "teacher" : "student"} onNavigate={openSearchTarget} />
+            <button type="button" className="large-text-toggle" aria-pressed={largeText} onClick={() => setLargeText((value) => !value)}><span aria-hidden="true">Aa</span><strong>{largeText ? "Standard text" : "Large text"}</strong></button>
             <a className="context-curriculum-link" href={contextCurriculumUrl} target="_blank" rel="noreferrer">
               <span>BC</span><strong>{contextCurriculumLabel} curriculum</strong><b>↗</b>
             </a>
@@ -863,8 +883,12 @@ function ClassroomHome() {
           <div className="page"><SchoolYearWeeklyPlan key={weeklyPlanLaunchId ?? "suggested"} initialLaunchId={weeklyPlanLaunchId} specialLaunches={specialSeptemberWeekLaunches} /></div>
         ) : active === "Monthly Calendar" ? (
           <div className="page"><MonthlyCalendar onOpenWeek={() => navigateToPage("Weekly Plan")} /></div>
+        ) : active === "Calendar Provocations" ? (
+          <CalendarProvocationsPage audience={mode === "projector" ? "student" : "teacher"} onHome={goHome} />
         ) : active === "First Week Mission" ? (
           <div className="page"><FirstWeekMission audience={mode === "projector" ? "student" : "teacher"} /></div>
+        ) : active === "TOC & Emergency Plans" ? (
+          <TocResourceLibrary onHome={goHome} onOpenTtocPlan={() => navigateToPage("TTOC Day Plan")} />
         ) : active === "TTOC Day Plan" ? (
           <div className="page"><SchoolYearTtocDayPlan specialLaunches={specialSeptemberWeekLaunches} /></div>
         ) : active === "Cross-Curricular Projects" || active === "Project Template" ? (
@@ -883,9 +907,7 @@ function ClassroomHome() {
           <AssessmentStudioPage mode={mode} onHome={goHome} />
         ) : active === "Classroom Guide" ? (
           <ClassroomGuidePage mode={mode} onHome={goHome} />
-        ) : (
-          <PlaceholderPage title={active} onHome={goHome} />
-        )}
+        ) : <Dashboard onSubject={chooseSubject} onNavigate={navigateToPage} onOpenScienceLesson={openScienceLesson} onProjectMorning={projectMorning} morningTimeline={morningTimeline} mode={mode} />}
         </Suspense>
         </RouteErrorBoundary>
       </main>
@@ -1027,7 +1049,8 @@ function Dashboard({ onSubject, onNavigate, onOpenScienceLesson, onProjectMornin
           <button onClick={() => onNavigate("Morning Screen")}><span>☀</span><strong>Morning Screen</strong><small>Shape of day + reviewed arrival challenge</small></button>
           <button onClick={() => onNavigate("First Week Mission")}><span>✦</span><strong>Opening rotations</strong><small>5 standalone organizers · 45 / 60 / 75 min</small></button>
           <button onClick={() => onNavigate("Weekly Plan")}><span>▤</span><strong>Weekly plan</strong><small>Auto-filled launch week</small></button>
-          <button onClick={() => onNavigate("TTOC Day Plan")}><span>☷</span><strong>TTOC day plan</strong><small>Build and print one day</small></button>
+          <button onClick={() => onNavigate("Calendar Provocations")}><span>◇</span><strong>Calendar provocations</strong><small>7 inquiry-ready dates</small></button>
+          <button onClick={() => onNavigate("TOC & Emergency Plans")}><span>☷</span><strong>TOC &amp; emergency plans</strong><small>Day plan + fallback library</small></button>
           <button onClick={() => onNavigate("Year Plan")}><span>▦</span><strong>Year plan</strong><small>September–June</small></button>
           <button onClick={() => onNavigate("AI Activity Studio")}><span>AI</span><strong>AI activity studio</strong><small>Curated prompt-ready SchoolAI packs</small></button>
           <button onClick={() => onNavigate("AI Tensions Lab")}><span>↔</span><strong>AI tensions lab</strong><small>12 reusable human / AI / both dilemmas</small></button>
@@ -1234,18 +1257,6 @@ function ClassroomGuidePage({ mode, onHome }: { mode: "teacher" | "projector"; o
       {section === "Things to know" && <section className="things-grid">{thingsToKnow.map(([title, detail], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><h2>{title}</h2><p>{detail}</p></div></article>)}</section>}
 
       <section className="guide-footer-note"><span>@</span><div><strong>Primary family communication</strong><p>Use <a href="mailto:wyatt_daryl@surreyschools.ca?subject=Grade%206%20family%20communication">wyatt_daryl@surreyschools.ca</a> for questions and to arrange meetings. Add a response-time expectation, daily schedule, PHE/library days, dismissal routines, supplies, and current school policies once confirmed.</p></div></section>
-    </div>
-  );
-}
-
-function PlaceholderPage({ title, onHome }: { title: string; onHome: () => void }) {
-  return (
-    <div className="page placeholder-page">
-      <button className="back-link" onClick={onHome}>← Classroom home</button>
-      <p className="eyebrow">CLASSROOM WORKSPACE</p>
-      <h1>{title}</h1>
-      <p>This workspace is structured and ready for the next phase.</p>
-      <div className="large-placeholder"><span>✦</span><h2>A focused space for {title.toLowerCase()}</h2><p>Tools and content will appear here as the classroom platform grows.</p></div>
     </div>
   );
 }

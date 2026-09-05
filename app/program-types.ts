@@ -54,6 +54,7 @@ export type WordHelp = {
 export type ExperienceMedia = {
   type: "image" | "audio" | "video" | "article" | "website" | "activity" | "interactive" | "map" | "data";
   label: string;
+  alt?: string;
   source: string;
   purpose: string;
   studentTask: string;

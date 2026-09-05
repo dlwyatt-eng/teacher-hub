@@ -55,8 +55,8 @@ const lenses: readonly ScaleLens[] = [
     title: "How far across is the same decimal?",
     invitation: "Pick any mixed-up card. The class decides where it belongs before the location appears.",
     cards: [
-      { id: "decimal-08", label: "0.08", spoken: "eight hundredths", value: 0.08 },
       { id: "decimal-008", label: "0.008", spoken: "eight thousandths", value: 0.008 },
+      { id: "decimal-08", label: "0.08", spoken: "eight hundredths", value: 0.08 },
       { id: "decimal-8", label: "0.8", spoken: "eight tenths", value: 0.8 },
     ],
     views: [
@@ -290,13 +290,13 @@ export function MathNumberScaleLab({ audience = "student" }: MathNumberScaleLabP
   const titleId = useId();
   const [lensIndex, setLensIndex] = useState(0);
   const [viewIndex, setViewIndex] = useState(0);
-  const [selectedCardId, setSelectedCardId] = useState<string | null>("decimal-8");
+  const [selectedCardId, setSelectedCardId] = useState<string | null>("decimal-008");
   const [prediction, setPrediction] = useState<Prediction>(null);
   const [revealed, setRevealed] = useState(false);
   const [previous, setPrevious] = useState<PreviousView | null>(null);
   const [feedback, setFeedback] = useState<Feedback | null>(null);
   const [mixTurns, setMixTurns] = useState(() => lenses.map((_, index) => index + 1));
-  const [announcement, setAnnouncement] = useState("Start with 0.8 on the 0-to-1 line. Read the endpoints and one equal jump before predicting.");
+  const [announcement, setAnnouncement] = useState("Start with 0.008 on the 0-to-1 line. Read the endpoints and one equal jump before predicting.");
 
   const lens = lenses[lensIndex] ?? lenses[0];
   const view = lens.views[viewIndex] ?? lens.views[0];
@@ -308,12 +308,12 @@ export function MathNumberScaleLab({ audience = "student" }: MathNumberScaleLabP
     const next = lenses[index] ?? lenses[0];
     setLensIndex(index);
     setViewIndex(0);
-    setSelectedCardId(index === 0 ? "decimal-8" : null);
+    setSelectedCardId(index === 0 ? "decimal-008" : null);
     setPrediction(null);
     setRevealed(false);
     setPrevious(null);
     setFeedback(null);
-    setAnnouncement(index === 0 ? "Tiny decimals open. Start with 0.8 on the 0-to-1 line." : `${next.tab} open. Choose one card, read the scale, and predict.`);
+    setAnnouncement(index === 0 ? "Tiny decimals open. Start with 0.008 on the 0-to-1 line." : `${next.tab} open. Choose one card, read the scale, and predict.`);
   };
 
   const chooseCard = (card: NumberCard) => {
@@ -375,12 +375,12 @@ export function MathNumberScaleLab({ audience = "student" }: MathNumberScaleLabP
   const reset = () => {
     setLensIndex(0);
     setViewIndex(0);
-    setSelectedCardId("decimal-8");
+    setSelectedCardId("decimal-008");
     setPrediction(null);
     setRevealed(false);
     setPrevious(null);
     setFeedback(null);
-    setAnnouncement("Scale City reset. Start with 0.8 on the 0-to-1 line.");
+    setAnnouncement("Scale City reset. Start with 0.008 on the 0-to-1 line.");
   };
 
   return (
@@ -389,9 +389,9 @@ export function MathNumberScaleLab({ audience = "student" }: MathNumberScaleLabP
         <div>
           <small>SCALE CITY · SAME NUMBER, NEW SCALE</small>
           <h2 id={titleId}>The number stays. The scale changes.</h2>
-          <p>Start with 0.8 on the 0-to-1 line. Predict its spot, reveal it, then change only the endpoint and predict again.</p>
+          <p>Start with 0.008 on the 0-to-1 line. It remains visible on all three decimal scales. Then use 0.8 as the deliberate off-scale challenge.</p>
         </div>
-        <aside><strong>START HERE · 0.8 ON 0 → 1</strong><span>Say the number, both endpoints, and one equal jump before anyone predicts.</span></aside>
+        <aside><strong>START HERE · 0.008 ON 0 → 1</strong><span>Say the number, both endpoints, and one equal jump before anyone predicts.</span></aside>
       </header>
 
       <section className="number-scale-class-routine" aria-label="Shared-screen class routine">
@@ -418,7 +418,7 @@ export function MathNumberScaleLab({ audience = "student" }: MathNumberScaleLabP
         </header>
 
         <section className="number-scale-card-area">
-          <div className="number-scale-card-heading"><div><small>CHOOSE A NUMBER</small><h4>Begin with 0.8. Then try another.</h4><p>Say each card aloud. Keep one number fixed while the scale changes.</p></div><button type="button" onClick={mixAgain}>Mix cards ↻</button></div>
+          <div className="number-scale-card-heading"><div><small>CHOOSE A NUMBER</small><h4>Begin with 0.008. Save 0.8 for the off-scale challenge.</h4><p>Say each card aloud. Keep one number fixed while the scale changes.</p></div><button type="button" onClick={mixAgain}>Mix cards ↻</button></div>
           <div className="number-scale-card-deck">
             {cards.map((card, index) => (
               <button type="button" key={card.id} aria-label={`Card ${index + 1}: ${card.spoken}`} aria-pressed={selectedCard?.id === card.id} onClick={() => chooseCard(card)}>

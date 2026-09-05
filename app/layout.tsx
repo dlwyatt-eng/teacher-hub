@@ -62,7 +62,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Mr. Wyatt's Teacher Hub",
   description:
-    "A private Grade 6 teacher workspace for lesson preparation, projection, assessment, and the BC curriculum.",
+    "A teacher-facing Grade 6 workspace for lesson preparation, projection, assessment, and the BC curriculum.",
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: { index: false, follow: false, noimageindex: true },
+  },
   other: {
     "codex-preview": "development",
   },

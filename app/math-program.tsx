@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { mathFluencyRhythm, mathPacksFor, mathSupportPacks, mathYearSequence, pairedMathUpTopics, type MathSupportPack } from "./math-program-supports";
+import { MathDeliveryModePanel } from "./math-delivery-mode-panel";
 import type { LearningProgram, ReadinessLevel } from "./program-types";
 import { printClosest } from "./print-support";
 
@@ -12,6 +13,48 @@ const levelCopy: Record<ReadinessLevel, { label: string; time: string; descripti
 };
 
 function MathModelVisual({ pack }: { pack: MathSupportPack }) {
+  if (pack.id === "magnitude-place-value-pack") return (
+    <div className="math-model-magnitude">
+      <svg viewBox="0 0 640 205" role="img" aria-label="The number zero point zero zero eight shown on three number lines: very close to zero on a zero-to-one line, eight percent across a zero-to-zero-point-one line, and eighty percent across a zero-to-zero-point-zero-one line">
+        <title>The value 0.008 stays fixed while its visible position changes with the scale.</title>
+        <g><text x="18" y="28">0 to 1</text><path d="M110 24H600"/><circle cx="114" cy="24" r="7"/><text className="marker-label" x="125" y="30">0.008 · 0.8% across</text><text x="104" y="49">0</text><text x="590" y="49">1</text></g>
+        <g><text x="18" y="94">0 to 0.1</text><path d="M110 90H600"/><circle cx="149" cy="90" r="7"/><text className="marker-label" x="162" y="96">0.008 · 8% across</text><text x="104" y="115">0</text><text x="578" y="115">0.1</text></g>
+        <g><text x="18" y="160">0 to 0.01</text><path d="M110 156H600"/><circle cx="502" cy="156" r="7"/><text className="marker-label" x="390" y="146">0.008 · 80% across</text><text x="104" y="181">0</text><text x="568" y="181">0.01</text></g>
+      </svg>
+      <p><b>SAME VALUE</b><span>0.008 = eight thousandths</span><small>Read the endpoints. Divide the interval. Then place the number.</small></p>
+    </div>
+  );
+  if (pack.id === "factors-multiples-pack") return (
+    <div className="math-model-factors" role="img" aria-label="A packing model uses the greatest common factor of twenty-four and thirty-six to make twelve packs, while timelines show twenty-four and thirty-six first meeting at seventy-two">
+      <section><small>FIXED SUPPLIES · GCF</small><div>{Array.from({ length: 12 }, (_, index) => <i key={index}><b>2</b><b>3</b></i>)}</div><p><strong>24 ÷ 12 = 2</strong><strong>36 ÷ 12 = 3</strong></p><em>12 greatest identical packs</em></section>
+      <section><small>REPEATING CYCLES · LCM</small><div className="math-cycle-row"><b>24</b><span>24</span><span>48</span><mark>72</mark></div><div className="math-cycle-row"><b>36</b><span>36</span><mark>72</mark></div><em>72 is the first shared meeting</em></section>
+    </div>
+  );
+  if (pack.id === "pattern-relations-pack") return (
+    <div className="math-model-patterns" role="img" aria-label="An increasing pattern seven, eleven, fifteen, nineteen with rule four n plus three and a decreasing pattern forty-two, thirty-seven, thirty-two, twenty-seven with rule forty-two minus five times n minus one">
+      <section><header><small>INCREASING · +4</small><b>4n + 3</b></header><div><span>STAGE</span>{[1, 2, 3, 4].map(value => <b key={value}>{value}</b>)}<span>VALUE</span>{[7, 11, 15, 19].map(value => <i key={value}>{value}</i>)}</div><p>Stage 10: 4(10)+3 = <strong>43</strong></p></section>
+      <section><header><small>DECREASING · −5</small><b>42 − 5(n−1)</b></header><div><span>STAGE</span>{[1, 2, 3, 4].map(value => <b key={value}>{value}</b>)}<span>VALUE</span>{[42, 37, 32, 27].map(value => <i key={value}>{value}</i>)}</div><p>Stage 9: 2 · Stage 10: −3 <strong>→ context stops</strong></p></section>
+    </div>
+  );
+  if (pack.id === "one-step-equations-pack") return (
+    <div className="math-model-equation" role="img" aria-label="A balance model solves x plus four equals eleven by removing four from both sides, leaving x equals seven, then checks seven plus four equals eleven">
+      <section><b>x + 4</b><i>=</i><b>11</b></section><p>remove 4 from <strong>both</strong> sides</p><section><b>x</b><i>=</i><b>7</b></section><p className="math-equation-check">CHECK · 7 + 4 = 11 ✓</p>
+    </div>
+  );
+  if (pack.id === "first-quadrant-transformations-pack") return (
+    <div className="math-model-transformations">
+      <svg viewBox="0 0 770 255" role="img" aria-label="A five-point figure in the first quadrant, translated three right and one up, then reflected across x equals six">
+        <title>Every vertex follows both moves in order while the figure keeps the same size and shape.</title>
+        <defs><pattern id="transformation-grid" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M18 0H0V18"/></pattern></defs>
+        {[25, 275, 525].map((x, index) => <g key={x}><rect x={x} y="74" width="162" height="144"/><path className="axes" d={`M${x} 74V218H${x + 162}`}/><text x={x} y="239">{index === 0 ? "START" : index === 1 ? "1 · TRANSLATE (3, 1)" : "2 · REFLECT ACROSS x=6"}</text></g>)}
+        <polygon className="shape-start" points="61,182 115,182 115,146 79,110 61,146"/>
+        <polygon className="shape-move-one" points="365,164 419,164 419,128 383,92 365,128"/>
+        <path className="mirror" d="M383 74V218"/><text className="mirror-label" x="388" y="87">x=6</text>
+        <polygon className="shape-move-two" points="651,164 597,164 597,128 633,92 651,128"/>
+        <text x="58" y="177">A</text><text x="356" y="159">A′</text><text x="654" y="159">A″</text>
+      </svg>
+    </div>
+  );
   if (pack.id === "integer-number-line-pack") return (
     <div className="math-model-coordinate">
       <div className="coordinate-number-line" role="img" aria-label="Number line from negative ten to positive ten showing that negative two is to the right of negative seven">
@@ -78,7 +121,7 @@ function MathModelVisual({ pack }: { pack: MathSupportPack }) {
   );
   if (pack.id === "polygon-classification-pack") return (
     <div className="math-model-polygons" aria-label="Nested quadrilateral family map">
-      <section><span>QUADRILATERALS</span><section><span>PARALLELOGRAMS</span><div><b>RECTANGLES</b><b>RHOMBI</b><em>SQUARES</em></div></section><aside>TRAPEZOIDS<br/><small>use the displayed MathUP definition</small></aside></section>
+      <section><span>QUADRILATERALS</span><section><span>TRAPEZOIDS · AT LEAST 1 PARALLEL PAIR</span><section><span>PARALLELOGRAMS</span><div><b>RECTANGLES</b><b>RHOMBI</b><em>SQUARES</em></div></section></section></section>
     </div>
   );
   if (pack.id === "formula-perimeter-pack") return (
@@ -96,11 +139,12 @@ function MathModelVisual({ pack }: { pack: MathSupportPack }) {
       </svg>
     </div>
   );
-  return (
+  if (pack.id === "volume-capacity-pack") return (
     <div className="math-model-volume" aria-label="Rectangular prism as fifteen cubes per layer times four layers">
       <div>{Array.from({ length: 15 }, (_, index) => <i key={index} />)}</div><span>× 4 LAYERS</span><b>= 60 cm³</b><p>5 × 3 cubes per layer × 4 layers</p>
     </div>
   );
+  return <div className="math-model-generic" role="img" aria-label="Build, label, test, and explain the mathematical model"><span>BUILD</span><i>→</i><span>LABEL</span><i>→</i><span>TEST</span><i>→</i><span>EXPLAIN</span></div>;
 }
 
 function PackHeader({ pack }: { pack: MathSupportPack }) {
@@ -128,20 +172,22 @@ function TeacherMathPack({ pack }: { pack: MathSupportPack }) {
 export function MathTeacherWorkshops({ experienceId, placement = "before" }: { experienceId: string; placement?: "before" | "extension" }) {
   const packs = mathPacksFor(experienceId);
   if (!packs.length) return null;
+  const hasCoreAndBridge = packs.some(pack => pack.role === "BC CORE") && packs.some(pack => pack.role === "MATHUP / WNCP BRIDGE");
   return (
     <section className="math-workshop-stack teacher-math-workshops">
-      <header><div><p>{placement === "extension" ? "OPEN AFTER THE FIRST-QUADRANT CORE" : "PRE-TEACH BEFORE THE MAIN ACTIVITY"}</p><h2>{placement === "extension" ? "A short bridge prepares the optional four-quadrant challenge." : packs.length === 1 ? "One complete background lesson is ready." : `${packs.length} background lessons are sequenced here.`}</h2><span>{placement === "extension" ? "Assess the B.C. first-quadrant work first. Choose Full, Quick, or Already taught here only when students will extend across zero." : "Choose Full, Quick, or Already taught inside each pack. The project comes after the relevant checks—not before the concepts."}</span></div><b>{packs.length} READY-TO-PROJECT + PRINT PACK{packs.length === 1 ? "" : "S"}</b></header>
+      <header><div><p>{hasCoreAndBridge ? "B.C. CORE FIRST · OPTIONAL BRIDGE LAST" : placement === "extension" ? "OPEN AFTER THE REQUIRED CORE" : "TEACH, CHECK, THEN APPLY"}</p><h2>{hasCoreAndBridge ? "The complete first-quadrant lesson comes before the optional four-quadrant bridge." : packs.length === 1 ? "One complete background lesson is ready." : `${packs.length} background lessons are sequenced here.`}</h2><span>Choose Math Antics supported, hybrid, or teacher-led replacement. In every mode, the Hub model, guided practice, authentic task, and independent check remain available.</span></div><b>{packs.length} READY-TO-PROJECT + PRINT PACK{packs.length === 1 ? "" : "S"}</b></header>
+      <MathDeliveryModePanel experienceId={experienceId} />
       {packs.map(pack => <TeacherMathPack key={pack.id} pack={pack} />)}
     </section>
   );
 }
 
 export function MathStudentWorkshops({ experienceId, placement = "before" }: { experienceId: string; placement?: "before" | "extension" }) {
-  const packs = mathPacksFor(experienceId);
+  const packs = mathPacksFor(experienceId).filter(pack => placement !== "extension" || pack.role === "MATHUP / WNCP BRIDGE");
   if (!packs.length) return null;
   return (
     <section className="student-math-workshops">
-      <header><span>{placement === "extension" ? "OPTIONAL · AFTER THE FIRST-QUADRANT WORK" : "LEARN THESE IDEAS FIRST"}</span><h2>{placement === "extension" ? "Open this bridge only when your teacher chooses the four-quadrant challenge." : "Open the workshop your teacher chooses."}</h2><p>{placement === "extension" ? "The required Grade 6 evidence is already complete. This picture, worked example, and practice extend the coordinate grid across zero." : "Start with the matching Math Antics explanation, then use this picture, worked example, or quick check only for the part the class still needs."}</p></header>
+      <header><span>{placement === "extension" ? "OPTIONAL · AFTER THE FIRST-QUADRANT WORK" : "LEARN THESE IDEAS FIRST"}</span><h2>{placement === "extension" ? "Open this bridge only when your teacher chooses the four-quadrant challenge." : "Open the workshop your teacher chooses."}</h2><p>{placement === "extension" ? "The required Grade 6 evidence is already complete. This picture, worked example, and practice extend the coordinate grid across zero." : "Your teacher may use a short Math Antics explanation, teach directly from this Hub model, or combine both. The picture, worked example, partner task, and support route work without the video."}</p></header>
       {packs.map((pack, packIndex) => <details key={pack.id} open={packIndex === 0}><summary><span><small>{pack.role} · {pack.blocks}</small><strong>{pack.title}</strong></span><b>Open workshop ▾</b></summary><div className="student-math-workshop-body"><section className="student-math-goal"><small>WE ARE LEARNING TO</small><p>{pack.learningGoal}</p></section><section className="math-pack-model"><header><span>{pack.model.label}</span><h4>{pack.model.prompt}</h4></header><MathModelVisual pack={pack} /><ol>{pack.model.steps.map(step => <li key={step}>{step}</li>)}</ol><p><b>WHAT IT SHOWS:</b> {pack.model.conclusion}</p></section><section className="student-math-words"><span>WORD HELP</span><div>{pack.vocabulary.map(word => <article key={word.term}><b>{word.term}</b><p>{word.meaning}</p><small>Example: {word.example}</small></article>)}</div></section><section className="math-partner-cards"><header><span>PARTNER / GROUP CARDS</span><strong>Show your method before asking for an answer check.</strong></header><div>{pack.partnerCards.map(card => <article key={card.title}><b>{card.title}</b><p>{card.body}</p></article>)}</div></section><footer><b>IF YOU NEED A SMALLER FIRST STEP</b><p>{pack.supportRoute}</p></footer></div></details>)}
     </section>
   );

@@ -58,7 +58,7 @@ test("the first Math lesson teaches the idea before the lab and starts on the wi
   const explorePart = program.indexOf('parts.push({ label: "Explore"', interactiveStart);
   assert.ok(interactiveStart >= 0 && learnPart > interactiveStart && explorePart > learnPart, "Magnitude Gallery must show Learn before Explore.");
   assert.match(lab, /views: \[\s*\{ id: "decimal-1", max: 1, label: "0 → 1"/);
-  assert.match(lab, /useState<string \| null>\("decimal-8"\)/);
+  assert.match(lab, /useState<string \| null>\("decimal-008"\)/);
   assert.doesNotMatch(lab, /type="range"/);
 });
 

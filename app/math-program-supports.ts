@@ -1,4 +1,5 @@
 import type { ReadinessLevel, ReadinessQuestion, WordHelp } from "./program-types";
+import { mathCoreDepthPacks } from "./math-core-depth-packs";
 
 export type MathSupportPack = {
   id: string;
@@ -48,6 +49,7 @@ export type MathYearBlock = {
 const words = (...items: [string, string, string][]): WordHelp[] => items.map(([term, meaning, example]) => ({ term, meaning, example }));
 
 export const mathSupportPacks: MathSupportPack[] = [
+  ...mathCoreDepthPacks,
   {
     id: "integer-number-line-pack",
     anchorIds: ["transformation-cipher"],
@@ -281,7 +283,7 @@ export const mathSupportPacks: MathSupportPack[] = [
     supplied: ["Question-sort deck", "Environmental raw-data strips", "Tally/frequency table", "Pre-labelled axes", "Graph checklist", "Check and key"],
     gather: ["Clipboards optional", "Grid paper", "Pencil and ruler"],
     vocabulary: words(
-      ["data question", "a question that can be answered by collecting information", "How many minutes of shade does each marked spot receive at noon?"],
+      ["data question", "a question that can be answered by collecting information", "How many minutes of shade does each marked spot receive from noon to 1:00?"],
       ["category", "a group used to organize data", "sun, partial shade, full shade"],
       ["frequency", "how many times a value or category occurs", "The value 5 appears three times, so its frequency is 3"],
       ["bias", "a feature that unfairly pushes results in one direction", "Only asking basketball club members about favourite sports"],
@@ -365,7 +367,7 @@ export const mathSupportPacks: MathSupportPack[] = [
     prerequisite: "Identify a vertex and use a ruler to measure side length.",
     learningGoal: "Compare an opening with a paper corner, measure its turn in degrees, and give a triangle every family name its sides and angles earn.",
     whyBefore: "The Geometry Field Lab asks students to measure and classify. This workshop explicitly teaches protractor placement, reference angles, and the two triangle naming systems first.",
-    background: ["Put two pencils tip-to-tip and open them like a beak. The amount of opening—the turn from one pencil to the other—is the angle; longer pencils do not create a larger angle.", "A square paper corner opens 90°. Fold it in half for about 45°, or open it flat for 180°. These familiar openings help us guess before measuring.", "A triangle with sides 5 cm, 5 cm, and 7 cm is isosceles because two sides match. If one angle is 90°, it is also a right triangle; a triangle can have both names.", "Turn the paper sideways or upside down: its side lengths and angles do not change, so its mathematical family does not change."],
+    background: ["Put two pencils tip-to-tip and open them like a beak. The amount of opening—the turn from one pencil to the other—is the angle; longer pencils do not create a larger angle.", "A square paper corner opens 90°. Fold it in half for about 45°, open it flat for 180°, or measure the larger turn beyond 180° as a reflex angle. These familiar openings help us guess before measuring.", "A triangle with sides 5 cm, 5 cm, and 7 cm is isosceles because two sides match. In this course, isosceles means at least two equal sides, so an equilateral triangle also fits the isosceles family; use equilateral when the more specific name helps.", "Turn the paper sideways or upside down: its side lengths and angles do not change, so its mathematical family does not change."],
     teacherMoves: ["Model centre-on-vertex, baseline-on-ray, and the correct protractor scale.", "Estimate each angle before measuring.", "Sort triangles once by sides and again by angles.", "Construct one triangle from constraints and verify every condition."],
     studentMoves: ["Hold a paper corner beside the projected opening and decide whether the turn is less than, equal to, or greater than 90°.", "Mark the vertex, line up the protractor’s centre and zero line, and write the measured degrees beside the arc.", "Measure or match all three sides and angles before giving the triangle one side name and one angle name.", "Build a triangle from a clue card, trade it, and have a partner mark each clue that the drawing truly satisfies."],
     supplied: ["Projectable angle benchmarks", "Protractor placement diagrams", "Triangle sort deck", "Constraint cards", "Check and key"],
@@ -412,13 +414,14 @@ export const mathSupportPacks: MathSupportPack[] = [
     learningGoal: "Touch, measure, and mark what a shape actually has, then place it in every family whose rule it passes.",
     whyBefore: "The Zoo and pavilion projects use complex shapes. This bridge prevents students from choosing formulas by appearance alone and restores the prior Quadrilaterals activity.",
     background: ["Trace a shape with your finger. If the straight sides join all the way around with no gap, it is a polygon; a circle or an open zigzag is not.", "A square has four straight sides, four right angles, two pairs of parallel sides, and four equal sides. Those features let it live in several families at once.", "Arrow marks show sides that stay the same distance apart (parallel). Tiny square corners show 90° meetings (perpendicular). These marks matter more than whether the shape looks tilted."],
-    teacherMoves: ["Sort exact shapes by marked properties, not their familiar look.", "Build a nested quadrilateral family map.", "Display the class definition of trapezoid used by MathUP and note that published conventions can differ.", "Test always/sometimes/never statements."],
+    teacherMoves: ["Sort exact shapes by marked properties, not their familiar look.", "Build a nested quadrilateral family map.", "Use the inclusive convention: a trapezoid has at least one pair of parallel sides. Note that some published resources use exactly one pair, so read their definition before comparing answers.", "Test always/sometimes/never statements."],
     studentMoves: ["Cut out the shape cards and first sort them into closed-straight-sided polygons and not-polygons.", "Use rulers, corner cards, and property symbols to mark equal, parallel, and perpendicular sides.", "Place each quadrilateral on every family mat whose rule it passes—even if it belongs in several places.", "Draw one mystery enclosure, hide its picture, and give only enough property clues for another team to identify its families."],
     supplied: ["Exact shape-card set", "Property icon legend", "Nested family-map mat", "Mystery and always/sometimes/never cards", "Check and key"],
     gather: ["Scissors optional", "Rulers", "Grid paper or geoboards"],
     vocabulary: words(
       ["polygon", "a closed 2D shape made only of straight line segments", "A pentagon is a polygon; a circle is not"],
       ["quadrilateral", "a polygon with four sides", "Squares, rectangles, rhombi, and trapezoids are quadrilaterals"],
+      ["trapezoid", "a quadrilateral with at least one pair of parallel sides in our class convention", "A parallelogram also belongs to the inclusive trapezoid family"],
       ["parallel", "lines in the same plane that stay the same distance apart", "Opposite sides of a rectangle are parallel"],
       ["perpendicular", "lines that meet at a right angle", "Adjacent sides of a square are perpendicular"],
       ["rhombus", "a quadrilateral with four equal sides", "A square is a special rhombus"],
@@ -428,12 +431,12 @@ export const mathSupportPacks: MathSupportPack[] = [
       { title: "MYSTERY A", body: "Two pairs of parallel sides, four equal sides, no right angles.", answer: "Rhombus and parallelogram; not a rectangle or square." },
       { title: "MYSTERY B", body: "Four right angles; opposite sides equal; not all four sides equal.", answer: "Rectangle and parallelogram; not a square or rhombus." },
       { title: "ALWAYS?", body: "Every square is a rectangle.", answer: "Always, because a square has four right angles." },
-      { title: "REVERSE?", body: "Every rectangle is a square.", answer: "Sometimes; only when all four sides are equal." },
+      { title: "REVERSE?", body: "A rectangle is also a square: always, sometimes, or never?", answer: "Sometimes; when all four sides are equal." },
     ],
     check: [
       { prompt: "Classify a quadrilateral with two pairs of parallel sides and four equal sides but no right angles.", answer: "Rhombus and parallelogram." },
       { prompt: "Why is every square a rectangle?", answer: "A square meets the rectangle rule of four right angles." },
-      { prompt: "What must the class confirm before sorting trapezoids?", answer: "The definition or convention used by the selected MathUP lesson." },
+      { prompt: "What convention does our class use for trapezoids?", answer: "A trapezoid has at least one pair of parallel sides. Check whether another resource uses a different convention before comparing answers." },
     ],
     readinessQuestions: [
       { prompt: "Which property proves a shape is a quadrilateral?", choices: ["Four straight sides in a closed shape", "It looks like a box", "It has one right angle"], answer: 0, feedback: "Quadrilateral means a closed polygon with four sides." },
@@ -512,7 +515,7 @@ export const mathSupportPacks: MathSupportPack[] = [
       ["base", "the chosen side used with its perpendicular height", "The bottom 9 cm side can be the base"],
       ["perpendicular height", "the shortest distance to the opposite side measured at 90°", "The 4 cm vertical segment, not the slanted side"],
       ["parallelogram", "a quadrilateral with two pairs of parallel sides", "A slanted parallelogram can share a base and height with a rectangle"],
-      ["trapezoid", "a quadrilateral classified using the definition displayed for this class", "Confirm the MathUP convention before sorting"],
+      ["trapezoid", "a quadrilateral with at least one pair of parallel sides in our class convention", "Parallelograms fit the inclusive trapezoid family"],
       ["recompose", "rearrange pieces to make a new shape without changing total area", "Move a triangle from one side of a parallelogram to the other"],
     ),
     model: { label: "TWO TRIANGLES SNAP INTO ONE BIG SHAPE", prompt: "Why do we divide base × height by 2 for a triangle?", steps: ["Trace one triangle twice on coloured paper and cut out the matching pair.", "Turn one copy and fit the two together into a parallelogram with no gaps or overlaps.", "The joined shape has base × 90° height square units.", "Our original triangle is exactly one of the two equal pieces, so its area is (base × height) ÷ 2."], conclusion: "The 2 is not an unexplained rule: it is visible in the two matching triangles that built the full parallelogram." },
@@ -585,18 +588,18 @@ export const mathSupportPacks: MathSupportPack[] = [
 ];
 
 export const mathYearSequence: MathYearBlock[] = [
-  { timing: "September · Weeks 1–2", focus: "Magnitude and place value", blocks: "7–9 blocks", mathUpTopics: ["Whole Numbers Greater Than One Million", "Representing, Estimating, and Comparing Decimal Numbers"], lessonIds: ["magnitude-gallery"], fluency: "Place-value talks and benchmark estimates", check: "Place, compare, and justify one value on an appropriate scale.", spaces: "No post" },
+  { timing: "September · Weeks 1–2", focus: "Magnitude and place value", blocks: "7–9 blocks", mathUpTopics: ["Whole Numbers Greater Than One Million", "Representing, Estimating, and Comparing Decimal Numbers"], lessonIds: ["magnitude-place-value-pack", "magnitude-gallery"], fluency: "Place-value talks and benchmark estimates", check: "Place, compare, and justify one value on an appropriate scale.", spaces: "No post" },
   { timing: "September–October · Weeks 3–6", focus: "Whole-number operations and fluency", blocks: "12–14 blocks + spiral", mathUpTopics: ["Whole Number Operations"], lessonIds: ["operations-fluency-pack", "strategy-league", "scoreboard-rules"], fluency: "Three 8–10 minute routines each week; no speed ranking", check: "Estimate, calculate, and verify with another route.", spaces: "Optional strategy snapshot only if needed" },
-  { timing: "October · Weeks 7–8", focus: "Factors, multiples, and order", blocks: "7–8 blocks", mathUpTopics: ["Factors and Multiples", "BC_Working With Factors and Multiples"], lessonIds: ["pack-and-sync", "scoreboard-rules"], fluency: "Fact families, divisibility, and factor puzzles", check: "Choose factor or multiple reasoning and defend it.", spaces: "No post" },
+  { timing: "October · Weeks 7–8", focus: "Factors, multiples, and order", blocks: "7–8 blocks", mathUpTopics: ["Factors and Multiples", "BC_Working With Factors and Multiples"], lessonIds: ["factors-multiples-pack", "pack-and-sync", "scoreboard-rules"], fluency: "Fact families, divisibility, and factor puzzles", check: "Choose factor or multiple reasoning and defend it.", spaces: "No post" },
   { timing: "Late October–November", focus: "Fractions, ratios, and friendly percents", blocks: "12–15 blocks", mathUpTopics: ["Representing, Comparing, and Ordering Fractions", "Proportional Reasoning"], lessonIds: ["fraction-ratio-percent-pack", "fraction-ratio-remix"], fluency: "Benchmarks, equivalence, and ratio batches", check: "Connect a model, symbol, and comparison.", spaces: "No separate post" },
   { timing: "November–December", focus: "Decimal operations, percent, and budget decisions", blocks: "12–15 blocks", mathUpTopics: ["Representing, Estimating, and Comparing Decimal Numbers", "Multiplying and Dividing With Decimal Numbers"], lessonIds: ["decimal-operations-pack", "decimal-dispatch", "sale-lab"], fluency: "Estimate first; use place-value and money contexts", check: "Reject one unreasonable answer and explain the estimate.", spaces: "Optional Sale Lab evidence only when it fills a real Math evidence gap" },
-  { timing: "January–early February", focus: "Patterns and algebra", blocks: "12–14 blocks", mathUpTopics: ["Patterns", "Algebra"], lessonIds: ["pattern-forecast", "equation-balance"], fluency: "Tables, mental rules, and balance puzzles", check: "Represent one relation and verify one equation.", spaces: "Optional pattern evidence" },
+  { timing: "January–early February", focus: "Patterns and algebra", blocks: "12–14 blocks", mathUpTopics: ["Patterns", "Algebra"], lessonIds: ["pattern-relations-pack", "pattern-forecast", "one-step-equations-pack", "equation-balance"], fluency: "Tables, mental rules, and balance puzzles", check: "Represent one increasing and one decreasing relation, then verify one equation.", spaces: "Optional pattern evidence" },
   { timing: "February", focus: "Question, collect, organize, and graph", blocks: "9–11 blocks", mathUpTopics: ["WNCP_Collecting and Summarizing Data", "Graphing Data"], lessonIds: ["collect-summarize-data-pack", "graph-story-lab"], fluency: "Read scales and make careful comparisons", check: "Build an honest graph and state one claim plus one limit.", spaces: "Optional environmental graph; reuse Science data" },
   { timing: "Late February–mid March", focus: "Single-outcome probability", blocks: "8–10 blocks", mathUpTopics: ["WNCP_Probability", "BC_Probability"], lessonIds: ["single-outcome-probability-pack", "probability-game-audit"], fluency: "Outcome lists, fractions, and combined class trials", check: "Compare theoretical and experimental results.", spaces: "One selected game-audit post if useful" },
   { timing: "Late March", focus: "Angles and triangles", blocks: "5–6 blocks", mathUpTopics: ["Angles", "Triangles"], lessonIds: ["angle-triangle-pack", "geometry-field-lab"], fluency: "Reference-angle estimates and triangle clues", check: "Measure, classify, and construct from constraints.", spaces: "No post" },
   { timing: "April", focus: "Polygons, formulas, perimeter, and area", blocks: "10–12 blocks", mathUpTopics: ["Polygons", "Developing Measurement Formulas", "BC_Areas of Parallelograms, Triangles, and Trapezoids"], lessonIds: ["polygon-classification-pack", "formula-perimeter-pack", "area-recompose-pack", "zoo-design-studio"], fluency: "Missing sides, units, and one cut-and-move explanation", check: "Choose the right measurement and show why the rule works.", spaces: "One combined Zoo design artifact" },
   { timing: "Late April–early May", focus: "Volume and capacity", blocks: "5–6 blocks", mathUpTopics: ["BC_Capacity and Volume"], lessonIds: ["volume-capacity-pack"], fluency: "Cubes per layer and sensible capacity benchmarks", check: "Explain one volume structure and distinguish volume from capacity.", spaces: "Feed one calculation into the final design" },
-  { timing: "May · coordinate graphing", focus: "First-quadrant transformations, then a negative-coordinate extension", blocks: "5–6 blocks", mathUpTopics: ["Location and Movement", "WNCP_Representing and Comparing Integers"], lessonIds: ["transformation-cipher", "integer-number-line-pack"], fluency: "Plot positive pairs first; then extend the same x-first, y-second rule across zero", check: "Assess one first-quadrant transformation; use negative coordinates only in the optional four-quadrant challenge.", spaces: "No separate post" },
+  { timing: "May · coordinate graphing", focus: "First-quadrant transformations, then a negative-coordinate extension", blocks: "5–6 blocks", mathUpTopics: ["Location and Movement", "WNCP_Representing and Comparing Integers"], lessonIds: ["first-quadrant-transformations-pack", "transformation-cipher", "integer-number-line-pack"], fluency: "Plot positive pairs first; then extend the same x-first, y-second rule across zero", check: "Assess one first-quadrant transformation combination; use negative coordinates only in the optional four-quadrant challenge.", spaces: "No separate post" },
   { timing: "Teacher-selected alternate · late May–June", focus: "Optional apply, audit, and revise studio", blocks: "5–7 blocks only when replacing another substantial design or becoming the Math layer of the expert showcase", mathUpTopics: [], lessonIds: ["space-under-constraints"], fluency: "Mixed retrieval chosen from current evidence", check: "Use accurate calculations to cause one design revision.", spaces: "Not a default June addition. Use pavilion evidence only when it replaces Zoo Design or serves as the shared showcase format." },
 ];
 
@@ -612,7 +615,9 @@ export const pairedMathUpTopics = [
 ];
 
 export function mathPacksFor(experienceId: string) {
-  return mathSupportPacks.filter(pack => pack.anchorIds.includes(experienceId));
+  return mathSupportPacks
+    .filter(pack => pack.anchorIds.includes(experienceId))
+    .sort((a, b) => Number(a.role === "MATHUP / WNCP BRIDGE") - Number(b.role === "MATHUP / WNCP BRIDGE"));
 }
 
 export function mathWordsFor(experienceId: string) {

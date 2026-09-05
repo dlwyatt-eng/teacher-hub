@@ -116,7 +116,7 @@ export default function VisualReviewStudio({ onHome }: { onHome: () => void }) {
   return (
     <div className={`visual-review page preview-${previewMode.toLowerCase().replaceAll(" ", "-")}`}>
       <header className="visual-review-hero">
-        <div><button type="button" onClick={onHome}>← Teacher Home</button><p>PRIVATE · VISUAL REVIEW STUDIO</p><h1>Choose the visuals before they enter the classroom.</h1><span>Twenty original image candidates, eight live diagram concepts, and four authentic-source requirements. Nothing here automatically changes the Teacher or public site.</span></div>
+        <div><button type="button" onClick={onHome}>← Teacher Home</button><p>TEACHER-FACING · VISUAL REVIEW STUDIO</p><h1>Choose the visuals before they enter the classroom.</h1><span>Twenty-one original image candidates, eight live diagram concepts, and four authentic-source requirements. Nothing here automatically changes the Teacher or public site.</span></div>
         <aside><strong>If this disappeared, would noticing, understanding, discussion, or action become weaker?</strong><p>If not, it is probably decoration.</p></aside>
       </header>
 

@@ -22,9 +22,10 @@ async function importIsolatedTs(relativePath) {
 }
 
 async function importWithCrossCurricular(relativePath) {
-  const [{ default: ts }, crossCurricular, source] = await Promise.all([
+  const [{ default: ts }, crossCurricular, mathKits, source] = await Promise.all([
     import("typescript"),
     read("app/cross-curricular-program.ts"),
+    read("app/math-experience-kits.ts"),
     read(relativePath),
   ]);
   const compilerOptions = { module: ts.ModuleKind.ES2022, target: ts.ScriptTarget.ES2022 };
@@ -33,6 +34,11 @@ async function importWithCrossCurricular(relativePath) {
     fileName: "cross-curricular-program.ts",
   }).outputText;
   const crossUrl = `data:text/javascript;base64,${Buffer.from(crossCompiled).toString("base64")}`;
+  const mathKitsCompiled = ts.transpileModule(mathKits, {
+    compilerOptions,
+    fileName: "math-experience-kits.ts",
+  }).outputText;
+  const mathKitsUrl = `data:text/javascript;base64,${Buffer.from(mathKitsCompiled).toString("base64")}`;
   let linkedSource = source.replace(
     'from "./cross-curricular-program";',
     `from "${crossUrl}";`,
@@ -41,6 +47,10 @@ async function importWithCrossCurricular(relativePath) {
   linkedSource = linkedSource.replace(
     'import { spacesPolicyForActivity } from "./classroom-program";',
     "const spacesPolicyForActivity = () => null;",
+  );
+  linkedSource = linkedSource.replace(
+    'from "./math-experience-kits";',
+    `from "${mathKitsUrl}";`,
   );
   const compiled = ts.transpileModule(linkedSource, {
     compilerOptions,

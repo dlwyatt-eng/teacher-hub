@@ -23,6 +23,7 @@ import { currentConnectionForLesson } from "./current-connections";
 import { issueInvestigationsForLesson } from "./issue-investigations";
 import { SurreyElectionBridge, SurreyElectionPacing } from "./surrey-election-2026";
 import { ConcentratedPowerOverlay, FairSocietyStudio, NationGovernanceTransfer, PowerCheckCard, PowerInquiryThread, PowerTermBank } from "./power-inquiry";
+import masterInquiryPack from "../content/master-inquiry-pack-v1.json";
 import "./social-studies.css";
 import "./social-unit1.css";
 import "./social-unit2.css";
@@ -82,6 +83,18 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
       { title: "Use the maps together", action: "Choose useful details from more than one map. Explain something about Fleetwood that one map could not show by itself.", product: "One class claim with evidence and one thing the maps still cannot tell us" },
       { title: "Teach the mapmaker’s choices", action: "Choose a Fleetwood question. Explain what each map adds, what it leaves out, and why several perspectives help.", product: "A short explanation shared aloud, on the board, or on paper" },
     ],
+  },
+  "who-drew-the-world": {
+    question: "What changes when a flat map tries to show our round world?",
+    learning: masterInquiryPack.mapInquiry.why,
+    success: masterInquiryPack.mapInquiry.success,
+    scenes: masterInquiryPack.mapInquiry.steps.map((step) => ({
+      title: step.prompt,
+      action: step.directions.join(" "),
+      product: step.label === "REIMAGINE"
+        ? masterInquiryPack.mapInquiry.product
+        : `${step.label.toLowerCase()} notes that point to visible or measured evidence`,
+    })),
   },
   "trace-the-claim": {
     question: "How can we check a post before we believe or share it?",
@@ -296,7 +309,10 @@ const socialWordHelp: Record<string, string> = {
   constitutional: "limited and guided by a constitution or basic laws",
   federal: "power is shared between a national government and provinces or states",
   unitary: "most government power is held at the national level",
-  representation: "people choosing or appointing others to speak and decide for them",
+  representation: "a choice about how something or someone is shown; in government, it can also mean people choosing others to speak and decide for them",
+  projection: "a method for showing a round Earth on a flat surface",
+  "relative area": "how large one place is compared with another",
+  distortion: "a change in size, shape, distance, or direction caused by flattening the globe",
   "human rights": "basic protections and freedoms that belong to every person",
   freedom: "the ability to think, speak, believe, or act within fair limits",
   equality: "fair protection, dignity, and opportunity",
@@ -475,6 +491,7 @@ function SocialUnitsOverview({ onLesson }: { onLesson: (id: string) => void }) {
       <section className="social-heading"><div><span className="recent-section-badge">● FOUR SOCIAL STUDIES UNITS · AUG. 14</span><p className="section-kicker">SEPTEMBER–FEBRUARY SOCIAL STUDIES PLAN</p><h2>Four units. One connected inquiry arc.</h2><p>Each unit has games, movement, physical models, source comparisons, simulations, making, and audience testing. Most practice stays in the room; SpacesEDU holds selected portfolio evidence.</p></div><span>BUILD, TEACH, ADJUST</span></section>
       <section className="social-inquiry-arc"><div><small>SUPPORTED INQUIRY</small><strong>Read sources carefully</strong></div><b>→</b><div><small>GUIDED CASES</small><strong>Compare evidence and perspectives</strong></div><b>→</b><div><small>EXPERT TEAMS</small><strong>Investigate and teach</strong></div><b>→</b><div><small>SOLUTIONARY</small><strong>Consider responsible action</strong></div></section>
       <PowerInquiryThread />
+      <EvidenceCareProtocol compact />
       <SocialInquiryOverview compact />
       <WorldAtlasIntroduction />
       <div className="social-unit-map">{socialUnits.map((unit) => {
@@ -483,7 +500,7 @@ function SocialUnitsOverview({ onLesson }: { onLesson: (id: string) => void }) {
         return <article key={unit.id} className="world-themed-card" data-world={theme.id} style={worldStyle(theme)}>
           <header><span>{unit.number}</span><small>{unit.status}</small></header>
           <WorldPortal theme={theme} compact audience="student" />
-          <span className="unit-updated-badge">{unit.number === "01" ? "CLASSROOM BUILD" : unit.number === "02" ? "EXPERIENCE BUILD" : "NEW FIRST PASS"} · AUG. 12</span>
+          <span className="unit-updated-badge">CLASSROOM-READY CORE · SEP. 5</span>
           <p>{unit.subtitle}</p><h3>{unit.title}</h3><blockquote>{unit.question}</blockquote>
           <div>{unit.content.map((item) => <span key={item}>{item}</span>)}</div>
           <details className="arc-spaces-bookends"><summary>SpacesEDU possibilities ▾</summary><section><strong>Optional entry snapshot</strong><p>Answer the unit question with what you think now, the evidence you already have, and one wonder.</p><div><span>20-second audio</span><span>Quick map or system sketch</span><span>Two-sentence first claim</span></div></section><section><strong>Possible end evidence</strong><p>Choose one source comparison, decision, system model, or teaching piece that shows growth. Keep routine practice in class.</p><div><span>Image + caption</span><span>Audio explanation</span><span>Short video or text reflection</span></div></section></details>
@@ -568,6 +585,7 @@ function SocialLessons({ selected, onLesson, scene, onScene }: { selected: Socia
           extension={civicDelivery?.extension}
           dayPlanLesson={{ sourceId: selected.id, subject: "Social Studies", title: selected.title, timing: selected.duration, runSteps: plannedRunSteps.map((step) => `${step.title}: ${step.action}`), notes: civicDelivery?.continuity }}
         />
+        {(selected.id === "trace-the-claim" || selected.id === "who-drew-the-world") && <EvidenceCareProtocol />}
         {civicDelivery && <details className="teacher-planning-details civic-full-preview"><summary><span><small>FULL PREP + PRINT</small><strong>Preview the exact projector lesson and teacher-only cues</strong></span><b>Open ▾</b></summary><div><p className="civic-preview-note">Use this preview to test each part, print in-lesson materials, and prepare the handoff. Teacher-only guidance remains outside the student view.</p><SocialStudentLab lessonId={selected.id} scene={scene} audience="teacher" /></div></details>}
         {selected.id === "civic-decision-brief" && <details className="teacher-planning-details"><summary><span><small>CULMINATING TRANSFER</small><strong>Design a Fair Society · teacher preview</strong></span><b>Open ▾</b></summary><div><FairSocietyStudio teacher /></div></details>}
         <details className="teacher-planning-details">
@@ -614,6 +632,28 @@ function SocialResources() {
   return <div className="social-program"><section className="social-heading"><div><p className="section-kicker">PURPOSEFUL SOURCES · RECHECK BEFORE TEACHING</p><h2>Every link has a named job.</h2><p>Sources are labelled for intended Grade 6 use, but live pages can move or change. Reopen each assigned source, save the needed excerpt or screenshot, and prepare an offline route before class. Teacher-preview items are not assigned without adaptation.</p></div><span>{resources.length} UNIT 1–4 LINKS</span></section><div className="social-resource-index">{resources.map((resource) => <a href={resource.url} target="_blank" rel="noreferrer" key={`${resource.lesson}-${resource.url}`}><small>{resource.gradeFit} · {resource.lesson}</small><strong>{resource.label}</strong><p>{resource.purpose}</p><b>{resource.source} ↗</b></a>)}</div></div>;
 }
 
+function EvidenceCareProtocol({ compact = false, student = false }: { compact?: boolean; student?: boolean }) {
+  const protocol = masterInquiryPack.evidenceProtocol;
+  return (
+    <section className={`evidence-care-protocol ${compact ? "compact" : ""}`} aria-label="Claim, evidence, and care protocol">
+      <header>
+        <div><small>{student ? "WHEN A CLAIM IS HARD" : "EVIDENCE-WEIGHTED PERSPECTIVES"}</small><h3>{protocol.title}</h3></div>
+        <p>{protocol.studentQuestion}</p>
+      </header>
+      <ol>
+        {protocol.steps.map((step) => <li key={step.label}><b>{step.label}</b><span><strong>{step.prompt}</strong>{!compact && <small>{step.move}</small>}</span></li>)}
+      </ol>
+      <details>
+        <summary><span><small>UNCERTAINTY IS NOT ALL THE SAME</small><strong>Question, mistake, strategic doubt, misinformation, or denialism?</strong></span><b>Open ▾</b></summary>
+        <div className="uncertainty-ladder">
+          {protocol.uncertaintyLadder.map((item, index) => <article key={item.kind}><b>{index + 1}</b><span><strong>{item.kind}</strong><p>{item.meaning}</p>{!student && <small><em>Teacher move:</em> {item.teacherMove}</small>}</span></article>)}
+        </div>
+        <p className="evidence-rights-guardrail"><strong>Care guardrail:</strong> Use the strongest word only when the pattern and evidence support it. A question is not automatically denialism. Documented harms, people&apos;s identities, and basic rights are not classroom debate topics.</p>
+      </details>
+    </section>
+  );
+}
+
 function socialLearningLine(text: string) {
   const firstSentence = text.split(/(?<=[.!?])\s+/)[0] ?? text;
   return firstSentence.replace(/^We are learning\s+(?:to\s+)?/i, "");
@@ -634,6 +674,7 @@ function SocialStudentLesson({ lesson, scene, onScene }: { lesson: SocialLesson;
         <section className="social-learn-do-done" aria-label="Lesson goal, action, and finish check"><article data-learning-phase="learn"><small>WE ARE LEARNING</small><strong>{learningLine}</strong></article><article data-learning-phase="do"><small>DO THIS</small><strong>{studentScene?.action ?? current.prompt}</strong></article><article data-learning-phase="done"><small>YOU'RE DONE WHEN</small><strong>{studentScene?.product ?? current.studentTask}</strong></article></section>
         <Suspense fallback={null}><ClassroomCompanion key={`${lesson.id}-${scene}`} role={companionRole} density="compact" motion="once" className="social-scene-companion" /></Suspense>
         <SocialStudentLab lessonId={lesson.id} scene={scene} />
+        {(lesson.id === "trace-the-claim" || lesson.id === "who-drew-the-world") && scene === lesson.scenes.length - 1 && <EvidenceCareProtocol compact student />}
         <PowerCheckCard compact quick />
         {lesson.id === "civic-decision-brief" && scene === lesson.scenes.length - 1 && <FairSocietyStudio />}
         <details className="social-help-drawer"><summary><span><small>HELP</small><strong>Words, sources, and finish check</strong></span><b>Open ▾</b></summary><div><section><small>FINISH</small>{(contract?.finishEvidence ?? copy?.success ?? lesson.success).slice(0, 2).map((item) => <p key={item}>✓ {item}</p>)}{(spaces.decision === "required" || spaces.decision === "reuse") && <p><b>SpacesEDU:</b> {contract?.saveAction.message ?? spaces.studentPrompt}</p>}</section><section className="social-help-words">{lesson.vocabulary.map((word) => <details key={word}><summary>{word}<span>＋</span></summary><p>{socialWordHelp[word.toLowerCase()]}</p></details>)}</section>{studentResources.length > 0 && <section className="social-resource-cards">{studentResources.map((resource) => <a href={resource.url} target="_blank" rel="noreferrer" key={resource.url}><span>↗</span><div><small>{resource.source}</small><strong>{resource.label}</strong></div></a>)}</section>}</div></details>
@@ -679,6 +720,7 @@ function Unit1ClassroomMove({ lessonId, scene, student = false }: { lessonId: st
 
 export function SocialStudentLab({ lessonId, scene, audience = "student" }: { lessonId: string; scene: number; audience?: "teacher" | "student" }) {
   if (lessonId === "maps-make-arguments") return <MapLensLab scene={scene} audience={audience} />;
+  if (lessonId === "who-drew-the-world") return <EqualEarthLab scene={scene} audience={audience} />;
   if (lessonId === "trace-the-claim") return <ClaimTrailLab scene={scene} />;
   if (lessonId === "perspective-without-guessing") return <PerspectiveSimulator scene={scene} />;
   if (lessonId === "fleetwood-case-file") return <CaseFileStudio scene={scene} />;
@@ -859,6 +901,82 @@ function MapLensLab({ scene, audience = "student" }: { scene: number; audience?:
       </div>
     </LabFrame>
   );
+}
+
+function EqualEarthLab({ scene, audience = "student" }: { scene: number; audience?: "teacher" | "student" }) {
+  const inquiry = masterInquiryPack.mapInquiry;
+  const [activeMap, setActiveMap] = useState(0);
+  const [activeComparison, setActiveComparison] = useState(0);
+  const projection = inquiry.projectionCards[activeMap];
+  const comparison = inquiry.comparisons[activeComparison];
+  const ratios = [14, 3, 1.75, 1.7];
+  const ratio = ratios[activeComparison];
+
+  if (scene === 0) {
+    return <LabFrame className="equal-earth-lab" eyebrow="NOTICE · FIRST IMPRESSION" title="Two flat maps. One round world." prompt={inquiry.hook.before} footer={inquiry.hook.pause}>
+      <div className="projection-map-pair">
+        {inquiry.projectionCards.map((card) => <figure key={card.name}><div><Image src={card.image} alt={`${card.name} projection world map`} width={1200} height={650} /></div><figcaption><strong>{card.name}</strong><span>Look first. Do not choose a winner yet.</span></figcaption></figure>)}
+      </div>
+      <aside className="map-first-impression"><b>KEEP YOUR FIRST IDEA VISIBLE</b><span>Point, sketch, or finish aloud: “At first, I thought ___ looked larger because ___.”</span></aside>
+    </LabFrame>;
+  }
+
+  if (scene === 1) {
+    const wonderKinds = [
+      ["SIZE", "Which places change size the most?"],
+      ["SHAPE", "Which shapes look stretched or squeezed?"],
+      ["DISTANCE", "Which places seem closer or farther apart?"],
+      ["DIRECTION", "What route or direction might this map help someone follow?"],
+    ];
+    return <LabFrame className="equal-earth-lab" eyebrow="WONDER · CHOOSE A TESTABLE QUESTION" title="What could the maps alone answer—and what needs another source?" prompt="Choose one change you can point to. Turn it into a question that evidence could help answer." footer="A strong wonder names what you will compare and what evidence you would need.">
+      <div className="map-wonder-grid">{wonderKinds.map(([label, prompt]) => <article key={label}><b>{label}</b><p>{prompt}</p></article>)}</div>
+      <div className="map-wonder-frames"><p><strong>I notice…</strong> On the first map ___, but on the second map ___.</p><p><strong>I wonder…</strong> Does ___ change because the projection is trying to preserve ___?</p><p><strong>I need…</strong> A globe, measured area, or another projection could help us check.</p></div>
+    </LabFrame>;
+  }
+
+  if (scene === 2) {
+    return <LabFrame className="equal-earth-lab" eyebrow="LEARN · EVERY FLAT MAP MAKES TRADE-OFFS" title="What does each projection preserve?" prompt="Choose a map. Read what it keeps useful and what it changes. No flat world map can preserve size, shape, distance, and direction all at once." footer="Finish aloud: “___ is useful when the map's job is ___, but it is a weak choice for ___ because ___.”">
+      <nav className="projection-choice-tabs" aria-label="Choose a projection">{inquiry.projectionCards.map((card, index) => <button type="button" key={card.name} aria-pressed={activeMap === index} onClick={() => setActiveMap(index)}><b>{index + 1}</b><span><strong>{card.name}</strong><small>{activeMap === index ? "ON SCREEN" : "COMPARE"}</small></span></button>)}</nav>
+      <article className="projection-explainer"><Image src={projection.image} alt={`${projection.name} projection world map`} width={1200} height={650} /><div><header><small>PROJECTION {activeMap + 1}</small><h4>{projection.name}</h4></header><section><b>PRESERVES</b><p>{projection.preserves}</p></section><section><b>DISTORTS</b><p>{projection.distorts}</p></section><aside><b>USE WITH CARE</b><p>{projection.care}</p></aside></div></article>
+    </LabFrame>;
+  }
+
+  if (scene === 3) {
+    const [firstPlace, secondPlace] = comparison.places.split(" / ");
+    const firstIsLarger = activeComparison !== 3;
+    const max = Math.max(ratio, 1);
+    const firstWidth = firstIsLarger ? 100 : 100 / ratio;
+    const secondWidth = firstIsLarger ? 100 / ratio : 100;
+    return <LabFrame className="equal-earth-lab" eyebrow="INVESTIGATE · MEASURED AREA" title="Does the area evidence support your first impression?" prompt="Choose a pair. Compare the measured land areas, build the area bars, and write one conclusion plus one limit." footer="A picture can start a question. The measured areas are the evidence for the size comparison.">
+      <nav className="area-comparison-tabs" aria-label="Choose an area comparison">{inquiry.comparisons.map((item, index) => <button type="button" key={item.places} aria-pressed={activeComparison === index} onClick={() => setActiveComparison(index)}>{item.places.replace(" / ", " ↔ ")}</button>)}</nav>
+      <article className="area-evidence-card">
+        <header><small>PAIR {activeComparison + 1}</small><h4>{comparison.places.replace(" / ", " and ")}</h4><strong>{comparison.relationship}</strong></header>
+        <div className="area-bars" aria-label={`Relative area bars for ${firstPlace} and ${secondPlace}`}>
+          <section><span>{firstPlace}<small>{comparison.firstArea}</small></span><div><b style={{ width: `${Math.max(7, firstWidth)}%` }} /></div></section>
+          <section><span>{secondPlace}<small>{comparison.secondArea}</small></span><div><b style={{ width: `${Math.max(7, secondWidth)}%` }} /></div></section>
+        </div>
+        <footer><p><b>CONCLUSION:</b> The measured area shows…</p><p><b>LIMIT:</b> Area evidence does not tell us…</p><small>Scale cue: the longer bar is about {max}× the shorter bar.</small></footer>
+      </article>
+    </LabFrame>;
+  }
+
+  if (scene === 4) {
+    return <LabFrame className="equal-earth-lab" eyebrow="DISCUSS · THREE DIFFERENT KINDS OF CLAIM" title="Evidence is not the same as interpretation or policy." prompt="Place each statement in the right lane. Then ask what evidence would be needed to support it." footer="People may disagree about a policy even when the measured area evidence is clear.">
+      <div className="map-claim-lanes">
+        <article><b>1 · EVIDENCE</b><p>Africa is about 14 times larger than Greenland.</p><small>Checkable with measured land-area data.</small></article>
+        <article><b>2 · INTERPRETATION</b><p>A familiar map can influence what viewers notice about importance and power.</p><small>A reasoned explanation that needs careful evidence.</small></article>
+        <article><b>3 · POLICY CHOICE</b><p>Schools should use an equal-area map as their default wall map.</p><small>A proposal that must consider purpose, trade-offs, and values.</small></article>
+      </div>
+      <aside className="campaign-source-care"><div><small>SOURCE CARE</small><strong>A campaign is evidence of an argument—not proof that every campaign claim is true.</strong><p>Compare its claims with cartography sources. If a current UN decision is mentioned, verify the exact official record first; this lesson does not depend on that headline.</p></div><nav>{inquiry.sources.slice(0, 5).map((source) => <a href={source.href} target="_blank" rel="noreferrer" key={source.href}>{source.label} ↗</a>)}</nav></aside>
+    </LabFrame>;
+  }
+
+  return <LabFrame className="equal-earth-lab" eyebrow="REIMAGINE · RELATIONSHIPS AND RESPONSIBILITIES" title="What would your map help its audience notice and care for?" prompt={inquiry.placeExtension.prompt} footer="Name your audience, purpose, responsibility, source, and one important thing your map would still leave out.">
+    <div className="relational-map-brief"><article><b>1 · AUDIENCE</b><p>Who needs this map, and what decision or relationship will it support?</p></article><article><b>2 · MAKE VISIBLE</b><p>Choose waterways, movement, language, stewardship, access, change, or responsibility—but only from a source you may use.</p></article><article><b>3 · CREDIT + LIMIT</b><p>Name the exact source. State what your map cannot show and whose knowledge it cannot replace.</p></article></div>
+    <aside className="nation-source-guardrail"><strong>There is no single Indigenous map or worldview.</strong><p>{inquiry.placeExtension.guardrail}</p><nav>{inquiry.placeExtension.sources.map((source) => <a href={source.href} target="_blank" rel="noreferrer" key={source.href}>{source.label} ↗</a>)}</nav></aside>
+    <section className="map-response-route"><div><small>CHOOSE A RESPONSE ROUTE</small><strong>Draw it, label it, build a paper model, or explain it aloud.</strong></div><span><b>Support</b> Use one source and a purpose frame.</span><span><b>Core</b> Include audience, responsibility, and limit.</span><span><b>Extend</b> Audit another map or projection.</span></section>
+    {audience === "teacher" && <p className="teacher-source-reminder"><strong>Before class:</strong> preview every Nation-authored source, follow its protocols, and do not interpret access as permission to copy or publish knowledge.</p>}
+  </LabFrame>;
 }
 
 function ClaimTrailLab({ scene }: { scene: number }) {

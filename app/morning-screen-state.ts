@@ -89,7 +89,7 @@ export const MORNING_ACTIVITY_BANK: readonly MorningActivity[] = Object.freeze([
     prompt: "Read the dated excerpt. Underline the words that describe what was happening then. Circle one detail you would verify on the full source before making a larger claim.",
     move: "Compare with a partner. Repair this sentence: ‘The extension is open now.’ Keep the evidence date and the future plan separate.",
     imageSrc: "/images/visual-review/newsroom-source-desk-v1.webp",
-    imageAlt: "Illustrated source desk with a news page, map, photograph, date card, and evidence notes",
+    imageAlt: "Fictional source-analysis desk with an unlabeled map, photograph, bar chart, text page, blank note card, pencil, and magnifying glass",
     sourceCard: {
       label: "BC GOVERNMENT NEWS RELEASE · MAY 8, 2026",
       text: "All eight stations along the 16-kilometre extension are now under construction.",

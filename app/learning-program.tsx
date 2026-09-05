@@ -134,12 +134,21 @@ function selectedExperience(program: LearningProgram, id: string) {
 }
 
 function KitCards({ kit, student = false }: { kit: ExperienceKit; student?: boolean }) {
-  return (
-    <section className={`experience-kit ${student ? "student-experience-kit" : ""}`}>
-      <header><div><p className="section-kicker">READY-TO-USE ACTIVITY KIT</p><h3>{student ? "Use these cards for the activity." : "Project these cards or print this page."}</h3></div>{!student && <button type="button" onClick={(event) => printClosest(event.currentTarget, ".experience-kit")}>Print this page</button>}</header>
-      <div>{kit.cards.map(card => <article key={card.title}><span>{card.title}</span><p>{card.body}</p></article>)}</div>
+  const studentCards = kit.cards.filter((card) => !/(?:answer|core answers|teacher key)/i.test(card.title));
+  const answerCards = kit.cards.filter((card) => /(?:answer|core answers|teacher key)/i.test(card.title));
+  const studentCopy = <section className={`experience-kit experience-kit-student-copy ${student ? "student-experience-kit" : ""}`}>
+    <header><div><p className="section-kicker">READY-TO-USE STUDENT KIT</p><h3>{student ? "Use these cards for the activity." : "Project these cards or print a clean student copy."}</h3></div>{!student && <button type="button" onClick={(event) => printClosest(event.currentTarget, ".experience-kit")}>Print student kit</button>}</header>
+    <div>{studentCards.map(card => <article key={card.title}><span>{card.title}</span><p>{card.body}</p></article>)}</div>
+  </section>;
+
+  if (student || answerCards.length === 0) return studentCopy;
+  return <div className="experience-kit-pair">
+    {studentCopy}
+    <section className="experience-kit experience-kit-answer-copy">
+      <header><div><p className="section-kicker">TEACHER-ONLY ANSWER KEY</p><h3>Keep this page separate from student copies.</h3></div><button type="button" onClick={(event) => printClosest(event.currentTarget, ".experience-kit")}>Print answer key</button></header>
+      <div>{answerCards.map(card => <article key={card.title}><span>{card.title}</span><p>{card.body}</p></article>)}</div>
     </section>
-  );
+  </div>;
 }
 
 type ArtsFolioWorkspaceKind = "reference" | "lines" | "canvas" | "two-frame" | "four-part" | "six-frame" | "eight-count";
@@ -279,7 +288,7 @@ function ObjectStoryImagePicker({ images }: { images: ExperienceMedia[] }) {
   return <section className="object-story-gallery" aria-labelledby="object-story-gallery-title">
     <header><div><small>OBJECT STORY IMAGE GALLERY</small><h3 id="object-story-gallery-title">Choose evidence for two different stories.</h3><p>The picture gives you clues—not a correct history. Partners name what is visible before inventing.</p></div><span>{images.length} IMAGE SETS</span></header>
     <nav aria-label="Choose an object story image">{images.map((image, index) => <button type="button" key={image.localSrc ?? image.label} aria-current={index === selectedIndex ? "true" : undefined} onClick={() => setSelectedIndex(index)}><b>{String.fromCharCode(65 + index)}</b><span>{image.label.replace(/^Set [A-Z] · /, "")}</span></button>)}</nav>
-    <figure><img src={selected.localSrc} alt={`Object story choice: ${selected.label}`} /><figcaption><small>SET {String.fromCharCode(65 + selectedIndex)} · VISIBLE CLUES FIRST</small><strong>{selected.label}</strong><p>{selected.studentTask}</p></figcaption></figure>
+    <figure><img src={selected.localSrc} alt={selected.alt ?? `Object story choice: ${selected.label}`} /><figcaption><small>SET {String.fromCharCode(65 + selectedIndex)} · VISIBLE CLUES FIRST</small><strong>{selected.label}</strong><p>{selected.studentTask}</p></figcaption></figure>
     <section className="object-story-practice" aria-label="Pair and group storytelling practice">
       <header><small>PAIR PRACTICE · THEN A GROUP RELAY</small><strong>Everybody tells, listens, questions, and revises.</strong></header>
       <ol>
@@ -322,7 +331,7 @@ function PacketRescueVisualPicker({ images }: { images: ExperienceMedia[] }) {
   return <section className="packet-visual-sequence" aria-labelledby="packet-visual-sequence-title">
     <header><div><small>THREE VIEWS · ONE SYSTEM</small><h3 id="packet-visual-sequence-title">See it small. Map it exactly. Become the network.</h3></div><span>ONE VIEW AT A TIME</span></header>
     <nav aria-label="Choose a packet rescue visual">{visualSteps.map((step, index) => <button type="button" key={step.label} aria-current={selectedIndex === index ? "true" : undefined} onClick={() => setSelectedIndex(index)}><b>{step.label}</b><span>{step.caption}</span></button>)}</nav>
-    {selected.image?.localSrc ? <figure><Image unoptimized src={selected.image.localSrc} alt={selected.image.label} width={1792} height={1008} sizes="(max-width: 900px) 100vw, 1100px" /><figcaption><small>GENERATED FICTIONAL MODEL · USE THE LABELLED MAP FOR EXACT TERMS</small><strong>{selected.image.label}</strong><p>{selected.image.studentTask}</p></figcaption></figure> : <PacketRouteDiagram />}
+    {selected.image?.localSrc ? <figure><Image unoptimized src={selected.image.localSrc} alt={selected.image.alt ?? selected.image.label} width={1792} height={1008} sizes="(max-width: 900px) 100vw, 1100px" /><figcaption><small>GENERATED FICTIONAL MODEL · USE THE LABELLED MAP FOR EXACT TERMS</small><strong>{selected.image.label}</strong><p>{selected.image.studentTask}</p></figcaption></figure> : <PacketRouteDiagram />}
   </section>;
 }
 
@@ -337,14 +346,16 @@ function ExactAnchorVisual({ experience, media }: { experience: ProgramExperienc
     </figure>}
     <section className="game-court-visual" aria-label="Top-down court diagram for the no-elimination passing game"><header><span>BASE GAME · TOP VIEW</span><strong>Five passes to five different teammates</strong></header><div><i>START</i>{["A", "B", "C", "D", "E", "F", "G", "H"].map((label, index) => <b key={label} className={`player-${index + 1}`}>{label}</b>)}<em>SAFE EDGE</em></div><p>Spread out, keep heads up, use soft equipment, and offer a seated or walking route.</p></section>
   </>;
-  const imageAlt = experience.id === "edit-room"
+  const imageAlt = image?.alt ?? (experience.id === "edit-room"
     ? "Wide fictional school art-room scene showing a calm, supervised cleanup after supplies spill while other activities continue"
     : experience.id === "three-voices"
       ? "Fictional shared moment in a school library courtyard: one student stands by an open doorway, one is beside a table where a box of colourful project pieces has tipped, and one carries a folder across the room"
     : experience.id.startsWith("bloxels-")
       ? "Original pixel-art story world with a young adventurer, forest path, bridge, glowing doorway, and safe destination in the distance"
-      : "Six ordinary objects arranged on a worn wooden classroom table: key, ticket, spoon, red shoelace, toy wheel, and landscape photograph";
-  const imageLabel = experience.id === "edit-room"
+      : "Six ordinary objects arranged on a worn wooden classroom table: key, ticket, spoon, red shoelace, toy wheel, and landscape photograph");
+  const imageLabel = experience.id === "mixture-toolkit"
+    ? "GENERATED FICTIONAL SCIENCE BENCH · PROPERTY BEFORE TOOL"
+    : experience.id === "edit-room"
     ? "GENERATED FICTIONAL EVENT · FULL CONTEXT"
     : experience.id === "three-voices"
       ? "GENERATED FICTIONAL SHARED MOMENT · FACTS FIRST"
@@ -679,6 +690,11 @@ const knownEmptyLookExperienceIds = new Set([
   "digital-identity-forensics",
   "leadership-relay",
   "strategy-remix-league",
+  "strategy-league",
+  "pack-and-sync",
+  "sale-lab",
+  "transformation-cipher",
+  "space-under-constraints",
   "safety-help-circuit",
 ]);
 
@@ -788,9 +804,11 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
             : selected.id === magnitudeScaleLabExperienceId ? <MathNumberScaleLab />
               : selected.id === editRoomExperienceId ? <EditRoomLab />
                 : null;
+  const interactiveInfographic = selected.id === "pattern-forecast" || selected.id === "equation-balance";
 
   const parts: Array<{ label: string; verb: string; content: ReactNode }> = [];
   if (usesInteractiveLab) {
+    if (interactiveInfographic) parts.push({ label: "Look", verb: "Notice", content: <section className="projector-active-object projector-look-stage"><ExperienceInfographic experienceId={selected.id} /></section> });
     // Magnitude Gallery needs a short, explicit model before students enter the
     // lab. Other interactive labs teach their idea inside the interaction.
     if (showProjectorQuickStart) parts.push({ label: "Learn", verb: "See it", content: <ProjectorQuickStart key={selected.id} launch={readinessLaunch} words={projectorWords} question={projectorSupport.purpose} firstMove={studentContract.firstAction} /> });
@@ -813,7 +831,7 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
       classMovePrompt={selected.id === "ordinary-object-story" ? "Choose a starter and tell it together." : undefined}
     /> });
     parts.push({ label: "Do", verb: "Make", content: <section className="projector-active-object">
-      {!phasedCoordinateBridge && <StudentStepPath key={selected.id} steps={projectorMissionSteps} product={`Complete all ${studentContract.finishEvidence.length} checks in the Done part.`} spacesPrompt={studentContract.reviewState === "reviewed" ? studentContract.saveAction.message : spaces.studentPrompt} />}
+      <StudentStepPath key={selected.id} steps={projectorMissionSteps} product={`Complete all ${studentContract.finishEvidence.length} checks in the Done part.`} spacesPrompt={studentContract.reviewState === "reviewed" ? studentContract.saveAction.message : spaces.studentPrompt} />
       {phasedCoordinateBridge && <section className="coordinate-extension-phase"><header><p className="section-kicker">OPTIONAL EXTENSION</p><h3>Cross zero after the first-quadrant check.</h3></header><MathStudentWorkshops experienceId={selected.id} placement="extension" /></section>}
       {program.subject === "Mathematics" && !phasedCoordinateBridge && <MathStudentWorkshops experienceId={selected.id} />}
     </section> });

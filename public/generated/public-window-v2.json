@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "classroom-os-current-window/v2",
+  "schemaVersion": "classroom-os-public-window/v2",
   "contentVersion": "2026-opening-discovery-rotations-v2",
   "sourceUpdatedAt": "2026-08-31T18:00:00Z",
   "window": {
@@ -7,11 +7,6 @@
     "effectiveFrom": "2026-09-08",
     "effectiveTo": "2026-09-13",
     "state": "up-next",
-    "source": {
-      "lessonId": "rotation-identity-constellation",
-      "sourcePipeline": "program",
-      "planningSource": "first-week-mission.tsx"
-    },
     "shared": {
       "eyebrow": "SEPTEMBER · OPENING OUR LEARNING COMMUNITY",
       "title": "Grade 6 Discovery Rotations",
@@ -115,69 +110,6 @@
         }
       ]
     },
-    "teacher": {
-      "timing": "Opening rotations · schedule, order, and end date still flexible",
-      "duration": "Choose a complete 45-, 60-, or 75-minute route after the group and block are known",
-      "grouping": "Whole-class provocation and modelling; independent organizer creation with optional partner or teacher check. Every session stands alone, and students may not complete every organizer or visit in the same order.",
-      "launch": "Choose the session by purpose, time, and what this group has already completed. Before content, state what is private, what may become a separately copied display excerpt, and that blanks or fictional routes are valid.",
-      "prepare": [
-        "Open Opening Rotations and choose one organizer plus the 45-, 60-, or 75-minute route only after the arriving group and block are known.",
-        "Keep the verified five-page Discovery Booklet available digitally; wait for the confirmed schedule before printing class sets.",
-        "Gather pencils, optional colour supplies, and one labelled opaque folder or envelope for each room/date/rotation block.",
-        "Prepare one concise, safe whole-page model that visits every labelled region through a response choice, including fictional, blank/skip, and privacy-marker routes; never model with confidential student information.",
-        "Confirm who will privately sort named originals by final roster and transfer them to receiving teachers."
-      ],
-      "runOfShow": [
-        {
-          "timing": "0–4 / 5 / 6",
-          "move": "Welcome + privacy",
-          "teacherAction": "Name the learning intention, disclosure choices, and display boundary before students begin."
-        },
-        {
-          "timing": "4–9 / 5–12 / 6–14",
-          "move": "Provoke",
-          "teacherAction": "Use the selected organizer's opening image, scenario, or comparison; ask one question and protect quiet think time."
-        },
-        {
-          "timing": "9–13 / 12–17 / 14–20",
-          "move": "Model the whole page",
-          "teacherAction": "Briefly visit every region in a safe model using several equivalent response modes, including fictional, blank/skip, and privacy-marker choices."
-        },
-        {
-          "timing": "13–31 / 17–40 / 20–50",
-          "move": "First pass, deepen + decorate",
-          "teacherAction": "Students visit every labelled region, deepen safe choices, and add one or more accessible visual cues across the page. Confer without pressuring disclosure or grading artistry."
-        },
-        {
-          "timing": "31–38 / 40–50 / 50–63",
-          "move": "Check",
-          "teacherAction": "Use a quiet gallery, partner conference, or teacher check; the 75-minute route adds the organizer-specific deepening."
-        },
-        {
-          "timing": "38–43 / 50–56 / 63–70",
-          "move": "Revise + decide",
-          "teacherAction": "Students use success indicators, revise one part, and decide what remains private."
-        },
-        {
-          "timing": "43–45 / 56–60 / 70–75",
-          "move": "Label + collect",
-          "teacherAction": "Students label the back and submit named originals face-down into the correct opaque folder."
-        }
-      ],
-      "scenarios": [],
-      "lookFors": [
-        "Makes a response choice in every labelled region; a fictional alternative, blank/skip, or privacy marker counts without explanation, and accommodation may reduce substantive output.",
-        "Uses accessible visual meaning-making across the whole page; colour and artistic polish are never required or assessed.",
-        "Connects a design, proposal, preference, or goal to a reason, person, condition, or next step.",
-        "Notices a trade-off, missing perspective, access need, or useful support when the selected organizer calls for it.",
-        "Revises one part after a self, peer, or teacher check.",
-        "Makes and communicates a privacy choice without being judged on the amount disclosed."
-      ],
-      "evidenceHandoff": "Treat every organizer as formative only. Students label the back with name, organizer, room/date or rotation block, WHOLE PAGE COMPLETE—including privacy-safe blank/skip or accommodation—or PAUSED—ASK BEFORE OFFERING MORE TIME, plus the privacy/display choice. Collect named originals face-down in an opaque folder, sort once by final roster, and pass them privately to receiving teachers. Do not grade, rank, diagnose, use for placement, require catch-up for an accommodation, or post named originals to SpacesEDU. Display only a separately copied, student-selected excerpt or approved design after asking again.",
-      "primaryView": "First Week Mission",
-      "secondaryView": "Weekly Plan",
-      "projectorView": "Teach / Project mode · First Week Mission"
-    },
     "student": {
       "label": "STUDENT PATH",
       "title": "Grade 6 Discovery Rotations",
@@ -263,25 +195,7 @@
         "What is one safe idea from the page you would like to talk about?"
       ],
       "spacesNote": "Named Discovery originals stay with the teacher and are not posted to SpacesEDU. Later September portfolio evidence may include a separate student-selected Learning Story, not private learner information."
-    },
-    "deliveryRoutes": [
-      {
-        "mode": "full-tech",
-        "route": "Use one teacher-controlled projector for the organizer question and steps; students create on paper. An approved shared accessibility tool may support input when needed.",
-        "equivalentLearning": "Visit every region through a response choice, deepen safe ideas, decorate through accessible visual meaning-making, check, revise when useful, choose privacy, and complete a private handoff."
-      },
-      {
-        "mode": "shared-tech",
-        "route": "Use one shared teacher screen or printed model plus the paper organizer; devices rotate only for an approved access need.",
-        "equivalentLearning": "Visit every region through a response choice, deepen safe ideas, decorate through accessible visual meaning-making, check, revise when useful, choose privacy, and complete a private handoff."
-      },
-      {
-        "mode": "offline",
-        "route": "Read the provocation aloud, model a concise whole page on chart paper, and use the Discovery Booklet or blank paper. No internet, account, AI, or device is needed.",
-        "equivalentLearning": "Visit every region through a response choice, deepen safe ideas, decorate through accessible visual meaning-making, check, revise when useful, choose privacy, and complete a private handoff."
-      }
-    ],
-    "toolActivityIds": []
+    }
   },
   "newsroom": {
     "id": "grade-6-newsroom",
@@ -1435,11 +1349,6 @@
       "effectiveFrom": "2026-09-08",
       "effectiveTo": "2026-09-13",
       "state": "up-next",
-      "source": {
-        "lessonId": "rotation-identity-constellation",
-        "sourcePipeline": "program",
-        "planningSource": "first-week-mission.tsx"
-      },
       "shared": {
         "eyebrow": "SEPTEMBER · OPENING OUR LEARNING COMMUNITY",
         "title": "Grade 6 Discovery Rotations",
@@ -1543,69 +1452,6 @@
           }
         ]
       },
-      "teacher": {
-        "timing": "Opening rotations · schedule, order, and end date still flexible",
-        "duration": "Choose a complete 45-, 60-, or 75-minute route after the group and block are known",
-        "grouping": "Whole-class provocation and modelling; independent organizer creation with optional partner or teacher check. Every session stands alone, and students may not complete every organizer or visit in the same order.",
-        "launch": "Choose the session by purpose, time, and what this group has already completed. Before content, state what is private, what may become a separately copied display excerpt, and that blanks or fictional routes are valid.",
-        "prepare": [
-          "Open Opening Rotations and choose one organizer plus the 45-, 60-, or 75-minute route only after the arriving group and block are known.",
-          "Keep the verified five-page Discovery Booklet available digitally; wait for the confirmed schedule before printing class sets.",
-          "Gather pencils, optional colour supplies, and one labelled opaque folder or envelope for each room/date/rotation block.",
-          "Prepare one concise, safe whole-page model that visits every labelled region through a response choice, including fictional, blank/skip, and privacy-marker routes; never model with confidential student information.",
-          "Confirm who will privately sort named originals by final roster and transfer them to receiving teachers."
-        ],
-        "runOfShow": [
-          {
-            "timing": "0–4 / 5 / 6",
-            "move": "Welcome + privacy",
-            "teacherAction": "Name the learning intention, disclosure choices, and display boundary before students begin."
-          },
-          {
-            "timing": "4–9 / 5–12 / 6–14",
-            "move": "Provoke",
-            "teacherAction": "Use the selected organizer's opening image, scenario, or comparison; ask one question and protect quiet think time."
-          },
-          {
-            "timing": "9–13 / 12–17 / 14–20",
-            "move": "Model the whole page",
-            "teacherAction": "Briefly visit every region in a safe model using several equivalent response modes, including fictional, blank/skip, and privacy-marker choices."
-          },
-          {
-            "timing": "13–31 / 17–40 / 20–50",
-            "move": "First pass, deepen + decorate",
-            "teacherAction": "Students visit every labelled region, deepen safe choices, and add one or more accessible visual cues across the page. Confer without pressuring disclosure or grading artistry."
-          },
-          {
-            "timing": "31–38 / 40–50 / 50–63",
-            "move": "Check",
-            "teacherAction": "Use a quiet gallery, partner conference, or teacher check; the 75-minute route adds the organizer-specific deepening."
-          },
-          {
-            "timing": "38–43 / 50–56 / 63–70",
-            "move": "Revise + decide",
-            "teacherAction": "Students use success indicators, revise one part, and decide what remains private."
-          },
-          {
-            "timing": "43–45 / 56–60 / 70–75",
-            "move": "Label + collect",
-            "teacherAction": "Students label the back and submit named originals face-down into the correct opaque folder."
-          }
-        ],
-        "scenarios": [],
-        "lookFors": [
-          "Makes a response choice in every labelled region; a fictional alternative, blank/skip, or privacy marker counts without explanation, and accommodation may reduce substantive output.",
-          "Uses accessible visual meaning-making across the whole page; colour and artistic polish are never required or assessed.",
-          "Connects a design, proposal, preference, or goal to a reason, person, condition, or next step.",
-          "Notices a trade-off, missing perspective, access need, or useful support when the selected organizer calls for it.",
-          "Revises one part after a self, peer, or teacher check.",
-          "Makes and communicates a privacy choice without being judged on the amount disclosed."
-        ],
-        "evidenceHandoff": "Treat every organizer as formative only. Students label the back with name, organizer, room/date or rotation block, WHOLE PAGE COMPLETE—including privacy-safe blank/skip or accommodation—or PAUSED—ASK BEFORE OFFERING MORE TIME, plus the privacy/display choice. Collect named originals face-down in an opaque folder, sort once by final roster, and pass them privately to receiving teachers. Do not grade, rank, diagnose, use for placement, require catch-up for an accommodation, or post named originals to SpacesEDU. Display only a separately copied, student-selected excerpt or approved design after asking again.",
-        "primaryView": "First Week Mission",
-        "secondaryView": "Weekly Plan",
-        "projectorView": "Teach / Project mode · First Week Mission"
-      },
       "student": {
         "label": "STUDENT PATH",
         "title": "Grade 6 Discovery Rotations",
@@ -1691,30 +1537,13 @@
           "What is one safe idea from the page you would like to talk about?"
         ],
         "spacesNote": "Named Discovery originals stay with the teacher and are not posted to SpacesEDU. Later September portfolio evidence may include a separate student-selected Learning Story, not private learner information."
-      },
-      "deliveryRoutes": [
-        {
-          "mode": "full-tech",
-          "route": "Use one teacher-controlled projector for the organizer question and steps; students create on paper. An approved shared accessibility tool may support input when needed.",
-          "equivalentLearning": "Visit every region through a response choice, deepen safe ideas, decorate through accessible visual meaning-making, check, revise when useful, choose privacy, and complete a private handoff."
-        },
-        {
-          "mode": "shared-tech",
-          "route": "Use one shared teacher screen or printed model plus the paper organizer; devices rotate only for an approved access need.",
-          "equivalentLearning": "Visit every region through a response choice, deepen safe ideas, decorate through accessible visual meaning-making, check, revise when useful, choose privacy, and complete a private handoff."
-        },
-        {
-          "mode": "offline",
-          "route": "Read the provocation aloud, model a concise whole page on chart paper, and use the Discovery Booklet or blank paper. No internet, account, AI, or device is needed.",
-          "equivalentLearning": "Visit every region through a response choice, deepen safe ideas, decorate through accessible visual meaning-making, check, revise when useful, choose privacy, and complete a private handoff."
-        }
-      ],
-      "toolActivityIds": []
+      }
     },
     {
       "id": "first-formed-class-week",
       "effectiveFrom": "2026-09-14",
       "effectiveTo": "2026-09-18",
+      "state": "published",
       "shared": {
         "eyebrow": "SEPTEMBER · FIRST FORMED-CLASS WEEK",
         "title": "Five ways to become known",
@@ -1754,8 +1583,8 @@
         ],
         "visual": {
           "src": "/images/visual-review/public-week-collaboration-hero-v1.webp",
-          "alt": "Grade 6 students sharing an object story, comparing number evidence, making notes, and observing the school grounds in pairs and small groups.",
-          "caption": "Five connected ways to notice how students think, contribute, communicate, and learn."
+          "alt": "Fictional Grade 6 classroom scene with students working in pairs and small groups using paper cards, discussion, and a shared class display.",
+          "caption": "FICTIONAL COLLABORATION SCENE · The week itself includes object stories, number reasoning, learning conditions, place observation, and a Friday Learning Story."
         },
         "primaryResource": null,
         "thinkingMoves": [
@@ -1812,55 +1641,6 @@
             "why": "Practise safe participation, shared airtime, help-seeking, and re-entry."
           }
         ]
-      },
-      "teacher": {
-        "timing": "First formed-class week · Sept. 14–18",
-        "duration": "Five connected 55–65 minute blocks",
-        "grouping": "Whole-class launches; pairs and table groups for story, number, and observation work; individual Friday reflection because each student's evidence, learning conditions, and goal are personal.",
-        "launch": "This week gives us five different ways to notice how people think and learn. Nobody has to share a private or painful story. We will use specific evidence, listen carefully, and revise one idea each day.",
-        "prepare": [
-          "Open the First Formed Class Week preset in Week Plan and add exact bells, support, supervision, and school events. If a group still needs an opening rotation, choose any unfinished standalone Discovery organizer and protect the same private handoff.",
-          "Prepare the ordinary-object image sets or six safe objects, number cards or scrap paper, and a safe soundwalk plus seated/window alternative.",
-          "Confirm the Friday SpacesEDU route: one Learning Story with a specific example, useful learning conditions, one realistic goal, first step, and check date."
-        ],
-        "runOfShow": [
-          {
-            "timing": "Monday",
-            "move": "Object story",
-            "teacherAction": "Model one low-stakes three-beat story, then protect partner telling, listener questions, and one clear retell."
-          },
-          {
-            "timing": "Tuesday",
-            "move": "Magnitude Gallery",
-            "teacherAction": "Use the projected number scale, require predictions before reveals, and record strategies rather than ranking students."
-          },
-          {
-            "timing": "Wednesday",
-            "move": "Learning user manual",
-            "teacherAction": "Use classroom cases, avoid fixed labels, and have students name one support or action they can explain."
-          },
-          {
-            "timing": "Thursday",
-            "move": "Place soundwalk",
-            "teacherAction": "Teach observation versus inference, follow the safe route, and offer an equivalent stationary or indoor route."
-          },
-          {
-            "timing": "Friday",
-            "move": "Learning Story",
-            "teacherAction": "Students choose one strong example, add a realistic goal and first step, revise for an audience, and make the single September post."
-          }
-        ],
-        "scenarios": [],
-        "lookFors": [
-          "Points to exact story, number, or place evidence before making an inference.",
-          "Listens closely enough to ask a useful question or restate a partner's idea accurately.",
-          "Explains a strategy, support, contribution, or revision with a specific example.",
-          "Uses the Friday Learning Story to synthesize the week instead of uploading five separate activities."
-        ],
-        "evidenceHandoff": "Use conversation, notebooks, quick models, observation, and conferences as formative evidence. Friday's student-selected Learning Story is the only planned SpacesEDU post from this sequence; do not require private disclosure or turn the midweek learning profile into a second post.",
-        "primaryView": "Weekly Plan",
-        "secondaryView": "Morning Screen",
-        "projectorView": "Teach / Project mode · daily lesson"
       },
       "student": {
         "label": "STUDENT PATH",
@@ -1951,6 +1731,7 @@
       "id": "surrey-place-and-election",
       "effectiveFrom": "2026-09-21",
       "effectiveTo": "2026-09-30",
+      "state": "published",
       "shared": {
         "eyebrow": "SEPTEMBER · SURREY, PLACE & PUBLIC DECISIONS",
         "title": "Who decides—and what does this place teach us?",
@@ -1990,8 +1771,8 @@
         ],
         "visual": {
           "src": "/images/visual-review/newsroom-source-desk-v1.webp",
-          "alt": "A source desk with a Surrey map, dated article, photograph, notes, and question cards ready for students to compare.",
-          "caption": "Start with the source: look, locate, credit, compare, and keep one uncertainty visible."
+          "alt": "Fictional source-analysis desk with an unlabeled map, photograph, bar chart, text page, blank note card, pencil, and magnifying glass.",
+          "caption": "NEWSROOM ORIENTATION ILLUSTRATION · This is not Surrey evidence. Open the named, dated source before making a local claim."
         },
         "primaryResource": null,
         "thinkingMoves": [
@@ -2048,62 +1829,6 @@
             "why": "Ask questions, verify, discuss, write, create, and contribute responsibly to community decisions."
           }
         ]
-      },
-      "teacher": {
-        "timing": "Surrey, place, and election inquiry · Sept. 21–30",
-        "duration": "Six to seven flexible blocks across eight school days",
-        "grouping": "Whole-class source launches; pairs for close reading and claim checks; groups of 3–4 for jurisdiction sorting and display design; individual reflection only when each student's own question matters.",
-        "launch": "We are going to look closely at decisions and sources connected to the place outside our classroom. Our job is not to choose a candidate. It is to work out who can decide, what the evidence supports, whose perspective is present, and what still needs checking.",
-        "prepare": [
-          "Open the existing Social Studies lessons Three Maps of Fleetwood, Power Is Already in the Room or Same Crisis, Different Systems, Perspective Without Guessing, and Trace the Claim.",
-          "Use the Surrey election bridge and official source doors. After Sept. 11, use the official candidate information rather than provisional lists.",
-          "Select one exact Surrey Schools Indigenous Learning, local-Nation, FNESC, or First Nations-led source. Record speaker or author, Nation or organization, place, title, date, and sharing guidance before teaching.",
-          "Prepare a no-Wi-Fi route: source title and credit on the board, one short permitted excerpt or teacher notes, a projected or printed map, and notebooks."
-        ],
-        "runOfShow": [
-          {
-            "timing": "Block 1",
-            "move": "Who decides what?",
-            "teacherAction": "Sort exact school, trustee, city, provincial, and federal scenarios; require the decision and authority, not only the topic."
-          },
-          {
-            "timing": "Block 2",
-            "move": "Three maps",
-            "teacherAction": "Compare what a street map, planning map, and First Peoples' map make visible; keep source, purpose, and limits attached."
-          },
-          {
-            "timing": "Block 3",
-            "move": "Learn with place",
-            "teacherAction": "Return to local observation, then learn directly from one attributed local or district-curated source without turning it into a generic Indigenous claim."
-          },
-          {
-            "timing": "Block 4",
-            "move": "Perspective",
-            "teacherAction": "Use stated evidence to identify who is affected and whose perspective is still missing; do not ask students to invent community voices."
-          },
-          {
-            "timing": "Block 5",
-            "move": "Trace one claim",
-            "teacherAction": "Compare one dated campaign statement with the original official data, policy, budget, or jurisdiction source. Report supported, contradicted, or uncertain."
-          },
-          {
-            "timing": "Blocks 6–7",
-            "move": "Display and share",
-            "teacherAction": "Groups build a concise display with source credit, one careful claim, one missing perspective, and one question. Use the Newsroom to choose what deserves following in October."
-          }
-        ],
-        "scenarios": [],
-        "lookFors": [
-          "Names the exact decision and level or institution with authority.",
-          "Keeps author, Nation or organization, place, date, and purpose attached to a source.",
-          "Separates observation, fact, opinion, claim, promise, inference, and uncertainty.",
-          "Uses evidence without inventing a missing person's or community's perspective.",
-          "Can explain how people who are not old enough to vote may still participate responsibly."
-        ],
-        "evidenceHandoff": "Use source notes, sorting talk, teacher observation, claim checks, and the shared display as formative evidence. Keep this work in class unless one student-selected piece later strengthens an existing Learning Story or inquiry; do not add a separate portfolio post simply because the display exists.",
-        "primaryView": "Newsroom",
-        "secondaryView": "Weekly Plan",
-        "projectorView": "Teach / Project mode · Social Studies lesson and Newsroom"
       },
       "student": {
         "label": "STUDENT PATH",
@@ -2200,6 +1925,7 @@
       "id": "surrey-election-compare-and-prepare",
       "effectiveFrom": "2026-10-01",
       "effectiveTo": "2026-10-16",
+      "state": "published",
       "shared": {
         "eyebrow": "OCTOBER · COMPARE, CHECK, PREPARE",
         "title": "Before the vote: claims, responsibilities, and choices",
@@ -2298,58 +2024,6 @@
           }
         ]
       },
-      "teacher": {
-        "timing": "Surrey election comparison and Student Vote preparation · Oct. 1–16",
-        "duration": "Five flexible blocks plus the existing Student Vote routine",
-        "grouping": "Whole-class projector launches; pairs for claim tracing; teams of 3–4 for the common comparison board and civic hearing; a private individual ballot only because personal choice is the purpose.",
-        "launch": "A campaign promise tells us what someone wants voters to believe or support. What else must we know before deciding whether the promise is possible, supported, and within that office's power?",
-        "prepare": [
-          "Open the official City of Surrey candidate list and role descriptions through the existing Surrey election source doors; use directly sourced candidate material, not search snippets or unsourced comparison pages.",
-          "Choose one age-appropriate issue and short statements that can be compared with the same criteria. Include the date, speaker, office sought, original link, and enough context to avoid changing the meaning.",
-          "Open Trace the Claim, the Newsroom Quick Look or Deep Dive route, and Civic Decision Brief rather than building a second election lesson.",
-          "If the class is participating, use CIVIX Student Vote materials, ballots, and procedures. Classroom OS supports the learning; it does not duplicate the registration, election kit, or results system.",
-          "Prepare a projector-first and paper-card route. No student account or individual device is required."
-        ],
-        "runOfShow": [
-          {
-            "timing": "Block 1",
-            "move": "Match office to power",
-            "teacherAction": "Sort mayor, councillor, and trustee statements by what the office can lead, vote on collectively, influence, or not decide. Keep the six Surrey trustee seats visible alongside mayor and council."
-          },
-          {
-            "timing": "Block 2",
-            "move": "Trace the claim",
-            "teacherAction": "Model one source trail on the projector, then have pairs check one statement and report supported, contradicted, or uncertain."
-          },
-          {
-            "timing": "Block 3",
-            "move": "Common comparison",
-            "teacherAction": "Teams compare statements on one issue using identical headings: proposal, evidence, authority, trade-off, missing perspective, question."
-          },
-          {
-            "timing": "Blocks 4–5",
-            "move": "Civic hearing",
-            "teacherAction": "Run the existing Civic Decision Brief. Require sourced reasons and neutral questions; do not ask students to role-play a candidate or reveal a preference."
-          },
-          {
-            "timing": "By Oct. 16",
-            "move": "Student Vote",
-            "teacherAction": "Review ballot privacy and election-worker roles, follow CIVIX procedures, and keep individual votes secret. Use the discussion and post-vote reflection as formative evidence, not the chosen name."
-          }
-        ],
-        "scenarios": [],
-        "lookFors": [
-          "Matches a promise to the actual authority of mayor, council, or the Board of Education.",
-          "Uses an original, dated source and preserves enough context to represent the statement fairly.",
-          "Separates fact, opinion, claim, promise, evidence, and uncertainty.",
-          "Applies the same comparison questions across candidates and can name a trade-off or missing perspective.",
-          "Explains a public conclusion without pressuring anyone to disclose a private ballot choice."
-        ],
-        "evidenceHandoff": "Keep claim trails, comparison talk, hearing questions, and the post-vote process reflection as formative classroom evidence. Do not assess candidate preference, publish individual ballots, or add a separate SpacesEDU post; connect a later student-selected reflection only if it strengthens an existing inquiry or Learning Story.",
-        "primaryView": "Social Studies · Trace the Claim and Civic Decision Brief",
-        "secondaryView": "Newsroom",
-        "projectorView": "Teach / Project mode · Social Studies lesson, Newsroom, and Student Vote launch"
-      },
       "student": {
         "label": "STUDENT PATH",
         "title": "Check the promise before the vote",
@@ -2446,6 +2120,7 @@
       "id": "surrey-election-results-and-next-steps",
       "effectiveFrom": "2026-10-17",
       "effectiveTo": "2026-10-23",
+      "state": "published",
       "shared": {
         "eyebrow": "OCTOBER · RESULTS AND WHAT HAPPENS NEXT",
         "title": "Election day to next steps: what happens now?",
@@ -2485,8 +2160,8 @@
         ],
         "visual": {
           "src": "/images/visual-review/newsroom-source-desk-v1.webp",
-          "alt": "A newsroom source desk with a map, dated text, results chart, pencil, and magnifying glass ready for students to compare.",
-          "caption": "Record the source and result status first. Then describe the pattern, test explanations, and follow one promise into the real decision process."
+          "alt": "Fictional source-analysis desk with an unlabeled map, photograph, bar chart, text page, blank note card, pencil, and magnifying glass.",
+          "caption": "NEWSROOM ORIENTATION ILLUSTRATION · This is not a results source. Record the official source, status, and update time before describing a pattern."
         },
         "primaryResource": null,
         "thinkingMoves": [
@@ -2543,53 +2218,6 @@
             "why": "Recognize ways to contribute before voting age and between elections."
           }
         ]
-      },
-      "teacher": {
-        "timing": "Surrey election results and reflection · Oct. 17–23",
-        "duration": "One 10–15 minute Newsroom check plus two or three 25–45 minute blocks",
-        "grouping": "Whole-class projector source checks; pairs for results reading; teams of 3–4 for promise pathways; individual reflection only when each student chooses a personal next action.",
-        "launch": "An election chooses people for public roles. Does winning mean they can now do everything they promised? What evidence would show the difference between being elected and making a decision happen?",
-        "prepare": [
-          "Open the official City of Surrey results only when released; display the source, update time, and result status. If results remain preliminary or incomplete, say so and return later.",
-          "Open CIVIX Student Vote results only when released after polls close. Keep the school or class ballot process private and follow CIVIX reporting directions.",
-          "Choose one promise already examined before the election. Reuse its source trail and the official mayor/council/trustee role descriptions.",
-          "Use the Newsroom Quick Look for the first result check and Deep Dive only if the comparison and decision pathway earn more time.",
-          "Prepare a paper or board path labelled WIN → COLLECTIVE DECISION → STAFF / DISTRICT WORK → MONEY / APPROVALS → PUBLIC INPUT → TIME → REVIEW."
-        ],
-        "runOfShow": [
-          {
-            "timing": "10–15 min",
-            "move": "Result check",
-            "teacherAction": "Project the official source. Record what is known, the result status and update time, and one question. Do not fill gaps from social posts or memory."
-          },
-          {
-            "timing": "25–35 min",
-            "move": "Compare results",
-            "teacherAction": "Pairs describe one official/Student Vote similarity or difference when both are available. Separate what the numbers show from hypotheses about why."
-          },
-          {
-            "timing": "30–45 min",
-            "move": "Follow the promise",
-            "teacherAction": "Teams move one pre-election promise through the real pathway. Require the collective body, budget or approval, staff role, time, and review point that apply."
-          },
-          {
-            "timing": "15–25 min",
-            "move": "What next?",
-            "teacherAction": "Students name a respectful way to keep following or influencing a public decision. Close with one question for a future Newsroom check rather than a new assignment."
-          }
-        ],
-        "scenarios": [],
-        "lookFors": [
-          "Records the official source, update time, and whether a result is preliminary or final.",
-          "Describes a numerical pattern without claiming it proves voters' motives.",
-          "Explains that mayor and councillors act through council and trustees through the Board of Education, with other people, rules, money, approvals, and time shaping outcomes.",
-          "Returns to a pre-election promise and identifies a realistic next decision or accountability point.",
-          "Names a specific, respectful way young people can continue participating."
-        ],
-        "evidenceHandoff": "Use the result check, pair comparison, promise pathway, and discussion as formative evidence about source reading, quantitative reasoning, public institutions, and reflection. No new SpacesEDU post is required; the private ballot remains outside assessment and reporting.",
-        "primaryView": "Newsroom",
-        "secondaryView": "Social Studies · Civic Decision Brief",
-        "projectorView": "Teach / Project mode · Newsroom results and promise pathway"
       },
       "student": {
         "label": "STUDENT PATH",
@@ -2683,5 +2311,5 @@
       }
     }
   ],
-  "checksum": "sha256:3cb7a7ad46cbdde5902b208b4de0589577f95061520b64cd04dfce76f42fd5a6"
+  "checksum": "sha256:7206b630d88f8f778a389a46ea326f1a627cc5ef94629da5c4db4286fe9e5c0b"
 }

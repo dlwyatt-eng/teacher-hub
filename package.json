@@ -9,6 +9,7 @@
     "install:ci": "npm ci",
     "dev": "vite --config vite.pages.config.ts",
     "start": "vite preview --config vite.pages.config.ts --host 0.0.0.0",
+    "generate:maps": "node scripts/generate-map-projections.mjs",
     "sync:public-window": "node pages/sync-public-window.mjs",
     "check:public-window": "node pages/check-public-window.mjs",
     "typecheck": "tsc --project tsconfig.json --noEmit --incremental false",

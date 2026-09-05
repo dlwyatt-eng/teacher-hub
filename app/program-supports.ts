@@ -1,6 +1,7 @@
 import type { ExperienceKit, ExperienceMedia, ProgramArc, ProgramExperience, StudentStep, WordHelp } from "./program-types";
 import { bloxelsStoryGame } from "./cross-curricular-program";
 import { spacesPolicyForActivity } from "./classroom-program";
+import { mathExperienceKits } from "./math-experience-kits";
 
 const stepTitles = ["Look", "Choose", "Try it", "Show why", "Make it better", "Share it"];
 
@@ -59,7 +60,7 @@ const exactStudentSteps: Record<string, string[]> = {
     "Draw the simplified system and explain the request, server, packets, routers, routes, check, and repair. Name one way the model is simpler than a real network.",
   ],
   "magnitude-gallery": [
-    "Start with 0.8 on the 0-to-1 line. Read both endpoints and work out one equal jump.",
+    "Start with 0.008 on the 0-to-1 line. Read both endpoints and work out one equal jump.",
     "Predict, reveal, and repair the location. Keep the number fixed while changing the endpoint twice.",
     "Repeat the read, predict, reveal, and scale-change routine with one millions-or-billions card.",
     "Draw the same number on two equal-length lines with different endpoints and explain why its spot changed.",
@@ -314,6 +315,7 @@ export function wordHelpFor(arcId: string): WordHelp[] {
 }
 
 export const experienceKits: Record<string, ExperienceKit> = {
+  ...mathExperienceKits,
   "learning-user-manual": {
     setupMinutes: 4,
     provided: ["Projectable fictional learner case", "Printable strength-action cards", "Learning-conditions menu", "One-page private learning-manual sheet", "Goal-path strip", "Completed mini model"],
@@ -437,14 +439,16 @@ export const experienceKits: Record<string, ExperienceKit> = {
   },
   "magnitude-gallery": {
     setupMinutes: 4,
-    provided: ["Interactive number-line lab", "Mixed-up number cards", "Accurate zoom scales", "Immediate placement checks"],
+    provided: ["Interactive number-line lab", "Three printable decimal scales", "Mixed-up number cards", "Accurate zoom scales", "Separate answer key"],
     gather: ["Board or scrap paper", "Pencils or markers"],
-    shortRoute: "Test 0.8 on two decimal scales, test one billion card, and finish one labelled two-line comparison.",
+    shortRoute: "Test 0.008 on all three decimal scales, use 0.8 as the off-scale challenge, test one billion card, and finish one labelled two-line comparison.",
     cards: [
+      { title: "THREE-SCALE SHEET", body: "Draw three equal-length lines with ten equal sections. Label the right endpoints 1, 0.1, and 0.01. Place 0.008 on each; the number stays fixed while the jump changes." },
       { title: "NUMBER CARDS A", body: "0.004 · 0.04 · 0.4 · 4 · 40 · 400" },
       { title: "NUMBER CARDS B", body: "4,000 · 40,000 · 4,000,000 · 4,000,000,000" },
       { title: "BENCHMARKS", body: "0 · 0.5 · 1 · 10 · 100 · 1,000 · 1 million · 1 billion" },
       { title: "DEFEND", body: "I placed __ between __ and __ because the digit __ has a value of __." },
+      { title: "ANSWER KEY · MAGNITUDE", body: "On 0–1, 0.008 is 0.8% across and remains in the first tenth. On 0–0.1, it is 8% across and remains in the first tenth. On 0–0.01, it is 80% across at the eighth mark. The later 0.8 card fits 0–1 but is beyond the endpoints 0.1 and 0.01." },
     ],
   },
   "zoo-design-studio": {
@@ -470,7 +474,7 @@ export const experienceKits: Record<string, ExperienceKit> = {
   },
   "graph-story-lab": {
     setupMinutes: 3,
-    provided: ["Same-data/different-scale graph pair", "Two data sets", "Graph checklist", "Claim-and-limit prompts"],
+    provided: ["Same-data/different-scale graph pair", "Blank and pre-labelled axes", "Two data sets", "Graph checklist", "Separate answer key"],
     gather: ["Grid paper", "Pencil and ruler", "Optional floor tape"],
     shortRoute: "Compare the two supplied graphs, build one honest graph, and state one claim plus one limit.",
     cards: [
@@ -479,6 +483,8 @@ export const experienceKits: Record<string, ExperienceKit> = {
       { title: "GRAPH CHECK", body: "Title · both axes labelled · equal intervals · useful scale · points connected in time order" },
       { title: "CLAIM", body: "The graph supports __ because __." },
       { title: "LIMIT", body: "The graph cannot show __ because __." },
+      { title: "BLANK AXES", body: "Title: __. Horizontal variable + unit: __. Vertical variable + unit: __. Minimum: __. Maximum: __. Equal interval: __. Plot and connect only when order matters." },
+      { title: "ANSWER KEY · GRAPH STORY", body: "Data A rises overall from 48 L to 54 L with a one-litre dip on Day 3. Both 0–60 L and 47–55 L displays can be accurate; the close scale makes the six-litre range look steeper. Data B rises 17°C→24°C, then falls to 21°C. Neither graph proves why the values changed." },
     ],
   },
   "four-arts-languages": {
@@ -631,9 +637,12 @@ export const experienceKits: Record<string, ExperienceKit> = {
 };
 
 export const experienceMedia: Record<string, ExperienceMedia[]> = {
+  "mixture-toolkit": [
+    { type: "image", label: "Separation station · choose a property before a tool", alt: "Clean classroom science bench with magnets, sieves, skimming tools, filter funnel, evaporation dish, and paper chromatography arranged around safe fictional samples.", source: "Original generated Classroom OS science scene", localSrc: "/images/visual-review/mixtures-separation-station-v1.webp", purpose: "Make the relationship among mixture properties, tools, sequence, safety, and evidence visible before groups begin.", studentTask: "Point to one mixture, choose the property that could separate it, and name the safest first tool. Explain what evidence would show the choice worked.", fallback: "Arrange a sieve, magnet, filter, settling jar, and four labelled fictional mixture cards on a demonstration table." },
+  ],
   "packet-rescue": [
-    { type: "image", label: "View 1 · Break one message into six packets", source: "Generated fictional tabletop model", localSrc: "/images/visual-review/packet-rescue-tabletop-v2.webp", purpose: "Make splitting, numbering, and rebuilding visible before introducing network labels.", studentTask: "Find the complete picture, six numbered pieces, sender, and receiver. Predict what the receiver must check.", fallback: "Cut any simple picture into six pieces and number them 1–6." },
-    { type: "image", label: "View 3 · Become the network", source: "Generated fictional classroom role-play", localSrc: "/images/visual-review/packet-rescue-human-network-v1.webp", purpose: "Preview the physical roles and two-route challenge before students move.", studentTask: "Point to the sender, routers, packets, two routes, receiver, and observer. Predict what happens if one route closes.", fallback: "Place role cards and two tape routes on the floor before students enter them." },
+    { type: "image", label: "View 1 · Break one message into six packets", alt: "Overhead tabletop network model with a server, six picture pieces, two routers and routes, a blocked upper route, an open lower route, a device, and a five-piece reassembly with one gap.", source: "Generated fictional tabletop model", localSrc: "/images/visual-review/packet-rescue-tabletop-v2.webp", purpose: "Make splitting, numbering, and rebuilding visible before introducing network labels.", studentTask: "Find the complete picture, six numbered pieces, sender, and receiver. Predict what the receiver must check.", fallback: "Cut any simple picture into six pieces and number them 1–6." },
+    { type: "image", label: "View 3 · Become the network", alt: "Illustrated classroom human-network drama with students at device, server, router, packet, and observer stations connected by two floor routes.", source: "Generated fictional classroom role-play", localSrc: "/images/visual-review/packet-rescue-human-network-v1.webp", purpose: "Preview the physical roles and two-route challenge before students move.", studentTask: "Point to the sender, routers, packets, two routes, receiver, and observer. Predict what happens if one route closes.", fallback: "Place role cards and two tape routes on the floor before students enter them." },
     { type: "article", label: "What is a packet?", source: "Cloudflare Learning Center", url: "https://www.cloudflare.com/learning/network-layer/what-is-a-packet/", purpose: "Give the teacher an accurate optional explanation of packets, routing, and reassembly after the supplied concrete model.", studentTask: "With your teacher, compare the article's index-card example with our six-piece picture model. Name one match and one simplification.", fallback: "Use the supplied network diagram, six-piece picture, and role cards; the activity does not depend on the link." },
   ],
   "ordinary-object-story": [
@@ -641,9 +650,9 @@ export const experienceMedia: Record<string, ExperienceMedia[]> = {
     { type: "image", label: "Set B · The scratched blue arcade token", source: "Generated fictional object study", localSrc: "/images/object-story-arcade-token-v1.webp", purpose: "Match the model story exactly so students can trace how the silver star, number 8, and scratch become story clues.", studentTask: "Find the star, number, scratch, colour, and worn edge. Decide which clue could create the turning point.", fallback: "Sketch a blue token with a silver star, number 8, one deep scratch, and a worn edge." },
     { type: "image", label: "Set C · Mitten, transit slip, striped stone, bell, pencil, and seed packet", source: "Generated fictional object study", localSrc: "/images/object-story-table-set-c-v1.webp", purpose: "Give pairs a second collection with different textures, marks, and possible uses.", studentTask: "Choose one object and separate five visible clues from three possible story ideas.", fallback: "Draw six simple object silhouettes and add one visible mark to each." },
     { type: "image", label: "Set D · Map, wooden animal, button, ribbon, flashlight, and stamped envelope", source: "Generated fictional object study", localSrc: "/images/object-story-table-set-d-v1.webp", purpose: "Support a second oral round so partners can swap roles with fresh evidence.", studentTask: "Use a different object for the second telling. Build a new beginning, turn, and ending from its clues.", fallback: "Swap in six different safe classroom or household objects." },
-    { type: "image", label: "Set E · Discovery drawer", source: "Generated fictional object study", localSrc: "/images/visual-review/object-gallery-discovery-drawer-v1.webp", purpose: "Offer a dense drawer of small clues for careful observation and different story choices.", studentTask: "Choose two objects that might belong in the same story. Point to the visible clue that could connect them.", fallback: "Place six safe objects in a shallow box or desk drawer." },
-    { type: "image", label: "Set F · Lost-and-found shelf", source: "Generated fictional object study", localSrc: "/images/visual-review/object-gallery-lost-found-v1.webp", purpose: "Invite stories about ownership, misunderstanding, return, and belonging without requiring personal disclosure.", studentTask: "Choose one object. Invent who notices it, what changes, and how the object matters again at the ending.", fallback: "Arrange clean classroom lost-and-found items on one shelf." },
-    { type: "image", label: "Set G · Repair workbench", source: "Generated fictional object study", localSrc: "/images/visual-review/object-gallery-workbench-v1.webp", purpose: "Add making and repair as possible story actions rather than relying only on mysterious keepsakes.", studentTask: "Choose one worn or repairable object. Use a visible mark to create the story's turning point.", fallback: "Sketch a workbench with a broken toy, loose wheel, thread, tape, and small tools." },
+    { type: "image", label: "Set E · Discovery drawer", alt: "Open wooden discovery drawer containing varied worn everyday objects with scratches, folds, knots, and faded colour.", source: "Generated fictional object study", localSrc: "/images/visual-review/object-gallery-discovery-drawer-v1.webp", purpose: "Offer a dense drawer of small clues for careful observation and different story choices.", studentTask: "Choose two objects that might belong in the same story. Point to the visible clue that could connect them.", fallback: "Place six safe objects in a shallow box or desk drawer." },
+    { type: "image", label: "Set F · Lost-and-found shelf", alt: "Fictional school lost-and-found shelf with a mitten, keyring, notebook, ribbon, bottle, toy wheel, and other worn objects.", source: "Generated fictional object study", localSrc: "/images/visual-review/object-gallery-lost-found-v1.webp", purpose: "Invite stories about ownership, misunderstanding, return, and belonging without requiring personal disclosure.", studentTask: "Choose one object. Invent who notices it, what changes, and how the object matters again at the ending.", fallback: "Arrange clean classroom lost-and-found items on one shelf." },
+    { type: "image", label: "Set G · Repair workbench", alt: "Warm workbench still life of repaired and worn everyday objects, thread, a small wheel, tape, a cracked handle, and simple tools.", source: "Generated fictional object study", localSrc: "/images/visual-review/object-gallery-workbench-v1.webp", purpose: "Add making and repair as possible story actions rather than relying only on mysterious keepsakes.", studentTask: "Choose one worn or repairable object. Use a visible mark to create the story's turning point.", fallback: "Sketch a workbench with a broken toy, loose wheel, thread, tape, and small tools." },
   ],
   "three-voices": [{ type: "image", label: "One shared moment, three sightlines", source: "Generated fictional evidence scene", localSrc: "/images/three-voices-shared-moment-v1.webp", purpose: "Give every viewpoint the same fictional scene so students can separate visible facts, reasonable inferences, and unknowns before retelling it.", studentTask: "Study all three sightlines. Name one visible fact, one possible inference, and one detail that remains unknown before choosing a narrator.", fallback: "Use the supplied shared-event description and three sightline cards." }],
   "edit-room": [{ type: "image", label: "The full courtyard before the crop", source: "Generated fictional school event", localSrc: "/images/edit-room-courtyard-context-v2.webp", purpose: "Give every crop the same rich source image so students can see exactly what framing keeps and removes.", studentTask: "Point to visible facts in the wide view, then compare them with the left and centre crops in the on-screen Edit Room.", fallback: "Use the supplied written scene and four-frame sequence cards." }],

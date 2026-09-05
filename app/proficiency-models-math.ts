@@ -1,4 +1,5 @@
 import type { ProficiencyModelSet } from "./proficiency-models";
+import { expandedMathProficiencyModelSets } from "./proficiency-models-math-expanded";
 
 /** Task-specific Mathematics models. Each sample includes a visible next move. */
 export const mathProficiencyModelSets = [
@@ -56,4 +57,5 @@ export const mathProficiencyModelSets = [
       { level: "Extending", growthLabel: "Two workable layouts are compared", sample: "Layout A uses more shared boundaries and 18 m less fencing, but creates a narrow turn. Layout B uses more fence but keeps the 2 m route clear. Both fit. I chose Layout B because access matters more than the lowest fence total, then checked every shared edge once.", whatWorks: ["Compares two valid designs", "Uses calculations to explain a trade-off", "Balances efficiency with access"], nextImprovement: "Test one new limit, such as a changed habitat size, and update the affected calculations.", teacherUseNote: "Extending is mathematical trade-off reasoning, not a larger zoo." },
     ],
   },
+  ...expandedMathProficiencyModelSets,
 ] as const satisfies readonly ProficiencyModelSet[];

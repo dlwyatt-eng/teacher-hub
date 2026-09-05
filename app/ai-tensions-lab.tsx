@@ -125,6 +125,30 @@ export default function AiTensionsLab({ audience, onHome }: { audience: Audience
       <p><b>ZOOM OUT:</b> minerals → manufacturing → transport → electricity → cooling → replacement → e-waste</p>
     </section>}
 
+    <details className="ai-visual-sequence">
+      <summary><span><small>OPTIONAL LATER ADST / CAREER EXTENSION</small><strong>Technology choices: notice → sort → verify</strong></span><b>Open visual sequence ↓</b></summary>
+      <div className="ai-visual-sequence__body">
+        <header><p>Use these three original classroom visuals after the paper-first Discovery rotations. Students notice a technology choice, sort a fictional scenario, then check a claim before deciding.</p></header>
+        <div className="ai-visual-sequence__images">
+          {[
+            ["1 · NOTICE THE CHOICES", "/images/visual-review/technology-choices-mural-v1.webp", "A classroom mural showing different human choices around technology, used to notice who decides and who is affected."],
+            ["2 · SORT THE SCENARIO", "/images/visual-review/technology-scenario-table-v1.webp", "A tabletop set of fictional technology scenario cards ready for a group evidence and responsibility sort."],
+            ["3 · CHECK THE ANSWER", "/images/visual-review/technology-check-the-answer-v1.webp", "Students comparing an answer with sources and marking what is supported, uncertain, or missing."],
+          ].map(([label, src, alt]) => <figure key={src}><Image unoptimized src={src} width={1672} height={941} alt={alt} /><figcaption>{label}</figcaption></figure>)}
+        </div>
+        <section className="ai-team-roles" aria-labelledby="ai-team-roles-title">
+          <header><small>REUSABLE FOUR-PERSON TEAM</small><h2 id="ai-team-roles-title">Every role protects the thinking.</h2><p>Rotate roles between rounds. With fewer than four people, combine Connector/Recorder with Thinker.</p></header>
+          <div>
+            <article><b>1</b><strong>THINKER</strong><p>States the team’s first idea and the reason before any tool is used.</p></article>
+            <article><b>2</b><strong>PROMPTER</strong><p>Asks the agreed question without adding names, private information, or a request for finished work.</p></article>
+            <article><b>3</b><strong>CHECKER</strong><p>Tests claims against teacher-approved sources and marks supported, uncertain, or missing.</p></article>
+            <article><b>4</b><strong>CONNECTOR / RECORDER</strong><p>Links the result back to the task, records the group decision, and names what remained human.</p></article>
+          </div>
+          <footer><b>NO DEVICE?</b><span>Use a fictional answer card. The same four roles examine it, check it, revise it, and explain the final human decision.</span></footer>
+        </section>
+      </div>
+    </details>
+
     {systemMapOpen && hasPhysicalSystemMap && <div ref={systemMapDialogRef} tabIndex={-1} className="ai-system-map-overlay" role="dialog" aria-modal="true" aria-labelledby="ai-system-map-title" aria-describedby="ai-system-map-transcript">
       <button className="ai-system-map-scrim" type="button" tabIndex={-1} aria-hidden="true" aria-label="Close physical system map" onClick={closeSystemMap} />
       <section className="ai-system-map-panel">

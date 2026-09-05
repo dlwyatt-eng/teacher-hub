@@ -59,6 +59,11 @@ test("known empty Look routes are suppressed unless real media is available", as
     "digital-identity-forensics",
     "leadership-relay",
     "strategy-remix-league",
+    "strategy-league",
+    "pack-and-sync",
+    "sale-lab",
+    "transformation-cipher",
+    "space-under-constraints",
     "safety-help-circuit",
   ]);
   assert.match(source, /const hasVisibleLookMedia = program\.subject === "Arts Education"[\s\S]*?media\.some\(\(item\) => item\.type === "image"\);/);

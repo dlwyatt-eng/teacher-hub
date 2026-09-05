@@ -27,7 +27,7 @@ export default function TeachingOsMap({ onHome, onYearPlan, onSpaces, onAiStudio
 
       <section className="os-hero">
         <div className="os-hero-copy">
-          <p className="eyebrow">PRIVATE CONTROL PLANE · AUGUST 16, 2026</p>
+          <p className="eyebrow">TEACHER CONTROL PLANE · AUGUST 16, 2026</p>
           <h1>Teaching OS Map</h1>
           <p>One path from prerequisite learning to evidence worth keeping. Use this map to see what is protected, what is ready, what is blocked, and what the next build must solve.</p>
           <div className="os-hero-actions">

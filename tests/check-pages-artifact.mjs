@@ -131,8 +131,12 @@ const [, socialProgramJs] = emittedChunk("social-program-", ".js");
 const [, socialStudiesJs] = emittedChunk("social-studies-program-", ".js");
 const [, socialStudiesCss] = emittedChunk("social-studies-program-", ".css");
 assert.ok(gzipSync(socialProgramJs, { level: 9 }).byteLength < 32_000, "Shared Social Studies data exceeded the 32 KB gzip budget.");
-assert.ok(gzipSync(socialStudiesJs, { level: 9 }).byteLength < 85_000, "Social Studies experience code exceeded the 85 KB gzip budget.");
-assert.ok(gzipSync(socialStudiesCss, { level: 9 }).byteLength < 40_000, "Social Studies experience styles exceeded the 40 KB gzip budget.");
+// The complete Equal Earth investigation adds a six-scene, offline-capable lab
+// to this already-deferred route. Keep a tight ceiling while allowing that
+// intentional instructional payload; the initial application budget above is
+// unchanged.
+assert.ok(gzipSync(socialStudiesJs, { level: 9 }).byteLength < 90_000, "Social Studies experience code exceeded the 90 KB gzip budget.");
+assert.ok(gzipSync(socialStudiesCss, { level: 9 }).byteLength < 43_000, "Social Studies experience styles exceeded the 43 KB gzip budget.");
 assert.ok(!initialScript.toString("utf8").includes("FICTIONAL JUNIPER PARK"), "Civic case copy leaked into the initial JavaScript.");
 assert.ok(socialStudiesJs.includes("FICTIONAL JUNIPER PARK"), "Deferred Social Studies chunk is missing the Juniper Park case.");
 

@@ -1,3 +1,5 @@
+import masterInquiryPack from "../content/master-inquiry-pack-v1.json";
+
 export type SocialResource = {
   label: string;
   type: "Interactive map" | "Website" | "Article" | "Data profile";
@@ -50,7 +52,7 @@ export const socialUnits = [
     color: "#4f75a6",
     soft: "#e4ecf6",
     weeks: "4–5 weeks",
-    status: "Classroom audit in progress",
+    status: "Classroom-ready core · refine in use",
     content: ["evidence", "perspective", "maps and media", "local change"],
   },
   {
@@ -62,7 +64,7 @@ export const socialUnits = [
     color: "#7459a6",
     soft: "#eee8f7",
     weeks: "4–5 weeks",
-    status: "Experience build ready · adjust during the year",
+    status: "Classroom-ready core · refine in use",
     content: ["systems of government", "human rights", "civic participation", "ethical judgment"],
   },
   {
@@ -74,7 +76,7 @@ export const socialUnits = [
     color: "#a87837",
     soft: "#f6ead7",
     weeks: "4–5 weeks",
-    status: "Four experience drafts ready · adjust during the year",
+    status: "Classroom-ready core · refine in use",
     content: ["migration and urbanization", "poverty and inequality", "trade and resource decisions", "conflict and international cooperation"],
   },
   {
@@ -86,7 +88,7 @@ export const socialUnits = [
     color: "#347d72",
     soft: "#deeeea",
     weeks: "5–6 weeks",
-    status: "Four inquiry studios ready · adjust during the year",
+    status: "Classroom-ready core · refine in use",
     content: ["systems and significance", "change and continuity", "existing responses", "expert-team teaching"],
   },
 ] as const;
@@ -131,6 +133,43 @@ export const socialLessons: SocialLesson[] = [
     evidenceSubjects: ["Social Studies", "English Language Arts", "Arts Education"],
     spacesUse: "none",
     spacesPrompt: "No post required. Save the purposeful map only if it shows especially useful thinking for a later case file.",
+  },
+  {
+    id: "who-drew-the-world",
+    unitId: "place-evidence-perspective",
+    title: masterInquiryPack.mapInquiry.teacherTitle,
+    question: "What happens when a map's choices shape how generations see the world?",
+    duration: masterInquiryPack.mapInquiry.timing,
+    kind: "Projection and representation inquiry",
+    learning: masterInquiryPack.mapInquiry.learning,
+    success: masterInquiryPack.mapInquiry.success,
+    vocabulary: masterInquiryPack.mapInquiry.vocabulary.map(({ term }) => term),
+    scenes: masterInquiryPack.mapInquiry.steps.map((step) => ({
+      label: step.label,
+      title: step.prompt,
+      prompt: step.directions.join(" "),
+      time: `${step.minutes} min`,
+      learningMode: step.label === "INVESTIGATE" ? "Map comparison · area bars · partner reasoning" : step.label === "REIMAGINE" ? "Purposeful map redesign · drawing, labels, oral, or model route" : "One projector · class noticing · board or paper response",
+      studentTask: step.label === "REIMAGINE" ? masterInquiryPack.mapInquiry.product : `${step.label.toLowerCase()} notes that use visible evidence`,
+    })),
+    resources: masterInquiryPack.mapInquiry.sources.map((source, index) => ({
+      label: source.label,
+      type: "Website" as const,
+      url: source.href,
+      source: index === 0 ? "Equal Earth" : index === 1 ? "Monash University" : index === 2 ? "ArcGIS" : index === 3 ? "Correct The Map campaign" : "United Nations Digital Library",
+      purpose: source.use,
+      gradeFit: index === 1 || index === 4 ? "Teacher preview" as const : index === 3 ? "Supported stretch" as const : "Core Grade 6" as const,
+    })),
+    materials: ["One projector", "The two bundled world-projection maps", "Printed or projected area-comparison cards", "Rulers or paper strips", "Plain paper and markers"],
+    beforeClass: ["Open the official Equal Earth and projection sources in teacher tabs; the bundled maps remain the no-Wi-Fi route.", "Treat Correct The Map as an advocacy campaign. Separate the cartographic evidence from interpretations about power and from a policy choice.", masterInquiryPack.mapInquiry.timeSensitiveNote, masterInquiryPack.mapInquiry.placeExtension.guardrail],
+    teacherMoves: ["Keep first impressions visible so evidence can cause a real revision.", "Ask what each projection preserves before asking which one students prefer.", "Use measured relative area rather than visual confidence as evidence.", "Credit a specific Nation-authored or district-curated source in the relational place extension."],
+    lookFors: masterInquiryPack.mapInquiry.success,
+    misconceptions: ["One flat world map can preserve size, shape, distance, and direction at the same time.", "Mercator is simply a fake or dishonest map.", "A campaign's preferred solution proves every claim it makes.", "One generalized Indigenous map can represent distinct Nations, lands, waters, languages, and responsibilities."],
+    lowerPrep: masterInquiryPack.mapInquiry.routes.offline,
+    evidenceLevel: "Practice",
+    evidenceSubjects: ["Social Studies", "Mathematics", "English Language Arts", "Arts Education"],
+    spacesUse: "none",
+    spacesPrompt: "Keep the map comparison in class. Save it later only if the student chooses it as evidence in a larger case file.",
   },
   {
     id: "trace-the-claim",

@@ -30,6 +30,8 @@
 .sidebar .official-curriculum-link small,.sidebar .teacher-contact-link small{color:#52645b;font-size:11px;line-height:1.4}
 .sidebar .phase-pill{font-size:12px}
 .sidebar .profile strong{font-size:14px}.sidebar .profile small{color:#52645b;font-size:11px}.sidebar .profile b{font-size:11px}
+.large-text-toggle{display:flex;align-items:center;gap:8px;min-height:42px;padding:8px 11px;border:1px solid #9eb5aa;border-radius:10px;background:#fff;color:#25483a;cursor:pointer}.large-text-toggle span{display:grid;place-items:center;width:28px;height:28px;border-radius:7px;background:#e8f2ed;font:800 14px Georgia,serif}.large-text-toggle strong{white-space:nowrap;font-size:12px}.large-text-toggle[aria-pressed="true"]{border-color:#1d5e48;background:#1d5e48;color:#fff}.large-text-toggle[aria-pressed="true"] span{background:#fff;color:#1d5e48}.large-text-toggle:focus-visible{outline:4px solid #e3ae48;outline-offset:3px}
+.large-text-mode .page :where(p,li,blockquote,dd,td,th,label,input,select,textarea){font-size:max(1em,18px);line-height:1.6}.large-text-mode .page :where(button,a,summary){font-size:max(1em,16px);line-height:1.45}.large-text-mode .page :where(small,.section-kicker,.eyebrow){font-size:max(1em,14px);line-height:1.45}.large-text-mode .program-experience-detail,.large-text-mode .student-program,.large-text-mode .science-lesson-route{letter-spacing:.005em}.large-text-mode .projector-lesson-player__bar h1{font-size:clamp(38px,4.5vw,72px)}
 
 .projector-shell .student-home .eyebrow,.projector-shell .student-home .section-kicker{font-size:16px;letter-spacing:1.5px}
 .projector-shell .student-start-grid article>span{font-size:17px}
@@ -52,7 +54,10 @@
   .dashboard .subject-card{min-height:102px}
   .projector-shell .student-home .eyebrow,.projector-shell .student-home .section-kicker{font-size:14px}
   .student-curriculum-link{grid-template-columns:44px 1fr}.student-curriculum-link>b{grid-column:2}
+  .large-text-toggle strong{display:none}.large-text-toggle{padding:6px}
 }
+
+@media print{.large-text-toggle{display:none!important}.large-text-mode .page :where(p,li,blockquote,dd,td,th,label,input,select,textarea,button,a,summary,small){font-size:inherit;line-height:inherit}}
 
 /* Shared lesson experience standard: visible rhythm, lively actions, and clear mode continuity. */
 .lesson-experience-ribbon{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 22px;padding:12px 14px;border:2px solid #b8d3c7;border-radius:15px;background:linear-gradient(115deg,#eef8f3,#fff8df);box-shadow:0 7px 18px #1e57400c}

@@ -2,9 +2,9 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "node:path";
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   root: "pages",
-  base: "/teacher-hub/",
+  base: command === "serve" ? "/" : "/teacher-hub/",
   publicDir: "../public",
   plugins: [react()],
   resolve: {
@@ -17,4 +17,4 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: { input: path.resolve(__dirname, "pages/index.html") },
   },
-});
+}));

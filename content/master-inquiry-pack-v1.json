@@ -1,0 +1,237 @@
+{
+  "contentVersion": "2026-master-inquiry-pack-v1",
+  "reviewedOn": "2026-09-05",
+  "evidenceProtocol": {
+    "title": "Claim → Evidence → Care",
+    "studentQuestion": "What can we know, how can we know it, and what should we do next?",
+    "steps": [
+      { "label": "NAME", "prompt": "What exactly is the claim?", "move": "Say it in one clear sentence." },
+      { "label": "SORT", "prompt": "Is it a fact, interpretation, value, interest, opinion, prediction, or open question?", "move": "A claim can include more than one kind. Name the part you are checking." },
+      { "label": "CHECK", "prompt": "What evidence supports it?", "move": "Look for a direct source, date, author, method, and evidence another person could inspect." },
+      { "label": "WEIGH", "prompt": "How strong and relevant is that evidence?", "move": "Give more weight to careful, direct, repeated, and independently checked evidence." },
+      { "label": "NOTICE", "prompt": "What is uncertain or missing?", "move": "Name limits without pretending every answer is equally supported." },
+      { "label": "RESPOND", "prompt": "What conclusion or next check fits the evidence?", "move": "Stay open to better evidence and protect people's dignity." }
+    ],
+    "uncertaintyLadder": [
+      { "kind": "Honest question", "meaning": "A person wants to understand and is willing to examine evidence.", "teacherMove": "Welcome the question and choose a safe way to investigate it." },
+      { "kind": "Incomplete evidence", "meaning": "We do not yet have enough information for a confident answer.", "teacherMove": "Name what is missing and avoid guessing." },
+      { "kind": "Competing interpretation", "meaning": "People agree on much of the evidence but explain its meaning differently.", "teacherMove": "Compare the reasoning and what each interpretation can explain." },
+      { "kind": "Outdated information or mistake", "meaning": "A claim may once have seemed reasonable or may be repeated in error.", "teacherMove": "Correct it without shaming and show the newer or stronger evidence." },
+      { "kind": "Strategic doubt", "meaning": "A powerful speaker exaggerates uncertainty so people will delay action or stop checking.", "teacherMove": "Ask who benefits, what evidence is omitted, and whether the same standard is applied fairly." },
+      { "kind": "Misinformation", "meaning": "False or misleading information spreads, sometimes without the sharer knowing it is wrong.", "teacherMove": "Trace the source, correct the claim, and slow down sharing." },
+      { "kind": "Denialism", "meaning": "Strong, established evidence is repeatedly rejected through cherry-picking, impossible demands, or conspiracy claims.", "teacherMove": "Use this word only when the pattern is well supported. Do not turn documented harms, identities, or basic rights into a debate." }
+    ]
+  },
+  "mapInquiry": {
+    "teacherTitle": "Who Drew the World?",
+    "publicTitle": "Who Gets to Represent the World?",
+    "timing": "45–60 minutes, with an optional second creation block",
+    "coreGrades": "Grades 6–8; adaptable for Grades 4–12",
+    "learning": "We are learning that every flat world map preserves some things and distorts others.",
+    "why": "Maps help people make decisions. We should know what a map makes easy to see—and what it can hide or exaggerate.",
+    "product": "An evidence-labelled comparison and a redesigned map purpose statement",
+    "hook": {
+      "purpose": "Make the size distortion visible before naming projection vocabulary.",
+      "duration": "3–5 minutes",
+      "before": "Which looks larger: Greenland or Africa? Do not search yet—record your first impression.",
+      "pause": "What changed between the two maps? Which change can we measure?",
+      "bridge": "A globe cannot be flattened without distortion. The next question is what each map chooses to preserve.",
+      "fallback": "Project or print the two local comparison maps and use the area bars; no website is required."
+    },
+    "vocabulary": [
+      { "term": "projection", "meaning": "a method for showing a round Earth on a flat surface" },
+      { "term": "relative area", "meaning": "how large one place is compared with another" },
+      { "term": "distortion", "meaning": "a change in size, shape, distance, or direction caused by flattening the globe" },
+      { "term": "evidence", "meaning": "information we can inspect and use to support a conclusion" },
+      { "term": "representation", "meaning": "a choice about how something is shown" }
+    ],
+    "projectionCards": [
+      {
+        "name": "Mercator",
+        "image": "/images/map-inquiry/mercator-world.svg",
+        "preserves": "Local angles and directions, which made it useful for navigation.",
+        "distorts": "Relative area. Places farther from the equator appear much larger than they are.",
+        "care": "Mercator is not a dishonest map. It is a tool built for a particular purpose, but it is a poor default when comparing land area."
+      },
+      {
+        "name": "Equal Earth",
+        "image": "/images/map-inquiry/equal-earth-world.svg",
+        "preserves": "Relative area, so continents and countries keep their correct size relationships.",
+        "distorts": "Some shapes, angles, and distances. No flat world map preserves everything.",
+        "care": "Equal Earth is one useful equal-area choice—not the only fair map and not a perfect map."
+      }
+    ],
+    "comparisons": [
+      { "places": "Africa / Greenland", "firstArea": "30.37 million km²", "secondArea": "2.17 million km²", "relationship": "Africa is about 14 times larger." },
+      { "places": "Africa / Europe", "firstArea": "30.37 million km²", "secondArea": "10.18 million km²", "relationship": "Africa is about 3 times larger." },
+      { "places": "South America / Europe", "firstArea": "17.84 million km²", "secondArea": "10.18 million km²", "relationship": "South America is about 1.75 times larger." },
+      { "places": "Canada / Russia", "firstArea": "9.98 million km²", "secondArea": "17.10 million km²", "relationship": "Russia is about 1.7 times larger than Canada." }
+    ],
+    "steps": [
+      { "label": "NOTICE", "minutes": "4", "prompt": "What changes between the two world maps?", "directions": ["Look silently first.", "Name only details you can point to.", "Keep your first impression visible."] },
+      { "label": "WONDER", "minutes": "5", "prompt": "Which change matters enough to investigate?", "directions": ["Write one question about size, shape, distance, or direction.", "Choose one question the maps alone cannot answer."] },
+      { "label": "LEARN", "minutes": "7", "prompt": "What does each projection preserve?", "directions": ["Read the five word-help cards.", "Match Mercator and Equal Earth to what each preserves and distorts."] },
+      { "label": "INVESTIGATE", "minutes": "12", "prompt": "Does the area evidence support your first impression?", "directions": ["Choose two place comparisons.", "Build or draw an area bar for each.", "Write one conclusion and one limit."] },
+      { "label": "DISCUSS", "minutes": "8", "prompt": "When is a familiar map still the wrong tool?", "directions": ["Use evidence, not a vote, to compare the claims.", "Separate the mathematical evidence from opinions about what schools should use."] },
+      { "label": "REIMAGINE", "minutes": "12–20", "prompt": "What would a map show if its purpose were relationships and responsibilities—not ownership?", "directions": ["Name the audience and purpose.", "Choose what the map should make visible.", "Name one thing it would still leave out.", "Do not copy Nation-specific knowledge, stories, designs, or place names without permission."] }
+    ],
+    "success": [
+      "I can explain one thing each projection preserves and distorts.",
+      "I use measured area evidence for at least two comparisons.",
+      "I separate evidence, interpretation, and a policy choice.",
+      "My redesigned purpose names an audience, a responsibility, and a limit."
+    ],
+    "routes": {
+      "support": "Use Africa/Greenland only, pre-labelled area bars, partner talk, and sentence frames.",
+      "core": "Compare two pairs, complete the evidence discussion, and write or draw a map-purpose redesign.",
+      "extension": "Compare two equal-area projections or audit a textbook, news graphic, game map, or AI-generated map.",
+      "offline": "Use the local map images, printed comparison cards, rulers, and paper."
+    },
+    "placeExtension": {
+      "prompt": "What becomes visible when a representation begins with waterways, relationships, language, seasonal movement, stewardship, and responsibilities to future generations?",
+      "guardrail": "There is no single Indigenous map or worldview. Begin with a specific Nation's own public source. Do not ask students to imitate cultural designs or turn publicly accessible information into permission to copy, remix, or publish it.",
+      "sources": [
+        { "label": "Katzie First Nation — Who We Are", "href": "https://katzie.ca/who-we-are/" },
+        { "label": "Kwantlen First Nation", "href": "https://kwantlenfn.ca/" },
+        { "label": "Semiahmoo First Nation — Land, Research & Resource Management", "href": "https://www.semiahmoofirstnation.ca/land-research-resource-mgmt" },
+        { "label": "Surrey Schools Indigenous Learning", "href": "https://www.surreyschools.ca/indigenouslearning/about-us" }
+      ]
+    },
+    "sources": [
+      { "label": "Equal Earth — free wall maps and projection information", "href": "https://equal-earth.com/", "use": "Open an official Equal Earth map for comparison." },
+      { "label": "Equal Earth research record — Monash University", "href": "https://research.monash.edu/en/publications/the-equal-earth-map-projection", "use": "Verify the projection's equal-area purpose and authorship." },
+      { "label": "Choose the right projection — ArcGIS", "href": "https://learn.arcgis.com/en/projects/choose-the-right-projection/", "use": "Compare area, angle, distance, and direction trade-offs." },
+      { "label": "Correct The Map campaign", "href": "https://correctthemap.org/", "use": "Study a current policy argument as a campaign source, not as proof by itself." },
+      { "label": "United Nations Digital Library", "href": "https://digitallibrary.un.org/", "use": "Before teaching a claim about a UN vote or resolution, verify the exact record, wording, date, and status here." }
+    ],
+    "timeSensitiveNote": "Do not turn a headline into a fact card. Any claim about a 2026 United Nations decision must be checked against the official resolution or meeting record before teaching. The core lesson does not depend on that claim."
+  },
+  "calendarProvocations": [
+    {
+      "id": "terry-fox-access-and-action",
+      "title": "Terry Fox: Access, Action & the Stories We Tell",
+      "lens": "Disability justice · health-care access · ethical fundraising",
+      "timing": "35–50 minutes",
+      "learning": "We are learning to honour a person's choices without using disability as tragedy or inspiration for everyone else.",
+      "hook": "Project one official Terry Fox Foundation image and a simple route or fundraising graph for 90 seconds.",
+      "before": "What details show action, access, support, or barriers?",
+      "noticeWonder": ["Notice three details without guessing feelings.", "Wonder who made the event possible and who might still face a barrier."],
+      "questions": ["How can fundraising messages protect dignity?", "Who gets access to treatment and research benefits?", "What makes an action useful instead of symbolic?"],
+      "discussion": "Pairs sort message cards into honours choice, removes barriers, pressures people, or needs more context.",
+      "product": "Revise one fictional school fundraising message so it names purpose, access, choice, and how results will be reported.",
+      "curriculum": ["ELA: audience and message", "Career: community contribution", "PHE: access and well-being"],
+      "differentiation": "Offer oral sorting, icons, a scribe, a model message, or an extension that follows how research funds are allocated.",
+      "fallback": "Use the teacher-prepared image description, route sketch, and fictional message cards.",
+      "antiTokenism": "Do not ask disabled students to explain disability, reward public disclosure, or suggest one heroic story represents every disabled person.",
+      "source": { "label": "Terry Fox Foundation", "href": "https://terryfox.org/" }
+    },
+    {
+      "id": "harvest-reciprocity",
+      "title": "Harvest: Who Helps Food Reach Us?",
+      "lens": "Food sovereignty · harvest labour · waste · reciprocity",
+      "timing": "40–60 minutes",
+      "learning": "We are learning to trace relationships and responsibilities in a food system.",
+      "hook": "Project a familiar lunch item beside a six-stop path: land/water → grow or gather → labour → transport → store → table.",
+      "before": "Which people, places, and living systems are missing from the package?",
+      "noticeWonder": ["Notice what the label tells us.", "Wonder what work, land, water, knowledge, or waste it leaves out."],
+      "questions": ["Who has decision-making power in this path?", "What would reciprocity look like?", "How can we reduce waste without blaming families?"],
+      "discussion": "Small groups place relationship cards along the path, then mark one responsibility at each stop.",
+      "product": "Create a relationship label for one food that credits sources, names one responsibility, and avoids claiming knowledge you do not have.",
+      "curriculum": ["Science: ecosystems and resources", "Social Studies: systems and power", "ELA: informational design"],
+      "differentiation": "Use picture cards, one local food example, a narrated route, or an extension comparing who owns and who labours.",
+      "fallback": "Use a clean fictional food path; no student must discuss family food choices or affordability.",
+      "antiTokenism": "Indigenous food sovereignty is about Nation-specific rights, knowledge, lands, waters, and governance—not a themed recipe or generalized tradition.",
+      "source": { "label": "Working Group on Indigenous Food Sovereignty", "href": "https://wgifs.org/" }
+    },
+    {
+      "id": "remembrance-public-memory",
+      "title": "Remembrance: Who and What Do We Remember?",
+      "lens": "Civilians · peace-building · propaganda · excluded service · public memory",
+      "timing": "35–55 minutes",
+      "learning": "We are learning that memorials make choices about whose experiences and hopes are visible.",
+      "hook": "Project two teacher-curated memorial images with captions removed for one minute, then reveal source and purpose.",
+      "before": "What does each memorial ask people to notice, feel, or remember?",
+      "noticeWonder": ["Notice symbols, names, empty space, people, and setting.", "Wonder whose experience or peace-building work may be missing."],
+      "questions": ["How can we honour service and also study the effects of war on civilians?", "How does propaganda shape public memory?", "What makes remembrance lead toward responsibility?"],
+      "discussion": "Use a listening circle: one observation, one source-based interpretation, and one question—no ranking of sacrifice.",
+      "product": "Design a small public-memory panel that includes a source, a missing perspective, and one commitment to peace or care.",
+      "curriculum": ["Social Studies: conflict and governance", "ELA: visual literacy", "Arts: symbolism and public art"],
+      "differentiation": "Offer a caption template, symbol bank, quiet response, partner dictation, or an extension comparing two official sources.",
+      "fallback": "Use printed descriptions and a fictional memorial brief rather than an unverified image search.",
+      "antiTokenism": "Do not romanticize war, require family military stories, or treat Indigenous, Black, Asian, women, refugee, or conscientious-objector experiences as side notes.",
+      "source": { "label": "Canadian War Museum", "href": "https://www.warmuseum.ca/" }
+    },
+    {
+      "id": "truth-records-responsibility",
+      "title": "Truth & Reconciliation: How Do We Know? What Do We Owe?",
+      "lens": "Testimony · records · language revitalization · children's rights · local responsibility",
+      "timing": "30–50 minutes",
+      "learning": "We are learning how testimony, records, language, and place-based knowledge work together as evidence.",
+      "hook": "Use one brief, teacher-previewed NCTR or Nation-authored source excerpt with its speaker, Nation, date, and protocol attached.",
+      "before": "What should a careful listener record—and what does access not give us permission to copy?",
+      "noticeWonder": ["Notice who created the source and why.", "Wonder what another source could help us understand without challenging a person's dignity."],
+      "questions": ["How do different forms of evidence work together?", "Why might people reject established evidence?", "What local responsibility can a school actually keep?"],
+      "discussion": "Build an evidence braid: testimony, record, place/language, and a responsibility. A missing strand becomes a question, not a dismissal.",
+      "product": "Make a source-care card and one realistic school responsibility with a check-back date.",
+      "curriculum": ["Social Studies: evidence and colonialism", "ELA: listening and source care", "Career: responsibility"],
+      "differentiation": "Use a fictional listening rehearsal when an authentic source is unavailable; provide quiet, drawing, dictation, and no-personal-disclosure routes.",
+      "fallback": "Postpone the authentic source rather than inventing or detaching it from attribution. Practise only with the supplied fictional source.",
+      "antiTokenism": "Do not debate documented harms, ask Indigenous students to teach the class, simulate ceremonies, or treat one day as completion of reconciliation.",
+      "source": { "label": "National Centre for Truth and Reconciliation — Education", "href": "https://nctr.ca/education/" }
+    },
+    {
+      "id": "black-futures-bc",
+      "title": "Black Futures in B.C.: Beyond a Single Story",
+      "lens": "Contemporary community · joy · creativity · representation · local histories",
+      "timing": "35–55 minutes",
+      "learning": "We are learning to notice who gets represented in B.C. stories and to create beyond a harm-only frame.",
+      "hook": "Project two credited works or profiles from the B.C. Black History Awareness Society Learning Centre.",
+      "before": "What strengths, ideas, places, and futures are visible here?",
+      "noticeWonder": ["Notice details from the source, not assumptions.", "Wonder what a fuller collection would include."],
+      "questions": ["Why can a harm-only story also be incomplete?", "Who chooses what enters an archive, textbook, or media feed?", "What future is the creator inviting us to imagine?"],
+      "discussion": "Use a gallery protocol: credit, notice, connect, question. Do not rate cultures or ask students to represent an identity.",
+      "product": "Create a 2040 B.C. postcard, audio note, or mini-exhibit label grounded in a credited source and a possible future.",
+      "curriculum": ["ELA: representation and media", "Arts: image and story", "Social Studies: B.C. histories and continuity"],
+      "differentiation": "Offer audio, drawing, sentence frames, partner creation, or an extension auditing recommendation algorithms and missing creators.",
+      "fallback": "Use teacher-saved source cards with full attribution; do not substitute generic image search results.",
+      "antiTokenism": "Black history is not only U.S. history, enslavement, or racism. Include contemporary B.C. people, joy, disagreement, creativity, and futures throughout the year.",
+      "source": { "label": "B.C. Black History Awareness Society — Learning Centre", "href": "https://bcblackhistory.ca/learning-centre/" }
+    },
+    {
+      "id": "earth-day-systems",
+      "title": "Earth Day: Which Change Can We Actually Track?",
+      "lens": "Corporate responsibility · greenwashing · Surrey adaptation · biodiversity · resilient schools",
+      "timing": "35–60 minutes",
+      "learning": "We are learning to test an environmental claim and choose a change we can measure.",
+      "hook": "Project a fictional green advertisement beside one graph or action from Surrey's Climate Action Tracker.",
+      "before": "Which words sound impressive? Which details could we actually check?",
+      "noticeWonder": ["Underline the claim and circle the evidence.", "Wonder who controls the change and who is affected."],
+      "questions": ["Is this a measured result, a promise, or a vague image?", "What responsibility belongs to companies, governments, schools, and individuals?", "What can our school track without blaming students?"],
+      "discussion": "Teams use Claim → Evidence → Care, then choose one school-scale action with a baseline and check date.",
+      "product": "Create an honest action card: current condition, decision-maker, first change, measure, and report-back date.",
+      "curriculum": ["Science: biodiversity and systems", "Math: data", "Social Studies: policy and responsibility", "ELA: advertising"],
+      "differentiation": "Use icon-based claim cards, one pre-selected graph, calculator support, or an extension comparing corporate and public data.",
+      "fallback": "Use the local fictional advertisement and a teacher-printed data card; no live dashboard is required.",
+      "antiTokenism": "Avoid one-day cleanup theatre, doom, or putting systemic problems on children. Connect learning to a real decision-maker and report what changed or remained unknown.",
+      "source": { "label": "City of Surrey — Climate Action Tracker", "href": "https://climateactiontracker.surrey.ca/" }
+    },
+    {
+      "id": "pink-shirt-bystander-power",
+      "title": "Pink Shirt Day: What Can Bystanders Change?",
+      "lens": "Group dynamics · online amplification · belonging · institutional responsibility · repair",
+      "timing": "30–45 minutes",
+      "learning": "We are learning safe ways to interrupt harm, support a person, report a pattern, and help repair belonging.",
+      "hook": "Project a fictional group-chat or hallway scenario in three frozen moments: before, during, and after harm.",
+      "before": "Where does a bystander have a safe choice? Where must an adult or institution act?",
+      "noticeWonder": ["Notice words, silence, audience, power, and amplification.", "Wonder what the targeted person might want without guessing or speaking for them."],
+      "questions": ["Which response reduces harm now?", "What needs to be documented or reported?", "What would repair require after the moment?"],
+      "discussion": "Groups match scenario cards to interrupt, support, report, document, repair, or get immediate help. More than one move may be needed.",
+      "product": "Build a six-part response path for one fictional scenario, including an adult/institution responsibility and a follow-up check.",
+      "curriculum": ["PHE: safety and relationships", "Career: collaboration", "ELA: digital communication"],
+      "differentiation": "Use silent sorting, role cards without acting, private teacher response, visual sequence, or an extension auditing a school reporting route.",
+      "fallback": "Use paper scenario cards and a no-role-play route. Students never need to describe personal bullying.",
+      "antiTokenism": "Do not make kindness merchandise the lesson, force apologies, or ask a targeted student to educate peers. Teach systems, adult duties, consent, and meaningful repair.",
+      "source": { "label": "B.C. erase — Bullying", "href": "https://www2.gov.bc.ca/gov/content/erase/bullying" }
+    }
+  ]
+}

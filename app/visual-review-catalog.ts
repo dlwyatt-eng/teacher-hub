@@ -349,6 +349,6 @@ export const visualAuditFacts = [
   { value: "7", label: "distinct images serving 37 unit worlds" },
   { value: "5 / 5", label: "Morning visuals borrowed from lessons" },
   { value: "1", label: "active public image, repeated twice" },
-  { value: "20", label: "new generated candidates in this review" },
+  { value: "21", label: "new generated candidates in this review" },
   { value: "8", label: "live code-built visual concepts" },
 ] as const;
