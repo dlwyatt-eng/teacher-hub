@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { mathFluencyRhythm, mathPacksFor, mathSupportPacks, mathYearSequence, pairedMathUpTopics, type MathSupportPack } from "./math-program-supports";
 import { MathDeliveryModePanel } from "./math-delivery-mode-panel";
+import { mathStudentPacksFor, type MathStudentWorkshopPlacement } from "./math-student-route";
 import type { LearningProgram, ReadinessLevel } from "./program-types";
 import { printClosest } from "./print-support";
 
@@ -45,8 +46,8 @@ function MathModelVisual({ pack }: { pack: MathSupportPack }) {
     <div className="math-model-transformations">
       <svg viewBox="0 0 770 255" role="img" aria-label="A five-point figure in the first quadrant, translated three right and one up, then reflected across x equals six">
         <title>Every vertex follows both moves in order while the figure keeps the same size and shape.</title>
-        <defs><pattern id="transformation-grid" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M18 0H0V18"/></pattern></defs>
-        {[25, 275, 525].map((x, index) => <g key={x}><rect x={x} y="74" width="162" height="144"/><path className="axes" d={`M${x} 74V218H${x + 162}`}/><text x={x} y="239">{index === 0 ? "START" : index === 1 ? "1 · TRANSLATE (3, 1)" : "2 · REFLECT ACROSS x=6"}</text></g>)}
+        <defs>{[25, 275, 525].map((x, index) => <pattern key={x} id={`transformation-grid-${index}`} x={x} y="74" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M18 0H0V18"/></pattern>)}</defs>
+        {[25, 275, 525].map((x, index) => <g key={x}><rect className={`transformation-grid-panel transformation-grid-panel-${index}`} x={x} y="74" width="162" height="144"/><path className="axes" d={`M${x} 74V218H${x + 162}`}/><text x={x} y="239">{index === 0 ? "START" : index === 1 ? "1 · TRANSLATE (3, 1)" : "2 · REFLECT ACROSS x=6"}</text></g>)}
         <polygon className="shape-start" points="61,182 115,182 115,146 79,110 61,146"/>
         <polygon className="shape-move-one" points="365,164 419,164 419,128 383,92 365,128"/>
         <path className="mirror" d="M383 74V218"/><text className="mirror-label" x="388" y="87">x=6</text>
@@ -148,7 +149,7 @@ function MathModelVisual({ pack }: { pack: MathSupportPack }) {
 }
 
 function PackHeader({ pack }: { pack: MathSupportPack }) {
-  return <header className="math-pack-heading"><div><p>{pack.role} · {pack.timing.toUpperCase()}</p><h3>{pack.title}</h3><span>{pack.blocks} · {pack.mathUpTopics.join(" · ")}</span></div><button type="button" onClick={(event) => printClosest(event.currentTarget, ".math-teaching-pack")}>Print pack</button></header>;
+  return <header className="math-pack-heading"><div><p>{pack.role} · {pack.timing.toUpperCase()}</p><h3>{pack.title}</h3><span>{pack.blocks} · {pack.mathUpTopics.join(" · ")}</span></div><button type="button" onClick={(event) => printClosest(event.currentTarget, ".math-teaching-pack")}>Print teacher pack + answers</button></header>;
 }
 
 function TeacherMathPack({ pack }: { pack: MathSupportPack }) {
@@ -161,7 +162,7 @@ function TeacherMathPack({ pack }: { pack: MathSupportPack }) {
       </div>
       <section className="math-pack-purpose"><div><small>LEARNING GOAL</small><p>{pack.learningGoal}</p></div><div><small>WHY BEFORE THE PROJECT</small><p>{pack.whyBefore}</p></div><div><small>PREREQUISITE</small><p>{pack.prerequisite}</p></div></section>
       {level !== "review" && <><section className="math-pack-model"><header><span>{pack.model.label}</span><h4>{pack.model.prompt}</h4></header><MathModelVisual pack={pack} /><ol>{pack.model.steps.map(step => <li key={step}>{step}</li>)}</ol><p><b>WHAT IT SHOWS:</b> {pack.model.conclusion}</p></section>
-      <div className="math-pack-logistics"><section><b>SUPPLIED ON THIS PAGE</b>{pack.supplied.map(item => <span key={item}>✓ {item}</span>)}</section><section><b>GATHER</b>{pack.gather.map(item => <span key={item}>○ {item}</span>)}</section><section><b>RESOURCE SLOTS</b><span>Main explanation: matching Math Antics video</span><span>MathUP check / games: {pack.mathUpTopics.join(" · ")}</span><span>Optional: teacher-owned practice or organizer</span><em>The on-page investigation remains usable with one projector and ordinary classroom materials.</em></section></div></>}
+      <div className="math-pack-logistics"><section><b>SUPPLIED ON THIS PAGE</b>{pack.supplied.map(item => <span key={item}>✓ {item}</span>)}</section><section><b>GATHER</b>{pack.gather.map(item => <span key={item}>○ {item}</span>)}</section><section><b>RESOURCE SLOTS</b><span>Explanation choice: matching Math Antics video, this Hub model, or both</span><span>MathUP check / games: {pack.mathUpTopics.join(" · ")}</span><span>Optional: teacher-owned practice or organizer</span><em>The on-page investigation remains usable with one projector and ordinary classroom materials.</em></section></div></>}
       {level === "full" && <><section className="math-pack-flow"><div><small>TEACH EXPLICITLY</small>{pack.teacherMoves.map((move, index) => <p key={move}><b>{index + 1}</b>{move}</p>)}</div><div><small>STUDENTS THEN</small>{pack.studentMoves.map((move, index) => <p key={move}><b>{index + 1}</b>{move}</p>)}</div></section><section className="math-partner-cards"><header><span>PROJECT OR PRINT · PARTNER / GROUP CARDS</span><strong>Answer key stays visible in Teacher mode.</strong></header><div>{pack.partnerCards.map(card => <article key={card.title}><b>{card.title}</b><p>{card.body}</p><small><strong>ANSWER:</strong> {card.answer}</small></article>)}</div></section></>}
       <section className="math-independent-check"><header><span>{level === "review" ? "START HERE · RETEACH ONLY WHAT IS MISSED" : "INDEPENDENT CHECK"}</span><strong>{pack.check.length} items · answers included</strong></header><div>{pack.check.map((item, index) => <article key={item.prompt}><b>{index + 1}</b><p>{item.prompt}</p><small>{item.answer}</small></article>)}</div></section>
       <footer className="math-pack-routes"><section><b>IF STUDENTS NEED MORE SUPPORT</b><p>{pack.supportRoute}</p></section><section><b>IF READY FOR MORE</b><p>{pack.extensionRoute}</p></section><section><b>LIKELY MISCONCEPTIONS</b><p>{pack.likelyMisconceptions.join(" · ")}</p></section><section><b>SPACES EDU</b><p>{pack.spaces}</p></section></footer>
@@ -182,13 +183,31 @@ export function MathTeacherWorkshops({ experienceId, placement = "before" }: { e
   );
 }
 
-export function MathStudentWorkshops({ experienceId, placement = "before" }: { experienceId: string; placement?: "before" | "extension" }) {
-  const packs = mathPacksFor(experienceId).filter(pack => placement !== "extension" || pack.role === "MATHUP / WNCP BRIDGE");
+export function MathStudentWorkshops({ experienceId, placement = "before" }: { experienceId: string; placement?: MathStudentWorkshopPlacement }) {
+  const packs = mathStudentPacksFor(experienceId, placement);
   if (!packs.length) return null;
   return (
     <section className="student-math-workshops">
       <header><span>{placement === "extension" ? "OPTIONAL · AFTER THE FIRST-QUADRANT WORK" : "LEARN THESE IDEAS FIRST"}</span><h2>{placement === "extension" ? "Open this bridge only when your teacher chooses the four-quadrant challenge." : "Open the workshop your teacher chooses."}</h2><p>{placement === "extension" ? "The required Grade 6 evidence is already complete. This picture, worked example, and practice extend the coordinate grid across zero." : "Your teacher may use a short Math Antics explanation, teach directly from this Hub model, or combine both. The picture, worked example, partner task, and support route work without the video."}</p></header>
-      {packs.map((pack, packIndex) => <details key={pack.id} open={packIndex === 0}><summary><span><small>{pack.role} · {pack.blocks}</small><strong>{pack.title}</strong></span><b>Open workshop ▾</b></summary><div className="student-math-workshop-body"><section className="student-math-goal"><small>WE ARE LEARNING TO</small><p>{pack.learningGoal}</p></section><section className="math-pack-model"><header><span>{pack.model.label}</span><h4>{pack.model.prompt}</h4></header><MathModelVisual pack={pack} /><ol>{pack.model.steps.map(step => <li key={step}>{step}</li>)}</ol><p><b>WHAT IT SHOWS:</b> {pack.model.conclusion}</p></section><section className="student-math-words"><span>WORD HELP</span><div>{pack.vocabulary.map(word => <article key={word.term}><b>{word.term}</b><p>{word.meaning}</p><small>Example: {word.example}</small></article>)}</div></section><section className="math-partner-cards"><header><span>PARTNER / GROUP CARDS</span><strong>Show your method before asking for an answer check.</strong></header><div>{pack.partnerCards.map(card => <article key={card.title}><b>{card.title}</b><p>{card.body}</p></article>)}</div></section><footer><b>IF YOU NEED A SMALLER FIRST STEP</b><p>{pack.supportRoute}</p></footer></div></details>)}
+      {packs.map((pack, packIndex) => (
+        <details key={pack.id} open={packIndex === 0}>
+          <summary><span><small>{pack.role} · {pack.blocks}</small><strong>{pack.title}</strong></span><b>Open workshop ▾</b></summary>
+          <article className="student-math-workshop-pack">
+            <header className="student-math-print-heading">
+              <div><small>{pack.role} · STUDENT WORKSHOP</small><h3>{pack.title}</h3></div>
+              <button className="student-math-print" type="button" onClick={(event) => printClosest(event.currentTarget, ".student-math-workshop-pack")}>Print student workshop</button>
+            </header>
+            <div className="student-math-workshop-body">
+              <section className="student-math-goal"><small>WE ARE LEARNING TO</small><p>{pack.learningGoal}</p></section>
+              <section className="math-pack-model"><header><span>{pack.model.label}</span><h4>{pack.model.prompt}</h4></header><MathModelVisual pack={pack} /><ol>{pack.model.steps.map(step => <li key={step}>{step}</li>)}</ol><p><b>WHAT IT SHOWS:</b> {pack.model.conclusion}</p></section>
+              <section className="student-math-words"><span>WORD HELP</span><div>{pack.vocabulary.map(word => <article key={word.term}><b>{word.term}</b><p>{word.meaning}</p><small>Example: {word.example}</small></article>)}</div></section>
+              <section className="math-partner-cards"><header><span>PARTNER / GROUP CARDS</span><strong>Show your method before asking for an answer check.</strong></header><div>{pack.partnerCards.map(card => <article key={card.title}><b>{card.title}</b><p>{card.body}</p></article>)}</div></section>
+              <section className="math-independent-check student-math-check"><header><span>INDEPENDENT CHECK</span><strong>Complete each prompt before asking your teacher to check it.</strong></header><div>{pack.check.map((item, index) => <article key={item.prompt}><b>{index + 1}</b><p>{item.prompt}</p></article>)}</div></section>
+              <footer><b>IF YOU NEED A SMALLER FIRST STEP</b><p>{pack.supportRoute}</p></footer>
+            </div>
+          </article>
+        </details>
+      ))}
     </section>
   );
 }
@@ -197,7 +216,7 @@ export function MathYearImplementation({ program }: { program: LearningProgram }
   const nameFor = (id: string) => program.experiences.find(experience => experience.id === id)?.title ?? mathSupportPacks.find(pack => pack.id === id)?.shortTitle ?? id;
   return (
     <section className="math-year-implementation">
-      <header><div><p>TEACHING CALENDAR · FLEXIBLE 40–55 MINUTE BLOCKS</p><h2>Clear visual explanation. Shared investigation. Practice when it helps.</h2><span>Use Math Antics to make the first model visible, let the Classroom OS carry the class investigation, and open MathUP when a game, check, or extra practice would help.</span></div><a href="https://curriculum.gov.bc.ca/curriculum/mathematics/6/core" target="_blank" rel="noreferrer">B.C. Mathematics 6 ↗</a></header>
+      <header><div><p>TEACHING CALENDAR · FLEXIBLE 40–55 MINUTE BLOCKS</p><h2>Clear visual explanation. Shared investigation. Practice when it helps.</h2><span>Choose a Math Antics-supported, hybrid, or teacher-led Hub model, let the Classroom OS carry the class investigation, and open MathUP when a game, check, or extra practice would help.</span></div><a href="https://curriculum.gov.bc.ca/curriculum/mathematics/6/core" target="_blank" rel="noreferrer">B.C. Mathematics 6 ↗</a></header>
       <section className="math-fluency-rhythm"><header><span>RECURRING FLUENCY · THREE SHORT OPENERS/WEEK</span><strong>Accurate · flexible · efficient · no public speed ranking</strong></header><div>{mathFluencyRhythm.map(item => <article key={item.day}><b>{item.day}</b><div><strong>{item.title}</strong><small>{item.minutes}</small><p>{item.detail}</p></div></article>)}</div></section>
       <div className="math-calendar-list">{mathYearSequence.map((item, index) => <article key={`${item.timing}-${item.focus}`}><span>{String(index + 1).padStart(2, "0")}</span><header><small>{item.timing} · {item.blocks}</small><h3>{item.focus}</h3><div>{item.mathUpTopics.map(topic => <b key={topic}>{topic}</b>)}</div></header><section><p><strong>TEACH / APPLY:</strong> {item.lessonIds.map(nameFor).join(" → ")}</p><p><strong>FLUENCY:</strong> {item.fluency}</p><p><strong>FORMATIVE CHECK:</strong> {item.check}</p><small>{item.spaces}</small></section></article>)}</div>
       <aside className="math-paired-topics"><header><span>DO NOT DOUBLE-COUNT THESE</span><strong>Two MathUP labels; one coherent learning sequence.</strong></header>{pairedMathUpTopics.map(pair => <p key={pair.primary}><b>{pair.primary}</b><i>+</i><b>{pair.companion}</b><span>{pair.note}</span></p>)}</aside>

@@ -225,7 +225,7 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
     ],
     likelyMisconceptions: ["Using the Stage 1 value as the coefficient", "Putting value on the horizontal axis without defining it", "Writing a decreasing rule that already subtracts once at Stage 1", "Treating a negative symbolic output as a possible count of physical objects"],
     supportRoute: "Use counters and a pre-labelled two-column table. Colour the fixed part and repeated change separately; plot only four points before writing the rule in words.",
-    extensionRoute: "Compare two rules with the same constant change but different starting values, then design a context where the graphs meet or where one must stop.",
+    extensionRoute: "Compare two rules with the same constant change but different starting values and explain why their graphs cannot meet. Then change one rate and design a context where the revised graphs do meet or where one must stop.",
     spaces: "A model-table-graph-rule page may serve as selected evidence; it is not a default upload.",
   },
   {

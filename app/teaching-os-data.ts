@@ -9,7 +9,7 @@ export type CoverageRow = {
 
 export const teachingOsCoverage: CoverageRow[] = [
   { subject: "English Language Arts", bigIdeas: "5 / 5", competencies: "15 / 19", content: "13 / 15", signal: "build", next: "Complete explicit mappings and supply packs." },
-  { subject: "Mathematics", bigIdeas: "5 / 5", competencies: "13 / 18", content: "19 / 19", signal: "strong", next: "Keep Math Antics as the visual explanation lead; use MathUP to check coverage and select games or practice." },
+  { subject: "Mathematics", bigIdeas: "5 / 5", competencies: "13 / 18", content: "19 / 19", signal: "strong", next: "Choose the Hub model, optional Math Antics support, or a hybrid explanation; use MathUP to check coverage and select games or practice." },
   { subject: "Science", bigIdeas: "4 / 4", competencies: "13 / 27", content: "8 / 8", signal: "build", next: "Resolve blocks, vocabulary, visuals, and materials." },
   { subject: "Social Studies", bigIdeas: "4 / 4", competencies: "7 / 8", content: "9 / 9", signal: "strong", next: "Finish reusable source packs, keys, and models." },
   { subject: "Arts Education", bigIdeas: "4 / 4", competencies: "16 / 16", content: "8 / 10", signal: "build", next: "Pilot the complete studios; add two required, source-specific comparison encounters before claiming traditional/contemporary First Peoples and national/international content." },
@@ -70,7 +70,7 @@ export const contractChecks = [
 
 export const preservationRules = [
   "Private Teacher Hub; broad public family window",
-  "Math Antics-first teaching route, MathUP topic check, and current Math content coverage",
+  "Teacher-led, hybrid, or Math Antics-supported explanation routes; MathUP topic check; and current Math content coverage",
   "Forces readiness, Newton sequence, and Crash Lab",
   "Bloxels shared artifact with separate ELA/ADST lenses",
   "Social Studies inquiry spine and Fleetwood case work",

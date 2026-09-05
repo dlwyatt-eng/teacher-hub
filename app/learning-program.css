@@ -173,3 +173,22 @@
 
 @media(prefers-reduced-motion:reduce){.projector-lesson-player *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 @media print{.projector-lesson-player__stage>.student-unit-map-drawer{display:none!important}}
+
+/* Targeted student-workshop printing must escape the full-screen projector
+   workspace so long models and independent checks can continue onto new pages. */
+@media print{
+  body.print-target-active .projector-shell,
+  body.print-target-active .student-curriculum--program,
+  body.print-target-active .student-program,
+  body.print-target-active .projector-lesson-player,
+  body.print-target-active .projector-lesson-player__stage,
+  body.print-target-active .projector-active-object,
+  body.print-target-active .projector-math-learn{
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    max-height:none!important;
+    min-height:0!important;
+    overflow:visible!important;
+  }
+}

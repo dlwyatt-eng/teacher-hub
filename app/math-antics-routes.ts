@@ -8,7 +8,7 @@ export type MathAnticsRoute = {
 const lesson = (slug: string) => `https://mathantics.com/lesson/${slug}`;
 
 /**
- * The visual explanation lead for each Grade 6 Math experience.
+ * Optional visual-explanation support for each Grade 6 Math experience.
  * MathUP remains the curriculum cross-check and optional game/practice shelf.
  */
 export const mathAnticsRoutes: Record<string, MathAnticsRoute> = {

@@ -65,6 +65,17 @@ test("Math projector routes never expose empty Look tabs or replace the core mis
   assert.match(source, /<StudentStepPath key=\{selected\.id\}/, "Every non-interactive Math lesson keeps its core student mission in Do.");
   assert.doesNotMatch(source, /!phasedCoordinateBridge && <StudentStepPath/, "The coordinate extension cannot replace the core transformation mission.");
   assert.match(source, /interactiveInfographic[\s\S]*?<ExperienceInfographic experienceId=\{selected\.id\}/, "Pattern and equation infographics must be reachable before their interactive labs.");
+  assert.match(source, /const studentMathWorkshop = program\.subject === "Mathematics"[\s\S]*?<MathStudentWorkshops experienceId=\{selected\.id\}/, "Every Math route must build its student-safe core workshop.");
+  assert.equal((source.match(/if \(learnStage\) parts\.push\(\{ label: "Learn"/g) ?? []).length, 2, "Interactive and non-interactive routes must both place core workshops in Learn.");
+  assert.doesNotMatch(source, /!phasedCoordinateBridge && <MathStudentWorkshops/, "Default workshops must not be delayed until the Do part.");
+  assert.match(source, /phasedCoordinateBridge[\s\S]*?<MathStudentWorkshops experienceId=\{selected\.id\} placement="extension"/, "The optional coordinate bridge must stay after the core mission.");
+});
+
+test("the transformation model uses panel-aligned grid origins", async () => {
+  const program = await read("app/math-program.tsx");
+  const css = await read("app/math-program.css");
+  assert.match(program, /id=\{`transformation-grid-\$\{index\}`\} x=\{x\} y="74" width="18" height="18"/);
+  for (const index of [0, 1, 2]) assert.match(css, new RegExp(`transformation-grid-panel-${index}\\{fill:url\\(#transformation-grid-${index}\\)\\}`));
 });
 
 test("thin Grade 6 content requirements are represented in core kits", async () => {

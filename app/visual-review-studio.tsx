@@ -9,6 +9,31 @@ type Decision = "selected" | "hold" | "rejected";
 type ReviewRecord = { decision?: Decision; note?: string; allowReuse?: boolean; reviewedAt?: string };
 type ReviewState = Record<string, ReviewRecord>;
 
+export function filterUndecided<T extends { id: string }>(items: readonly T[], reviews: ReviewState, onlyUndecided: boolean) {
+  return items.filter(item => !onlyUndecided || !reviews[item.id]?.decision);
+}
+
+export function VisualReviewPrintSummary({ reviews }: { reviews: ReviewState }) {
+  const items = [...visualCandidates, ...codeVisualConcepts];
+  const decisionLabels = { selected: "Selected", hold: "Hold", rejected: "Rejected" };
+
+  return <section className="visual-review-print-summary" aria-labelledby="visual-review-print-title">
+    <h2 id="visual-review-print-title">All {items.length} visual review records</h2>
+    <p>Includes every image and code concept, regardless of the screen filters. These are review decisions, not publication instructions.</p>
+    {items.map(item => {
+      const review = reviews[item.id] ?? {};
+      return <article key={item.id}>
+        <h3>{item.id} · {item.title}</h3>
+        <dl>
+          <div><dt>Decision</dt><dd>{review.decision ? decisionLabels[review.decision] : "Undecided"}</dd></div>
+          <div><dt>Teacher note</dt><dd>{review.note?.trim() ? review.note : "No note recorded."}</dd></div>
+          <div><dt>Reuse beyond proposed placement</dt><dd>{review.allowReuse === true ? "Allowed" : "Not allowed"}</dd></div>
+        </dl>
+      </article>;
+    })}
+  </section>;
+}
+
 const storageKey = "classroom-os.visual-review.v1";
 const categories = ["All", "Morning Screen", "Technology & AI", "Object Story", "Lesson Visual", "Public Site", "Unit World"] as const;
 const previewModes = ["Projector", "Desktop", "Mobile crop", "Print"] as const;
@@ -79,7 +104,8 @@ export default function VisualReviewStudio({ onHome }: { onHome: () => void }) {
     saveReviews({ ...reviews, [id]: { ...reviews[id], ...patch, reviewedAt: new Date().toISOString() } });
   };
 
-  const visible = visualCandidates.filter(candidate => (category === "All" || candidate.category === category) && (!onlyUndecided || !reviews[candidate.id]?.decision));
+  const visible = filterUndecided(visualCandidates, reviews, onlyUndecided).filter(candidate => category === "All" || candidate.category === category);
+  const visibleConcepts = filterUndecided(codeVisualConcepts, reviews, onlyUndecided);
   const grouped = useMemo(() => Array.from(new Set(visible.map(candidate => candidate.briefId))).map(briefId => ({ briefId, candidates: visible.filter(candidate => candidate.briefId === briefId) })), [visible]);
   const counts = [...visualCandidates, ...codeVisualConcepts].reduce((total, item) => {
     const decision = reviews[item.id]?.decision ?? "undecided";
@@ -116,11 +142,13 @@ export default function VisualReviewStudio({ onHome }: { onHome: () => void }) {
   return (
     <div className={`visual-review page preview-${previewMode.toLowerCase().replaceAll(" ", "-")}`}>
       <header className="visual-review-hero">
-        <div><button type="button" onClick={onHome}>← Teacher Home</button><p>TEACHER-FACING · VISUAL REVIEW STUDIO</p><h1>Choose the visuals before they enter the classroom.</h1><span>Twenty-one original image candidates, eight live diagram concepts, and four authentic-source requirements. Nothing here automatically changes the Teacher or public site.</span></div>
+        <div><button type="button" onClick={onHome}>← Teacher Home</button><p>TEACHER-FACING · VISUAL REVIEW STUDIO</p><h1>Review the visuals that support classroom learning.</h1><span>Twenty-one original image candidates, eight live diagram concepts, and four authentic-source requirements. Some visuals already appear in lessons; decisions here do not automatically change the Teacher or public site.</span></div>
         <aside><strong>If this disappeared, would noticing, understanding, discussion, or action become weaker?</strong><p>If not, it is probably decoration.</p></aside>
       </header>
 
-      <section className="visual-audit-strip" aria-label="Current visual audit">{visualAuditFacts.map(fact => <article key={fact.label}><strong>{fact.value}</strong><span>{fact.label}</span></article>)}</section>
+      <section className="visual-audit-strip" aria-label="Visual review inventory">{visualAuditFacts.map(fact => <article key={fact.label}><strong>{fact.value}</strong><span>{fact.label}</span></article>)}</section>
+
+      <VisualReviewPrintSummary reviews={reviews} />
 
       <section className="visual-review-command" aria-label="Visual review controls">
         <div className="visual-review-counts"><span><b>{counts.selected}</b> Select</span><span><b>{counts.hold}</b> Hold</span><span><b>{counts.rejected}</b> No</span><span><b>{counts.undecided}</b> Open</span></div>
@@ -128,7 +156,7 @@ export default function VisualReviewStudio({ onHome }: { onHome: () => void }) {
       </section>
 
       <section className="visual-review-filters">
-        <div role="group" aria-label="Filter visuals by category">{categories.map(item => <button type="button" aria-pressed={category === item} key={item} onClick={() => setCategory(item)}>{item}</button>)}</div>
+        <div role="group" aria-label="Filter image candidates by category">{categories.map(item => <button type="button" aria-pressed={category === item} key={item} onClick={() => setCategory(item)}>{item}</button>)}</div>
         <label><input type="checkbox" checked={onlyUndecided} onChange={event => setOnlyUndecided(event.target.checked)} /> Show only undecided</label>
         <div role="group" aria-label="Preview size">{previewModes.map(item => <button type="button" aria-pressed={previewMode === item} key={item} onClick={() => setPreviewMode(item)}>{item}</button>)}</div>
       </section>
@@ -160,15 +188,16 @@ export default function VisualReviewStudio({ onHome }: { onHome: () => void }) {
             })}</div>
           </section>;
         })}
-        {!grouped.length && <section className="visual-review-empty"><strong>Every visible candidate has a decision.</strong><button type="button" onClick={() => setOnlyUndecided(false)}>Show all</button></section>}
+        {!grouped.length && <section className="visual-review-empty"><strong>No undecided image candidates in this category.</strong><button type="button" onClick={() => setOnlyUndecided(false)}>Show all images in this category</button></section>}
       </main>
 
       <section className="code-visual-review">
         <header><div><p>CODE-BUILT · EXACT WORDING · PRINTABLE</p><h2>Eight diagrams that should not be generated as pictures.</h2><span>These remain crisp on projector, mobile, and paper. Select/Hold/No applies to the design direction; exact wording stays editable.</span></div><b>LIVE CONCEPTS</b></header>
-        <div>{codeVisualConcepts.map(concept => {
+        <div>{visibleConcepts.map(concept => {
           const review = reviews[concept.id] ?? {};
           return <article key={concept.id} className={`decision-${review.decision ?? "undecided"}`}><ConceptVisual concept={concept}/><section><small>{concept.id} · {concept.placement}</small><h3>{concept.title}</h3><p>{concept.job}</p><fieldset><legend>Decision</legend>{(["selected", "hold", "rejected"] as const).map(decision => <button type="button" key={decision} aria-pressed={review.decision === decision} onClick={() => updateReview(concept.id, { decision })}>{decision === "selected" ? "Select" : decision === "hold" ? "Hold" : "No"}</button>)}</fieldset></section></article>;
         })}</div>
+        {!visibleConcepts.length && <p className="code-visual-review-empty">All eight code concepts have a decision. Turn off “Show only undecided” to review them again.</p>}
       </section>
 
       <section className="authentic-source-review">

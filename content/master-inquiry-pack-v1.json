@@ -175,7 +175,41 @@
       "product": "Make a source-care card and one realistic school responsibility with a check-back date.",
       "curriculum": ["Social Studies: evidence and colonialism", "ELA: listening and source care", "Career: responsibility"],
       "differentiation": "Use a fictional listening rehearsal when an authentic source is unavailable; provide quiet, drawing, dictation, and no-personal-disclosure routes.",
-      "fallback": "Postpone the authentic source rather than inventing or detaching it from attribution. Practise only with the supplied fictional source.",
+      "fallback": "Postpone the authentic lesson until its exact source, attribution, and protocol are prepared. Choose Open fictional listening rehearsal for the bundled school-story practice; it is not a replacement for the authentic learning.",
+      "listeningRehearsal": {
+        "id": "changed-library-club-room-v1",
+        "title": "Fictional listening rehearsal: The changed library-club room",
+        "goal": "We are learning to listen carefully, compare an account with a written notice, and name what each source does and does not establish.",
+        "attribution": "Classroom OS — original fictional listening rehearsal",
+        "boundary": "All people, events, and records in this rehearsal are fictional. This is listening practice, not survivor testimony, Indigenous knowledge, historical evidence, or an analogy for residential schools. It does not replace the authentic lesson or complete reconciliation learning.",
+        "sourceCards": [
+          {
+            "id": "account",
+            "title": "Source A — Jordan's account (fictional)",
+            "context": "Fictional learner; scenario day: Tuesday after lunch. This is an invented practice text, not a real student's statement.",
+            "text": "I went to the library at lunch on Tuesday. The door was closed. I did not see a message there. Later, I heard that the club had met in Room 4. I would like the next notice to be at both doors."
+          },
+          {
+            "id": "notice",
+            "title": "Source B — School notice (fictional)",
+            "context": "Invented school notice; scenario day: Tuesday, 10:15 a.m. No real school or event is described.",
+            "text": "Library club will meet in Room 4 at lunch today while the library shelves are repaired. Please tell club members."
+          }
+        ],
+        "prompts": [
+          "What does Jordan report seeing? What does Jordan report hearing later? Point to the words that show the difference.",
+          "What plan does the notice record? Does it establish that the meeting happened or that every club member received the message?",
+          "Choose one respectful question to check next, and one communication responsibility to review before the next meeting."
+        ],
+        "finishFrame": [
+          "The account says…",
+          "The notice records…",
+          "We still do not know…",
+          "One next check is…"
+        ],
+        "teacherNote": "The notice records a plan; it does not prove the meeting happened or everyone received the message. Do not invent motives or ask learners for personal disclosure. Read aloud, draw, dictate, or talk with a partner; no role-play is required.",
+        "returnToAuthentic": "Return to the authentic lesson only after previewing its exact NCTR or Nation-authored source with the creator or speaker, date, context, and protocol attached. Credit that real source separately; never attribute this fictional rehearsal to NCTR or a Nation."
+      },
       "antiTokenism": "Do not debate documented harms, ask Indigenous students to teach the class, simulate ceremonies, or treat one day as completion of reconciliation.",
       "source": { "label": "National Centre for Truth and Reconciliation — Education", "href": "https://nctr.ca/education/" }
     },

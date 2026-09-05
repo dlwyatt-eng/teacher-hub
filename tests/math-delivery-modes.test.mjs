@@ -65,6 +65,23 @@ test("every delivery plan points to real, correctly anchored concept teaching", 
   }
 });
 
+test("every delivery plan reaches its student-safe core packs before application", async () => {
+  const { mathExperienceModePlans } = await importIsolatedTsFile(root, "app/math-delivery-modes.ts");
+  const { mathStudentPacksFor } = await importIsolatedTsFile(root, "app/math-student-route.ts");
+
+  for (const plan of mathExperienceModePlans) {
+    assert.deepEqual(
+      mathStudentPacksFor(plan.experienceId).map((pack) => pack.id),
+      [...plan.conceptPackIds],
+      `${plan.experienceId}: the Learn route must expose every mapped core pack in plan order.`,
+    );
+  }
+
+  assert.deepEqual(mathStudentPacksFor("transformation-cipher").map((pack) => pack.id), ["first-quadrant-transformations-pack"]);
+  assert.deepEqual(mathStudentPacksFor("transformation-cipher", "extension").map((pack) => pack.id), ["integer-number-line-pack"]);
+  assert.deepEqual(mathStudentPacksFor("graph-story-lab").map((pack) => pack.id), ["collect-summarize-data-pack"], "A required pack keeps its student route even when its role is labelled as a bridge.");
+});
+
 test("the five depth packs meet the full teach-model-practise-check contract", async () => {
   const { mathCoreDepthPacks } = await importIsolatedTsFile(root, "app/math-core-depth-packs.ts");
   const expectedPackIds = [
@@ -123,5 +140,37 @@ test("the teacher UI exposes mode choice and the five depth packs have specific 
   assert.match(panel, /setSelectedMode\(item\.id\)/);
   for (const packId of ["magnitude-place-value-pack", "factors-multiples-pack", "pattern-relations-pack", "one-step-equations-pack", "first-quadrant-transformations-pack"]) {
     assert.match(program, new RegExp(`pack\\.id === "${packId}"`), `${packId} needs a specific, non-generic visual.`);
+  }
+});
+
+test("student workshops include printable checks without exposing answers", async () => {
+  const program = await read("app/math-program.tsx");
+  const layoutStyles = await read("app/learning-program.css");
+  const workshop = program.match(/export function MathStudentWorkshops[\s\S]*?\n}\n\nexport function MathYearImplementation/)?.[0] ?? "";
+  assert.match(workshop, /mathStudentPacksFor\(experienceId, placement\)/);
+  assert.match(workshop, /Print student workshop/);
+  assert.match(workshop, /pack\.check\.map/);
+  assert.match(workshop, /<p>\{item\.prompt\}<\/p>/);
+  assert.doesNotMatch(workshop, /item\.answer|card\.answer/, "Student workshop markup must never render partner or independent-check answers.");
+  for (const selector of [".student-curriculum--program", ".student-program", ".projector-lesson-player", ".projector-lesson-player__stage", ".projector-active-object", ".projector-math-learn"]) {
+    assert.ok(layoutStyles.includes(`body.print-target-active ${selector}`), `${selector} must release its projector height/overflow during targeted printing.`);
+  }
+  assert.match(layoutStyles, /height:auto!important;[\s\S]*?max-height:none!important;[\s\S]*?overflow:visible!important/);
+});
+
+test("student and teacher copy preserve all three explanation routes", async () => {
+  const copy = (await Promise.all([
+    read("app/learning-program.tsx"),
+    read("app/math-program.tsx"),
+    read("app/math-number-scale-lab.tsx"),
+    read("app/core-programs.ts"),
+    read("app/curriculum-alignment.ts"),
+    read("app/teaching-os-data.ts"),
+  ])).join("\n");
+  assert.match(copy, /teach from (?:this shared|the) Hub model/i);
+  assert.match(copy, /Math Antics is optional explanation support/);
+  assert.match(copy, /teacher-led Hub model/);
+  for (const prescribed of [/Math Antics explains\./, /Math Antics-first teaching route/, /visual explanation lead/, /Main explanation: matching Math Antics/, /Math Antics is the preferred explanation route/]) {
+    assert.doesNotMatch(copy, prescribed);
   }
 });

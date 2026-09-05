@@ -229,7 +229,7 @@ function MathUpMap({ program }: { program: LearningProgram }) {
   ] as const;
   return (
     <section className="mathup-map">
-      <header><div><p className="section-kicker">GRADE 6 CURRICULUM CHECK</p><h2>Math Antics explains. The class investigates. MathUP checks and extends.</h2><p>The 22 MathUP topics stay mapped here so nothing important disappears, but they do not have to dictate the live lesson.</p></div><span>22 TOPICS · 4 STRANDS</span></header>
+      <header><div><p className="section-kicker">GRADE 6 CURRICULUM CHECK</p><h2>Choose the explanation. Investigate together. Use MathUP when it helps.</h2><p>The 22 MathUP topics stay mapped here so nothing important disappears. Teach from the Hub, add a Math Antics explanation, or combine both; neither outside resource has to dictate the live lesson.</p></div><span>22 TOPICS · 4 STRANDS</span></header>
       <div>{strands.map(strand => <article key={strand.id}><header><b>{strand.id}</b><strong>{strand.label}</strong></header>{mathUpTopics.filter(topic => topic.strand === strand.id).map(topic => <section key={`${topic.strand}-${topic.title}`}><div><strong>{topic.starred && <span aria-label="starred in supplied list">★ </span>}{topic.title}</strong><small>{topic.timing} · {topic.role}{topic.pairedWith ? ` · paired with ${topic.pairedWith}` : ""}</small></div><p>{topic.experienceIds.map(id => program.experiences.find(item => item.id === id)?.title ?? mathSupportPacks.find(pack => pack.id === id)?.shortTitle ?? id).join(" · ")}</p></section>)}</article>)}</div>
       <footer><span>★ means “starred in the supplied MathUP list.”</span><strong>Use this map to check coverage and find an optional MathUP game, centre, assessment, or extra-practice route.</strong></footer>
     </section>
@@ -246,12 +246,12 @@ function MathResourceDock({ experience }: { experience: ProgramExperience }) {
     <section className="math-resource-dock">
       <header><div><p className="section-kicker">MATHEMATICS RESOURCE DOCK</p><h3>See it → try it together → practise if useful</h3></div><span>{topics.length} MATCHING MATHUP TOPIC{topics.length === 1 ? "" : "S"}</span></header>
       <div className="math-resource-sequence">
-        <article><b>1 · MATH ANTICS</b><p>Show the matching explanation. Pause to predict, sketch, or answer together instead of watching passively.</p></article>
+        <article><b>1 · CHOOSE THE EXPLANATION</b><p>Use the matching Math Antics explanation, teach from the Hub model, or combine both. Pause to predict, sketch, or answer together.</p></article>
         <article><b>2 · THIS SCREEN</b><p>Use the class investigation to move, test, repair, compare, and explain the idea together.</p></article>
         <article><b>3 · MATHUP · OPTIONAL</b><p>Check alignment, then choose a game, centre, quick assessment, or extra practice only when the class needs it.</p></article>
       </div>
       <div className="math-resource-topics">{topics.map(topic => <span key={`${topic.strand}-${topic.title}`}><b>{topic.strand}</b>{topic.starred && "★ "}{topic.title}<small>{topic.timing}</small></span>)}</div>
-      <footer><a href={mathAntics?.url ?? mathResourceRoutes.mathAntics} target="_blank" rel="noreferrer">Open Math Antics{mathAntics ? ` · ${mathAntics.title}` : " library"} ↗</a>{mathAntics?.secondary && <a href={mathAntics.secondary.url} target="_blank" rel="noreferrer">Also useful · {mathAntics.secondary.title} ↗</a>}{experience.id === "magnitude-gallery" && <a href="https://apps.mathlearningcenter.org/number-line/" target="_blank" rel="noreferrer">Open free number-line tool ↗</a>}<a href={mathResourceRoutes.mathUp} target="_blank" rel="noreferrer">Open school MathUP access ↗</a><p>Math Antics is the preferred explanation route. MathUP remains the curriculum cross-check and optional game/practice shelf. This site supplies the shared-screen investigation.</p></footer>
+      <footer><a href={mathAntics?.url ?? mathResourceRoutes.mathAntics} target="_blank" rel="noreferrer">Open Math Antics{mathAntics ? ` · ${mathAntics.title}` : " library"} ↗</a>{mathAntics?.secondary && <a href={mathAntics.secondary.url} target="_blank" rel="noreferrer">Also useful · {mathAntics.secondary.title} ↗</a>}{experience.id === "magnitude-gallery" && <a href="https://apps.mathlearningcenter.org/number-line/" target="_blank" rel="noreferrer">Open free number-line tool ↗</a>}<a href={mathResourceRoutes.mathUp} target="_blank" rel="noreferrer">Open school MathUP access ↗</a><p>Math Antics is optional explanation support. MathUP remains the curriculum cross-check and optional game/practice shelf. This site supplies the shared-screen model and investigation.</p></footer>
     </section>
   );
 }
@@ -805,18 +805,27 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
               : selected.id === editRoomExperienceId ? <EditRoomLab />
                 : null;
   const interactiveInfographic = selected.id === "pattern-forecast" || selected.id === "equation-balance";
+  const projectorQuickStart = showProjectorQuickStart
+    ? <ProjectorQuickStart key={selected.id} launch={readinessLaunch} words={projectorWords} question={projectorSupport.purpose} firstMove={studentContract.firstAction} />
+    : null;
+  const studentMathWorkshop = program.subject === "Mathematics"
+    ? <MathStudentWorkshops experienceId={selected.id} />
+    : null;
+  const learnStage = projectorQuickStart || studentMathWorkshop
+    ? <section className="projector-active-object projector-math-learn">{projectorQuickStart}{studentMathWorkshop}</section>
+    : null;
 
   const parts: Array<{ label: string; verb: string; content: ReactNode }> = [];
   if (usesInteractiveLab) {
     if (interactiveInfographic) parts.push({ label: "Look", verb: "Notice", content: <section className="projector-active-object projector-look-stage"><ExperienceInfographic experienceId={selected.id} /></section> });
     // Magnitude Gallery needs a short, explicit model before students enter the
     // lab. Other interactive labs teach their idea inside the interaction.
-    if (showProjectorQuickStart) parts.push({ label: "Learn", verb: "See it", content: <ProjectorQuickStart key={selected.id} launch={readinessLaunch} words={projectorWords} question={projectorSupport.purpose} firstMove={studentContract.firstAction} /> });
+    if (learnStage) parts.push({ label: "Learn", verb: "See it", content: learnStage });
     parts.push({ label: "Explore", verb: "Try", content: <div id="mission-path" className="student-interactive-mission projector-active-object">{interactiveLab}</div> });
   } else {
     if (showLook) parts.push({ label: "Look", verb: "Notice", content: <section className="projector-active-object projector-look-stage"><ExactAnchorVisual experience={selected} media={media} /><ExperienceInfographic experienceId={selected.id} />{program.subject === "Arts Education" && <MediaStrip items={media} student />}<LocalIndigenousResourceDock experienceId={selected.id} student />{selected.id === "graph-story-lab" && <><LocalRestorationInfographic /><ResponsibleDataInfographic /></>}</section> });
     if (program.subject === "Applied Design, Skills & Technologies") parts.push({ label: "Ready", verb: "Choose", content: <ProjectorRouteReady contract={studentContract} /> });
-    if (showProjectorQuickStart) parts.push({ label: "Learn", verb: "See it", content: <ProjectorQuickStart key={selected.id} launch={readinessLaunch} words={projectorWords} question={projectorSupport.purpose} firstMove={studentContract.firstAction} /> });
+    if (learnStage) parts.push({ label: "Learn", verb: "See it", content: learnStage });
     if (projectorCards.length > 0) parts.push({ label: selected.id === "ordinary-object-story" ? "Tell" : "Try", verb: selected.id === "ordinary-object-story" ? "Tell" : "Choose", content: <ProjectorCaseDeck
       key={`${selected.id}-cards`}
       cards={projectorCards}
@@ -833,7 +842,6 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
     parts.push({ label: "Do", verb: "Make", content: <section className="projector-active-object">
       <StudentStepPath key={selected.id} steps={projectorMissionSteps} product={`Complete all ${studentContract.finishEvidence.length} checks in the Done part.`} spacesPrompt={studentContract.reviewState === "reviewed" ? studentContract.saveAction.message : spaces.studentPrompt} />
       {phasedCoordinateBridge && <section className="coordinate-extension-phase"><header><p className="section-kicker">OPTIONAL EXTENSION</p><h3>Cross zero after the first-quadrant check.</h3></header><MathStudentWorkshops experienceId={selected.id} placement="extension" /></section>}
-      {program.subject === "Mathematics" && !phasedCoordinateBridge && <MathStudentWorkshops experienceId={selected.id} />}
     </section> });
     if (selected.id === fourArtsExperienceId) parts.push({ label: "Cue lab", verb: "Optional", content: <section className="projector-active-object"><FourArtsLab /></section> });
   }

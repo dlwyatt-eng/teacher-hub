@@ -469,7 +469,7 @@ export function MathNumberScaleLab({ audience = "student" }: MathNumberScaleLabP
         <aside className="number-scale-teacher-note">
           <strong>TEACHER / TTOC ROUTE</strong>
           <ol>
-            <li>Play the matching Math Antics place-value explanation, then open this shared screen.</li>
+            <li>Choose the route: teach from this shared model, show the useful part of a matching Math Antics explanation first, or combine both.</li>
             <li>Do not name a target card. Mix the cards and let the class choose one.</li>
             <li>Read 0, the right endpoint, and one jump. Students point or sketch before you tap their section.</li>
             <li>Reveal the exact spot. Keep the card and choose another endpoint so the same number visibly shifts.</li>

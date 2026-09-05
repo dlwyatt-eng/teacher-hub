@@ -345,10 +345,10 @@ export const authenticSourceNeeds = [
 ] as const;
 
 export const visualAuditFacts = [
-  { value: "27", label: "existing private raster assets" },
-  { value: "7", label: "distinct images serving 37 unit worlds" },
-  { value: "5 / 5", label: "Morning visuals borrowed from lessons" },
-  { value: "1", label: "active public image, repeated twice" },
-  { value: "21", label: "new generated candidates in this review" },
-  { value: "8", label: "live code-built visual concepts" },
+  { value: String(visualCandidates.length), label: "image candidates available for review" },
+  { value: String(visualCandidates.filter(candidate => candidate.src.endsWith(".webp")).length), label: "original generated raster candidates" },
+  { value: String(visualCandidates.filter(candidate => candidate.src.endsWith(".svg")).length), label: "precise SVG systems diagram" },
+  { value: String(codeVisualConcepts.length), label: "live code-built visual concepts" },
+  { value: String(authenticSourceNeeds.length), label: "authentic-source requirements" },
+  { value: "0", label: "automatic site changes from review decisions" },
 ] as const;

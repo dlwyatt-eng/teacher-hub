@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import masterInquiryPack from "../content/master-inquiry-pack-v1.json";
+import { printClosest } from "./print-support";
 import "./calendar-provocations-page.css";
 
 const provocations = masterInquiryPack.calendarProvocations;
@@ -25,6 +26,55 @@ type ProjectorPart = {
   body: string;
   items?: readonly string[];
 };
+
+type ListeningRehearsal = NonNullable<(typeof provocations)[number]["listeningRehearsal"]>;
+
+export function CalendarListeningRehearsal({ rehearsal, onReturn, audience = "teacher" }: { rehearsal: ListeningRehearsal; onReturn: () => void; audience?: CalendarProvocationsAudience }) {
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    headingRef.current?.focus();
+  }, []);
+
+  return (
+    <section className="calendar-rehearsal" aria-labelledby="calendar-rehearsal-title" aria-describedby="calendar-rehearsal-boundary">
+      <header>
+        <p className="calendar-rehearsal__label">FICTIONAL LISTENING REHEARSAL · CLASSROOM OS</p>
+        <h1 id="calendar-rehearsal-title" ref={headingRef} tabIndex={-1}>{rehearsal.title}</h1>
+        <p><strong>Learning goal:</strong> {rehearsal.goal}</p>
+        <p className="calendar-rehearsal__attribution"><strong>Credit:</strong> {rehearsal.attribution}</p>
+        <p id="calendar-rehearsal-boundary" className="calendar-rehearsal__boundary">{rehearsal.boundary}</p>
+        <div className="calendar-rehearsal__actions">
+          <button type="button" onClick={onReturn}>← Back to authentic-source lesson</button>
+          <button type="button" onClick={(event) => printClosest(event.currentTarget, ".calendar-rehearsal")}>Print fictional rehearsal</button>
+        </div>
+      </header>
+      <div className="calendar-rehearsal__sources">
+        {rehearsal.sourceCards.map((card) => (
+          <article key={card.id} aria-labelledby={`calendar-rehearsal-${card.id}`}>
+            <h2 id={`calendar-rehearsal-${card.id}`}>{card.title}</h2>
+            <p className="calendar-rehearsal__context">{card.context}</p>
+            <blockquote>{card.text}</blockquote>
+            <p className="calendar-rehearsal__attribution">{rehearsal.attribution}</p>
+          </article>
+        ))}
+      </div>
+      <section aria-labelledby="calendar-rehearsal-prompts">
+        <h2 id="calendar-rehearsal-prompts">Try three listening moves</h2>
+        <ol>{rehearsal.prompts.map((prompt) => <li key={prompt}>{prompt}</li>)}</ol>
+      </section>
+      <section aria-labelledby="calendar-rehearsal-finish">
+        <h2 id="calendar-rehearsal-finish">Finish in words, drawing, or talk</h2>
+        <ol className="calendar-rehearsal__finish">{rehearsal.finishFrame.map((frame) => <li key={frame}>{frame}</li>)}</ol>
+      </section>
+      <aside className="calendar-rehearsal__care" aria-labelledby="calendar-rehearsal-care">
+        <h2 id="calendar-rehearsal-care">Careful use of this fictional practice</h2>
+        {audience === "teacher" && <p>{rehearsal.teacherNote}</p>}
+        <p>{rehearsal.returnToAuthentic}</p>
+      </aside>
+    </section>
+  );
+}
 
 function validProvocationId(candidate?: string): CalendarProvocationId {
   return provocations.some((item) => item.id === candidate)
@@ -202,6 +252,35 @@ function StudentProvocationPlayer({ provocation }: { provocation: (typeof provoc
   );
 }
 
+function CalendarProvocationRoute({ provocation, audience }: { provocation: (typeof provocations)[number]; audience: CalendarProvocationsAudience }) {
+  const [rehearsalOpen, setRehearsalOpen] = useState(false);
+  const openButtonRef = useRef<HTMLButtonElement>(null);
+  const hasOpenedRehearsal = useRef(false);
+  const rehearsal = provocation.listeningRehearsal;
+
+  useEffect(() => {
+    if (!rehearsalOpen && hasOpenedRehearsal.current) openButtonRef.current?.focus();
+  }, [rehearsalOpen]);
+
+  if (rehearsalOpen && rehearsal) {
+    return <CalendarListeningRehearsal rehearsal={rehearsal} audience={audience} onReturn={() => setRehearsalOpen(false)} />;
+  }
+
+  return (
+    <>
+      {rehearsal && (
+        <aside className="calendar-rehearsal-launch" aria-labelledby="calendar-rehearsal-option">
+          <div><h2 id="calendar-rehearsal-option">Need the bundled listening practice?</h2><p>This separate fictional school story practises listening only. Prepare the attributed source before returning to the authentic lesson.</p></div>
+          <button ref={openButtonRef} type="button" onClick={() => { hasOpenedRehearsal.current = true; setRehearsalOpen(true); }}>Open fictional listening rehearsal</button>
+        </aside>
+      )}
+      {audience === "teacher"
+        ? <TeacherProvocationPlan provocation={provocation} />
+        : <StudentProvocationPlayer provocation={provocation} />}
+    </>
+  );
+}
+
 export function CalendarProvocationsPage({
   audience = "teacher",
   initialProvocationId,
@@ -223,9 +302,7 @@ export function CalendarProvocationsPage({
         <div><small>{audience === "teacher" ? "TEACHER PLAN · SEVEN RECURRING INQUIRIES" : "CHOOSE TODAY'S INQUIRY"}</small><strong>Calendar provocations</strong></div>
       </header>
       <ProvocationChooser selectedId={selected.id} onChoose={chooseProvocation} />
-      {audience === "teacher"
-        ? <TeacherProvocationPlan provocation={selected} />
-        : <StudentProvocationPlayer provocation={selected} />}
+      <CalendarProvocationRoute key={`${selected.id}:${audience}`} provocation={selected} audience={audience} />
     </div>
   );
 }
