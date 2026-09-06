@@ -87,3 +87,5 @@
 .math-bonus-paper h3{margin:0;font-size:22px}.math-bonus-paper button{background:#215a69;color:#fff;border:0;border-radius:6px;padding:10px 14px;font:inherit;cursor:pointer}
 .math-bonus-paper ol{padding-left:24px}.math-bonus-paper li{margin:12px 0}
 @media print{.math-bonus-paper{border:0;padding:0;color:#000}.math-bonus-paper button{display:none!important}.math-bonus-paper p,.math-bonus-paper li{font-size:12pt;line-height:1.4}.math-bonus-paper h3{font-size:18pt}}
+
+.math-game-choice{padding:14px 0;border-bottom:1px solid #c8d7da}.math-game-choice:last-child{border-bottom:0}.math-game-choice h4{margin:0;font-size:19px;line-height:1.4;color:#194f60}
