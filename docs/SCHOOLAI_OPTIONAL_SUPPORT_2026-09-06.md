@@ -13,3 +13,9 @@ Verification scope:
 - Full existing test suite, TypeScript, production build and artifact checks are the automated gate.
 - Local cloud-browser preview returned ERR_BLOCKED_BY_CLIENT; live verification follows publication. Physical printing, school-projector readability, all-subject rehearsal and actual SchoolAI conversation quality remain separate classroom checks.
 - Teacher setup panel and lesson navigation are excluded from print via CSS. No new teacher answers are added to student routes. Prompts receive the public lesson question and product, not an answer key.
+
+## Live verification and follow-up
+
+First release b191b70a242512272688d899c57f9567be82ca5a deployed successfully in run 34025614032. A fresh browser load referenced the tested index-DtXWknsL.js. At 1363×936, the expanded coach panel was visually inspected without overlapping controls or page horizontal overflow. Next lesson changed Operations to Factors/Multiples; coach and participation selections changed the generated prompt; copy displayed success. The panel was too far down the plan, so this follow-up adds an Optional SchoolAI shortcut beside the top plan controls. SchoolAI's public Discover page opened and showed a sign-in requirement; no AI conversation testing is claimed.
+
+The projector screenshot revealed that inserting the lesson selector created a fourth child in an existing three-row grid, collapsing the header over the content. Corrected the projector grid to four explicit rows and reduced selector height. This is a defect found by live visual rehearsal, not by automated tests. The student route contained zero SchoolAI teacher setup panels; optional blank sheets were collapsed.

@@ -182,6 +182,7 @@ export function TeacherRunSheet(props: TeacherRunSheetProps) {
         <div><p>PLAN / TTOC</p><h2 id={headingId}>{title}</h2><strong>{duration} · {route.length} moves</strong></div>
         <div className="teacher-run-sheet__plan-actions">
           {preparedDayPlanLesson && preparedWeekPlanLesson && <><AddToDayPlanButton lesson={preparedDayPlanLesson} /><AddToWeekButton lesson={preparedWeekPlanLesson} storageKey={weekStorageKey} label={weekStorageKey ? `Add to week · ${formedWeekDay}` : "Add to week"} /></>}
+          <button type="button" onClick={event => { const panel = event.currentTarget.closest(".teacher-run-sheet")?.querySelector<HTMLElement>(".schoolai-support"); panel?.scrollIntoView({ block: "center", behavior: "smooth" }); panel?.querySelector<HTMLElement>("summary")?.focus({ preventScroll: true }); }}>Optional SchoolAI ↓</button>
           <button type="button" onClick={(event) => printClosest(event.currentTarget, ".teacher-run-sheet")}>Print / PDF</button>
         </div>
       </header>

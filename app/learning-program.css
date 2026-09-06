@@ -192,3 +192,11 @@
     overflow:visible!important;
   }
 }
+
+/* Lesson switching adds a fourth row; keep the lesson header out of the scroll stage. */
+.projector-shell .projector-lesson-player{grid-template-rows:auto auto minmax(0,1fr) auto}
+.projector-shell .lesson-switcher{margin:0;padding:6px 12px;gap:8px;border-radius:0}
+.projector-shell .lesson-switcher label{display:flex;align-items:center;gap:8px;font-size:14px}
+.projector-shell .lesson-switcher select{flex:1;min-width:0;padding:6px;font-size:16px}
+.projector-shell .lesson-switcher button{padding:6px;font-size:14px}
+@media(max-width:600px){.projector-shell .lesson-switcher label{order:-1;flex-basis:100%}}
