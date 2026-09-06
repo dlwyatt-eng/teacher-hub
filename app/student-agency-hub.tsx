@@ -17,6 +17,7 @@ function NewsroomSourcePage() {
   return (
     <article className="newsroom-thinking-mat print-agency-artifact" aria-label="Blank Source Lab source check page">
       <header><small>SOURCE LAB & NEWSROOM · SOURCE CHECK PAGE</small><h2>What does this source show—and what would we need to check?</h2><p>Source title: ____________________ · Creator/archive: ____________________ · Source date: __________</p></header>
+      <p><strong>Start here:</strong> use one image, map, graph, short text or clip your teacher projects or supplies. Copy its title and available source details above; write “not shown” for missing details. Look quietly first, then discuss with a partner. Write two details you can point to before making a claim. Complete the sections below and hand in this page; label guesses and questions clearly.</p>
       {newsroomProgram.shared.routine.map((move, index) => <section key={move.id}><b>{index + 1} · {move.label}</b><p>{move.prompt}</p><i /></section>)}
       <footer><b>CHOOSE AN ENDING</b><span>□ Discuss and stop &nbsp; □ Save an inquiry seed &nbsp; □ Teacher-selected follow-up</span></footer>
     </article>
@@ -133,7 +134,7 @@ function InquiryPassport() {
       <section><b>WHAT THE EVIDENCE SUPPORTS</b><p>Source + exact detail + what it helps us understand</p><i /><i /></section>
       <section><b>PERSPECTIVES & RESPONSIBILITY</b><p>Who is affected? Whose knowledge is needed? What must we not assume?</p><i /><i /></section>
       <section><b>WHAT CHANGED</b><p>We revised our question, claim, source plan, role, or design because…</p><i /><i /></section>
-      <section><b>NEXT MOVE</b><p>Actor / action / evidence or source needed / date we will check again</p><i /><i /></section>
+      <section><b>NEXT MOVE</b><p>Who will do what? Which source or materials do we need? When will we check our progress?</p><i /><i /></section>
       <footer>Each source must be named. Uncertainty is part of the evidence, not a failure.</footer>
     </article>
   );

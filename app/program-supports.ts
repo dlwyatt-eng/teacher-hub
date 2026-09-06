@@ -146,7 +146,7 @@ const exactStudentSteps: Record<string, string[]> = {
     "Draw the whole learner journey on paper: invitation, first action, information, meaningful choice or interaction, feedback, understanding check, and ending.",
     "Build the smallest complete version as a physical station, paper branching experience, Bloxels route, Minecraft model, or teacher-approved private app or website prototype.",
     "Watch a new learner try it without coaching. Record only actions and points of confusion—no names, accounts, photos, or personal comments.",
-    "Change one content feature and one access, navigation, or feedback feature because of the test. Ask someone to try the changed part again.",
+    "Check content and ease of use. Change what the test shows needs improvement, then retest. If no problem appears, test a new example or a different group and explain what should stay.",
     "Teach, run a no-name understanding check, credit sources and tools, and explain your contribution, evidence, limitation, revision, and next improvement in your own words.",
   ],
 };

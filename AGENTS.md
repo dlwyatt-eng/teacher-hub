@@ -17,3 +17,7 @@ Preserve the current source and the existing GitHub Pages addresses. Compare loc
 Report mathematical/content review, automated checks, visual checks, classroom use and publication as separate evidence. If browser access or another check is unavailable, say so explicitly. Repairs may be published with a stated testing limitation; do not call the entire sequence classroom-ready on that basis.
 
 Consult `docs/MATH_TEACHING_REPAIR_2026-09-05.md` and the latest release record before continuing the unfinished review. Preserve existing strong work and address the concrete remaining problem.
+
+## Standalone activity review
+
+For each changed worksheet, organizer or activity, read the actual teacher, projector and student-print output as a teacher seeing it for the first time. Check that it identifies the purpose, exact starting input (numbers, source, materials or a concrete teacher selection step), a usable example where needed, student actions and finished product. Compare linked PDFs with on-page companions: a complete PDF does not establish that the on-page version is complete. A title, blank response area or passing structure test is insufficient evidence. Record exactly which routes were rehearsed and which were only inspected in source.
