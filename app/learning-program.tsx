@@ -607,6 +607,16 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
   );
 }
 
+function LessonSwitcher({ program, selected, onExperience }: { program: LearningProgram; selected: ProgramExperience; onExperience: (id: string) => void }) {
+  return (
+      <nav className="lesson-switcher" aria-label="Switch lessons">
+        <button disabled={program.experiences.indexOf(selected) === 0} onClick={() => onExperience(program.experiences[program.experiences.indexOf(selected) - 1].id)}>← Previous lesson</button>
+        <label>Go to a lesson<select value={selected.id} onChange={e => onExperience(e.target.value)}>{program.experiences.map(item => <option key={item.id} value={item.id}>{studentTitleFor(item)}</option>)}</select></label>
+        <button disabled={program.experiences.indexOf(selected) === program.experiences.length - 1} onClick={() => onExperience(program.experiences[program.experiences.indexOf(selected) + 1].id)}>Next lesson →</button>
+      </nav>
+  );
+}
+
 export function LearningProgramTab({ program, record, tab, selectedExperienceId, onExperience }: ProgramTabProps) {
   const selected = selectedExperience(program, selectedExperienceId);
   const selectedArc = program.arcs.find(arc => arc.id === selected.arcId) ?? program.arcs[0];
@@ -649,6 +659,7 @@ export function LearningProgramTab({ program, record, tab, selectedExperienceId,
         <div><p className="section-kicker">PLAN / TTOC WORKSPACE</p><h2>Choose a lesson, scan the whole plan, then teach from Teach View.</h2><p>Big idea, question, Core Competencies, materials, and every teaching move stay together. Curriculum tracing and extra preparation remain folded away.</p></div>
         <span>{program.experiences.length} LESSONS</span>
       </section>
+      <LessonSwitcher program={program} selected={selected} onExperience={onExperience} />
       <div className="program-lesson-layout">
         <nav aria-label={`${program.subject} signature experiences`}>
           {program.arcs.map((arc) => (
@@ -903,6 +914,7 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
 
   return (
     <div className="student-program projector-lesson-player world-surface" data-world={theme.id} style={worldStyle(theme)}>
+      <LessonSwitcher program={program} selected={selected} onExperience={onExperience} />
       <header className="projector-lesson-player__bar">
         <div><small>{program.subject.toUpperCase()} · {selectedArc.title.toUpperCase()}</small><h1>{studentTitleFor(selected)}</h1><p>{studentContract.challenge}</p></div>
         <nav ref={partNavRef} aria-label="Lesson parts">{parts.map((part, index) => <button type="button" key={`${part.label}-${index}`} className={projectorPart === index ? "active" : ""} aria-current={projectorPart === index ? "step" : undefined} onClick={() => setProjectorPart(index)}><b>{index + 1}</b><span>{part.label}</span></button>)}</nav>

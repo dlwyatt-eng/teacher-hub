@@ -1,5 +1,6 @@
 "use client";
 
+import { SchoolAISupport } from "./schoolai-support";
 import { useId } from "react";
 import { AddToDayPlanButton, type TtocDayPlanLesson } from "./ttoc-day-plan";
 import { AddToWeekButton, SEPTEMBER_FORMED_CLASS_WEEK_STORAGE_KEY, septemberFormedWeekDayForSourceId, type WeekPlanSeedLesson } from "./weekly-plan";
@@ -211,6 +212,8 @@ export function TeacherRunSheet(props: TeacherRunSheetProps) {
       {routes && <section className="teacher-run-sheet__routes" aria-label="Equivalent delivery routes"><div><small>PROJECTOR</small><p>{routes.projector}</p></div><div><small>SHARED DEVICE</small><p>{routes.sharedDevice}</p></div><div><small>NO TECH</small><p>{routes.offline}</p></div></section>}
 
       <footer className="teacher-run-sheet__finish" data-save-kind={saveTarget.kind}><div><small>FINISH / SAVE</small><strong>{saveTarget.label}</strong></div><p>{saveTarget.message || finishEvidence.at(-1) || "Close with one answer and one supporting detail."}</p></footer>
+
+      <SchoolAISupport key={title} title={title} question={learningQuestion} product={finishEvidence.join(" ")} />
 
       <details className="teacher-run-sheet__more">
         <summary>Need more support? <span>Background, short route, and extension</span></summary>

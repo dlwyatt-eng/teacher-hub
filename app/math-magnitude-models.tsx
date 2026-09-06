@@ -41,6 +41,10 @@ export function MagnitudeWorkedModel({ step }: { step?: number }) {
 }
 
 export function MagnitudePaperSheets() {
+  return <section className="magnitude-paper-sheets"><h3>Discuss and try · no printing needed</h3><p>Show each number line. Partners predict where 0.008 belongs and explain the size of one jump. Use a notebook or mini-whiteboard if a drawing helps.</p>{scales.map((scale, index) => <DecimalScale key={scale.max} index={index} />)}<p>Why does the same number appear in different positions when the scale changes?</p><LargeNumberPeriodChart /><h4>Your turn</h4><p>Compare 3,405,000,000 and 3,450,000,000. Then compare 807,090,000 and 870,009,000. Tell a partner which number is greater and name the first digit place that decides.</p><p><strong>Finish:</strong> each student explains one comparison aloud or in a notebook. Collect a written explanation only when you need it as evidence.</p><details><summary>Optional printable practice sheets</summary><MagnitudePrintableSheets /></details></section>;
+}
+
+function MagnitudePrintableSheets() {
   return <section className="magnitude-paper-sheets" aria-label="Reusable number lines and period chart">
     <h3>Paper for this workshop</h3>
     <p>Use these blank scales again for practice. Before the example, predict where 0.008 belongs on each line. Label one jump and mark your prediction.</p>

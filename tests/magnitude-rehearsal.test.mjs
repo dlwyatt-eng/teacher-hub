@@ -32,9 +32,15 @@ test('billions model follows the decimals and print retains all four models', ()
   assert.match(html, /2,360,000,000 is greater/);
 });
 
-test('actual student workshop includes blank equal-interval scales and a reusable period chart', () => {
+test('student workshop defaults to discussion and keeps blank sheets in optional print details', () => {
   const paper = renderToStaticMarkup(React.createElement(MagnitudePaperSheets));
-  const svgs = [...paper.matchAll(/<svg[^>]*>(.*?)<\/svg>/g)].map(match => match[1]);
+  const screen = paper.split('<details>')[0];
+  assert.match(screen, /no printing needed/);
+  assert.doesNotMatch(screen, /___|magnitude-response-space/);
+  assert.match(screen, /807,090,000/);
+  const optionalPrint = paper.slice(paper.indexOf('<details>'));
+  assert.match(optionalPrint, /Optional printable practice sheets/);
+  const svgs = [...optionalPrint.matchAll(/<svg[^>]*>(.*?)<\/svg>/g)].map(match => match[1]);
   assert.equal(svgs.length, 3);
   for (const svg of svgs) {
     assert.match(svg, /M35 55H605/);
