@@ -99,3 +99,7 @@
 .math-resource-launches p, .math-resource-launches small { margin: 0; line-height: 1.5; }
 .math-lesson-resources summary { padding: .8rem 0; cursor: pointer; font-weight: 700; }
 @media print { .math-lesson-resources { display: none !important; } }
+
+.math-resource-jump { margin: .5rem 0 1rem; padding: .85rem 1.2rem; border-radius: 10px; border: 2px solid #376859; background: #f5faf5; color: #193f35; font-weight: 700; cursor: pointer; }
+.math-lesson-resources { scroll-margin-top: 90px; }
+@media print { .math-resource-jump { display: none !important; } }

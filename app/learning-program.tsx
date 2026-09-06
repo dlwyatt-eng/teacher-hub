@@ -521,6 +521,7 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
   return (
     <article className="program-experience-detail">
       <TeacherDailyLaunchButton launch={dailyLaunch} />
+      {program.subject === "Mathematics" && <button type="button" className="math-resource-jump" onClick={event => { const shelf = event.currentTarget.closest(".program-experience-detail")?.querySelector<HTMLElement>(".math-lesson-resources"); shelf?.scrollIntoView({ block: "start" }); shelf?.focus({ preventScroll: true }); }}>Games &amp; worksheets ↓</button>}
       <LessonExplorations lessonId={experience.id} audience="teacher" />
       <TeacherRunSheet
         title={studentTitleFor(experience)}
