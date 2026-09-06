@@ -21,8 +21,8 @@ export function DecimalScale({ index, blank = false }: { index: number; blank?: 
 
 export function LargeNumberPeriodChart({ blank = false }: { blank?: boolean }) {
   return <section className="magnitude-period-chart" aria-label={blank ? "Blank large-number period chart" : "Worked large-number comparison"}>
-    <h4>{blank ? "Group digits in threes. Compare from the left." : "Which is greater: 2,306,000,000 or 2,360,000,000?"}</h4>
-    <table><caption>Each period holds three digit places.</caption><thead><tr>{["Billions", "Millions", "Thousands", "Ones"].map(label => <th key={label} scope="col">{label}</th>)}</tr></thead><tbody>
+    <h4>{blank ? "Try together: compare 3,405,000,000 and 3,450,000,000." : "Which is greater: 2,306,000,000 or 2,360,000,000?"}</h4>
+    <table><caption>Commas separate groups of three places, called periods. The leftmost group may have fewer digits.</caption><thead><tr>{["Billions", "Millions", "Thousands", "Ones"].map(label => <th key={label} scope="col">{label}</th>)}</tr></thead><tbody>
       {(blank ? [["", "", "", ""], ["", "", "", ""]] : [["2", "306", "000", "000"], ["2", "360", "000", "000"]]).map((row, i) => <tr key={i}>{row.map((value, j) => <td key={j}>{value || "___"}</td>)}</tr>)}
     </tbody></table>
     {!blank && <p>The billions digits are both 2. The hundred-millions digits are both 3. The ten-millions digits differ: <b>0 &lt; 6</b>, so <b>2,360,000,000 is greater.</b></p>}
@@ -47,7 +47,15 @@ export function MagnitudePaperSheets() {
     <p className="magnitude-pdf-link"><a href="/printables/magnitude-number-lines-and-periods.pdf" target="_blank" rel="noreferrer">Open the two-page maths sheet (PDF) ↗</a></p>
     {scales.map((scale, index) => <DecimalScale key={scale.max} index={index} blank />)}
     <p>What stayed the same? What changed?</p><div className="magnitude-response-space" />
+    <h3>Compare large whole numbers · a separate short activity</h3>
+    <p><strong>We are learning:</strong> to explain which whole number is greater using place value. Just as 0.8 and 0.08 have different values, a digit in the millions place has a different value from the same digit in the thousands place.</p>
+    <p><strong>Watch one example:</strong> each chart column holds a group of places. In the Millions column, 306 means 306 million: 3 hundred-millions, 0 ten-millions and 6 millions.</p>
+    <LargeNumberPeriodChart />
+    <ol><li>Read the two numbers aloud. Separate the groups at each comma.</li><li>Write the first number in the first row and the second number in the second row. Keep each group under its matching heading.</li><li>Compare matching digit places from left to right. If the digits match, move to the next place. Stop at the first different digit.</li><li>Circle the greater number. Explain which place decided your answer.</li></ol>
     <LargeNumberPeriodChart blank />
-    <p>The first different place is __________. I know __________ is greater because:</p><div className="magnitude-response-space" />
+    <p>The first place with different digits is __________. The digits there are ____ and ____. The greater number is __________ because:</p><div className="magnitude-response-space" />
+    <h4>Try on your own: compare 807,090,000 and 870,009,000.</h4>
+    <p>Circle the greater number and explain which digit place decides. Hand in your chart and both comparison explanations.</p><div className="magnitude-response-space" />
+    <p><strong>Check your work:</strong> are matching places lined up? Did you compare from the greatest place first? Did you name the place that decides?</p>
   </section>;
 }

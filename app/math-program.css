@@ -103,3 +103,11 @@
 .math-resource-jump { margin: .5rem 0 1rem; padding: .85rem 1.2rem; border-radius: 10px; border: 2px solid #376859; background: #f5faf5; color: #193f35; font-weight: 700; cursor: pointer; }
 .math-lesson-resources { scroll-margin-top: 90px; }
 @media print { .math-resource-jump { display: none !important; } }
+
+/* Preserve real columns even inside shared lesson/table styles. */
+.magnitude-period-chart table { display: table; width: 100%; }
+.magnitude-period-chart thead { display: table-header-group; }
+.magnitude-period-chart tbody { display: table-row-group; }
+.magnitude-period-chart tr { display: table-row; }
+.magnitude-period-chart th, .magnitude-period-chart td { display: table-cell; width: 25%; white-space: normal; overflow-wrap: anywhere; }
+.magnitude-period-chart caption { display: table-caption; caption-side: top; }
