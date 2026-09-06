@@ -43,3 +43,6 @@ next-env.d.ts
 /output/
 /tmp/
 /work/
+
+.pages-asset-history/
+.pages-asset-history.next/

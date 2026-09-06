@@ -31,6 +31,14 @@ jobs:
         run: git diff --check
       - name: Validate and build the Pages artifact
         run: npm test
+      - name: Restore recent successful page assets
+        uses: actions/cache/restore@v4
+        with:
+          path: .pages-asset-history
+          key: pages-assets-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: pages-assets-v1-${{ runner.os }}-
+      - name: Keep recent assets for already-open tabs
+        run: node pages/retain-recent-assets.mjs
       - uses: actions/configure-pages@v5
         with:
           enablement: true
@@ -40,3 +48,9 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Remember assets after successful deployment
+        uses: actions/cache/save@v4
+        with:
+          path: .pages-asset-history
+          key: pages-assets-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}

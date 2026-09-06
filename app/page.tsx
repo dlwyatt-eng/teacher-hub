@@ -1,5 +1,7 @@
 "use client";
 
+import { isPageFileError, freshViewUrl } from "./route-load-recovery";
+
 import { Component, lazy, Suspense, useCallback, useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import { assessmentHighlights, assessmentPrinciples, expectationGroups, homeworkPolicy, philosophyCommitments, spacesAnnualEvidenceSummary, spacesEvidenceRhythm, spacesPortfolioBudget, spacesPostRecipe, spacesReportingWindows, thingsToKnow } from "./classroom-program";
 import { printClosest } from "./print-support";
@@ -526,15 +528,15 @@ function RouteLoading({ label }: { label: string }) {
   );
 }
 
-class RouteErrorBoundary extends Component<{ children: ReactNode; routeKey: string }, { failed: boolean }> {
-  state = { failed: false };
+class RouteErrorBoundary extends Component<{ children: ReactNode; routeKey: string }, { failed: boolean; pageFile: boolean }> {
+  state = { failed: false, pageFile: false };
 
-  static getDerivedStateFromError() {
-    return { failed: true };
+  static getDerivedStateFromError(error: unknown) {
+    return { failed: true, pageFile: isPageFileError(error) };
   }
 
   componentDidUpdate(previous: Readonly<{ children: ReactNode; routeKey: string }>) {
-    if (previous.routeKey !== this.props.routeKey && this.state.failed) this.setState({ failed: false });
+    if (previous.routeKey !== this.props.routeKey && this.state.failed) this.setState({ failed: false, pageFile: false });
   }
 
   render() {
@@ -543,8 +545,8 @@ class RouteErrorBoundary extends Component<{ children: ReactNode; routeKey: stri
       <div className="page">
         <section className="route-error" role="alert">
           <span aria-hidden="true">↻</span>
-          <div><p className="section-kicker">VIEW COULD NOT LOAD</p><h2>Refresh to reconnect this part of the Hub.</h2><p>The Home page is still available. This can happen when school Wi-Fi drops or the Hub was updated while this tab stayed open.</p></div>
-          <button type="button" onClick={() => window.location.reload()}>Refresh this view</button>
+          <div><p className="section-kicker">VIEW COULD NOT LOAD</p><h2>{this.state.pageFile ? "A page file could not be downloaded." : "This view encountered an error."}</h2><p>{this.state.pageFile ? "This tab may be using an older Hub version, or the connection was interrupted. Check Wi-Fi, then refresh once to request the latest version." : "Refresh once. If the same view still fails, note its name and share a screenshot so the page error can be repaired."}</p><p>Home and the other navigation choices remain available. Refreshing does not clear your saved plans; copy any unfinished text before refreshing.</p></div>
+          <button type="button" onClick={() => window.location.replace(freshViewUrl(window.location.href))}>Refresh this view</button>
         </section>
       </div>
     );
