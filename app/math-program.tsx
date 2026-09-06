@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { MathGamesIntro, MathGamesFor } from "./math-games";
-import { MathAnticsYearIntro, MathAnticsYearPlan, MathEarlyFinisherBonuses } from "./math-antics-year";
+import { MathGamesIntro, MathGamesFor, MathGameLaunches } from "./math-games";
+import { MathAnticsQuickLinks, MathAnticsYearIntro, MathAnticsYearPlan, MathEarlyFinisherBonuses } from "./math-antics-year";
 import { mathFluencyRhythm, mathPacksFor, mathSupportPacks, mathYearSequence, pairedMathUpTopics, type MathSupportPack } from "./math-program-supports";
 import { MathDeliveryModePanel } from "./math-delivery-mode-panel";
 import { mathStudentPacksFor, type MathStudentWorkshopPlacement } from "./math-student-route";
@@ -191,6 +191,12 @@ function TeacherMathPack({ pack }: { pack: MathSupportPack }) {
       <footer className="math-pack-routes"><section><b>IF STUDENTS NEED MORE SUPPORT</b><p>{pack.supportRoute}</p></section><section><b>IF READY FOR MORE</b><p>{pack.extensionRoute}</p></section><section><b>LIKELY MISCONCEPTIONS</b><p>{pack.likelyMisconceptions.join(" · ")}</p></section><section><b>SPACES EDU</b><p>{pack.spaces}</p></section></footer>
     </article>
   );
+}
+
+export function MathLessonResources({ experienceId }: { experienceId: string }) {
+  const lessonIds = mathPacksFor(experienceId).map(pack => pack.id);
+  const unitIds = [...new Set([...lessonIds, ...mathYearSequence.filter(unit => unit.lessonIds.includes(experienceId)).flatMap(unit => unit.lessonIds)])];
+  return <aside className="math-lesson-resources" aria-label="Games and worksheets for this lesson"><h2>Games &amp; worksheets</h2><p>Quick access for your teacher screen or a shared device. For class games, partners work on paper and explain a move before you play it.</p><MathAnticsQuickLinks lessonIds={unitIds} /><h3>Ready-made games for this unit</h3><MathGameLaunches lessonIds={unitIds} /><details><summary>Supplementary game shelf · four games to try</summary><MathGameLaunches /></details><details><summary>More activities using online tools · directions and paper alternatives</summary><MathGamesFor lessonIds={unitIds} /></details></aside>;
 }
 
 export function MathTeacherWorkshops({ experienceId, placement = "before" }: { experienceId: string; placement?: "before" | "extension" }) {

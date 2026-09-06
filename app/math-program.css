@@ -89,3 +89,13 @@
 @media print{.math-bonus-paper{border:0;padding:0;color:#000}.math-bonus-paper button{display:none!important}.math-bonus-paper p,.math-bonus-paper li{font-size:12pt;line-height:1.4}.math-bonus-paper h3{font-size:18pt}}
 
 .math-game-choice{padding:14px 0;border-bottom:1px solid #c8d7da}.math-game-choice:last-child{border-bottom:0}.math-game-choice h4{margin:0;font-size:19px;line-height:1.4;color:#194f60}
+
+/* Keep external resources visible in teacher lessons; never print the launch shelf. */
+.math-lesson-resources { margin: 1.5rem 0; padding: clamp(1rem, 3vw, 2rem); border: 2px solid #376859; border-radius: 18px; background: #f5faf5; color: #193f35; }
+.math-lesson-resources h2, .math-lesson-resources h3 { color: #193f35; }
+.math-resource-launches { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1rem; margin: 1rem 0; }
+.math-resource-launches > div { display: flex; flex-direction: column; gap: .6rem; padding: 1rem; border: 1px solid #8ba99d; border-radius: 10px; background: white; color: #193f35; min-width: 0; }
+.math-resource-launches a { display: block; padding: .5rem 0; color: #164f70; text-decoration: underline; font-weight: 700; overflow-wrap: anywhere; }
+.math-resource-launches p, .math-resource-launches small { margin: 0; line-height: 1.5; }
+.math-lesson-resources summary { padding: .8rem 0; cursor: pointer; font-weight: 700; }
+@media print { .math-lesson-resources { display: none !important; } }

@@ -12,7 +12,7 @@ import { experienceKits, mediaFor, plainForStudents, spacesBookendsFor, studentS
 import { mathResourceRoutes, mathUpTopics, readinessFor } from "./readiness-supports";
 import type { ExperienceKit, ExperienceMedia, LearningProgram, ProgramArc, ProgramExperience } from "./program-types";
 import { mathPacksFor, mathSupportPacks, mathWordsFor } from "./math-program-supports";
-import { MathStudentWorkshops, MathTeacherWorkshops, MathYearImplementation } from "./math-program";
+import { MathLessonResources, MathStudentWorkshops, MathTeacherWorkshops, MathYearImplementation } from "./math-program";
 import { ExperienceInfographic, LocalIndigenousResourceDock, LocalRestorationInfographic, ResponsibleDataInfographic } from "./infographic-library";
 import { printClosest } from "./print-support";
 import { spacesPolicyForActivity } from "./classroom-program";
@@ -555,6 +555,8 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
         dayPlanLesson={{ sourceId: experience.id, subject: program.subject, title: studentTitleFor(experience), timing: experience.duration, runSteps: teacherRunSteps.map((step) => `${step.title}: ${step.action}`) }}
         launchResource={mathAntics ?? undefined}
       />
+
+      {program.subject === "Mathematics" && <MathLessonResources experienceId={experience.id} />}
 
       <details className="teacher-tool-drawer teacher-quick-check-drawer">
         <summary><span><small>TEACHER TOOL · NO RESPONSE STORAGE</small><strong>Quick checks for Kahoot, Forms / Copilot, or paper</strong></span><b>Open ▾</b></summary>

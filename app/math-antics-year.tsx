@@ -117,6 +117,12 @@ function ResourceLinks({ slugs, label }: { slugs: Slug[]; label: string }) {
   return <div className="math-year-links"><b>{label}</b><ol>{slugs.map(slug => <li key={slug}><a href={catalogue[slug].youtube} target="_blank" rel="noreferrer">{catalogue[slug].title} · YouTube ↗</a>{" · "}<a href={catalogue[slug].url} target="_blank" rel="noreferrer">Lesson / member practice ↗</a></li>)}</ol></div>;
 }
 
+export function MathAnticsQuickLinks({ lessonIds }: { lessonIds: string[] }) {
+  const selected = [...new Set(lessonIds.flatMap(id => plans[id]?.core ?? []))];
+  if (!selected.length) return null;
+  return <section><h3>Math Antics · watch and print</h3><p>Open the lesson, then choose <strong>Worksheets</strong> or <strong>Exercises</strong> below the video. Sign in to Math Antics for member practice. Print the student file; answer files are separate. Links open in a new tab so your Hub lesson stays ready.</p><nav className="math-resource-launches" aria-label="Math Antics worksheet access">{selected.map(slug => <div key={slug}><strong>{catalogue[slug].title}</strong><a href={catalogue[slug].url} target="_blank" rel="noreferrer">Open worksheets &amp; lesson ↗</a><a href={catalogue[slug].youtube} target="_blank" rel="noreferrer">Watch on YouTube ↗</a></div>)}</nav>{selected.includes("place-value") && <p>Place Value: the six-page member worksheet PDF opened successfully. Page 2, Identifying Number Places – Set 1, offers digit-place practice. Use the chart through trillions too, as you have in previous years. Only pages 1–2 have been visually reviewed so far.</p>}<p>Use the matching worksheets as regular practice alongside the Hub models, discussion and checks. Preview the pages you plan to assign. Member files remain on Math Antics.</p></section>;
+}
+
 export function MathAnticsYearPlan({ lessonIds }: { lessonIds: string[] }) {
   const plan = lessonIds.map(id => plans[id]).find(Boolean);
   if (!plan) return null;
@@ -129,12 +135,12 @@ export function MathAnticsYearPlan({ lessonIds }: { lessonIds: string[] }) {
     <p><strong>Pause and discuss:</strong> {plan.pause}</p>
     <p><strong>Paper activity / no-video route:</strong> {plan.paper}</p>
     <p><strong>Teach next / collect:</strong> {plan.bridge}</p>
-    <p><strong>Practice selection:</strong> Use the Hub practice first. If using membership worksheets, preview and select a few matching questions after the exit check. Worksheet contents and page numbers have not been reviewed.</p>
+    <p><strong>Practice selection:</strong> Use matching Math Antics sheets regularly alongside Hub practice. Choose pages for today’s goal and use the check to decide who needs support or a challenge. The place-value PDF and pages 1–2 have been checked; the remaining member pages still need review.</p>
   </div></details>;
 }
 
 export function MathAnticsYearIntro() {
-  return <aside className="math-year-resource-note"><h3>Math Antics through the year</h3><p>Open a unit's resource choices below. One teacher screen, speakers and paper are enough; students do not need accounts or devices. Videos support the existing Hub models and activities.</p><p>Checked September 6, 2026: all 32 official lesson pages opened and their YouTube links were recorded. Full video playback, captions, exact excerpts and member worksheets remain to be checked. Preview on the school network before class. Link to the original resources; do not upload member PDFs to this public Hub.</p></aside>;
+  return <aside className="math-year-resource-note"><h3>Math Antics through the year</h3><p>Open a unit's resource choices below. One teacher screen, speakers and paper are enough; students do not need accounts or devices. Videos support the existing Hub models and activities.</p><p>Checked September 6, 2026: all 32 official lesson pages opened and their YouTube links were recorded. Member access and the place-value PDF were subsequently confirmed; pages 1–2 were visually inspected. Remaining member pages, full video playback, captions and exact excerpts still need review. Preview on the school network before class. Link to the original resources; do not upload member PDFs to this public Hub.</p></aside>;
 }
 
 export function MathEarlyFinisherBonuses() {
