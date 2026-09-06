@@ -69,3 +69,21 @@
 .magnitude-scale{break-inside:avoid;padding:1rem 0}.magnitude-scale h4{margin:0;font-size:1.3rem}.magnitude-scale svg{display:block;width:100%;height:auto}.magnitude-scale svg path{stroke:#264e60;stroke-width:2;fill:none}.magnitude-scale svg circle{fill:#8b4b10;stroke:#fff;stroke-width:1}.magnitude-scale svg text{fill:#183b4a;font-size:22px;font-weight:700}.magnitude-scale svg .magnitude-pointer{stroke:#8b4b10;stroke-width:1}.magnitude-scale p{display:grid;gap:.4rem;font-size:1.15rem}.magnitude-period-chart{padding:1rem 0;break-inside:avoid}.magnitude-period-chart table{width:100%;table-layout:fixed;border-collapse:collapse}.magnitude-period-chart th,.magnitude-period-chart td{border:1px solid #476675;text-align:center;padding:.8rem .3rem;font-size:1.1rem}.magnitude-period-chart td{font-size:1.5rem;font-variant-numeric:tabular-nums}.magnitude-period-chart caption{text-align:left;padding:.5rem 0}.magnitude-paper-sheets{margin-top:1.5rem;padding:1.2rem;border:1px solid #476675;background:#fff;color:#172d38}.magnitude-response-space{min-height:5rem;border-bottom:1px solid #777}.magnitude-pdf-link a{display:inline-block;padding:.6rem 0;text-decoration:underline;font-weight:700}
 @media screen{.magnitude-worked-model>[data-current=false]{display:none}}
 @media print{.magnitude-worked-model>[data-current]{display:block!important}.magnitude-paper-sheets{break-before:page;border:0;padding:0}.magnitude-pdf-link{display:none}.magnitude-scale,.magnitude-period-chart{break-inside:avoid}.magnitude-scale svg{max-height:95px}.magnitude-scale p,.magnitude-period-chart p{font-size:11pt}.magnitude-scale h4{font-size:12pt}.magnitude-period-chart th{font-size:10pt}.magnitude-period-chart td{font-size:14pt}}
+
+/* Teacher year choices stay collapsed; student bonus print targets contain no teacher key. */
+.math-year-resource-note,.math-year-bonuses{padding:18px 20px;background:#f1f6f5;border:1px solid #c8d7da;color:#243f47}
+.math-year-resource-note h3{margin:0 0 8px;font-size:20px}
+.math-year-resource-note p,.math-year-bonuses p,.math-year-bonuses li{font-size:16px;line-height:1.55}
+.math-year-media{margin-top:14px;border-top:1px solid #cedcdf;padding-top:10px;min-width:0}
+.math-year-media summary,.math-year-bonuses summary{cursor:pointer;font-size:16px;font-weight:750;line-height:1.5;padding:6px 0;color:#194f60}
+.math-year-media>div{padding-top:12px}
+.math-calendar-list article>section .math-year-media p{font-size:16px;line-height:1.55;margin:10px 0}
+.math-calendar-list article>section .math-year-media p strong{font-size:inherit;letter-spacing:normal}
+.math-year-links{margin:14px 0;font-size:16px;line-height:1.55;overflow-wrap:anywhere}
+.math-year-links ol{padding-left:24px;margin:6px 0}.math-year-links li{margin:8px 0}
+.math-year-links a{color:#15566c;text-decoration:underline;text-underline-offset:3px}
+.math-bonus-paper{background:#fff;border:1px solid #aebfc2;border-radius:10px;padding:20px;margin:18px 0}
+.math-bonus-paper header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.math-bonus-paper h3{margin:0;font-size:22px}.math-bonus-paper button{background:#215a69;color:#fff;border:0;border-radius:6px;padding:10px 14px;font:inherit;cursor:pointer}
+.math-bonus-paper ol{padding-left:24px}.math-bonus-paper li{margin:12px 0}
+@media print{.math-bonus-paper{border:0;padding:0;color:#000}.math-bonus-paper button{display:none!important}.math-bonus-paper p,.math-bonus-paper li{font-size:12pt;line-height:1.4}.math-bonus-paper h3{font-size:18pt}}
