@@ -28,6 +28,7 @@ import {
   type DailyLaunch,
 } from "./daily-launch";
 import "./morning-screen.css";
+import { HopeEditor, HopeProjector } from "./morning-hope";
 
 export type MorningTimelineItem = {
   time: string;
@@ -204,6 +205,7 @@ function MorningProjector({
   timeline: readonly MorningTimelineItem[];
   onOpenHome: () => void;
 }) {
+  const [showHope, setShowHope] = useState(false);
   if (!saved) {
     return <main className="morning-projector morning-projector-empty" aria-labelledby="morning-empty-title">
       <button className="morning-projector-home" type="button" onClick={onOpenHome} aria-label="Return to Classroom OS home">⌂</button>
@@ -220,6 +222,8 @@ function MorningProjector({
     </header>
 
     <div className="morning-projector-grid">
+      {saved.hopeStory && <nav className="morning-routine-switch" aria-label="Morning routine"><button type="button" aria-pressed={!showHope} onClick={() => setShowHope(false)}>Arrival &amp; day plan</button><button type="button" aria-pressed={showHope} onClick={() => setShowHope(true)}>Hope in Action · 4 min</button></nav>}
+      {showHope && saved.hopeStory ? <HopeProjector story={saved.hopeStory} /> : <>
       <section className="morning-arrival-card">
         <div className="morning-arrival-image"><MorningActivityVisual activity={activity} /></div>
         <div className="morning-arrival-copy"><small>{activity.label} · ARRIVAL CHALLENGE</small><h2>{activity.title}</h2><p>{saved.activityPrompt}</p><strong>{activity.move}</strong></div>
@@ -238,6 +242,7 @@ function MorningProjector({
           ? <ul>{saved.reminders.map((item, index) => <li key={`${item.text}-${index}`}><span>{item.text}{item.source && <small>Walnut Road · checked {displayFetchedAt(item.source.fetchedAt)}</small>}</span></li>)}</ul>
           : <p>Bring your curiosity. We&apos;ll add reminders when needed.</p>}</section>
       </aside>
+      </>}
     </div>
 
     <footer className="morning-projector-footer">
@@ -394,8 +399,12 @@ function MorningTeacherEditor({
         <ItemEditor title="Reminders" hint="Events, materials, or actions students should remember." items={draft.reminders} onChange={(reminders) => changeDraft({ ...draft, reminders })} />
       </section>
 
+      <HopeEditor value={draft.hopeStory ?? null} onChange={hopeStory => changeDraft({ ...draft, hopeStory })} />
+
       <section className="morning-editor-panel morning-editor-preview" aria-label="Morning Screen content check">
         <header><small>4</small><h2>Preview</h2></header>
+        {draft.hopeStory && <p>Hope in Action: {draft.hopeStory.title || "Finish the story fields"} · story date {draft.hopeStory.date || "needed"}</p>}
+        {draft.hopeStory && draft.hopeStory.date > date && <p role="alert">The story date cannot be later than today.</p>}
         <div><span>{displayDate(date)}</span><strong>{draft.greeting}</strong><p>{activity.label}: {draft.activityPrompt}</p></div>
         <dl><div><dt>SHAPE</dt><dd>{timeline.length ? timeline.map((item) => item.label).join(" · ") : "No timeline supplied yet"}</dd></div><div><dt>MISSION</dt><dd>{launch?.title ?? "No mission pinned yet"}</dd></div><div><dt>VISIBLE ITEMS</dt><dd>{draft.announcements.length} announcement{draft.announcements.length === 1 ? "" : "s"} · {draft.reminders.length} reminder{draft.reminders.length === 1 ? "" : "s"}</dd></div></dl>
       </section>

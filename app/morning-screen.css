@@ -40,3 +40,26 @@
 @media(max-width:1050px){.morning-editor{padding:26px 24px 70px}.morning-editor-hero{grid-template-columns:auto 1fr}.morning-publish-state{grid-column:2}.morning-editor-grid{grid-template-columns:1fr}.morning-editor-notices{grid-row:auto}.morning-projector{aspect-ratio:auto;min-height:100vh}.morning-projector-grid{grid-template-columns:1fr}.morning-arrival-card{min-height:480px}.morning-projector-rail{grid-template-columns:repeat(3,1fr);grid-template-rows:auto}.morning-projector-footer{grid-template-columns:1fr}.morning-projector-footer .morning-source-note{text-align:left}}
 @media(max-width:720px){.morning-editor{padding:16px}.morning-editor-hero{grid-template-columns:1fr;padding:21px}.morning-publish-state{grid-column:auto}.morning-privacy-note,.morning-editor-actions{grid-template-columns:1fr}.morning-editor-actions button{width:100%}.morning-editor-panel{padding:19px}.morning-weather-editor>div{grid-template-columns:1fr 1fr}.morning-activity-editor-card{grid-template-columns:1fr}.morning-activity-editor-card img{width:100%;height:220px;grid-row:auto}.morning-activity-editor-card p{grid-column:auto}.morning-projector-header{grid-template-columns:auto 1fr}.morning-projector-date{grid-column:1/-1;text-align:left}.morning-projector-date>span{justify-content:flex-start}.morning-projector-grid{padding:14px}.morning-arrival-card{grid-template-columns:1fr;min-height:0}.morning-arrival-image{height:240px}.morning-projector-rail{grid-template-columns:1fr}.morning-projector-footer{padding:16px}.morning-mission-snapshot{grid-template-columns:1fr}.morning-mission-snapshot span{white-space:normal}.morning-item-editor label{grid-template-columns:28px 1fr}.morning-item-editor label>button{grid-column:2}.morning-item-editor label>.morning-source-note{grid-column:2}}
 @media print{.morning-editor-actions,.morning-privacy-note,.morning-editor-hero>button{display:none!important}.morning-editor{padding:0}.morning-editor-panel{box-shadow:none}.morning-projector{width:100%;min-height:0;aspect-ratio:16/9;box-shadow:none}.morning-projector-home{display:none}}
+.morning-hope-editor{grid-column:1/-1}
+.morning-hope-editor p{font-size:1rem;line-height:1.6;max-width:80ch}
+.morning-hope-editor label{display:block;margin:1rem 0}
+.morning-hope-editor label>span{font-size:.95rem}
+.morning-hope-editor :is(input,textarea){font-size:1rem}
+.morning-hope-editor details{margin:1rem 0}
+.morning-hope-editor summary{cursor:pointer;font-size:1rem;font-weight:700}
+.morning-hope-editor button,.morning-routine-switch button,.morning-hope-projector button{padding:.75rem 1rem;min-height:44px;border:1px solid #315f4d;border-radius:10px;background:#fff;color:#173f35;font:inherit;font-size:1rem;cursor:pointer}
+.morning-hope-editor button:focus-visible,.morning-routine-switch button:focus-visible,.morning-hope-projector button:focus-visible{outline:3px solid #bd8624;outline-offset:3px}
+.morning-routine-switch{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px;align-self:start}
+.morning-routine-switch button[aria-pressed=true],.morning-hope-projector button[aria-pressed=true]{background:#173f35;color:#fff}
+.morning-hope-projector{grid-column:1/-1;min-width:0;padding:clamp(20px,3vw,44px);border-radius:22px;background:#fff;border-top:8px solid #c49534;overflow-wrap:anywhere}
+.morning-hope-projector header small{font-size:1rem;font-weight:800;color:#315f4d}
+.morning-hope-projector h2{font:700 clamp(28px,3vw,48px)/1.15 Georgia,serif;margin:12px 0}
+.morning-hope-projector header p{font-size:1rem;line-height:1.5}
+.morning-hope-projector a{color:#245945;text-decoration:underline}
+.morning-hope-projector nav{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}
+.morning-hope-projector h3{font-size:clamp(20px,1.7vw,28px);margin:20px 0 8px;color:#315f4d}
+.morning-hope-projector section p{font-size:clamp(22px,2vw,32px);line-height:1.5;margin:0;max-width:80ch}
+.morning-hope-projector footer{margin-top:24px;padding-top:16px;border-top:1px solid #cad9d1;font-size:1.1rem;line-height:1.5}
+.morning-projector:has(.morning-routine-switch){aspect-ratio:auto;overflow:visible}
+.morning-projector-grid:has(.morning-routine-switch){grid-template-rows:auto auto}
+@media print{.morning-routine-switch,.morning-hope-projector nav{display:none}}

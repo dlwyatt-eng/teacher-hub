@@ -1,3 +1,5 @@
+import { parseHopeStory, type HopeStory } from "./morning-hope-state";
+
 /**
  * Device-local, student-safe state for the classroom Morning Screen.
  *
@@ -134,6 +136,7 @@ export type MorningScreenDraft = {
   activityId: MorningActivityId;
   activityPrompt: string;
   weather: MorningWeather | null;
+  hopeStory?: HopeStory | null;
 };
 
 export type MorningScreenRecord = MorningScreenDraft & {
@@ -247,8 +250,11 @@ function parseDraftFields(value: unknown): MorningScreenDraft | null {
   const activityId = record.activityId;
   const activityPrompt = text(record.activityPrompt, 360);
   if (!greeting || typeof activityId !== "string" || !activityIds.has(activityId as MorningActivityId) || !activityPrompt) return null;
+  const hopeStory = record.hopeStory == null ? null : parseHopeStory(record.hopeStory);
+  if (record.hopeStory != null && (!hopeStory || hopeStory.date > record.date)) return null;
   return {
     version: 1,
+    hopeStory,
     date: record.date,
     greeting,
     announcements: parseItems(record.announcements),
