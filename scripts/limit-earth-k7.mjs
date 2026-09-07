@@ -1,0 +1,12 @@
+import { readFileSync, writeFileSync } from 'node:fs';
+const path = 'public/earth-stuff-fairness/index.html';
+let text = readFileSync(path, 'utf8');
+text = text.replaceAll('6–8', '6–7');
+text = text.replaceAll("['K–2','3–5','6–7','9–12']", "['K–2','3–5','6–7']");
+text = text.replaceAll('<option>9–12</option>', '');
+text = text.replaceAll("band==='9–12'||f.id!=='citizens'", "f.id!=='citizens'");
+text = text.replaceAll("band==='9–12'?'Six investigations with additional source and policy analysis.':", '');
+text = text.replaceAll("+(band==='9–12'?'<section class=\"extended note\"><b>Older-grade extension</b><p>'+esc(pack.advanced[a.id])+'</p></section>':'')", '');
+text = text.replaceAll("+(band==='9–12'?'<p>Teacher extension: Buy, Use, Toss is a high-school resource, not a Grade 6 handout.</p>'+sourceList(['curriculum']):'')", '');
+writeFileSync(path, text);
+console.log('Earth routes limited to K–7.');
