@@ -2,9 +2,7 @@
   "name": "mr-wyatts-classroom",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": ">=22.13.0"
-  },
+  "engines": { "node": ">=22.13.0" },
   "scripts": {
     "install:ci": "npm ci",
     "dev": "vite --config vite.pages.config.ts",
@@ -13,36 +11,18 @@
     "sync:public-window": "node pages/sync-public-window.mjs",
     "check:public-window": "node pages/check-public-window.mjs",
     "typecheck": "tsc --project tsconfig.json --noEmit --incremental false",
+    "prebuild:pages": "node scripts/build-earth-stuff-pack.mjs teacher",
     "build:pages": "npm run sync:public-window && vite build --config vite.pages.config.ts && node pages/postbuild.mjs",
     "build": "npm run build:pages",
     "check:pages-artifact": "node tests/check-pages-artifact.mjs",
     "validate:artifact": "npm run check:pages-artifact",
+    "pretest": "node scripts/build-earth-stuff-pack.mjs teacher",
     "test": "npm run check:public-window && npm run typecheck && node --test tests/*.test.mjs && npm run build:pages && npm run check:pages-artifact",
     "lint": "npm run typecheck"
   },
-  "dependencies": {
-    "drizzle-orm": "0.45.2",
-    "next": "16.2.6",
-    "react": "19.2.6",
-    "react-dom": "19.2.6"
-  },
+  "dependencies": { "drizzle-orm": "0.45.2", "next": "16.2.6", "react": "19.2.6", "react-dom": "19.2.6" },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "1.37.1",
-    "@tailwindcss/postcss": "4.2.1",
-    "@types/node": "22.19.19",
-    "@types/react": "19.2.14",
-    "@types/react-dom": "19.2.3",
-    "@vitejs/plugin-react": "6.0.2",
-    "@vitejs/plugin-rsc": "0.5.26",
-    "drizzle-kit": "0.31.10",
-    "eslint": "9.39.4",
-    "eslint-config-next": "16.2.6",
-    "react-server-dom-webpack": "19.2.6",
-    "tailwindcss": "4.2.1",
-    "typescript": "5.9.3",
-    "vinext": "0.0.50",
-    "vite": "8.0.13",
-    "wrangler": "4.92.0"
+    "@cloudflare/vite-plugin": "1.37.1", "@tailwindcss/postcss": "4.2.1", "@types/node": "22.19.19", "@types/react": "19.2.14", "@types/react-dom": "19.2.3", "@vitejs/plugin-react": "6.0.2", "@vitejs/plugin-rsc": "0.5.26", "drizzle-kit": "0.31.10", "eslint": "9.39.4", "eslint-config-next": "16.2.6", "react-server-dom-webpack": "19.2.6", "tailwindcss": "4.2.1", "typescript": "5.9.3", "vinext": "0.0.50", "vite": "8.0.13", "wrangler": "4.92.0"
   },
   "type": "module",
   "displayName": "Mr. Wyatt's Classroom"

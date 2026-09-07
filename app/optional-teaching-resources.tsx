@@ -6,6 +6,7 @@ import { LessonExplorations, explorationsForLesson } from "./virtual-exploration
 import { extraInfographics } from "./teaching-diagrams";
 import { ReadyMadeActivities } from "./ready-made-activity-panel";
 import { readyMadeForLesson } from "./ready-made-activities";
+import { earthResources } from "./earth-stuff-resources";
 import "./optional-teaching-resources.css";
 
 export type TeachingResource = { id: string; title: string; content?: ReactNode; onOpen?: () => void };
@@ -37,7 +38,7 @@ export function infographicResources(lessonId: string): TeachingResource[] {
 export function OptionalTeachingResources({ lessonId, teacher = false, extras = [] }: { lessonId: string; teacher?: boolean; extras?: TeachingResource[] }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const [selected, setSelected] = useState<TeachingResource | null>(null);
-  const resources: TeachingResource[] = [...infographicResources(lessonId), ...(explorationsForLesson(lessonId).length ? [{ id: "visits", title: "Videos & virtual visits", content: <LessonExplorations lessonId={lessonId} audience={teacher ? "teacher" : "student"} initiallyOpen /> }] : []), ...(teacher && readyMadeForLesson(lessonId).length ? [{ id: "ready-made", title: "Ready-made class activities", content: <ReadyMadeActivities lessonId={lessonId} /> }] : []), ...extras];
+  const resources: TeachingResource[] = [...earthResources(lessonId, teacher), ...infographicResources(lessonId), ...(explorationsForLesson(lessonId).length ? [{ id: "visits", title: "Videos & virtual visits", content: <LessonExplorations lessonId={lessonId} audience={teacher ? "teacher" : "student"} initiallyOpen /> }] : []), ...(teacher && readyMadeForLesson(lessonId).length ? [{ id: "ready-made", title: "Ready-made class activities", content: <ReadyMadeActivities lessonId={lessonId} /> }] : []), ...extras];
   if (!resources.length) return null;
   return <section className="optional-teaching-resources" aria-label="Optional teaching resources">
     <details><summary>Optional teaching resources · {resources.length} choices</summary>
