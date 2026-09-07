@@ -171,12 +171,12 @@ export function ResponsesUnderPressureLab({ sceneIndex, audience }: Unit4Experie
 
   if (scene === 0) {
     const stations = [
-      ["COMMUNITY OR AFFECTED-PEOPLE RESPONSE", "What are people closest to the issue already doing or asking for?"],
-      ["GOVERNMENT OR PUBLIC-SERVICE RESPONSE", "What rule, funding choice, program, or public action exists?"],
-      ["ORGANIZATION OR COOPERATION RESPONSE", "How are groups, NGOs, Nations, or countries working together?"],
+      ["SURREY GREEN INFRASTRUCTURE", "Which local plan changes how rainwater is managed? Whose needs and evidence should shape it?"],
+      ["CANADA MICROBEADS", "What product rule was implemented? What later evidence would show its environmental effect?"],
+      ["LOSS-AND-DAMAGE FUNDING", "What have countries agreed to fund? Which results are still not demonstrated by the source?"],
     ];
     return (
-      <ExperienceFrame audience={audience} sceneIndex={scene} tone="response" eyebrow="RESPONSES UNDER PRESSURE · PART 1" title="Find what people are already trying." prompt="Study three real responses connected to your issue. Begin with the people and organizations already doing the work." teacherNote="Curate or approve three credible, meaningfully different responses before class. When Indigenous-led work is relevant, use the specific Nation or organization’s own public source and do not treat it as one generic perspective." footer="This response tries to… The source shows… It does not yet tell us…">
+      <ExperienceFrame audience={audience} sceneIndex={scene} tone="response" eyebrow="RESPONSES UNDER PRESSURE · PART 1" title="Find what people are already trying." prompt="Read the three named Earth cards linked in Supplied materials. Compare what each changes and what the evidence shows; they address different problems." teacherNote="Use the supplied shared set. Other inquiry teams may reuse three approved sources from their existing research; the same questions apply. When Indigenous-led work is relevant, use the specific Nation or organization’s own public source and do not treat it as one generic perspective." footer="This response tries to… The source shows… It does not yet tell us…">
         <div className="u4-response-stations">
           {stations.map(([title, detail], index) => (
             <button key={title} aria-pressed={sourceReady[index]} className={sourceReady[index] ? "ready" : ""} onClick={() => setSourceReady((current) => current.map((value, i) => i === index ? !value : value))}>

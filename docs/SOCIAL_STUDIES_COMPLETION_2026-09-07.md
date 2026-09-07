@@ -87,3 +87,7 @@ Source refresh is optional teacher work for a current-events extension. The date
 Teacher Hub is the only changed repository. Learn and Equity Hub keep their existing standalone K–7 Earth content; no duplicated full curriculum and no unnecessary older-grade public routes were introduced. Their source pins do not change because this pass does not modify the shared Earth generator/data.
 
 No instructional or policy decision is deferred to Daryl. The outstanding issue is verification coverage: the exact viewport/zoom matrix, every lesson scene, physical classroom use and physical printing have not been certified. These limitations do not justify rebuilding the strong existing program or hiding the targeted fixes.
+
+## Final renderer follow-up
+
+A further rendered check of Pull the System Thread and Responses Under Pressure confirmed the small inquiry route. It also exposed generic station headings and an optional field trip ahead of the response task. Aligned the response screen with the three named Earth cards and placed Unit 3–4 explorations after core activities, collapsed by default. Units 1–2 exploration placement is preserved. The follow-up receives the same full test/build gate before release.
