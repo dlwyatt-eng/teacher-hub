@@ -17,13 +17,13 @@ export function earthResources(lessonId: string, teacher: boolean): TeachingReso
   const entry = earthLessonRoutes[lessonId];
   if (!entry) return [];
   const base = typeof window !== "undefined" && window.location.pathname.startsWith("/teacher-hub") ? "/teacher-hub/" : "/";
-  const href = `${base}earth-stuff-fairness/?band=${encodeURIComponent("6–8")}&activity=${entry.activity}`;
+  const href = `${base}earth-stuff-fairness/?band=${encodeURIComponent("6–7")}&activity=${entry.activity}`;
   return [{ id: "earth-stuff-fairness", title: "Story of Stuff · evidence, fairness & action", content: <section>
     <h2>Earth, Stuff &amp; Fairness</h2>
     <p>{entry.purpose}</p>
-    <p><a href={`${href}&project=1`} target="_blank" rel="noopener noreferrer">Open the Grade 6 student screen in a new tab</a></p>
+    <p><a href={`${href}&project=1`} target="_blank" rel="noopener noreferrer">Open the Grade 6–7 student screen in a new tab</a></p>
     {teacher && <p><a href={href} target="_blank" rel="noopener noreferrer">Open the teaching plan, film choices and student print view</a></p>}
     <p>Close that tab to return to this lesson. Choose a short film section or the complete no-video route. This is optional support, not another required assignment or SpacesEDU post.</p>
-    {teacher && <p>Original films are advocacy sources with dated claims. Preview the exact player and captions. The supplied activities distinguish real evidence from fictional models, and Citizens United stays in the older-grade teacher-preview route.</p>}
+    {teacher && <p>Original films are advocacy sources with dated claims. Preview the exact player and captions. The supplied activities distinguish real evidence from fictional models. More advanced ideas are adapted into the K–7 inquiry rather than shown as high-school routes.</p>}
   </section> }];
 }
