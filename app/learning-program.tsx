@@ -560,7 +560,7 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
       {program.subject === "Mathematics" && <MathLessonResources experienceId={experience.id} />}
 
       <details className="teacher-tool-drawer teacher-quick-check-drawer">
-        <summary><span><small>TEACHER TOOL · NO RESPONSE STORAGE</small><strong>Quick checks for Kahoot, Forms / Copilot, or paper</strong></span><b>Open ▾</b></summary>
+        <summary><span><small>OPTIONAL PREPARATION · NO RESPONSE STORAGE</small><strong>Make a custom quick check · paper or Forms / Copilot</strong></span><b>Open ▾</b></summary>
         <div>
           <Suspense fallback={<section className="teacher-quick-check-loading" aria-live="polite">Preparing the no-data quick-check tools…</section>}>
             <TeacherQuickCheckBuilder

@@ -1,0 +1,11 @@
+.ready-made-activities{margin:1rem 0;padding:1rem;border:2px solid #355880;border-radius:12px;background:#f1f6ff;color:#173456;min-width:0;font-size:1rem;line-height:1.55}
+.ready-made-activities h3{margin:0 0 .5rem;font-size:1.35rem}
+.ready-made-activities{scroll-margin-top:6rem}
+.ready-made-activities article{padding:1rem 0;border-top:1px solid #a3b7cf;min-width:0}
+.ready-made-activities h4{margin:0;font-size:1.15rem}
+.ready-made-activities header{display:block}.ready-made-activities header span{display:block;font-size:.95rem}
+.ready-made-activities p{margin:.7rem 0;overflow-wrap:anywhere}
+.ready-made-activities .ready-made-open{display:inline-block;padding:.65rem 1rem;background:#234e7b;color:#fff;border-radius:7px;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.ready-made-activities summary{cursor:pointer;padding:.7rem 0;font-size:1rem;font-weight:600}
+.ready-made-activities :focus-visible{outline:3px solid #b85909;outline-offset:3px}
+@media print{.ready-made-activities{display:none!important}}

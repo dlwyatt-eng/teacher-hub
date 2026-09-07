@@ -6,6 +6,7 @@ export default defineConfig(({ command }) => ({
   root: "pages",
   base: command === "serve" ? "/" : "/teacher-hub/",
   publicDir: "../public",
+  server: { host: "0.0.0.0", allowedHosts: ["terminal.local"] },
   plugins: [react()],
   resolve: {
     alias: {

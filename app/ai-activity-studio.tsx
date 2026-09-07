@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { schoolAIActivities, schoolAICreationPack } from "./schoolai-activities";
+import { AiEvidenceWorkflow } from "./ai-evidence-workflow";
 import "./ai-activity-studio.css";
 
 export default function AiActivityStudio({ onHome, initialActivityId }: { onHome: () => void; initialActivityId?: string }) {
@@ -29,6 +30,7 @@ export default function AiActivityStudio({ onHome, initialActivityId }: { onHome
       <aside><small>PILOT READINESS</small><strong>{promptReadyCount} prompt-ready {promptReadyCount === 1 ? "pack" : "packs"}</strong><span>{liveStudentLinkCount} tested student {liveStudentLinkCount === 1 ? "link" : "links"}</span></aside>
     </header>
 
+    <AiEvidenceWorkflow />
     <section className="ai-workflow" aria-label="Manual SchoolAI workflow">
       {[
         ["1", "Choose", "Select a lesson where responsive dialogue adds value."],

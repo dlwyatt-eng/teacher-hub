@@ -1,6 +1,8 @@
 "use client";
 
 import { SchoolAISupport } from "./schoolai-support";
+import { ReadyMadeActivities } from "./ready-made-activity-panel";
+import { readyMadeForLesson } from "./ready-made-activities";
 import { useId } from "react";
 import { AddToDayPlanButton, type TtocDayPlanLesson } from "./ttoc-day-plan";
 import { AddToWeekButton, SEPTEMBER_FORMED_CLASS_WEEK_STORAGE_KEY, septemberFormedWeekDayForSourceId, type WeekPlanSeedLesson } from "./weekly-plan";
@@ -183,6 +185,7 @@ export function TeacherRunSheet(props: TeacherRunSheetProps) {
         <div className="teacher-run-sheet__plan-actions">
           {preparedDayPlanLesson && preparedWeekPlanLesson && <><AddToDayPlanButton lesson={preparedDayPlanLesson} /><AddToWeekButton lesson={preparedWeekPlanLesson} storageKey={weekStorageKey} label={weekStorageKey ? `Add to week · ${formedWeekDay}` : "Add to week"} /></>}
           <button type="button" onClick={event => { const panel = event.currentTarget.closest(".teacher-run-sheet")?.querySelector<HTMLElement>(".schoolai-support"); panel?.scrollIntoView({ block: "center", behavior: "smooth" }); panel?.querySelector<HTMLElement>("summary")?.focus({ preventScroll: true }); }}>Optional SchoolAI ↓</button>
+          {readyMadeForLesson(dayPlanLesson?.sourceId).length > 0 && <button type="button" onClick={event => { const panel = event.currentTarget.closest(".teacher-run-sheet")?.querySelector<HTMLElement>(".ready-made-activities"); panel?.scrollIntoView({ block: "start" }); panel?.focus({ preventScroll: true }); }}>Ready-made activities ↓</button>}
           <button type="button" onClick={(event) => printClosest(event.currentTarget, ".teacher-run-sheet")}>Print / PDF</button>
         </div>
       </header>
@@ -214,7 +217,8 @@ export function TeacherRunSheet(props: TeacherRunSheetProps) {
 
       <footer className="teacher-run-sheet__finish" data-save-kind={saveTarget.kind}><div><small>FINISH / SAVE</small><strong>{saveTarget.label}</strong></div><p>{saveTarget.message || finishEvidence.at(-1) || "Close with one answer and one supporting detail."}</p></footer>
 
-      <SchoolAISupport key={title} title={title} question={learningQuestion} product={finishEvidence.join(" ")} />
+      <ReadyMadeActivities lessonId={dayPlanLesson?.sourceId} />
+      <SchoolAISupport key={title} lessonId={dayPlanLesson?.sourceId} title={title} question={learningQuestion} product={finishEvidence.join(" ")} />
 
       <details className="teacher-run-sheet__more">
         <summary>Need more support? <span>Background, short route, and extension</span></summary>

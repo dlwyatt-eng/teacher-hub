@@ -15,7 +15,7 @@ export type TeacherQuickCheckBuilderProps = {
 };
 
 const modes: readonly { id: QuickCheckMode; label: string; note: string }[] = [
-  { id: "kahoot", label: "Kahoot / whole class", note: "Copy a ready quiz and teacher key." },
+  { id: "kahoot", label: "Custom quiz text", note: "Copy questions and a teacher key; this does not create a live Kahoot." },
   { id: "forms", label: "Forms / Copilot prompt", note: "Copy one precise build prompt." },
   { id: "paper", label: "Paper check", note: "Print the questions without accounts." },
   { id: "prototype", label: "Prototype feedback", note: "Use a no-name closed-choice learner test." },

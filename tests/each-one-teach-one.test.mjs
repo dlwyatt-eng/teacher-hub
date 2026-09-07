@@ -115,7 +115,7 @@ test("the teacher quick-check exporter stores no responses and stays out of stud
   const prototype = builder.slice(prototypeStart, prototypeEnd);
 
   assert.doesNotMatch(builder, /\bfetch\s*\(|\blocalStorage\b|\bsessionStorage\b|\bindexedDB\b|<form\b|onSubmit\s*=/i);
-  for (const mode of ["Kahoot / whole class", "Forms / Copilot prompt", "Paper check", "Prototype feedback"]) {
+  for (const mode of ["Custom quiz text", "Forms / Copilot prompt", "Paper check", "Prototype feedback"]) {
     assert.match(builder, new RegExp(mode.replace("/", "\\/"), "i"), `Missing quick-check mode: ${mode}`);
   }
   assert.equal((prototype.match(/^\d+\./gm) ?? []).length, 6, "Prototype feedback must keep six closed-choice prompts.");
