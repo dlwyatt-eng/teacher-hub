@@ -8,6 +8,8 @@ export const earthLessonRoutes: Record<string, { activity: string; purpose: stri
   "power-in-the-room": { activity: "power", purpose: "Map who decides and who lives with the result of a fictional supplier contract." },
   "cooperation-control-room": { activity: "change", purpose: "Choose three dated cases and distinguish a proposed change, an agreement, implementation and measured results." },
   "pull-the-system-thread": { activity: "action", purpose: "Compare a personal choice with a shared rule, then plan a small action and a follow-up check." },
+  "responses-under-pressure": { activity: "change", purpose: "Compare three existing response cards with common criteria, then carry two into the final inquiry." },
+  "make-it-teachable": { activity: "action", purpose: "Reuse one small action case and its evidence instead of opening a new research project." },
   "each-one-teach-one": { activity: "action", purpose: "Explain a change with a clear starting point, decision-maker, possible cost and review date." },
   "map-what-maps-miss": { activity: "power", purpose: "Question broad regional labels without ranking people or cultures." },
   "edit-room": { activity: "claims", purpose: "Compare a green advertising claim with its actual evidence and missing context." },

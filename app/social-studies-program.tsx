@@ -4,7 +4,9 @@ import { LessonExplorations } from "./virtual-explorations";
 import { OptionalTeachingResources } from "./optional-teaching-resources";
 
 import Image from "next/image";
+import "./social-studies-starters.css";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
+const SocialStarter = lazy(() => import("./social-studies-starters"));
 import { socialInquiryProject, socialLessons, socialPacing, socialUnits, unit1SocialLessons, unit2SocialLessons, unit4SocialLessons, type SocialLesson } from "./social-program";
 import { socialReadinessFor } from "./readiness-supports";
 import { CityMovesLab, CooperationControlRoomLab, DataSkylineLab, SupplyChainLab } from "./social-unit3-experiences";
@@ -182,7 +184,7 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
     learning: "We are learning that movement stories have different routes, reasons, and results—and that no single story represents everyone.",
     success: ["I can tell movement within a country from movement across a border.", "I can connect more than one reason or result using evidence.", "I can show what changed, what stayed, and why it matters."],
     scenes: [
-      { title: "Map four different routes", action: "Read the story cards and place each route on the floor map. Use the evidence to name the kind of movement.", product: "A mapped route and careful movement labels" },
+      { title: "Map four different routes", action: "Read the supplied fictional cards. Sketch a town, city and border on paper. Mark only the routes the cards support; no real place is named.", product: "A mapped route and careful movement labels" },
       { title: "Build a many-reasons web", action: "Connect the reasons stated in each story. Keep questions and unknowns open instead of guessing.", product: "A reason web with one honest unknown" },
       { title: "Send changes through the city", action: "Add housing, transit, school, health, work, language, and gathering-place cards. Trace results now and later.", product: "A cause-and-result route through the city" },
       { title: "Show change and continuity", action: "Build a before–during–after timeline. Explain one change, one thing that continued, and why it matters.", product: "A timeline with a significance claim" },
@@ -193,10 +195,10 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
     learning: "We are learning to read poverty and inequality data without turning one number into a story about every person or place.",
     success: ["I can build and label a data display correctly.", "I can explain what an average hides.", "I can make one careful claim and name a limit."],
     scenes: [
-      { title: "Raise the data skyline", action: "Build bars from the data cards. Match every height to its indicator, unit, place, year, and source.", product: "One correctly labelled skyline" },
-      { title: "Solve a mystery match", action: "Match evidence to an anonymous profile. Defend the match and reject one tempting assumption.", product: "A defended match and one rejected assumption" },
-      { title: "Look inside the average", action: "Split one overall bar by wealth, gender, or urban–rural location. Mark the gap without pretending the pattern proves its cause.", product: "An annotated comparison showing what was hidden" },
-      { title: "Write the caption it deserves", action: "Write one precise claim and one limitation. Audit another team’s labels and language.", product: "A sourced caption with a visible limit" },
+      {title: "Compare two fictional averages", action: "Both groups average 50. Compare the five values in each. Which has the larger spread?", product: "A claim using the smallest and largest values"},
+      {title: "Build the real data skyline", action: "Choose 2020 or 2022. Draw the two supplied Internet-use bars. Label group, year, percent and source. Age 75+ is inside age 15+.", product: "Two labelled bars and the gap in percentage points"},
+      {title: "Check what the chart proves", action: "Choose the claim supported by the bars. Explain why the chart cannot tell us the cause of the difference.", product: "A supported claim and one rejected assumption"},
+      {title: "Write a careful caption", action: "Write one precise claim and one limitation. Then discuss Earth’s wealth display and the supplied gender/care-work card.", product: "A sourced caption with a visible limit"},
     ],
   },
   "supply-chain-shockwave": {
@@ -215,9 +217,9 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
     learning: "We are learning what governments, Indigenous organizations, NGOs, and international groups can do together—and where their power ends.",
     success: ["I can compare how two sources cover the same event.", "I can explain what different groups can contribute and what limits them.", "I can build and test a shared plan."],
     scenes: [
-      { title: "Same event, different coverage", action: "Compare two dated reports. Mark shared facts, different focus, source purpose, and missing context.", product: "A same-facts/different-frame source card" },
-      { title: "Enter the control room", action: "Inspect the fictional river basin and your team’s capacity card. Show what your group can offer and what it cannot do alone.", product: "A capacity-and-limit board" },
-      { title: "Negotiate a shared agreement", action: "Trade evidence and resources, assign responsibilities, then add a constraint and show where interests still clash.", product: "A shared agreement map with one tension" },
+      { title: "Same event, different coverage", action: "Read the supplied Cedar LNG source pair for 10 minutes. Mark one shared fact and a different emphasis. Then inspect the fictional river partners.", product: "A source comparison and one partner’s capacity" },
+      { title: "Enter the control room", action: "Add the supplied evidence records to the river board. Explain what each record adds and cannot prove alone.", product: "A shared evidence board with one limit" },
+      { title: "Negotiate a shared agreement", action: "Choose three supplied actions. Name who can lead each action and one need the plan leaves uncovered.", product: "A shared agreement map with one tension" },
       { title: "Audit and patch the plan", action: "Test evidence, representation, fairness, feasibility, and unintended effects. Add one patch and a signal to check later.", product: "A revised plan and review signal" },
     ],
   },
@@ -472,12 +474,13 @@ export function SocialStudiesStudentLaunch({ lessonId, onLesson, scene, onScene 
   return (
     <section className="social-student-launch world-surface" data-world={theme.id} style={worldStyle(theme)}>
       <header className="social-projector-header"><div><small>SOCIAL STUDIES · {unit ? `UNIT ${unit.number}` : "INQUIRY"} · PART {scene + 1}</small><h1>{lesson.title}</h1><p>{contract?.challenge ?? copy?.question ?? lesson.question}</p></div><button type="button" onClick={scrollToMap}>Change lesson</button></header>
-      {scene === 0 && <PowerInquiryThread unitId={lesson.unitId} compact />}
+      <SocialStudentLesson lesson={lesson} scene={scene} onScene={onScene} />
+      {scene === 0 && <details className="social-source-drawer"><summary>Our recurring question about power</summary><PowerInquiryThread unitId={lesson.unitId} compact /></details>}
       {lesson.unitId === "power-rights-government" && scene === 0 && <CivicReasoningRoute compact />}
       {scene === 0 && currentConnection && <details className="social-source-drawer"><summary><span><small>OPTIONAL SOURCE</small><strong>Open today&apos;s Source Lab</strong></span><b>Open ▾</b></summary><CurrentConnectionPlayer connection={currentConnection} /></details>}
       {scene === 0 && <SurreyElectionBridge lessonId={lesson.id} audience="student" />}
       {scene === 0 && <IssueSourceSetDrawer lessonId={lesson.id} audience="student" />}
-      <SocialStudentLesson lesson={lesson} scene={scene} onScene={onScene} />
+
       <details className="social-unit-switcher-drawer"><summary>Change Social Studies unit</summary><SocialUnitSwitcher currentUnitId={lesson.unitId} onLesson={chooseStudentLesson} /></details>
       <details ref={lessonPickerRef} className="social-lesson-switcher" id="social-unit-map">
         <summary><span><small>TODAY&apos;S LESSON</small><strong>{lessonNumber}. {lesson.title}</strong></span><b>Change lesson</b></summary>
@@ -491,7 +494,7 @@ export function SocialStudiesStudentLaunch({ lessonId, onLesson, scene, onScene 
 function SocialUnitsOverview({ onLesson }: { onLesson: (id: string) => void }) {
   return (
     <div className="social-program">
-      <section className="social-heading"><div><span className="recent-section-badge">● FOUR SOCIAL STUDIES UNITS · AUG. 14</span><p className="section-kicker">SEPTEMBER–FEBRUARY SOCIAL STUDIES PLAN</p><h2>Four units. One connected inquiry arc.</h2><p>Each unit has games, movement, physical models, source comparisons, simulations, making, and audience testing. Most practice stays in the room; SpacesEDU holds selected portfolio evidence.</p></div><span>BUILD, TEACH, ADJUST</span></section>
+      <section className="social-heading"><div><span className="recent-section-badge">● FOUR SOCIAL STUDIES UNITS · SEP. 7</span><p className="section-kicker">SEPTEMBER–FEBRUARY SOCIAL STUDIES PLAN</p><h2>Four units. One connected inquiry arc.</h2><p>Each unit has games, movement, physical models, source comparisons, simulations, making, and audience testing. Most practice stays in the room; SpacesEDU holds selected portfolio evidence.</p></div><span>BUILD, TEACH, ADJUST</span></section>
       <section className="social-inquiry-arc"><div><small>SUPPORTED INQUIRY</small><strong>Read sources carefully</strong></div><b>→</b><div><small>GUIDED CASES</small><strong>Compare evidence and perspectives</strong></div><b>→</b><div><small>EXPERT TEAMS</small><strong>Investigate and teach</strong></div><b>→</b><div><small>SOLUTIONARY</small><strong>Consider responsible action</strong></div></section>
       <PowerInquiryThread />
       <EvidenceCareProtocol compact />
@@ -557,6 +560,7 @@ function SocialLessons({ selected, onLesson, scene, onScene }: { selected: Socia
       </details>
       <article className="social-teacher-brief">
         <TeacherDailyLaunchButton launch={dailyLaunch} />
+        <Suspense fallback={<p>Loading supplied materials…</p>}><SocialStarter lessonId={selected.id} teacher /></Suspense>
         <SurreyElectionBridge lessonId={selected.id} audience="teacher" />
         <IssueSourceSetDrawer lessonId={selected.id} audience="teacher" />
         <OptionalTeachingResources key={selected.id} lessonId={selected.id} teacher extras={selected.resources.length ? [{id: "sources", title: "Videos, readings & source links", content: <ul>{selected.resources.map(resource => <li key={resource.url}><a href={resource.url} target="_blank" rel="noreferrer">{resource.label} · {resource.source}</a></li>)}</ul>}] : []} />
@@ -674,13 +678,15 @@ function SocialStudentLesson({ lesson, scene, onScene }: { lesson: SocialLesson;
   const companionRole = socialCompanionRole(scene, lesson.scenes.length);
   return (
     <article className="social-student-lesson" id="social-mission">
-        <OptionalTeachingResources key={lesson.id} lessonId={lesson.id} extras={studentResources.length ? [{id: "sources", title: "Videos, readings & source links", content: <ul>{studentResources.map(resource => <li key={resource.url}><a href={resource.url} target="_blank" rel="noreferrer">{resource.label} · {resource.source}</a></li>)}</ul>}] : []} />
+
         <div className={`social-scene-layout social-scene-layout--lean ${lesson.id === "rights-in-tension" ? "civic-scene-navigation" : lesson.id === "civic-decision-brief" ? "cdb-scene-navigation" : ""}`}><nav aria-label={`${lesson.title} parts`}>{lesson.scenes.map((item, index) => <button type="button" key={item.title} className={scene === index ? "selected" : ""} aria-current={scene === index ? "step" : undefined} onClick={() => onScene(index)}><b>{index + 1}</b><span><small>PART {index + 1}</small><strong>{copy?.scenes[index]?.title ?? item.title}</strong></span></button>)}</nav></div>
         <section className="social-learn-do-done" aria-label="Lesson goal, action, and finish check"><article data-learning-phase="learn"><small>WE ARE LEARNING</small><strong>{learningLine}</strong></article><article data-learning-phase="do"><small>DO THIS</small><strong>{studentScene?.action ?? current.prompt}</strong></article><article data-learning-phase="done"><small>YOU'RE DONE WHEN</small><strong>{studentScene?.product ?? current.studentTask}</strong></article></section>
         <Suspense fallback={null}><ClassroomCompanion key={`${lesson.id}-${scene}`} role={companionRole} density="compact" motion="once" className="social-scene-companion" /></Suspense>
         <LessonExplorations lessonId={lesson.id} scene={scene} initiallyOpen />
         <SocialStudentLab lessonId={lesson.id} scene={scene} />
+        <Suspense fallback={null}><SocialStarter lessonId={lesson.id} /></Suspense>
         {(lesson.id === "trace-the-claim" || lesson.id === "who-drew-the-world") && scene === lesson.scenes.length - 1 && <EvidenceCareProtocol compact student />}
+        <OptionalTeachingResources key={lesson.id} lessonId={lesson.id} extras={studentResources.length ? [{id: "sources", title: "Videos, readings & source links", content: <ul>{studentResources.map(resource => <li key={resource.url}><a href={resource.url} target="_blank" rel="noreferrer">{resource.label} · {resource.source}</a></li>)}</ul>}] : []} />
         <PowerCheckCard compact quick />
         {lesson.id === "civic-decision-brief" && scene === lesson.scenes.length - 1 && <FairSocietyStudio />}
         <details className="social-help-drawer"><summary><span><small>HELP</small><strong>Words, sources, and finish check</strong></span><b>Open ▾</b></summary><div><section><small>FINISH</small>{(contract?.finishEvidence ?? copy?.success ?? lesson.success).slice(0, 2).map((item) => <p key={item}>✓ {item}</p>)}{(spaces.decision === "required" || spaces.decision === "reuse") && <p><b>SpacesEDU:</b> {contract?.saveAction.message ?? spaces.studentPrompt}</p>}</section><section className="social-help-words">{lesson.vocabulary.map((word) => <details key={word}><summary>{word}<span>＋</span></summary><p>{socialWordHelp[word.toLowerCase()]}</p></details>)}</section>{studentResources.length > 0 && <section className="social-resource-cards">{studentResources.map((resource) => <a href={resource.url} target="_blank" rel="noreferrer" key={resource.url}><span>↗</span><div><small>{resource.source}</small><strong>{resource.label}</strong></div></a>)}</section>}</div></details>

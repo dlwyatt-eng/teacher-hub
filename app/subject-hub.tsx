@@ -318,7 +318,7 @@ function StudentScienceProgram({ onOpenLesson, unitId, onUnit }: { onOpenLesson:
 function StudentCurriculumView({ subject, onBack, onOpenLesson, socialLessonId, onSocialLesson, socialScene, onSocialScene, scienceUnitId, onScienceUnit, program, programExperienceId, onProgramExperience }: { subject: Subject; onBack: () => void; onOpenLesson: (lessonId: string) => void; socialLessonId: string; onSocialLesson: (id: string) => void; socialScene: number; onSocialScene: (scene: number) => void; scienceUnitId: string; onScienceUnit: (id: string) => void; program?: import("./program-types").LearningProgram; programExperienceId: string; onProgramExperience: (id: string) => void }) {
   if (subject.name === "Social Studies") {
     return (
-      <div className="page student-curriculum" style={{ "--subject": subject.color, "--soft": subject.soft } as CSSProperties}>
+      <div className="page student-curriculum social-curriculum" style={{ "--subject": subject.color, "--soft": subject.soft } as CSSProperties}>
         <button className="back-link" onClick={onBack}>← All subjects</button>
         <header className="student-space-header">
           <span className="student-space-icon" style={{ background: subject.soft, color: subject.color }}>{subject.icon}</span>

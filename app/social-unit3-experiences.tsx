@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { CedarCase, internetSource } from "./social-studies-source-cards";
 import { useState, type ReactNode } from "react";
 
 export type Unit3ExperienceProps = {
@@ -321,38 +322,16 @@ export function CityMovesLab({ sceneIndex, audience }: Unit3ExperienceProps) {
       </div>
       <section className="unit3-make-card">
         <small>TEAM EVIDENCE PRODUCT</small>
-        <h4>One systems map + one honest limit</h4>
-        <p>“This response may help because… It may not help when… We still need evidence about…”</p>
+        <h4>One systems map + a short timeline</h4>
+        <p>Before → during → after: add only facts from the story and mark unknowns. Name one change, one continuity, and why it matters. Then finish: “This response may help because… We still need evidence about…”</p>
       </section>
     </ExperienceFrame>
   );
 }
 
 const skylineData = [
-  {
-    title: "Home internet · practice data",
-    overall: 78,
-    groups: [
-      ["Urban area", 91],
-      ["Rural area", 55],
-    ] as const,
-  },
-  {
-    title: "School participation · practice data",
-    overall: 83,
-    groups: [
-      ["Higher-income households", 94],
-      ["Lower-income households", 62],
-    ] as const,
-  },
-  {
-    title: "Safe water access · practice data",
-    overall: 84,
-    groups: [
-      ["District A", 95],
-      ["District B", 58],
-    ] as const,
-  },
+  {title: "Internet use · Canada · 2020", overall: 92, groups: [["Age 15+ (overall)",92],["Age 75+ (inside overall)",62]] as const},
+  {title: "Internet use · Canada · 2022", overall: 95, groups: [["Age 15+ (overall)",95],["Age 75+ (inside overall)",72]] as const},
 ] as const;
 
 function DataBar({ label, value, tone = "main" }: { label: string; value: number; tone?: "main" | "compare" }) {
@@ -417,11 +396,11 @@ export function DataSkylineLab({ sceneIndex, audience }: Unit3ExperienceProps) {
         theme="data"
         eyebrow="BUILD THE SKYLINE"
         title="Open the overall number."
-        prompt="Choose a fictional practice dataset. Compare the overall bar with two groups inside it. Then name the gap without inventing its cause."
-        teacherNote="After this model, replace the practice data with a small, dated excerpt from the World Bank, UNICEF, UNDP, or another verified source. Include gender, class, location, or disability only when the source defines the groups clearly."
+        prompt="Choose a year. Compare Internet use for age 15+ and the age 75+ group inside it. Name the gap; do not invent its cause."
+        teacherNote="Use the four supplied Statistics Canada tiles. Age 75+ is part of age 15+: do not add or average these overlapping rates. The survey covers the ten provinces and excludes institutions and reserves. Internet use is not a poverty measure; connect this within-place example to the existing Earth wealth display."
         footer="A subgroup gap is evidence that experiences differ. It is not proof of why the gap exists."
       >
-        <nav className="unit3-tab-row three" aria-label="Choose a practice dataset">
+        <nav className="unit3-tab-row three" aria-label="Choose a data year">
           {skylineData.map((item, index) => (
             <button type="button" key={item.title} aria-pressed={dataIndex === index} className={dataIndex === index ? "selected" : ""} onClick={() => { setDataIndex(index); setClaimChoice(""); }}>
               <small>SET {index + 1}</small><strong>{item.title.replace(" · practice data", "")}</strong>
@@ -429,10 +408,10 @@ export function DataSkylineLab({ sceneIndex, audience }: Unit3ExperienceProps) {
           ))}
         </nav>
         <section className="unit3-skyline">
-          <header><small>FICTIONAL PRACTICE DATA · NOT A COUNTRY PROFILE</small><h4>{dataset.title}</h4></header>
-          <DataBar label="Overall" value={dataset.overall} />
+          <header><small>REAL SURVEY DATA · PERCENT USING THE INTERNET</small><h4>{dataset.title}</h4></header>
+
           {dataset.groups.map(([label, value]) => <DataBar key={label} label={label} value={value} tone="compare" />)}
-          <footer><strong>{gap}-point gap</strong><span>between the two displayed groups</span></footer>
+          <footer><strong>{gap}-percentage-point gap</strong><span>Overall and an older subgroup overlap; they are not two separate populations.</span></footer><p><a href={internetSource}>Statistics Canada · published 14 August 2023</a>. Historical data, not a 2026 estimate. Use does not measure cost, quality or the reason someone is offline.</p>
         </section>
       </ExperienceFrame>
     );
@@ -440,7 +419,7 @@ export function DataSkylineLab({ sceneIndex, audience }: Unit3ExperienceProps) {
 
   if (scene === 2) {
     const claims = [
-      { id: "A", text: `The overall rate is ${dataset.overall}%, so access is almost the same for everyone.` },
+      { id: "A", text: `The overall rate is ${dataset.overall}%, so Internet use is almost the same for everyone.` },
       { id: "B", text: `The overall rate hides a ${gap}-point gap between the two displayed groups.` },
       { id: "C", text: `${dataset.groups[1][0]} have a lower rate because they do not value this service.` },
     ];
@@ -627,13 +606,15 @@ export function SupplyChainLab({ sceneIndex, audience }: Unit3ExperienceProps) {
         sceneIndex={scene}
         audience={audience}
         theme="chain"
-        eyebrow="LABOUR EVIDENCE CHECK"
-        title="A label is not a verdict. Check the evidence."
-        prompt="Read one card. Decide whether it supports a labour concern, supports a protection, or leaves a question."
+        eyebrow="RESOURCE DECISION · SOURCE PAIR"
+        title="Who decides, who benefits, and what must be checked?"
+        prompt="Read Cedar LNG sources A and B. Name a shared fact, a different emphasis, a condition and an outcome neither source proves."
         teacherNote="Do not imply that all work in a country or industry is abusive. Do not simulate forced or child labour. Use ILO language and records to examine conditions, protections, worker voice, and uncertainty."
         footer="Judge documented conditions and protections—not workers, cultures, or countries."
       >
-        <nav className="unit3-tab-row three" aria-label="Choose a labour evidence card">
+        <CedarCase />
+        <p><b>Optional labour check after the case:</b> sort one card below if time remains.</p>
+        <details><summary>Optional labour evidence check</summary><nav className="unit3-tab-row three" aria-label="Choose a labour evidence card">
           {labourEvidenceCards.map((_, index) => (
             <button type="button" key={index} aria-pressed={labourCardIndex === index} className={labourCardIndex === index ? "selected" : ""} onClick={() => chooseLabourCard(index)}>
               <small>EVIDENCE</small><strong>Card {index + 1}</strong>
@@ -646,7 +627,7 @@ export function SupplyChainLab({ sceneIndex, audience }: Unit3ExperienceProps) {
             <button type="button" key={choice} aria-pressed={labourChoice === choice} className={labourChoice === choice ? "selected" : ""} onClick={() => setLabourChoice(choice)}>{choice}</button>
           ))}
         </div>
-        {labourChoice && <ChoiceFeedback correct={labourChoice === labourCard.answer}>{labourChoice === labourCard.answer ? labourCard.reason : `This card belongs under “${labourCard.answer}.” Explain using only the stated evidence.`}</ChoiceFeedback>}
+        {labourChoice && <ChoiceFeedback correct={labourChoice === labourCard.answer}>{labourChoice === labourCard.answer ? labourCard.reason : `This card belongs under “${labourCard.answer}.” Explain using only the stated evidence.`}</ChoiceFeedback>}</details>
       </ExperienceFrame>
     );
   }
@@ -682,7 +663,7 @@ export function SupplyChainLab({ sceneIndex, audience }: Unit3ExperienceProps) {
 
 const cooperationRoles = [
   { title: "Community watershed group", capacity: "Local observations, community priorities, and relationships with the waterway." },
-  { title: "Indigenous-led organization", capacity: "Nation-specific knowledge, rights, priorities, and leadership when invited and properly sourced." },
+  { title: "Indigenous government / rights holder", capacity: "Its own authority, rights and territorial responsibilities. Inspect this role; do not speak or decide as a Nation." },
   { title: "Local or regional government", capacity: "Waste services, local rules, public crews, and community communication." },
   { title: "National regulator", capacity: "Product rules, cross-region coordination, enforcement, and larger funding." },
   { title: "Science and NGO network", capacity: "Independent sampling, research support, public reporting, and international connections." },
@@ -692,7 +673,7 @@ const cooperationEvidence = [
   { title: "Water samples", holder: "Science network", contribution: "Shows where pellet levels rise and how results change after rain." },
   { title: "Shoreline observations", holder: "Community group", contribution: "Shows where plastic gathers and which places matter for daily use." },
   { title: "Facility records", holder: "Regulator", contribution: "Shows when and where material moved through storage and transport sites." },
-  { title: "Rights and place evidence", holder: "Indigenous-led organization", contribution: "Shows responsibilities, rights, priorities, and knowledge that the other records cannot replace." },
+  { title: "Rights and place evidence", holder: "Indigenous government / rights holder", contribution: "Shows responsibilities, rights, priorities, and knowledge that the other records cannot replace." },
 ] as const;
 
 const cooperationActions = [
@@ -747,6 +728,7 @@ export function CooperationControlRoomLab({ sceneIndex, audience }: Unit3Experie
         teacherNote="Students represent institutions and capacities—not disaster victims. Real Indigenous organizations are governments or rights-bearing organizations, not just another stakeholder. Use specific Nations and invited sources only in a real case."
         footer="Cooperation begins by recognizing different authority, knowledge, capacity, and responsibility."
       >
+        <details open><summary>Start with the supplied real source pair · 10 minutes</summary><CedarCase /></details>
         <figure className="unit3-basin-visual">
           <Image unoptimized src="/images/unit3-cooperation-basin-v1.png" alt="A clearly fictional illustrated river basin showing an upstream town, farms, wetland, industry, and a downstream town connected by one river." width={1672} height={941} sizes="(max-width: 900px) 100vw, 1100px" priority={false} />
           <figcaption><strong>FICTIONAL PRACTICE LANDSCAPE</strong><span>Use it to notice connections and ask questions. It is not evidence about a real place.</span></figcaption>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import { minimumProduct } from "./social-studies-source-cards";
 
 export type Unit4ExperienceProps = {
   sceneIndex: number;
@@ -262,13 +263,14 @@ export function MakeItTeachableLab({ sceneIndex, audience }: Unit4ExperienceProp
 
   if (scene === 0) {
     const formats = [
-      ["MINECRAFT QUEST", "Best when space, systems, change, or choices can be explored—not just decorated."],
-      ["PODCAST OR MINI-DOCUMENTARY", "Best when evidence, stories, expert voices, or careful explanation need to be heard."],
+      ["PAPER EXHIBIT OR POSTER", "Three sourced ideas, a small system map, and one choice for classmates."],
+      ["SIMPLE SLIDES OR AUDIO", "Explain the evidence, then pause for a paper choice or partner discussion."],
       ["EXHIBIT OR MODEL", "Best when classmates need to compare, handle, notice, or move through evidence."],
       ["SIMULATION OR LIVE LESSON", "Best when classmates need to make a decision, experience a rule, or test a trade-off."],
     ];
     return (
-      <ExperienceFrame audience={audience} sceneIndex={scene} tone="make" eyebrow="MAKE IT TEACHABLE · PART 1" title="Choose the form that helps the learning." prompt="Do not choose a format only because it looks impressive. Choose the one that helps classmates understand and do something meaningful." teacherNote="Approve the learning purpose before the tool. Offer a low-tech route for every format. A slide deck may support any experience, but it should not become the experience by itself." footer="This format fits because our classmates need to…">
+      <ExperienceFrame audience={audience} sceneIndex={scene} tone="make" eyebrow="MAKE IT TEACHABLE · PART 1" title="Choose the form that helps the learning." prompt="Do not choose a format only because it looks impressive. Choose the one that helps classmates understand and do something meaningful." teacherNote="Approve the learning purpose before the tool. Offer a low-tech route for every format. Simple slides have equal status when classmates make a choice or explain evidence. Digital worlds and films are optional extensions within the same time limit." footer="This format fits because our classmates need to…">
+        <p className="u4-polish-rule"><b>Enough to succeed:</b> {minimumProduct}</p>
         <div className="u4-format-deck" role="group" aria-label="Choose a teaching format">
           {formats.map(([title, detail], index) => (
             <button key={title} aria-pressed={format === index} className={format === index ? "selected" : ""} onClick={() => setFormat(index)}>
@@ -306,7 +308,7 @@ export function MakeItTeachableLab({ sceneIndex, audience }: Unit4ExperienceProp
     const gate = [
       ["Focused question", "The experience answers one complex question—not an entire huge topic."],
       ["Accurate system", "Causes, power, perspectives, and consequences connect clearly."],
-      ["Strong evidence", "Several different sources are cited beside the ideas they support."],
+      ["Strong evidence", "Two or three different sources are cited beside the ideas they support."],
       ["Existing responses", "At least two responses are compared honestly, including limits."],
       ["Respect and uncertainty", "Affected people are not stereotyped, and unknowns remain visible."],
     ];
@@ -362,7 +364,7 @@ export function ExpertExchangeLab({ sceneIndex, audience }: Unit4ExperienceProps
       ["LEAVE SIGNALS", "Finish: I learned… I got stuck… I need proof for…"],
     ];
     return (
-      <ExperienceFrame audience={audience} sceneIndex={scene} tone="exchange" eyebrow="EXPERT EXCHANGE · PART 1" title="Let another team try it without hints." prompt="Creators stay quiet at first. Testers use the experience exactly as it is and show where the design teaches—or gets in the way." teacherNote="Pair teams with different topics. Give testers 10–12 minutes and creators an observation sheet. Testers critique the experience, never the people who made it." footer="Testers understood… They became unsure when… The experience itself showed…">
+      <ExperienceFrame audience={audience} sceneIndex={scene} tone="exchange" eyebrow="EXPERT EXCHANGE · PART 1" title="Let another team try it without hints." prompt="Creators stay quiet at first. Testers use the experience exactly as it is and show where the design teaches—or gets in the way." teacherNote="Pair teams with different topics. Use the supplied feedback slip. Give testers 5–8 minutes plus a question; use the five-block plan in Supplied materials. Testers critique the experience, never the people who made it." footer="Testers understood… They became unsure when… The experience itself showed…">
         <div className="u4-cold-test">
           {testerMoves.map(([title, detail], index) => (
             <button key={title} aria-pressed={coldTest[index]} className={coldTest[index] ? "done" : ""} onClick={() => setColdTest((current) => current.map((value, i) => i === index ? !value : value))}>
@@ -419,7 +421,7 @@ export function ExpertExchangeLab({ sceneIndex, audience }: Unit4ExperienceProps
     ["REFLECT ALONE", "Each person records their own short reflection in SpacesEDU."],
   ];
   return (
-    <ExperienceFrame audience={audience} sceneIndex={scene} tone="exchange" eyebrow="EXPERT EXCHANGE · PART 4" title="Teach, respond, and show the thinking that belongs to you." prompt="Run your final experience for classmates. The team shares one product; each person reflects on their own learning and contribution." teacherNote="Use rotating 10–15 minute sessions. Assess Social Studies understanding separately from ELA, Arts, or ADST. Do not score production polish as understanding. The shared artifact is posted once; every student adds an individual SpacesEDU reflection." footer="The most important idea for our audience is… The evidence that matters is…">
+    <ExperienceFrame audience={audience} sceneIndex={scene} tone="exchange" eyebrow="EXPERT EXCHANGE · PART 4" title="Teach, respond, and show the thinking that belongs to you." prompt="Run your final experience for classmates. The team shares one product; each person reflects on their own learning and contribution." teacherNote="Use 10-minute rounds: a 5–8 minute task and a question. Allow five 60-minute blocks for testing, revision, exchange and reflection. Assess Social Studies understanding separately from ELA, Arts, or ADST. Do not score production polish as understanding. The shared artifact is posted once; every student adds an individual SpacesEDU reflection." footer="The most important idea for our audience is… The evidence that matters is…">
       <div className="u4-showcase-route">
         {finalMoves.map(([title, detail], index) => (
           <button key={title} aria-pressed={showcase[index]} className={showcase[index] ? "done" : ""} onClick={() => setShowcase((current) => current.map((value, i) => i === index ? !value : value))}>

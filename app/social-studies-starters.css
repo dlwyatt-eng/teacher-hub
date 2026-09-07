@@ -1,0 +1,14 @@
+.ss-starter{margin:1rem 0;border:2px solid #315a78;border-radius:12px;background:#fff;color:#16334b;font-size:1rem;line-height:1.55}
+.ss-starter summary{padding:1rem;cursor:pointer;font-size:1.125rem;font-weight:750}
+.ss-starter-sheet,.ss-starter-tools{padding:1rem 1.4rem}.ss-starter-sheet h3{font-size:1.5rem}.ss-starter-sheet p{max-width:75ch}
+.ss-starter-cards{display:grid;gap:1rem}.ss-starter-cards article{padding:1rem;border:1px solid #526b7c;border-radius:8px;break-inside:avoid}.ss-starter-cards strong{font-size:1.1em}.ss-starter a{color:#164f83;text-decoration:underline;overflow-wrap:anywhere}.ss-starter button{padding:.8rem 1.1rem;font:inherit;cursor:pointer}.ss-writing-space{min-height:6rem;border-bottom:1px solid #687782}.ss-response{margin-top:1.5rem}.ss-response>div{break-inside:avoid}
+@media(min-width:1000px){.ss-starter-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.ss-starter-cards>h4,.ss-starter-cards>p{grid-column:1/-1}}
+ .ss-print-root{display:none}.large-text-mode .ss-starter{font-size:1.4rem}.large-text-mode .ss-starter summary{font-size:1.5rem}.large-text-mode .ss-starter-cards{grid-template-columns:1fr}
+@media print{body.print-social-starter> :not(.ss-print-root){display:none!important}.ss-print-root{display:block!important;font:12pt/1.45 Arial,sans-serif;color:#000;background:#fff}.ss-print-root .ss-starter-sheet{padding:0}.ss-print-root .ss-starter-cards{display:block}.ss-print-root .ss-starter-cards article{margin:0 0 10pt;padding:10pt;border:1px solid #000;background:#fff;break-inside:avoid}.ss-print-root .ss-starter-tools{display:none!important}.ss-print-root .ss-response{break-before:page}.ss-print-root .ss-writing-space{min-height:1.5in}.ss-print-root a{color:#000}.ss-print-root h3{font-size:17pt}.ss-print-large{font-size:16pt}.ss-print-large h3{font-size:21pt}}
+/* Source cards remain readable inside the existing projector lab as well as the kit. */
+.unit3-experience .ss-starter-cards{font-size:1.2rem;line-height:1.55}.unit3-experience .ss-starter-cards h4{font-size:1.55rem}.unit3-experience .ss-starter-cards a{overflow-wrap:anywhere}.large-text-mode .unit3-experience .ss-starter-cards{font-size:1.6rem;grid-template-columns:1fr}
+.large-text-mode .unit3-experience :is(p,.unit3-data-bar header,.unit3-proof-strip span,.unit3-experience__footer span){font-size:1.5rem;line-height:1.55}
+.large-text-mode .unit3-experience :is(.unit3-tab-row strong,.unit3-choice-grid button){font-size:1.35rem;line-height:1.45}
+.large-text-mode .u4-experience :is(p,.u4-learning-spine p,.u4-format-deck p){font-size:1.5rem;line-height:1.55}
+.social-curriculum>.student-space-header{display:none}.social-curriculum>.back-link{margin-bottom:1rem}
+.social-curriculum .social-learn-do-done strong{font-size:1.2rem;line-height:1.5}.large-text-mode .social-curriculum .social-learn-do-done strong{font-size:1.5rem}.social-curriculum .social-learn-do-done small{font-size:.875rem}
