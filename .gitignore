@@ -46,3 +46,7 @@ next-env.d.ts
 
 .pages-asset-history/
 .pages-asset-history.next/
+
+# Generated Earth inquiry assets and review outputs
+/public/earth-stuff-fairness/
+/earth-review/

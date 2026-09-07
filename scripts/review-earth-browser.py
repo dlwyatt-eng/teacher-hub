@@ -16,11 +16,26 @@ with sync_playwright() as p:
     page.goto(base, wait_until='domcontentloaded')
     page.locator('h1').first.wait_for()
     page.screenshot(path=str(out/'hub-entry.png'), full_page=True)
+    if hub=='equity-hub':
+        page.locator('.earth-hub-entry summary').click()
+        assert page.locator('.earth-hub-entry nav a').count()==4
+        page.screenshot(path=str(out/'earth-entry-expanded.png'),full_page=True)
+        for href in page.locator('.earth-hub-entry nav a').evaluate_all('(els)=>els.map(e=>e.href)'):
+            assert '/equity-hub/earth-stuff-fairness/?band=' in href
+        checks.append({'equityEntry':True,'fourGradeLinks':True})
+    if hub=='learn':
+        assert page.locator('.earth-family-entry').count()==0
+        page.goto(base+'#families',wait_until='domcontentloaded')
+        page.locator('.earth-family-entry a').wait_for()
+        page.screenshot(path=str(out/'family-entry.png'),full_page=True)
+        assert '/learn/earth-stuff-fairness/' in page.locator('.earth-family-entry a').get_attribute('href')
+        checks.append({'familyEntry':True,'openingNowUnchanged':True})
     page.goto(base+'earth-stuff-fairness/', wait_until='load')
     if hub=='learn':
         assert page.locator('h1').inner_text()=='Earth, Stuff & Fairness'
         assert page.locator('#pack-data').count()==0
         assert 'Suggested placements' not in page.locator('body').inner_text()
+        page.screenshot(path=str(out/'family-companion.png'),full_page=True)
         checks.append({'familyCompanion':True,'noTeacherData':True})
     else:
         for band, count in [('K–2',4),('3–5',4),('6–8',6),('9–12',6)]:
@@ -49,7 +64,10 @@ with sync_playwright() as p:
         page.locator('#project').click(); page.locator('#next').click()
         page.screenshot(path=str(out/'projector.png'),full_page=True)
         page.keyboard.press('Escape')
+        # Explicit media selection is essential after earlier screen emulation.
+        page.emulate_media(media='print')
         page.pdf(path=str(out/'student-print-sample.pdf'),format='Letter',print_background=False,prefer_css_page_size=True)
+        page.emulate_media(media='screen')
         page.locator('#band').select_option('K–2')
         assert page.locator('#library .film-card').count()==0
     page.set_viewport_size({'width':390,'height':844})
@@ -57,6 +75,6 @@ with sync_playwright() as p:
     page.screenshot(path=str(out/'mobile.png'),full_page=True)
     browser.close()
 server.shutdown()
-(out/'checks.json').write_text(json.dumps({'hub':hub,'checks':checks,'javascriptErrors':errors,'limits':['No classroom trial','Streaming and caption accuracy require teacher preview','Hub entry load checked; existing individual lessons were not all visually rehearsed']},indent=2))
+(out/'checks.json').write_text(json.dumps({'hub':hub,'checks':checks,'javascriptErrors':errors,'limits':['No classroom trial','Streaming and caption accuracy require teacher preview','Existing individual lessons were not all visually rehearsed']},indent=2))
 assert not errors, errors
 print(f'PASS: {hub}, {len(checks)} route checks, no JavaScript exceptions')
