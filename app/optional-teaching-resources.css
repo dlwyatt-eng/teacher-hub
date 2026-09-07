@@ -1,0 +1,26 @@
+.optional-teaching-resources{margin:16px 0;padding:14px 18px;border:1px solid #91b3bb;border-radius:12px;background:#eef6f8;color:#173d4a;text-align:left}
+.optional-teaching-resources summary{cursor:pointer;font-size:1rem;font-weight:800;line-height:1.5}
+.optional-teaching-resources p{font-size:1rem;line-height:1.5}
+.teaching-resource-choices{display:flex;flex-wrap:wrap;gap:10px}
+.teaching-resource-choices button,.teaching-resource-dialog>header button{min-height:44px;padding:10px 15px;border:1px solid #225d70;border-radius:8px;background:white;color:#174556;font:inherit;font-size:1rem;cursor:pointer;white-space:normal}
+.teaching-resource-choices button:focus-visible,.teaching-resource-dialog button:focus-visible{outline:3px solid #b86e12;outline-offset:3px}
+.teaching-resource-dialog{width:96vw;max-width:1600px;height:94dvh;max-height:94dvh;margin:auto;padding:0;border:2px solid #205c6b;border-radius:16px;background:white;color:#183f48;overflow:auto}
+.teaching-resource-dialog::backdrop{background:#081f2bd9}
+.teaching-resource-dialog>header{position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:16px 24px;background:#153f50;color:white;font-size:1.2rem}
+.teaching-resource-content{padding:clamp(16px,3vw,42px);overflow-wrap:anywhere}
+.teaching-resource-content .lesson-infographic{margin:0;font-size:1.25rem}
+.teaching-resource-content .lesson-infographic p{font-size:clamp(18px,1.6vw,26px);line-height:1.5}
+.teaching-resource-content .info-flow,.teaching-resource-content .info-project-timeline{display:flex;flex-wrap:wrap}
+.teaching-resource-content .info-flow>article,.teaching-resource-content .info-project-timeline>article{flex:1 1 180px}
+.teaching-diagram{max-width:1200px;margin:auto;font-size:clamp(18px,1.7vw,26px);line-height:1.5}
+.teaching-diagram h2{font:700 clamp(28px,3vw,44px)/1.2 Georgia,serif}
+.teaching-diagram svg{display:block;width:100%;height:auto;max-height:65vh}
+.teaching-diagram svg text{font-family:system-ui,sans-serif;fill:#153f50}
+.teaching-diagram .diagram-flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:14px;padding:0;list-style:none}
+.diagram-flow li{flex:1 1 160px;padding:18px;border-top:6px solid #287891;background:#edf6f8}
+.diagram-flow strong,.diagram-flow span{display:block}
+.diagram-flow span{font-size:1rem;margin-top:10px}
+.teaching-diagram .diagram-question{padding:18px;border-left:6px solid #ba7a14;background:#fff4d7}
+.teaching-diagram .diagram-limit{font-size:1rem;color:#405960}
+@media(max-width:700px){.teaching-resource-dialog{width:100%;height:100dvh;max-height:100dvh;border-radius:0}.teaching-resource-content{padding:12px}.teaching-resource-content .lesson-infographic>header{grid-template-columns:1fr}.teaching-diagram svg{min-width:540px}.teaching-diagram .diagram-scroll{overflow:auto}}
+@media print{.optional-teaching-resources{display:none!important}}

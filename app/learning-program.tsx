@@ -1,6 +1,7 @@
 "use client";
 
 import { MagnitudePaperSheets } from "./math-magnitude-models";
+import { OptionalTeachingResources } from "./optional-teaching-resources";
 
 import { LessonExplorations, explorationsForLesson } from "./virtual-explorations";
 
@@ -522,7 +523,11 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
     <article className="program-experience-detail">
       <TeacherDailyLaunchButton launch={dailyLaunch} />
       {program.subject === "Mathematics" && <button type="button" className="math-resource-jump" onClick={event => { const shelf = event.currentTarget.closest(".program-experience-detail")?.querySelector<HTMLElement>(".math-lesson-resources"); shelf?.scrollIntoView({ block: "start" }); shelf?.focus({ preventScroll: true }); }}>Games &amp; worksheets ↓</button>}
-      <LessonExplorations lessonId={experience.id} audience="teacher" />
+      <OptionalTeachingResources key={experience.id} lessonId={experience.id} teacher extras={[
+        ...(media.length ? [{ id: "media", title: "Images, videos & sources", content: <MediaStrip items={media} /> }] : []),
+        ...(kit ? [{ id: "printables", title: "Printables · teacher preparation", content: program.subject === "Arts Education" ? <ArtsStudioFolio experience={experience} kit={kit} /> : <KitCards kit={kit} experienceId={experience.id} /> }] : []),
+        ...(program.subject === "Mathematics" ? [{ id: "math-resources", title: "Math games, videos & worksheets", content: <MathLessonResources experienceId={experience.id} /> }] : []),
+      ]} />
       <TeacherRunSheet
         title={studentTitleFor(experience)}
         duration={experience.duration}
@@ -921,6 +926,10 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
       </header>
 
       <main className="projector-lesson-player__stage" aria-live="polite">
+        <OptionalTeachingResources key={selected.id} lessonId={selected.id} extras={[
+          ...(media.length ? [{ id: "media", title: "Images, videos & sources", content: <MediaStrip items={media} student /> }] : []),
+          ...(interactiveLab ? [{ id: "model", title: "Interactive model", content: interactiveLab }] : []),
+        ]} />
         <section className="projector-clarity-strip" aria-label="Learning goal, first action, and finish"><article data-learning-phase="learn" data-current={clarityPhase === "learn"}><small>WE ARE LEARNING</small><strong>{learningLine}</strong></article><article data-learning-phase="do" data-current={clarityPhase === "do"}><small>FIRST STEP</small><strong>{studentContract.firstAction}</strong></article><article data-learning-phase="done" data-current={clarityPhase === "done"}><small>WE WILL MAKE / SHOW</small><strong>{studentFinishSummary(selected.id, plainForStudents(selected.product))}</strong></article></section>
         <ClassroomCompanion
           key={`${selected.id}-${projectorPart}`}

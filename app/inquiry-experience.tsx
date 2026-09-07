@@ -1,6 +1,7 @@
 "use client";
 
 import { LessonExplorations } from "./virtual-explorations";
+import { OptionalTeachingResources } from "./optional-teaching-resources";
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -1407,7 +1408,10 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
     <section className="science-plan-stage" aria-label={`${lesson.title} lesson plan`}>
       <WorldContextBand theme={theme} teacher />
       <TeacherDailyLaunchButton launch={dailyLaunch} />
-      <LessonExplorations lessonId={lesson.id} audience="teacher" />
+      <OptionalTeachingResources key={lesson.id} lessonId={lesson.id} teacher extras={[
+        {id: "prep-print", title: "Printables & full preparation", onOpen: () => setBriefOpen(true)},
+        ...((lesson.lessonResources?.length || lesson.resource) ? [{id: "sources", title: "Videos, models & source links", content: <ul>{(lesson.lessonResources ?? []).map((resource,index) => <li key={index}>{resource.url ? <a href={resource.url} target="_blank" rel="noreferrer">{resource.label} · {resource.source}</a> : resource.label}<p>{resource.task}</p></li>)}{lesson.resource && <li><a href={lesson.resource.url} target="_blank" rel="noreferrer">{lesson.resource.label}</a></li>}</ul>}] : []),
+      ]} />
       <TeacherRunSheet
         title={lesson.title}
         duration={lesson.duration}
@@ -1467,6 +1471,7 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
       </nav>
       <section ref={stageRef} className="journey-stage" aria-label={`${lesson.title} lesson stage`}>
         <section className="journey-stage-head"><div><small>PART {scene + 1} OF {lesson.scenes.length}</small><h1 ref={sceneHeadingRef} tabIndex={-1}>{studentTitle}</h1><p>{studentPrompt}</p></div><span>{String(scene + 1).padStart(2, "0")}</span></section>
+        <OptionalTeachingResources key={lesson.id} lessonId={lesson.id} extras={(lesson.lessonResources ?? []).some(resource => resource.gradeFit !== "Teacher preview") ? [{id: "sources", title: "Videos, models & source links", content: <ul>{(lesson.lessonResources ?? []).filter(resource => resource.gradeFit !== "Teacher preview").map((resource,index) => <li key={index}>{resource.url ? <a href={resource.url} target="_blank" rel="noreferrer">{resource.label} · {resource.source}</a> : resource.label}<p>{resource.task}</p>{resource.studentBoundary && <p>{resource.studentBoundary}</p>}</li>)}</ul>}] : []} />
         <section className="journey-evidence-target" aria-label="Evidence target"><small>DONE WHEN</small><strong>{studentProduct}</strong></section>
         <ClassroomCompanion key={`${lesson.id}-${scene}`} role={scienceCompanionRole(scene, lesson.scenes.length)} density="compact" motion="once" className="journey-scene-companion" />
         <LessonExplorations lessonId={lesson.id} scene={scene} initiallyOpen />

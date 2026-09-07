@@ -175,11 +175,11 @@ export function ExperienceInfographic({ experienceId }: { experienceId: string }
     </InfoFrame>
   );
   if (experienceId === "fraction-ratio-remix") return (
-    <InfoFrame eyebrow="ONE BATCH · SAME BALANCE" title="Grow the amount without changing the ratio" summary="Every complete batch has 3 blue parts for every 2 gold parts. Doubling or tripling means every part grows together.">
-      <div className="info-batch-model" aria-label="One batch has three blue parts and two gold parts; two batches have six blue and four gold; three batches have nine blue and six gold">
-        {[1, 2, 3].map((batches) => <article key={batches}><small>{batches} {batches === 1 ? "BATCH" : "BATCHES"}</small><div>{Array.from({ length: 3 * batches }, (_, index) => <i className="blue" key={`b-${index}`} />)}{Array.from({ length: 2 * batches }, (_, index) => <i className="gold" key={`g-${index}`} />)}</div><strong>{3 * batches} : {2 * batches}</strong></article>)}
+    <InfoFrame eyebrow="ONE BATCH · SAME BALANCE" title="Grow the amount without changing the ratio" summary="Every complete batch has 2 blue parts for every 3 gold parts. Doubling or tripling means every part grows together.">
+      <div className="info-batch-model" aria-label="One batch has two blue parts and three gold parts; two batches have four blue and six gold; three batches have six blue and nine gold">
+        {[1, 2, 3].map((batches) => <article key={batches}><small>{batches} {batches === 1 ? "BATCH" : "BATCHES"}</small><div>{Array.from({ length: 2 * batches }, (_, index) => <i className="blue" key={`b-${index}`} />)}{Array.from({ length: 3 * batches }, (_, index) => <i className="gold" key={`g-${index}`} />)}</div><strong>{2 * batches} : {3 * batches}</strong></article>)}
       </div>
-      <div className="info-batch-check"><b>THE BALANCE STAYS:</b><span>3 : 2 = 6 : 4 = 9 : 6</span><p>If only one side changes, it is a different mixture—not an equivalent ratio.</p></div>
+      <div className="info-batch-check"><b>THE BALANCE STAYS:</b><span>2 : 3 = 4 : 6 = 6 : 9</span><p>If only one side changes, it is a different mixture—not an equivalent ratio.</p></div>
     </InfoFrame>
   );
   if (experienceId === "decimal-dispatch") return (
