@@ -1,4 +1,5 @@
 "use client";
+import { ProjectorLessonHelp, RevealForDiscussion, HelpList } from "./projector-lesson-help";
 
 import { MagnitudePaperSheets } from "./math-magnitude-models";
 import { OptionalTeachingResources } from "./optional-teaching-resources";
@@ -144,7 +145,7 @@ function KitCards({ kit, experienceId, student = false }: { kit: ExperienceKit; 
   const studentCards = kit.cards.filter((card) => !/(?:answer|core answers|teacher key)/i.test(card.title));
   const answerCards = kit.cards.filter((card) => /(?:answer|core answers|teacher key)/i.test(card.title));
   const studentCopy = <section className={`experience-kit experience-kit-student-copy ${student ? "student-experience-kit" : ""}`}>
-    <header><div><p className="section-kicker">READY-TO-USE STUDENT KIT</p><h3>{student ? "Use these cards for the activity." : "Project these cards or print a clean student copy."}</h3></div>{!student && <button type="button" onClick={(event) => printClosest(event.currentTarget, ".experience-kit")}>Print student kit</button>}</header>
+    <header><div><p className="section-kicker">READY-TO-USE STUDENT KIT</p><h3>{student ? "Use these cards for the activity." : "Project these cards or print a clean student copy."}</h3></div><button type="button" onClick={(event) => printClosest(event.currentTarget, ".experience-kit")}>Print student kit</button></header>
     {experienceId === "magnitude-gallery" && <MagnitudePaperSheets />}
     <div>{studentCards.map(card => <article key={card.title}><span>{card.title}</span><p>{card.body}</p></article>)}</div>
   </section>;
@@ -926,11 +927,13 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
       </header>
 
       <main className="projector-lesson-player__stage" aria-live="polite">
-        <OptionalTeachingResources key={selected.id} lessonId={selected.id} extras={[
-          ...(media.length ? [{ id: "media", title: "Images, videos & sources", content: <MediaStrip items={media} student /> }] : []),
-          ...(interactiveLab ? [{ id: "model", title: "Interactive model", content: interactiveLab }] : []),
-        ]} />
         <section className="projector-clarity-strip" aria-label="Learning goal, first action, and finish"><article data-learning-phase="learn" data-current={clarityPhase === "learn"}><small>WE ARE LEARNING</small><strong>{learningLine}</strong></article><article data-learning-phase="do" data-current={clarityPhase === "do"}><small>FIRST STEP</small><strong>{studentContract.firstAction}</strong></article><article data-learning-phase="done" data-current={clarityPhase === "done"}><small>WE WILL MAKE / SHOW</small><strong>{studentFinishSummary(selected.id, plainForStudents(selected.product))}</strong></article></section>
+        <ProjectorLessonHelp key={`${selected.id}-help`} panels={[
+          {label: "Get ready", content: <><p><b>Time:</b> {selected.duration}</p><HelpList title="Materials to gather" items={kit?.gather.length ? kit.gather : selected.materials} /><HelpList title="Already supplied" items={kit?.provided} /><HelpList title="Set up" items={selected.teacherPrep} />{kit && <p><b>Short / paper route:</b> {kit.shortRoute}</p>}</>},
+          {label: "Explain & model", content: <><HelpList title="Explain the idea" items={readinessLaunch.background} /><h3>{readinessLaunch.example.title}</h3><ol>{readinessLaunch.example.steps.map((step, index) => <li key={index}>{step}</li>)}</ol><p>{readinessLaunch.example.conclusion}</p><h3>Words we use</h3>{projectorWords.map(word => <p key={word.term}><b>{word.term}:</b> {word.meaning}<br /><b>Example:</b> {word.example}</p>)}</>},
+          {label: "Ask & check", content: <><HelpList title="Look for in the work" items={selected.lookFors} />{readinessLaunch.questions.map((question, index) => <section key={index}><h3>{question.prompt}</h3><ul>{question.choices.map(choice => <li key={choice}>{choice}</li>)}</ul><RevealForDiscussion><p>{question.choices[question.answer]} — {question.feedback}</p></RevealForDiscussion></section>)}<p><b>If students need another try:</b> {readinessLaunch.reteach}</p><p>{studentContract.saveAction.message}</p>{program.subject === "Mathematics" && <RevealForDiscussion label="Open mathematics teaching notes / answers"><MathTeacherWorkshops experienceId={selected.id} placement={phasedCoordinateBridge ? "extension" : "before"} /></RevealForDiscussion>}{kit && <RevealForDiscussion label="Open supplied answer cards"><HelpList title="Check after trying" items={kit.cards.filter(card => /(?:answer|core answers|teacher key)/i.test(card.title)).map(card => `${card.title}: ${card.body}`)} /></RevealForDiscussion>}</>},
+          {label: "Sources & print", content: <>{kit && (program.subject === "Arts Education" ? <ArtsStudioFolio experience={selected} kit={{...kit, cards: kit.cards.filter(card => !/(?:answer|core answers|teacher key)/i.test(card.title))}} /> : <KitCards kit={kit} experienceId={selected.id} student />)}{selected.id === sourceMosaicExperienceId && <SourceMosaicStaticPack />}{program.subject === "Mathematics" && <MathLessonResources experienceId={selected.id} />}<MediaStrip items={media} student /><OptionalTeachingResources lessonId={selected.id} teacher extras={interactiveLab ? [{id: "model", title: "Interactive model", content: interactiveLab}] : []} /><details><summary>More teacher-selected subject sources</summary>{program.resources.map(resource => <p key={resource.url}><a href={resource.url} target="_blank" rel="noreferrer">{resource.label}</a> · {resource.source}<br />{resource.purpose}</p>)}</details></>}
+        ]} />
         <ClassroomCompanion
           key={`${selected.id}-${projectorPart}`}
           role={companionRole}

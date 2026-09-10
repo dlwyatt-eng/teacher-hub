@@ -875,13 +875,13 @@ function ClassroomHome() {
           <div className="breadcrumbs"><span>{mode === "teacher" ? "Plan / TTOC" : "Teach / Project"}</span><b>/</b><strong>{active}</strong></div>
           <div className="top-actions">
             <SiteSearch audience={mode === "teacher" ? "teacher" : "student"} onNavigate={openSearchTarget} />
-            <button type="button" className="large-text-toggle" aria-pressed={largeText} onClick={() => setLargeText((value) => !value)}><span aria-hidden="true">Aa</span><strong>{largeText ? "Standard text" : "Large text"}</strong></button>
+            <button type="button" className="large-text-toggle" aria-label={largeText ? "Standard text" : "Large text"} aria-pressed={largeText} onClick={() => setLargeText((value) => !value)}><span aria-hidden="true">Aa</span><strong>{largeText ? "Standard text" : "Large text"}</strong></button>
             <a className="context-curriculum-link" href={contextCurriculumUrl} target="_blank" rel="noreferrer">
               <span>BC</span><strong>{contextCurriculumLabel} curriculum</strong><b>↗</b>
             </a>
             <div className="mode-switch" role="group" aria-label="Display mode">
-              <button aria-pressed={mode === "teacher"} className={mode === "teacher" ? "selected" : ""} onClick={() => changeMode("teacher")}><span>◉</span> Plan / TTOC</button>
-              <button aria-pressed={mode === "projector"} className={mode === "projector" ? "selected" : ""} onClick={() => changeMode("projector")}><span>▰</span> Teach / Project</button>
+              <button aria-label="Plan / TTOC" aria-pressed={mode === "teacher"} className={mode === "teacher" ? "selected" : ""} onClick={() => changeMode("teacher")}><span>◉</span> Plan / TTOC</button>
+              <button aria-label="Teach / Project" aria-pressed={mode === "projector"} className={mode === "projector" ? "selected" : ""} onClick={() => changeMode("projector")}><span>▰</span> Teach / Project</button>
             </div>
           </div>
         </header>

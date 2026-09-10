@@ -4,6 +4,8 @@ import { LessonExplorations } from "./virtual-explorations";
 import { OptionalTeachingResources } from "./optional-teaching-resources";
 
 import Image from "next/image";
+import { ProjectorLessonHelp, RevealForDiscussion, HelpList } from "./projector-lesson-help";
+import { socialExplanations } from "./social-teaching-explanations";
 import "./social-studies-starters.css";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 const SocialStarter = lazy(() => import("./social-studies-starters"));
@@ -187,7 +189,7 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
       { title: "Map four different routes", action: "Read the supplied fictional cards. Sketch a town, city and border on paper. Mark only the routes the cards support; no real place is named.", product: "A mapped route and careful movement labels" },
       { title: "Build a many-reasons web", action: "Connect the reasons stated in each story. Keep questions and unknowns open instead of guessing.", product: "A reason web with one honest unknown" },
       { title: "Send changes through the city", action: "Add housing, transit, school, health, work, language, and gathering-place cards. Trace results now and later.", product: "A cause-and-result route through the city" },
-      { title: "Show change and continuity", action: "Build a before–during–after timeline. Explain one change, one thing that continued, and why it matters.", product: "A timeline with a significance claim" },
+      { title: "Show change and continuity", action: "Build a before–during–after timeline. Explain one change, one thing that continued, and why it matters.", product: "A timeline and a sentence explaining why the change matters" },
     ],
   },
   "data-skyline": {
@@ -196,7 +198,7 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
     success: ["I can build and label a data display correctly.", "I can explain what an average hides.", "I can make one careful claim and name a limit."],
     scenes: [
       {title: "Compare two fictional averages", action: "Both groups average 50. Compare the five values in each. Which has the larger spread?", product: "A claim using the smallest and largest values"},
-      {title: "Build the real data skyline", action: "Choose 2020 or 2022. Draw the two supplied Internet-use bars. Label group, year, percent and source. Age 75+ is inside age 15+.", product: "Two labelled bars and the gap in percentage points"},
+      {title: "Build the real data skyline", action: "Choose 2020 or 2022. Draw the two supplied Internet-use bars. Label group, year, percent and source. People aged 75+ are also counted in the 15+ group; these are overlapping groups.", product: "Two labelled bars and the gap in percentage points"},
       {title: "Check what the chart proves", action: "Choose the claim supported by the bars. Explain why the chart cannot tell us the cause of the difference.", product: "A supported claim and one rejected assumption"},
       {title: "Write a careful caption", action: "Write one precise claim and one limitation. Then discuss Earth’s wealth display and the supplied gender/care-work card.", product: "A sourced caption with a visible limit"},
     ],
@@ -208,7 +210,7 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
     scenes: [
       { title: "Build the hidden product web", action: "Connect material, component, transport, work, and sales cards with string. Mark who decides at each step.", product: "A labelled supply-chain web" },
       { title: "Send a shockwave through it", action: "Draw a disruption card and trace at least three effects. Notice who can adjust and who carries the risk.", product: "A three-step ripple map" },
-      { title: "Study one real resource decision", action: "Compare a source from the named Indigenous Nation or organization with a public decision source. Keep benefits, effects, authority, and missing evidence specific.", product: "An attributed resource-decision case card" },
+      { title: "Study one real resource decision", action: "Compare a source from the named Indigenous Nation or organization with a public decision source. Record who may benefit, who may be harmed, who has the right to decide, and what neither source answers.", product: "A case card naming both sources, who can decide, and one unanswered question" },
       { title: "Improve one link", action: "Change one rule or part of the route, run the shock again, and explain the benefit, new cost, and review needed.", product: "A redesign with an honest trade-off" },
     ],
   },
@@ -217,21 +219,21 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
     learning: "We are learning what governments, Indigenous organizations, NGOs, and international groups can do together—and where their power ends.",
     success: ["I can compare how two sources cover the same event.", "I can explain what different groups can contribute and what limits them.", "I can build and test a shared plan."],
     scenes: [
-      { title: "Same event, different coverage", action: "Read the supplied Cedar LNG source pair for 10 minutes. Mark one shared fact and a different emphasis. Then inspect the fictional river partners.", product: "A source comparison and one partner’s capacity" },
+      { title: "Same event, different coverage", action: "Read the supplied Cedar LNG source pair for 10 minutes. Mark one shared fact and a different emphasis. Then inspect the fictional river partners.", product: "One shared fact, one difference in focus, and what one partner can do" },
       { title: "Enter the control room", action: "Add the supplied evidence records to the river board. Explain what each record adds and cannot prove alone.", product: "A shared evidence board with one limit" },
-      { title: "Negotiate a shared agreement", action: "Choose three supplied actions. Name who can lead each action and one need the plan leaves uncovered.", product: "A shared agreement map with one tension" },
-      { title: "Audit and patch the plan", action: "Test evidence, representation, fairness, feasibility, and unintended effects. Add one patch and a signal to check later.", product: "A revised plan and review signal" },
+      { title: "Negotiate a shared agreement", action: "Choose three supplied actions. Name who can lead each action and one need the plan leaves uncovered.", product: "Three actions with leaders, plus one need still unmet" },
+      { title: "Check and improve the plan", action: "Ask: Does the evidence support it? Who helped decide? Is it fair? Can we do it? What new problem might it cause? Improve one part and name a result to check later.", product: "An improved plan and one result to check later" },
     ],
   },
   "pull-the-system-thread": {
     question: "What keeps our issue going, and where could change travel through the system?",
     learning: "We are learning to build an evidence-based system map before proposing change.",
-    success: ["I can connect symptoms, causes, power, and affected people.", "I can explain why the issue matters and to whom.", "I can trace possible effects and name a limit."],
+    success: ["I can connect what we notice, what causes it, who can decide, and who is affected.", "I can explain why the issue matters and to whom.", "I can trace possible effects and name a limit."],
     scenes: [
-      { title: "Reopen the inquiry", action: "Restate the issue, who is affected, why it matters, and what your team no longer assumes.", product: "A focused question and significance statement" },
+      { title: "Reopen the inquiry", action: "Restate the issue, who is affected, why it matters, and what your team no longer assumes.", product: "One focused question and a sentence explaining why it matters" },
       { title: "Build the system web", action: "Connect what happened, what keeps it going, who shapes it, and who feels it. Attach evidence to every connection.", product: "A sourced system map" },
-      { title: "Tug one system thread", action: "Change one policy, resource, information flow, relationship, or decision point. Trace three effects, including an unintended one.", product: "A three-effect change path" },
-      { title: "Choose a leverage question", action: "Choose one place to investigate further. Name evidence, people who should shape the decision, and one limit in your map.", product: "A revised map and leverage question" },
+      { title: "Tug one system thread", action: "Change one rule, available resource, way of sharing information, partnership, or decision. Trace three effects, including an unintended one.", product: "A three-effect change path" },
+      { title: "Choose where a change could help", action: "Choose one part of the map where change could help. Write a question about it. Name your evidence, who should help decide, and one thing you still do not know.", product: "An improved map and one question about a possible change" },
     ],
   },
   "responses-under-pressure": {
@@ -239,10 +241,10 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
     learning: "We are learning to test responses for evidence, reach, fairness, costs, limits, and unexpected results.",
     success: ["I can compare responses with the same questions.", "I can explain who benefits and who carries costs.", "I can keep, adapt, or question one feature for a reason."],
     scenes: [
-      { title: "Discover three real responses", action: "At each station, find the actor, goal, action, evidence, scale, and stated limit.", product: "Three concise response records" },
-      { title: "Sort by what the response does", action: "Place responses on relief, prevention, and system-change lines. Overlap is allowed when the evidence supports it.", product: "A defended and revised response sort" },
-      { title: "Put each response under pressure", action: "Test evidence, reach, fairness, cost, rights, and unintended effects. Add one surprise constraint.", product: "A comparison with one serious limit" },
-      { title: "Borrow carefully", action: "Keep, adapt, or question one feature. Turn your reason into a design rule for your own project.", product: "One evidence-backed design principle" },
+      { title: "Discover three real responses", action: "At each station, record: Who is acting? What are they trying to change? What did they do? What result does the source show? Who does it reach? What is still unknown?", product: "Three concise response records" },
+      { title: "Sort by what the response does", action: "Sort responses into help now, prevent the problem, or change the rules and conditions. A response can fit more than one group. Use a source to explain your choice.", product: "A sort with a reason for each choice; change a choice if the evidence calls for it" },
+      { title: "Put each response under pressure", action: "Ask: Is there evidence it works? Who benefits or misses out? Who pays? Are rights respected? What new problem might it cause? Then try one surprise change, such as less funding.", product: "A comparison with one serious limit" },
+      { title: "Borrow carefully", action: "Keep, adapt, or question one feature. Turn your reason into a design rule for your own project.", product: "One rule for our project, with a source-based reason" },
     ],
   },
   "make-it-teachable": {
@@ -251,7 +253,7 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
     success: ["I can choose a form that fits the learning.", "I can connect the key ideas, evidence, and audience task in any format.", "I can use feedback to correct an idea and improve how classmates use my work."],
     scenes: [
       { title: "Match the form to the learning", action: "Decide what classmates must understand and do, then test which format actually helps that happen.", product: "A chosen format with a reason, plus the key ideas, evidence, and audience task" },
-      { title: "Make it on paper first", action: "Sketch the whole sequence: an opening, three key ideas with evidence, different perspectives, a decision for the audience, and an ending that shows what you know and what is still uncertain.", product: "A complete paper prototype" },
+      { title: "Make it on paper first", action: "Sketch the whole sequence: an opening, three key ideas with evidence, different perspectives, a decision for the audience, and an ending that shows what you know and what is still uncertain.", product: "A rough paper version another team can try" },
       { title: "Check the ideas and evidence", action: "Before adding finishing details, check your claims against the sources. Check the event order, why the issue matters, its causes, who has power, the responses, and what your evidence cannot show.", product: "Your completed evidence checklist, checked and approved by your teacher" },
       { title: "Build the minimum useful experience", action: "Build what classmates need to learn and respond. Show each person's job, ways to take part, the time needed, and where each idea came from. Include a realistic next action people could take.", product: "A testable experience; polish is not assessed" },
     ],
@@ -263,8 +265,8 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
     scenes: [
       { title: "Test with a new audience", action: "Another team tries your experience without a preview. Observe; do not coach. Collect: I learned / I got stuck / I need proof for.", product: "Three kinds of audience evidence" },
       { title: "Listen to the audience teach back", action: "Testers explain the main idea, why it matters, evidence, and one limit. Compare that with what you meant to teach.", product: "Notes comparing what you meant to teach with what the testers understood" },
-      { title: "Revise an idea and the experience", action: "Correct one claim. Also improve one direction, audience task, way to take part, or place where you show evidence. For each change, name what the testers said or did that showed it was needed.", product: "A before-and-after revision record" },
-      { title: "Hold the expert exchange", action: "Teach, answer questions, and post the team artifact once. Then add your own short audio, video, or text reflection.", product: "One shared product plus your own SpacesEDU reflection" },
+      { title: "Revise an idea and the experience", action: "Correct or strengthen one claim using evidence. Also improve one direction, audience task, way to take part, or place where you show evidence. For each change, name what the testers said or did that showed it was needed.", product: "A before-and-after revision record" },
+      { title: "Hold the expert exchange", action: "Teach, answer questions, and save the team’s work once in SpacesEDU. Then add your own short audio, video, or text reflection.", product: "One shared product plus your own SpacesEDU reflection" },
     ],
   },
 };
@@ -336,9 +338,9 @@ const socialWordHelp: Record<string, string> = {
   refugee: "a person forced to leave their country because returning would not be safe",
   continuity: "something important that continues across a period of change",
   poverty: "not having reliable access to the resources and conditions needed for a secure life",
-  inequality: "an uneven distribution of opportunities, resources, rights, or outcomes",
+  inequality: "differences in what people can access or have, such as money, opportunities, rights, or services",
   average: "a number that summarizes a group but may hide differences inside it",
-  indicator: "a specific measurement used as evidence about a larger condition",
+  indicator: "a measure that gives us a clue about a bigger issue; for example, the share of people with Internet access",
   multidimensional: "made of several connected parts or measures",
   disaggregate: "separate combined data into useful groups to see differences",
   interdependence: "when people, places, or systems rely on one another",
@@ -361,12 +363,12 @@ const socialWordHelp: Record<string, string> = {
   "unintended consequence": "a result that was not planned or expected",
   response: "an action taken to address a need, problem, or event",
   prevention: "action meant to stop harm before it happens or returns",
-  scale: "the size or level at which an action or pattern operates",
+  scale: "how many people or places an action reaches, such as a neighbourhood, a country, or several countries",
   feasibility: "whether a plan can realistically be done with available time, power, and resources",
-  "design principle": "a reasoned rule that guides how something should be made or improved",
+  "design principle": "a rule for making or improving your project, with a reason for choosing it",
   prototype: "an early version used to test and improve an idea",
   audience: "the people a message or experience is designed to reach",
-  "learning spine": "the essential ideas, evidence, and audience action holding a teaching experience together",
+  "learning spine": "the main ideas, evidence, and task that your classmates need in order to learn",
   citation: "a note showing where information or evidence came from",
   accuracy: "being correct and precise enough for the purpose",
   feedback: "specific information about what worked, what was unclear, or what needs proof",
@@ -676,18 +678,25 @@ function SocialStudentLesson({ lesson, scene, onScene }: { lesson: SocialLesson;
   const contract = isReviewedStudentLessonId(lesson.id) ? resolveStudentLessonContract(lesson.id) : null;
   const learningLine = socialLearningLine(contract?.why ?? copy?.learning ?? lesson.learning);
   const companionRole = socialCompanionRole(scene, lesson.scenes.length);
+  const explanation = socialExplanations[lesson.id];
   return (
     <article className="social-student-lesson" id="social-mission">
 
         <div className={`social-scene-layout social-scene-layout--lean ${lesson.id === "rights-in-tension" ? "civic-scene-navigation" : lesson.id === "civic-decision-brief" ? "cdb-scene-navigation" : ""}`}><nav aria-label={`${lesson.title} parts`}>{lesson.scenes.map((item, index) => <button type="button" key={item.title} className={scene === index ? "selected" : ""} aria-current={scene === index ? "step" : undefined} onClick={() => onScene(index)}><b>{index + 1}</b><span><small>PART {index + 1}</small><strong>{copy?.scenes[index]?.title ?? item.title}</strong></span></button>)}</nav></div>
         <section className="social-learn-do-done" aria-label="Lesson goal, action, and finish check"><article data-learning-phase="learn"><small>WE ARE LEARNING</small><strong>{learningLine}</strong></article><article data-learning-phase="do"><small>DO THIS</small><strong>{studentScene?.action ?? current.prompt}</strong></article><article data-learning-phase="done"><small>YOU'RE DONE WHEN</small><strong>{studentScene?.product ?? current.studentTask}</strong></article></section>
+        {explanation && <aside className="social-plain-explanation"><small>THE IDEA IN PLAIN WORDS</small><p>{explanation.idea}</p></aside>}
+        <ProjectorLessonHelp key={`${lesson.id}-${scene}-help`} panels={[
+          {label: "Get ready", content: <><p><b>This part:</b> {current.time}. <b>Whole lesson:</b> {lesson.duration}.</p><HelpList title="Have ready" items={lesson.materials} /><HelpList title="Set up" items={lesson.beforeClass} /><h3>Simple / paper route</h3><p>{lesson.lowerPrep}</p></>},
+          {label: "Explain & model", content: <>{explanation && <><h3>Work through one example</h3><ol>{explanation.example.map(line => <li key={line}>{line}</li>)}</ol></>}<h3>Words we use</h3>{lesson.vocabulary.map(word => <p key={word}><b>{word}:</b> {socialWordHelp[word.toLowerCase()] ?? "Ask the class to explain this word using the current example."}</p>)}</>},
+          {label: "Ask & check", content: <>{explanation && <><h3>Ask the class</h3><p>{explanation.ask}</p><RevealForDiscussion><p>{explanation.answer}</p></RevealForDiscussion></>}<HelpList title="Look for in students’ explanations" items={lesson.lookFors} /><RevealForDiscussion label="Open teaching notes for discussion"><HelpList title="Teaching prompts" items={lesson.teacherMoves} /><HelpList title="Common misunderstandings" items={lesson.misconceptions} /></RevealForDiscussion><p><b>Save / keep:</b> {spaces.studentPrompt}</p></>},
+          {label: "Sources & print", content: <><p>Student cards and print links are below the activity. Open a teaching preview here if you need its additional print tools or instructions.</p><RevealForDiscussion label="Open activity teaching preview / print tools"><SocialStudentLab lessonId={lesson.id} scene={scene} audience="teacher" /></RevealForDiscussion><h3>Lesson sources</h3>{lesson.resources.map(resource => <p key={resource.url}><a href={resource.url} target="_blank" rel="noreferrer">{resource.label}</a> · {resource.source}<br />{resource.purpose}{resource.gradeFit === "Teacher preview" && <><br /><b>Teacher previews and chooses the part to show.</b></>}</p>)}<OptionalTeachingResources lessonId={lesson.id} teacher /></>}
+        ]} />
         <Suspense fallback={null}><ClassroomCompanion key={`${lesson.id}-${scene}`} role={companionRole} density="compact" motion="once" className="social-scene-companion" /></Suspense>
         {lesson.unitId !== "global-systems" && lesson.unitId !== "solutionary-inquiry" && <LessonExplorations lessonId={lesson.id} scene={scene} initiallyOpen />}
         <SocialStudentLab lessonId={lesson.id} scene={scene} />
         <Suspense fallback={null}><SocialStarter lessonId={lesson.id} /></Suspense>
         {(lesson.unitId === "global-systems" || lesson.unitId === "solutionary-inquiry") && <LessonExplorations lessonId={lesson.id} scene={scene} />}
         {(lesson.id === "trace-the-claim" || lesson.id === "who-drew-the-world") && scene === lesson.scenes.length - 1 && <EvidenceCareProtocol compact student />}
-        <OptionalTeachingResources key={lesson.id} lessonId={lesson.id} extras={studentResources.length ? [{id: "sources", title: "Videos, readings & source links", content: <ul>{studentResources.map(resource => <li key={resource.url}><a href={resource.url} target="_blank" rel="noreferrer">{resource.label} · {resource.source}</a></li>)}</ul>}] : []} />
         <PowerCheckCard compact quick />
         {lesson.id === "civic-decision-brief" && scene === lesson.scenes.length - 1 && <FairSocietyStudio />}
         <details className="social-help-drawer"><summary><span><small>HELP</small><strong>Words, sources, and finish check</strong></span><b>Open ▾</b></summary><div><section><small>FINISH</small>{(contract?.finishEvidence ?? copy?.success ?? lesson.success).slice(0, 2).map((item) => <p key={item}>✓ {item}</p>)}{(spaces.decision === "required" || spaces.decision === "reuse") && <p><b>SpacesEDU:</b> {contract?.saveAction.message ?? spaces.studentPrompt}</p>}</section><section className="social-help-words">{lesson.vocabulary.map((word) => <details key={word}><summary>{word}<span>＋</span></summary><p>{socialWordHelp[word.toLowerCase()]}</p></details>)}</section>{studentResources.length > 0 && <section className="social-resource-cards">{studentResources.map((resource) => <a href={resource.url} target="_blank" rel="noreferrer" key={resource.url}><span>↗</span><div><small>{resource.source}</small><strong>{resource.label}</strong></div></a>)}</section>}</div></details>

@@ -1,3 +1,4 @@
+import { socialExplanations } from "./social-teaching-explanations";
 import type { MathUpTopic, ProgramExperience, ReadinessLaunch } from "./program-types";
 import type { ScienceLesson } from "./science-program";
 import type { SocialLesson } from "./social-program";
@@ -237,17 +238,18 @@ export function scienceReadinessFor(lesson: ScienceLesson): ReadinessLaunch {
 }
 
 export function socialReadinessFor(lesson: SocialLesson): ReadinessLaunch {
+  const explanation = socialExplanations[lesson.id];
   const firstScene = lesson.scenes[0];
   return {
     background: [
-      lesson.learning,
+      explanation?.idea ?? lesson.learning,
       `Today's question is: ${lesson.question}`,
       `A common mistake to avoid: ${lesson.misconceptions[0] ?? "one source or perspective does not tell the whole story"}.`,
       "In Social Studies, a claim becomes stronger when the source, evidence, perspective, and limits are named.",
     ],
     example: {
-      title: `See one small ${lesson.kind.toLowerCase()} example`,
-      steps: [
+      title: "Work through one example",
+      steps: explanation?.example ?? [
         firstScene?.prompt ?? lesson.question,
         "Point to the exact source detail or system feature being used.",
         "Separate what is directly shown from what is inferred or still unknown.",

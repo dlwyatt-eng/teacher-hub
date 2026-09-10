@@ -1,0 +1,14 @@
+.projector-lesson-help{margin:1rem 0;border:1px solid #57758a;border-radius:12px;background:#fff;color:#172f40;font:1.125rem/1.55 Arial,sans-serif;min-width:0}
+.projector-lesson-help>summary{padding:.85rem 1rem;font-weight:700;cursor:pointer}
+.projector-lesson-help nav{display:flex;flex-wrap:wrap;gap:.5rem;padding:1rem;border-bottom:1px solid #ccd7df}
+.projector-lesson-help button{font:inherit;padding:.6rem .9rem;border:1px solid #57758a;border-radius:6px;background:#f4f8fa;color:#172f40;cursor:pointer;white-space:normal}
+.projector-lesson-help button[aria-pressed=true]{background:#173f59;color:#fff}
+.projector-help-panel{padding:1rem 1.4rem}.projector-help-panel h3{font-size:1.3em;margin:.4rem 0}.projector-help-panel p,.projector-help-panel li{max-width:75ch;font-size:inherit;line-height:1.55}.projector-help-panel li{margin:.5rem 0}.projector-help-panel a{color:#164f83;text-decoration:underline;overflow-wrap:anywhere}.projector-help-reveal{margin:1rem 0}.projector-help-reveal>div{margin-top:.8rem;padding:.8rem;border-left:4px solid #57758a}
+.social-plain-explanation{padding:1rem 1.25rem;border-left:5px solid #416f8f;background:#fff;color:#17384c;font-size:1.2rem;line-height:1.55;margin:1rem 0}.social-plain-explanation p{margin:0;max-width:80ch;font-size:inherit;line-height:inherit}.social-plain-explanation small{display:block;font-size:.875rem;font-weight:700;margin-bottom:.3rem}
+.large-text-mode .projector-lesson-help,.large-text-mode .social-plain-explanation{font-size:1.5rem}.large-text-mode .projector-help-panel p,.large-text-mode .projector-help-panel li{font-size:inherit}
+@media(max-width:600px){.projector-help-panel{padding:1rem}.projector-lesson-help nav button{flex:1 1 40%}}
+@media print{.projector-lesson-help{display:none!important}.social-plain-explanation{color:#000;background:#fff;border-color:#000}}
+
+@media print{body.print-target-active .projector-lesson-help:has(.print-target){display:block!important;position:static!important}.projector-lesson-help:has(.print-target) .projector-help-panel{position:static!important}}
+
+.projector-help-panel ol{list-style:decimal outside;padding-left:1.7em}.projector-help-panel ul{list-style:disc outside;padding-left:1.4em}

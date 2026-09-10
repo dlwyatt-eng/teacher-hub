@@ -1,4 +1,5 @@
 "use client";
+import { ProjectorLessonHelp, RevealForDiscussion, HelpList } from "./projector-lesson-help";
 
 import { LessonExplorations } from "./virtual-explorations";
 import { OptionalTeachingResources } from "./optional-teaching-resources";
@@ -1471,8 +1472,13 @@ export default function InquiryExperiencePlayer({ lesson, mode, onHome, onUnitSt
       </nav>
       <section ref={stageRef} className="journey-stage" aria-label={`${lesson.title} lesson stage`}>
         <section className="journey-stage-head"><div><small>PART {scene + 1} OF {lesson.scenes.length}</small><h1 ref={sceneHeadingRef} tabIndex={-1}>{studentTitle}</h1><p>{studentPrompt}</p></div><span>{String(scene + 1).padStart(2, "0")}</span></section>
-        <OptionalTeachingResources key={lesson.id} lessonId={lesson.id} extras={(lesson.lessonResources ?? []).some(resource => resource.gradeFit !== "Teacher preview") ? [{id: "sources", title: "Videos, models & source links", content: <ul>{(lesson.lessonResources ?? []).filter(resource => resource.gradeFit !== "Teacher preview").map((resource,index) => <li key={index}>{resource.url ? <a href={resource.url} target="_blank" rel="noreferrer">{resource.label} · {resource.source}</a> : resource.label}<p>{resource.task}</p>{resource.studentBoundary && <p>{resource.studentBoundary}</p>}</li>)}</ul>}] : []} />
         <section className="journey-evidence-target" aria-label="Evidence target"><small>DONE WHEN</small><strong>{studentProduct}</strong></section>
+        <ProjectorLessonHelp key={`${lesson.id}-${scene}-help`} panels={[
+          {label: "Get ready", content: <><p><b>This part:</b> {current.time ?? "Use the whole-lesson plan"}. <b>Whole lesson:</b> {lesson.duration}.</p><HelpList title="Materials" items={lesson.materials} /><HelpList title="Set up" items={lesson.teacherPrep?.beforeClass} /><HelpList title="Each group needs" items={lesson.teacherPrep?.perGroup} /><HelpList title="Safety and cleanup" items={lesson.teacherPrep?.cleanup} /><p><b>Paper / simple route:</b> {lesson.teacherPrep?.offlineRoute ?? lesson.teacherPrep?.lowPrepAlternative ?? lesson.guided}</p></>},
+          {label: "Explain & model", content: <><h3>Explain this part</h3><p>{current.teacherCue}</p><h3>Start together</h3><p>{lesson.guided}</p><h3>Words we use</h3>{lesson.vocabulary.map(word => <p key={word}><b>{word}:</b> {lesson.vocabularySupport?.[word]?.meaning ?? vocabularyHelp[word.toLowerCase()]}{lesson.vocabularySupport?.[word]?.example && <><br /><b>Example:</b> {lesson.vocabularySupport[word].example}</>}</p>)}</>},
+          {label: "Ask & check", content: <><h3>Ask before moving on</h3><p>{lesson.exit}</p><HelpList title="Look for" items={lesson.success} /><RevealForDiscussion label="Show teaching checks / answers"><p><b>Watch for this misunderstanding:</b> {lesson.misconception}</p><HelpList title="Answer guidance" items={lesson.teacherPrep?.answerKey} /></RevealForDiscussion><p>{spacesMessage}</p></>},
+          {label: "Sources & print", content: <><OptionalTeachingResources lessonId={lesson.id} teacher /><SciencePrintPack lesson={lesson} /><HelpList title="Display or print" items={lesson.teacherPrep?.displayOrPrint} />{(lesson.lessonResources ?? []).map((resource, index) => <section key={index}><h3>Part {resource.scene + 1} · {resource.label}</h3>{resource.url && <a href={resource.url} target="_blank" rel="noreferrer">Open {resource.source}</a>}<p>{resource.task}</p>{resource.support && <p>{resource.support}</p>}{resource.studentBoundary && <p>{resource.studentBoundary}</p>}{resource.gradeFit === "Teacher preview" && <p><b>Teacher previews and selects the part to show.</b></p>}</section>)}{lesson.resource && <p><a href={lesson.resource.url} target="_blank" rel="noreferrer">{lesson.resource.label}</a> · {lesson.resource.note}</p>}</>}
+        ]} />
         <ClassroomCompanion key={`${lesson.id}-${scene}`} role={scienceCompanionRole(scene, lesson.scenes.length)} density="compact" motion="once" className="journey-scene-companion" />
         <LessonExplorations lessonId={lesson.id} scene={scene} initiallyOpen />
         <ExperienceVisual lesson={lesson} scene={scene} />

@@ -70,10 +70,10 @@ export function SystemThreadLab({ sceneIndex, audience }: Unit4ExperienceProps) 
       ["The decision", "We can name a person, group, government, or organization that can change something."],
     ];
     return (
-      <ExperienceFrame audience={audience} sceneIndex={scene} tone="thread" eyebrow="PULL THE SYSTEM THREAD · PART 1" title="Bring back an inquiry seed worth following." prompt="Open the question your team saved earlier. Make sure it is focused enough to investigate before you build anything new." teacherNote="Teams should reopen an approved seed from Units 1–3. Conference quickly with any team that has only a huge topic, a yes/no question, or a solution in disguise." footer="Our focused question is… This matters because…">
+      <ExperienceFrame audience={audience} sceneIndex={scene} tone="thread" eyebrow="PULL THE SYSTEM THREAD · PART 1" title="Bring back one question your team wants to investigate." prompt="Open the question your team saved earlier. Make sure it is focused enough to investigate before you build anything new." teacherNote="Teams should reopen an approved seed from Units 1–3. Conference quickly with any team that has only a huge topic, a yes/no question, or a solution in disguise." footer="Our focused question is… This matters because…">
         <div className="u4-seed-table">
           <article className="u4-seed-card">
-            <small>YOUR TEAM&apos;S SAVED SEED</small>
+            <small>YOUR TEAM&apos;S SAVED QUESTION</small>
             <h4>Write it on paper or your project board.</h4>
             <p>Do not type private information into this screen. The project record belongs in your class workspace.</p>
           </article>
@@ -86,7 +86,7 @@ export function SystemThreadLab({ sceneIndex, audience }: Unit4ExperienceProps) 
             ))}
           </div>
         </div>
-        <ProgressLine ready={seedChecks.filter(Boolean).length} total={checks.length} readyText="Your seed is ready for the system web." waitingText="Talk through every check before moving on." />
+        <ProgressLine ready={seedChecks.filter(Boolean).length} total={checks.length} readyText="Your question is ready for a map of connected causes and decisions." waitingText="Talk through every check before moving on." />
       </ExperienceFrame>
     );
   }
@@ -99,7 +99,7 @@ export function SystemThreadLab({ sceneIndex, audience }: Unit4ExperienceProps) 
       ["WHO CAN CHANGE WHAT", "Where is power held? Who already works on this issue?"],
     ];
     return (
-      <ExperienceFrame audience={audience} sceneIndex={scene} tone="thread" eyebrow="PULL THE SYSTEM THREAD · PART 2" title="Build the system—not a blame list." prompt="Make a floor or wall web with cards and string. Every arrow must mean something your team can explain." teacherNote="Give teams cards, sticky notes, and string. Ask for sources beside important claims. Redirect personal blame toward conditions, decisions, incentives, histories, and power without removing individual responsibility." footer="This part connects to that part because… Our evidence is…">
+      <ExperienceFrame audience={audience} sceneIndex={scene} tone="thread" eyebrow="PULL THE SYSTEM THREAD · PART 2" title="Map what keeps the issue going." prompt="Make a floor or wall web with cards and string. Every arrow must mean something your team can explain." teacherNote="Give teams cards, sticky notes, and string. Ask for sources beside important claims. Redirect personal blame toward conditions, decisions, incentives, histories, and power without removing individual responsibility." footer="This part connects to that part because… Our evidence is…">
         <div className="u4-system-web">
           {levels.map(([title, detail], index) => (
             <button key={title} aria-pressed={webChecks[index]} className={webChecks[index] ? "ready" : ""} onClick={() => setWebChecks((current) => current.map((value, i) => i === index ? !value : value))}>
@@ -146,8 +146,8 @@ export function SystemThreadLab({ sceneIndex, audience }: Unit4ExperienceProps) 
     ["Strengthen a response", "What existing effort could be supported, adapted, or studied more carefully?"],
   ];
   return (
-    <ExperienceFrame audience={audience} sceneIndex={scene} tone="thread" eyebrow="PULL THE SYSTEM THREAD · PART 4" title="Choose a leverage question—not a magic fix." prompt="Pick one place where change may be possible. Turn it into a question your team can investigate next." teacherNote="Approve questions that are connected to evidence and within the available source set. A team does not need to solve the whole issue. Photograph or save the revised web for the team research record; no separate portfolio post is needed." footer="We think this is worth studying because… We still cannot know…">
-      <div className="u4-focus-grid" role="group" aria-label="Choose a leverage focus">
+    <ExperienceFrame audience={audience} sceneIndex={scene} tone="thread" eyebrow="PULL THE SYSTEM THREAD · PART 4" title="Choose one place where change could help." prompt="Pick one place where change may be possible. Turn it into a question your team can investigate next." teacherNote="Approve questions that are connected to evidence and within the available source set. A team does not need to solve the whole issue. Photograph or save the revised web for the team research record; no separate portfolio post is needed." footer="We think this is worth studying because… We still cannot know…">
+      <div className="u4-focus-grid" role="group" aria-label="Choose a place to investigate">
         {focusMoves.map(([title, detail], index) => (
           <button key={title} aria-pressed={focus === index} className={focus === index ? "selected" : ""} onClick={() => setFocus(index)}>
             <b>{index + 1}</b><span><strong>{title}</strong><small>{detail}</small></span>
@@ -155,8 +155,8 @@ export function SystemThreadLab({ sceneIndex, audience }: Unit4ExperienceProps) 
         ))}
       </div>
       <div className="u4-question-builder">
-        <small>BUILD YOUR LEVERAGE QUESTION</small>
-        <p><b>How might</b> [a person, group, or institution] <b>{focus === 0 ? "change a condition that keeps the pattern going" : focus === 1 ? "make or influence this decision more responsibly" : "strengthen or adapt an existing response"}</b> while considering [affected people, possible costs, and limits]?</p>
+        <small>BUILD YOUR NEXT QUESTION</small>
+        <p><b>How might</b> [a person, group, or government] <b>{focus === 0 ? "change a condition that keeps the pattern going" : focus === 1 ? "make or influence this decision more responsibly" : "strengthen or adapt an existing response"}</b> while considering [affected people, possible costs, and limits]?</p>
       </div>
     </ExperienceFrame>
   );
@@ -172,8 +172,8 @@ export function ResponsesUnderPressureLab({ sceneIndex, audience }: Unit4Experie
   if (scene === 0) {
     const stations = [
       ["SURREY GREEN INFRASTRUCTURE", "Which local plan changes how rainwater is managed? Whose needs and evidence should shape it?"],
-      ["CANADA MICROBEADS", "What product rule was implemented? What later evidence would show its environmental effect?"],
-      ["LOSS-AND-DAMAGE FUNDING", "What have countries agreed to fund? Which results are still not demonstrated by the source?"],
+      ["CANADA MICROBEADS", "What product rule took effect? What later evidence would show its environmental effect?"],
+      ["LOSS-AND-DAMAGE FUNDING", "What have countries agreed to fund? What results does the source still not show?"],
     ];
     return (
       <ExperienceFrame audience={audience} sceneIndex={scene} tone="response" eyebrow="RESPONSES UNDER PRESSURE · PART 1" title="Find what people are already trying." prompt="Read the three named Earth cards linked in Supplied materials. Compare what each changes and what the evidence shows; they address different problems." teacherNote="Use the supplied shared set. Other inquiry teams may reuse three approved sources from their existing research; the same questions apply. When Indigenous-led work is relevant, use the specific Nation or organization’s own public source and do not treat it as one generic perspective." footer="This response tries to… The source shows… It does not yet tell us…">
@@ -234,7 +234,7 @@ export function ResponsesUnderPressureLab({ sceneIndex, audience }: Unit4Experie
 
   const moves = {
     keep: ["KEEP", "This feature already fits the evidence and the people or place involved."],
-    adapt: ["ADAPT", "This feature is useful, but it needs a specific change for this context."],
+    adapt: ["ADAPT", "This part is useful, but we need to change it to fit our people and place."],
     question: ["QUESTION", "The evidence is too weak, a voice is missing, or the possible harm needs more study."],
   } as const;
   return (
