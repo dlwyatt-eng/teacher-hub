@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import test from "node:test";
 
@@ -59,7 +59,7 @@ test("Calendar Provocations expose teacher preparation and a complete projector 
   assert.match(css, /@media print/);
 });
 
-test("the TOC library links to the live builder and leaves no false Time Capsule downloads", async () => {
+test("the TOC library provides real student downloads and keeps the answer key out of public files", async () => {
   const [source, css] = await Promise.all([
     read("app/toc-resource-library.tsx"),
     read("app/toc-resource-library.css"),
@@ -73,11 +73,20 @@ test("the TOC library links to the live builder and leaves no false Time Capsule
   assert.match(source, /stores no student information/);
   assert.match(source, /The Mystery of the Missing Time Capsule/);
   assert.match(source, /Grade 6 Discovery Booklet/);
-  assert.match(source, /RESERVED · NOT YET PUBLISHED/);
+  assert.match(source, /BOOKLET 1 · CHECKED SEPTEMBER 2026/);
+  assert.doesNotMatch(source, /Nothing to download yet|FUTURE SLOT/);
   assert.match(source, /Student booklet/);
   assert.match(source, /Teacher directions/);
   assert.match(source, /Teacher-only answer key/);
-  assert.doesNotMatch(source, /href=|download=/, "Reserved resources must not expose dead links.");
+  for (const file of ["Booklet_1_Missing_Time_Capsule_Student.pdf", "Booklet_1_Missing_Time_Capsule_TOC_Guide.pdf", "opening-response-sheets.pdf", "opening-blocks-teacher-guide.pdf"]) {
+    assert.ok(source.includes(file), `Missing download ${file}`);
+    const bytes = await readFile(path.join(root, "public/printables", file));
+    assert.equal(bytes.subarray(0, 5).toString(), "%PDF-", `Invalid PDF ${file}`);
+  }
+  const files = await readdir(path.join(root, "public"), { recursive: true });
+  assert.ok(!files.some(file => /Missing_Time_Capsule_Answer_Key/i.test(file)), "Keep the key outside the public build.");
+  assert.doesNotMatch(source, /href[^\n]*Missing_Time_Capsule_Answer_Key/);
+  assert.match(source, /pages 2–6, 10 and 11/);
   assert.ok((source.match(/onClick=\{onOpenTtocPlan\}/g) ?? []).length >= 2, "Both live-builder actions must use the integration callback.");
   assert.match(css, /:focus-visible/);
   assert.match(css, /@media \(max-width: 680px\)/);

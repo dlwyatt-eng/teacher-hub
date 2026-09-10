@@ -514,3 +514,11 @@
     break-inside: avoid;
   }
 }
+
+/* Ready files use normal document flow and wrap with larger text. */
+.toc-capsule-slots a,.toc-opening-resources a{color:#164d3c;font-weight:750;overflow-wrap:anywhere;text-underline-offset:3px}
+.toc-capsule-slots a{display:inline-block;padding:12px 0;min-height:44px}
+.toc-opening-resources{margin:24px 0;padding:26px;border:1px solid #b8cbbf;border-radius:18px;background:#fff;line-height:1.6}
+.toc-opening-resources h2{font-size:26px;line-height:1.2}.toc-opening-resources p,.toc-opening-resources li{font-size:16px}
+.toc-opening-resources li{margin:10px 0}.toc-opening-resources nav{display:flex;flex-wrap:wrap;gap:12px 24px}
+.toc-opening-resources a:focus-visible,.toc-capsule-slots a:focus-visible{outline:3px solid #b56f16;outline-offset:4px}

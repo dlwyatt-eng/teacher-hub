@@ -35,10 +35,17 @@ export function infographicResources(lessonId: string): TeachingResource[] {
   return [...entries, ...extraInfographics(lessonId)];
 }
 
+const openingPaperPages: Record<string, { page: number; title: string }> = {
+  "ordinary-object-story": { page: 1, title: "Object story response sheet" },
+  "semiahmoo-story-source-lab": { page: 2, title: "Listening and source card" },
+  "place-soundwalk": { page: 3, title: "Soundwalk response sheet" },
+};
+
 export function OptionalTeachingResources({ lessonId, teacher = false, extras = [] }: { lessonId: string; teacher?: boolean; extras?: TeachingResource[] }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const [selected, setSelected] = useState<TeachingResource | null>(null);
-  const resources: TeachingResource[] = [...earthResources(lessonId, teacher), ...infographicResources(lessonId), ...(explorationsForLesson(lessonId).length ? [{ id: "visits", title: "Videos & virtual visits", content: <LessonExplorations lessonId={lessonId} audience={teacher ? "teacher" : "student"} initiallyOpen /> }] : []), ...(teacher && readyMadeForLesson(lessonId).length ? [{ id: "ready-made", title: "Ready-made class activities", content: <ReadyMadeActivities lessonId={lessonId} /> }] : []), ...extras];
+  const paper = openingPaperPages[lessonId];
+  const resources: TeachingResource[] = [...(paper ? [{ id: "opening-paper", title: paper.title, content: <div><p>Use page {paper.page} of the four-page opening response pack. Print just that page, or use the same prompts in a notebook.</p><a href={`/printables/opening-response-sheets.pdf#page=${paper.page}`} target="_blank" rel="noreferrer">Open response sheet (PDF) ↗</a></div> }] : []),...earthResources(lessonId, teacher), ...infographicResources(lessonId), ...(explorationsForLesson(lessonId).length ? [{ id: "visits", title: "Videos & virtual visits", content: <LessonExplorations lessonId={lessonId} audience={teacher ? "teacher" : "student"} initiallyOpen /> }] : []), ...(teacher && readyMadeForLesson(lessonId).length ? [{ id: "ready-made", title: "Ready-made class activities", content: <ReadyMadeActivities lessonId={lessonId} /> }] : []), ...extras];
   if (!resources.length) return null;
   return <section className="optional-teaching-resources" aria-label="Optional teaching resources">
     <details><summary>Optional teaching resources · {resources.length} choices</summary>

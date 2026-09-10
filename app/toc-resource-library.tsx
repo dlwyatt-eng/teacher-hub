@@ -36,18 +36,9 @@ const emergencyPreflight = [
 ] as const;
 
 const capsuleSlots = [
-  {
-    label: "Student booklet",
-    detail: "A finished, device-free mixed-subject mystery that a substitute can distribute and students can follow.",
-  },
-  {
-    label: "Teacher directions",
-    detail: "Timing, materials, read-aloud cues, support routes, collection steps, and a no-tech fallback.",
-  },
-  {
-    label: "Teacher-only answer key",
-    detail: "Answers, likely misconceptions, flexible response notes, and privacy-safe assessment guidance.",
-  },
+  { label: "Student booklet", detail: "12 black-and-white pages with a connected mystery, response spaces and early-finisher choices.", href: "/printables/Booklet_1_Missing_Time_Capsule_Student.pdf", action: "Open student booklet (PDF)" },
+  { label: "Teacher directions", detail: "Three pages: a complete 90-minute route, a longer sequence, materials, support and collection directions.", href: "/printables/Booklet_1_Missing_Time_Capsule_TOC_Guide.pdf", action: "Open TOC guide (PDF)" },
+  { label: "Teacher-only answer key", detail: "The matching two-page key is supplied separately to Daryl. Place it with the printed staff handoff or in approved private staff storage before leaving this lesson.", href: null, action: "Private staff copy required" },
 ] as const;
 
 export default function TocResourceLibrary({ onHome, onOpenTtocPlan }: TocResourceLibraryProps) {
@@ -111,39 +102,56 @@ export default function TocResourceLibrary({ onHome, onOpenTtocPlan }: TocResour
       <section className="toc-capsule-home" aria-labelledby="capsule-home-title">
         <header>
           <div>
-            <p>RESERVED RESOURCE DESTINATION</p>
+            <p>READY TO PRINT · NO STUDENT DEVICES</p>
             <h2 id="capsule-home-title">The Mystery of the Missing Time Capsule</h2>
-            <span>This is the future TOC mystery route. Its home is ready; its files are not being presented as finished.</span>
+            <span>Read witness statements, solve a maths route, examine clues and explain what happened. Use 90 minutes for the short route or about 3–4 hours for the full sequence.</span>
           </div>
-          <strong>RESERVED · NOT YET PUBLISHED</strong>
+          <strong>BOOKLET 1 · CHECKED SEPTEMBER 2026</strong>
         </header>
 
         <aside className="toc-discovery-distinction">
           <b>Keep the two booklets distinct.</b>
           <p><strong>Grade 6 Discovery Booklet</strong> is the verified five-page opening-rotation resource already used for belonging, learning conditions, community design, and private handoff.</p>
-          <p><strong>Missing Time Capsule</strong> is a separate future device-free, mixed-subject TOC mystery with its own student booklet, directions, and protected answer key.</p>
+          <p><strong>Missing Time Capsule</strong> is a separate device-free mystery. Print one student booklet per child and one guide for the TTOC; leave the private answer key separately.</p>
         </aside>
 
         <div className="toc-capsule-slots">
           {capsuleSlots.map((slot, index) => (
             <article key={slot.label}>
               <span>{String(index + 1).padStart(2, "0")}</span>
-              <small>FUTURE SLOT</small>
+              <small>{slot.href ? "PDF READY" : "STAFF COPY ONLY"}</small>
               <h3>{slot.label}</h3>
               <p>{slot.detail}</p>
-              <strong>Nothing to download yet</strong>
+              {slot.href ? <a href={slot.href} target="_blank" rel="noreferrer">{slot.action} ↗</a> : <strong>{slot.action}</strong>}
             </article>
           ))}
         </div>
 
         <footer>
-          <div><small>RELEASE GATE</small><strong>Do not activate a file until all three pieces are finished, checked, and clearly separated by audience.</strong></div>
+          <div><small>QUICK START</small><strong>Short route: pages 2–6, 10 and 11. Always finish with the evidence-based explanation on page 11.</strong></div>
           <ul>
-            <li>Student pages contain no answers or teacher-only notes.</li>
-            <li>Directions identify timing, materials, support, fallback, and collection.</li>
+            <li>Print 12 pages per student, or seven selected pages for the short route. Supply pencils, erasers, rulers and colouring tools.</li>
+            <li>Read aloud as needed. Accept labelled drawings or spoken explanations. The science activity is a paper planning task; no experiment is required.</li>
             <li>The answer key stays in an access-controlled staff system and is never published to GitHub Pages.</li>
           </ul>
         </footer>
+      </section>
+
+      <section className="toc-opening-resources" aria-labelledby="opening-resources-title">
+        <p>OPENING LESSONS · PRINT ONLY WHAT YOU NEED</p>
+        <h2 id="opening-resources-title">A small paper toolkit for the first teaching blocks</h2>
+        <p>The sequence follows the existing lessons. Place its ten blocks around your confirmed school timetable; it is not a complete fortnight schedule.</p>
+        <ul>
+          <li><a href="/printables/opening-blocks-teacher-guide.pdf" target="_blank" rel="noreferrer">Opening blocks and preparation guide · 2 pages ↗</a></li>
+          <li><a href="/printables/opening-response-sheets.pdf" target="_blank" rel="noreferrer">Response sheets · 4 pages ↗</a> — object story, attributed listening, soundwalk and evidence/maths thinking.</li>
+          <li><a href="/printables/magnitude-number-lines-and-periods.pdf" target="_blank" rel="noreferrer">Existing maths number lines and period chart · 2 pages ↗</a></li>
+        </ul>
+        <nav aria-label="Opening lesson plans">
+          <a href="?subject=English+Language+Arts&amp;experience=ordinary-object-story&amp;mode=teacher">Object story lesson</a>
+          <a href="?subject=English+Language+Arts&amp;experience=semiahmoo-story-source-lab&amp;mode=teacher">Listen first lesson</a>
+          <a href="?subject=English+Language+Arts&amp;experience=place-soundwalk&amp;mode=teacher">Soundwalk lesson</a>
+          <a href="?subject=Mathematics&amp;experience=magnitude-gallery&amp;mode=teacher">Opening maths lesson</a>
+        </nav>
       </section>
 
       <section className="toc-library-finish">
