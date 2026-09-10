@@ -62,16 +62,23 @@ test("the first Math lesson teaches the idea before the lab and starts on the wi
   assert.doesNotMatch(lab, /type="range"/);
 });
 
-test("projector layout reserves separate rows for route, content, and controls", async () => {
+test("projector lessons grow with enlarged content and keep navigation reachable", async () => {
   const [css, subjectHub] = await Promise.all([
     read("app/learning-program.css"),
     read("app/subject-hub.tsx"),
   ]);
   assert.match(subjectHub, /student-curriculum student-curriculum--program/);
-  assert.match(css, /\.projector-shell \.student-curriculum--program\{height:calc\(100svh - 78px\);height:calc\(100dvh - 78px\)/);
-  assert.match(css, /\.projector-shell \.student-curriculum--program \.projector-lesson-player\{height:100%\}/);
-  assert.match(css, /grid-template-rows:auto minmax\(0,1fr\) auto/);
-  assert.match(css, /projector-shell \.projector-lesson-player__stage\{min-height:0;overflow-y:auto/);
+  const rule = selector => [...css.replace(/\/\*[\s\S]*?\*\//g, "").matchAll(/([^{}]+)\{([^{}]+)\}/g)]
+    .filter(match => match[1].trim() === selector).map(match => match[2]);
+  for (const selector of [".projector-shell .student-curriculum--program", ".projector-shell .student-curriculum--program .projector-lesson-player"]) {
+    assert.ok(rule(selector).length);
+    for (const declarations of rule(selector)) {
+      if (/(?:^|;)height:/.test(declarations)) assert.match(declarations, /(?:^|;)height:auto(?:;|$)/);
+      assert.doesNotMatch(declarations, /overflow:hidden/);
+    }
+  }
+  assert.match(rule(".projector-shell .projector-lesson-player__stage").at(-1), /overflow:visible/);
+  assert.match(rule(".projector-shell .projector-lesson-player__controls").at(-1), /position:sticky;bottom:0/);
   assert.match(css, /projector-clarity-strip article:not\(\[data-current="true"\]\)\{display:none\}/);
   assert.match(css, /prefers-reduced-motion:reduce/);
 });
