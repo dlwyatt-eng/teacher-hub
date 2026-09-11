@@ -552,20 +552,24 @@ function SocialLessons({ selected, onLesson, scene, onScene }: { selected: Socia
   } satisfies DailyLaunch;
   return (
     <div className="social-program social-lessons-page world-surface" data-world={theme.id} style={worldStyle(theme)}>
+      <details className="lesson-catalogue"><summary>Browse units &amp; revisit the inquiry questions</summary>
       <WorldContextBand theme={theme} teacher />
       <SocialUnitSwitcher currentUnitId={selected.unitId} onLesson={onLesson} />
       <PowerInquiryThread unitId={selected.unitId} compact />
       {selected.unitId === "power-rights-government" && <CivicEvidencePathway currentLessonId={selected.id} onLesson={onLesson} />}
+      </details>
       <details className="social-lesson-picker-drawer">
         <summary><span><small>CURRENT LESSON</small><strong>{socialLessons.findIndex((item) => item.id === selected.id) + 1}. {selected.title}</strong></span><b>Change lesson ▾</b></summary>
         <div className="social-lesson-picker">{socialLessons.map((lesson, index) => <button key={lesson.id} className={lesson.id === selected.id ? "selected" : ""} onClick={() => choose(lesson.id)}><span>{String(index + 1).padStart(2, "0")}</span><div><small>{lesson.kind} · {lesson.duration}</small><strong>{lesson.title}</strong><p>{lesson.question}</p></div><b>{lesson.evidenceLevel}</b></button>)}</div>
       </details>
       <article className="social-teacher-brief">
+        <details className="lesson-preparation-extras"><summary>Pin lesson, supplied materials &amp; source preparation</summary>
         <TeacherDailyLaunchButton launch={dailyLaunch} />
         <Suspense fallback={<p>Loading supplied materials…</p>}><SocialStarter lessonId={selected.id} teacher /></Suspense>
         <SurreyElectionBridge lessonId={selected.id} audience="teacher" />
         <IssueSourceSetDrawer lessonId={selected.id} audience="teacher" />
         <OptionalTeachingResources key={selected.id} lessonId={selected.id} teacher extras={selected.resources.length ? [{id: "sources", title: "Videos, readings & source links", content: <ul>{selected.resources.map(resource => <li key={resource.url}><a href={resource.url} target="_blank" rel="noreferrer">{resource.label} · {resource.source}</a></li>)}</ul>}] : []} />
+        </details>
       <TeacherRunSheet
           title={selected.title}
           duration={selected.duration}

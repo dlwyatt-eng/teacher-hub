@@ -297,7 +297,7 @@ test("Arts public status reflects the rebuilt pathway instead of the retired fir
     read("app/subject-hub.tsx"),
   ]);
   assert.match(catalog, /name: "Arts Education"[\s\S]*?status: "4 arcs · 6 complete studio pathways"[\s\S]*?updated: "Updated Sept\. 1"/);
-  assert.match(subjectHub, /subject\.name === "Arts Education" \? "STUDIO-READY · 6 sequenced pathways"/);
+  assert.doesNotMatch(subjectHub, /subject-hero-badges/, "Teaching entry should not substitute readiness badges for a lesson preview.");
 });
 
 test("the year registry seeds all 25 Arts sessions once, in-window, on Tuesday", async () => {

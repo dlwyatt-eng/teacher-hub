@@ -522,6 +522,7 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
   } satisfies DailyLaunch;
   return (
     <article className="program-experience-detail">
+      <details className="lesson-preparation-extras"><summary>Pin lesson, print materials &amp; optional resources</summary>
       <TeacherDailyLaunchButton launch={dailyLaunch} />
       {program.subject === "Mathematics" && <button type="button" className="math-resource-jump" onClick={event => { const shelf = event.currentTarget.closest(".program-experience-detail")?.querySelector<HTMLElement>(".math-lesson-resources"); shelf?.scrollIntoView({ block: "start" }); shelf?.focus({ preventScroll: true }); }}>Games &amp; worksheets ↓</button>}
       <OptionalTeachingResources key={experience.id} lessonId={experience.id} teacher extras={[
@@ -529,6 +530,7 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
         ...(kit ? [{ id: "printables", title: "Printables · teacher preparation", content: program.subject === "Arts Education" ? <ArtsStudioFolio experience={experience} kit={kit} /> : <KitCards kit={kit} experienceId={experience.id} /> }] : []),
         ...(program.subject === "Mathematics" ? [{ id: "math-resources", title: "Math games, videos & worksheets", content: <MathLessonResources experienceId={experience.id} /> }] : []),
       ]} />
+      </details>
       <TeacherRunSheet
         title={studentTitleFor(experience)}
         duration={experience.duration}
@@ -661,27 +663,23 @@ export function LearningProgramTab({ program, record, tab, selectedExperienceId,
 
   if (tab === "Lessons") return (
     <div className="learning-program program-lessons world-surface" data-world={selectedWorld.id} style={worldStyle(selectedWorld)}>
-      <section className="program-heading">
-        <div><p className="section-kicker">PLAN / TTOC WORKSPACE</p><h2>Choose a lesson, scan the whole plan, then teach from Teach View.</h2><p>Big idea, question, Core Competencies, materials, and every teaching move stay together. Curriculum tracing and extra preparation remain folded away.</p></div>
-        <span>{program.experiences.length} LESSONS</span>
-      </section>
       <LessonSwitcher program={program} selected={selected} onExperience={onExperience} />
       <div className="program-lesson-layout">
-        <nav aria-label={`${program.subject} signature experiences`}>
+        <details className="lesson-catalogue"><summary>Browse all {program.experiences.length} lessons by unit</summary><nav aria-label={`${program.subject} signature experiences`}>
           {program.arcs.map((arc) => (
             <section key={arc.id}>
               <p>{arc.number} · {arc.title}</p>
               {arc.experienceIds.map((id) => {
                 const experience = program.experiences.find((item) => item.id === id);
                 if (!experience) return null;
-                return <button key={id} className={selected.id === id ? "selected" : ""} onClick={() => onExperience(id)}><span>{experience.kind}</span><strong>{experience.title}</strong><small>{experience.duration}</small></button>;
+                return <button key={id} className={selected.id === id ? "selected" : ""} onClick={() => onExperience(id)}><span>{experience.kind}</span><strong>{studentTitleFor(experience)}</strong><small>{experience.duration}</small></button>;
               })}
             </section>
           ))}
-        </nav>
+        </nav></details>
         <div>
-          <WorldContextBand theme={selectedWorld} teacher />
           <TeacherExperienceDetail experience={selected} arc={selectedArc} record={record} program={program} />
+          <details className="lesson-world-notes"><summary>About this unit’s theme</summary><WorldContextBand theme={selectedWorld} teacher /></details>
         </div>
       </div>
     </div>
@@ -920,28 +918,27 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
 
   return (
     <div className="student-program projector-lesson-player world-surface" data-world={theme.id} style={worldStyle(theme)}>
-      <LessonSwitcher program={program} selected={selected} onExperience={onExperience} />
+      <details className="projector-lesson-picker"><summary>Change lesson</summary><LessonSwitcher program={program} selected={selected} onExperience={onExperience} /></details>
       <header className="projector-lesson-player__bar">
         <div><small>{program.subject.toUpperCase()} · {selectedArc.title.toUpperCase()}</small><h1>{studentTitleFor(selected)}</h1><p>{studentContract.challenge}</p></div>
         <nav ref={partNavRef} aria-label="Lesson parts">{parts.map((part, index) => <button type="button" key={`${part.label}-${index}`} className={projectorPart === index ? "active" : ""} aria-current={projectorPart === index ? "step" : undefined} onClick={() => setProjectorPart(index)}><b>{index + 1}</b><span>{part.label}</span></button>)}</nav>
       </header>
 
       <main className="projector-lesson-player__stage" aria-live="polite">
-        <section className="projector-clarity-strip" aria-label="Learning goal, first action, and finish"><article data-learning-phase="learn" data-current={clarityPhase === "learn"}><small>WE ARE LEARNING</small><strong>{learningLine}</strong></article><article data-learning-phase="do" data-current={clarityPhase === "do"}><small>FIRST STEP</small><strong>{studentContract.firstAction}</strong></article><article data-learning-phase="done" data-current={clarityPhase === "done"}><small>WE WILL MAKE / SHOW</small><strong>{studentFinishSummary(selected.id, plainForStudents(selected.product))}</strong></article></section>
+
         <ProjectorLessonHelp key={`${selected.id}-help`} panels={[
-          {label: "Get ready", content: <><p><b>Time:</b> {selected.duration}</p><HelpList title="Materials to gather" items={kit?.gather.length ? kit.gather : selected.materials} /><HelpList title="Already supplied" items={kit?.provided} /><HelpList title="Set up" items={selected.teacherPrep} />{kit && <p><b>Short / paper route:</b> {kit.shortRoute}</p>}</>},
-          {label: "Explain & model", content: <><HelpList title="Explain the idea" items={readinessLaunch.background} /><h3>{readinessLaunch.example.title}</h3><ol>{readinessLaunch.example.steps.map((step, index) => <li key={index}>{step}</li>)}</ol><p>{readinessLaunch.example.conclusion}</p><h3>Words we use</h3>{projectorWords.map(word => <p key={word.term}><b>{word.term}:</b> {word.meaning}<br /><b>Example:</b> {word.example}</p>)}</>},
-          {label: "Ask & check", content: <><HelpList title="Look for in the work" items={selected.lookFors} />{readinessLaunch.questions.map((question, index) => <section key={index}><h3>{question.prompt}</h3><ul>{question.choices.map(choice => <li key={choice}>{choice}</li>)}</ul><RevealForDiscussion><p>{question.choices[question.answer]} — {question.feedback}</p></RevealForDiscussion></section>)}<p><b>If students need another try:</b> {readinessLaunch.reteach}</p><p>{studentContract.saveAction.message}</p>{program.subject === "Mathematics" && <RevealForDiscussion label="Open mathematics teaching notes / answers"><MathTeacherWorkshops experienceId={selected.id} placement={phasedCoordinateBridge ? "extension" : "before"} /></RevealForDiscussion>}{kit && <RevealForDiscussion label="Open supplied answer cards"><HelpList title="Check after trying" items={kit.cards.filter(card => /(?:answer|core answers|teacher key)/i.test(card.title)).map(card => `${card.title}: ${card.body}`)} /></RevealForDiscussion>}</>},
-          {label: "Sources & print", content: <>{kit && (program.subject === "Arts Education" ? <ArtsStudioFolio experience={selected} kit={{...kit, cards: kit.cards.filter(card => !/(?:answer|core answers|teacher key)/i.test(card.title))}} /> : <KitCards kit={kit} experienceId={selected.id} student />)}{selected.id === sourceMosaicExperienceId && <SourceMosaicStaticPack />}{program.subject === "Mathematics" && <MathLessonResources experienceId={selected.id} />}<MediaStrip items={media} student /><OptionalTeachingResources lessonId={selected.id} teacher extras={interactiveLab ? [{id: "model", title: "Interactive model", content: interactiveLab}] : []} /><details><summary>More teacher-selected subject sources</summary>{program.resources.map(resource => <p key={resource.url}><a href={resource.url} target="_blank" rel="noreferrer">{resource.label}</a> · {resource.source}<br />{resource.purpose}</p>)}</details></>}
-        ]} />
-        <ClassroomCompanion
+          {label: "Get ready", content: <><section className="projector-clarity-strip" aria-label="Learning goal, first action, and finish"><article data-learning-phase="learn" data-current={clarityPhase === "learn"}><small>WE ARE LEARNING</small><strong>{learningLine}</strong></article><article data-learning-phase="do" data-current={clarityPhase === "do"}><small>FIRST STEP</small><strong>{studentContract.firstAction}</strong></article><article data-learning-phase="done" data-current={clarityPhase === "done"}><small>WE WILL MAKE / SHOW</small><strong>{studentFinishSummary(selected.id, plainForStudents(selected.product))}</strong></article></section><ClassroomCompanion
           key={`${selected.id}-${projectorPart}`}
           role={companionRole}
           density="compact"
           motion="once"
           title={`${activePart.verb}: ${activePart.label}`}
           className="projector-lesson-player__companion"
-        />
+        /><p><b>Time:</b> {selected.duration}</p><HelpList title="Materials to gather" items={kit?.gather.length ? kit.gather : selected.materials} /><HelpList title="Already supplied" items={kit?.provided} /><HelpList title="Set up" items={selected.teacherPrep} />{kit && <p><b>Short / paper route:</b> {kit.shortRoute}</p>}</>},
+          {label: "Explain & model", content: <><HelpList title="Explain the idea" items={readinessLaunch.background} /><h3>{readinessLaunch.example.title}</h3><ol>{readinessLaunch.example.steps.map((step, index) => <li key={index}>{step}</li>)}</ol><p>{readinessLaunch.example.conclusion}</p><h3>Words we use</h3>{projectorWords.map(word => <p key={word.term}><b>{word.term}:</b> {word.meaning}<br /><b>Example:</b> {word.example}</p>)}</>},
+          {label: "Ask & check", content: <><HelpList title="Look for in the work" items={selected.lookFors} />{readinessLaunch.questions.map((question, index) => <section key={index}><h3>{question.prompt}</h3><ul>{question.choices.map(choice => <li key={choice}>{choice}</li>)}</ul><RevealForDiscussion><p>{question.choices[question.answer]} — {question.feedback}</p></RevealForDiscussion></section>)}<p><b>If students need another try:</b> {readinessLaunch.reteach}</p><p>{studentContract.saveAction.message}</p>{program.subject === "Mathematics" && <RevealForDiscussion label="Open mathematics teaching notes / answers"><MathTeacherWorkshops experienceId={selected.id} placement={phasedCoordinateBridge ? "extension" : "before"} /></RevealForDiscussion>}{kit && <RevealForDiscussion label="Open supplied answer cards"><HelpList title="Check after trying" items={kit.cards.filter(card => /(?:answer|core answers|teacher key)/i.test(card.title)).map(card => `${card.title}: ${card.body}`)} /></RevealForDiscussion>}</>},
+          {label: "Sources & print", content: <>{kit && (program.subject === "Arts Education" ? <ArtsStudioFolio experience={selected} kit={{...kit, cards: kit.cards.filter(card => !/(?:answer|core answers|teacher key)/i.test(card.title))}} /> : <KitCards kit={kit} experienceId={selected.id} student />)}{selected.id === sourceMosaicExperienceId && <SourceMosaicStaticPack />}{program.subject === "Mathematics" && <MathLessonResources experienceId={selected.id} />}<MediaStrip items={media} student /><OptionalTeachingResources lessonId={selected.id} teacher extras={interactiveLab ? [{id: "model", title: "Interactive model", content: interactiveLab}] : []} /><details><summary>More teacher-selected subject sources</summary>{program.resources.map(resource => <p key={resource.url}><a href={resource.url} target="_blank" rel="noreferrer">{resource.label}</a> · {resource.source}<br />{resource.purpose}</p>)}</details></>}
+        ]} />
         {activePart.content}
         <details className="student-program-picker student-unit-map-drawer" id="unit-map">
           <summary><span><small>UNIT MAP</small><strong>{selectedArc.title}</strong></span><b>Open ▾</b></summary>

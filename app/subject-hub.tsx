@@ -49,10 +49,10 @@ function readSubjectHubLocation(subjectName: string): SubjectHubLocation {
 export default function SubjectHub({ subject, mode, onBack, onOpenLesson, initialLocation: routedLocation, onLocationChange }: SubjectHubProps) {
   const program = learningPrograms[subject.name];
   const tabs = subject.name === "Science"
-    ? ["Overview", "Big Ideas", "Competencies", "Content", "Units", "Lessons", "Alignment", "Final Inquiry", "Pacing", "Resources"]
+    ? ["Lessons", "Units", "Resources", "Pacing", "Final Inquiry", "Overview", "Big Ideas", "Competencies", "Content", "Alignment"]
     : subject.name === "Social Studies"
-      ? ["Overview", "Big Ideas", "Competencies", "Content", "Units", "Lessons", "Alignment", "Assessments", "Pacing", "Resources"]
-      : ["Overview", "Big Ideas", "Competencies", "Content", "Units", "Lessons", "Alignment", "Assessments", "Resources"];
+      ? ["Lessons", "Units", "Resources", "Assessments", "Pacing", "Overview", "Big Ideas", "Competencies", "Content", "Alignment"]
+      : ["Lessons", "Units", "Resources", "Assessments", "Overview", "Big Ideas", "Competencies", "Content", "Alignment"];
   const [initialLocation] = useState<SubjectHubLocation>(() => {
     const savedLocation = readSubjectHubLocation(subject.name);
     if (!routedLocation?.socialLessonId) return { ...savedLocation, ...routedLocation };
@@ -66,7 +66,7 @@ export default function SubjectHub({ subject, mode, onBack, onOpenLesson, initia
   const initialSocialLesson = socialLessons.find((lesson) => lesson.id === initialLocation.socialLessonId) ?? socialLessons[0];
   const initialScienceUnit = scienceUnits.find((unit) => unit.id === initialLocation.scienceUnitId) ?? scienceUnits[0];
   const initialProgramExperience = program?.experiences.find((experience) => experience.id === initialLocation.programExperienceId) ?? program?.experiences[0];
-  const [tab, setTab] = useState(() => tabs.includes(initialLocation.tab ?? "") ? initialLocation.tab! : "Overview");
+  const [tab, setTab] = useState(() => tabs.includes(initialLocation.tab ?? "") ? initialLocation.tab! : "Lessons");
   const [socialLessonId, setSocialLessonId] = useState(initialSocialLesson.id);
   const [socialScene, setSocialScene] = useState(() => Number.isInteger(initialLocation.socialScene) ? Math.min(Math.max(initialLocation.socialScene as number, 0), initialSocialLesson.scenes.length - 1) : 0);
   const [scienceUnitId, setScienceUnitId] = useState(initialScienceUnit.id);
@@ -140,8 +140,8 @@ export default function SubjectHub({ subject, mode, onBack, onOpenLesson, initia
       <button className="back-link" onClick={onBack}>← Classroom home</button>
       <section className="subject-hero">
         <span className="subject-hero-icon">{subject.icon}</span>
-        <div><p className="eyebrow">GRADE 6 · OFFICIAL BC CURRICULUM</p><h1>{subject.name}</h1><p>{record.summary}</p></div>
-        <div className="subject-hero-badges"><span className="framework-badge curriculum-ready">{subject.name === "Science" ? "CLASSROOM-READY · 19 complete lesson pathways" : subject.name === "Arts Education" ? "STUDIO-READY · 6 sequenced pathways" : subject.name === "Social Studies" ? "FIRST-PASS · 4-unit experience pathway" : program ? "FIRST-PASS · Build, teach, adjust" : "✓ Curriculum imported"}</span>{subject.updated && <span className="recent-section-badge">● {subject.updated}</span>}</div>
+        <div><p className="eyebrow">GRADE 6 · OFFICIAL BC CURRICULUM</p><h1>{subject.name}</h1><p>Choose a lesson, check the preparation, then open the student screens.</p></div>
+
       </section>
       <div className="tab-bar" role="tablist" aria-label={`${subject.short} curriculum sections`}>
         {tabs.map((item, index) => <button id={`${tabIdBase}-tab-${index}`} role="tab" aria-controls={`${tabIdBase}-panel`} aria-selected={tab === item} tabIndex={tab === item ? 0 : -1} className={tab === item ? "selected" : ""} key={item} onClick={() => setTab(item)} onKeyDown={(event) => moveTabFocus(event, index)}>{item}</button>)}
@@ -260,7 +260,7 @@ function ScienceProgramTab({ tab, onOpenLesson, unitFilter, onUnitFilter }: { ta
 
   if (tab === "Lessons") return (
     <div className="science-program" id="science-lessons">
-      <div className="science-program-heading"><div><p className="section-kicker">CLASSROOM LESSONS · AUDITED AUG. 12</p><h2>{classroomReadyCount} teacher-ready drafts. {scienceLessons.length - classroomReadyCount} have named corrections.</h2><p>Every lesson was checked. A ready draft sustains real learning, includes a practical run sheet, uses worthwhile sources or materials, and has matching Teacher and Student scenes. Lessons that miss any gate stay open for teacher review but are labelled honestly.</p></div><span>{visibleLessons.length} LESSONS</span></div>
+      <div className="science-program-heading"><div><p className="section-kicker">SCIENCE LESSONS</p><h2>Choose a question to investigate.</h2><p>Open a lesson to check its materials, teaching steps and student screens.</p></div><span>{visibleLessons.length} LESSONS</span></div>
       <div className="experience-legend">{experienceCounts.map(item=><div key={item.type}><span className={`experience-dot ${item.type.toLowerCase().replaceAll(" ","-")}`}></span><strong>{item.count} {item.count === 1 ? item.type : experiencePlural[item.type]}</strong></div>)}</div>
       <div className="science-filter" role="group" aria-label="Filter Science lessons"><button className={unitFilter === "all" ? "selected" : ""} onClick={() => onUnitFilter("all")}>All {scienceLessons.length}</button>{scienceUnits.map(unit => <button key={unit.id} className={unitFilter === unit.id ? "selected" : ""} onClick={() => onUnitFilter(unit.id)}>{unit.title}</button>)}</div>
       <div className="science-lesson-list">{visibleLessons.map((item,index)=>{const isReady=item.auditStatus === "classroom-ready";return <button key={item.id} className={isReady?"is-ready":"needs-audit"} onClick={() => onOpenLesson(item.id)} style={{ "--unit": item.unitColor, "--unit-soft": item.unitSoft } as CSSProperties}><span className="lesson-order">{String(index+1).padStart(2,"0")}</span><span className="lesson-kind">{item.journeyType}</span><span className="lesson-list-copy"><strong>{item.title}</strong><i className="lesson-audit-status">{isReady?"✓ Teacher-ready draft":"Audit complete · corrections required"}</i>{item.evidenceLevel && <i className={`lesson-evidence-level level-${item.evidenceLevel.toLowerCase().replaceAll(" ","-")}`}>{item.evidenceLevel}</i>}<small>{item.question}</small><em>Helps with the final inquiry: {item.projectContribution}</em></span><span className="lesson-duration">{item.duration}</span><b>OPEN →</b></button>})}</div>
@@ -323,7 +323,7 @@ function StudentCurriculumView({ subject, onBack, onOpenLesson, socialLessonId, 
         <header className="student-space-header">
           <span className="student-space-icon" style={{ background: subject.soft, color: subject.color }}>{subject.icon}</span>
           <div><p>GRADE 6 · SOCIAL STUDIES</p><strong>Your inquiry studio</strong></div>
-          <span className="student-mode-badge">TEACH VIEW · CLEAN BY DEFAULT</span>
+          <span className="student-mode-badge">STUDENT SCREENS</span>
         </header>
         <SocialStudiesStudentLaunch lessonId={socialLessonId} onLesson={onSocialLesson} scene={socialScene} onScene={onSocialScene} />
       </div>
@@ -336,7 +336,7 @@ function StudentCurriculumView({ subject, onBack, onOpenLesson, socialLessonId, 
         <header className="student-space-header">
           <span className="student-space-icon" style={{ background: subject.soft, color: subject.color }}>{subject.icon}</span>
           <div><p>GRADE 6 · {subject.short.toUpperCase()}</p><strong>{program.studioName}</strong></div>
-          <span className="student-mode-badge">TEACH VIEW · CLEAN BY DEFAULT</span>
+          <span className="student-mode-badge">STUDENT SCREENS</span>
         </header>
         <StudentLearningProgram program={program} record={curriculum[subject.name]} selectedExperienceId={programExperienceId} key={programExperienceId} onExperience={onProgramExperience} />
       </div>
@@ -367,7 +367,7 @@ function StudentCurriculumView({ subject, onBack, onOpenLesson, socialLessonId, 
       <header className="student-space-header">
         <span className="student-space-icon" style={{ background: subject.soft, color: subject.color }}>{subject.icon}</span>
         <div><p>GRADE 6 · {subject.short.toUpperCase()}</p><strong>Your learning space</strong></div>
-        <span className="student-mode-badge">TEACH VIEW · CLEAN BY DEFAULT</span>
+        <span className="student-mode-badge">STUDENT SCREENS</span>
       </header>
 
       <StudentScienceProgram onOpenLesson={onOpenLesson} unitId={scienceUnitId} onUnit={onScienceUnit} />

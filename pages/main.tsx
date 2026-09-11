@@ -13,6 +13,7 @@ import "../app/site-search.css";
 import "../app/subject-alignment.css";
 import "../app/classroom-audit.css";
 import "../app/teacher-home-operations.css";
+import "../app/teaching-workspace.css";
 
 document.documentElement.style.setProperty("--font-geist-sans", "Inter, ui-sans-serif, system-ui, sans-serif");
 document.documentElement.style.setProperty("--font-geist-mono", "ui-monospace, SFMono-Regular, Menlo, monospace");

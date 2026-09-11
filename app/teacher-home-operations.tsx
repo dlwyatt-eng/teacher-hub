@@ -60,7 +60,7 @@ export default function TeacherHomeOperations({ timeline, onNavigate, onProjectM
   return (
     <section className="teacher-home-operations" aria-labelledby="teacher-home-title">
       <header>
-        <div><p>{displayDate(date).toUpperCase()}</p><h1 id="teacher-home-title">Good morning, Mr. Wyatt.</h1></div>
+        <div><p>{displayDate(date).toUpperCase()}</p><h1 id="teacher-home-title">Today in your classroom.</h1></div>
         <span className="teacher-home-local-state"><i aria-hidden="true" />Saved on this computer</span>
       </header>
 

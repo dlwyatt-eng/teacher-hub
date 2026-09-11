@@ -183,6 +183,7 @@ export function TeacherRunSheet(props: TeacherRunSheetProps) {
       <header className="teacher-run-sheet__header">
         <div><p>PLAN / TTOC</p><h2 id={headingId}>{title}</h2><strong>{duration} · {route.length} moves</strong></div>
         <div className="teacher-run-sheet__plan-actions">
+          {dayPlanLesson && <a className="open-student-screens" href={`?${new URLSearchParams(dayPlanLesson.subject === "Science" ? { lesson: dayPlanLesson.sourceId, mode: "student" } : dayPlanLesson.subject === "Social Studies" ? { subject: "Social Studies", socialLesson: dayPlanLesson.sourceId, mode: "student" } : { subject: dayPlanLesson.subject, experience: dayPlanLesson.sourceId, mode: "student" })}`}>Open student screens →</a>}
           {preparedDayPlanLesson && preparedWeekPlanLesson && <><AddToDayPlanButton lesson={preparedDayPlanLesson} /><AddToWeekButton lesson={preparedWeekPlanLesson} storageKey={weekStorageKey} label={weekStorageKey ? `Add to week · ${formedWeekDay}` : "Add to week"} /></>}
           <button type="button" onClick={event => { const panel = event.currentTarget.closest(".teacher-run-sheet")?.querySelector<HTMLElement>(".schoolai-support"); panel?.scrollIntoView({ block: "center", behavior: "smooth" }); panel?.querySelector<HTMLElement>("summary")?.focus({ preventScroll: true }); }}>Optional SchoolAI ↓</button>
           {readyMadeForLesson(dayPlanLesson?.sourceId).length > 0 && <button type="button" onClick={event => { const panel = event.currentTarget.closest(".teacher-run-sheet")?.querySelector<HTMLElement>(".ready-made-activities"); panel?.scrollIntoView({ block: "start" }); panel?.focus({ preventScroll: true }); }}>Ready-made activities ↓</button>}
@@ -195,6 +196,8 @@ export function TeacherRunSheet(props: TeacherRunSheetProps) {
         {provocation && <section><small>LAUNCH</small><p>{provocation}</p></section>}
         <section className="teacher-run-sheet__question"><small>ASK</small><p>{learningQuestion}</p></section>
       </div>
+
+      <section className="teacher-run-sheet__finished-work"><small>STUDENTS FINISH WITH</small><ul>{finishEvidence.map(item => <li key={item}>{item}</li>)}</ul></section>
 
       <div className="teacher-run-sheet__ready">
         <section><small>PREP</small>{prep.length ? <ul>{prep.map((item) => <li key={item}>{item}</li>)}</ul> : <p>No special preparation.</p>}</section>

@@ -25,6 +25,7 @@ import type { MorningTimelineItem } from "./morning-screen";
 import StudentAgencyDock from "./student-agency-dock";
 import { vancouverDateKey as morningDateKey } from "./morning-screen-state";
 import TeacherHomeOperations from "./teacher-home-operations";
+import "./teaching-workspace.css";
 import { OpeningWeekCockpit, OpeningWelcome } from "./opening-week";
 import { currentLearningWindow } from "./current-learning-phase";
 import { subjects, type Subject } from "./subject-catalog";
@@ -694,6 +695,7 @@ function ClassroomHome() {
   const navigateToPage = (page: string) => {
     const destination = mode === "projector" && !isProjectorSafePage(page) ? "Home" : page;
     commitClassroomLocation(mode, destination, null, null);
+    if (sidebarOpen) closeDrawerTo("main");
   };
 
   const openAiStudio = (activityId?: string) => {
@@ -803,7 +805,7 @@ function ClassroomHome() {
       <aside ref={sidebarRef} id="primary-sidebar" className={`sidebar ${sidebarOpen ? "open" : ""}`}>
         <div className="brand" aria-label="Mr. Wyatt's Teacher Hub">
           <span className="brand-mark"><span>W</span></span>
-          <span><strong>Mr. Wyatt&apos;s</strong><small>TEACHER HUB · TEACHER-FACING</small></span>
+          <span><strong>Mr. Wyatt&apos;s</strong><small>GRADE 6 · TEACHER HUB</small></span>
         </div>
 
         <nav aria-label="Main navigation">
@@ -814,7 +816,25 @@ function ClassroomHome() {
           <button className={`nav-item ${active === "Morning Screen" ? "active" : ""}`} onClick={() => { navigateToPage("Morning Screen"); if (sidebarOpen) closeDrawerTo("main"); }}>
             <span className="nav-icon">☀</span> Morning Screen
           </button>
-          <p className="nav-label second">STUDENT AGENCY</p>
+          <p className="nav-label second">SUBJECTS</p>
+          {subjects.map((subject) => (
+            <button key={subject.name} className={`nav-item ${active === subject.short ? "active" : ""}`} onClick={() => chooseSubject(subject)}>
+              <span className="nav-icon mini" style={{ background: subject.soft, color: subject.color }}>{subject.icon}</span>
+              {subject.short}
+            </button>
+          ))}
+
+          <p className="nav-label second">PLAN YOUR DAY</p>
+          {[
+            { label: "Weekly Plan", icon: "▤" },
+            { label: "TOC & Emergency Plans", icon: "☷" },
+          ].map(item => <button key={item.label} className={`nav-item ${active === item.label ? "active" : ""}`} onClick={() => navigateToPage(item.label)}><span className="nav-icon">{item.icon}</span>{item.label}</button>)}
+          <details className="nav-disclosure" open={["First Week Mission", "Monthly Calendar", "Calendar Provocations", "Year Plan", "Cross-Curricular Projects"].includes(active) || undefined}>
+            <summary>Planning &amp; calendars</summary>
+            {["First Week Mission", "Monthly Calendar", "Calendar Provocations", "Year Plan", "Cross-Curricular Projects"].map(label => <button key={label} className={`nav-item ${active === label ? "active" : ""}`} onClick={() => navigateToPage(label)}>{label}</button>)}
+          </details>
+          <details className="nav-disclosure" open={["Newsroom", "My Inquiry", "AI Tensions Lab"].includes(active) || undefined}>
+          <summary>Inquiry &amp; student voice</summary>
           <button className={`nav-item ${active === "Newsroom" ? "active" : ""}`} onClick={() => { navigateToPage("Newsroom"); if (sidebarOpen) closeDrawerTo("main"); }}>
             <span className="nav-icon">S</span> Source Lab &amp; Newsroom
           </button>
@@ -824,34 +844,11 @@ function ClassroomHome() {
           <button className={`nav-item ${active === "AI Tensions Lab" ? "active" : ""}`} onClick={() => { navigateToPage("AI Tensions Lab"); if (sidebarOpen) closeDrawerTo("main"); }}>
             <span className="nav-icon">↔</span> AI Tensions Lab
           </button>
-          <p className="nav-label second">SUBJECTS</p>
-          {subjects.map((subject) => (
-            <button key={subject.name} className={`nav-item ${active === subject.short ? "active" : ""}`} onClick={() => chooseSubject(subject)}>
-              <span className="nav-icon mini" style={{ background: subject.soft, color: subject.color }}>{subject.icon}</span>
-              {subject.short}
-            </button>
-          ))}
-
-          <p className="nav-label second">PLAN &amp; ASSESS</p>
-          {[
-            { label: "First Week Mission", icon: "✦" },
-            { label: "Weekly Plan", icon: "▤" },
-            { label: "Monthly Calendar", icon: "▦" },
-            { label: "Calendar Provocations", icon: "◇" },
-            { label: "TOC & Emergency Plans", icon: "☷" },
-            { label: "Teaching OS Map", icon: "⧉" },
-            { label: "Year Plan", icon: "▥" },
-            { label: "Cross-Curricular Projects", icon: "✣" },
-            { label: "SpacesEDU Evidence", icon: "▣" },
-            { label: "AI Activity Studio", icon: "AI" },
-            { label: "Visual Review Studio", icon: "◫" },
-            { label: "Assessment Studio", icon: "✓" },
-            { label: "Classroom Guide", icon: "⌑" },
-          ].map((item) => (
-            <button key={item.label} className={`nav-item ${active === item.label ? "active" : ""}`} onClick={() => { navigateToPage(item.label); if (sidebarOpen) closeDrawerTo("main"); }}>
-              <span className="nav-icon">{item.icon}</span> {item.label}
-            </button>
-          ))}
+          </details>
+          <details className="nav-disclosure" open={["SpacesEDU Evidence", "Assessment Studio", "AI Activity Studio", "Visual Review Studio", "Teaching OS Map", "Classroom Guide"].includes(active) || undefined}>
+            <summary>Assessment &amp; teacher tools</summary>
+            {["SpacesEDU Evidence", "Assessment Studio", "Classroom Guide", "AI Activity Studio", "Visual Review Studio", "Teaching OS Map"].map(label => <button key={label} className={`nav-item ${active === label ? "active" : ""}`} onClick={() => navigateToPage(label)}>{label}</button>)}
+          </details>
         </nav>
 
         <div className="sidebar-footer">
@@ -861,7 +858,7 @@ function ClassroomHome() {
           <a className="official-curriculum-link" href="https://curriculum.gov.bc.ca/curriculum" target="_blank" rel="noreferrer">
             <span>BC</span><span><strong>Official BC Curriculum</strong><small>Grade 6 learning standards ↗</small></span>
           </a>
-          <div className="phase-pill"><span></span> Whole site · quality audit</div>
+
           <div className="profile"><span>MW</span><span><strong>Mr. Wyatt</strong><small>Grade 6</small></span></div>
         </div>
       </aside>
@@ -974,9 +971,10 @@ function Dashboard({ onSubject, onNavigate, onOpenScienceLesson, onProjectMornin
 
   return (
     <div className="page dashboard">
-      <OpeningWeekCockpit onNavigate={onNavigate} />
-      <details className="opening-daily-tools"><summary>Daily screen, week plan and classroom tools</summary><TeacherHomeOperations timeline={morningTimeline} onNavigate={onNavigate} onProjectMorning={onProjectMorning} publicSiteHref={STUDENT_FAMILY_SITE_URL} /></details>
-      <TeacherDailyLaunchManager />
+      <header className="teaching-home-header">
+        <div><p className="section-kicker">BC GRADE 6 · PLAN, PROJECT, TEACH</p><h1>Your classroom, ready to begin.</h1><p>Choose a lesson below, or open the tools for today.</p></div>
+        <nav aria-label="Today's teaching tools"><button onClick={() => onNavigate("Morning Screen")}>Morning Screen</button><button onClick={() => onNavigate("Weekly Plan")}>Week plan</button><button onClick={() => onNavigate("TOC & Emergency Plans")}>TOC &amp; printables</button></nav>
+      </header>
 
       <section className="subjects-section">
         <div className="section-heading">
@@ -986,12 +984,21 @@ function Dashboard({ onSubject, onNavigate, onOpenScienceLesson, onProjectMornin
           {subjects.map((subject) => (
             <button className="subject-card" key={subject.name} onClick={() => onSubject(subject)} style={{ "--subject": subject.color, "--soft": subject.soft } as React.CSSProperties}>
               <span className="subject-icon">{subject.icon}</span>
-              <span className="subject-copy"><strong>{subject.short}</strong><small>{subject.status}</small>{subject.updated && <em className="subject-updated">{subject.updated}</em>}</span>
+              <span className="subject-copy"><strong>{subject.short}</strong><small>{subject.teachingFocus}</small><em className="subject-updated">Open lessons →</em></span>
               <span className="arrow">↗</span>
             </button>
           ))}
         </div>
       </section>
+
+      <details className="teaching-guide">
+        <summary>New here? Prepare a lesson in three steps</summary>
+        <ol><li><strong>Choose a subject and lesson.</strong> Check the time, materials and finished work. The sequence is a guide; adapt it to your class.</li><li><strong>Open student screens.</strong> Model and work through one part at a time. Lesson help keeps setup, examples, checks and print tools close by.</li><li><strong>Notice what students understand.</strong> Use the lesson check to decide what comes next. Save selected evidence in SpacesEDU when useful.</li></ol>
+        <p>A teacher computer and projector are the main setup. Use the lesson’s paper route when devices or Wi-Fi are unavailable.</p>
+      </details>
+      <details className="opening-daily-tools"><summary>Opening week &amp; rotations · welcome, Discovery booklet and first maths blocks</summary><OpeningWeekCockpit onNavigate={onNavigate} /></details>
+      <details className="opening-daily-tools"><summary>Today's screen, schedule &amp; pinned lesson</summary><TeacherHomeOperations timeline={morningTimeline} onNavigate={onNavigate} onProjectMorning={onProjectMorning} publicSiteHref={STUDENT_FAMILY_SITE_URL} /><TeacherDailyLaunchManager /></details>
+      <nav className="connected-hubs" aria-label="Connected classroom hubs"><a href={STUDENT_FAMILY_SITE_URL} target="_blank" rel="noreferrer">Student &amp; Family Hub ↗</a><a href="https://dlwyatt-eng.github.io/equity-hub/" target="_blank" rel="noreferrer">Equity Hub · K–7 lessons ↗</a></nav>
 
       <details className="os-development">
         <summary><span><small>CLASSROOM OS DEVELOPMENT</small><strong>Build audit and recent changes</strong></span><b>Open only when reviewing the system ↓</b></summary>

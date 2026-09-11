@@ -242,6 +242,6 @@ test("Science public status reflects the completed classroom-readiness audit", a
     read("app/subject-hub.tsx"),
   ]);
   assert.match(catalog, /name: "Science"[\s\S]*?status: "4 units · 19 classroom-ready lessons"[\s\S]*?updated: "Updated Sept\. 1"/);
-  assert.match(subjectHub, /subject\.name === "Science" \? "CLASSROOM-READY · 19 complete lesson pathways"/);
+  assert.doesNotMatch(subjectHub, /subject-hero-badges/, "Teaching entry should not substitute readiness badges for a lesson preview.");
   assert.doesNotMatch(subjectHub, /AUDIT · Units mapped; readiness varies/);
 });
