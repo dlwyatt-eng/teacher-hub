@@ -279,7 +279,7 @@ export const mathSupportPacks: MathSupportPack[] = [
     ],
     likelyMisconceptions: ["Comparing denominators without considering fraction size", "Adding the same number to both parts of a ratio", "Subtracting the percent number as dollars"],
     supportRoute: "Use equal-length fraction strips. Make one whole from four quarters, then add three quarters to show 7/4. For ratios, repeat one complete 2-blue-and-3-gold batch. For 25%, divide the whole into four equal parts.",
-    extensionRoute: "Find a missing whole or percentage and justify why more than one representation agrees.",
+    extensionRoute: "Compare two discount offers and explain why the greater percentage discount does not always give the lower final price.",
     spaces: "Keep practice local. The Sale Lab budget can be the selected end evidence.",
   },
   {

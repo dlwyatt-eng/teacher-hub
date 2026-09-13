@@ -1,5 +1,6 @@
 // Suggested dates, not confirmed report deadlines. Existing saved plans are never overwritten.
-export type MathPacingLesson = { id: string; unit: string; title: string; packId: string; experienceId: string; model: string; task: string; check: string; answer: string };
+import { skateboardMathSource, type MathStorySource } from "./math-learning-routines";
+export type MathPacingLesson = { id: string; unit: string; title: string; packId: string; experienceId: string; model: string; task: string; check: string; answer: string; source?: MathStorySource };
 export type MathPacingWeek = { weekOf: string; unit: string; lessonIds: string[]; note: string; kind: 'teach' | 'flex' };
 export type MathPacingUnit = { id: string; title: string; packId: string; experienceId: string; coverage: string[] };
 export const mathPacingUnits: MathPacingUnit[] = [
@@ -193,10 +194,10 @@ export const mathPacingLessons: Record<string, MathPacingLesson> = {
     "title": "Prime, composite and divisibility",
     "packId": "factors-multiples-pack",
     "experienceId": "pack-and-sync",
-    "model": "18 has factors 1, 2, 3, 6, 9 and 18, so it is composite. 17 has only 1 and 17, so it is prime. One is neither.",
-    "task": "Sort 1, 12, 19 and 25. Use arrays or division to justify each choice. Build a factor tree for 24 using products, without needing exponent notation.",
-    "check": "Is 21 prime or composite? List its factors.",
-    "answer": "Composite: 1, 3, 7 and 21."
+    "model": "A prime number has exactly two positive factors; a composite number has more. One is neither. To test divisibility: 2 needs an even last digit; 3 or 9 needs a digit sum divisible by 3 or 9; 5 needs a final 0 or 5; 10 needs a final 0. For 84, the digit sum is 12, so it is divisible by 3. A factor tree gives 84 = 2 × 42 = 2 × 2 × 21 = 2 × 2 × 3 × 7. All the end factors are prime.",
+    "task": "Sort 1, 17 and 24 as neither, prime or composite. Test 270 for divisibility by 2, 3, 5, 9 and 10. Build two factor trees for 60, starting with 6 × 10 and 3 × 20. Compare the prime factors and multiply back to check.",
+    "check": "Which of 2, 3, 5, 9 and 10 divide 126? Write 126 as a product of prime factors.",
+    "answer": "2, 3 and 9 divide 126. Its prime factor product is 2 × 3 × 3 × 7. Practice: 1 neither; 17 prime; 24 composite. All five listed divisors divide 270. Both trees for 60 give 2 × 2 × 3 × 5."
   },
   "f2": {
     "id": "f2",
@@ -226,10 +227,10 @@ export const mathPacingLessons: Record<string, MathPacingLesson> = {
     "title": "Brackets change what happens first",
     "packId": "factors-multiples-pack",
     "experienceId": "scoreboard-rules",
-    "model": "18 − 3 × 4 = 6 because multiplication happens first. (18 − 3) × 4 = 60 because brackets group the subtraction first.",
-    "task": "Compare 24 ÷ 3 + 5 with 24 ÷ (3 + 5). Make another pair where brackets change the answer. Use whole numbers and brackets; leave exponent work as an extension.",
-    "check": "Find 30 − 2 × (4 + 3).",
-    "answer": "16: brackets give 7, multiplication gives 14, then subtract."
+    "model": "(14 − 4) ÷ 4 = 10 ÷ 4 = 2.5, or 2 1/2. Brackets come first. Without the brackets, 14 − 4 ÷ 4 = 14 − 1 = 13, because division comes before subtraction. Whole-number inputs can give a fractional or decimal answer.",
+    "task": "Compare (15 − 6) ÷ 2 with 15 − 6 ÷ 2. Show each step. Explain why 9 ÷ 2 is 4.5, not just 4 with the remainder ignored. Make another bracket puzzle for a partner; leave exponents for an optional challenge.",
+    "check": "Find 18 ÷ (5 − 1) + 2. Give the result as a decimal or mixed number.",
+    "answer": "6.5 or 6 1/2: 5 − 1 = 4; 18 ÷ 4 = 4.5; add 2. Practice: 4.5 and 12."
   },
   "r1": {
     "id": "r1",
@@ -322,13 +323,13 @@ export const mathPacingLessons: Record<string, MathPacingLesson> = {
   "d5": {
     "id": "d5",
     "unit": "decimals",
-    "title": "Make a budget and defend a purchase",
+    "title": "Find the whole, find the percent, then budget",
     "packId": "decimal-operations-pack",
     "experienceId": "sale-lab",
-    "model": "Saving $6 each week for a $36 item takes six weeks. A cheaper item is not automatically a better choice; compare what each option provides.",
-    "task": "With a $50 budget, compare a $40 kit at 25% off plus a $12 refill with a $38 kit that needs no refill. Ignore tax. Explain which fits and what else you would want to know.",
-    "check": "A $45 item is 20% off. Can you buy it with $35 before tax? Explain.",
-    "answer": "The discount is $9 and the price is $36, so you need $1 more."
+    "model": "$18 is 30% of a savings target. Split 30% into three equal 10% parts: $18 ÷ 3 = $6. The full 100% is ten parts, so the target is $60. To find what percent $21 is of $60, use 10% = $6 and 5% = $3. Three $6 parts and one $3 part make $21: 30% + 5% = 35%.",
+    "task": "A class has saved $24, which is 40% of its target. Find the target and how many weeks it takes to save the full target at $6 per week, starting from zero. Then compare a $40 kit at 25% off plus a $12 refill with a $38 kit that needs no refill. Which choices fit a $50 budget? Ignore tax; explain what else you would want to know.",
+    "check": "$12 is 20% of a target. Find the whole target. Then find what percent $15 is of a $60 budget.",
+    "answer": "The whole target is $60; $15 is 25% of $60. Practice: target $60; ten weeks from zero at $6 each week. Kit choices cost $42 and $38, so both fit $50. The choice also depends on what each kit provides."
   },
   "a1": {
     "id": "a1",
@@ -619,7 +620,7 @@ export const mathPacingWeeks: MathPacingWeek[] = [
       "f1",
       "f2"
     ],
-    "note": "Use actual arrays and kits before naming the greatest common factor.",
+    "note": "Teach the divisibility tests and complete both prime-factor trees in f1 before the equal-kit application. Split sorting and factor trees across teaching and practice if needed.",
     "kind": "teach"
   },
   {
@@ -629,7 +630,7 @@ export const mathPacingWeeks: MathPacingWeek[] = [
       "f3",
       "f4"
     ],
-    "note": "Compare a factors problem with a multiples problem; keep exponent work optional.",
+    "note": "Compare factors and multiples, then use brackets with whole-number inputs whose division may give decimal or fractional answers. Keep exponent work optional.",
     "kind": "teach"
   },
   {
@@ -700,7 +701,7 @@ export const mathPacingWeeks: MathPacingWeek[] = [
       "d4",
       "d5"
     ],
-    "note": "Apply percent to discounts and choices. Continue one budget task rather than starting several projects.",
+    "note": "Teach discounts, missing-whole and missing-percent questions explicitly before continuing the one budget task. Use the remaining practice time for another inverse-percent example.",
     "kind": "teach"
   },
   {
@@ -789,7 +790,7 @@ export const mathPacingWeeks: MathPacingWeek[] = [
     "lessonIds": [
       "t1"
     ],
-    "note": "A lighter return week: estimate, draw and measure angles.",
+    "note": "Use the attributed Small Number story to connect family knowledge and geometry, then estimate, draw and measure angles. Continue the same activity in practice if needed.",
     "kind": "teach"
   },
   {
@@ -896,6 +897,10 @@ export const mathPacingWeeks: MathPacingWeek[] = [
     "kind": "flex"
   }
 ];
+
+// Story-led angle learning, then a return to that source in the rotation lesson.
+mathPacingLessons.t1.source = skateboardMathSource;
+mathPacingLessons.c3.source = { ...skateboardMathSource, prompt: 'Return to the story. Connect a full turn with 360° and a quarter-turn with 90°. Explain how family knowledge and questions helped the learner, then use your own grid drawing to test a rotation.' };
 
 export const mathPacingWeekFor = (date: string) => mathPacingWeeks.find(w => w.weekOf === date);
 export const mathPacingTotals = { lessons: Object.keys(mathPacingLessons).length, teachingWeeks: mathPacingWeeks.filter(w => w.kind === 'teach').length, flexWeeks: mathPacingWeeks.filter(w => w.kind === 'flex').length };

@@ -4,17 +4,18 @@ import { mathPacingLessons, mathPacingTotals, mathPacingUnits, mathPacingWeeks, 
 import { mathSupportPacks } from './math-program-supports';
 import { MathAnticsYearPlan } from './math-antics-year';
 import { games } from './math-games';
+import { mathFactRoutineFor, mathFluencyTeachingNote } from './math-learning-routines';
 import { printClosest } from './print-support';
 import { vancouverDateKey } from './morning-screen-state';
 
 export function MathPacedLesson({ lesson, student = false }: { lesson: MathPacingLesson; student?: boolean }) {
   const [step, setStep] = useState(0);
-  const stages = [{ title: 'See an example', text: lesson.model }, { title: 'Try and explain', text: lesson.task }, { title: 'Try on your own', text: lesson.check }];
+  const stages = [...(lesson.source ? [{title:'Read, notice and discuss',text:lesson.source.prompt}] : []), { title: 'See an example', text: lesson.model }, { title: 'Try and explain', text: lesson.task }, { title: 'Try on your own', text: lesson.check }];
   return <section className={`math-paced-lesson ${student ? 'math-paced-lesson--student' : ''}`}>
     <header><h3>{lesson.title}</h3><p>Use paper, a pencil and a drawing when it helps. Keep your working.</p><button type="button" onClick={e => printClosest(e.currentTarget, '.math-paced-lesson')}>Print student task</button></header>
     {student && <nav aria-label="Focused math lesson stages">{stages.map((s,i)=><button type="button" key={s.title} aria-pressed={step===i} onClick={()=>setStep(i)}>{i+1}. {s.title}</button>)}</nav>}
-    {stages.map((s,i)=><article key={s.title} data-current={!student || step===i}><h4>{s.title}</h4><p>{s.text}</p></article>)}
-    {!student && <details className="math-pacing-teacher-only"><summary>Teacher check and teaching moves</summary><p><strong>Check:</strong> {lesson.answer}</p><p>Model aloud, pause for a prediction, and compare two methods during the partner task. Check each learner's independent response before choosing the next lesson. Use a smaller-number example or the linked concept workshop if the model is not yet clear.</p></details>}
+    {stages.map((s,i)=><article key={s.title} data-current={!student || step===i}><h4>{s.title}</h4>{lesson.source && i===0 && <><p><a href={lesson.source.url} target="_blank" rel="noreferrer">{lesson.source.title} ↗</a></p><p className="math-story-credit">{lesson.source.credit}</p><p>{lesson.source.summary}</p></>}<p>{s.text}</p></article>)}
+    {!student && <details className="math-pacing-teacher-only"><summary>Teacher check and teaching moves</summary><p><strong>Check:</strong> {lesson.answer}</p>{lesson.source && <p><strong>Source preparation:</strong> {lesson.source.teacherNote}</p>}<p>Model aloud, pause for a prediction, and compare two methods during the partner task. Check each learner's independent response before choosing the next lesson. Use a smaller-number example or the linked concept workshop if the model is not yet clear.</p></details>}
   </section>;
 }
 function ProjectedMathLesson({lesson,onClose}:{lesson:MathPacingLesson;onClose:()=>void}) {
@@ -29,6 +30,7 @@ export function MathPacingPanel({ weekOf }: { weekOf?: string }) {
   const [lighter,setLighter]=useState(false);
   const week=mathPacingWeeks.find(w=>w.weekOf===(weekOf ?? selected));
   if(!week)return null;
+  const factRoutine=mathFactRoutineFor(week.weekOf);
   const unit=mathPacingUnits.find(u=>u.id===week.unit)!;
   const lessons=week.lessonIds.map(id=>mathPacingLessons[id]);
   const gameChoices=games.filter(g=>g.units.some(id=>[unit.packId,unit.experienceId].includes(id))).slice(0,2);
@@ -42,13 +44,14 @@ export function MathPacingPanel({ weekOf }: { weekOf?: string }) {
     {lighter && <p role="status"><strong>Lighter option:</strong> teach only the first lesson if students are ready, or do no new teaching and use the familiar practice below. Carry unfinished core learning forward in your weekly planner. This preview does not change a saved timetable.</p>}
     </div>
     <div className="math-pacing-lessons">{(lighter?lessons.slice(0,1):lessons).map(lesson=><article key={lesson.id}><div className="math-pacing-actions"><button type="button" onClick={()=>setProjected(lesson.id)}>Project: {lesson.title}</button><a href={`?subject=Mathematics&experience=${lesson.experienceId}`}>Full workshop, worksheets &amp; games ↗</a></div><MathPacedLesson lesson={lesson} /><MathAnticsYearPlan lessonIds={[lesson.packId,lesson.experienceId]} /></article>)}</div>
-    <section className="math-pacing-practice"><h3>{week.kind==='flex'?'Familiar choices for a lighter week':'Use the remaining math time'}</h3><p>Use one or two of these as time allows. Practise a taught idea; continue an existing project; meet a small group; or check a misconception. Three short fluency openers are an option for a typical week, not an extra workload to catch up.</p>
+    <section className="math-pacing-practice"><h3>{week.kind==='flex'?'Familiar choices for a lighter week':'Use the remaining math time'}</h3><p>Use one or two of these as time allows. Practise a taught idea; continue an existing project; meet a small group; or check a misconception. Keep a brief fact-strategy opportunity in the week, adapting its length to available time.</p>
+      <details><summary>3–5 minute fact routine · {factRoutine.title}</summary><p>{mathFluencyTeachingNote}</p><button type="button" onClick={()=>setProjected("fluency")}>Show fact routine on projector</button><MathPacedLesson lesson={factRoutine} /></details>
       {pack && <details><summary>Paper partner challenge · no devices needed</summary><p>Use this only after teaching the idea. Solve together, explain your method, then change a number or condition for your partner.</p><p>{pack.partnerCards[0]?.body}</p><a href={`?subject=Mathematics&experience=${unit.experienceId}`}>Open the workshop for models and checks ↗</a></details>}
       {gameChoices.map(g=><article key={g.id}><h4><a href={g.url} target="_blank" rel="noreferrer">{g.title} ↗</a></h4><p>{g.start}</p><p><strong>Paper option:</strong> {g.fallback}</p><p><strong>One thing to explain:</strong> {g.check}</p></article>)}
       <p><strong>SpacesEDU:</strong> occasionally choose an existing piece that shows a changed strategy. Add “I used to… Now I… My example shows…” as a short caption or voice note. No weekly posting requirement and no separate task just to make a post.</p>
       <p><strong>For report-writing weeks:</strong> introduce the chosen activity before independent work, keep familiar directions visible and use brief check-ins. Use existing work for evidence; do not launch a new assessment package.</p>
     </section>
     <details><summary>What stays, what gets more time, and what is optional</summary><p>Keep all 15 investigations as available applications. The 41 focused lessons unpack their underlying concepts; they are not 41 extra projects. Give number representations, fraction comparisons, decimal reasoning, patterns and area explanations more than one encounter.</p><p>Choose one substantial measurement/design project. Space Under Constraints can replace Zoo Design or contribute to a shared showcase. Four-quadrant coordinates, exponent challenges and advanced publisher topics remain optional. Do not drop a core topic to finish an optional project.</p><p>After each check, decide whether to continue, practise or reteach. If several weeks are lost, use the protected catch-up weeks and reduce optional project products. Check all required topics before the year ends.</p><a href="https://curriculum.gov.bc.ca/curriculum/mathematics/6/core" target="_blank" rel="noreferrer">BC Grade 6 mathematics expectations ↗</a></details>
-    {projected && <ProjectedMathLesson key={projected} lesson={mathPacingLessons[projected]} onClose={()=>setProjected(null)} />}
+    {projected && <ProjectedMathLesson key={projected} lesson={projected==="fluency"?factRoutine:mathPacingLessons[projected]} onClose={()=>setProjected(null)} />}
   </section>;
 }

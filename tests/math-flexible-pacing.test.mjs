@@ -53,3 +53,27 @@ test('adding the new weekly suggestions preserves an existing teacher-edited blo
  const merged=mergeWeekPlanSeed(plan,seed);
  assert.equal(merged.blocks[0].title,'Teacher-edited activity');assert.equal(merged.blocks.length,plan.blocks.length);
 });
+
+test('the source-based lessons keep attribution and discussion on student screens while excluding teacher preparation',()=>{
+ for(const id of ['t1','c3']){
+  const lesson=mathPacingLessons[id];
+  const html=render(MathPacedLesson,{lesson:{...lesson,source:{...lesson.source,teacherNote:'TEACHER_PREPARATION_SENTINEL'}},student:true});
+  assert.ok(html.includes(lesson.source.url));
+  assert.ok(html.includes(render('p',{children:lesson.source.summary})));
+  assert.ok(html.includes(render('p',{children:lesson.source.prompt})));
+  assert.match(html,/Jungic|Jungić/);assert.match(html,/MacLean/);
+  assert.doesNotMatch(html,/TEACHER_PREPARATION_SENTINEL/);
+ }
+});
+test('every weekly math seed retains its fact opportunity and complete notes after planner normalization',()=>{
+ for(const launch of yearWeekLaunches){
+  const plan=weeklyPlanFromSeed(launch.seed);
+  for(const source of launch.seed.lessons.filter(l=>l.subject==='Mathematics')){
+   const block=plan.blocks.find(b=>b.sourceId===source.sourceId);assert.ok(block);
+   assert.ok(block.runSteps.some(s=>s.includes('Brief fact strategy:')),source.sourceId);
+   assert.ok((source.notes?.length??0)<=1800,`${source.sourceId}: notes exceed planner limit`);
+   assert.match(block.notes,/Teacher check:|Fact check:/);
+   assert.ok(block.runSteps.some(s=>s.includes('Independent check:')||s.includes('No new upload')));
+  }
+ }
+});
