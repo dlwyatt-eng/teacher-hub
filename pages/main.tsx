@@ -1,3 +1,4 @@
+import "../app/math-pacing-panel.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Home from "../app/page";

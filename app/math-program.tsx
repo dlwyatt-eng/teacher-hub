@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { MathPacingPanel } from "./math-pacing-panel";
 import { MathGamesIntro, MathGamesFor, MathGameLaunches } from "./math-games";
 import { MathAnticsQuickLinks, MathAnticsYearIntro, MathAnticsYearPlan, MathEarlyFinisherBonuses } from "./math-antics-year";
 import { mathFluencyRhythm, mathPacksFor, mathSupportPacks, mathYearSequence, pairedMathUpTopics, type MathSupportPack } from "./math-program-supports";
@@ -260,8 +261,9 @@ export function MathYearImplementation({ program }: { program: LearningProgram }
   const nameFor = (id: string) => program.experiences.find(experience => experience.id === id)?.title ?? mathSupportPacks.find(pack => pack.id === id)?.shortTitle ?? id;
   return (
     <section className="math-year-implementation">
-      <header><div><p>TEACHING CALENDAR · FLEXIBLE 40–55 MINUTE BLOCKS</p><h2>Clear visual explanation. Shared investigation. Practice when it helps.</h2><span>Choose a Math Antics-supported, hybrid, or teacher-led Hub model, let the Classroom OS carry the class investigation, and open MathUP when a game, check, or extra practice would help.</span></div><a href="https://curriculum.gov.bc.ca/curriculum/mathematics/6/core" target="_blank" rel="noreferrer">B.C. Mathematics 6 ↗</a></header>
-      <section className="math-fluency-rhythm"><header><span>RECURRING FLUENCY · THREE SHORT OPENERS/WEEK</span><strong>Accurate · flexible · efficient · no public speed ranking</strong></header><div>{mathFluencyRhythm.map(item => <article key={item.day}><b>{item.day}</b><div><strong>{item.title}</strong><small>{item.minutes}</small><p>{item.detail}</p></div></article>)}</div></section>
+      <header><div><p>TEACHING CALENDAR · 1–2 NEW LESSONS IN A TYPICAL WEEK</p><h2>Clear visual explanation. Shared investigation. Practice when it helps.</h2><span>Choose a Math Antics-supported, hybrid, or teacher-led Hub model, let the Classroom OS carry the class investigation, and open MathUP when a game, check, or extra practice would help.</span></div><a href="https://curriculum.gov.bc.ca/curriculum/mathematics/6/core" target="_blank" rel="noreferrer">B.C. Mathematics 6 ↗</a></header>
+      <section className="math-fluency-rhythm"><header><span>OPTIONAL FLUENCY RHYTHM · ADAPT TO THE WEEK</span><strong>Accurate · flexible · efficient · no public speed ranking</strong></header><div>{mathFluencyRhythm.map(item => <article key={item.day}><b>{item.day}</b><div><strong>{item.title}</strong><small>{item.minutes}</small><p>{item.detail}</p></div></article>)}</div></section>
+      <MathPacingPanel />
       <MathAnticsYearIntro />
       <MathGamesIntro />
       <div className="math-calendar-list">{mathYearSequence.map((item, index) => <article key={`${item.timing}-${item.focus}`}><span>{String(index + 1).padStart(2, "0")}</span><header><small>{item.timing} · {item.blocks}</small><h3>{item.focus}</h3><div>{item.mathUpTopics.map(topic => <b key={topic}>{topic}</b>)}</div></header><section><p><strong>TEACH / APPLY:</strong> {item.lessonIds.map(nameFor).join(" → ")}</p><p><strong>FLUENCY:</strong> {item.fluency}</p><p><strong>FORMATIVE CHECK:</strong> {item.check}</p><small>{item.spaces}</small><MathAnticsYearPlan lessonIds={item.lessonIds} /><MathGamesFor lessonIds={item.lessonIds} /></section></article>)}</div>

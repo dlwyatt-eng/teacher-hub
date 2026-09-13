@@ -1,3 +1,5 @@
+import { mathPacingWeekFor } from "./math-week-pacing";
+import { mathWeekSeedLessons } from "./math-week-seeds";
 import { yearMonths } from "./classroom-program";
 import { coreLearningPrograms } from "./core-programs";
 import { integratedLearningPrograms } from "./integrated-programs";
@@ -295,9 +297,12 @@ function buildYearWeekLaunches(): YearWeekLaunch[] {
       const dateRange = weekRange(weekOf);
       const sequenceIndex = slotIndex + (month === "September" ? 1 : 0);
       const sequence = monthRecord.sequence[Math.min(sequenceIndex, monthRecord.sequence.length - 1)];
-      const anchorLessons = sourceIds.map((sourceId, index) => ({ ...lessonFromSourceId(sourceId), day: lessonDays[index] }));
+      const anchorLessons = sourceIds.map((sourceId, index) => ({ ...lessonFromSourceId(sourceId), day: lessonDays[index] })).filter(lesson => lesson.subject !== "Mathematics");
+      const mathWeek = mathPacingWeekFor(weekOf);
+      const mathLessons = mathWeek ? mathWeekSeedLessons(mathWeek) : [];
       const artsStudio = artsStudioSlots[month]?.[slotIndex] ?? null;
       const lessons = artsStudio ? [...anchorLessons, artsStudioLessonFromSession(artsStudio)] : anchorLessons;
+      lessons.push(...mathLessons);
       return {
         id: `school-week-${weekOf}`,
         month,
@@ -308,7 +313,7 @@ function buildYearWeekLaunches(): YearWeekLaunch[] {
         seed: {
           weekOf,
           title: `${monthRecord.phase} · ${dateRange}`,
-          weekNote: `${monthRecord.focus}. These are anchor launches, not the full timetable: also schedule 4–5 Mathematics blocks, three short fluency openers, daily reading or listening, PHE, Arts/ADST/Career rhythms, and current class routines. Open each listed lesson for exact sources, displays, materials, and look-fors; adjust bells and closures before printing. SpacesEDU: ${monthRecord.spaces}.`,
+          weekNote: `${monthRecord.focus}. These are starting activities, not the full timetable. Math has ${mathWeek?.lessonIds.length ?? 0} new focused lessons this week plus practice as time allows. ${mathWeek?.note ?? ""} Move unfinished core learning into a later flex week. Keep reading, PHE, Arts/ADST/Career and other class routines. Short fluency and SpacesEDU are optional, not extra daily assignments. Open each listed lesson for exact sources, displays, materials, and look-fors; adjust bells and closures before printing. SpacesEDU: ${monthRecord.spaces}.`,
           lessons,
         },
       } satisfies YearWeekLaunch;

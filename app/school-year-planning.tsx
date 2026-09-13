@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { MathPacingPanel } from "./math-pacing-panel";
 import { TtocDayPlan, type TtocWeekImportOption } from "./ttoc-day-plan";
 import {
   WeeklyPlan,
@@ -71,6 +72,7 @@ export function SchoolYearWeeklyPlan({ initialLaunchId, specialLaunches }: Plann
           if (options.some((option) => option.id === presetId)) setSelectedPreset(presetId);
         }}
       />
+      {selected.id.startsWith("school-week-") && <details className="math-full-plan"><summary>This week’s math · resources and lighter option</summary><p>Saved timetables keep your edits. If you add these suggestions to an older plan, replace its previous math investigation slots rather than scheduling both versions.</p><MathPacingPanel key={selected.id} weekOf={selected.seed.weekOf} /></details>}
       <WeeklyPlan
         heading={`${selected.label} · ${selected.dateRange}`}
         seed={selected.seed}

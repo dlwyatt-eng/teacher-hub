@@ -125,7 +125,7 @@ export const mathematicsProgram: LearningProgram = {
   studioName: "Make Sense, Test & Explain",
   title: "Mathematics 6 · Make sense, test, explain.",
   subtitle: "A year-long mix of explicit teaching, visual models, games, investigations, discussion, practice, and authentic design. Fluency means accurate, flexible, and efficient thinking—not public speed rankings.",
-  cadence: "4–5 BLOCKS/WEEK · 3 SHORT FLUENCY OPENERS",
+  cadence: "1–2 NEW LESSONS/WEEK · PRACTICE, PROJECTS & FLEX",
   northStar: "Math is not a race. Students notice patterns, choose useful strategies, test ideas, and explain why they work.",
   principles: [
     "Pair clear modelling and supported practice with games, investigations, movement, and design.",

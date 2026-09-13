@@ -1,3 +1,4 @@
+import { mathPacingUnits, mathUnitPacing } from "./math-week-pacing";
 import type { ReadinessLevel, ReadinessQuestion, WordHelp } from "./program-types";
 import { mathCoreDepthPacks } from "./math-core-depth-packs";
 
@@ -861,7 +862,12 @@ export const mathYearSequence: MathYearBlock[] = [
   { timing: "Late April–early May", focus: "Volume and capacity", blocks: "5–6 blocks", mathUpTopics: ["BC_Capacity and Volume"], lessonIds: ["volume-capacity-pack"], fluency: "Cubes per layer and sensible capacity benchmarks", check: "Explain one volume structure and distinguish volume from capacity.", spaces: "Feed one calculation into the final design" },
   { timing: "May · coordinate graphing", focus: "First-quadrant transformations, then a negative-coordinate extension", blocks: "5–6 blocks", mathUpTopics: ["Location and Movement", "WNCP_Representing and Comparing Integers"], lessonIds: ["first-quadrant-transformations-pack", "transformation-cipher", "integer-number-line-pack"], fluency: "Plot positive pairs first; then extend the same x-first, y-second rule across zero", check: "Assess one first-quadrant transformation combination; use negative coordinates only in the optional four-quadrant challenge.", spaces: "No separate post" },
   { timing: "Teacher-selected alternate · late May–June", focus: "Optional apply, audit, and revise studio", blocks: "5–7 blocks only when replacing another substantial design or becoming the Math layer of the expert showcase", mathUpTopics: [], lessonIds: ["space-under-constraints"], fluency: "Mixed retrieval chosen from current evidence", check: "Use accurate calculations to cause one design revision.", spaces: "Not a default June addition. Use pavilion evidence only when it replaces Zoo Design or serves as the shared showcase format." },
-];
+].map((item, index) => {
+  const unit = mathPacingUnits[index];
+  if (!unit) return { ...item, blocks: "Optional replacement project; no additional required lessons" };
+  const pacing = mathUnitPacing(unit.id);
+  return { ...item, timing: `${pacing.first} to ${pacing.last} · suggested teaching window`, blocks: `${pacing.lessons} focused lessons across ${pacing.weeks} teaching weeks + practice as needed` };
+});
 
 export const mathFluencyRhythm = [
   { day: "A", title: "Notice + estimate", minutes: "8–10 min", detail: "Number talk, benchmark, or reasonableness choice. Everyone thinks before anyone shares." },
