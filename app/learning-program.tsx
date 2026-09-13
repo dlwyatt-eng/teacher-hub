@@ -15,6 +15,7 @@ import { mathResourceRoutes, mathUpTopics, readinessFor } from "./readiness-supp
 import type { ExperienceKit, ExperienceMedia, LearningProgram, ProgramArc, ProgramExperience } from "./program-types";
 import { mathPacksFor, mathSupportPacks, mathWordsFor } from "./math-program-supports";
 import { MathStudentWorkshops, MathTeacherWorkshops, MathYearImplementation } from "./math-program";
+import { PheSeasonPlan } from "./phe-season-plan";
 import { MathPacingPanel } from "./math-pacing-panel";
 import { MathResourceWorkbench, MathCompanionSelector } from "./math-resource-workbench";
 import { ExperienceInfographic, LocalIndigenousResourceDock, LocalRestorationInfographic, ResponsibleDataInfographic } from "./infographic-library";
@@ -645,6 +646,7 @@ export function LearningProgramTab({ program, record, tab, selectedExperienceId,
       <section className="program-north-star"><span>WHY THIS PROGRAM EXISTS</span><blockquote>{program.northStar}</blockquote><div>{program.principles.map((principle, index) => <p key={principle}><b>{String(index + 1).padStart(2, "0")}</b>{principle}</p>)}</div></section>
       {program.subject === "English Language Arts" && <ElaWorkshopRhythm />}
       {program.subject === "Arts Education" && <ArtsStudioRhythm />}
+      {program.subject === "Physical & Health Education" && <PheSeasonPlan />}
       <WorldAtlasIntroduction />
       <MathUpMap program={program} />
       {program.subject === "Mathematics" && <MathYearImplementation program={program} />}
@@ -670,6 +672,7 @@ export function LearningProgramTab({ program, record, tab, selectedExperienceId,
   if (tab === "Lessons") return (
     <div className={`learning-program program-lessons world-surface ${program.subject === "Mathematics" ? "program-lessons--math" : ""}`} data-world={selectedWorld.id} style={worldStyle(selectedWorld)}>
       {program.subject === "Mathematics" && <details className="math-full-plan"><summary>Weekly math pacing · 1–2 new lessons, practice and lighter weeks</summary><MathPacingPanel /></details>}
+      {program.subject === "Physical & Health Education" && <details className="math-full-plan"><summary>PE seasons · skills, practice and the SESAA calendar</summary><PheSeasonPlan /></details>}
       <LessonSwitcher program={program} selected={selected} onExperience={onExperience} />
       <div className="program-lesson-layout">
         <details className="lesson-catalogue"><summary>Browse all {program.experiences.length} lessons by unit</summary><nav aria-label={`${program.subject} signature experiences`}>
