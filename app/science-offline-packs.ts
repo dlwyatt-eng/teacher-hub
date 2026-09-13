@@ -107,7 +107,7 @@ const packs = {
 
   "systems-jigsaw": {
     title: "Four systems, one body · offline expert pack",
-    directions: "Assign one expert brief per team. Experts complete all five fields, teach for three minutes, then mixed groups complete the comparison and source-integrity transfer.",
+    directions: "Your teacher assigns each team one body system. Use its notes to draw and label a diagram. Follow the six-step teaching checklist, then take turns teaching in mixed groups. Finally, compare a bear and human using the pages your teacher provides.",
     sections: [
       {
         heading: "1 · Nervous and hormonal expert briefs",
@@ -120,13 +120,25 @@ const packs = {
       {
         heading: "2 · Excretory and reproductive expert briefs",
         prompts: [
-          "EXCRETORY — Job: filter blood, regulate water and dissolved materials, and remove wastes. Route: blood → kidneys → urine → ureters → bladder → urethra. What moves: blood, returned water/materials, and urine. Connection: hormones influence water balance. Limit: this system-level route does not show nephron detail.",
+          "EXCRETORY — Job: filter blood, regulate water and dissolved materials, and remove wastes. Route: kidneys filter blood, which returns to circulation; urine travels from kidneys → ureters → bladder → urethra. What moves: blood, returned water/materials, and urine. Connection: hormones influence water balance. Limit: this diagram does not show the tiny filtering structures inside the kidneys.",
           "REPRODUCTIVE — Job: produce reproductive cells and hormones and, in some structures, support fertilization and development. Route: use only the district-approved diagram and terms supplied by the teacher. What moves or changes: cells, hormones, and developing tissues. Connection: hormonal messages coordinate puberty and reproductive function. Limit: anatomy models do not determine identity, family role, or one fixed development timeline.",
           "For the assigned brief, convert the facts into a route model with arrows, one prediction, one check question, and one connection to another system. Personal disclosure is never required.",
         ],
       },
       {
-        heading: "3 · Mixed-group note catcher",
+        heading: "3 · Prepare your three-minute lesson · six-step checklist",
+        prompts: [
+          "1. Ask classmates to predict what happens next. Example: where does a nerve message go after reaching the brain?",
+          "2. Draw and label the steps. Example: eyes → nerves → brain → nerves → hand muscles.",
+          "3. Move a small paper circle along the arrows. Explain what it represents, such as a nerve message.",
+          "4. Explain how two systems work together. Example: hormones help kidneys adjust how much water stays in blood.",
+          "5. Explain one thing your model cannot show. Example: a paper circle cannot show how fast a real nerve message travels.",
+          "6. Ask a question and prepare its answer. Example: what carries a message from the brain to hand muscles? Answer: nerves.",
+          "Practise with a three-minute timer. Can your partner use the diagram to explain what travels, where it goes, and what happens next?",
+        ],
+      },
+      {
+        heading: "4 · Mixed-group note catcher",
         prompts: [
           "For each system record: main job; three important structures; what information or matter moves; one cross-system connection; one limitation.",
           "Complete three chains using this frame: when ___ changes, the ___ system sends or moves ___, so the ___ system can ___.",
@@ -134,7 +146,7 @@ const packs = {
         ],
       },
       {
-        heading: "4 · FNESC/FNSA transfer integrity card",
+        heading: "5 · FNESC/FNSA transfer integrity card",
         prompts: [
           "Named source: FNESC/FNSA, Science First Peoples Teacher Resource Guide (Grades 5–9), ‘Bears and Body Systems’ materials. Use only the exact teacher-selected ‘Inside a Bear,’ ‘Inside a Human,’ and comparison material supplied with its attribution.",
           "Record one bear–human structure–function relationship supported by that selected material, then quote or paraphrase the exact evidence and name the page/card. State one thing the source does not establish.",

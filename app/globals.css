@@ -426,3 +426,11 @@ body{font-size:16px;line-height:1.5}
 
 /* Keep compact display controls inside their buttons on narrow screens. */
 @media(max-width:520px){.mode-switch button{font-size:0}.mode-switch button span{font-size:16px}}
+
+/* Body-system teaching checklist: keep each number separate from its explanation. */
+.expert-lesson-builder>div button{align-items:start;grid-template-columns:36px minmax(0,1fr);line-height:1.45}
+.expert-lesson-builder>div button>span{min-width:0;overflow-wrap:anywhere}
+.expert-lesson-builder>div button strong{display:block}
+.expert-lesson-builder>div button small{display:block;margin-top:7px;font-size:15px;font-weight:450;line-height:1.5}
+.expert-lesson-builder>div button:focus-visible{outline:3px solid #245b48;outline-offset:3px}
+.journey-student .expert-lesson-builder>div button small{font-size:18px}
