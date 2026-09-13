@@ -41,3 +41,11 @@ These checks do not establish classroom effectiveness. The new route still needs
 Local starting commit `b7f6c17c7d6dae9d66f1441e92a2e22c85be040c` and current GitHub main `ce05e20153a14564fb0c222fb0f4cbf96995d120` have identical source tree `fce482ecf46fd5608f9a154dc0a5d7a0a5f311e6`. GitHub main was rechecked before publication. The release is made from the verified local source tree, with GitHub main as the remote parent; no force update or older-tree reset is used. The publishing commit records the corresponding local source commit and tree.
 
 The existing GitHub Pages address is preserved: https://dlwyatt-eng.github.io/teacher-hub/.
+
+## Follow-up: public links and private archive
+
+At the user's request, direct publisher PDF and answer-key URLs were removed from the current application source. Public resource buttons now open the corresponding Math Antics lesson pages. The teacher worksheet panel also links to the existing private Google Drive ZIP, clearly labelled as an archive rather than an individual worksheet. Saved Resources retains its archive link. No Drive sharing permissions were changed and no publisher files were added to the site. The earlier direct-link catalogue remains in historical Git commits; this update does not rewrite history.
+
+Starting local commit `41167a44d4c35870e6616de831969aa855fd112b` and GitHub main `1e3338355c55149e07f9f5efce20de9e57b8fbdd` share tree `f3fc85b4ddc0b9f1a951eb512ff53f1ce91e7bd8`. Validation covers rendered lesson-link destinations, absence of publisher PDF URLs in the current app/build, TypeScript, the production build and artifact checks. This follow-up changes resource access, not lesson content.
+
+The Pages asset-history cache namespace was advanced to exclude older JavaScript bundles containing the removed direct-link catalogue from the new deployment.
