@@ -11,3 +11,9 @@ The source's badminton play-day line uses 2026 within the 2026–27 calendar. Th
 Validation: source dates compared against the SESAA document; TypeScript, 168 tests, production build and artifact checks pass. Browser inspection confirmed both Units and Lessons entry points; the practice disclosure opens its text and the desktop season cards are legible. Student/projector lesson content is unchanged. Mobile visual review, native print pagination and classroom use were not checked in this pass.
 
 Starting local HEAD `9c0d7e040a63cb87169dcc74f22316dc24f761cb` and GitHub main `5e167dc363f5f94b883fb2ccbff929bacd8ab590` share tree `ef907c1e59cc388c298be9aa40b7c61347632808`. The publication commit records the matching final local commit/tree; publication uses a forward update.
+
+## Captain-led time
+
+The follow-up reserves one existing PE block most weeks for captain-led practice. Two-block weeks have one teacher-led skill lesson and one captain-led block; a third block supports practice or another teaching focus. Captain preparation takes 5–10 minutes in the preceding PE block, with a teacher plan check. The guide supplies a flexible 40-minute run order, an original cooperative volleyball example, shared team roles and a short feedback/observation check that can also support Career leadership. Short and reporting weeks use a smaller familiar activity. This changes the teacher-facing guide, not saved timetables or existing student/projector lessons.
+
+The original local checkout was older than published main, so this follow-up uses a separate checkout of `27839665a454d4b4c2b20d1194b3afaa517b1552` (tree `d6806d82a4fbe6e1a9827d4b21841a635f7b7cb2`). The older checkout is preserved. TypeScript, production build and artifact checks pass. The actual server-rendered captain section was read for preparation, timing, example and check completeness; no new browser or print-layout review was performed for this text addition.

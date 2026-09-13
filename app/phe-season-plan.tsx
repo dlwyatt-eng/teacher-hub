@@ -59,10 +59,21 @@ export function PheSeasonPlan() {
     <header>
       <p className="section-kicker">PE THROUGH THE SCHOOL YEAR · 2026–27</p>
       <h2 id="phe-season-heading">Build skills for the season ahead</h2>
-      <p>Use one or two focused skill lessons, followed by practice and game play, across two or three active blocks in a typical week. Everyone learns the skills, whether or not they join a school team.</p>
+      <p>Plan two or three active blocks in a typical week, including one captain-led activity block most weeks. In a two-block week, teach one skill lesson and use the captain-led block to practise it. A third block can provide more practice, games or a second skill focus. Everyone learns the skills, whether or not they join a school team.</p>
       <p><a href={sesaaCalendarUrl} target="_blank" rel="noreferrer">Open the SESAA athletics calendar</a> · <a href="https://www.sesaa.org/" target="_blank" rel="noreferrer">Current schedules and coaching resources</a></p>
     </header>
     <p className="phe-season-note">The teaching windows below are classroom suggestions based on the SESAA calendar, checked September 13, 2026. Confirm Walnut Road’s fixtures, facilities and meet allocation with the school coaches. A league window includes breaks; it does not add lessons during school holidays.</p>
+    <section aria-labelledby="phe-captains-heading">
+      <h3 id="phe-captains-heading">Leave room for team captains</h3>
+      <p>Reserve one existing PE block most weeks for captains and their teams to plan and lead a familiar activity connected to the current sport or movement focus. Give them 5–10 minutes during the previous PE block to prepare and check their plan with the teacher.</p>
+      <details><summary>Captain planning and activity routine</summary>
+        <p><strong>Plan:</strong> name the skill, equipment, boundaries, rules, stop signal and a way everyone can join. Divide setup, demonstration, timing and welcoming roles within the team. The teacher checks the space, equipment and activity before play.</p>
+        <p><strong>Run a 40-minute block:</strong> allow 5 minutes for setup and a familiar warm-up, 5 for explanation and demonstration, 20 for active play with one short pause to adjust, 5 for equipment return and an easy cool-down, and 5 for feedback. Adjust these times to the available block.</p>
+        <p><strong>Example:</strong> during volleyball, captains lead short cooperative partner rallies with a light ball. Partners aim for three controlled passes; a catch or bounce is available while learning. After the first round, ask what helped the rally continue, change one feature and try again.</p>
+        <p><strong>Check:</strong> ask players to name one skill they practised and one instruction that helped. Captains identify one change for next time. Observe clear instructions, fair participation, safe decisions and useful adjustments; the same evidence can support Career leadership. Keep the plan and feedback in class without an extra SpacesEDU post.</p>
+      </details>
+      <p>In shorter or reporting weeks, captains can lead a shorter familiar game or warm-up. Reduce new teaching to fit the time available.</p>
+    </section>
     <div className="phe-season-grid">{pheSportSeasons.map(season => <article key={season.id}>
       <small>{season.teaching}</small><h3>{season.title}</h3>
       <p className="phe-season-dates">{season.calendar}</p>
