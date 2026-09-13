@@ -48,6 +48,7 @@ const NewsroomHub = lazy(() => import("./student-agency-hub").then((module) => (
 const MyInquiryHub = lazy(() => import("./student-agency-hub").then((module) => ({ default: module.MyInquiryHub })));
 const MonthlyCalendar = lazy(() => import("./monthly-calendar"));
 const CalendarProvocationsPage = lazy(() => import("./calendar-provocations-page"));
+const SavedResourceLibrary = lazy(() => import("./saved-resource-library"));
 const TocResourceLibrary = lazy(() => import("./toc-resource-library"));
 const VisualReviewStudio = lazy(() => import("./visual-review-studio"));
 const ProficiencyModelsLibrary = lazy(() => import("./proficiency-models-panel").then((module) => ({ default: module.ProficiencyModelsLibrary })));
@@ -339,7 +340,7 @@ const standaloneViews = new Set([
   "Home", "Opening Welcome", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Weekly Plan", "Monthly Calendar",
   "Calendar Provocations", "First Week Mission", "TOC & Emergency Plans", "TTOC Day Plan", "Cross-Curricular Projects",
   "Project Template", "Teaching OS Map", "Year Plan", "SpacesEDU Evidence", "AI Activity Studio", "Visual Review Studio",
-  "Assessment Studio", "Classroom Guide",
+  "Assessment Studio", "Classroom Guide", "Saved Resources",
 ]);
 
 function normalizeLegacyView(active?: string) {
@@ -828,6 +829,7 @@ function ClassroomHome() {
           {[
             { label: "Weekly Plan", icon: "▤" },
             { label: "TOC & Emergency Plans", icon: "☷" },
+            { label: "Saved Resources", icon: "▧" },
           ].map(item => <button key={item.label} className={`nav-item ${active === item.label ? "active" : ""}`} onClick={() => navigateToPage(item.label)}><span className="nav-icon">{item.icon}</span>{item.label}</button>)}
           <details className="nav-disclosure" open={["First Week Mission", "Monthly Calendar", "Calendar Provocations", "Year Plan", "Cross-Curricular Projects"].includes(active) || undefined}>
             <summary>Planning &amp; calendars</summary>
@@ -909,6 +911,8 @@ function ClassroomHome() {
           <CalendarProvocationsPage audience={mode === "projector" ? "student" : "teacher"} onHome={goHome} />
         ) : active === "First Week Mission" ? (
           <div className="page"><FirstWeekMission audience={mode === "projector" ? "student" : "teacher"} /></div>
+        ) : active === "Saved Resources" ? (
+          <SavedResourceLibrary onHome={goHome} />
         ) : active === "TOC & Emergency Plans" ? (
           <TocResourceLibrary onHome={goHome} onOpenTtocPlan={() => navigateToPage("TTOC Day Plan")} />
         ) : active === "TTOC Day Plan" ? (

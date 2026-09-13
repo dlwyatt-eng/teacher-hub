@@ -14,7 +14,8 @@ import { experienceKits, mediaFor, plainForStudents, spacesBookendsFor, studentS
 import { mathResourceRoutes, mathUpTopics, readinessFor } from "./readiness-supports";
 import type { ExperienceKit, ExperienceMedia, LearningProgram, ProgramArc, ProgramExperience } from "./program-types";
 import { mathPacksFor, mathSupportPacks, mathWordsFor } from "./math-program-supports";
-import { MathLessonResources, MathStudentWorkshops, MathTeacherWorkshops, MathYearImplementation } from "./math-program";
+import { MathStudentWorkshops, MathTeacherWorkshops, MathYearImplementation } from "./math-program";
+import { MathResourceWorkbench, MathCompanionSelector } from "./math-resource-workbench";
 import { ExperienceInfographic, LocalIndigenousResourceDock, LocalRestorationInfographic, ResponsibleDataInfographic } from "./infographic-library";
 import { printClosest } from "./print-support";
 import { spacesPolicyForActivity } from "./classroom-program";
@@ -486,6 +487,10 @@ const artsStepMinutes: Record<string, readonly string[]> = {
   "cosmic-scale-gallery": ["25–35 min", "2 × 50–60 min", "35–45 min", "55–65 min", "50–60 min"],
 };
 
+function MathFullPlan({ isMath, children }: { isMath: boolean; children: ReactNode }) {
+  return isMath ? <details className="math-full-plan"><summary>Full investigation plan · preparation, teaching steps &amp; assessment</summary>{children}</details> : <>{children}</>;
+}
+
 function TeacherExperienceDetail({ experience, arc, record, program }: { experience: ProgramExperience; arc: ProgramArc; record: CurriculumRecord; program: LearningProgram }) {
   const kit = experienceKits[experience.id];
   const media = mediaFor(experience.id);
@@ -522,15 +527,15 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
   } satisfies DailyLaunch;
   return (
     <article className="program-experience-detail">
+      {program.subject === "Mathematics" && <><div className="math-teacher-launch"><a href={`?subject=Mathematics&experience=${encodeURIComponent(experience.id)}&mode=student`}>Open student screens →</a></div><MathResourceWorkbench key={experience.id} experienceId={experience.id} /></>}
       <details className="lesson-preparation-extras"><summary>Pin lesson, print materials &amp; optional resources</summary>
       <TeacherDailyLaunchButton launch={dailyLaunch} />
-      {program.subject === "Mathematics" && <button type="button" className="math-resource-jump" onClick={event => { const shelf = event.currentTarget.closest(".program-experience-detail")?.querySelector<HTMLElement>(".math-lesson-resources"); shelf?.scrollIntoView({ block: "start" }); shelf?.focus({ preventScroll: true }); }}>Games &amp; worksheets ↓</button>}
       <OptionalTeachingResources key={experience.id} lessonId={experience.id} teacher extras={[
         ...(media.length ? [{ id: "media", title: "Images, videos & sources", content: <MediaStrip items={media} /> }] : []),
         ...(kit ? [{ id: "printables", title: "Printables · teacher preparation", content: program.subject === "Arts Education" ? <ArtsStudioFolio experience={experience} kit={kit} /> : <KitCards kit={kit} experienceId={experience.id} /> }] : []),
-        ...(program.subject === "Mathematics" ? [{ id: "math-resources", title: "Math games, videos & worksheets", content: <MathLessonResources experienceId={experience.id} /> }] : []),
       ]} />
       </details>
+      <MathFullPlan isMath={program.subject === "Mathematics"}>
       <TeacherRunSheet
         title={studentTitleFor(experience)}
         duration={experience.duration}
@@ -565,7 +570,7 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
         launchResource={mathAntics ?? undefined}
       />
 
-      {program.subject === "Mathematics" && <MathLessonResources experienceId={experience.id} />}
+      </MathFullPlan>
 
       <details className="teacher-tool-drawer teacher-quick-check-drawer">
         <summary><span><small>OPTIONAL PREPARATION · NO RESPONSE STORAGE</small><strong>Make a custom quick check · paper or Forms / Copilot</strong></span><b>Open ▾</b></summary>
@@ -662,7 +667,7 @@ export function LearningProgramTab({ program, record, tab, selectedExperienceId,
   );
 
   if (tab === "Lessons") return (
-    <div className="learning-program program-lessons world-surface" data-world={selectedWorld.id} style={worldStyle(selectedWorld)}>
+    <div className={`learning-program program-lessons world-surface ${program.subject === "Mathematics" ? "program-lessons--math" : ""}`} data-world={selectedWorld.id} style={worldStyle(selectedWorld)}>
       <LessonSwitcher program={program} selected={selected} onExperience={onExperience} />
       <div className="program-lesson-layout">
         <details className="lesson-catalogue"><summary>Browse all {program.experiences.length} lessons by unit</summary><nav aria-label={`${program.subject} signature experiences`}>
@@ -713,6 +718,8 @@ export function LearningProgramTab({ program, record, tab, selectedExperienceId,
       <div className="program-spaces-summary">{program.experiences.map((item) => ({ item, spaces: spacesDisplayFor(item) })).filter(({ spaces }) => spaces.decision !== "none").map(({ item, spaces }) => <article key={item.id}><span className={`spaces-${spaces.decision}`}>{spaces.decision.toUpperCase()}</span><div><strong>{item.title}</strong><p>{spaces.teacherPrompt}</p>{spaces.activityPrompt && <p><b>Activity-specific evidence:</b> {spaces.activityPrompt}</p>}</div></article>)}</div>
     </div>
   );
+
+  if (program.subject === "Mathematics") return <div className="learning-program program-resources"><MathResourceWorkbench allTopics /><MathUpMap program={program} /></div>;
 
   return (
     <div className="learning-program program-resources">
@@ -877,6 +884,10 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
     : null;
 
   const parts: Array<{ label: string; verb: string; content: ReactNode }> = [];
+  if (program.subject === "Mathematics") {
+    const companionPacks = mathPacksFor(selected.id).filter(pack => pack.role !== "MATHUP / WNCP BRIDGE");
+    parts.push({ label: "Worksheet talk", verb: "Discuss", content: <MathCompanionSelector key={selected.id} experienceId={selected.id} packIds={companionPacks.map(pack => pack.id)} /> });
+  }
   if (usesInteractiveLab) {
     if (interactiveInfographic) parts.push({ label: "Look", verb: "Notice", content: <section className="projector-active-object projector-look-stage"><ExperienceInfographic experienceId={selected.id} /></section> });
     // Magnitude Gallery needs a short, explicit model before students enter the
@@ -924,8 +935,10 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
         <nav ref={partNavRef} aria-label="Lesson parts">{parts.map((part, index) => <button type="button" key={`${part.label}-${index}`} className={projectorPart === index ? "active" : ""} aria-current={projectorPart === index ? "step" : undefined} onClick={() => setProjectorPart(index)}><b>{index + 1}</b><span>{part.label}</span></button>)}</nav>
       </header>
 
+      {program.subject === "Mathematics" && <MathResourceWorkbench key={selected.id} experienceId={selected.id} projector />}
       <main className="projector-lesson-player__stage" aria-live="polite">
 
+        {program.subject === "Mathematics" && activePart.content}
         <ProjectorLessonHelp key={`${selected.id}-help`} panels={[
           {label: "Get ready", content: <><section className="projector-clarity-strip" aria-label="Learning goal, first action, and finish"><article data-learning-phase="learn" data-current={clarityPhase === "learn"}><small>WE ARE LEARNING</small><strong>{learningLine}</strong></article><article data-learning-phase="do" data-current={clarityPhase === "do"}><small>FIRST STEP</small><strong>{studentContract.firstAction}</strong></article><article data-learning-phase="done" data-current={clarityPhase === "done"}><small>WE WILL MAKE / SHOW</small><strong>{studentFinishSummary(selected.id, plainForStudents(selected.product))}</strong></article></section><ClassroomCompanion
           key={`${selected.id}-${projectorPart}`}
@@ -937,9 +950,9 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
         /><p><b>Time:</b> {selected.duration}</p><HelpList title="Materials to gather" items={kit?.gather.length ? kit.gather : selected.materials} /><HelpList title="Already supplied" items={kit?.provided} /><HelpList title="Set up" items={selected.teacherPrep} />{kit && <p><b>Short / paper route:</b> {kit.shortRoute}</p>}</>},
           {label: "Explain & model", content: <><HelpList title="Explain the idea" items={readinessLaunch.background} /><h3>{readinessLaunch.example.title}</h3><ol>{readinessLaunch.example.steps.map((step, index) => <li key={index}>{step}</li>)}</ol><p>{readinessLaunch.example.conclusion}</p><h3>Words we use</h3>{projectorWords.map(word => <p key={word.term}><b>{word.term}:</b> {word.meaning}<br /><b>Example:</b> {word.example}</p>)}</>},
           {label: "Ask & check", content: <><HelpList title="Look for in the work" items={selected.lookFors} />{readinessLaunch.questions.map((question, index) => <section key={index}><h3>{question.prompt}</h3><ul>{question.choices.map(choice => <li key={choice}>{choice}</li>)}</ul><RevealForDiscussion><p>{question.choices[question.answer]} — {question.feedback}</p></RevealForDiscussion></section>)}<p><b>If students need another try:</b> {readinessLaunch.reteach}</p><p>{studentContract.saveAction.message}</p>{program.subject === "Mathematics" && <RevealForDiscussion label="Open mathematics teaching notes / answers"><MathTeacherWorkshops experienceId={selected.id} placement={phasedCoordinateBridge ? "extension" : "before"} /></RevealForDiscussion>}{kit && <RevealForDiscussion label="Open supplied answer cards"><HelpList title="Check after trying" items={kit.cards.filter(card => /(?:answer|core answers|teacher key)/i.test(card.title)).map(card => `${card.title}: ${card.body}`)} /></RevealForDiscussion>}</>},
-          {label: "Sources & print", content: <>{kit && (program.subject === "Arts Education" ? <ArtsStudioFolio experience={selected} kit={{...kit, cards: kit.cards.filter(card => !/(?:answer|core answers|teacher key)/i.test(card.title))}} /> : <KitCards kit={kit} experienceId={selected.id} student />)}{selected.id === sourceMosaicExperienceId && <SourceMosaicStaticPack />}{program.subject === "Mathematics" && <MathLessonResources experienceId={selected.id} />}<MediaStrip items={media} student /><OptionalTeachingResources lessonId={selected.id} teacher extras={interactiveLab ? [{id: "model", title: "Interactive model", content: interactiveLab}] : []} /><details><summary>More teacher-selected subject sources</summary>{program.resources.map(resource => <p key={resource.url}><a href={resource.url} target="_blank" rel="noreferrer">{resource.label}</a> · {resource.source}<br />{resource.purpose}</p>)}</details></>}
+          {label: "Sources & print", content: <>{kit && (program.subject === "Arts Education" ? <ArtsStudioFolio experience={selected} kit={{...kit, cards: kit.cards.filter(card => !/(?:answer|core answers|teacher key)/i.test(card.title))}} /> : <KitCards kit={kit} experienceId={selected.id} student />)}{selected.id === sourceMosaicExperienceId && <SourceMosaicStaticPack />}<MediaStrip items={media} student /><OptionalTeachingResources lessonId={selected.id} teacher extras={interactiveLab ? [{id: "model", title: "Interactive model", content: interactiveLab}] : []} /><details><summary>More teacher-selected subject sources</summary>{program.resources.map(resource => <p key={resource.url}><a href={resource.url} target="_blank" rel="noreferrer">{resource.label}</a> · {resource.source}<br />{resource.purpose}</p>)}</details></>}
         ]} />
-        {activePart.content}
+        {program.subject !== "Mathematics" && activePart.content}
         <details className="student-program-picker student-unit-map-drawer" id="unit-map">
           <summary><span><small>UNIT MAP</small><strong>{selectedArc.title}</strong></span><b>Open ▾</b></summary>
           <div>{program.arcs.map((arc) => <section key={arc.id}><p>{arc.number} · {arc.title}</p>{arc.experienceIds.map((id) => {const experience = program.experiences.find((item) => item.id === id);return experience ? <button key={id} className={selected.id === id ? "selected" : ""} onClick={() => onExperience(id)}>{studentTitleFor(experience)}</button> : null;})}</section>)}</div>

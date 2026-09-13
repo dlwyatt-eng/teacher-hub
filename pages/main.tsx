@@ -21,3 +21,5 @@ document.documentElement.style.setProperty("--font-geist-mono", "ui-monospace, S
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode><Home /></React.StrictMode>,
 );
+
+import "../app/math-resource-workbench.css";

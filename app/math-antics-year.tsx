@@ -6,7 +6,7 @@ import { printClosest } from "./print-support";
 type Slug = keyof typeof catalogue;
 type Plan = { core: Slug[]; support?: Slug[]; before: string; pause: string; paper: string; bridge: string; preview: string };
 /** Keys are existing workshop IDs, so changes in calendar order cannot mispair resources. */
-const plans: Record<string, Plan> = {
+export const mathAnticsPlans: Record<string, Plan> = {
   "magnitude-place-value-pack": {
     core: ["place-value", "decimal-place-value", "number-line"], support: ["rounding"],
     before: "What is the 8 worth in 0.8, 0.08 and 0.008?",
@@ -113,6 +113,8 @@ const plans: Record<string, Plan> = {
   }
 };
 
+const plans = mathAnticsPlans;
+
 function ResourceLinks({ slugs, label }: { slugs: Slug[]; label: string }) {
   return <div className="math-year-links"><b>{label}</b><ol>{slugs.map(slug => <li key={slug}><a href={catalogue[slug].youtube} target="_blank" rel="noreferrer">{catalogue[slug].title} · YouTube ↗</a>{" · "}<a href={catalogue[slug].url} target="_blank" rel="noreferrer">Lesson / member practice ↗</a></li>)}</ol></div>;
 }
@@ -120,7 +122,7 @@ function ResourceLinks({ slugs, label }: { slugs: Slug[]; label: string }) {
 export function MathAnticsQuickLinks({ lessonIds }: { lessonIds: string[] }) {
   const selected = [...new Set(lessonIds.flatMap(id => plans[id]?.core ?? []))];
   if (!selected.length) return null;
-  return <section><h3>Math Antics · watch and print</h3><p>Open the lesson, then choose <strong>Worksheets</strong> or <strong>Exercises</strong> below the video. Sign in to Math Antics for member practice. Print the student file; answer files are separate. Links open in a new tab so your Hub lesson stays ready.</p><nav className="math-resource-launches" aria-label="Math Antics worksheet access">{selected.map(slug => <div key={slug}><strong>{catalogue[slug].title}</strong><a href={catalogue[slug].url} target="_blank" rel="noreferrer">Open worksheets &amp; lesson ↗</a><a href={catalogue[slug].youtube} target="_blank" rel="noreferrer">Watch on YouTube ↗</a></div>)}</nav>{selected.includes("place-value") && <p>Place Value: the six-page member worksheet PDF opened successfully. Page 2, Identifying Number Places – Set 1, offers digit-place practice. Use the chart through trillions too, as you have in previous years. Only pages 1–2 have been visually reviewed so far.</p>}<p>Use the matching worksheets as regular practice alongside the Hub models, discussion and checks. Preview the pages you plan to assign. Member files remain on Math Antics.</p></section>;
+  return <section><h3>Math Antics · watch and print</h3><p>Open the lesson, then choose <strong>Worksheets</strong> or <strong>Exercises</strong> below the video. Sign in to Math Antics for member practice. Print the student file; answer files are separate. Links open in a new tab so your Hub lesson stays ready.</p><nav className="math-resource-launches" aria-label="Math Antics worksheet access">{selected.map(slug => <div key={slug}><strong>{catalogue[slug].title}</strong><a href={catalogue[slug].url} target="_blank" rel="noreferrer">Open worksheets &amp; lesson ↗</a><a href={catalogue[slug].youtube} target="_blank" rel="noreferrer">Watch on YouTube ↗</a></div>)}</nav>{selected.includes("place-value") && <p>Place Value: the six-page member worksheet PDF opened successfully. Page 2, Identifying Number Places – Set 1, offers digit-place practice. Use the chart through trillions too, as you have in previous years. Pages 3, 5 and 6 were also visually reviewed on September 13. Choose the digit-value or expanded-form practice that matches today’s goal.</p>}<p>Use the matching worksheets as regular practice alongside the Hub models, discussion and checks. Preview the pages you plan to assign. Member files remain on Math Antics.</p></section>;
 }
 
 export function MathAnticsYearPlan({ lessonIds }: { lessonIds: string[] }) {

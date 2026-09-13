@@ -212,7 +212,7 @@ export function MathTeacherWorkshops({ experienceId, placement = "before" }: { e
   );
 }
 
-function StudentMathPack({ pack }: { pack: MathSupportPack }) {
+export function StudentMathPack({ pack }: { pack: MathSupportPack }) {
   const [stage, setStage] = useState<"example" | "practice" | "check">("example");
   const [step, setStep] = useState(0);
   const [card, setCard] = useState(0);
