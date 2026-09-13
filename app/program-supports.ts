@@ -109,7 +109,7 @@ const exactStudentSteps: Record<string, string[]> = {
   ],
   "audience-remix": [
     "Study the two sample displays. Notice how sequence and spacing change where the audience starts and what it sees next.",
-    "Choose the Night Garden mini-artifact or a current work. Complete the first arrangement and show the intended audience path.",
+    "Use the Night Garden example or your own artwork. Arrange it so visitors know where to begin and what to look at next.",
     "Let a new viewer begin without coaching. Record the first notice, route, pause, and question without names or ratings.",
     "Change the sequence, spacing, or one other Arts choice. Test the changed part again and compare the two records.",
     "Complete and purposefully decorate the whole before-and-after organizer, including what improved and what you would try next.",
@@ -694,16 +694,16 @@ export const experienceKits: Record<string, ExperienceKit> = {
   },
   "audience-remix": {
     setupMinutes: 5,
-    provided: ["Common fictional mini-artifact", "Crowded and revised curator models", "Intention and first-arrangement plan", "No-name audience observation sheet", "Before/after curator statement"],
+    provided: ["Supplied fictional Night Garden artwork example", "Crowded and revised curator models", "Intention and first-arrangement plan", "No-name audience observation sheet", "Before/after curator statement"],
     gather: ["Paper, sticky notes, tape, and markers", "Table or wall area", "Optional safe sound or movement element", "Optional current student artwork"],
-    shortRoute: "Use the common mini-artifact, make two paper arrangements, ask a new viewer to begin without coaching, revise the strongest barrier, and complete the before/after note.",
+    shortRoute: "Use the Night Garden example to make two paper arrangements. Ask a new viewer to try one without help. Change the part that caused the most confusion, then describe what improved.",
     cards: [
-      { title: "COMMON MINI-ARTIFACT · NIGHT GARDEN", body: "Three small artworks: moth at a lamp · rain on leaves · snail trail. Three captions: ‘Follow the light’ · ‘Listen between drops’ · ‘A silver route appears.’ One 8-beat sound pattern: tap–tap–silence–brush / tap–silence–brush–hold. Classroom OS fiction." },
+      { title: "SUPPLIED EXAMPLE · NIGHT GARDEN", body: "Three small artworks: moth at a lamp · rain on leaves · snail trail. Three captions: ‘Follow the light’ · ‘Listen between drops’ · ‘A silver route appears.’ One 8-beat sound pattern: tap–tap–silence–brush / tap–silence–brush–hold. Classroom OS fiction." },
       { title: "MODEL A · CROWDED", body: "All images, captions, and sound directions begin at once; labels use the same size; entry and ending are unmarked. Audience problem: no clear first action or path." },
       { title: "MODEL B · CURATED", body: "One moth image opens the route; spacing and arrows lead to rain, then snail; the sound cue begins at station 2; the ending asks viewers to trace one pattern. Audience effect: a legible sequence with one intentional pause." },
-      { title: "INTENTION + FIRST ARRANGEMENT", body: "Audience: __. I want them to notice/feel/think/do __. First action: __. Sequence: __. Emphasis: __. Pacing/silence: __. Label or score: __. Ending: __. Access route: __." },
+      { title: "INTENTION + FIRST ARRANGEMENT", body: "Who is your audience? __. What should they notice or feel? __. Where do they start? __. What order will they follow? __. What stands out? __. Where will they pause? __. What label or music instructions will help? __. How does it end? __. How can someone take part if they need a different way to see, hear, move, or respond? __." },
       { title: "NO-NAME AUDIENCE RECORD", body: "First notice · first action · route taken · pause point · question asked · part skipped · idea they understood · barrier. Record actions and words only—no names, photos, ratings, or popularity votes." },
-      { title: "CHOOSE THE REVISION", body: "Change one high-leverage Arts feature: entry point · scale/contrast · spacing · sequence · sound/silence · pacing · focus · label/score · ending · access route. Predict the effect before testing again." },
+      { title: "CHOOSE THE REVISION", body: "Choose one change that could help your audience: make the starting point clearer, spread out the work, change its order, adjust sound or silence, or make a label easier to read. Predict how it will help, then test it." },
       { title: "CURATOR STATEMENT", body: "My intention was __. I used __ to __. The first test showed __. I changed __ because __. The second test showed __. One limit remains __. My next improvement is __." },
     ],
   },
@@ -848,7 +848,7 @@ export const experienceMedia: Record<string, ExperienceMedia[]> = {
     { type: "video", label: "Foundational Elements of Dance: Types of Motion", source: "Allison Carrier · National Arts Centre", url: "https://nac-cna.ca/en/video/map-foundational-elements-of-dance-4-motion", duration: "9:45 · teacher previews and selects two comparison moments", purpose: "Give students an exact artist-led motion example they can pause before notating a safe transition.", studentTask: "Freeze two moments. Record what changed in motion, shape, space, time, pathway, level, direction, weight, or relationship. Adaptation routes are supplied by Classroom OS.", fallback: "Teacher demonstrates the supplied transition twice—standing, seated, hand-only, or tabletop—and students complete the same comparison." },
   ],
   "audience-remix": [
-    { type: "website", label: "A Slow Look at Petroushka · Elementary", source: "National Gallery of Canada · Paraskeva Clark, Petroushka (1937)", url: "https://www.gallery.ca/learn/for-schools/resources-for-teachers", purpose: "Use the named Elementary slow-look routine only to gather precise noticing evidence before the Classroom OS models teach curation.", studentTask: "Follow the teacher-opened Petroushka slow look and record what you notice first plus the exact visual evidence. Then use the original Night Garden models—not the Gallery source—to study entry, spacing, sequence, and audience path.", fallback: "Use the supplied Night Garden mini-artifact and crowded/revised curator models for both the looking warm-up and full curation lesson." },
+    { type: "website", label: "A Slow Look at Petroushka · Elementary", source: "National Gallery of Canada · Paraskeva Clark, Petroushka (1937)", url: "https://www.gallery.ca/learn/for-schools/resources-for-teachers", purpose: "Use the named Elementary slow-look routine only to gather precise noticing evidence before the Classroom OS models teach curation.", studentTask: "Follow the teacher-opened Petroushka slow look and record what you notice first plus the exact visual evidence. Then use the original Night Garden models—not the Gallery source—to study entry, spacing, sequence, and audience path.", fallback: "Use the supplied Night Garden example and the crowded and revised displays for both the warm-up and the full lesson on arranging artwork." },
   ],
   "cosmic-scale-gallery": [
     { type: "website", label: "Machine for Singing · official context", source: "Ian Johnston · Machine for Singing (2007–09) · Surrey Art Gallery exhibition, 2010", url: "https://www.surrey.ca/arts-culture/surrey-art-gallery/exhibitions/ian-johnston-machine-singing", purpose: "Establish exact artist, dates, place, material, visitor activation, and environmental/consumption context before viewing the companion video.", studentTask: "Record Ian Johnston, title, work dates, 2010 Surrey exhibition context, materials, visitor action, and one supported question about objects or consumption.", fallback: "Teacher reads the text-only credited context capsule; do not copy or rehost the page image." },

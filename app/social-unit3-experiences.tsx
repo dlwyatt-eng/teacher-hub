@@ -430,7 +430,7 @@ export function DataSkylineLab({ sceneIndex, audience }: Unit3ExperienceProps) {
         theme="data"
         eyebrow="MYSTERY MATCH"
         title="Which claim can this chart actually support?"
-        prompt="Choose one claim. Be ready to point to the exact bars or numbers that make it defensible."
+        prompt="Choose one claim. Point to the exact bars or numbers that support it."
         teacherNote="Interrupt deficit explanations immediately. A chart can show a pattern, not a group’s values, effort, intelligence, or reason for an outcome. Require another source before discussing causes."
         footer="Describe the pattern first. Investigate causes with more evidence and affected perspectives."
       >

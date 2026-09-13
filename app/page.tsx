@@ -392,7 +392,7 @@ const studentWorldAtlasLaunches = [
   {
     kind: "science", scienceId: "space-motion-lab", worldId: "earth-space", subject: "Science", unit: "Earth & Space",
     title: "Power the mission evidence log", question: "Why does the Sun seem to cross our sky even though Earth is moving?",
-    firstAction: "Study the sky sequence. Record only what changed.", finish: "A claim, exact evidence, and one honest model limit.",
+    firstAction: "Study the sky sequence. Record only what changed.", finish: "A conclusion, evidence that supports it, and one thing the model cannot show.",
   },
   {
     kind: "social", socialId: "rights-in-tension", worldId: "power-rights-government", subject: "Social Studies", unit: "Power, Rights & Government",

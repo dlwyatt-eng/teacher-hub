@@ -445,7 +445,7 @@ const reviewedStudentLessonContracts = {
     challenge: "What does an audience notice first, and what one change could make your idea clearer?",
     why: "We are learning how spacing, order, contrast, pacing, sound, labels, and an entry point guide an audience through art.",
     firstAction: "Study the two sample displays. Notice how sequence and spacing change where the audience starts and what it sees next.",
-    materials: ["Two curator examples", "Current artwork or supplied mini-artifact", "Complete before-and-after curation organizer", "No-name audience observation card", "Flexible display materials"],
+    materials: ["Two curator examples", "Your current artwork or the supplied Night Garden example", "Complete before-and-after curation organizer", "No-name audience observation card", "Flexible display materials"],
     choices: [{
       prompt: "What will the audience experience?",
       options: [
@@ -456,7 +456,7 @@ const reviewedStudentLessonContracts = {
     }],
     steps: [
       { title: "Study the example", action: "Study the two sample displays. Notice how sequence and spacing change where the audience starts and what it sees next.", finishCheck: "You can name at least two exact choices and their effect." },
-      { title: "Arrange the first version", action: "Choose the Night Garden mini-artifact or a current work. Complete the first arrangement and show the intended audience path.", finishCheck: "Every planning box is filled and a visitor can tell where to begin." },
+      { title: "Arrange the first version", action: "Use the Night Garden example or your own artwork. Arrange it so visitors know where to begin and what to look at next.", finishCheck: "Every planning box is filled and a visitor can tell where to begin." },
       { title: "Watch without coaching", action: "Let a new viewer begin without coaching. Record the first notice, route, pause, and question without names or ratings.", finishCheck: "The notes describe audience actions instead of judging the person." },
       { title: "Change + compare", action: "Change the sequence, spacing, or one other Arts choice. Test the changed part again and compare the two records.", finishCheck: "The second test shows whether the change helped." },
       { title: "Finish the organizer", action: "Complete and purposefully decorate the whole before-and-after organizer, including what improved and what you would try next.", finishCheck: "The whole organizer is complete and purposefully decorated, and one next improvement remains." },
@@ -531,9 +531,9 @@ const reviewedStudentLessonContracts = {
       { title: "Build the message", action: "Send the six picture pieces from the server to the device. Put packets 1 to 6 in order.", finishCheck: "All six pieces arrived and the device rebuilt the complete picture." },
       { title: "Test the network", action: "Run one slow human-network round with both routes open. Let the observer check every handoff.", finishCheck: "The request, packet route, destination check, and rebuilt message all work." },
       { title: "Repair two problems", action: "Close one route and send the packets another way. Then remove packet 4, request only that piece, and rebuild.", finishCheck: "The message survives a closed route and the missing piece is found and replaced." },
-      { title: "Teach the system", action: "Draw the route and repair. Label each job and add one way the model is simpler than a real network.", finishCheck: "Another student can follow the route, understand the repair, and name the model limit." },
+      { title: "Teach the system", action: "Draw the route and repair. Label each job and add one way the model is simpler than a real network.", finishCheck: "Another student can follow the arrows, explain the repair, and describe one way this model is simpler than a real computer network." },
     ],
-    finishEvidence: ["A complete packet picture", "A checked human-network round", "Two tested repairs", "A labelled troubleshooting map with one model limit"],
+    finishEvidence: ["A complete packet picture", "A checked human-network round", "Two tested repairs", "A labelled diagram showing the problem, the repair, and one way the model differs from a real network"],
     saveAction: { kind: "keep-in-class", message: "Keep the packet picture, observer log, and map in class. No SpacesEDU upload is needed." },
     readiness: "teach",
   },
@@ -645,7 +645,7 @@ const reviewedStudentLessonContracts = {
       { title: "Plan the path", action: "Write a start, ordered steps, one useful choice, feedback, and an ending.", finishCheck: "A partner can trace both choices without finding a missing step." },
       { title: "Build it", action: "Prototype the complete tour with cards or an approved visual tool. Keep the unplugged route working.", finishCheck: "The audience can start, choose, get feedback, and finish." },
       { title: "Test and debug", action: "Watch a new user without coaching. Record one wrong turn or unclear step, fix it, and retest.", finishCheck: "The changed path works and the model warning appears before a wrong conclusion." },
-      { title: "Teach it", action: "Run the tour. Explain the steps, choice, feedback, bug, fix, and model limit.", finishCheck: "A visitor can finish the tour and explain the space idea plus one model limit." },
+      { title: "Teach it", action: "Lead a visitor through your tour. Explain the space idea, let them try its choices, and show one problem you fixed. Name one way your model differs from real space.", finishCheck: "A visitor can finish the tour, explain the space idea, and name one way the model differs from real space." },
     ],
     finishEvidence: ["An accurate space idea", "A complete card or flow path", "A working prototype", "A no-name bug-and-fix record", "A model-limit warning", "A short teaching explanation"],
     saveAction: { kind: "add-to-existing-post", message: "Use this only inside the existing June Science Expert Showcase when your teacher asks." },
@@ -744,7 +744,7 @@ const reviewedStudentLessonContracts = {
       "Observation and possible-explanation notes",
       "A four-position day-and-night diagram",
       "Two planet-data graphs or tables with a pattern and an unusual result",
-      "A final explanation using rotation, viewpoint, and one model limit",
+      "An explanation of Earth’s rotation, how the view changes, and one way the model differs from the real Earth",
     ],
     saveAction: {
       kind: "keep-in-class",

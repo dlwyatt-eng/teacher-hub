@@ -60,7 +60,7 @@ const sources: Source[] = [
     clueChoices: [
       { id: "map-correct", label: "The west edge beside Door B, outside the basketball court and drain space.", correct: true, feedback: "Yes. The map identifies a possible test zone and also shows the nearby limits that a real plan must respect." },
       { id: "map-court", label: "Directly across the middle of the basketball court.", correct: false, feedback: "That would remove active play space. The dashed test zone is outside the court." },
-      { id: "map-drain", label: "On top of the storm drain and across the accessible route.", correct: false, feedback: "Those are constraints, not building spots. A responsible plan keeps drainage and the route open." },
+      { id: "map-drain", label: "On top of the storm drain and across the accessible route.", correct: false, feedback: "The drain needs to carry water away, and people need a clear path. Choose a spot that leaves both open." },
     ],
   },
   {
@@ -103,7 +103,7 @@ const sourceJobs = [
 const evidenceChoices: Evidence[] = [
   { id: "data-gap", sourceId: "data", short: "50°C compared with 31°C", detail: "Across three fictional test days, sunny dark pavement averaged about 50°C; the temporary test shade averaged 31°C.", strong: true, response: "Strong temperature evidence. It shows a large difference in this small test without claiming every future day will match." },
   { id: "data-air", sourceId: "data", short: "Air warmed across the three days", detail: "The air temperature was 25°C, 27°C, then 29°C on the three test days.", strong: false, response: "This is accurate context, but it does not compare a cooling response. Pairing it with the surface results would make it more useful." },
-  { id: "map-zone", sourceId: "map", short: "A possible west-edge test zone", detail: "The map places a possible small test beside Door B and outside the court, drain space, and main accessible route.", strong: true, response: "Strong place evidence. It connects the idea to a possible location while naming constraints." },
+  { id: "map-zone", sourceId: "map", short: "A possible west-edge test zone", detail: "The map places a possible small test beside Door B and outside the court, drain space, and main accessible route.", strong: true, response: "This detail identifies a possible spot and shows which areas must stay clear." },
   { id: "map-court", sourceId: "map", short: "Keep the play court open", detail: "The labelled basketball court fills the sunny centre; the suggested pilot zone does not cross it.", strong: true, response: "Useful place evidence. It helps a cooling plan add a calmer space without erasing active play." },
   { id: "voice-needs", sourceId: "voices", short: "Shade, seating, calm, and access", detail: "The fictional excerpts ask for a cooler place to sit or talk, an accessible route, and continued open play space.", strong: true, response: "Strong human evidence. It helps define what “more welcoming” needs to mean, not only what is cooler." },
   { id: "voice-count", sourceId: "voices", short: "Four people commented", detail: "The source contains four fictional excerpts from different students.", strong: false, response: "True, but the number of excerpts alone does not show what the school should do. The needs inside the comments are the useful evidence." },

@@ -357,7 +357,7 @@ export function CivicDecisionBriefLab({ scene, audience }: CivicDecisionBriefLab
       {activeScene === 4 && (
         <div className="cdb-scene-body">
           <section className="cdb-carry-forward">
-            <header><small>BRING THE PANEL QUESTION FORWARD</small><h4>Revision is the final civic move.</h4></header>
+            <header><small>USE THE QUESTION YOUR CLASSMATES ASKED</small><h4>Use the panel’s question to improve your proposal.</h4></header>
             <div><b>QUESTION WE FACED</b><span>{panelQuestions[activeQuestion]}</span></div>
             {selectedPlan && selectedSafeguard && selectedReview ? <blockquote>Current brief: Juniper City should <b>{selectedPlan.sentence}</b>, <b>{selectedSafeguard.sentence}</b>, and <b>{selectedReview.sentence}</b>.</blockquote> : <p>Your paper brief is enough. You do not need to rebuild it on this screen.</p>}
           </section>
@@ -370,15 +370,15 @@ export function CivicDecisionBriefLab({ scene, audience }: CivicDecisionBriefLab
           <article className="cdb-revision-sentence"><small>REVISION STEM</small><strong>“Because the panel asked about {revisionMoves[revisionMove].label.toLowerCase()}, we changed ___ to ___. This makes the brief stronger because ___.”</strong></article>
 
           <fieldset className="cdb-revision-checklist">
-            <legend>2. Audit the final team artifact</legend>
-            <div>{["Authority is exact", "A source detail supports the claim", "Affected people are represented carefully", "A safeguard limits harm", "Review and uncertainty are visible"].map((label) => <button type="button" key={label} aria-pressed={revisionChecks.includes(label)} data-checked={revisionChecks.includes(label) ? "true" : "false"} onClick={() => toggleRevisionCheck(label)}><b aria-hidden="true">{revisionChecks.includes(label) ? "✓" : "○"}</b><span>{label}</span></button>)}</div>
-            <aside data-ready={revisionChecks.length === 5 ? "true" : "false"}><b>{revisionChecks.length === 5 ? "READY FOR TEACHER APPROVAL" : `${revisionChecks.length} OF 5 CHECKS COMPLETE`}</b><span>One team artifact is enough. Each student still gives their own reflection.</span></aside>
+            <legend>2. Check your team’s final proposal</legend>
+            <div>{["We name who has the power to make this decision.", "A source detail supports the claim", "We use a source to explain affected people’s experiences without guessing what they think.", "A safeguard limits harm", "We say what is still unknown and when the plan should be checked again."].map((label) => <button type="button" key={label} aria-pressed={revisionChecks.includes(label)} data-checked={revisionChecks.includes(label) ? "true" : "false"} onClick={() => toggleRevisionCheck(label)}><b aria-hidden="true">{revisionChecks.includes(label) ? "✓" : "○"}</b><span>{label}</span></button>)}</div>
+            <aside data-ready={revisionChecks.length === 5 ? "true" : "false"}><b>{revisionChecks.length === 5 ? "READY FOR TEACHER APPROVAL" : `${revisionChecks.length} OF 5 CHECKS COMPLETE`}</b><span>Share one proposal for the team. Each student adds their own reflection.</span></aside>
           </fieldset>
 
           <section className="cdb-spaces-plan" aria-labelledby={`${headingId}-spaces`}>
-            <header><small>SPACESEDU · ONE REQUIRED DESTINATION</small><h4 id={`${headingId}-spaces`}>Civic / Community Needs Brief</h4><p>Post only after teacher approval. The team shares its artifact once; each student adds individual evidence of thinking in the same entry.</p></header>
+            <header><small>SPACESEDU · ONE REQUIRED DESTINATION</small><h4 id={`${headingId}-spaces`}>Civic / Community Needs Brief</h4><p>Post only after teacher approval. Share the team’s proposal once. Each student adds what they learned and how they helped in the same entry.</p></header>
             <fieldset>
-              <legend>Choose an approved reflection route</legend>
+              <legend>Choose how to explain your learning</legend>
               <div>{([
                 ["writing", "Write 3–5 sentences"],
                 ["audio", "Record 30–60 seconds"],

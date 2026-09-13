@@ -64,7 +64,7 @@ const packs = {
         prompts: [
           "Arrange and connect: falling ruler/light change → receptors in the eye → sensory nerve message → brain/spinal-cord processing → motor nerve message → finger muscles close.",
           "For every arrow, add a verb such as detects, carries, processes, sends, or contracts. State that this measures a response, not a simple automatic reflex.",
-          "Finish with claim–evidence–reasoning, one source of measurement error, one model limitation, and one useful next test. Use only anonymous group or supplied data in any portfolio post.",
+          "Finish with your conclusion, results that support it, and why those results fit. Explain one possible measuring mistake, one thing the model cannot show, and one test to try next. Use only anonymous group or supplied data in any portfolio post.",
         ],
       },
     ],
@@ -146,10 +146,10 @@ const packs = {
         ],
       },
       {
-        heading: "5 · FNESC/FNSA transfer integrity card",
+        heading: "5 · Compare a bear and a human · FNESC/FNSA",
         prompts: [
           "Named source: FNESC/FNSA, Science First Peoples Teacher Resource Guide (Grades 5–9), ‘Bears and Body Systems’ materials. Use only the exact teacher-selected ‘Inside a Bear,’ ‘Inside a Human,’ and comparison material supplied with its attribution.",
-          "Record one bear–human structure–function relationship supported by that selected material, then quote or paraphrase the exact evidence and name the page/card. State one thing the source does not establish.",
+          "Choose one body part shown in the bear and human pages. Explain how its shape helps each animal. Include a label or note from each page and its page number. Write one question the pages do not answer.",
           "If the selected FNESC/FNSA material is not present, stop this transfer section. Do not invent a comparison or a generic claim about First Peoples; complete another cross-system case and return when the named source is available.",
         ],
       },
@@ -217,8 +217,8 @@ const packs = {
         heading: "3 · Model, defend, revise",
         prompts: [
           "Separate the three supplied observations from assumptions. Select at least two systems and explain which case clue requires each one; remove any system the evidence does not require.",
-          "Build five to eight arrows: case evidence → system structure → what moves or changes → response → effect. Put a verb on every arrow and add one ‘missing information’ marker.",
-          "Teach for two minutes. Record one evidence-focused peer question, then show a visible before/after revision to the weakest arrow, evidence note, or limitation.",
+          "Draw the body parts involved. Connect them with five to eight arrows labelled with what happens, such as “sends a message” or “filters blood”. Add a note about one thing the case or your diagram cannot tell us.",
+          "Explain your diagram in two minutes. Ask a classmate which step is unclear or needs more evidence. Keep your first version, make one improvement, and explain why you changed it.",
           "Individual finish: explain the case in five arrows and state one conclusion the model cannot support. Keep fictional case work local unless the teacher selects it for later reuse.",
         ],
       },
@@ -359,11 +359,11 @@ const packs = {
   },
 
   "place-mixtures-studio": {
-    title: "Learning from place and source · offline integrity pack",
+    title: "Learning from place and source · reading and observation pack",
     directions: "Use one exact teacher-saved Surrey Schools Indigenous Learning source. This pack supplies context and boundaries, not community knowledge detached from its source. Observe only; do not harvest, taste, reenact, or make medical claims.",
     sections: [
       {
-        heading: "1 · Choose one bounded source card",
+        heading: "1 · Choose one teacher-approved source excerpt",
         prompts: [
           "CARD A · ‘Indigenous plants to locate on nature walks,’ Surrey Schools Indigenous Learning; knowledge shared by Katzie members Roma Leon, Kayleigh Leon, and Paula James. Use only the saved approved excerpt for observation and attribution. The title does not authorize harvesting, tasting, or expanded medicinal claims.",
           "CARD B · ‘Cedar harvesting,’ Surrey Schools Indigenous Learning. MOA context identifies Jessica Silvey as Sechelt/Squamish and Robert Joe as Sechelt; filmed along a river in Sechelt on the Sunshine Coast. MOA states that only Indigenous people may harvest cedar this way in keeping with the named protocols and beliefs. Students learn from the documentation; they do not imitate it.",
@@ -373,13 +373,13 @@ const packs = {
       {
         heading: "2 · Source evidence before science connection",
         prompts: [
-          "Encounter the saved excerpt twice: first for whole meaning; second for evidence. Record three supported details and the exact page, image, timestamp, or section for each. A blank is better than a guess.",
+          "Read or watch the excerpt twice. First, find its main idea. Then record three details with a page number, image label, or video time so someone else can find them. Write “not stated” if you cannot find an answer.",
           "Create three columns: WHAT THE SOURCE SUPPORTS / A SCHOOL-SCIENCE IDEA THAT MAY CONNECT / WHAT WE MUST NOT ASSUME. Keep every source statement out of the science-connection column.",
           "A property or separation idea may be placed beside the source only when it genuinely helps the lesson; do not translate the whole source into a Western category or claim that knowledge systems are identical.",
         ],
       },
       {
-        heading: "3 · Respectful response and outage boundary",
+        heading: "3 · Respond respectfully · what to do if the source is unavailable",
         prompts: [
           "Create one source note, concept sketch, or thank-you question with exact attribution. Include one responsibility or limit learned from the context.",
           "If the saved excerpt is unavailable, complete the attribution/context audit only and stop. Do not reconstruct community knowledge from memory or AI; return to the evidence section when the approved source is available.",

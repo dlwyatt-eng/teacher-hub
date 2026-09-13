@@ -195,9 +195,9 @@ const scienceReadinessByLesson: Record<string, ReadinessLaunch> = {
         "Weak model: kidneys, ureters, bladder, urethra.",
         "Add the job and route: kidneys filter blood; urine travels through ureters to the bladder and leaves through the urethra.",
         "Add what moves and a connection: hormonal messages can influence how much water kidneys return to blood.",
-        "Name a limit: this route model leaves out microscopic structures and many intermediate processes.",
+        "Explain what the drawing leaves out: it does not show the tiny filtering structures inside the kidneys.",
       ],
-      conclusion: "A strong system model uses arrows and verbs to explain structure, function, movement, connection, and limit.",
+      conclusion: "Label the body parts and use arrows to show what travels and what each part does. Explain how another system helps and one thing your drawing leaves out.",
     },
     questions: [
       { prompt: "Which expert note is a causal connection instead of a part list?", choices: ["Kidneys, ureters, bladder, urethra", "Hormonal messages help kidneys adjust how much water returns to blood", "The nervous system has many parts"], answer: 1, feedback: "The statement explains what moves between systems and how one system influences another." },

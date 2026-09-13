@@ -29,9 +29,9 @@ export const CLASSROOM_COMPANION_GUIDE: Record<CompanionRole, CompanionGuide> = 
   },
   question: {
     species: "Pacific tree frog",
-    label: "Question + shift view",
-    action: "Look again from another position.",
-    prompt: "Whose position, purpose, or access changes what can be seen?",
+    label: "Ask + consider another view",
+    action: "Ask someone what they notice.",
+    prompt: "What might someone else notice or wonder about that you missed?",
     placement: "Perspective work, discussion prompts, misconceptions, and inquiry questions.",
   },
   build: {
@@ -44,14 +44,14 @@ export const CLASSROOM_COMPANION_GUIDE: Record<CompanionRole, CompanionGuide> = 
   connect: {
     species: "Pacific salmon",
     label: "Connect the system",
-    action: "Trace relationships, flows, and effects.",
+    action: "Explain how one part affects another.",
     prompt: "What moves between the parts? Where could one change create another effect?",
     placement: "Systems diagrams, cause and consequence, cross-curricular links, and synthesis.",
   },
   reflect: {
     species: "Great blue heron",
     label: "Pause + look back",
-    action: "Name growth, uncertainty, and a next move.",
+    action: "Name what you learned and what you will try next.",
     prompt: "What changed in your thinking? What evidence matters now, and what will you try next?",
     placement: "Exit reflections, self-assessment, conferencing, and SpacesEDU handoffs.",
   },

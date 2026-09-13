@@ -288,7 +288,7 @@ export const mathStudentLessonContracts = {
       { title: "Build the shape skills", action: "Complete the opened polygon, perimeter, and area workshops. Mark perpendicular heights where needed.", finishCheck: "Your practice has a checked example for each project skill.", minutes: "Block 1 · 45–55 min" },
       { title: "Read + rough-plan", action: "Choose six habitats and make at least two arrangements before selecting one.", finishCheck: "Both rough plans respond to the site and access rules.", minutes: "Block 2 · 45–55 min" },
       { title: "Draw + calculate", action: "Make the exact grid plan. Label dimensions, areas, fence lengths, paths, entry, quiet area, and connections.", finishCheck: "Every required space fits and each calculation includes the correct unit.", minutes: "Blocks 3–4 · 90–110 min" },
-      { title: "Peer inspection", action: "Trade plans. Check one area, one perimeter, one shape rule, and one access route.", finishCheck: "The card contains evidence and one precise question or correction.", minutes: "Block 5 · 20–25 min" },
+      { title: "Peer inspection", action: "Trade plans. Check one area calculation, one perimeter calculation, one shape rule, and whether the 2 m path connects the required places.", finishCheck: "The card contains evidence and one precise question or correction.", minutes: "Block 5 · 20–25 min" },
       { title: "Revise + explain", action: "Change one part because of the inspection. Mark the before, evidence, change, and result.", finishCheck: "The final map works and you can explain one calculation and revision.", minutes: "Block 5 · 25–30 min" },
     ],
     finishEvidence: ["A complete zoo map", "Labelled dimensions and units", "Checked calculations", "A peer inspection", "One visible revision and explanation"],
@@ -330,6 +330,6 @@ export const mathStudentLessonContracts = {
       { title: "Break-test + redesign", action: "Trade plans, find one size, cost, capacity, or access failure, then show the old and new versions.", finishCheck: "The revision responds to evidence and protects the main purpose.", minutes: "Blocks 6–7 · 75–105 min" },
     ],
     finishEvidence: ["A complete limit list", "An exact scaled plan", "A checked cost and measurement record", "One physical feature", "A before-and-after revision"],
-    saveAction: { kind: "keep-in-class", message: "Use this as a SpacesEDU artifact only when it replaces Zoo Design or another major design. Never make it an extra required post." }, readiness: "quick",
+    saveAction: { kind: "keep-in-class", message: "Save this work in SpacesEDU only if your teacher uses it in place of Zoo Design or another major design project. It does not need an extra post." }, readiness: "quick",
   },
 } as const satisfies Record<string, StudentLessonContract>;

@@ -122,7 +122,7 @@ export function SystemThreadLab({ sceneIndex, audience }: Unit4ExperienceProps) 
       ["Public attention grows", "Who gains influence? Could attention create pressure or a new problem?"],
     ];
     return (
-      <ExperienceFrame audience={audience} sceneIndex={scene} tone="thread" eyebrow="PULL THE SYSTEM THREAD · PART 3" title="Tug one thread. Trace what moves." prompt="Choose a change card. Predict three effects across your web, including one effect nobody intended." teacherNote="Give teams a physical surprise card after they have built a defensible web. The aim is causal reasoning, not predicting the future with certainty. Require might/could language and one evidence-based reason." footer="If this changed, then… might… because… A result nobody intended could be…">
+      <ExperienceFrame audience={audience} sceneIndex={scene} tone="thread" eyebrow="PULL THE SYSTEM THREAD · PART 3" title="Change one part. What else could change?" prompt="Choose a change card. Predict three effects across your web, including one effect nobody intended." teacherNote="Give teams a physical surprise card after they have built a defensible web. The aim is causal reasoning, not predicting the future with certainty. Require might/could language and one evidence-based reason." footer="If this changed, then… might… because… A result nobody intended could be…">
         <div className="u4-condition-picker" role="group" aria-label="Choose a system change">
           {conditions.map(([title, detail], index) => (
             <button key={title} aria-pressed={condition === index} className={condition === index ? "selected" : ""} onClick={() => setCondition(index)}>
@@ -336,7 +336,7 @@ export function MakeItTeachableLab({ sceneIndex, audience }: Unit4ExperienceProp
     ["QUESTION", "Show one limit, disagreement, or question that remains"],
   ];
   return (
-    <ExperienceFrame audience={audience} sceneIndex={scene} tone="make" eyebrow="MAKE IT TEACHABLE · PART 4" title="Build the minimum experience that truly teaches." prompt="First connect the three key ideas, their evidence, an audience task, and a question that remains. Add finishing details only if they help classmates understand, take part, or stay interested." teacherNote="Protect studio time, but set a firm minimum viable product. Evaluate content accuracy and learning design before technical sophistication. Production polish is not a Social Studies criterion." footer="We cut… because it did not help learning. We kept… because it helps the audience…">
+    <ExperienceFrame audience={audience} sceneIndex={scene} tone="make" eyebrow="MAKE IT TEACHABLE · PART 4" title="Build a first version classmates can learn from." prompt="First connect the three key ideas, their evidence, an audience task, and a question that remains. Add finishing details only if they help classmates understand, take part, or stay interested." teacherNote="Protect studio time, but set a firm minimum viable product. Evaluate content accuracy and learning design before technical sophistication. Production polish is not a Social Studies criterion." footer="We cut… because it did not help learning. We kept… because it helps the audience…">
       <div className="u4-learning-spine">
         {spine.map(([title, detail], index) => (
           <button key={title} aria-pressed={minimum[index]} className={minimum[index] ? "ready" : ""} onClick={() => setMinimum((current) => current.map((value, i) => i === index ? !value : value))}>
@@ -417,7 +417,7 @@ export function ExpertExchangeLab({ sceneIndex, audience }: Unit4ExperienceProps
   const finalMoves = [
     ["TEACH", "Run the experience. Make classmates think, decide, create, test, or explain."],
     ["RESPOND", "Answer one audience question with evidence or name what remains uncertain."],
-    ["SHARE ONCE", "Post one final artifact or link for the whole team."],
+    ["SHARE ONCE", "Post the team’s finished work or link once."],
     ["REFLECT ALONE", "Each person records their own short reflection in SpacesEDU."],
   ];
   return (

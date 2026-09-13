@@ -155,7 +155,7 @@ export const elaStudentLessonContracts = {
       { title: "Revise two things", action: "Change one part of what you teach and one part of how you present it. For each change, record what the audience said or did that led you to change it.", finishCheck: "The second version is clearer—not simply louder or more decorated.", minutes: "20–25 min" },
     ],
     finishEvidence: ["One audience learning goal", "Four opening sketches", "A chosen opening with a reason", "A complete test log", "Two changes, each explained with something the audience said or did"],
-    saveAction: { kind: "add-to-existing-post", message: "Add the improved opening to the existing Social Studies expert artifact or reflection. Do not create a duplicate ELA post." },
+    saveAction: { kind: "add-to-existing-post", message: "Add your improved opening to your existing Social Studies project or reflection. You do not need a second post for Language Arts." },
     readiness: "quick",
   },
   "metaphor-with-limits": {
