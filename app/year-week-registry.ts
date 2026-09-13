@@ -313,7 +313,7 @@ function buildYearWeekLaunches(): YearWeekLaunch[] {
         seed: {
           weekOf,
           title: `${monthRecord.phase} · ${dateRange}`,
-          weekNote: `${monthRecord.focus}. These are starting activities, not the full timetable. Math has ${mathWeek?.lessonIds.length ?? 0} new focused lessons this week plus practice as time allows. ${mathWeek?.note ?? ""} Move unfinished core learning into a later flex week. Keep reading, PHE, Arts/ADST/Career and other class routines. Short fluency and SpacesEDU are optional, not extra daily assignments. Open each listed lesson for exact sources, displays, materials, and look-fors; adjust bells and closures before printing. SpacesEDU: ${monthRecord.spaces}.`,
+          weekNote: `${monthRecord.focus}. These are starting activities, not the full timetable. Math has ${mathWeek?.lessonIds.length ?? 0} new focused lessons this week plus practice as time allows. ${mathWeek?.note ?? ""} Move unfinished core learning into a later flex week. Keep reading, PHE, Arts/ADST/Career and other class routines. Captain routine: weekly chores and handover, captain-led PE within its existing block, Werewolf oral-language practice within LA, and a 3–5 minute Career reflection. Use Weekly captain responsibilities for the plan and projector. Short fluency and SpacesEDU are optional, not extra daily assignments. Open each listed lesson for exact sources, displays, materials, and look-fors; adjust bells and closures before printing. SpacesEDU: ${monthRecord.spaces}.`,
           lessons,
         },
       } satisfies YearWeekLaunch;

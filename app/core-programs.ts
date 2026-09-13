@@ -7,8 +7,8 @@ export const languageArtsProgram: LearningProgram = {
   subject: "English Language Arts",
   studioName: "Story, Media & Language Studio",
   title: "Read widely. Make meaning. Create for real audiences.",
-  subtitle: "A year-long workshop spine joins choice reading, shared texts, talk, writing, media, performance, and revision to the questions students are already investigating.",
-  cadence: "DAILY READING · 2 CREATION BLOCKS/WEEK",
+  subtitle: "A year-long workshop spine joins choice reading, shared texts, talk, writing, media, performance, and revision. Recurring captain-led Werewolf adds oral storytelling, listening and discussion within existing Language Arts time.",
+  cadence: "DAILY READING · CREATION & CAPTAIN-LED ORAL LANGUAGE",
   northStar: "Language Arts should give students more ways to understand the world and more power to communicate—not a longer trail of worksheets.",
   principles: [
     "Mix written, oral, visual, and digital texts instead of treating one novel as the whole program.",
@@ -107,7 +107,7 @@ export const languageArtsProgram: LearningProgram = {
       product: "One deeply revised choice piece and a two-artifact growth reflection", learningModes: ["Portfolio curation", "Conference", "Publication or performance", "Reflection"], connections: ["Science expert showcase", "Career reflection", "Arts exhibition"], materials: ["Year's work", "Selection criteria", "Revision conference notes", "Privacy-safe sharing routes"], teacherPrep: ["Protect revision time before celebration.", "Confirm family-facing permissions for any public display, face, or voice."], lookFors: ["Defensible selection", "Substantive revision", "Audience awareness", "Specific growth evidence"], spacesUse: "none", spacesPrompt: "Contribute the selected evidence to the existing June Core Competency reflection; do not add a second upload." }),
   ],
   assessment: {
-    practice: "Reading conferences, oral stories, discussions, field notes, quick drafts, rehearsals, and peer tests remain local evidence.",
+    practice: "Reading conferences, oral stories, captain-led Werewolf narration and retelling, discussions, field notes, quick drafts, rehearsals, and peer tests remain local evidence.",
     checkpoints: "Use selected transformations, source explanations, or poetry only when they reveal learning not already visible elsewhere.",
     portfolio: "The September Learning Story, Fleetwood case file, January Bloxels story-game, February expert exchange, and June anthology can carry the main ELA evidence.",
     proficiency: ["Understands, connects, and supports interpretations with relevant evidence", "Creates with a clear purpose, audience, structure, and message", "Communicates clearly across written, oral, visual, and digital forms", "Revises ideas or design because of feedback and evidence", "Uses language and conventions to support meaning"],

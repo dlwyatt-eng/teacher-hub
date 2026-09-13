@@ -61,8 +61,8 @@ export const careerStudentLessonContracts = {
     reviewState: "reviewed",
     challenge: "Which leadership action would help the team move forward right now?",
     why: "Leadership is not the same as being the boss. We are learning actions that help a group understand, organize, check, connect, include, or repair its work.",
-    firstAction: "Read the five role cards. Underline the one action each role should make visible during today's team task.",
-    materials: ["Current inquiry or project", "Leadership role cards", "Team agreement", "Midpoint evidence slip", "Pencil or shared board"],
+    firstAction: "Choose a real captain responsibility: weekly chores, planning or leading PE, Werewolf storytelling, or today's subject task. Read the five role cards and choose an action that fits.",
+    materials: ["Current captain responsibility or subject task", "Leadership role cards", "Team agreement", "Midpoint evidence slip", "Pencil or shared board"],
     choices: [{
       prompt: "Choose one role to practise:",
       options: [
@@ -78,10 +78,10 @@ export const careerStudentLessonContracts = {
       { title: "Choose + plan", action: "Choose a role that is possible today. Tell the team the one action you will try.", finishCheck: "Every person has an accessible role and no one was assigned by personality.", minutes: "2–3 min" },
       { title: "Work + notice", action: "Complete the real class task. Use your leadership action and notice one action that helps the work or trust move forward.", finishCheck: "The group has task evidence, not only a discussion about roles.", minutes: "15–25 min" },
       { title: "Pause + rotate", action: "Record: ‘The action was __. It helped by __.’ Repair a problem if needed, then rotate roles.", finishCheck: "The evidence names an action and effect without ranking or labelling a person.", minutes: "4–5 min" },
-      { title: "Revise the agreement", action: "Finish the class project or activity you are working on. Use what happened to change one team agreement. Name one action to use in the next task.", finishCheck: "The revision says what the team will do, when, and how the group will know it helped.", minutes: "8–10 min" },
+      { title: "Revise the agreement", action: "Finish the chore, PE activity, Werewolf round or subject task. Explain your action and its effect, change one team agreement, and set one next-step goal. Revisit the goal at your next responsibility.", finishCheck: "The revision says what the team will do, when, and how the group will know it helped.", minutes: "8–10 min" },
     ],
     finishEvidence: ["One leadership role attempted", "One action + effect note", "Work or observations from the class project or activity", "One problem repaired", "One team-agreement revision"],
-    saveAction: { kind: "add-to-existing-post", message: "Keep role slips in class. When relevant, add one action-and-effect sentence to the existing February reflection only." },
+    saveAction: { kind: "add-to-existing-post", message: "Keep weekly action-and-effect notes in class. Revisit your goal at the next responsibility; select an occasional example for an existing Career or Core Competency reflection." },
     readiness: "quick",
   },
   "project-rescue-studio": {
