@@ -94,8 +94,8 @@ test("student fictional practice keeps actual source cards and explicit historic
   assert.match(rehearsal.student.boundary, /not be used as a comparison with residential schools/);
 });
 
-test("all 57 reviewed contracts have a concrete product summary without replacing full finish criteria", () => {
-  assert.equal(contracts.reviewedStudentLessonIds.length, 57);
+test("all 63 reviewed contracts have a concrete product summary without replacing full finish criteria", () => {
+  assert.equal(contracts.reviewedStudentLessonIds.length, 63);
   assert.deepEqual(Object.keys(STUDENT_FINISH_SUMMARIES).sort(), [...contracts.reviewedStudentLessonIds].sort());
   for (const id of contracts.reviewedStudentLessonIds) {
     assert.ok(STUDENT_FINISH_SUMMARIES[id].length >= 40, id);

@@ -11,6 +11,7 @@ export type ArcAlignment = {
 };
 
 export const alignmentByArc: Record<string, ArcAlignment> = {
+  "ela-werewolf": { bigIdeas: [0, 3], competencies: [[1, 0], [1, 2], [1, 4]], content: [[0, 2], [0, 3], [1, 1], [2, 0]], stage: "Practise + demonstrate", note: "Six explicit lessons teach the game, original oral storytelling, vocal expression, listening and revision. Individual oral evidence is separate from captain leadership and game outcomes. This fictional game does not address First Peoples oral traditions." },
   "ela-belonging": { bigIdeas: [0, 1], competencies: [[0, 1], [0, 5], [0, 7], [0, 8], [0, 11], [1, 0], [1, 4]], content: [[0, 0], [1, 1], [2, 0]], stage: "Introduce + practise", note: "Oral story, listening, identity, and source context open the year. The First Peoples oral-tradition competency is introduced only through the attributed district source—not through the fictional offline rehearsal." },
   "ela-media": { bigIdeas: [2, 4], competencies: [[0, 0], [0, 3], [0, 5], [1, 2]], content: [[0, 1], [0, 4]], stage: "Practise + demonstrate", note: "Students read visual choices, compare perspectives, and create ethical media." },
   "ela-reading-power": { bigIdeas: [0, 1, 2, 3], competencies: [[0, 3], [0, 9], [0, 10], [1, 1], [1, 2], [1, 3], [1, 5], [1, 6]], content: [[0, 0], [0, 2], [1, 3], [2, 3], [2, 4], [2, 5]], stage: "Practise + demonstrate", note: "Choice reading, turning-point transformations, and the Bloxels story blueprint connect literary structure, original writing, conventions, audience, and revision." },

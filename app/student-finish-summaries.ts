@@ -1,5 +1,7 @@
+import { werewolfLessons } from "./werewolf-lessons";
 // Authored student-facing summaries. Full assessment criteria stay in each lesson contract.
 export const STUDENT_FINISH_SUMMARIES: Record<string, string> = {
+  ...Object.fromEntries(werewolfLessons.map(l => [l.id, l.product])),
   "ordinary-object-story": "A spoken story and six-sentence draft that help a listener follow the beginning, turning point, and ending.",
   "magnitude-gallery": "Two number lines showing 0.008, with an explanation of how the scale changes its position.",
   "pattern-forecast": "A pattern card showing how your rule predicts Stage 10 without building every stage.",

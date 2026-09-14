@@ -17,7 +17,7 @@ test("Math, ELA, Career, and PHE all resolve to reviewed classroom-valid contrac
   const programs = [core.mathematicsProgram, core.languageArtsProgram, integrated.careerProgram, integrated.pheProgram];
   assert.deepEqual(programs.map((program) => [program.subject, program.experiences.length]), [
     ["Mathematics", 15],
-    ["English Language Arts", 14],
+    ["English Language Arts", 20],
     ["Career Education", 6],
     ["Physical & Health Education", 6],
   ]);

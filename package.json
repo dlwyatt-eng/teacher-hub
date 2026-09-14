@@ -11,7 +11,7 @@
     "sync:public-window": "node pages/sync-public-window.mjs",
     "check:public-window": "node pages/check-public-window.mjs",
     "typecheck": "tsc --project tsconfig.json --noEmit --incremental false",
-    "prebuild:pages": "node scripts/build-earth-stuff-pack.mjs teacher && node scripts/limit-earth-k7.mjs",
+    "prebuild:pages": "node scripts/build-werewolf-pack.mjs && node scripts/build-earth-stuff-pack.mjs teacher && node scripts/limit-earth-k7.mjs",
     "build:pages": "npm run sync:public-window && vite build --config vite.pages.config.ts && node pages/postbuild.mjs",
     "build": "npm run build:pages",
     "check:pages-artifact": "node tests/check-pages-artifact.mjs",

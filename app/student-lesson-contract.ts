@@ -9,6 +9,7 @@
 
 import { pheStudentLessonContracts } from "./student-lesson-contracts-phe";
 import { careerStudentLessonContracts } from "./student-lesson-contracts-career";
+import { werewolfContracts } from "./werewolf-lessons";
 import { elaStudentLessonContracts } from "./student-lesson-contracts-ela";
 import { mathStudentLessonContracts } from "./student-lesson-contracts-math";
 
@@ -755,6 +756,7 @@ const reviewedStudentLessonContracts = {
   ...pheStudentLessonContracts,
   ...careerStudentLessonContracts,
   ...elaStudentLessonContracts,
+  ...werewolfContracts,
   ...mathStudentLessonContracts,
 } as const satisfies Record<string, StudentLessonContract>;
 

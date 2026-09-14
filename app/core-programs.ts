@@ -1,4 +1,5 @@
 import type { LearningProgram, ProgramExperience } from "./program-types";
+import { werewolfExperiences } from "./werewolf-lessons";
 import { bloxelsStoryGame } from "./cross-curricular-program";
 
 const experience = (details: ProgramExperience): ProgramExperience => details;
@@ -7,8 +8,8 @@ export const languageArtsProgram: LearningProgram = {
   subject: "English Language Arts",
   studioName: "Story, Media & Language Studio",
   title: "Read widely. Make meaning. Create for real audiences.",
-  subtitle: "A year-long workshop spine joins choice reading, shared texts, talk, writing, media, performance, and revision. Recurring captain-led Werewolf adds oral storytelling, listening and discussion within existing Language Arts time.",
-  cadence: "DAILY READING · CREATION & CAPTAIN-LED ORAL LANGUAGE",
+  subtitle: "A year-long workshop spine joins choice reading, shared texts, talk, writing, media, performance, and revision. A dedicated Werewolf sequence teaches the game, oral storytelling, listening and narration within existing Language Arts time.",
+  cadence: "DAILY READING · CREATION & ORAL STORYTELLING",
   northStar: "Language Arts should give students more ways to understand the world and more power to communicate—not a longer trail of worksheets.",
   principles: [
     "Mix written, oral, visual, and digital texts instead of treating one novel as the whole program.",
@@ -16,6 +17,7 @@ export const languageArtsProgram: LearningProgram = {
     "Use authentic, attributed First Peoples texts and protect student choice, privacy, and multiple ways to participate.",
   ],
   arcs: [
+    { id: "ela-werewolf", number: "ORAL", title: "Werewolf: Learn, Play & Tell", timing: "Introduce over 3–6 weeks; revisit through the year", question: "How can we tell a clear, engaging story while leading a fair game?", promise: "Learn the roles and rules, practise playing, build original stories, rehearse voice and narration, then host and revise. Every student tells and listens.", curriculum: ["Oral storytelling", "Story structure", "Vocal expression", "Active listening", "Revision"], experienceIds: werewolfExperiences.map(l => l.id) },
     { id: "ela-belonging", number: "01", title: "Stories, Voice & Belonging", timing: "September", question: "How can stories help us know ourselves, one another, and this place?", promise: "Students listen closely, tell small stories, gather precise observations, and learn that nobody owes the class a private or painful story.", curriculum: ["Oral storytelling", "Active listening", "Reading identity", "Source context and permission", "Writing process"], experienceIds: ["ordinary-object-story", "semiahmoo-story-source-lab", "place-soundwalk"] },
     { id: "ela-media", number: "02", title: "Place, Perspective & Media", timing: "October–early November", question: "How do creators guide what we notice, believe, and feel?", promise: "Students test point of view, captions, crops, order, sound, evidence, and source context through fictional practice scenes and real attributed sources.", curriculum: ["Perspective", "Inference", "Visual texts", "Persuasion", "Source care"], experienceIds: ["three-voices", "edit-room"] },
     { id: "ela-reading-power", number: "03", title: "Reading Power, Choice & Game Story", timing: "November–January", question: "What do stories reveal when people face power, rules, and difficult choices?", promise: "Reading circles, transformations, and the Bloxels story blueprint turn text evidence into discussion and original narrative rather than packets of identical questions.", curriculum: ["Character", "Plot & conflict", "Story structure", "Dialogue", "Text transformation", "Conventions"], experienceIds: ["character-council", "turning-point-remix", "bloxels-story-blueprint"] },
@@ -105,9 +107,10 @@ export const languageArtsProgram: LearningProgram = {
       id: "live-anthology", arcId: "ela-worldbuilding", title: "Live anthology & curator's note", kind: "Publication studio", duration: "3–5 × 55 min", question: "Which piece best shows the reader, writer, speaker, or maker I became?", hook: "A portfolio is not everything you made. It is an argument made with carefully chosen evidence.", studentMission: "Choose one piece, make one revision that matters, share it in a fitting form, and explain the growth it proves.",
       steps: ["Review the year and shortlist work using learning—not prettiness—as the reason.", "Conference on one meaningful content, craft, or design revision.", "Publish, perform, record, or display for an appropriate audience.", "Write or record a curator's note using two pieces as evidence of growth."],
       product: "One deeply revised choice piece and a two-artifact growth reflection", learningModes: ["Portfolio curation", "Conference", "Publication or performance", "Reflection"], connections: ["Science expert showcase", "Career reflection", "Arts exhibition"], materials: ["Year's work", "Selection criteria", "Revision conference notes", "Privacy-safe sharing routes"], teacherPrep: ["Protect revision time before celebration.", "Confirm family-facing permissions for any public display, face, or voice."], lookFors: ["Defensible selection", "Substantive revision", "Audience awareness", "Specific growth evidence"], spacesUse: "none", spacesPrompt: "Contribute the selected evidence to the existing June Core Competency reflection; do not add a second upload." }),
+    ...werewolfExperiences,
   ],
   assessment: {
-    practice: "Reading conferences, oral stories, captain-led Werewolf narration and retelling, discussions, field notes, quick drafts, rehearsals, and peer tests remain local evidence.",
+    practice: "Reading conferences, oral stories, Werewolf narration and individual retelling, discussions, field notes, quick drafts, rehearsals, and peer tests remain local evidence.",
     checkpoints: "Use selected transformations, source explanations, or poetry only when they reveal learning not already visible elsewhere.",
     portfolio: "The September Learning Story, Fleetwood case file, January Bloxels story-game, February expert exchange, and June anthology can carry the main ELA evidence.",
     proficiency: ["Understands, connects, and supports interpretations with relevant evidence", "Creates with a clear purpose, audience, structure, and message", "Communicates clearly across written, oral, visual, and digital forms", "Revises ideas or design because of feedback and evidence", "Uses language and conventions to support meaning"],

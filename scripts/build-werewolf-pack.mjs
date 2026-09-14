@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import React from 'react';
+import {renderToStaticMarkup} from 'react-dom/server';
+import {moduleLoader} from '../tests/helpers/load-rendered-module.mjs';
+const root=path.resolve(import.meta.dirname,'..');
+const load=moduleLoader(root);
+const {WerewolfPrintPack}=load('app/werewolf-studio.tsx');
+const css=fs.readFileSync(path.join(root,'app/werewolf-studio.css'),'utf8');
+const html='<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Werewolf classroom print pack</title><style>'+css+'</style></head><body><p class="no-print" style="text-align:center"><button onclick="window.print()">Print / Save as PDF</button> · <a href="../?subject=English+Language+Arts&experience=werewolf-learn">Return to lessons</a></p>'+renderToStaticMarkup(React.createElement(WerewolfPrintPack))+'</body></html>';
+fs.writeFileSync(path.join(root,'public/werewolf/print.html'),html);
