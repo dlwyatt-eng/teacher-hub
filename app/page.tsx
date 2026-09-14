@@ -908,7 +908,7 @@ function ClassroomHome() {
         ) : active === "Monthly Calendar" ? (
           <div className="page"><MonthlyCalendar onOpenWeek={() => navigateToPage("Weekly Plan")} /></div>
         ) : active === "Calendar Provocations" ? (
-          <CalendarProvocationsPage audience={mode === "projector" ? "student" : "teacher"} onHome={goHome} />
+          <CalendarProvocationsPage audience={mode === "projector" ? "student" : "teacher"} initialProvocationId={typeof window === "undefined" ? undefined : new URLSearchParams(window.location.search).get("provocation") ?? undefined} onProvocationChange={(id) => { const url = new URL(window.location.href); url.searchParams.set("provocation", id); window.history.replaceState(window.history.state, "", url); }} onHome={goHome} />
         ) : active === "First Week Mission" ? (
           <div className="page"><FirstWeekMission audience={mode === "projector" ? "student" : "teacher"} /></div>
         ) : active === "Saved Resources" ? (

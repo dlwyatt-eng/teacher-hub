@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import masterInquiryPack from "../content/master-inquiry-pack-v1.json";
 import { printClosest } from "./print-support";
 import "./calendar-provocations-page.css";
+import { TruthSourceSequence, TruthTeacherPreparation } from "./truth-source-sequence";
 
 const provocations = masterInquiryPack.calendarProvocations;
 const evidenceProtocol = masterInquiryPack.evidenceProtocol;
@@ -271,15 +272,16 @@ function CalendarProvocationRoute({ provocation, audience }: { provocation: (typ
 
   return (
     <>
+      {provocation.id === "truth-records-responsibility" && <>{audience === "teacher" && <TruthTeacherPreparation />}<TruthSourceSequence /></>}
       {rehearsal && (
         <aside className="calendar-rehearsal-launch" aria-labelledby="calendar-rehearsal-option">
           <div><h2 id="calendar-rehearsal-option">Practise careful listening with a made-up story</h2><p>This made-up school story is for listening practice only. It does not teach the history of residential schools or replace learning from real sources. Your teacher will guide the next lesson.</p></div>
           <button ref={openButtonRef} type="button" onClick={() => { hasOpenedRehearsal.current = true; setRehearsalOpen(true); }}>Open fictional listening rehearsal</button>
         </aside>
       )}
-      {audience === "teacher"
+      {provocation.id !== "truth-records-responsibility" && (audience === "teacher"
         ? <TeacherProvocationPlan provocation={provocation} />
-        : <StudentProvocationPlayer provocation={provocation} />}
+        : <StudentProvocationPlayer provocation={provocation} />)}
     </>
   );
 }

@@ -216,7 +216,7 @@
       "id": "truth-records-responsibility",
       "student": {
         "learning": "We are learning how people's accounts, records, and knowledge of language or place help us understand the past and our responsibilities today.",
-        "lookListen": "Listen to or read the real source your teacher shares from the National Centre for Truth and Reconciliation or a specific Nation. Record the creator, date, and Nation only as they are named in the source. Notice any instructions about using it.",
+        "lookListen": "Read the prepared cards from Phyllis Webstad, the National Centre for Truth and Reconciliation, and Katzie First Nation. Name each creator and one thing the source helps you understand. Keep quotations separate from classroom summaries.",
         "before": "How can we listen with care? Being able to view a source does not mean we have permission to copy or share it.",
         "noticeWonder": [
           "Who created this source, and what do they tell us about why it was shared?",
@@ -235,15 +235,15 @@
       "lens": "Testimony · records · language revitalization · children's rights · local responsibility",
       "timing": "30–50 minutes",
       "learning": "We are learning how testimony, records, language, and place-based knowledge work together as evidence.",
-      "hook": "Use one brief, teacher-previewed NCTR or Nation-authored source excerpt with its speaker, Nation, date, and protocol attached.",
+      "hook": "Teach the prepared eight-stop source sequence: Phyllis Webstad’s account, NCTR’s historical explanation, and Katzie’s living place names. Short quotations, attributed context, questions and a model are supplied.",
       "before": "What should a careful listener record—and what does access not give us permission to copy?",
       "noticeWonder": ["Notice who created the source and why.", "Wonder what another source could help us understand without challenging a person's dignity."],
       "questions": ["How do different forms of evidence work together?", "Why might people reject established evidence?", "What local responsibility can a school actually keep?"],
       "discussion": "Build an evidence braid: testimony, record, place/language, and a responsibility. A missing strand becomes a question, not a dismissal.",
       "product": "Make a source-care card and one realistic school responsibility with a check-back date.",
       "curriculum": ["Social Studies: evidence and colonialism", "ELA: listening and source care", "Career: responsibility"],
-      "differentiation": "Use a fictional listening rehearsal when an authentic source is unavailable; provide quiet, drawing, dictation, and no-personal-disclosure routes.",
-      "fallback": "Postpone the authentic lesson until its exact source, attribution, and protocol are prepared. Choose Open fictional listening rehearsal for the bundled school-story practice; it is not a replacement for the authentic learning.",
+      "differentiation": "Use the prepared cards with quiet listening, drawing, dictation or partner talk. Offer an agreed pause and no-personal-disclosure routes. The fictional rehearsal remains optional listening practice.",
+      "fallback": "If links fail after this page loads, read the supplied quotations and attributed summaries aloud. Revisit the original sources later. Open fictional listening rehearsal is an optional separate practice, not residential-school learning.",
       "listeningRehearsal": {
         "student": {
           "goal": "We are learning to compare what a person says happened with a written notice, and explain what we know and still need to check.",
@@ -254,7 +254,7 @@
             "Choose one respectful question to check next. What should the club organizers check about how they share the next message?"
           ],
           "care": "The notice tells us the plan. It does not prove what happened. Do not guess anyone's reasons or feelings. You can write, draw, dictate, or talk with a partner. You do not need to act the story out or share a personal experience.",
-          "returnToAuthentic": "Next, your teacher will choose when the real-source lesson is ready. That lesson uses a source from the National Centre for Truth and Reconciliation or a specific Nation, with its own creator, context, and instructions for use. Keep its credit separate: this made-up practice was created by Classroom OS, not by the Centre or a Nation."
+          "returnToAuthentic": "Return to the prepared real-source lesson when your teacher is ready. It uses sources from Phyllis Webstad, the National Centre for Truth and Reconciliation and Katzie First Nation. Keep their credits separate from this made-up Classroom OS practice."
         },
         "id": "changed-library-club-room-v1",
         "title": "Fictional listening rehearsal: The changed library-club room",

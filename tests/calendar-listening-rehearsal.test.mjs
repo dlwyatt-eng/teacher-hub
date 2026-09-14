@@ -1,10 +1,9 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { createRequire } from "node:module";
+import { moduleLoader } from "./helpers/load-rendered-module.mjs";
 import test from "node:test";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import ts from "typescript";
 
 const componentUrl = new URL("../app/calendar-provocations-page.tsx", import.meta.url);
 const componentSource = await readFile(componentUrl, "utf8");
@@ -12,23 +11,9 @@ const pack = JSON.parse(await readFile(new URL("../content/master-inquiry-pack-v
 const target = pack.calendarProvocations.find((item) => item.id === "truth-records-responsibility");
 const rehearsal = target.listeningRehearsal;
 
-// Exercise the actual TSX renderer without writing a test bundle or requiring a browser.
-const requireFromComponent = createRequire(componentUrl);
-const compiled = ts.transpileModule(componentSource, {
-  fileName: "calendar-provocations-page.tsx",
-  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, jsx: ts.JsxEmit.ReactJSX, esModuleInterop: true },
-}).outputText;
-const componentModule = { exports: {} };
-const printModule = { exports: {} };
-const printSource = await readFile(new URL("../app/print-support.ts", import.meta.url), "utf8");
-const printCompiled = ts.transpileModule(printSource, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
-new Function("module", "exports", printCompiled)(printModule, printModule.exports);
-new Function("require", "module", "exports", compiled)(
-  (specifier) => specifier === "./print-support" ? printModule.exports : specifier.endsWith(".css") ? {} : requireFromComponent(specifier),
-  componentModule,
-  componentModule.exports,
-);
-const { CalendarListeningRehearsal, CalendarProvocationsPage } = componentModule.exports;
+// Exercise the actual renderer, including the prepared authentic-source sequence.
+const load = moduleLoader(new URL("..", import.meta.url).pathname);
+const { CalendarListeningRehearsal, CalendarProvocationsPage } = load("app/calendar-provocations-page.tsx");
 const escapedText = (value) => renderToStaticMarkup(createElement("span", null, value)).slice(6, -7);
 
 test("only the reconciliation scaffold supplies the complete, explicitly fictional listening rehearsal", () => {
@@ -74,7 +59,9 @@ test("the actual standalone rehearsal renderer exposes all source text, attribut
 test("the authentic teacher and student routes preserve NCTR attribution until rehearsal is explicitly selected", () => {
   for (const audience of ["teacher", "student"]) {
     const html = renderToStaticMarkup(createElement(CalendarProvocationsPage, { initialProvocationId: target.id, audience }));
-    assert.ok(html.includes(escapedText(target.source.label)));
+    assert.match(html, /National Centre for Truth and Reconciliation/);
+    assert.match(html, /Choose a source lesson stop/);
+    if (audience === "student") assert.doesNotMatch(html, /Listen for:|Source preparation, answer guidance|Before class:/);
     assert.ok(html.includes(escapedText(target.title)));
     assert.match(html, /Open fictional listening rehearsal/);
     assert.equal(html.includes(escapedText(rehearsal.sourceCards[0].text)), false, "Do not silently substitute the fictional source into the authentic lesson.");
