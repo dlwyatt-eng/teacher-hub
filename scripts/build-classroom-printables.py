@@ -4,6 +4,7 @@ Run with a Python environment containing reportlab, from any working directory.
 Content is read from the same TypeScript data used by the lesson screens.
 """
 import json
+import sys
 from pathlib import Path
 import subprocess
 from xml.sax.saxutils import escape
@@ -19,9 +20,9 @@ ROOT = Path(__file__).resolve().parent.parent
 data = json.loads(subprocess.check_output(['node', '--input-type=module', '-e', """
 import {moduleLoader} from './tests/helpers/load-rendered-module.mjs';
 const load = moduleLoader(process.cwd());
-const {werewolfLessons,werewolfRules,narratorScript} = load('app/werewolf-lessons.ts');
+const {werewolfLessons,werewolfRules,narratorScript,werewolfDeck,werewolfDeckNote,werewolfRoleRoutine} = load('app/werewolf-lessons.ts');
 const {responsibilityPosters} = load('app/classroom-responsibilities.ts');
-process.stdout.write(JSON.stringify({werewolfLessons,werewolfRules,narratorScript,responsibilityPosters}));
+process.stdout.write(JSON.stringify({werewolfLessons,werewolfRules,narratorScript,werewolfDeck,werewolfDeckNote,werewolfRoleRoutine,responsibilityPosters}));
 """], cwd=ROOT))
 OUT = ROOT / 'public' / 'printables'
 OUT.mkdir(exist_ok=True)
@@ -49,19 +50,19 @@ def footer(c, doc):
 # then one page per lesson. Teacher answers remain on the lesson screen.
 story=[]
 for half in range(2):
-    story += [heading('Werewolf: classroom starter rules' if half == 0 else 'Werewolf: discussion and endings')]
+    story += [heading('Werewolf: whole-class game routine' if half == 0 else 'Werewolf: discussion and endings')]
     if half == 0:
-        story += [p('Nine players plus a neutral narrator. Use six Villagers, two Werewolves and one Seer. This is our classroom starter variant.'), p('Read both rules pages and the narrator script before playing.')]
+        story += [p('Use your physical Ultimate Werewolf deck for 25 student players plus the teacher moderator. The proposed mixed-role selection is on the deck page. Confirm the cards and exact abilities before play.'), p('Read both rules pages and the narrator script before playing.')]
     for rule in data['werewolfRules'][half*3:half*3+3]:
         story += [p(rule['title'], 'Heading2'), p(rule['text'])]
     story += [PageBreak()]
 story += [heading('Narrator script'), p('Use clear everyday speech for directions. Add brief atmosphere between actions; never invent evidence about a player.')]
 for step in data['narratorScript']:
     story += [p(step['title'], 'Heading2'), p(step['text'])]
-story += [PageBreak(), heading('Private narrator record'), p('Keep this page off the projector and hidden from players. Check each card privately before starting. Mark removals and check the win conditions after each one.')]
-table = Table([['Player number', 'Secret role', 'Active / story tracker']] + [[str(i), '', ''] for i in range(1,13)], colWidths=[95,210,200], rowHeights=[30]+[35]*12)
+story += [PageBreak(), heading('Private narrator record'), p('Keep this page off the projector and hidden from players. Check each card privately before starting. Resolve immediate role effects, then mark removals and check the win conditions.')]
+table = Table([['Player number', 'Secret role', 'Active / story tracker']] + [[str(i), '', ''] for i in range(1,26)], colWidths=[95,210,200], rowHeights=[26]+[19]*25)
 table.setStyle(TableStyle([('GRID',(0,0),(-1,-1),.6,colors.grey),('BACKGROUND',(0,0),(-1,0),colors.HexColor('#eeeeee')),('VALIGN',(0,0),(-1,-1),'MIDDLE'),('FONTNAME',(0,0),(-1,0),'ClassroomSans-Bold')]))
-story += [table, Spacer(1,18), p('Village wins: no wolves remain. Wolves win: active wolves equal or outnumber all other active players combined. At the agreed limit, finish the action, check for a winner and otherwise end without a winner.'), PageBreak()]
+story += [table, Spacer(1,18), p('Check the two-team endings after immediate role effects: village wins with no active wolves; wolves win at parity or greater. Follow the selected card rules for pending abilities. At time, finish the action and otherwise close without a winner.'), PageBreak()]
 story += [heading('Storyteller cue planner'), p('Name: __________________________  Date: __________________'), p('Choose a forest, mountain or island village. Plan an original story opening. Use cue words to remember your ideas.')]
 for label in ['Setting: where are we? Add one sound or movement.', 'Change: what interrupts the ordinary moment?', 'Question: what will the listener want to know?', 'Three to five cue words to guide your telling.', 'Voice: mark a pause, a pace change or a word to emphasize.']:
     story += linebox(label, 35)
@@ -69,14 +70,19 @@ story += [p('Narrator rehearsal: add cues for night, morning and two endings (a 
 story += [heading('Listen, retell and revise'), p('Name: __________________________  Date: __________________'), p('Tell your partner a short scene or retell public game events. Listen to their feedback, change one part and tell it again.')]
 for label in ['My speaking goal:', 'Story order: first ... then ... finally ...', 'One clear moment I heard:', 'One question I asked my partner:', 'Feedback I received:', 'The part I changed and how it helped:']:
     story += linebox(label, 38)
-story += [PageBreak(), heading('Plain role cards'), p('Cut equal rectangles. Use opaque paper or identical sleeves. For 8-12 players, use two Werewolves, one Seer and enough Villagers for the remaining players, plus a narrator. Remove unused cards before shuffling.')]
-cards=[]
-for role in ['Werewolf','Werewolf','Seer']+['Villager']*9:
-    text = {'Werewolf':'At night, choose one active non-wolf player with your pack.', 'Seer':'At night, ask about one other active player. You are on the village team.', 'Villager':'Listen. Discuss. Vote. Find the werewolves.'}[role]
-    cards.append([p(role.upper(), 'Heading3'), p(text,'CardCustom')])
-table=Table([cards[i:i+3] for i in range(0,12,3)], colWidths=[168]*3, rowHeights=[125]*4)
-table.setStyle(TableStyle([('GRID',(0,0),(-1,-1),.7,colors.grey),('VALIGN',(0,0),(-1,-1),'MIDDLE'),('LEFTPADDING',(0,0),(-1,-1),12),('RIGHTPADDING',(0,0),(-1,-1),12)]))
-story += [table]
+story += [PageBreak(), heading('25-player setup: your physical deck'), p(data['werewolfDeckNote'])]
+rows=[[p('Candidate role','Heading3'),p('Qty','Heading3'),p('Explain before play','Heading3')]]
+for r in data['werewolfDeck']:
+    rows.append([p(r['role']),p(str(r['count'])),p(r['learn'])])
+table=Table(rows,colWidths=[110,45,350])
+table.setStyle(TableStyle([('LINEBELOW',(0,0),(-1,-1),.4,colors.grey),('VALIGN',(0,0),(-1,-1),'TOP'),('BACKGROUND',(0,0),(-1,0),colors.HexColor('#eeeeee'))]))
+story += [table,p('Total: 25 student players. The teacher moderates separately.'), PageBreak(), heading('Learn roles before dealing')]
+for text in data['werewolfRoleRoutine']:
+    story += [p(text),Spacer(1,10)]
+story += [p('Moderator preparation','Heading2')]
+for label in ['First-night role order:', 'Later-night role order:', 'Limited abilities and departure triggers:']:
+    story += linebox(label,30)
+story += [p('Role reference: Ultimate Edition rules, rulespal.com/ultimate-werewolf-ultimate-edition/rulebook. Use your physical edition for exact abilities. Original classroom teaching mix; not yet play-tested.', 'CardCustom')]
 for lesson in data['werewolfLessons']:
     story += [PageBreak(), heading(lesson['title']), p(lesson['focus']), p('Finish with: '+lesson['product'])]
     for step in lesson['steps']:
@@ -87,7 +93,7 @@ for lesson in data['werewolfLessons']:
 SimpleDocTemplate(str(ROOT/'public/werewolf/classroom-pack.pdf'), pagesize=(612,792), rightMargin=42, leftMargin=42, topMargin=36, bottomMargin=42, title='Werewolf classroom pack', author='Mr. Wyatt’s Classroom').build(story, onFirstPage=footer, onLaterPages=footer)
 
 # Letter-sized posters: high contrast type, generous row spacing, ink-light.
-for poster in data['responsibilityPosters']:
+for poster in ([] if '--werewolf-only' in sys.argv else data['responsibilityPosters']):
     dest=OUT/(poster['id']+'-responsibilities.pdf')
     c=canvas.Canvas(str(dest), pagesize=(612,792))
     c.setTitle(poster['title'])
@@ -113,4 +119,4 @@ for poster in data['responsibilityPosters']:
     c.setFillColor(dark);c.setFont('ClassroomSans-Bold',10)
     c.drawCentredString(306,51,poster['footer'])
     c.save()
-print('Generated classroom pack and two responsibility posters.')
+print('Generated Werewolf pack.' if '--werewolf-only' in sys.argv else 'Generated classroom pack and two responsibility posters.')

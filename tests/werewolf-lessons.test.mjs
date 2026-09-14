@@ -6,7 +6,7 @@ import React from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {moduleLoader} from './helpers/load-rendered-module.mjs';
 const root=path.resolve(import.meta.dirname,'..');const load=moduleLoader(root);
-const {werewolfLessons,werewolfRules,narratorScript}=load('app/werewolf-lessons.ts');
+const {werewolfLessons,werewolfRules,narratorScript,werewolfDeck}=load('app/werewolf-lessons.ts');
 const {WerewolfLessonStudio,WerewolfPrintPack}=load('app/werewolf-studio.tsx');
 const {languageArtsProgram}=load('app/core-programs.ts');
 const {resolveStudentLessonContractForExperience}=load('app/student-lesson-contract.ts');
@@ -21,6 +21,6 @@ test('student first screens supply models and resource links without teacher ans
 test('print pack preserves every lesson model and all rules without exit-answer keys',()=>{
  const html=render(WerewolfPrintPack,{});for(const lesson of werewolfLessons){assert.ok(!html.includes(lesson.answer));for(const s of lesson.steps){assert.ok(html.includes(render('p',{children:s.action})));if(s.model)assert.ok(html.includes(render('blockquote',{children:s.model})));}}
  for(const r of [...werewolfRules,...narratorScript])assert.ok(html.includes(render('p',{children:r.text})));
- assert.equal((html.match(/<h3>WEREWOLF<\/h3>/g)||[]).length,2);assert.equal((html.match(/<h3>SEER<\/h3>/g)||[]).length,1);assert.equal((html.match(/<h3>VILLAGER<\/h3>/g)||[]).length,9);
+ assert.match(html,/25-player setup/);assert.match(html,/25\. __________________/);assert.equal(werewolfDeck.reduce((n,r)=>n+r.count,0),25);assert.equal(werewolfDeck.find(r=>r.role==='Villager').count,12);
  for(const file of ['role-cards.png','rules-poster.png','print.html'])assert.ok(fs.statSync(path.join(root,'public/werewolf',file)).size>100);
 });
