@@ -1,4 +1,4 @@
-import {listDayPlans, publishedDayPlans, type DayPlan} from './day-plan-store';
+import {DEFAULT_DAY_PLAN_ID, listDayPlans, publishedDayPlans, type DayPlan} from './day-plan-store';
 import {vancouverDateKey} from './morning-screen-state';
 
 const DAY_KEY = 'wyatt-displayed-day-v1';
@@ -10,7 +10,7 @@ export function chooseDisplayPlan(plans: DayPlan[], date: string, explicit?: str
     ?? plans.find(p => remembered?.date === date && p.id === remembered.id)
     ?? plans.find(p => p.date === date && !p.id.startsWith('week-day-'))
     ?? plans.find(p => p.date === date)
-    ?? plans.find(p => p.id === 'first-full-day')
+    ?? plans.find(p => p.id === DEFAULT_DAY_PLAN_ID)
     ?? publishedDayPlans[0];
 }
 

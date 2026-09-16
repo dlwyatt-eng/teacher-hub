@@ -1,0 +1,91 @@
+{
+  "id": "first-full-day-flexible",
+  "date": "",
+  "title": "Our first full day — supplies, games & choices",
+  "greeting": "Welcome to Grade 6!",
+  "arrival": "Choose a comfortable seat. Have a pencil ready. Notice something interesting in our room.",
+  "note": "Flexible first-day plan, updated to include supplies, shared games and class choices. The earlier version remains in the archive. Confirm the teaching date before copying to a dated day. All three conversation decks may fit within an hour; move on when ready. Werewolf is optional. Offer two or three feasible DPA choices, then vote; unfinished activities can continue another day.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "Arrival",
+      "title": "Welcome and practise the essentials",
+      "notes": "Briefly practise our attention signal, safe walking, listening, respectful language, asking for help and caring for materials. Say: We will practise how our classroom works as we do things together. Comfortable friendship seating is fine today; intervene for exclusion, crowding, access or disruption. Try different groupings during activities.",
+      "href": "?view=Responsibilities&mode=student&essentials=1"
+    },
+    {
+      "time": "Morning",
+      "title": "Talk, move, connect",
+      "notes": "Find Someone Similar → Find Someone Different → Would You Rather. Think, move safely, find a partner, ask the follow-up, listen. A seated partner route and passing are welcome. Change partners; include someone who is waiting. Allow up to about an hour for all three decks together, and move faster when the class is ready.",
+      "href": "?view=Games+%26+Activities&mode=student"
+    },
+    {
+      "time": "Before recess",
+      "title": "Organize our school supplies",
+      "notes": "Check what students brought without publicly comparing supplies. Model where personal supplies, shared materials, notebooks and extra items belong. Label personal items, check that everyone has a usable pencil and arrange discreet follow-up for missing supplies. Keep aisles clear while putting things away. Invite captains to help with shared bins. Take a short break and finish later if needed.",
+      "href": "",
+      "studentSteps": [
+        "Keep supplies at your place until we know where they belong.",
+        "Follow the teacher’s example: personal supplies, shared supplies, notebooks and extras.",
+        "Label your own items and put them in the places we agree on.",
+        "Check your space and the floor. Ask quietly if you need anything."
+      ]
+    },
+    {
+      "time": "Before recess",
+      "title": "Build our classroom community",
+      "notes": "Discuss what makes our room safe, fair and welcoming. Show Whole Class Responsibilities, then Team Captain Responsibilities. Everyone helps; captains lead through service. Practise one cleanup task. Briefly show Morning Screen, lessons, Student Hub and Games & Activities (5–10 minutes).",
+      "href": "?view=Responsibilities&mode=student"
+    },
+    {
+      "time": "After recess",
+      "title": "Finish our Discovery Booklets",
+      "notes": "Continue or finish worthwhile Discovery work. Early finishers can improve an idea, read or choose an available quiet game. We may briefly introduce Werewolf if the class is ready, but it can wait for another day.",
+      "href": "?view=First+Week+Mission&mode=student"
+    },
+    {
+      "time": "After lunch",
+      "title": "Quiet reading",
+      "notes": "Settle and read for 20–30 minutes. Have books available; offer a comfortable reading position. Model the daily after-lunch reading routine.",
+      "href": ""
+    },
+    {
+      "time": "Afternoon",
+      "title": "Games together: chess & class choices",
+      "notes": "Offer chess and other available partner or small-group games. Pair newer chess players with someone who can explain moves; use the rules supplied with each game. Model taking turns, explaining a move kindly, inviting others and accepting an outcome. Offer a game that does not require prior knowledge. Werewolf is an optional whole-class choice if there is enough time and interest; use the dedicated lesson and physical deck. It is fine to leave Werewolf for another day.",
+      "href": "",
+      "studentSteps": [
+        "Choose an available game: chess or another partner or small-group game.",
+        "Invite someone to join. Agree on the rules before starting.",
+        "Take turns, explain kindly and help anyone learning the game.",
+        "We may choose Werewolf together if there is time and interest. It can also wait for another day."
+      ]
+    },
+    {
+      "time": "Then",
+      "title": "Care for our classroom",
+      "notes": "Everyone restores their workstation and shared materials, sorts waste and stacks chairs safely. Captains coordinate shelves, cushions, dropped supplies, sweeping, compost, tables and fair seating turns. Captains give kind reminders and call the supervising adult for safety concerns.",
+      "href": "?view=Responsibilities&mode=student"
+    },
+    {
+      "time": "After cleanup · if time",
+      "title": "DPA: choose together & get moving",
+      "notes": "Offer two or three feasible options based on time, space, weather and the class: Capture the Flag, a cooperative playground game, or a walk-and-talk / movement circuit. Briefly explain each, invite a suggestion if practical, then give everyone one vote. In a tie, hold a quick run-off; the teacher settles a second tie. Save another popular option for a later day. Confirm boundaries, stop signal, safe tagging and participation options before play. If outside is unsuitable, choose an indoor movement break. Leave time to return equipment and dismiss calmly.",
+      "href": "",
+      "studentSteps": [
+        "Hear the choices that work for today: Capture the Flag, a cooperative game, or a walk-and-talk / movement circuit.",
+        "Listen to each option, then vote once. We can save another favourite for a later day.",
+        "Learn the boundaries, stop signal and rules before we begin.",
+        "Make room for everyone to join in. If outside does not work, we will choose an indoor movement break."
+      ]
+    }
+  ],
+  "backups": [
+    "Continue organizing supplies or practise returning shared materials.",
+    "Choose another conversation card and a new partner.",
+    "Play another round of chess or an available partner game; help someone learn.",
+    "Finish Discovery Booklets, draw a welcoming classroom or read.",
+    "Vote between two teacher-approved activities that fit the remaining time.",
+    "Optional: use the Werewolf lesson when there is enough time and interest."
+  ]
+}

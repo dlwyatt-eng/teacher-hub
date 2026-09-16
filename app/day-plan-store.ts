@@ -1,19 +1,21 @@
+import flexibleFirstDay from '../content/day-plans/first-full-day-flexible.json';
 import firstDay from '../content/day-plans/first-full-day.json';
 import {isIsoDateKey} from './morning-screen-state';
-export type DayBlock = {time:string; title:string; notes:string; href:string};
+export type DayBlock = {time:string; title:string; notes:string; href:string; studentSteps?:string[]};
 export type DayPlan = {id:string; date:string; title:string; greeting:string; arrival:string; note:string; reflection:string; blocks:DayBlock[]; backups:string[]};
 export type DayRevision = {revisionId:string; savedAt:string; plan:DayPlan};
 export const DAY_ARCHIVE_KEY='wyatt-day-plan-archive-v1';
 export const DAY_ARCHIVE_EVENT='wyatt:day-plan-archive';
-export const publishedDayPlans:DayPlan[]=[firstDay];
+export const publishedDayPlans:DayPlan[]=[flexibleFirstDay,firstDay];
+export const DEFAULT_DAY_PLAN_ID=flexibleFirstDay.id;
 const str=(v:unknown,max:number)=>typeof v==='string' && v.length<=max;
 export function parseDayPlan(value:unknown):DayPlan|null {
  if(!value || typeof value!=='object')return null;
  const p=value as DayPlan;
  if(!str(p.id,160)||!p.id||!str(p.date,10)||(p.date!==''&&!isIsoDateKey(p.date))||!str(p.title,160)||!p.title.trim()||!str(p.greeting,160)||!str(p.arrival,800)||!str(p.note,6000)||!str(p.reflection,6000))return null;
- if(!Array.isArray(p.blocks)||p.blocks.length<1||p.blocks.length>30||!p.blocks.every(b=>b&&str(b.time,60)&&str(b.title,180)&&b.title.trim()&&str(b.notes,6000)&&str(b.href,500)&&(b.href===''||b.href.startsWith('?view=')||b.href.startsWith('?subject='))))return null;
+ if(!Array.isArray(p.blocks)||p.blocks.length<1||p.blocks.length>30||!p.blocks.every(b=>b&&str(b.time,60)&&str(b.title,180)&&b.title.trim()&&str(b.notes,6000)&&str(b.href,500)&&(b.href===''||b.href.startsWith('?view=')||b.href.startsWith('?subject='))&&(b.studentSteps===undefined||(Array.isArray(b.studentSteps)&&b.studentSteps.length<=8&&b.studentSteps.every(step=>str(step,500))))))return null;
  if(!Array.isArray(p.backups)||p.backups.length>30||!p.backups.every(b=>str(b,1000)))return null;
- return {id:p.id,date:p.date,title:p.title,greeting:p.greeting,arrival:p.arrival,note:p.note,reflection:p.reflection,blocks:p.blocks.map(b=>({time:b.time,title:b.title,notes:b.notes,href:b.href})),backups:[...p.backups]};
+ return {id:p.id,date:p.date,title:p.title,greeting:p.greeting,arrival:p.arrival,note:p.note,reflection:p.reflection,blocks:p.blocks.map(b=>({time:b.time,title:b.title,notes:b.notes,href:b.href,...(b.studentSteps?{studentSteps:[...b.studentSteps]}:{})})),backups:[...p.backups]};
 }
 export function parseDayArchive(raw:unknown):DayRevision[] {
  if(!Array.isArray(raw))throw new Error('Choose a Day Plans JSON backup.');
