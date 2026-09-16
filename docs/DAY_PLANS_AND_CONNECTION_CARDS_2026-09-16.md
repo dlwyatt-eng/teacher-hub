@@ -24,7 +24,7 @@ Scope: first-full-day template, persistent source plan convention, browser day-p
 
 All 8 Similar, 8 Different and 16 Would You Rather prompts have follow-ups. Learning-activity preferences are contextual rather than fixed learning-style labels. Teacher directions include a seated route, passing, inclusion and changing partners. The flexible day supplies expectations, booklet completion, reading, existing mixed-role Werewolf lessons, cleanup and optional Capture the Flag procedures. Existing PDF responsibility posters and Werewolf print pack are reused.
 
-Eight original SVG illustration themes are local code assets, not remote image dependencies. Responsibilities support an overview and one responsibility at a time.
+Nine original SVG illustration themes are local code assets, not remote image dependencies. Responsibilities support an overview and one responsibility at a time.
 
 ## Verification
 
@@ -34,3 +34,9 @@ Eight original SVG illustration themes are local code assets, not remote image d
 - Pages production build and artifact validation passed during implementation; final build recorded with release.
 - Local interactive browser access was blocked by this environment. Live browser review follows deployment; do not infer projector or mobile visual quality from automated checks alone.
 - Classroom use has not been observed; actual timings and reflections remain for the teacher to record.
+
+## Live review follow-up
+
+Initial release deployed successfully (workflow 35061030301). Live browser review verified navigation to Games & Activities, three deck selections, Previous/Next wrap, follow-up reveal, random-card change, day-plan Save/reload, and the projected first-day sequence. Desktop screenshots showed readable cards and a crowded day outline; the follow-up tightens the day layout and shorter projector windows, adds the welcome illustration, and routes essential expectations to a student-readable screen. Source-copy logic now permits an explicit daily plan alongside an automatic weekly snapshot of the same date. Mobile reflow remains source-reviewed; no mobile viewport was available in the browser API.
+
+Live review also caught a doubled relative base in the poster PDF link. Both the existing poster panel and the new responsibilities page now use root public-asset paths so Pages rewriting yields `/teacher-hub/printables/...`. Focused responsibility navigation was checked on the live site. No curriculum in Learn or Equity was changed.

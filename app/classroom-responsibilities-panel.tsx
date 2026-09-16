@@ -9,7 +9,7 @@ export function ClassroomResponsibilitiesPanel() {
     <h3>Classroom responsibilities posters</h3>
     {responsibilityPosters.map((p, i) => <div key={p.id} className="captain-controls">
       <button onClick={() => {setSelected(i); dialog.current?.showModal();}}>Project {p.title}</button>
-      <a href={`./printables/${p.id}-responsibilities.pdf`} target="_blank" rel="noreferrer">Print {p.title}</a>
+      <a href={`/printables/${p.id}-responsibilities.pdf`} target="_blank" rel="noreferrer">Print {p.title}</a>
     </div>)}
     <dialog ref={dialog} className="captain-dialog responsibility-dialog" aria-label={poster.title}>
       <button onClick={() => dialog.current?.close()}>Return to planning</button>
