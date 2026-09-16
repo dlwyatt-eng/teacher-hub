@@ -20,13 +20,17 @@ export type SiteSearchEntry = {
 const programs = { ...coreLearningPrograms, ...integratedLearningPrograms };
 
 const studentAgencyPages = [
+  ["Shape of the Day", "Shape of the Day", "Open the welcome home screen and daily schedule on the projector, then launch each activity."],
+  ["Games & Activities", "Games & Activities", "Community builders, Find Someone Similar, Find Someone Different, Would You Rather, quick fillers and discussion cards."],
+  ["Responsibilities", "Responsibilities", "Classroom expectations, routines, everyone’s responsibilities, Team Captain jobs and cleanup posters."],
   ["Newsroom", "Source Lab & Newsroom", "Use a named current or historical source for a Quick Look or Deep Dive, then try teacher-led visual clue challenges."],
   ["My Inquiry", "My Inquiry", "Carry a strong question through source research, team planning, making, teaching, and reflection."],
   ["AI Tensions Lab", "AI Tensions Lab", "Choose human, AI, both, or not sure; reveal new information; then reconsider who should decide and what the human must still do."],
 ] as const;
 
 const teacherPages = [
-  ["Morning Screen", "Assemble, review, edit, and project today's schedule, announcements, reminders, weather, and arrival challenge."],
+  ["Day Plans", "Save, edit, archive, print and reuse daily plans next year; copy a day to a new date and keep revision history."],
+  ["Morning Screen", "Arrival challenge and notices: assemble, review, edit, and project today's schedule, announcements, reminders, weather, and arrival challenge."],
   ["Weekly Plan", "Build and print the teaching week; download the one-page Excel desk planner."],
   ["Monthly Calendar", "See the month, saved weekly lessons, and short class-wide events."],
   ["Calendar Provocations", "Open seven inquiry-ready calendar experiences with source care, projector steps, access routes, and anti-tokenism guidance."],
@@ -53,7 +57,7 @@ export const siteSearchEntries: SiteSearchEntry[] = [
   })),
   ...teacherPages.map(([page, description]) => ({
     id: `page-${page}`,
-    title: page,
+    title: page === "Morning Screen" ? "Arrival challenge & notices" : page,
     eyebrow: "TEACHER TOOL",
     description,
     terms: `${page} ${description}`,

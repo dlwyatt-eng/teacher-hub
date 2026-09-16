@@ -25,6 +25,8 @@ import type { MorningTimelineItem } from "./morning-screen";
 import StudentAgencyDock from "./student-agency-dock";
 import { vancouverDateKey as morningDateKey } from "./morning-screen-state";
 import TeacherHomeOperations from "./teacher-home-operations";
+import {ClassroomLaunch, ClassroomNavigation} from "./classroom-navigation";
+import {shapeOfDayHref} from "./classroom-navigation-state";
 import "./teaching-workspace.css";
 import { OpeningWeekCockpit, OpeningWelcome } from "./opening-week";
 import { currentLearningWindow } from "./current-learning-phase";
@@ -302,6 +304,9 @@ function readClassroomLocation(includeSessionFallback = true): ClassroomLocation
 function writeClassroomLocation(location: ClassroomLocation, action: "push" | "replace") {
   const url = new URL(window.location.href);
   if (location.active !== "Morning Screen") url.searchParams.delete("dayPlan");
+  if (location.active !== "Day Plans") url.searchParams.delete("plan");
+  if (location.active !== "Responsibilities") url.searchParams.delete("essentials");
+  if (location.active !== "Games & Activities") url.searchParams.delete("deck");
   for (const key of ["mode", "view", "subject", "lesson", "socialLesson", "socialScene", "experience"]) url.searchParams.delete(key);
   if (location.mode === "projector") url.searchParams.set("mode", "student");
   if (location.subject) {
@@ -743,6 +748,7 @@ function ClassroomHome() {
 
   const openSearchTarget = (target: SiteSearchTarget) => {
     if (target.kind === "page") {
+      if (target.page === "Shape of the Day") { window.location.assign(shapeOfDayHref()); return; }
       navigateToPage(target.page);
       return;
     }
@@ -818,8 +824,8 @@ function ClassroomHome() {
           <button className={`nav-item ${active === "Home" ? "active" : ""}`} onClick={goHome}>
             <span className="nav-icon">⌂</span> Home
           </button>
-          <button className={`nav-item ${active === "Morning Screen" ? "active" : ""}`} onClick={() => { navigateToPage("Morning Screen"); if (sidebarOpen) closeDrawerTo("main"); }}>
-            <span className="nav-icon">☀</span> Morning Screen
+          <button className={`nav-item ${active === "Morning Screen" ? "active" : ""}`} onClick={() => window.location.assign(shapeOfDayHref())}>
+            <span className="nav-icon">☀</span> Shape of the Day
           </button>
           <p className="nav-label second">SUBJECTS</p>
           {subjects.map((subject) => (
@@ -878,7 +884,7 @@ function ClassroomHome() {
         <p className="sr-only" aria-live="polite" aria-atomic="true">{announcement}</p>
         <header className="topbar">
           {mode === "teacher" && <button ref={menuButtonRef} className="menu-button" onClick={() => setSidebarOpen(open => !open)} aria-label={sidebarOpen ? "Close menu" : "Open menu"} aria-expanded={sidebarOpen} aria-controls="primary-sidebar">☰</button>}
-          <div className="breadcrumbs"><span>{mode === "teacher" ? "Plan / TTOC" : "Teach / Project"}</span><b>/</b><strong>{active}</strong></div>
+          <div className="breadcrumbs"><span>{mode === "teacher" ? "Plan / TTOC" : "Teach / Project"}</span><b>/</b><strong>{active === "Morning Screen" ? (mode === "projector" ? "Shape of the Day" : "Arrival & notices") : active}</strong></div>
           <div className="top-actions">
             <SiteSearch audience={mode === "teacher" ? "teacher" : "student"} onNavigate={openSearchTarget} />
             <button type="button" className="large-text-toggle" aria-label={largeText ? "Standard text" : "Large text"} aria-pressed={largeText} onClick={() => setLargeText((value) => !value)}><span aria-hidden="true">Aa</span><strong>{largeText ? "Standard text" : "Large text"}</strong></button>
@@ -892,6 +898,7 @@ function ClassroomHome() {
           </div>
         </header>
 
+        <ClassroomNavigation active={active} projector={mode === "projector"} routeKey={`${mode}:${active}:${selectedSubject?.name ?? ""}:${selectedScienceLessonId ?? ""}:${JSON.stringify(subjectHubLocation)}`} />
         <RouteErrorBoundary routeKey={`${active}:${selectedSubject?.name ?? ""}:${selectedScienceLessonId ?? ""}`}>
         <Suspense fallback={<RouteLoading label={selectedScienceLessonId ? "Science lesson" : selectedSubject?.short ?? active} />}>
         {selectedSubject ? (
@@ -989,10 +996,11 @@ function Dashboard({ onSubject, onNavigate, onOpenScienceLesson, onProjectMornin
   return (
     <div className="page dashboard">
       <header className="teaching-home-header">
-        <div><p className="section-kicker">BC GRADE 6 · PLAN, PROJECT, TEACH</p><h1>Your classroom, ready to begin.</h1><p>Choose a lesson below, or open the tools for today.</p></div>
-        <nav aria-label="Today's teaching tools"><button onClick={() => onNavigate("Day Plans")}>Day Plans</button><button onClick={() => onNavigate("Games & Activities")}>Games &amp; Activities</button><button onClick={() => onNavigate("Morning Screen")}>Morning Screen</button><button onClick={() => onNavigate("Weekly Plan")}>Week plan</button><button onClick={() => onNavigate("TOC & Emergency Plans")}>TOC &amp; printables</button></nav>
+        <div><p className="section-kicker">BC GRADE 6 · PLAN, PROJECT, TEACH</p><h1>Your classroom, ready to begin.</h1><p>Start the day here. The same shortcuts stay with you on every screen.</p></div>
+
       </header>
 
+      <ClassroomLaunch />
       <section className="subjects-section">
         <div className="section-heading">
           <div><span className="section-kicker">SUBJECTS</span><h2>Choose a learning area.</h2></div>
@@ -1014,7 +1022,7 @@ function Dashboard({ onSubject, onNavigate, onOpenScienceLesson, onProjectMornin
         <p>A teacher computer and projector are the main setup. Use the lesson’s paper route when devices or Wi-Fi are unavailable.</p>
       </details>
       <details className="opening-daily-tools"><summary>Opening week &amp; rotations · welcome, Discovery booklet and first maths blocks</summary><OpeningWeekCockpit onNavigate={onNavigate} /></details>
-      <details className="opening-daily-tools"><summary>Today's screen, schedule &amp; pinned lesson</summary><TeacherHomeOperations timeline={morningTimeline} onNavigate={onNavigate} onProjectMorning={onProjectMorning} publicSiteHref={STUDENT_FAMILY_SITE_URL} /><TeacherDailyLaunchManager /></details>
+      <details className="opening-daily-tools"><summary>More arrival tools &amp; pinned lesson</summary><TeacherHomeOperations timeline={morningTimeline} onNavigate={onNavigate} onProjectMorning={onProjectMorning} publicSiteHref={STUDENT_FAMILY_SITE_URL} /><TeacherDailyLaunchManager /></details>
       <nav className="connected-hubs" aria-label="Connected classroom hubs"><a href={STUDENT_FAMILY_SITE_URL} target="_blank" rel="noreferrer">Student &amp; Family Hub ↗</a><a href="https://dlwyatt-eng.github.io/equity-hub/" target="_blank" rel="noreferrer">Equity Hub · K–7 lessons ↗</a></nav>
 
       <details className="os-development">
