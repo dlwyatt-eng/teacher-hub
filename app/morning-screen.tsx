@@ -28,6 +28,7 @@ import {
   type DailyLaunch,
 } from "./daily-launch";
 import "./morning-screen.css";
+import {DayPlanMorning, useSelectedDayPlan} from "./day-plan-library";
 import { HopeEditor, HopeProjector } from "./morning-hope";
 
 export type MorningTimelineItem = {
@@ -414,12 +415,15 @@ function MorningTeacherEditor({
 
 export function MorningScreen({ audience, onOpenHome, timeline }: MorningScreenProps) {
   const date = vancouverDateKey();
-  const safeSchedule = useMemo(() => safeTimeline(timeline), [timeline]);
+  const selectedPlan = useSelectedDayPlan();
+  const safeSchedule = useMemo(() => safeTimeline(selectedPlan ? selectedPlan.blocks.map(b => ({time:b.time,label:b.title})) : timeline), [timeline, selectedPlan]);
   const subscribe = useCallback((listener: () => void) => subscribeMorningScreen(date, listener), [date]);
   const getSnapshot = useCallback(() => getMorningScreenSnapshot(date), [date]);
   const saved = useSyncExternalStore(subscribe, getSnapshot, getMorningScreenServerSnapshot);
   const launch = useSyncExternalStore(subscribeDailyLaunch, getDailyLaunchSnapshot, getDailyLaunchServerSnapshot);
 
+  const explicitDayPlan = typeof window !== "undefined" && new URLSearchParams(window.location.search).has("dayPlan");
+  if (audience === "student" && selectedPlan && (explicitDayPlan || !saved)) return <DayPlanMorning plan={selectedPlan} />;
   return audience === "student"
     ? <MorningProjector saved={saved} launch={launch} timeline={safeSchedule} onOpenHome={onOpenHome} />
     : <MorningTeacherEditor key={`${date}:${saved?.publishedAt ?? "draft"}`} date={date} saved={saved} launch={launch} timeline={safeSchedule} onOpenHome={onOpenHome} />;

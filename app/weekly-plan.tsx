@@ -1,4 +1,5 @@
 "use client";
+import {archiveWeekPlan} from "./archive-week-plan";
 
 import { useEffect, useId, useRef, useState } from "react";
 import { PLAN_BLOCK_NOTE_MAX } from "./planning-contract";
@@ -553,6 +554,7 @@ export function WeeklyPlan({ seed = EMPTY_SEED, storageKey = WEEKLY_PLAN_STORAGE
     if (!ready) return;
     try {
       window.localStorage.setItem(storageKey, JSON.stringify(plan));
+      archiveWeekPlan(plan);
     } catch {
       window.setTimeout(() => setStatus("This browser blocked saving. Keep this tab open or print the week now."), 0);
     }

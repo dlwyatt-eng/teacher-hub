@@ -43,6 +43,9 @@ const YearPlanPage = lazy(() => import("./year-plan-page"));
 const FirstWeekMission = lazy(() => import("./first-week-mission"));
 const AiActivityStudio = lazy(() => import("./ai-activity-studio"));
 const AiTensionsLab = lazy(() => import("./ai-tensions-lab"));
+const DayPlanLibrary = lazy(() => import("./day-plan-library"));
+const GamesActivities = lazy(() => import("./games-activities"));
+const ResponsibilitiesPage = lazy(() => import("./responsibilities-page"));
 const MorningScreen = lazy(() => import("./morning-screen"));
 const NewsroomHub = lazy(() => import("./student-agency-hub").then((module) => ({ default: module.NewsroomHub })));
 const MyInquiryHub = lazy(() => import("./student-agency-hub").then((module) => ({ default: module.MyInquiryHub })));
@@ -298,6 +301,7 @@ function readClassroomLocation(includeSessionFallback = true): ClassroomLocation
 
 function writeClassroomLocation(location: ClassroomLocation, action: "push" | "replace") {
   const url = new URL(window.location.href);
+  if (location.active !== "Morning Screen") url.searchParams.delete("dayPlan");
   for (const key of ["mode", "view", "subject", "lesson", "socialLesson", "socialScene", "experience"]) url.searchParams.delete(key);
   if (location.mode === "projector") url.searchParams.set("mode", "student");
   if (location.subject) {
@@ -337,7 +341,7 @@ function subjectHubLocationFromClassroom(location: ClassroomLocation, subject: S
 }
 
 const standaloneViews = new Set([
-  "Home", "Opening Welcome", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Weekly Plan", "Monthly Calendar",
+  "Home", "Day Plans", "Games & Activities", "Responsibilities", "Opening Welcome", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Weekly Plan", "Monthly Calendar",
   "Calendar Provocations", "First Week Mission", "TOC & Emergency Plans", "TTOC Day Plan", "Cross-Curricular Projects",
   "Project Template", "Teaching OS Map", "Year Plan", "SpacesEDU Evidence", "AI Activity Studio", "Visual Review Studio",
   "Assessment Studio", "Classroom Guide", "Saved Resources",
@@ -349,7 +353,7 @@ function normalizeLegacyView(active?: string) {
   return "Home";
 }
 
-const projectorSafePages = new Set(["Home", "Opening Welcome", "First Week Mission", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Calendar Provocations"]);
+const projectorSafePages = new Set(["Games & Activities", "Responsibilities", "Home", "Opening Welcome", "First Week Mission", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Calendar Provocations"]);
 
 function isProjectorSafePage(active: string) {
   return projectorSafePages.has(active);
@@ -827,6 +831,9 @@ function ClassroomHome() {
 
           <p className="nav-label second">PLAN YOUR DAY</p>
           {[
+            { label: "Day Plans", icon: "▣" },
+            { label: "Games & Activities", icon: "✦" },
+            { label: "Responsibilities", icon: "◇" },
             { label: "Weekly Plan", icon: "▤" },
             { label: "TOC & Emergency Plans", icon: "☷" },
             { label: "Saved Resources", icon: "▧" },
@@ -893,6 +900,12 @@ function ClassroomHome() {
           <Dashboard onSubject={chooseSubject} onNavigate={navigateToPage} onOpenScienceLesson={openScienceLesson} onProjectMorning={projectMorning} morningTimeline={morningTimeline} mode={mode} />
         ) : active === "Opening Welcome" ? (
           <OpeningWelcome />
+        ) : active === "Day Plans" ? (
+          <DayPlanLibrary />
+        ) : active === "Games & Activities" ? (
+          <GamesActivities projector={mode === "projector"} />
+        ) : active === "Responsibilities" ? (
+          <ResponsibilitiesPage />
         ) : active === "Morning Screen" ? (
           <MorningScreen audience={mode === "projector" ? "student" : "teacher"} onOpenHome={goHome} timeline={morningTimeline} />
         ) : active === "Newsroom" ? (
@@ -977,7 +990,7 @@ function Dashboard({ onSubject, onNavigate, onOpenScienceLesson, onProjectMornin
     <div className="page dashboard">
       <header className="teaching-home-header">
         <div><p className="section-kicker">BC GRADE 6 · PLAN, PROJECT, TEACH</p><h1>Your classroom, ready to begin.</h1><p>Choose a lesson below, or open the tools for today.</p></div>
-        <nav aria-label="Today's teaching tools"><button onClick={() => onNavigate("Morning Screen")}>Morning Screen</button><button onClick={() => onNavigate("Weekly Plan")}>Week plan</button><button onClick={() => onNavigate("TOC & Emergency Plans")}>TOC &amp; printables</button></nav>
+        <nav aria-label="Today's teaching tools"><button onClick={() => onNavigate("Day Plans")}>Day Plans</button><button onClick={() => onNavigate("Games & Activities")}>Games &amp; Activities</button><button onClick={() => onNavigate("Morning Screen")}>Morning Screen</button><button onClick={() => onNavigate("Weekly Plan")}>Week plan</button><button onClick={() => onNavigate("TOC & Emergency Plans")}>TOC &amp; printables</button></nav>
       </header>
 
       <section className="subjects-section">

@@ -21,3 +21,11 @@ Consult `docs/MATH_TEACHING_REPAIR_2026-09-05.md` and the latest release record 
 ## Standalone activity review
 
 For each changed worksheet, organizer or activity, read the actual teacher, projector and student-print output as a teacher seeing it for the first time. Check that it identifies the purpose, exact starting input (numbers, source, materials or a concrete teacher selection step), a usable example where needed, student actions and finished product. Compare linked PDFs with on-page companions: a complete PDF does not establish that the on-page version is complete. A title, blank response area or passing structure test is insufficient evidence. Record exactly which routes were rehearsed and which were only inspected in source.
+
+
+## Daily plan preservation
+
+- Preserve every day plan prepared for Daryl throughout the school year. Commit student-safe plans under `content/day-plans/`, register them in `app/day-plan-store.ts`, and retain a dated copy rather than overwriting an earlier day. Keep the original when adapting a plan for another date or year.
+- Do not invent the teaching date. Use an undated template until the date is known.
+- Retain sequence, teaching steps, linked materials, optional continuations, and teacher-provided reflection/actual timing. Never publish student-specific private notes.
+- Browser-created plans and automatic weekly-plan snapshots are device-local; preserve revision history and maintain the JSON export/import route. Never describe these as cloud-synced. Import a supplied backup before working with its plans; do not silently discard conflicting revisions.
