@@ -1,6 +1,6 @@
 'use client';
 import {useRef,useState} from 'react';
-import {DEFAULT_DAY_PLAN_ID,type DayPlan} from './day-plan-store';
+import {type DayPlan} from './day-plan-store';
 import {shapeOfDayHref} from './classroom-navigation-state';
 import ClassroomLiveStatus from './classroom-live-status';
 import './day-plan-morning.css';
@@ -27,7 +27,7 @@ export default function DayPlanMorning({plan}:{plan:DayPlan}){
       </div>
       <ClassroomLiveStatus/>
     </header>
-    {plan.id==='first-full-day'&&<a className="day-plan-update" href={shapeOfDayHref(DEFAULT_DAY_PLAN_ID)}>Open our updated plan: supplies, games &amp; class choices →</a>}
+    {plan.id==='first-full-day'&&<a className="day-plan-update" href={shapeOfDayHref('first-full-day-flexible')}>Open our updated plan: supplies, games &amp; class choices →</a>}
     <div className="day-board-heading"><h2>Shape of our day</h2><p>{plan.date?`Plan for ${plan.date}`:'Our plan · room to adjust'}</p></div>
     <ol className="day-board-sequence">{plan.blocks.map((b,i)=><li key={i}>
       <span className="day-block-icon" aria-hidden="true">{blockIcon(b.title)}</span>

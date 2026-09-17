@@ -26,7 +26,7 @@ test('live weather accepts zero Celsius, distinguishes freezing rain and rejects
 });
 test('updated plan keeps the original and student-facing instructions survive archive round trips',()=>{
   const old=store.publishedDayPlans.find(p=>p.id==='first-full-day');
-  const next=store.publishedDayPlans.find(p=>p.id===store.DEFAULT_DAY_PLAN_ID);
+  const next=store.publishedDayPlans.find(p=>p.id==='first-full-day-flexible');
   assert.notEqual(next.id,old.id);
   assert.equal(old.blocks.some(b=>b.title==='Werewolf: learn, practise, play'),true);
   const parsed=store.parseDayPlan(next);

@@ -1,0 +1,131 @@
+{
+  "id": "second-full-day",
+  "date": "",
+  "title": "Our second day — connect, organize & begin maths",
+  "greeting": "Welcome to Grade 6 · Day 2!",
+  "arrival": "Have a pencil and a reading book ready. We will connect, learn and get our classroom organized.",
+  "note": "Second full class day; leave undated until the teaching date is confirmed. Use the sequence with actual school bells. Starting estimates, not time to fill: opening 5 minutes, conversation cards 20–35, agreements 15–20, maths 25–35, supplies 20–30, reading 20, booklets 20–30, optional Werewolf 20–30, cleanup 10, outdoor movement 25–35. Move on when ready. Priorities: connection, a short whole-number maths start, supplies and movement. Give agreements a brief introduction rather than a long discussion. Protect the final outdoor block; shorten or move Werewolf first. Friday carry-forward: decimal place value if not reached; remaining supplies and booklets; more agreement scenarios and Werewolf. Colouring is an available early-finisher choice. Materials: physical agreement cards, pencils/paper or mini-whiteboards, supplies labels/bins, Discovery Booklets and labelled class piles, reading books, existing colouring sheets, physical Werewolf deck, cones and two flags. No student devices required.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "Arrival",
+      "title": "Welcome back & settle in",
+      "notes": "About 5 minutes. Briefly practise the attention signal and safe movement, then show the day. Explain that some activities may continue Friday. Gather a pencil and book; supplies stay packed until the organization block.",
+      "href": "?view=Responsibilities&mode=student&essentials=1"
+    },
+    {
+      "time": "Morning",
+      "title": "Find Someone Who · keep connecting",
+      "notes": "Start with unused Similar cards, move into Different, and finish with Would You Rather if useful. About 20–35 minutes; complete more if conversations remain worthwhile. Each partner asks the follow-up before moving on. Offer seated conversations and the option to pass.",
+      "href": "?view=Games+%26+Activities&mode=student",
+      "studentSteps": [
+        "Continue with a question we have not tried yet.",
+        "Think, walk safely and find a partner. Include someone who is waiting.",
+        "Ask the follow-up and listen to the answer before moving on.",
+        "Try a new partner for the next question. You may stay seated or pass."
+      ]
+    },
+    {
+      "time": "Before recess",
+      "title": "Five Agreements · small choices, big difference",
+      "notes": "About 15–20 minutes. Use the physical cards: briefly introduce all five, then practise one or two. Attribute The Four Agreements to don Miguel Ruiz and the fifth to don Miguel Ruiz and don Jose Ruiz. Use the cards for exact wording. Classroom paraphrases: use honest, caring words; someone’s reaction does not determine your worth; ask before deciding what someone meant; make a useful effort with today’s energy and support; listen carefully and check claims. These are ideas to discuss, not a required belief or a test of being good. Do not interpret taking things less personally as ignoring bullying: feelings matter, harm needs repair and students can seek adult help. Model: a classmate does not answer your greeting. Observation: I said hello and did not hear an answer. Assumption: they dislike me. Other possibilities: they did not hear, or were concentrating. Ask: Did you hear me? In pairs, choose a card and rehearse a better response to a fictional situation: someone makes a mistake in a game, a pencil goes missing, or a partner says they cannot do the maths. Share a 20-second replay and name the helpful choice. Accept more than one fitting agreement. Finish with one action to try today. Source references: https://www.miguelruiz.com/the-four-agreements/ and https://www.miguelruiz.com/the-fifth-agreement/.",
+      "href": "",
+      "studentSteps": [
+        "Listen as we explore the five agreement cards. Which idea could help our class today?",
+        "Try this: you say hello, but your classmate does not answer. What do you know? What are you guessing?",
+        "Example: “They did not answer” is what you noticed. “They dislike me” is a guess. You could ask, “Did you hear me?”",
+        "With a partner, choose a card. Imagine a missing pencil, a mistake in a game, or someone finding maths difficult.",
+        "Prepare a 20-second scene showing a helpful response. Explain which idea you used.",
+        "Choose one action to try today. Your feelings matter; ask for help when someone hurts or excludes you."
+      ]
+    },
+    {
+      "time": "After recess",
+      "title": "Maths · place value, then decimals",
+      "notes": "About 25–35 minutes. Begin with whole numbers. Use Math Antics Place Value via the existing maths lesson (https://mathantics.com/lesson/place-value), or teach the model directly. Write 4,582 under thousands, hundreds, tens, ones: 4,000 + 500 + 80 + 2. Each place to the left is worth ten times as much. Ask what the 5 represents (500). Partners show 6,307 as 6,000 + 300 + 7 and explain the zero tens. Check independently: value of 6 in 6,042 (6,000) and 2,615 (600). If secure and time remains, begin Decimal Place Value (https://mathantics.com/lesson/decimal-place-value); otherwise carry it to Friday. Model 2.35 = 2 ones + 3 tenths + 5 hundredths = 2 + 0.3 + 0.05. Each place to the right is one tenth of its left neighbour. Extend to 2.305 (3 tenths, 0 hundredths, 5 thousandths). Compare 0.5 and 0.05: five tenths is greater than five hundredths. Decimal check: value of 4 in 3.47 is 0.4, and in 3.047 is 0.04. Start with a few questions rather than assigning a whole worksheet; use existing Math Antics practice if prepared. Keep the exit responses to choose Friday’s starting point.",
+      "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
+      "studentSteps": [
+        "Write 4,582 in a place-value chart: thousands | hundreds | tens | ones.",
+        "Model: 4,582 = 4,000 + 500 + 80 + 2. The 5 represents 500.",
+        "With a partner, show 6,307 in expanded form. Explain what the zero tells us.",
+        "Your turn: what is the value of the 6 in 6,042? What about 2,615?",
+        "If we are ready: 2.35 = 2 ones + 3 tenths + 5 hundredths. Which is greater, 0.5 or 0.05? Explain.",
+        "Decimal challenge: what is the value of the 4 in 3.47 and in 3.047? We can continue this on Friday."
+      ]
+    },
+    {
+      "time": "Before lunch",
+      "title": "Organize our school supplies",
+      "notes": "About 20–30 minutes. Model one category at a time: personal pencil supplies, notebooks/folders, shared materials and extras. Students label personal items and place them in the agreed locations. Have only a few students move at once. Check quietly for missing items; avoid public comparisons. Finish with a usable pencil and clear workspace. If time runs short, finish the remaining categories Friday.",
+      "href": "",
+      "studentSteps": [
+        "Keep your supplies at your place while we show where each kind belongs.",
+        "Label personal supplies and notebooks. Put shared materials in the agreed bins.",
+        "Move when your group is called, and keep walkways clear.",
+        "Check that you have a pencil and a clear workspace. Ask quietly if you need something."
+      ]
+    },
+    {
+      "time": "After lunch",
+      "title": "Quiet reading",
+      "notes": "Read for about 20 minutes, up to 30 if helpful. Establish the after-lunch routine. Have books available before lunch so everyone can start promptly.",
+      "href": "",
+      "studentSteps": [
+        "Choose your book and a comfortable reading position.",
+        "Read quietly. Give others space to settle and enjoy their books."
+      ]
+    },
+    {
+      "time": "Afternoon",
+      "title": "Discovery Booklets · finish & sort",
+      "notes": "About 20–30 minutes. Finish worthwhile unfinished pages; check names and divisions. Model the class/division labels before sorting. Students sort by the cover label only; the teacher checks any uncertainty and confirms delivery to the other classes. Do not photograph or publish names. Early finishers use existing colouring sheets or read. If most booklets are finished already, use a short sorting block and move on.",
+      "href": "",
+      "studentSteps": [
+        "Finish an unfinished page. Add useful details and check your work.",
+        "Check that your name and division are on the cover.",
+        "Follow the teacher’s labels to sort booklets for each class. Ask if you are unsure.",
+        "Finished? Choose an available colouring sheet or read quietly."
+      ]
+    },
+    {
+      "time": "If time",
+      "title": "Werewolf · practise listening & storytelling",
+      "notes": "Optional 20–30 minutes. Use the physical Ultimate Werewolf deck and roles already introduced; use the existing practice lesson. The teacher moderates. Review night/day, turn-taking and the chosen role rules, then play a short practice game. Focus: explain a claim respectfully and listen before responding. Partner retelling at the end: first, then, finally, using public events only. Stop at a sensible phase before cleanup; a partial game has no automatic winner. If time is tight, practise a 30-second narrator opening in pairs or carry the full game to Friday.",
+      "href": "?subject=English+Language+Arts&experience=werewolf-practise&mode=student",
+      "studentSteps": [
+        "Review the roles and the day-and-night routine before we deal.",
+        "Listen before responding. Discuss the game; keep comments kind.",
+        "Use a reason: “I wonder whether… because…” A guess is not proof.",
+        "After play, tell a partner what happened using first, then and finally. We may continue learning on Friday."
+      ]
+    },
+    {
+      "time": "Before going outside",
+      "title": "Cleanup & get ready",
+      "notes": "Allow about 10 minutes. Everyone returns supplies and tidies their own workstation; captains assist with shared spaces. Pack what is needed for dismissal before heading outside. Preserve the movement opportunity if cleanup takes longer; use a shorter activity if necessary.",
+      "href": "?view=Responsibilities&mode=student"
+    },
+    {
+      "time": "End of day · DPA",
+      "title": "Capture the Flag · learn & play",
+      "notes": "Protect about 25–35 minutes including instructions and a short practice. Gather cones and two soft flags. Choose balanced teams and offer roles with different movement demands. Explain this simple classroom version: two territories, one visible flag per team, and a marked no-camping zone around each flag. Players can be tagged only in the other team’s territory; use a gentle hand tag on the arm or shoulder, never pushing, grabbing or tackling. A tagged player returns home before trying again. If carrying a flag, set it down; the defending team resets it before play continues. A point is scored by carrying the flag across the centre line into home territory; reset after each point. Nobody guards inside the marked flag zone. Demonstrate a tag and return, practise the stop signal, then play a short round and adjust. No elimination or jail. If space or weather is unsuitable, use a cooperative movement circuit or an indoor movement break. Leave time for equipment and calm dismissal.",
+      "href": "",
+      "studentSteps": [
+        "Learn our boundaries, flag zones and stop signal before we begin.",
+        "Work with your team to bring the other flag across the centre line into your home territory.",
+        "In the other team’s territory, use gentle tags on the arm or shoulder. No pushing, grabbing or tackling.",
+        "If tagged, return to your side before trying again. If holding a flag, put it down for the other team to reset.",
+        "Stay outside the marked flag zones when defending. Include everyone and freeze at the stop signal.",
+        "We will practise, play a short round and adjust. If outside does not work, we will use another movement activity."
+      ]
+    }
+  ],
+  "backups": [
+    "Friday first: revisit the maths exit check, then begin or continue decimal place value with Math Antics.",
+    "Friday: finish remaining supply labels and Discovery Booklets; check that the other classes’ booklets reach their teachers.",
+    "Friday: practise another agreement through a short fictional scenario; continue Werewolf with the familiar roles.",
+    "If we move quickly: use unused Similar, Different or Would You Rather cards, with a new partner and a follow-up.",
+    "Quick maths challenge: use 2, 4, 6 and 8 once each to make the greatest and smallest four-digit numbers. Explain your choices. Then place a decimal point and compare with a partner.",
+    "Early finishers: choose existing colouring sheets, quiet reading, chess or another available partner game. Leave time to return materials."
+  ]
+}
