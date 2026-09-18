@@ -1,53 +1,82 @@
 {
   "agreements": {
     "title": "Five Agreements · practise a helpful choice",
-    "intro": "Explore ideas from don Miguel Ruiz and don Jose Ruiz. Use your own words, act, draw or pass.",
-    "prep": "Use the physical cards, plain paper and pencils. Read the card wording yourself; these screens are classroom adaptations, not reproductions of the commercial deck. Introduce the five ideas in about 8 minutes, model one scenario in 5, let pairs rehearse for 10, share and discuss for 10, then choose an action for 5. Move faster when ready. Use the final extra challenge only if useful. No personal disclosures or real class accusations are needed. These are ideas to examine, not beliefs students must accept.",
+    "intro": "The Four Agreements come from don Miguel Ruiz; the fifth is shared with don Jose Ruiz. Explore one idea at a time using your own words, acting or drawing. You may pass.",
+    "prep": "Use the physical cards, plain paper and pencils. Read the card wording yourself; these screens are classroom adaptations, not reproductions of the commercial deck. Introduce the five ideas in about 8 minutes, model one scenario in 5, let pairs rehearse for 10, share and discuss for 10, then choose an action for 5. Move faster when ready. Use the final extra challenge only if useful. No personal disclosures or real class accusations are needed. These are ideas to examine, not beliefs students must accept. Start with the introduction card, then connect each agreement heading to your physical card. The source links below offer the author’s overview, an optional introduction video and background reading. These are adult philosophical resources: use the classroom cards for the main Grade 6 teaching. The video is linked from the author’s site, but its full audio and images have not been reviewed here; preview it before projecting. No video or student device is needed.",
     "sources": [
       {
-        "label": "don Miguel Ruiz · The Four Agreements",
-        "url": "https://www.miguelruiz.com/the-four-agreements/"
+        "label": "The Four Agreements · author’s overview",
+        "url": "https://www.miguelruiz.com/the-four-agreements/",
+        "description": "Start with the four headings. Ask: which could help us when we disagree during a game?"
       },
       {
-        "label": "The fifth agreement · don Miguel Ruiz and don Jose Ruiz",
-        "url": "https://www.miguelruiz.com/the-fifth-agreement/"
+        "label": "The Four Agreements · official introduction video (preview first)",
+        "url": "https://www.youtube.com/watch?v=dzih2Zdflnc",
+        "description": "Linked from the author’s overview. Optional teacher-selected viewing; full audio and imagery have not been reviewed. After viewing, invite students to explain one idea in their own words."
+      },
+      {
+        "label": "The Fifth Agreement · author-site excerpt",
+        "url": "https://www.miguelruiz.com/the-fifth-agreement/",
+        "description": "Teacher background for listening and questioning. Classroom prompt: how can we hear someone out and still check whether a claim is accurate?"
+      },
+      {
+        "label": "Understanding the Fifth Agreement · Karla Ruiz",
+        "url": "https://www.miguelruiz.com/understanding-the-fifth-agreement/",
+        "description": "Additional teacher background. This philosophical reading is more abstract than the classroom cards; use the game-rule example to make the discussion concrete."
       }
     ],
     "cards": [
+      {
+        "title": "Start here · four ideas, then a fifth",
+        "prompt": "What promise could you make to yourself that helps our class?",
+        "action": "An agreement is a choice we try to practise. Listen to an idea from the cards. Tell a partner what it might look like during work or play.",
+        "model": "“When I disagree, I can ask a question before deciding someone is wrong.”",
+        "teacher": "Introduce don Miguel Ruiz as the author of The Four Agreements and don Jose Ruiz as co-author of The Fifth Agreement. These screens offer our own classroom examples. Students can question the ideas and suggest improvements. The books include spiritual beliefs; our activity explores communication and choices without requiring shared beliefs. Do not present these books as the teachings of all Indigenous peoples."
+      },
       {
         "title": "1 · Use words with care",
         "prompt": "How can you be honest and kind at the same time?",
         "action": "A partner makes an unexpected chess move. Practise a useful response.",
         "model": "“I think that piece moves differently. Shall we check the rule together?”",
-        "teacher": "Card connection: Be Impeccable With Your Word. Explain impeccable as taking care with what you say. Honesty does not require insults; kindness does not require pretending. Ask which words help someone learn."
+        "teacher": "Explain impeccable as taking care with what you say. Honesty does not require insults; kindness does not require pretending. Ask which words help someone learn.",
+        "agreement": "Be Impeccable With Your Word",
+        "discussion": "How could you repair things after your words hurt someone?"
       },
       {
         "title": "2 · Remember your worth",
         "prompt": "Someone’s reaction does not decide your value.",
         "action": "You invite someone to play; they choose a different game. Suggest two possible reasons.",
         "model": "“They may want a different game today. I can feel disappointed and still ask someone else.”",
-        "teacher": "Card connection: Don’t Take Anything Personally. Avoid telling children not to feel hurt. This idea never excuses exclusion, harassment or discrimination. Help students seek support and address harm; do not place responsibility for mistreatment on the person harmed."
+        "teacher": "Avoid telling children not to feel hurt. This idea never excuses exclusion, harassment or discrimination. Help students seek support and address harm; do not place responsibility for mistreatment on the person harmed.",
+        "agreement": "Don’t Take Anything Personally",
+        "discussion": "Can you feel hurt and still remember that you matter? What help could you ask for?"
       },
       {
         "title": "3 · Ask before deciding",
         "prompt": "What did you notice? What are you guessing?",
         "action": "Your blue pencil is missing. A classmate has a blue pencil. Ask a question without accusing.",
         "model": "“I can’t find my blue pencil. Have you seen it?”",
-        "teacher": "Card connection: Don’t Make Assumptions. The matching colour is an observation, not proof of ownership. Invite a second possible explanation. Do not use a real missing item or name a student."
+        "teacher": "The matching colour is an observation, not proof of ownership. Invite a second possible explanation. Do not use a real missing item or name a student.",
+        "agreement": "Don’t Make Assumptions",
+        "discussion": "How is something you saw different from a story you guessed?"
       },
       {
         "title": "4 · Choose a useful next step",
         "prompt": "What could your best effort look like today?",
         "action": "Your display page needs work, and you feel tired. Choose one manageable improvement.",
         "model": "“I will add a clear title, then ask for help with one sentence.”",
-        "teacher": "Card connection: Always Do Your Best. Effort varies with energy, access and support. Best does not mean perfect, fastest or doing everything. A break, assistance or a smaller task can be a useful choice."
+        "teacher": "Effort varies with energy, access and support. Best does not mean perfect, fastest or doing everything. A break, assistance or a smaller task can be a useful choice.",
+        "agreement": "Always Do Your Best",
+        "discussion": "Could asking for help or taking a break be part of doing your best? Why?"
       },
       {
         "title": "5 · Listen and check",
         "prompt": "How can you listen respectfully without believing every claim?",
         "action": "Someone says a game rule changed. What could you check before changing how everyone plays?",
         "model": "“I hear that you learned a different rule. Let’s read the rule card together.”",
-        "teacher": "Fifth-agreement connection: be skeptical while learning to listen. Check the claim, not the person’s worth. Distinguish a factual claim from a feeling: listen to someone saying they feel hurt; do not demand that they prove their feeling."
+        "teacher": "Fifth-agreement connection: be skeptical while learning to listen. Check the claim, not the person’s worth. Distinguish a factual claim from a feeling: listen to someone saying they feel hurt; do not demand that they prove their feeling.",
+        "agreement": "Be Skeptical, But Learn to Listen",
+        "discussion": "What is the difference between checking a claim and refusing to listen?"
       },
       {
         "title": "Watch a replay",
