@@ -2,8 +2,18 @@
   "agreements": {
     "title": "Five Agreements · practise a helpful choice",
     "intro": "The Four Agreements come from don Miguel Ruiz; the fifth is shared with don Jose Ruiz. Explore one idea at a time using your own words, acting or drawing. You may pass.",
-    "prep": "Use the physical cards, plain paper and pencils. Read the card wording yourself; these screens are classroom adaptations, not reproductions of the commercial deck. Introduce the five ideas in about 8 minutes, model one scenario in 5, let pairs rehearse for 10, share and discuss for 10, then choose an action for 5. Move faster when ready. Use the final extra challenge only if useful. No personal disclosures or real class accusations are needed. These are ideas to examine, not beliefs students must accept. Start with the introduction card, then connect each agreement heading to your physical card. The source links below offer the author’s overview, an optional introduction video and background reading. These are adult philosophical resources: use the classroom cards for the main Grade 6 teaching. The video is linked from the author’s site, but its full audio and images have not been reviewed here; preview it before projecting. No video or student device is needed.",
+    "prep": "Use the physical cards, plain paper and pencils. Read the card wording yourself; these screens are classroom adaptations, not reproductions of the commercial deck. Introduce the five ideas in about 8 minutes, model one scenario in 5, let pairs rehearse for 10, share and discuss for 10, then choose an action for 5. Move faster when ready. Use the final extra challenge only if useful. No personal disclosures or real class accusations are needed. These are ideas to examine, not beliefs students must accept. Start with the introduction card, then connect each agreement heading to your physical card. The source links below offer the author’s overview, an optional introduction video and background reading. These are adult philosophical resources: use the classroom cards for the main Grade 6 teaching. The video is linked from the author’s site, but its full audio and images have not been reviewed here; preview it before projecting. No video or student device is needed. For a quick visual introduction, open the Butterfly Dreamz poster above the cards. Enlarge it and discuss one section at a time, then select “5 · Listen and check” to add the fifth agreement. Clarify the poster’s second section: feelings are valid, and harm still needs adult support and repair.",
     "sources": [
+      {
+        "label": "Illustrated Four Agreements poster · Butterfly Dreamz",
+        "url": "https://www.linkedin.com/pulse/from-drama-confidence-using-four-agreements-build-mt2ie",
+        "description": "Youth-focused visual with a short explanation for each agreement. Open the poster above, then add our fifth-agreement card. The source article also links a free workshop."
+      },
+      {
+        "label": "Free Four Agreements workshop and printable handout · Butterfly Dreamz",
+        "url": "https://www.teacherspayteachers.com/Product/The-Four-Agreements-SEL-Workshop-13504388",
+        "description": "Listed as free for middle/high school, with a student handout, scenarios and comic-strip template. TPT sign-in is required to download; the downloadable file has not been reviewed here."
+      },
       {
         "label": "The Four Agreements · author’s overview",
         "url": "https://www.miguelruiz.com/the-four-agreements/",
@@ -106,7 +116,16 @@
         "model": "“Let’s hear each idea, then divide the jobs or swap after ten minutes.”",
         "teacher": "Optional extension, not an extra required task. Check whether students actually listen before offering the solution. Transition to the NVC introduction if there is time and interest."
       }
-    ]
+    ],
+    "poster": {
+      "title": "Start with an illustrated overview",
+      "credit": "The Four Agreements · summarized by Butterfly Dreamz",
+      "image": "https://media.licdn.com/dms/image/v2/D4E12AQGlcDKqoMjzXw/article-inline_image-shrink_1500_2232/B4EZal5MDlHcAU-/0/1746539957094?e=2147483647&t=N48KXGTJpm4PC4FFd8DUbEArQiUKQiphW13_4wsqg0o&v=beta",
+      "source": "https://www.linkedin.com/pulse/from-drama-confidence-using-four-agreements-build-mt2ie",
+      "alt": "Butterfly Dreamz illustrated Four Agreements poster: use truthful and caring language; remember that others’ reactions do not define your worth; ask questions before drawing conclusions; make an effort suited to your circumstances.",
+      "prompt": "Choose one agreement. What could it look like during a game or group task?",
+      "note": "You can feel hurt and still know you matter. Ask for help with bullying or unfair treatment. Your best can include support and rest."
+    }
   },
   "nvc": {
     "title": "NVC · notice, feel, need, ask",

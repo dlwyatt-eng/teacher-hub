@@ -28,3 +28,19 @@ production navigation logic is unchanged. Source review covered both renderer
 branches and all new text. Browser visual review could not be completed because
 the cloud browser connection timed out and its retry was superseded by recovery.
 No claim of classroom-use validation is made.
+
+## Visual-resource follow-up
+
+Added Butterfly Dreamz's illustrated Four Agreements poster as the first visual
+option, with direct full-size and source links and a link to its free TPT workshop
+(sign-in required). Inspected the poster image itself; it has four headings and
+short explanations. The image remains hosted by its publisher; no copy of the
+third-party artwork is committed. A note clarifies that hurt feelings are valid
+and students can seek help. The existing fifth-agreement card follows the poster.
+The TPT download itself was not inspected. An alternative five-agreement sketch
+was omitted because its image could not be fetched reliably.
+
+Follow-up validation: typecheck and production build passed. Server-rendered
+teacher and projector markup includes the poster and links; teacher facilitation
+notes remain excluded from projector mode. This is not visual browser validation.
+The update remains on the draft review branch pending publication approval.
