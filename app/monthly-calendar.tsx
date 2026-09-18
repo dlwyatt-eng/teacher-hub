@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import "./monthly-calendar.css";
+import publicWindow from "../public/generated/public-window-v2.json";
 import { yearMonths } from "./classroom-program";
 import { printClosest } from "./print-support";
 import {
@@ -89,7 +90,7 @@ export default function MonthlyCalendar({ onOpenWeek }: MonthlyCalendarProps) {
       setRecord(readSavedMonth(visibleMonth) ?? emptyMonthlyCalendar(visibleMonth));
       setDraftDate(`${visibleMonth}-01`);
       setDraftText("");
-      setStatus("Saved on this computer.");
+      setStatus("Personal calendar entries save on this computer. School dates are published for the whole class.");
     });
     return () => window.cancelAnimationFrame(frame);
   }, [visibleMonth]);
@@ -128,7 +129,13 @@ export default function MonthlyCalendar({ onOpenWeek }: MonthlyCalendarProps) {
   const focus = yearMonths.find((item) => item.month === currentMonthName);
 
   const eventsByDate = useMemo(() => {
-    const result = new Map<string, { type: "plan" | "event"; id: string; label: string }[]>();
+    const result = new Map<string, { type: "plan" | "event" | "school"; id: string; label: string }[]>();
+    for (const item of publicWindow.schoolEvents) {
+      if (!item.date || !item.date.startsWith(visibleMonth)) continue;
+      const entries = result.get(item.date) ?? [];
+      entries.push({ type: "school", id: item.id, label: `${item.title}${item.detail ? ` · ${item.detail}` : ""}` });
+      result.set(item.date, entries);
+    }
     for (const item of weekEntries) {
       const entries = result.get(item.date) ?? [];
       entries.push({ type: "plan", id: `plan-${item.date}-${item.label}`, label: item.label });
@@ -140,7 +147,7 @@ export default function MonthlyCalendar({ onOpenWeek }: MonthlyCalendarProps) {
       result.set(item.date, entries);
     }
     return result;
-  }, [record.items, weekEntries]);
+  }, [record.items, weekEntries, visibleMonth]);
 
   const changeMonth = (amount: number) => setVisibleMonth((month) => shiftMonth(month, amount));
 
@@ -177,6 +184,8 @@ export default function MonthlyCalendar({ onOpenWeek }: MonthlyCalendarProps) {
       </header>
 
       {focus && <section className="monthly-calendar__focus"><span>{focus.status}</span><strong>{focus.phase}</strong><p>{focus.focus}</p></section>}
+
+      {publicWindow.schoolEvents.filter(item => !item.date && item.month === visibleMonth).map(item => <p key={item.id} className="monthly-calendar__focus"><strong>{item.dateLabel}: {item.title}</strong> {item.detail}</p>)}
 
       <div className="monthly-calendar__weekdays" aria-hidden="true">
         {WEEKDAYS.map((day) => <span key={day}>{day.slice(0, 3)}</span>)}<span>sat</span><span>sun</span>
