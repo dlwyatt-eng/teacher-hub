@@ -15,6 +15,10 @@ function blockIcon(title:string){
   return '✧';
 }
 
+function GameVideoLinks(){
+  return <><a href="https://www.youtube.com/watch?v=YdnvlntAQH8" target="_blank" rel="noopener noreferrer">Learn chess · ChessKid video ↗</a><a href="https://gathertogethergames.com/cribbage" target="_blank" rel="noopener noreferrer">Learn cribbage · video &amp; rules ↗</a></>;
+}
+
 export default function DayPlanMorning({plan}:{plan:DayPlan}){
   const [focused,setFocused]=useState<number|null>(null);
   const dialog=useRef<HTMLDialogElement>(null);
@@ -33,10 +37,10 @@ export default function DayPlanMorning({plan}:{plan:DayPlan}){
       <span className="day-block-icon" aria-hidden="true">{blockIcon(b.title)}</span>
       <div><span className="day-block-time">{b.time}</span>{b.studentSteps?.length?<button className="day-block-title" onClick={()=>showSteps(i)}>{b.title}<span aria-hidden="true"> ↗</span></button>:b.href?<a className="day-block-title" href={b.href}>{b.title}<span aria-hidden="true"> →</span></a>:<strong className="day-block-title">{b.title}</strong>}</div>
     </li>)}</ol>
-    <nav className="day-board-links" aria-label="Day activity shortcuts"><a href="?view=Games+%26+Activities&mode=student">Conversation cards</a><a href="?view=Responsibilities&mode=student">Our responsibilities</a><a href="?subject=English+Language+Arts&experience=werewolf-learn&mode=student">Werewolf · if we choose</a></nav>
+    <nav className="day-board-links" aria-label="Day activity shortcuts"><GameVideoLinks/><a href="?view=Games+%26+Activities&mode=student">Conversation cards</a><a href="?view=Responsibilities&mode=student">Our responsibilities</a><a href="?subject=English+Language+Arts&experience=werewolf-learn&mode=student">Werewolf · if we choose</a></nav>
     <dialog ref={dialog} className="day-step-dialog" aria-labelledby="day-step-title" onClick={e=>{if(e.target===dialog.current)dialog.current?.close();}}>
       <button className="day-step-close" onClick={()=>dialog.current?.close()} autoFocus>← Back to our day</button>
-      {block&&<><p>{block.time}</p><h2 id="day-step-title">{block.title}</h2><ol>{block.studentSteps?.filter(s=>s.trim()).map((step,i)=><li key={i}>{step}</li>)}</ol>{block.href&&<a href={block.href}>Open activity →</a>}</>}
+      {block&&<><p>{block.time}</p><h2 id="day-step-title">{block.title}</h2><ol>{block.studentSteps?.filter(s=>s.trim()).map((step,i)=><li key={i}>{step}</li>)}</ol>{/chess|cribbage|games together/i.test(block.title)&&<><nav className="day-board-links" aria-label="Learn our games"><GameVideoLinks/></nav><p>Pause to try each idea with your board or cards. For cribbage, start with the two-player tutorial.</p></>}{block.href&&<a href={block.href}>Open activity →</a>}</>}
     </dialog>
   </section>;
 }
