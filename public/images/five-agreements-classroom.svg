@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Five Agreements — small choices, stronger community</title>
+<desc id="desc">Five agreements with original classroom explanations: speak honestly and kindly; remember your worth and seek support; ask before deciding; take a manageable next step; listen and check evidence. Choose one to practise.</desc>
+<rect width="1600" height="1000" fill="#fffdf5"/>
+<g font-family="Arial, sans-serif">
+<text x="64" y="66" font-size="23" font-weight="700" letter-spacing="3" fill="#56725c">OUR CLASSROOM COMMUNITY</text>
+<text x="64" y="139" font-size="64" font-weight="700" fill="#193d35">Five Agreements</text>
+<text x="64" y="187" font-size="31" fill="#365c46">Small choices we can discuss, practise and improve together.</text>
+<g transform="translate(64 228)">
+<rect width="480" height="310" rx="26" fill="#e4f0ea"/>
+<text x="28" y="49" font-size="23" font-weight="700" fill="#246d54">1</text>
+<g transform="translate(385 20) scale(.9)" fill="none" stroke="#246d54" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h50v34H29L15 54V41H7z"/><path d="M17 19h30M17 29h21"/></g>
+<text x="28" y="101" font-size="33" font-weight="700" fill="#193d35">Be Impeccable</text>
+<text x="28" y="140" font-size="33" font-weight="700" fill="#193d35">With Your Word</text>
+<text x="28" y="193" font-size="29" fill="#193d35">Speak honestly and kindly.</text>
+<text x="28" y="230" font-size="29" fill="#193d35">Use words that help; repair</text>
+<text x="28" y="267" font-size="29" fill="#193d35">harm when words hurt.</text>
+</g>
+<g transform="translate(568 228)">
+<rect width="480" height="310" rx="26" fill="#eee9f6"/>
+<text x="28" y="49" font-size="23" font-weight="700" fill="#735095">2</text>
+<g transform="translate(385 20) scale(.9)" fill="none" stroke="#735095" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 52 9 30C-4 15 16 1 32 18 48 1 68 15 55 30z"/></g>
+<text x="28" y="101" font-size="33" font-weight="700" fill="#193d35">Don’t Take Anything</text>
+<text x="28" y="140" font-size="33" font-weight="700" fill="#193d35">Personally</text>
+<text x="28" y="193" font-size="29" fill="#193d35">Someone’s reaction does</text>
+<text x="28" y="230" font-size="29" fill="#193d35">not decide your worth.</text>
+<text x="28" y="267" font-size="29" fill="#193d35">Feelings matter. Ask for help.</text>
+</g>
+<g transform="translate(1072 228)">
+<rect width="480" height="310" rx="26" fill="#fff0d9"/>
+<text x="28" y="49" font-size="23" font-weight="700" fill="#9a661c">3</text>
+<g transform="translate(385 20) scale(.9)" fill="none" stroke="#9a661c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="26" cy="25" r="18"/><path d="m39 39 18 18M20 25h12M26 19v12"/></g>
+<text x="28" y="101" font-size="33" font-weight="700" fill="#193d35">Don’t Make</text>
+<text x="28" y="140" font-size="33" font-weight="700" fill="#193d35">Assumptions</text>
+<text x="28" y="193" font-size="29" fill="#193d35">Notice what you know</text>
+<text x="28" y="230" font-size="29" fill="#193d35">and what you are guessing.</text>
+<text x="28" y="267" font-size="29" fill="#193d35">Ask before you decide.</text>
+</g>
+<g transform="translate(64 564)">
+<rect width="480" height="310" rx="26" fill="#e4eef8"/>
+<text x="28" y="49" font-size="23" font-weight="700" fill="#386a98">4</text>
+<g transform="translate(385 20) scale(.9)" fill="none" stroke="#386a98" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 56V27M32 37C5 38 8 16 8 16c25 0 24 21 24 21ZM32 27C32 4 56 7 56 7c0 21-24 20-24 20ZM17 57h30"/></g>
+<text x="28" y="101" font-size="33" font-weight="700" fill="#193d35">Always Do</text>
+<text x="28" y="140" font-size="33" font-weight="700" fill="#193d35">Your Best</text>
+<text x="28" y="193" font-size="29" fill="#193d35">Take a useful next step</text>
+<text x="28" y="230" font-size="29" fill="#193d35">with today’s energy.</text>
+<text x="28" y="267" font-size="29" fill="#193d35">Support and rest can help.</text>
+</g>
+<g transform="translate(568 564)">
+<rect width="480" height="310" rx="26" fill="#f9e6df"/>
+<text x="28" y="49" font-size="23" font-weight="700" fill="#ae533a">5</text>
+<g transform="translate(385 20) scale(.9)" fill="none" stroke="#ae533a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 27C8-2 58-2 54 29c-2 13-15 15-16 23-2 11-18 9-19-2M23 27c-2-14 20-15 21-2 1 8-13 10-13 19"/></g>
+<text x="28" y="101" font-size="33" font-weight="700" fill="#193d35">Be Skeptical,</text>
+<text x="28" y="140" font-size="33" font-weight="700" fill="#193d35">But Learn to Listen</text>
+<text x="28" y="193" font-size="29" fill="#193d35">Hear people out.</text>
+<text x="28" y="230" font-size="29" fill="#193d35">Ask questions and check</text>
+<text x="28" y="267" font-size="29" fill="#193d35">evidence before believing.</text>
+</g>
+<g transform="translate(1072 564)">
+<rect width="480" height="310" rx="26" fill="#193d35"/>
+<text x="28" y="49" font-size="23" font-weight="700" fill="#d4e69c">TRY</text>
+<g transform="translate(385 20) scale(.9)" fill="none" stroke="#d4e69c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="m32 3 8 18 20 2-15 14 4 21-17-10-18 10 4-21L3 23l21-2z"/></g>
+<text x="28" y="101" font-size="33" font-weight="700" fill="#fffdf5">One choice</text>
+<text x="28" y="140" font-size="33" font-weight="700" fill="#fffdf5">for today</text>
+<text x="28" y="193" font-size="29" fill="#fffdf5">When we work or play,</text>
+<text x="28" y="230" font-size="29" fill="#fffdf5">which agreement could help?</text>
+<text x="28" y="267" font-size="29" fill="#fffdf5">Give one real-life example.</text>
+</g>
+<text x="64" y="928" font-size="23" fill="#365c46">The Four Agreements: don Miguel Ruiz · The Fifth Agreement: don Miguel Ruiz and don Jose Ruiz</text>
+<text x="64" y="967" font-size="22" fill="#56725c">Original classroom explanations and artwork · We can question ideas. Everyone deserves care and safety.</text>
+</g></svg>

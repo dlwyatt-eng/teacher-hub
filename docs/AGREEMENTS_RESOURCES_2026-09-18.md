@@ -44,3 +44,19 @@ Follow-up validation: typecheck and production build passed. Server-rendered
 teacher and projector markup includes the poster and links; teacher facilitation
 notes remain excluded from projector mode. This is not visual browser validation.
 The update remains on the draft review branch pending publication approval.
+
+## Visibility repair
+
+The primary visual was inside a closed details element and depended on an
+external CDN. Added an original, site-hosted SVG infographic with all five
+headings, short classroom explanations and simple icons. It displays immediately
+in both teacher and projector views; the external poster remains an optional
+alternative. A direct full-size link works without opening the activity.
+Updated teaching notes to match the visible infographic.
+
+Validation: all 185 tests, typecheck, production build and Pages artifact checks
+passed. Server rendering confirms the local image appears outside every details
+element in both modes. Rendered the SVG to PNG and visually checked the complete
+image: headings, explanations, icons and credits fit without clipping. Live
+browser interaction remains unavailable because the browser connection timed out.
+This minor visibility repair does not change the schedule or family summary.
