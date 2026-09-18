@@ -4,8 +4,10 @@ import {moduleLoader} from './helpers/load-rendered-module.mjs';
 const load = moduleLoader(process.cwd());
 const nav = load('app/classroom-navigation-state.ts');
 const store = load('app/day-plan-store.ts');
-const date = load('app/morning-screen-state.ts').vancouverDateKey();
-const template = store.publishedDayPlans[0];
+// Keep the fallback template undated so a published plan cannot collide with
+// the synthetic "today" fixture when this test runs on its teaching date.
+const date = '2030-09-18';
+const template = {...store.publishedDayPlans[0], date:''};
 
 test('display selection prefers the requested plan, remembers a projected day, and expires yesterday’s selection', () => {
   const today = {...template, id:'today', date};
