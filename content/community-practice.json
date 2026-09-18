@@ -1,0 +1,145 @@
+{
+  "agreements": {
+    "title": "Five Agreements · practise a helpful choice",
+    "intro": "Explore ideas from don Miguel Ruiz and don Jose Ruiz. Use your own words, act, draw or pass.",
+    "prep": "Use the physical cards, plain paper and pencils. Read the card wording yourself; these screens are classroom adaptations, not reproductions of the commercial deck. Introduce the five ideas in about 8 minutes, model one scenario in 5, let pairs rehearse for 10, share and discuss for 10, then choose an action for 5. Move faster when ready. Use the final extra challenge only if useful. No personal disclosures or real class accusations are needed. These are ideas to examine, not beliefs students must accept.",
+    "sources": [
+      {
+        "label": "don Miguel Ruiz · The Four Agreements",
+        "url": "https://www.miguelruiz.com/the-four-agreements/"
+      },
+      {
+        "label": "The fifth agreement · don Miguel Ruiz and don Jose Ruiz",
+        "url": "https://www.miguelruiz.com/the-fifth-agreement/"
+      }
+    ],
+    "cards": [
+      {
+        "title": "1 · Use words with care",
+        "prompt": "How can you be honest and kind at the same time?",
+        "action": "A partner makes an unexpected chess move. Practise a useful response.",
+        "model": "“I think that piece moves differently. Shall we check the rule together?”",
+        "teacher": "Card connection: Be Impeccable With Your Word. Explain impeccable as taking care with what you say. Honesty does not require insults; kindness does not require pretending. Ask which words help someone learn."
+      },
+      {
+        "title": "2 · Remember your worth",
+        "prompt": "Someone’s reaction does not decide your value.",
+        "action": "You invite someone to play; they choose a different game. Suggest two possible reasons.",
+        "model": "“They may want a different game today. I can feel disappointed and still ask someone else.”",
+        "teacher": "Card connection: Don’t Take Anything Personally. Avoid telling children not to feel hurt. This idea never excuses exclusion, harassment or discrimination. Help students seek support and address harm; do not place responsibility for mistreatment on the person harmed."
+      },
+      {
+        "title": "3 · Ask before deciding",
+        "prompt": "What did you notice? What are you guessing?",
+        "action": "Your blue pencil is missing. A classmate has a blue pencil. Ask a question without accusing.",
+        "model": "“I can’t find my blue pencil. Have you seen it?”",
+        "teacher": "Card connection: Don’t Make Assumptions. The matching colour is an observation, not proof of ownership. Invite a second possible explanation. Do not use a real missing item or name a student."
+      },
+      {
+        "title": "4 · Choose a useful next step",
+        "prompt": "What could your best effort look like today?",
+        "action": "Your display page needs work, and you feel tired. Choose one manageable improvement.",
+        "model": "“I will add a clear title, then ask for help with one sentence.”",
+        "teacher": "Card connection: Always Do Your Best. Effort varies with energy, access and support. Best does not mean perfect, fastest or doing everything. A break, assistance or a smaller task can be a useful choice."
+      },
+      {
+        "title": "5 · Listen and check",
+        "prompt": "How can you listen respectfully without believing every claim?",
+        "action": "Someone says a game rule changed. What could you check before changing how everyone plays?",
+        "model": "“I hear that you learned a different rule. Let’s read the rule card together.”",
+        "teacher": "Fifth-agreement connection: be skeptical while learning to listen. Check the claim, not the person’s worth. Distinguish a factual claim from a feeling: listen to someone saying they feel hurt; do not demand that they prove their feeling."
+      },
+      {
+        "title": "Watch a replay",
+        "prompt": "A player says, “You always ruin the game!”",
+        "action": "Notice the change when we replace the accusation with a clear question.",
+        "model": "“I saw the piece move twice. Are we using a rule I don’t know? Can we check before the next turn?”",
+        "teacher": "Model both versions calmly with an imaginary partner. Do not invite students to perform exaggerated insults. Ask: what is observed, what was assumed, and what does the second version make possible? Several agreements can fit."
+      },
+      {
+        "title": "Your scene · choose one",
+        "prompt": "A missing pencil. Different music choices. A mistake in a game. A display that needs another try.",
+        "action": "In pairs, choose a scene and an agreement. Prepare a 20–30 second helpful response. You may draw speech bubbles instead.",
+        "model": "Show the situation → make a helpful choice → explain the agreement.",
+        "teacher": "Allow about 10 minutes, but let ready pairs share sooner. Partners share speaking or drawing roles. Ask viewers to identify the choice and explain its effect; there is no single required answer."
+      },
+      {
+        "title": "One choice for today",
+        "prompt": "What will you try while we work or play?",
+        "action": "Finish: “When ___ happens, I can ___.” Tell a partner or sketch your idea.",
+        "model": "“When I’m unsure about a rule, I can ask before accusing.”",
+        "teacher": "Look for one concrete action students can actually try. Ask what help they might need. A student may keep their response private. Revisit the choice briefly after Capture the Flag."
+      },
+      {
+        "title": "Keep going · two ideas at once",
+        "prompt": "Two friends want different jobs on the classroom display.",
+        "action": "Try two possible agreements. Create a solution that gives both people a voice.",
+        "model": "“Let’s hear each idea, then divide the jobs or swap after ten minutes.”",
+        "teacher": "Optional extension, not an extra required task. Check whether students actually listen before offering the solution. Transition to the NVC introduction if there is time and interest."
+      }
+    ]
+  },
+  "nvc": {
+    "title": "NVC · notice, feel, need, ask",
+    "intro": "We can practise understanding one another when things are already going well.",
+    "prep": "Optional 10–15 minute introduction using Marshall Rosenberg’s Nonviolent Communication approach. Begin with appreciation, then one fictional practice. Choose suitable feelings and needs cards from your own deck; the deck contents have not been inspected here. The word bank on screen also works without cards. Students can point, draw, speak or pass. The four-part sentence is a support, not a compulsory script. Adults still set safety boundaries; children do not have to negotiate unsafe behaviour.",
+    "sources": [
+      {
+        "label": "CNVC · introduction and free resources",
+        "url": "https://www.cnvc.org/learn/what-is-nvc"
+      },
+      {
+        "label": "CNVC · purpose and process",
+        "url": "https://www.cnvc.org/about/purpose-of-nvc"
+      },
+      {
+        "label": "CNVC · feelings and needs inventory",
+        "url": "https://www.cnvc.org/store/feelings-and-needs-inventory"
+      }
+    ],
+    "cards": [
+      {
+        "title": "Start with appreciation",
+        "prompt": "What did someone do that helped you today?",
+        "action": "Use a real small kindness or the example. Say what happened and why it mattered.",
+        "model": "“When you made room at the game, I felt glad because being included matters to me.”",
+        "teacher": "About 3 minutes. No forced public praise, ranking of friends, or naming someone who did not help. This is a positive entry to observations, feelings and needs."
+      },
+      {
+        "title": "Notice · feel · need · ask",
+        "prompt": "Say what happened, name a feeling, explain what matters, and ask for a doable action.",
+        "action": "Read the four parts together. Point to each part in the example.",
+        "model": "“When the music is loud, I feel distracted because I need concentration. Would you turn it down while I finish this?”",
+        "teacher": "Observation: music volume; feeling/state: distracted; need: concentration; request: lower volume during work. Model a natural shorter version too: “I’m finding it hard to focus. Could we lower the volume for ten minutes?”"
+      },
+      {
+        "title": "Find a feeling and a need",
+        "prompt": "Feelings: glad, worried, frustrated, calm, disappointed, curious. Needs: belonging, fairness, choice, rest, learning, space.",
+        "action": "A friend invites you into a game. Choose a feeling and a need that might fit. Another answer may also fit.",
+        "model": "“Maybe glad, because belonging matters.” Ask: “Does that fit, or is it something else?”",
+        "teacher": "Use these original short word banks or suitable cards. Feelings are not accusations: “ignored” can imply what another person did; help a child explore whether sad, lonely or frustrated fits, without correcting or dismissing their own wording."
+      },
+      {
+        "title": "Try a clear request",
+        "prompt": "Two people reach for the same marker.",
+        "action": "With a partner, practise naming what happened and asking for a turn. Then swap roles.",
+        "model": "“We both reached for the blue marker. I feel impatient because I want to finish. Could I use it after your outline?”",
+        "teacher": "A request names an observable action. The other person can offer another plan. Do not require the full formula when a clear, respectful sentence works. Avoid demanding an apology or agreement."
+      },
+      {
+        "title": "Listen, then respond",
+        "prompt": "What could you say if you are not ready to say yes?",
+        "action": "Respond to the marker request. Show that you heard the other person and offer a workable next step.",
+        "model": "“You want a turn to finish your picture. I need two more minutes. Would that work?”",
+        "teacher": "Listening does not require eye contact. Encourage a brief check of understanding rather than guessing motives. If repeated exclusion or intimidation appears, the adult intervenes; this is not a substitute for support."
+      },
+      {
+        "title": "Try it in our day",
+        "prompt": "Where could this help: games, music, shared supplies or outdoor play?",
+        "action": "Choose one moment. Practise a sentence or draw speech bubbles.",
+        "model": "“When I haven’t had a turn, I feel disappointed. Could I join the next round?”",
+        "teacher": "Finish while engagement is good. Next week practise one part at a time, starting with noticing versus judging and expanding feelings/needs vocabulary."
+      }
+    ]
+  }
+}
