@@ -16,6 +16,7 @@ const published = JSON.parse(await readFile(path.join(root, "public", "generated
 assert.equal(published.schemaVersion, PUBLIC_WINDOW_SCHEMA, "Public-window schema version is stale.");
 assert.equal(published.contentVersion, source.contentVersion, "Public-window content version is stale.");
 assert.equal(published.sourceUpdatedAt, source.sourceUpdatedAt, "Public-window source date is stale.");
+assert.deepEqual(published.classroomWelcome, source.classroomWelcome, "Family welcome differs from its canonical source.");
 assert.deepEqual(published.window, projectPublicWindow(source.window), "Public-window primary window differs from the safe canonical projection.");
 assert.deepEqual(published.windows, [source.window, ...source.phaseOverrides].map(projectPublicWindow), "Public-window phase list differs from the safe canonical projection.");
 

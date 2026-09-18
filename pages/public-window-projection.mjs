@@ -50,6 +50,7 @@ export function buildPublicManifest(existing, source) {
     sourceUpdatedAt: source.sourceUpdatedAt,
     window: projectPublicWindow(source.window),
     ...pick(existing, PUBLIC_MANIFEST_KEYS),
+    ...pick(source, ["classroomWelcome"]),
     windows: [source.window, ...source.phaseOverrides].map(projectPublicWindow),
   };
   return { ...manifest, checksum: manifestChecksum(manifest) };
