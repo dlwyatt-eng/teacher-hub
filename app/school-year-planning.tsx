@@ -1,4 +1,5 @@
 "use client";
+import { RightsPlanning } from "./rights-planning";
 
 import { useState } from "react";
 import { CaptainLeadershipPanel } from "./captain-leadership-panel";
@@ -66,6 +67,7 @@ export function SchoolYearWeeklyPlan({ initialLaunchId, specialLaunches }: Plann
 
   return (
     <>
+      <RightsPlanning />
       <WeeklyPlanPresetSelector
         presets={options}
         value={selected.id}

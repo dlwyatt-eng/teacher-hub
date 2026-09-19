@@ -51,6 +51,10 @@ export function buildPublicManifest(existing, source) {
     window: projectPublicWindow(source.window),
     ...pick(existing, PUBLIC_MANIFEST_KEYS),
     ...pick(source, ["classroomWelcome", "schoolEvents"]),
+    yearMonths: existing.yearMonths.map(month => {
+      const update = source.publicMonthUpdates?.[month.month];
+      return update ? { ...month, focus: update.focus, highlights: [...new Set([...month.highlights, update.highlight])] } : month;
+    }),
     windows: [source.window, ...source.phaseOverrides].map(projectPublicWindow),
   };
   return { ...manifest, checksum: manifestChecksum(manifest) };

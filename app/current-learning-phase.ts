@@ -1,7 +1,7 @@
-import currentLearningSource from "../content/current-learning-window-v2.json";
+import { window as openingWindow, phaseOverrides } from "../content/current-learning-window-v2.json";
 import { datedEntryState, selectDatedEntry } from "./current-learning-date.mjs";
 
-type BaseWindow = typeof currentLearningSource.window;
+type BaseWindow = typeof openingWindow;
 type BaseResource = BaseWindow["shared"]["primaryResource"];
 
 export type ResolvedCurrentLearningWindow = Omit<BaseWindow, "shared"> & {
@@ -10,7 +10,7 @@ export type ResolvedCurrentLearningWindow = Omit<BaseWindow, "shared"> & {
   };
 };
 
-type PhaseOverride = (typeof currentLearningSource.phaseOverrides)[number];
+type PhaseOverride = (typeof phaseOverrides)[number];
 
 function mergePhase(base: BaseWindow, override: PhaseOverride): ResolvedCurrentLearningWindow {
   return {
@@ -43,8 +43,8 @@ function mergePhase(base: BaseWindow, override: PhaseOverride): ResolvedCurrentL
  * back to an already-finished lesson.
  */
 export function currentLearningWindowForDate(date: string): ResolvedCurrentLearningWindow {
-  const base = currentLearningSource.window as BaseWindow;
-  const phases = currentLearningSource.phaseOverrides as readonly PhaseOverride[];
+  const base = openingWindow as BaseWindow;
+  const phases = phaseOverrides as readonly PhaseOverride[];
   const selected = selectDatedEntry([base, ...phases] as readonly (BaseWindow | PhaseOverride)[], date);
   const phase = selected ? phases.find(candidate => candidate.id === selected.id) : null;
   return phase ? mergePhase(base, phase) : base as ResolvedCurrentLearningWindow;

@@ -1,4 +1,5 @@
 "use client";
+import { RightsPlanning } from "./rights-planning";
 
 import { ExplorationAnnualMap, type ExplorationDestination } from "./virtual-explorations";
 import { useState } from "react";
@@ -42,6 +43,7 @@ export default function YearPlanPage({ mode, onHome, onAssessment, onWeeklyPlan,
 
       {mode === "teacher" && <ExplorationAnnualMap onExplore={onExplore} />}
 
+      <RightsPlanning />
       <section className="calendar-reality" aria-label="School year timing notes">
         <article><small>SCHOOL OPENS</small><strong>Tuesday, Sept. 8</strong><p>Use the first two weeks for belonging, routines, learning profiles, and inquiry habits.</p></article>
         <article><small>WINTER BREAK</small><strong>Dec. 21–Jan. 1</strong><p>Finish a coherent Human Rights Day product before the break; restart inquiry roles Jan. 4.</p></article>

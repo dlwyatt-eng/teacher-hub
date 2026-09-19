@@ -1,4 +1,4 @@
-import currentLearning from "../content/current-learning-window-v2.json";
+import { contentVersion } from "../content/current-learning-window-v2.json";
 import { currentLearningState, currentLearningWindow } from "./current-learning-phase";
 
 function scenarioClass(call: string) {
@@ -84,7 +84,7 @@ export default function TeacherNow({ onNavigate }: { onNavigate: (page: string) 
     </aside>
 
     <footer>
-      <div><strong>Current source</strong><span>{currentLearning.contentVersion} · one canonical lesson window feeding Teacher, Student, and Family views</span></div>
+      <div><strong>Current source</strong><span>{contentVersion} · one canonical lesson window feeding Teacher, Student, and Family views</span></div>
       <nav aria-label="Current teaching actions">
         <button onClick={() => onNavigate(window.teacher.primaryView)}>Open full mission</button>
         <button onClick={() => onNavigate(window.teacher.secondaryView)}>Open weekly plan</button>

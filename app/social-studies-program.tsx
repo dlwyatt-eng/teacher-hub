@@ -1,4 +1,5 @@
 "use client";
+import { RightsPlanning } from "./rights-planning";
 
 import { LessonExplorations } from "./virtual-explorations";
 import { OptionalTeachingResources } from "./optional-teaching-resources";
@@ -428,7 +429,7 @@ export function SocialStudiesProgramTab({ tab, mode, lessonId, onLesson, scene, 
 
   if (mode === "projector") return <SocialStudiesStudentLaunch lessonId={lessonId} onLesson={onLesson} scene={scene} onScene={onScene} />;
 
-  if (tab === "Units" || tab === "Journey") return <SocialUnitsOverview onLesson={onLesson} />;
+  if (tab === "Units" || tab === "Journey") return <><RightsPlanning /><SocialUnitsOverview onLesson={onLesson} /></>;
   if (tab === "Lessons") return <SocialLessons selected={selected} onLesson={onLesson} scene={scene} onScene={onScene} />;
   if (tab === "Assessments") return <SocialAssessment onLesson={onLesson} />;
   if (tab === "Final Inquiry") return <SocialFinalInquiry onLesson={onLesson} />;

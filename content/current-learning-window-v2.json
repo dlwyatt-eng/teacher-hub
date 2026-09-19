@@ -1,7 +1,7 @@
 {
   "schemaVersion": "classroom-os-current-window/v2",
-  "contentVersion": "2026-family-fees-volunteers-2026-09-18",
-  "sourceUpdatedAt": "2026-09-18T06:17:41.249320Z",
+  "contentVersion": "2026-09-18-rights-strand",
+  "sourceUpdatedAt": "2026-09-18",
   "window": {
     "id": "september-opening",
     "effectiveFrom": "2026-09-08",
@@ -756,7 +756,7 @@
         "eyebrow": "OCTOBER · COMPARE, CHECK, PREPARE",
         "title": "Before the vote: claims, responsibilities, and choices",
         "bigQuestion": "How can we compare election choices without confusing a persuasive promise with evidence that it can happen?",
-        "summary": "Students continue the existing Surrey election case through Trace the Claim, the Newsroom, and Civic Decision Brief. They compare directly sourced statements about the same issue, check what mayor, council, and trustees can actually decide, weigh trade-offs, and prepare for the existing Student Vote process without adding another unit or portfolio post.",
+        "summary": "Students continue the existing Surrey election case through Trace the Claim, the Newsroom, and Civic Decision Brief. They compare directly sourced statements about the same issue, check what mayor, council, and trustees can actually decide, weigh trade-offs, and prepare for the existing Student Vote process without adding another unit or portfolio post. Planned October connection: Can I disagree? We will practise challenging an idea or decision while protecting people’s dignity, as an introduction to children’s rights on November 20 and Human Rights Day on December 10.",
         "learningArc": [
           {
             "timing": "Oct. 1–2",
@@ -1401,6 +1401,36 @@
       "dateLabel": "Last week of October",
       "title": "We Scare Hunger food drive",
       "detail": "Exact collection dates to follow."
+    },
+    {
+      "id": "national-child-day",
+      "date": "2026-11-20",
+      "month": "2026-11",
+      "dateLabel": "Fri, November 20",
+      "title": "National Child Day / World Children’s Day",
+      "detail": "Learning milestone: children’s voice, equal treatment and adult responsibility. Planned sharing details will follow; this is not a school closure."
+    },
+    {
+      "id": "human-rights-day",
+      "date": "2026-12-10",
+      "month": "2026-12",
+      "dateLabel": "Thu, December 10",
+      "title": "Human Rights Day",
+      "detail": "Planned rights case gallery or teach-back, connecting racism, equality and freedom of expression. This is not a school closure."
     }
-  ]
+  ],
+  "publicMonthUpdates": {
+    "October": {
+      "focus": "Identity, place, evidence, maps, and whose perspectives are represented; a short introduction to expression and fair disagreement",
+      "highlight": "October · Can I disagree? Expression, dignity and fair disagreement."
+    },
+    "November": {
+      "focus": "Government, human rights, media, systems, and respectful disagreement; children’s rights and National Child Day on November 20",
+      "highlight": "Nov. 9–20 · Rights scenarios and proposals; share for National Child Day Nov. 20."
+    },
+    "December": {
+      "focus": "Root causes, affected perspectives, existing responses, and possible leverage points; racism, equality and freedom of expression for Human Rights Day on December 10",
+      "highlight": "Dec. 10 · Rights gallery: racism, equality, expression and fair responses."
+    }
+  }
 }

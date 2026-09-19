@@ -33,7 +33,7 @@ import { currentLearningWindow } from "./current-learning-phase";
 import { subjects, type Subject } from "./subject-catalog";
 import type { SubjectHubLocation } from "./subject-hub";
 import type { SpecialWeekLaunch } from "./school-year-planning";
-import currentLearningSource from "../content/current-learning-window-v2.json";
+import { contentVersion } from "../content/current-learning-window-v2.json";
 
 const SubjectHub = lazy(() => import("./subject-hub"));
 const ScienceLessonRoute = lazy(() => import("./inquiry-experience").then((module) => ({ default: module.ScienceLessonRoute })));
@@ -1117,7 +1117,7 @@ function Dashboard({ onSubject, onNavigate, onOpenScienceLesson, onProjectMornin
         </div>
       </section>
       <section className="public-window-bridge">
-        <div><p className="section-kicker">PUBLIC CLASSROOM · {currentLearningSource.contentVersion}</p><h2>{currentWindow.shared.bigQuestion}</h2><p>Preview what students and families see for this learning phase.</p></div>
+        <div><p className="section-kicker">PUBLIC CLASSROOM · {contentVersion}</p><h2>{currentWindow.shared.bigQuestion}</h2><p>Preview what students and families see for this learning phase.</p></div>
         <div><a href={STUDENT_FAMILY_SITE_URL} target="_blank" rel="noreferrer">Open public site <span>↗</span></a><a className="secondary" href="https://ca.spacesedu.com/" target="_blank" rel="noreferrer">Open SpacesEDU <span>↗</span></a></div>
       </section>
         </div>

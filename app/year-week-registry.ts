@@ -283,6 +283,16 @@ function weekRange(weekOf: string) {
   return `${startText}–${endText}`;
 }
 
+const rightsWeekNotes: Record<string, string> = {
+  "2026-10-05": "Rights strand: plan a 25-minute Can I disagree? introduction alongside evidence work. Open Rights & expression in the planning panel for teaching screens.",
+  "2026-10-19": "Leadership & Spirit Club pathway begins October 21: Rights, Respect & Responsibility. Use the planning panel for the sponsor-guided project.",
+  "2026-11-09": "Rights strand: Where Is the Line? Use a 35-minute block for fictional scenarios, overlapping categories and evidence. Open the planning panel inquiry link.",
+  "2026-11-16": "National Child Day is Friday November 20. Plan a 35-minute children’s-rights proposal and share a tested scenario; exact sharing arrangements remain flexible.",
+  "2026-11-23": "Rights gallery: revise a case using a source, a fair response and a remaining question for December 10.",
+  "2026-12-07": "Human Rights Day is Thursday December 10. Share the rights case gallery or teach-back; include racism, equality, expression and adult responsibility.",
+  "2026-12-14": "Return to the rights action: what changed, what did adults do, and what should we revisit after the break?",
+};
+
 function buildYearWeekLaunches(): YearWeekLaunch[] {
   const monthIndex = new Map<string, number>();
   return SCHOOL_YEAR_WEEK_MONDAYS
@@ -313,7 +323,7 @@ function buildYearWeekLaunches(): YearWeekLaunch[] {
         seed: {
           weekOf,
           title: `${monthRecord.phase} · ${dateRange}`,
-          weekNote: `${monthRecord.focus}. These are starting activities, not the full timetable. Math has ${mathWeek?.lessonIds.length ?? 0} new focused lessons this week plus practice as time allows. ${mathWeek?.note ?? ""} Move unfinished core learning into a later flex week. Keep reading, PHE, Arts/ADST/Career and other class routines. Captain routine: weekly chores and handover, captain-led PE within its existing block, dedicated Werewolf lessons or rehearsal within LA, and a 3–5 minute Career reflection. Use Weekly captain responsibilities for leadership; open Werewolf in LA for game and storytelling lessons. Short fluency and SpacesEDU are optional, not extra daily assignments. Open each listed lesson for exact sources, displays, materials, and look-fors; adjust bells and closures before printing. SpacesEDU: ${monthRecord.spaces}.`,
+          weekNote: `${rightsWeekNotes[weekOf] ?? ""} ${monthRecord.focus}. These are starting activities, not the full timetable. Math has ${mathWeek?.lessonIds.length ?? 0} new focused lessons this week plus practice as time allows. ${mathWeek?.note ?? ""} Move unfinished core learning into a later flex week. Keep reading, PHE, Arts/ADST/Career and other class routines. Captain routine: weekly chores and handover, captain-led PE within its existing block, dedicated Werewolf lessons or rehearsal within LA, and a 3–5 minute Career reflection. Use Weekly captain responsibilities for leadership; open Werewolf in LA for game and storytelling lessons. Short fluency and SpacesEDU are optional, not extra daily assignments. Open each listed lesson for exact sources, displays, materials, and look-fors; adjust bells and closures before printing. SpacesEDU: ${monthRecord.spaces}.`,
           lessons,
         },
       } satisfies YearWeekLaunch;
