@@ -4,7 +4,7 @@
   "title": "Monday · belonging, place value & new beginnings",
   "greeting": "Welcome to Grade 6 · Monday!",
   "arrival": "Unpack and settle in. Today: belonging, place value, Truth and Reconciliation booklets, and choosing our novel.",
-  "note": "Planned Monday, September 21; not completed. PE/LST unconfirmed. Prepare forms, booklets, math materials, reviewed Indigenous-created source and novel previews; no devices needed. Full notes: docs/MONDAY_2026-09-21.md. Add actual timing after teaching; keep student details private.",
+  "note": "Planned Monday, September 21; not completed. Gym/support times unconfirmed. Prepare forms, booklets, math materials, reviewed Indigenous-created source and novel previews; no devices needed. Full notes: docs/MONDAY_2026-09-21.md. Add actual timing after teaching; keep student details private.",
   "reflection": "",
   "blocks": [
     {
@@ -17,7 +17,7 @@
       ]
     },
     {
-      "time": "8:35–8:55 am",
+      "time": "8:35–8:50 am",
       "title": "Attendance, forms & Discovery check-in",
       "notes": "Attendance first; then forms in separate trays. Track returns privately. Check Discovery: submitted, still working, or needs help. Offer replacements. Afternoon catch-up.",
       "href": "",
@@ -28,8 +28,8 @@
       ]
     },
     {
-      "time": "8:55–9:25 am",
-      "title": "Everyone belongs · PE & outdoor activities",
+      "time": "8:50–9:20 am",
+      "title": "Everyone belongs · games & outdoor activities",
       "notes": "Begin: I asked everyone to play on gravel without checking the activity worked for everyone. I am sorry. It is my responsibility to plan for everyone to participate. Discuss barriers; agree on changes. Allow private suggestions, no personal disclosures. Inclusion is not a vote; sideline roles must be a choice. NVC/Agreements later.",
       "href": "",
       "studentSteps": [
@@ -39,18 +39,9 @@
       ]
     },
     {
-      "time": "9:25–9:30 am",
-      "title": "Movement break & math setup",
-      "notes": "",
-      "href": "",
-      "studentSteps": [
-        "Choose a comfortable seated or standing stretch. Get math materials ready."
-      ]
-    },
-    {
-      "time": "9:30–10:30 am",
+      "time": "9:20–10:20 am",
       "title": "Math · whole-number place value",
-      "notes": "60 minutes: model 10, optional video 10, guided work 15, practice 20, check 5. Math Antics: https://mathantics.com/lesson/place-value. No-video model below. Answers: 6,000 + 300 + 7; zero tens; 8,642 / 2,468; exit 6,000 / 600. Adjust support; decimals later.",
+      "notes": "60 minutes: model 10, optional video 10, guided work 15, practice 20, check 5. Math Antics: https://mathantics.com/lesson/place-value. No-video model below. Answers: 6,000 + 300 + 7; zero tens; 8,642 / 2,468; exit 6,000 / 600. Adjust support; decimals later. Include a brief comfortable movement reset as needed.",
       "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
       "studentSteps": [
         "Use thousands, hundreds, tens and ones columns. Model: 4,582 = 4,000 + 500 + 80 + 2. The 5 means 500.",
@@ -61,10 +52,14 @@
       ]
     },
     {
-      "time": "10:30–10:35 am",
-      "title": "Math cleanup & recess preparation",
-      "notes": "",
-      "href": ""
+      "time": "10:20–10:35 am",
+      "title": "Snack & recess preparation",
+      "notes": "Usual snack start is 10:20 Monday–Thursday; Friday snack is after recess. Pack math away, eat, clean up and prepare for recess.",
+      "href": "",
+      "studentSteps": [
+        "Put math materials away and eat your snack.",
+        "Clean your space and get ready for recess at 10:35."
+      ]
     },
     {
       "time": "10:35–10:50 am",

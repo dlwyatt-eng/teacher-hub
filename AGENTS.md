@@ -29,6 +29,8 @@ For each changed worksheet, organizer or activity, read the actual teacher, proj
 
 ## Daily plan preservation
 
+- SOD routines confirmed by Daryl: attendance before form collection; snack usually starts 10:20 am Monday–Thursday and follows recess on Fridays; activity/cleaning around 2:00 pm. Preserve an hour for introductory place value and 30 minutes for the inclusion conversation by arranging earlier blocks around snack. Do not label an inclusion discussion as PE on the student SOD; use games/outdoor activities so students do not expect a PE lesson.
+
 - Preserve every day plan prepared for Daryl throughout the school year. Commit student-safe plans under `content/day-plans/`, register them in `app/day-plan-store.ts`, and retain a dated copy rather than overwriting an earlier day. Keep the original when adapting a plan for another date or year.
 - Do not invent the teaching date. Use an undated template until the date is known.
 - Retain sequence, teaching steps, linked materials, optional continuations, and teacher-provided reflection/actual timing. Never publish student-specific private notes.
