@@ -36,6 +36,7 @@ import type { SpecialWeekLaunch } from "./school-year-planning";
 import { contentVersion } from "../content/current-learning-window-v2.json";
 
 const SubjectHub = lazy(() => import("./subject-hub"));
+const HomePracticeTeacher = lazy(() => import("./home-practice-teacher"));
 const ScienceLessonRoute = lazy(() => import("./inquiry-experience").then((module) => ({ default: module.ScienceLessonRoute })));
 const CrossCurricularProjects = lazy(() => import("./cross-curricular-projects"));
 const TeachingOsMap = lazy(() => import("./teaching-os-map"));
@@ -1118,7 +1119,7 @@ function Dashboard({ onSubject, onNavigate, onOpenScienceLesson, onProjectMornin
       </section>
       <section className="public-window-bridge">
         <div><p className="section-kicker">PUBLIC CLASSROOM · {contentVersion}</p><h2>{currentWindow.shared.bigQuestion}</h2><p>Preview what students and families see for this learning phase.</p></div>
-        <div><a href={STUDENT_FAMILY_SITE_URL} target="_blank" rel="noreferrer">Open public site <span>↗</span></a><a className="secondary" href="https://ca.spacesedu.com/" target="_blank" rel="noreferrer">Open SpacesEDU <span>↗</span></a></div>
+        <div><a href={STUDENT_FAMILY_SITE_URL} target="_blank" rel="noreferrer">Open public site <span>↗</span></a><a href={`${STUDENT_FAMILY_SITE_URL}#/homework`} target="_blank" rel="noreferrer">Homework &amp; Extra Practice ↗</a><a className="secondary" href="https://ca.spacesedu.com/" target="_blank" rel="noreferrer">Open SpacesEDU <span>↗</span></a></div>
       </section>
         </div>
       </details>
@@ -1305,6 +1306,7 @@ function ClassroomGuidePage({ mode, onHome }: { mode: "teacher" | "projector"; o
       </section>
 
       <div className="guide-tabs" role="tablist">{sections.map(item => <button key={item} role="tab" aria-selected={section === item} className={section === item ? "selected" : ""} onClick={() => setSection(item)}>{item}</button>)}</div>
+      {section === "Homework" && mode === "teacher" && <Suspense fallback={<p>Loading home practice…</p>}><HomePracticeTeacher /></Suspense>}
 
       {section === "Philosophy" && <section className="philosophy-grid">{philosophyCommitments.map(([title, detail], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h2>{title}</h2><p>{detail}</p></article>)}</section>}
 

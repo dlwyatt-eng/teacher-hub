@@ -10,7 +10,8 @@ const outputPath = path.join(root, "public", "generated", "public-window-v2.json
 const source = JSON.parse(await readFile(sourcePath, "utf8"));
 const existing = JSON.parse(await readFile(outputPath, "utf8"));
 
-const next = buildPublicManifest(existing, source);
+const homePractice = JSON.parse(await readFile(path.join(root, "content", "home-practice.json"), "utf8"));
+const next = buildPublicManifest(existing, source, homePractice);
 await writeFile(outputPath, `${JSON.stringify(next, null, 2)}\n`);
 
 console.log(`Synced ${path.relative(root, outputPath)} from ${path.relative(root, sourcePath)}.`);

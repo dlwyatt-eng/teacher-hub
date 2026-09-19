@@ -1,5 +1,9 @@
 # Classroom OS continuation rules
 
+## Home practice updates
+
+The canonical optional menu is content/home-practice.json; see docs/HOME_PRACTICE_WORKFLOW.md. Update it when taught skills change, archive outgoing dated menus, and sync it with the existing public-window command. Never infer homework deadlines or completed teaching from plans. Keep individualized tasks and account details private.
+
 Preserve the current source and the existing GitHub Pages addresses. Compare local work with the current remote tree before editing or publishing; do not reset to an older tracking branch or force-push over newer work. Release notes describe which local and GitHub commits have identical source trees.
 
 ## Lesson quality

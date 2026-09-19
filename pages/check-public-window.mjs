@@ -12,6 +12,8 @@ import {
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const source = JSON.parse(await readFile(path.join(root, "content", "current-learning-window-v2.json"), "utf8"));
 const published = JSON.parse(await readFile(path.join(root, "public", "generated", "public-window-v2.json"), "utf8"));
+const homePractice = JSON.parse(await readFile(path.join(root, "content", "home-practice.json"), "utf8"));
+assert.deepEqual(published.homePractice, homePractice, "Published home practice is stale.");
 
 assert.equal(published.schemaVersion, PUBLIC_WINDOW_SCHEMA, "Public-window schema version is stale.");
 assert.equal(published.contentVersion, source.contentVersion, "Public-window content version is stale.");

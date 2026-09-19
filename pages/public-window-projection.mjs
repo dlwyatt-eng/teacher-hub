@@ -43,7 +43,7 @@ export function manifestChecksum(manifest) {
   return `sha256:${createHash("sha256").update(`${JSON.stringify(body, null, 2)}\n`).digest("hex")}`;
 }
 
-export function buildPublicManifest(existing, source) {
+export function buildPublicManifest(existing, source, homePractice) {
   const manifest = {
     schemaVersion: PUBLIC_WINDOW_SCHEMA,
     contentVersion: source.contentVersion,
@@ -51,6 +51,7 @@ export function buildPublicManifest(existing, source) {
     window: projectPublicWindow(source.window),
     ...pick(existing, PUBLIC_MANIFEST_KEYS),
     ...pick(source, ["classroomWelcome", "schoolEvents"]),
+    ...(homePractice ? { homePractice } : {}),
     yearMonths: existing.yearMonths.map(month => {
       const update = source.publicMonthUpdates?.[month.month];
       return update ? { ...month, focus: update.focus, highlights: [...new Set([...month.highlights, update.highlight])] } : month;
