@@ -1,4 +1,5 @@
 'use client';
+import InclusivePrintables from './inclusive-printables';
 import data from '../content/belonging-sequence.json';
 import {CommunityPracticeLinks} from './community-practice';
 import './community-practice.css';
@@ -8,6 +9,7 @@ export default function BelongingSequence({projector=false}:{projector?:boolean}
  <header><p>BELONGING &amp; COMMUNITY · OUR LEARNING THREAD</p><h1>{data.question}</h1><p>Connected lessons for several days and weeks. Revisit our commitments after real activities and change what is not working.</p></header>
  <div className="belonging-chapters">{data.chapters.map(c=><article className="practice-teacher" key={c.title}><p><strong>{c.time}</strong></p><h2>{c.title}</h2><p>{c.description}</p><p><b>What we will show:</b> {c.evidence}</p><a href={c.href+(c.href.startsWith('?')?mode:'')}>{c.label} →</a></article>)}</div>
  <section className="practice-teacher"><h2>4 · A fair chance to take part</h2><p><b>Equality:</b> the same thing or rule for everyone. <b>Equity:</b> responding to barriers so people have a fair chance. <b>Accessibility:</b> designing spaces, information and activities so people can use them. These ideas can overlap; planned choices do not replace individual support.</p><p>For the 10-minute opening, read one case below. Compare the plans, explain a barrier each removes, and name what still needs checking. Then open Barrier Detectives for the Access Makeover.</p><div className="belonging-cases">{data.fairness.map(c=><details key={c.title}><summary>{c.title}</summary><p>{c.text}</p><p><b>Discuss:</b> {c.question}</p></details>)}</div></section>
+ <InclusivePrintables/>
  <section className="practice-teacher"><h2>Use the materials we already have</h2><ul>
  <li><a href="printables/belonging-barrier-redesign.pdf" target="_blank" rel="noreferrer">New companion · mini-poster, barrier cards, fairness cards and class commitment chart (5 pages)</a>. Monday: project or print page 1, choose cards from pages 2–3, and use one class copy of page 5. Save page 4 for lesson 4.</li>
  <li><a href="https://dlwyatt-eng.github.io/equity-hub/downloads/lesson-belonging-builder-black-white.pdf">Existing Belonging Action Studio</a>: page 2 offers a fuller drawing task on another day; page 3 is an alternative commitment chart. Choose one chart.</li>

@@ -1,4 +1,5 @@
 'use client';
+import InclusivePrintables from './inclusive-printables';
 import {useState} from 'react';
 import lessonData from '../content/community-practice.json';
 import {shapeOfDayHref} from './classroom-navigation-state';
@@ -22,6 +23,7 @@ export default function CommunityPractice({deck,projector=false}:{deck:PracticeD
  <nav className="practice-controls" aria-label="Practice card controls"><button disabled={index===0} onClick={()=>move(index-1)}>← Previous</button><label>Card <select aria-label="Choose a practice card" value={index} onChange={e=>move(Number(e.target.value))}>{lesson.cards.map((c,i)=><option value={i} key={c.title}>{i+1} · {c.title}</option>)}</select></label><button disabled={index===lesson.cards.length-1} onClick={()=>move(index+1)}>Next →</button><a href={shapeOfDayHref()}>Back to our day</a></nav>
  <details className="practice-resources"><summary>{deck==='agreements'?'Author resources & optional video':'Source guidance and attribution'}</summary><ul>{lesson.sources.map(s=><li key={s.url}><a href={s.url} target="_blank" rel="noreferrer">{s.label}</a>{'description' in s&&<p>{s.description}</p>}</li>)}</ul></details>
  {deck==='agreements'&&<p><a className="practice-next" href={`?view=Games+%26+Activities&deck=nvc${projector?'&mode=student':''}`}>Later lesson: NVC · notice, feel, need, ask →</a></p>}
+ {deck==='belonging'&&<InclusivePrintables/>}
  {deck==='belonging'&&<p><a href="printables/belonging-barrier-redesign.pdf" target="_blank" rel="noreferrer">Print the belonging companion · 5 pages</a></p>}
  </section>;
 }

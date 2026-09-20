@@ -1,0 +1,15 @@
+# Inclusive Monday printables — September 20, 2026
+
+Preserved the newer belonging integration at 5dbf3ea, including its six-card 30-minute lesson, 60-minute Five Agreements/NVC routes, multi-day sequence, PHE/leadership connections, and unchanged Monday bells. Discarded a competing draft route before publication. No student names or learner profiles are published.
+
+Added five one-page shared resources under public/printables/belonging/: Everyone Belongs, Inclusive Games Planner, Truth and Reconciliation companion, classroom communication card, and Build a Number. Monday_Inclusive_Printables.pdf combines those five pages. Belonging_Teacher_and_Visual_Pack.pdf combines two new educator-use pages with the existing five-page belonging-barrier-redesign.pdf unchanged. It reuses the established mini-poster, scenarios, equality/equity/accessibility cases and class commitment chart rather than creating another set.
+
+The two-page guide matches the preserved lesson pacing: 3 + 4 + 5 + 5 + 8 + 5 minutes. Print only the pages needed for the current class task. Offer full-size picture choices, pointing, gaze, gesture, drawing, dictation, consent-based writing support and optional tracing/copying. Confirm language before adding translations. Keep meaningful participation in the shared goal, and consult learners privately about workable choices.
+
+The Truth companion is an access point alongside Phyllis Webstad, NCTR and Katzie learning, not a complete residential-school history. Its factual summary was checked against NCTR and the Orange Shirt Society. The original booklet remains the teacher's selection. Number model: 12 = 1 ten + 2 ones; 112 = 1 hundred + 1 ten + 2 ones; both tens digits represent 10. No decimals added to Monday.
+
+Routes extended: Teacher Games & Activities deck=belonging and deck=belonging-sequence; Learn welcome update; Equity #lesson/belonging-built preview. Fixed Learn/Equity postbuild rewriting so a cross-hub PDF URL keeps its original path. Teacher remains the source of truth, and the two public-window manifests are unchanged from the newer integration and byte-identical.
+
+Verification: rendered and visually reviewed all five student pages and all seven combined guide/visual pages; corrected the vocabulary labels and separated matching pictures from answer words. Confirmed Letter size, embedded fonts, black-and-white output, enlarged response boxes and correct numeric quantities. Teacher typecheck, all 185 existing tests, production build and artifact checks passed. Local browser preview was blocked by the browser client; live-browser checks follow publication. No actual classroom use, physical printing or individual comprehension test is claimed.
+
+Next batch: record which choices and symbols worked; check accessible surfaces/equipment before the next activity; confirm home-language wording; preserve the original Truth booklet and source preparation; schedule separate Agreements/NVC blocks around confirmed specialist and support times. Avoid adding more duplicate belonging worksheets.

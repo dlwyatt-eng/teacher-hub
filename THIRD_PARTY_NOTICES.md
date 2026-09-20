@@ -28,3 +28,7 @@ INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
 OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
 TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
 THIS SOFTWARE.
+
+## Belonging printable icons
+
+The PDFs in `public/printables/belonging/` use Font Awesome Free 6 solid icons, copyright Fonticons, Inc., under CC BY 4.0: https://fontawesome.com/license/free and https://creativecommons.org/licenses/by/4.0/. Icons are scaled and rendered in monochrome. Source: https://github.com/FortAwesome/Font-Awesome/tree/6.x/svgs/solid. No Indigenous cultural imagery is reproduced.
