@@ -1,0 +1,125 @@
+{
+  "question": "How do we build communities where people actually belong?",
+  "barriers": [
+    {
+      "title": "The shared route",
+      "text": "A team puzzle uses clues on a route with steps and narrow spaces. Some players cannot reach the clues.",
+      "goal": "Everyone helps solve the same puzzle."
+    },
+    {
+      "title": "Rules in a rush",
+      "text": "A game’s rules are spoken once, quickly, with music playing. Some players miss the directions or are learning the language.",
+      "goal": "Everyone can understand and make choices in the game."
+    },
+    {
+      "title": "One way to answer",
+      "text": "A group must explain its plan in a long handwritten paragraph. Some people have ideas but need a different way to show them.",
+      "goal": "Everyone helps explain the plan and its reasons."
+    },
+    {
+      "title": "Fast voices first",
+      "text": "A class takes ideas from whoever calls out first. Some people need more thinking time or communicate in another way.",
+      "goal": "Everyone has a real way to influence the decision."
+    },
+    {
+      "title": "One celebration for all",
+      "text": "A class event assumes every family celebrates the same occasion. Its only activity asks everyone to describe how they celebrate it.",
+      "goal": "Everyone can learn and contribute without pretending or explaining private beliefs."
+    },
+    {
+      "title": "No pause allowed",
+      "text": "A team challenge has no breaks. Some people need to rest, manage pain or reduce noise. Nobody should have to explain a private reason.",
+      "goal": "Everyone can contribute, rest and rejoin the shared task."
+    }
+  ],
+  "fairness": [
+    {
+      "title": "Show an explanation",
+      "text": "Everyone must explain how a design removes a barrier. Plan A: everyone writes by hand. Plan B: a student can use a scribe when needed. Plan C: spoken, written, drawn and supported responses are planned from the start, with individual support still available.",
+      "question": "Which plan gives the same format? Which responds to a particular barrier? Which builds in access? What might still need changing?"
+    },
+    {
+      "title": "Reach the shared goal",
+      "text": "Everyone is invited to a team target challenge. Plan A: all throws use one distance and one heavy ball. Plan B: offer a suitable ball or distance when someone needs it. Plan C: plan reachable targets, different equipment and ways to send the ball for everyone to choose, then check individual needs.",
+      "question": "How could the challenge stay meaningful? Which options would need to be checked with the people taking part?"
+    },
+    {
+      "title": "Have a say",
+      "text": "The class is choosing a project. Plan A: each person gets ten seconds to speak. Plan B: someone can have extra thinking time or a communication support. Plan C: everyone can think first and share by speech, drawing, pointing or a note, with support available.",
+      "question": "Is equal speaking time enough for a fair chance to contribute? What would make the decision process accessible?"
+    },
+    {
+      "title": "Understand a field trip",
+      "text": "The trip instructions are the same small-print sheet for every family. Someone suggests a translated version. Another suggests clear print, a visual schedule and an accessible digital version from the start, plus requested support.",
+      "question": "What barriers could each change remove? How will the school find out whether families can use the information?"
+    }
+  ],
+  "chapters": [
+    {
+      "title": "1 · Who gets to belong?",
+      "time": "Monday · 30 minutes",
+      "description": "Acknowledge a planning mistake, distinguish invitation from participation, practise Person → Barrier → Redesign, and choose two class actions.",
+      "href": "?view=Games+%26+Activities&deck=belonging",
+      "label": "Open the belonging lesson",
+      "evidence": "One barrier linked to a realistic redesign; one class commitment and a check-back time."
+    },
+    {
+      "title": "2 · How do we treat one another?",
+      "time": "Later · about 60 minutes",
+      "description": "Use the existing Five Agreements infographic and fictional scenarios. Revisit our commitment, rehearse a helpful choice, receive feedback and try again.",
+      "href": "?view=Games+%26+Activities&deck=agreements",
+      "label": "Open Five Agreements",
+      "evidence": "A spoken, drawn or dictated scene showing a helpful choice and why it matters."
+    },
+    {
+      "title": "3 · What happens when our needs collide?",
+      "time": "Later · about 60 minutes",
+      "description": "Use the existing NVC cards, then practise noticing without judging and listening when people need different things. Rehearse and replay a fictional classroom or playground conversation.",
+      "href": "?view=Games+%26+Activities&deck=nvc",
+      "label": "Open NVC practice",
+      "evidence": "Identify an observation, possible feeling, need and doable request; show listening in the response."
+    },
+    {
+      "title": "4 · Does fair mean the same?",
+      "time": "Later · 55–60 minutes",
+      "description": "Compare equality, equity and accessibility with the scenario cards below (10 minutes). Then use the existing Barrier Detectives Access Makeover route (40–50 minutes) to redesign an upcoming real task.",
+      "href": "https://dlwyatt-eng.github.io/equity-hub/#lesson/barrier-detectives",
+      "label": "Open Barrier Detectives",
+      "evidence": "A Ways-to-Join menu that keeps the shared learning goal, is tested by a partner, and is checked after use."
+    },
+    {
+      "title": "5+ · What can we do when systems exclude people?",
+      "time": "Later days and weeks · one pathway at a time",
+      "description": "Use Rights in Our Room to connect rights to adult responsibilities. Develop student voice and leadership through service. Later, use the Racism, Human Rights & Freedom of Expression strand and its fictional cases.",
+      "href": "https://dlwyatt-eng.github.io/equity-hub/#lesson/rights-in-our-room",
+      "label": "Open Rights in Our Room",
+      "evidence": "Name a barrier, who can change it, one achievable action and how to check whether it helped."
+    }
+  ],
+  "connections": [
+    {
+      "title": "Games and outdoor activities",
+      "text": "Keep the shared goal clear. Check routes, space, equipment, rules, pace and communication before play. Ask privately what works; test the redesign and change it again if needed. Chosen roles can vary; sideline work must not be the only option."
+    },
+    {
+      "title": "Group work and buddy activities",
+      "text": "Before the next fortnightly buddy meeting, choose a shared goal and offer useful ways for both partners to read, listen, point, create or explain. Make the choices available to everyone; do not assign a permanent helper and helped person."
+    },
+    {
+      "title": "Team Captains and class care",
+      "text": "Everyone cares for the room in workable ways. Captains lead through service: ask what helps, keep paths and materials usable, and bring barriers to an adult. They do not police peers or decide which support someone deserves."
+    },
+    {
+      "title": "Truth and Reconciliation",
+      "text": "Use the existing Indigenous-created sources and booklet sequence. Ask whose voice and authority the source represents and what responsibility follows. Belonging can connect to the learning, but residential schools must be taught in their specific history, not reduced to a playground analogy."
+    },
+    {
+      "title": "Social Studies and Leadership & Spirit Club",
+      "text": "Move from one activity rule to school systems: who decides, whose voice is missing, and who can act? Use the existing action toolkit to gather input, propose one feasible change and return to people for feedback."
+    },
+    {
+      "title": "Field trips and restorative problem solving",
+      "text": "Adults check routes, transport, information, cost, sensory conditions and participation choices before plans are fixed. If a choice excludes someone: notice, take responsibility, repair, change the plan and check again. No public disclosure is required."
+    }
+  ]
+}

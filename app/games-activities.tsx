@@ -3,10 +3,12 @@ import {useEffect,useRef,useState} from 'react';
 import {categoryLabels,communityCards,type CardCategory} from './community-cards';
 import CommunityArt from './community-art';
 import './games-activities.css';
+import BelongingSequence from './belonging-sequence';
 import CommunityPractice,{CommunityPracticeLinks,WorkMusicResources} from './community-practice';
 export default function GamesActivities({projector=false}:{projector?:boolean}){
  const deck=typeof window==='undefined'?'':new URLSearchParams(window.location.search).get('deck');
- if(deck==='agreements'||deck==='nvc')return <CommunityPractice key={deck} deck={deck} projector={projector}/>;
+ if(deck==='belonging-sequence')return <BelongingSequence projector={projector}/>;
+ if(deck==='agreements'||deck==='nvc'||deck==='belonging')return <CommunityPractice key={deck} deck={deck} projector={projector}/>;
  if(deck==='music'&&!projector)return <WorkMusicResources/>;
  return <ConnectionCards projector={projector}/>;
 }

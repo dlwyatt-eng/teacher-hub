@@ -2,7 +2,7 @@
   "agreements": {
     "title": "Five Agreements · practise a helpful choice",
     "intro": "The Four Agreements come from don Miguel Ruiz; the fifth is shared with don Jose Ruiz. Explore one idea at a time using your own words, acting or drawing. You may pass.",
-    "prep": "Use the physical cards, plain paper and pencils. Read the card wording yourself; these screens are classroom adaptations, not reproductions of the commercial deck. Introduce the five ideas in about 8 minutes, model one scenario in 5, let pairs rehearse for 10, share and discuss for 10, then choose an action for 5. Move faster when ready. Use the final extra challenge only if useful. No personal disclosures or real class accusations are needed. These are ideas to examine, not beliefs students must accept. Start with the introduction card, then connect each agreement heading to your physical card. The source links below offer the author’s overview, an optional introduction video and background reading. These are adult philosophical resources: use the classroom cards for the main Grade 6 teaching. The video is linked from the author’s site, but its full audio and images have not been reviewed here; preview it before projecting. No video or student device is needed. Start with the all-five-agreements infographic displayed above the cards. Open it full-size and discuss one section at a time. The optional Butterfly Dreamz poster is under “Another visual”. Feelings are valid, and harm still needs adult support and repair.",
+    "prep": "Later lesson · about 60 minutes. Revisit the belonging commitment (5); explore the five ideas and infographic (10); model Watch a replay (10); rehearse Your scene with speaking or drawing options (15); discuss and revise (10); choose a concrete action and exit check (10). Use the physical cards, plain paper and pencils. These screens are classroom adaptations, not reproductions of the commercial deck. Students may question the ideas; shared spiritual beliefs are not required. Use the on-screen infographic and scenarios without video. Optional author media needs a teacher preview. Feelings are valid, and harm still needs adult support and repair.",
     "sources": [
       {
         "label": "Illustrated Four Agreements poster · Butterfly Dreamz",
@@ -107,14 +107,14 @@
         "prompt": "What will you try while we work or play?",
         "action": "Finish: “When ___ happens, I can ___.” Tell a partner or sketch your idea.",
         "model": "“When I’m unsure about a rule, I can ask before accusing.”",
-        "teacher": "Look for one concrete action students can actually try. Ask what help they might need. A student may keep their response private. Revisit the choice briefly after Capture the Flag."
+        "teacher": "Look for one concrete action students can actually try. Ask what help they might need. A student may keep their response private. Revisit the choice after the next shared activity."
       },
       {
         "title": "Keep going · two ideas at once",
         "prompt": "Two friends want different jobs on the classroom display.",
         "action": "Try two possible agreements. Create a solution that gives both people a voice.",
         "model": "“Let’s hear each idea, then divide the jobs or swap after ten minutes.”",
-        "teacher": "Optional extension, not an extra required task. Check whether students actually listen before offering the solution. Transition to the NVC introduction if there is time and interest."
+        "teacher": "Optional extension, not an extra required task. Check whether students actually listen before offering the solution. Save NVC for its own substantial lesson."
       }
     ],
     "poster": {
@@ -130,7 +130,7 @@
   "nvc": {
     "title": "NVC · notice, feel, need, ask",
     "intro": "We can practise understanding one another when things are already going well.",
-    "prep": "Optional 10–15 minute introduction using Marshall Rosenberg’s Nonviolent Communication approach. Begin with appreciation, then one fictional practice. Choose suitable feelings and needs cards from your own deck; the deck contents have not been inspected here. The word bank on screen also works without cards. Students can point, draw, speak or pass. The four-part sentence is a support, not a compulsory script. Adults still set safety boundaries; children do not have to negotiate unsafe behaviour.",
+    "prep": "Later lesson · about 60 minutes using Marshall Rosenberg’s Nonviolent Communication approach. Revisit a belonging commitment and appreciation (5); model four parts (10); sort noticing from judging and explore feelings/needs (10); rehearse a request and response (10); practise the two-needs scenario, then replay (15); reflect and choose a next step (10). Use fictional situations, the on-screen word bank and optional cards from your own deck. Students may point, draw, speak, dictate or pass; listening never requires eye contact. The four-part sentence is a support, not a compulsory script. Adults set safety boundaries and intervene in harm; children do not have to negotiate access or unsafe behaviour.",
     "sources": [
       {
         "label": "CNVC · introduction and free resources",
@@ -161,6 +161,13 @@
         "teacher": "Observation: music volume; feeling/state: distracted; need: concentration; request: lower volume during work. Model a natural shorter version too: “I’m finding it hard to focus. Could we lower the volume for ten minutes?”"
       },
       {
+        "title": "Notice without judging",
+        "prompt": "Which sentence describes something we could see or hear?",
+        "action": "Compare “You never let anyone talk” with “I started twice, and someone spoke before I finished.” Rewrite “You are selfish with supplies” using a fictional action you could observe.",
+        "model": "“The marker has stayed at your desk during our group task.” Then ask what happened; do not decide the person’s motive.",
+        "teacher": "Invite several observable versions. Avoid always/never. Feelings remain valid even when an observation needs checking."
+      },
+      {
         "title": "Find a feeling and a need",
         "prompt": "Feelings: glad, worried, frustrated, calm, disappointed, curious. Needs: belonging, fairness, choice, rest, learning, space.",
         "action": "A friend invites you into a game. Choose a feeling and a need that might fit. Another answer may also fit.",
@@ -182,11 +189,82 @@
         "teacher": "Listening does not require eye contact. Encourage a brief check of understanding rather than guessing motives. If repeated exclusion or intimidation appears, the adult intervenes; this is not a substitute for support."
       },
       {
+        "title": "Two needs can both matter",
+        "prompt": "One group wants music to help them work. Another needs quiet to concentrate.",
+        "action": "In pairs, practise both voices. Each person names a possible feeling, a need and a doable request. Offer two plans. Swap voices or use speech bubbles, then replay after feedback.",
+        "model": "“I feel distracted with music playing because I need quiet. Could we try ten quiet minutes?” “I enjoy music, but I hear you need quiet. Could we keep the shared space quiet now and ask the teacher about another music time?”",
+        "teacher": "Allow 15 minutes for first attempt, feedback and replay. Needs are not a contest. A proposed strategy is not automatically a right or a workable accommodation. Adults ensure access; do not vote away someone’s necessary support. Check: observation, possible feeling, need, specific request, response that shows listening."
+      },
+      {
         "title": "Try it in our day",
         "prompt": "Where could this help: games, music, shared supplies or outdoor play?",
         "action": "Choose one moment. Practise a sentence or draw speech bubbles.",
-        "model": "“When I haven’t had a turn, I feel disappointed. Could I join the next round?”",
-        "teacher": "Finish while engagement is good. Next week practise one part at a time, starting with noticing versus judging and expanding feelings/needs vocabulary."
+        "model": "“When the rules are read quickly, I feel unsure because I need clarity. Could we see one practice round?”",
+        "teacher": "Exit: identify one observation, feeling, need and request in your example. Ask what changed when both people were heard. Practise one part briefly across later group work; adults retain responsibility for removing barriers."
+      }
+    ]
+  },
+  "belonging": {
+    "title": "Who gets to belong?",
+    "intro": "How do we build communities where people actually belong? Being invited is a start. Belonging means we can take part, contribute and feel part of the group.",
+    "prep": "Monday: 30 minutes, 8:50–9:20. Use the six projector cards in order: 3 + 4 + 5 + 5 + 8 + 5 minutes. Read aloud; offer quiet thinking and pointing, speaking, drawing, writing or dictating. A partner may record an idea with permission. No devices or individual worksheets are required. Prepare one class chart with Person, Barrier and Redesign headings. Use fictional people; never ask a student to explain a disability or prove an access need. Do not simulate disabilities. Adults remain responsible for safe, meaningful access; inclusion is not a majority vote. Keep the other community lessons for later days.",
+    "cards": [
+      {
+        "title": "1 · Notice, take responsibility, repair · 3 min",
+        "prompt": "When a choice leaves people out, we can change it.",
+        "action": "Listen to our teacher’s repair. Think quietly: what would need to change next time? You do not need to name anyone or share a private experience.",
+        "model": "“I chose Capture the Flag on the gravel field without checking that everyone could take part meaningfully. I am sorry. Planning for everyone is my responsibility. We will look at the barriers, change the activity and check whether the changes work.”",
+        "teacher": "Read this brief acknowledgement in your own voice. Do not seek forgiveness, identify anyone or ask the class to validate the apology. The next action, not a long explanation, models responsibility.",
+        "discussion": "Notice the problem → take responsibility → repair → change future practice."
+      },
+      {
+        "title": "2 · Invited or included? · 4 min",
+        "prompt": "What is the difference between being invited and actually belonging?",
+        "action": "Imagine a class chooses a game. Most can join easily. Some cannot take part fully because of the rules, equipment, space, movement, language or noise. Is it inclusive simply because everyone was invited? Think, then share an idea.",
+        "model": "An invitation does not remove a rule or space that blocks participation. A person belongs when they have a meaningful way to contribute to the shared activity.",
+        "teacher": "Take two or three ideas after quiet thinking. Read the scenario aloud. Keep discussion general. Do not assume the person wants a particular role or support."
+      },
+      {
+        "title": "3 · Person → Barrier → Redesign · 5 min",
+        "prompt": "What could we change about the activity or environment?",
+        "action": "PERSON: what does the fictional person want to do? BARRIER: what gets in the way? REDESIGN: what could change so they can take part in the same goal? Ask what works; do not guess someone’s abilities.",
+        "model": "Person: a player wants to help their team make decisions. Barrier: rules are explained once, quickly, over loud music. Redesign: pause the music, show the rules and model one round, with time to ask questions.",
+        "teacher": "Point to each heading on the class chart. Person means a participant’s goal and preferences, not a diagnosis. This adapts Barrier Detectives’ existing barrier-to-tool match.",
+        "discussion": "What is the barrier? Is our idea changing it, or asking the person to put up with it?"
+      },
+      {
+        "title": "4 · Notice more than one barrier · 5 min",
+        "prompt": "Who can take part, and what might still get in the way?",
+        "action": "Choose one fictional case: a route has steps; answers must be long and handwritten; only fast speakers get heard; an event assumes every family shares one celebration. Name a barrier without naming a classmate.",
+        "model": "If only fast speakers are heard, build in thinking time and invite speech, pointing, drawing or a partner reading an idea with permission. Everyone can still contribute to the decision.",
+        "teacher": "Briefly gather barriers across movement, communication, sensory load, reading/writing, language, social rules, culture and less visible needs such as energy or pain. No one has to disclose a reason for a support. Use just one or two cases Monday; save the rest.",
+        "discussion": "How could someone share an idea without speaking to the whole class?"
+      },
+      {
+        "title": "5 · Redesign together · 8 min",
+        "prompt": "How will your change make real participation possible?",
+        "action": "With a partner, choose one case. Say, point, sketch or dictate: “A person wants to ___. The barrier is ___. We could change ___.” Check that everyone can still help with the shared goal. Share one idea; improve it after feedback.",
+        "model": "For a team puzzle, put all clues at reachable stations on a clear route. Offer spoken and pictured clues. Players choose how to solve and communicate; the team needs everyone’s ideas. Check the route and choices before trying it.",
+        "teacher": "2 minutes choose and think; 3 minutes partner redesign; 3 minutes share and revise. Meaningful participation is more than compulsory scorekeeping or watching. A role can be legitimate when chosen and valued; it cannot be the only option because of a barrier. Adults check safety and feasibility before a trial.",
+        "discussion": "How could we find out whether our change helped without putting someone on the spot?"
+      },
+      {
+        "title": "6 · Make a commitment and check it · 5 min",
+        "prompt": "What will we change before our next shared activity?",
+        "action": "Finish together: “Before we ___, we will ___ so people can ___. We will check by ___.” Choose two practical actions and a check-back time. Give feedback aloud, by pointing, on a note or privately.",
+        "model": "“Before our next group activity, we will explain and model the task, check the space, and offer meaningful ways to contribute. Afterwards, we will ask what helped and what still needs changing.”",
+        "teacher": "Record two class actions on one chart. At the 2:00 activity/care block, check whether the actions are usable; do not promise a game. Revisit for 5 minutes at the next community lesson. Record changes, not names or diagnoses.",
+        "discussion": "Exit: “An invitation is not enough when ___. One change we could try is ___.”"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Existing Equity Hub · Belonging is built",
+        "url": "https://dlwyatt-eng.github.io/equity-hub/#lesson/belonging-built"
+      },
+      {
+        "label": "Existing Equity Hub · Barrier detectives",
+        "url": "https://dlwyatt-eng.github.io/equity-hub/#lesson/barrier-detectives"
       }
     ]
   }

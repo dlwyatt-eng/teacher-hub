@@ -63,6 +63,7 @@ export function PheSeasonPlan() {
       <p><a href={sesaaCalendarUrl} target="_blank" rel="noreferrer">Open the SESAA athletics calendar</a> · <a href="https://www.sesaa.org/" target="_blank" rel="noreferrer">Current schedules and coaching resources</a></p>
     </header>
     <p className="phe-season-note">The teaching windows below are classroom suggestions based on the SESAA calendar, checked September 13, 2026. Confirm Walnut Road’s fixtures, facilities and meet allocation with the school coaches. A league window includes breaks; it does not add lessons during school holidays.</p>
+    <aside className="phe-season-note">Before play, check the shared goal, barriers and meaningful ways to participate. <a href="?view=Games+%26+Activities&amp;deck=belonging-sequence">Person → Barrier → Redesign: belonging sequence →</a></aside>
     <section aria-labelledby="phe-captains-heading">
       <h3 id="phe-captains-heading">Leave room for team captains</h3>
       <p>Reserve one existing PE block most weeks for captains and their teams to plan and lead a familiar activity connected to the current sport or movement focus. Give them 5–10 minutes during the previous PE block to prepare and check their plan with the teacher.</p>
