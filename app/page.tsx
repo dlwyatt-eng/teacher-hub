@@ -24,7 +24,7 @@ import { SiteSearch, type SiteSearchTarget } from "./site-search";
 import type { MorningTimelineItem } from "./morning-screen";
 import StudentAgencyDock from "./student-agency-dock";
 import { vancouverDateKey as morningDateKey } from "./morning-screen-state";
-import TeacherHomeOperations from "./teacher-home-operations";
+const TeacherHomeOperations = lazy(() => import("./teacher-home-operations"));
 const ClassroomLaunch = lazy(() => import("./classroom-navigation").then(m => ({default:m.ClassroomLaunch})));
 const ClassroomNavigation = lazy(() => import("./classroom-navigation").then(m => ({default:m.ClassroomNavigation})));
 const openShapeOfDay = () => import("./classroom-navigation-state").then(({shapeOfDayHref}) => window.location.assign(shapeOfDayHref()));

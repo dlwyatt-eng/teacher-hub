@@ -17,7 +17,7 @@ export function parseDayPlan(value:unknown):DayPlan|null {
  if(!value || typeof value!=='object')return null;
  const p=value as DayPlan;
  if(!str(p.id,160)||!p.id||!str(p.date,10)||(p.date!==''&&!isIsoDateKey(p.date))||!str(p.title,160)||!p.title.trim()||!str(p.greeting,160)||!str(p.arrival,800)||!str(p.note,6000)||!str(p.reflection,6000))return null;
- if(!Array.isArray(p.blocks)||p.blocks.length<1||p.blocks.length>30||!p.blocks.every(b=>b&&str(b.time,60)&&str(b.title,180)&&b.title.trim()&&str(b.notes,6000)&&str(b.href,500)&&(b.href===''||b.href.startsWith('?view=')||b.href.startsWith('?subject='))&&(b.studentSteps===undefined||(Array.isArray(b.studentSteps)&&b.studentSteps.length<=8&&b.studentSteps.every(step=>str(step,500))))))return null;
+ if(!Array.isArray(p.blocks)||p.blocks.length<1||p.blocks.length>30||!p.blocks.every(b=>b&&str(b.time,60)&&str(b.title,180)&&b.title.trim()&&str(b.notes,6000)&&str(b.href,500)&&(b.href===''||b.href.startsWith('?view=')||b.href.startsWith('?subject=')||/^\.\/activities\/[a-z0-9-]+\.html$/.test(b.href))&&(b.studentSteps===undefined||(Array.isArray(b.studentSteps)&&b.studentSteps.length<=8&&b.studentSteps.every(step=>str(step,500))))))return null;
  if(!Array.isArray(p.backups)||p.backups.length>30||!p.backups.every(b=>str(b,1000)))return null;
  return {id:p.id,date:p.date,title:p.title,greeting:p.greeting,arrival:p.arrival,note:p.note,reflection:p.reflection,blocks:p.blocks.map(b=>({time:b.time,title:b.title,notes:b.notes,href:b.href,...(b.studentSteps?{studentSteps:[...b.studentSteps]}:{})})),backups:[...p.backups]};
 }

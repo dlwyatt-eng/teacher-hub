@@ -30,7 +30,7 @@
       "time": "8:50–9:20 am",
       "title": "Discovery booklets · finish & submit",
       "notes": "",
-      "href": "",
+      "href": "./activities/orange-shirt-art.html",
       "studentSteps": [
         "Finish your agreed Discovery work and check it with the teacher.",
         "If Discovery is finished, continue the Truth and Reconciliation pages already introduced.",
@@ -66,14 +66,34 @@
       "href": ""
     },
     {
-      "time": "10:50–11:30 am",
-      "title": "Language Arts · Truth and Reconciliation booklets",
-      "notes": "",
+      "time": "10:50–11:05 am",
+      "title": "Evidence · how do we know?",
+      "notes": "Use the quick game only; return to booklets at 11:05.",
+      "href": "?subject=Social+Studies&socialLesson=trace-the-claim&socialScene=1&mode=student",
+      "studentSteps": [
+        "Read the source. Choose A, B or C and point to a detail.",
+        "Explain: I think… The source tells us… This supports my idea because…"
+      ]
+    },
+    {
+      "time": "11:05–11:25 am",
+      "title": "Language Arts + Social Studies · Truth and Reconciliation",
+      "notes": "Select and model one response; see teaching reference.",
+      "href": "./activities/evidence-reading.html",
+      "studentSteps": [
+        "Read the selected booklet passage with a partner.",
+        "What does this account help us understand about why remembrance matters?",
+        "Use a detail and explain the connection. Point, talk, draw or write."
+      ]
+    },
+    {
+      "time": "11:25–11:30 am",
+      "title": "Share one supported response",
+      "notes": "Collect one response for both subjects; oral responses count.",
       "href": "",
       "studentSteps": [
-        "Listen to our reading and discuss what it teaches us.",
-        "Continue the selected booklet pages with a partner.",
-        "Share one thing learned or a question. Point, talk, draw or write."
+        "Share your idea, source detail and explanation.",
+        "Keep this response for our SpacesEDU practice when access is ready."
       ]
     },
     {
@@ -82,8 +102,8 @@
       "notes": "",
       "href": "",
       "studentSteps": [
-        "Recall what happened in our last listening session.",
-        "Listen for a character’s feelings. What makes you think so?"
+        "Recall our last scene. Listen for a character’s feelings.",
+        "What story detail supports your idea? Explain why."
       ]
     },
     {
@@ -120,7 +140,7 @@
       "href": "",
       "studentSteps": [
         "Sign in with your own login. Keep passwords private.",
-        "Try one small SpacesEDU post with the teacher.",
+        "If access is ready, post your booklet response: idea, detail and explanation. Otherwise save it in class.",
         "If time, join Blooket with a partner or your device.",
         "Sign out and return your laptop."
       ]
