@@ -25,8 +25,9 @@ import type { MorningTimelineItem } from "./morning-screen";
 import StudentAgencyDock from "./student-agency-dock";
 import { vancouverDateKey as morningDateKey } from "./morning-screen-state";
 import TeacherHomeOperations from "./teacher-home-operations";
-import {ClassroomLaunch, ClassroomNavigation} from "./classroom-navigation";
-import {shapeOfDayHref} from "./classroom-navigation-state";
+const ClassroomLaunch = lazy(() => import("./classroom-navigation").then(m => ({default:m.ClassroomLaunch})));
+const ClassroomNavigation = lazy(() => import("./classroom-navigation").then(m => ({default:m.ClassroomNavigation})));
+const openShapeOfDay = () => import("./classroom-navigation-state").then(({shapeOfDayHref}) => window.location.assign(shapeOfDayHref()));
 import "./teaching-workspace.css";
 import { OpeningWeekCockpit, OpeningWelcome } from "./opening-week";
 import { currentLearningWindow } from "./current-learning-phase";
@@ -749,7 +750,7 @@ function ClassroomHome() {
 
   const openSearchTarget = (target: SiteSearchTarget) => {
     if (target.kind === "page") {
-      if (target.page === "Shape of the Day") { window.location.assign(shapeOfDayHref()); return; }
+      if (target.page === "Shape of the Day") { void openShapeOfDay(); return; }
       navigateToPage(target.page);
       return;
     }
@@ -825,7 +826,7 @@ function ClassroomHome() {
           <button className={`nav-item ${active === "Home" ? "active" : ""}`} onClick={goHome}>
             <span className="nav-icon">⌂</span> Home
           </button>
-          <button className={`nav-item ${active === "Morning Screen" ? "active" : ""}`} onClick={() => window.location.assign(shapeOfDayHref())}>
+          <button className={`nav-item ${active === "Morning Screen" ? "active" : ""}`} onClick={() => void openShapeOfDay()}>
             <span className="nav-icon">☀</span> Shape of the Day
           </button>
           <p className="nav-label second">SUBJECTS</p>
@@ -899,7 +900,7 @@ function ClassroomHome() {
           </div>
         </header>
 
-        <ClassroomNavigation active={active} projector={mode === "projector"} routeKey={`${mode}:${active}:${selectedSubject?.name ?? ""}:${selectedScienceLessonId ?? ""}:${JSON.stringify(subjectHubLocation)}`} />
+        <Suspense fallback={<nav className="classroom-nav" aria-label="Classroom shortcuts"><a href="?view=Home">Home</a><a href="?view=Morning+Screen&mode=student">Shape of the Day</a></nav>}><ClassroomNavigation active={active} projector={mode === "projector"} routeKey={`${mode}:${active}:${selectedSubject?.name ?? ""}:${selectedScienceLessonId ?? ""}:${JSON.stringify(subjectHubLocation)}`} /></Suspense>
         <RouteErrorBoundary routeKey={`${active}:${selectedSubject?.name ?? ""}:${selectedScienceLessonId ?? ""}`}>
         <Suspense fallback={<RouteLoading label={selectedScienceLessonId ? "Science lesson" : selectedSubject?.short ?? active} />}>
         {selectedSubject ? (
