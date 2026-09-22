@@ -1,6 +1,6 @@
 'use client';
 import {useEffect, useState} from 'react';
-import {DAY_ARCHIVE_EVENT} from './day-plan-store';
+import {DAY_ARCHIVE_EVENT, listDayPlans} from './day-plan-store';
 import {displayedDayPlan, editDayHref, HOME_HREF, recordNavigation, rememberDisplayedDay, shapeOfDayHref} from './classroom-navigation-state';
 import './classroom-navigation.css';
 
@@ -28,6 +28,9 @@ export function ClassroomNavigation({active, routeKey, projector}: {active: stri
     <a href={back} aria-label="Back to previous classroom screen">← Back</a>
     <a href={HOME_HREF} aria-current={active === 'Home' && !projector ? 'page' : undefined}>Home</a>
     <a href={shapeOfDayHref(plan.id)} aria-current={active === 'Morning Screen' && projector ? 'page' : undefined}>Shape of the Day</a>
+    <label className="classroom-day-picker">Day plan <select value={plan.id} onChange={event => window.location.assign(shapeOfDayHref(event.target.value))}>
+      {listDayPlans().map(day => <option key={day.id} value={day.id}>{day.date || 'Template'} · {day.title}</option>)}
+    </select></label>
     <a href={`?view=Games+%26+Activities${mode}`} aria-current={active === 'Games & Activities' ? 'page' : undefined}>Activities</a>
     <a href={`?view=Responsibilities${mode}`} aria-current={active === 'Responsibilities' ? 'page' : undefined}>Responsibilities</a>
     {!projector && <a href={editDayHref(plan.id)} aria-current={active === 'Day Plans' ? 'page' : undefined}>Saved day plans</a>}

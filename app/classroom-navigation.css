@@ -1,6 +1,7 @@
 .classroom-nav{position:sticky;top:68px;z-index:9;display:flex;gap:6px;align-items:center;padding:8px 24px;border-bottom:1px solid #cbdacf;background:#f8faf6;overflow-x:auto;scrollbar-width:thin}
 .classroom-nav a{flex:none;padding:9px 12px;border-radius:8px;color:#234d3c;font-size:14px;font-weight:750;text-decoration:none;white-space:nowrap}
 .classroom-nav a:hover,.classroom-nav a[aria-current=page]{background:#dcebdc;color:#143d2c}
+.classroom-day-picker{display:flex;flex:none;align-items:center;gap:8px;color:#234d3c;font-size:14px;font-weight:700}.classroom-day-picker select{max-width:260px;padding:8px;border:1px solid #9fb4a5;border-radius:8px;background:white;color:#234d3c;font:inherit}.classroom-day-picker select:focus-visible{outline:3px solid #b36a08;outline-offset:3px}
 .classroom-nav a:focus-visible,.classroom-launch a:focus-visible{outline:3px solid #b36a08;outline-offset:3px}
 .classroom-nav a:first-child{border-right:1px solid #cbdacf;border-radius:0;margin-right:3px}
 .projector-shell .classroom-nav{top:78px}.projector-shell .classroom-nav a{font-size:16px}
