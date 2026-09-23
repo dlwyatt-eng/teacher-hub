@@ -1,7 +1,7 @@
 {
   "schemaVersion": "classroom-os-current-window/v2",
-  "contentVersion": "2026-09-22-evidence-and-orange-shirt-art",
-  "sourceUpdatedAt": "2026-09-22",
+  "contentVersion": "2026-09-23-wednesday-plan",
+  "sourceUpdatedAt": "2026-09-23",
   "window": {
     "id": "september-opening",
     "effectiveFrom": "2026-09-08",
@@ -1236,16 +1236,16 @@
     }
   ],
   "classroomWelcome": {
-    "updatedOn": "September 22, 2026",
+    "updatedOn": "September 23, 2026",
     "classLabel": "Grade 6 · Division 8",
     "location": "Room 112 · Annex · Walnut Road Elementary",
     "title": "Welcome to our Grade 6 community",
     "intro": "I’m looking forward to getting to know your child and working with your family this year. This hub is a place to see our learning, find reminders, and start a conversation about school. — Mr. Wyatt",
-    "recapTitle": "Our first days together",
-    "recap": "On Monday, students began our Belonging work, started whole-number place value and Truth and Reconciliation booklets, chose Nevermoor as our first class novel, and began the audiobook. Some forms and Discovery booklets are still coming in, so unfinished work will continue at school.",
-    "nextTitle": "Planned for Tuesday, September 22",
-    "next": "On Tuesday we plan to continue place value before recess, with decimals only if understanding is secure. After recess, a short evidence lesson leads into Truth and Reconciliation reading for Language Arts and Social Studies: students explain an idea using a relevant source detail. We will use the same skill while listening to Nevermoor. Mr. Eckert’s block is 12:35–1:35; laptops follow. If class access is ready, students will practise one SpacesEDU post using their booklet response; otherwise work stays in class. Photos may interrupt. Orange-shirt art follows completion of both current booklets; linked examples help students choose a design and explain its connection to the reading.",
-    "later": "During the week we plan to watch The Secret Path in preparation for our confirmed Reconciliation Walk on Monday, September 28 at 9:30 am; the classroom viewing day may change. Orange Shirt Day decorations will wait until current Discovery and Truth and Reconciliation booklet work is finished. Our Belonging & Community sequence continues with separate lessons on the Five Agreements, Nonviolent Communication, and fairness and accessibility. Specialist and learning-support times are still being arranged.",
+    "recapTitle": "Our learning so far",
+    "recap": "Students have completed decimal place value. Our class novel is Nevermoor; we did not listen on Tuesday, and the reading journal has not begun. Orange Shirt activities have not started. Some Discovery booklets and forms are still outstanding; Discovery work can continue independently at school.",
+    "nextTitle": "Planned for Wednesday, September 23",
+    "next": "Wednesday begins with Werewolf, practising evidence, inference, listening and respectful disagreement. We will pause for a one-time gym block from 9:35–10:05, resume the game, then listen to Nevermoor during snack. After recess, our protected maths hour focuses on rounding decimals, with comparison if students are ready. Afternoon laptops are for Matific and individual account setup, including SpacesEDU, followed by Blooket before device return and cleanup.",
+    "later": "Thursday’s proposed protected blocks are Orange Shirt / Truth and Reconciliation learning at 10:50–11:50 and The Secret Path with reflection at 12:35–1:50, preparing for our Reconciliation Walk on Monday, September 28 at 9:30 am. There is no school Friday, September 25. Unfinished rounding or comparison can continue Thursday; the Nevermoor journal will begin on a later day with modelling and support. Five Agreements and Nonviolent Communication remain separate later lessons.",
     "reminders": [
       {
         "title": "Forms and booklet check-in",
@@ -1272,17 +1272,25 @@
       },
       {
         "title": "Orange-shirt art examples",
-        "text": "After current Discovery and Truth and Reconciliation booklet work is finished, students can choose a simple design and explain its connection to the reading.",
+        "text": "After learning from the selected Truth and Reconciliation sources, students can choose a simple design and explain its connection to the learning. Unfinished Discovery work will not prevent participation in our shared lesson.",
         "link": {
           "label": "See the art examples",
           "url": "https://dlwyatt-eng.github.io/teacher-hub/activities/orange-shirt-art.html"
+        }
+      },
+      {
+        "title": "Optional Matific practice and challenge",
+        "text": "Once school account access is working, students may use Matific at home for extra maths practice or explore more challenging activities when ready. This is optional; no score, completion target or purchase is required. See the home-practice menu for the link and a screen-free choice.",
+        "link": {
+          "label": "Optional home practice",
+          "url": "https://dlwyatt-eng.github.io/learn/#/homework"
         }
       }
     ],
     "spaces": {
       "status": "pending",
-      "title": "SpacesEDU is not ready for our class yet",
-      "message": "Students are still being added to our class in the system. There is nothing to upload or set up at home yet. Mr. Wyatt will share access instructions when the class is ready.",
+      "title": "SpacesEDU class setup",
+      "message": "Wednesday afternoon is planned for helping students connect and checking access individually. A simple test post may be used; it is not assessed work. There is nothing to upload or set up at home yet. Mr. Wyatt will share family access instructions when ready.",
       "purpose": "Once access is ready, students will use SpacesEDU to organize and share selected work, reflect on their learning, and receive feedback. Families will be able to follow their child’s learning there. This public hub provides general information; individual work and feedback belong in the secure portfolio."
     },
     "familyLinks": [

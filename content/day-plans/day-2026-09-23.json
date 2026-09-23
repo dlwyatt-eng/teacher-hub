@@ -1,0 +1,155 @@
+{
+  "id": "day-2026-09-23",
+  "date": "2026-09-23",
+  "title": "Wednesday · Werewolf, decimals & getting connected",
+  "greeting": "Welcome to Grade 6 · Wednesday!",
+  "arrival": "We will pause Werewolf for the gym, then resume. After lunch we will get connected to our classroom tools.",
+  "note": "Approved plan. Teaching reference: docs/WEDNESDAY_2026-09-23.md. No LST today. Check the audiobook bookmark, Blooket and account access before class.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:45 am",
+      "title": "Arrival, attendance & forms",
+      "notes": "",
+      "href": "",
+      "studentSteps": [
+        "Settle in and answer attendance.",
+        "Hand in outstanding forms and preview our day."
+      ]
+    },
+    {
+      "time": "8:45–9:25 am",
+      "title": "Werewolf",
+      "notes": "",
+      "href": "?subject=English+Language+Arts&experience=werewolf-learn&mode=student",
+      "studentSteps": [
+        "Listen carefully and notice clues.",
+        "Make a claim, explain your evidence and disagree respectfully."
+      ]
+    },
+    {
+      "time": "9:25–9:35 am",
+      "title": "Pause Werewolf / Gym transition",
+      "notes": "Save the exact game state privately; keep roles secret.",
+      "href": "",
+      "studentSteps": [
+        "Keep roles secret. We will resume the same game afterward.",
+        "Get ready for the gym."
+      ]
+    },
+    {
+      "time": "9:35–10:05 am",
+      "title": "PE / Gym",
+      "notes": "One-time gym block. Cooperative passing/targets with active turns for everyone; check equipment and access.",
+      "href": "",
+      "studentSteps": [
+        "Practise controlled passes and target challenges together.",
+        "Choose movement, equipment and distance that help you participate."
+      ]
+    },
+    {
+      "time": "10:05–10:20 am",
+      "title": "Return & resume Werewolf",
+      "notes": "Allow return time; pause again at snack if unfinished.",
+      "href": "?subject=English+Language+Arts&experience=werewolf-learn&mode=student",
+      "studentSteps": [
+        "Continue from our saved point.",
+        "What evidence supports your claim?"
+      ]
+    },
+    {
+      "time": "10:20–10:35 am",
+      "title": "Snack & Nevermoor",
+      "notes": "Recover actual player bookmark; no Tuesday listening or journal launch.",
+      "href": "",
+      "studentSteps": [
+        "Eat and listen from where we last stopped.",
+        "Tidy your space before recess."
+      ]
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "10:50–11:50 am",
+      "title": "Math · rounding decimals → comparing if ready",
+      "notes": "Use prepared materials. At 11:30, continue rounding or begin comparing. Detailed models/checks in teaching reference.",
+      "href": "",
+      "studentSteps": [
+        "Watch a model, practise and explain your rounding choices.",
+        "Move into comparing decimals when we are ready.",
+        "Choose a challenge if you finish early."
+      ]
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "notes": "Usual outside-play, transition and eating routine.",
+      "href": "",
+      "studentSteps": [
+        "Follow our usual outside-play and eating routine."
+      ]
+    },
+    {
+      "time": "12:35–1:50 pm",
+      "title": "Laptops · Matific & account setup",
+      "notes": "Individual access checks; record complex issues for follow-up privately. Optional unassessed test post only.",
+      "href": "",
+      "studentSteps": [
+        "Begin Matific and work independently.",
+        "Wait for your individual check-in. Ask quietly for login help.",
+        "Once connected, try SpacesEDU. Keep passwords private."
+      ]
+    },
+    {
+      "time": "1:50–2:15 pm",
+      "title": "Blooket 🎮",
+      "notes": "Choose and rehearse a familiar set before class; none is verified in the Hub.",
+      "href": "",
+      "studentSteps": [
+        "Join our class game.",
+        "Think, play and encourage one another."
+      ]
+    },
+    {
+      "time": "2:15–2:20 pm",
+      "title": "Return laptops",
+      "notes": "Count all issued devices back in.",
+      "href": "",
+      "studentSteps": [
+        "Save and close your work.",
+        "Sign out where appropriate.",
+        "Return to the correct slot and plug in carefully."
+      ]
+    },
+    {
+      "time": "2:20–2:30 pm",
+      "title": "Cleanup / Jobs / Planners",
+      "notes": "",
+      "href": "?view=Responsibilities&mode=student",
+      "studentSteps": [
+        "Restore our room and complete your jobs.",
+        "Record reminders and prepare for dismissal."
+      ]
+    },
+    {
+      "time": "2:30–2:35 pm",
+      "title": "Pack up / Dismissal",
+      "notes": "",
+      "href": "",
+      "studentSteps": [
+        "Check your belongings.",
+        "Prepare for a calm departure."
+      ]
+    }
+  ],
+  "backups": [
+    "Discovery: independent catch-up only.",
+    "Thursday: Orange Shirt / Truth and Reconciliation 10:50–11:50; Secret Path and reflection 12:35–1:50. Preview media.",
+    "Continue decimals Thursday around library 9:20–9:35. No school Friday. Reconciliation Walk Monday September 28 at 9:30.",
+    "Later: model and launch Nevermoor journal; separate Five Agreements and NVC lessons."
+  ]
+}

@@ -1,27 +1,167 @@
 {
-  "updatedOn": "September 19, 2026",
+  "updatedOn": "September 23, 2026",
   "policy": "Separate daily homework is not routinely assigned. This is optional practice for families who want a regular routine. Choose what is useful; there is no expectation to complete the whole menu or submit optional practice.",
   "unfinished": "Check your planner and the instructions Mr. Wyatt has given you. Finish only the small piece identified for you, using the support agreed at school. An unfinished class activity is not automatically homework. If you were absent or are unsure, ask where to begin.",
   "routine": "Read or listen for 10–15 minutes, then choose one short activity. Families wanting a longer routine can add a second choice, keeping the total around 30–40 minutes including reading, or less when needed. Spread choices across evenings or select a few for the weekend; do not save up a catch-up pile.",
   "stopRule": "Stop if the work is confusing, upsetting or taking much longer than expected. Let Mr. Wyatt know which part was difficult. Rest, play, family time and activities outside school matter too.",
   "access": "Use paper, drawings, spoken explanations or a language that helps you think. Every menu activity can be done without an online account. No purchase, AI tool or routine portfolio upload is required.",
   "week": {
-    "id": "2026-09-18",
-    "label": "September 18–20 · Opening-week practice",
-    "from": "2026-09-18",
-    "through": "2026-09-20",
-    "connection": "We have practised conversation, Discovery activities and Werewolf. Place value is part of our September plan; try the maths review only if it is familiar. Other choices below are optional general practice, not a claim that every subject has already been taught.",
+    "id": "2026-09-23",
+    "label": "September 23–27 · Place value and explaining our thinking",
+    "from": "2026-09-23",
+    "through": "2026-09-27",
+    "connection": "Decimal place value is now complete. Practise a familiar skill if useful. Rounding and comparing decimals are planned next, not assumed completed. Other choices remain optional general practice; no account setup or portfolio upload is required at home.",
     "activities": [
-      {"id":"math","subject":"Math","title":"What is each digit worth?","time":"10 minutes","context":"September place-value review · choose familiar work","example":"2,406 = 2,000 + 400 + 6. The zero holds the tens place.","steps":["Write 6,307 in expanded form. What does the zero tell you?","Write 4,052 in expanded form. What is the value of the 5?","If decimals are familiar, compare 0.5 and 0.05. Draw or explain why."],"check":"6,307 = 6,000 + 300 + 7; zero tens. 4,052 = 4,000 + 50 + 2; the 5 is worth 50. 0.5 > 0.05 because five tenths is greater than five hundredths.","extension":"Choose a larger number. Change one digit and explain how much its value changes."},
-      {"id":"reading","subject":"Language Arts","title":"Read, notice and explain","time":"10–15 minutes","context":"Connects to reading and listening routines","example":"Try: ‘I think the character is worried because they keep checking the door.’ For nonfiction: ‘The main idea is … One detail is …’","steps":["Read or listen to a short part of a book you choose.","Tell, draw or write one important event or idea.","Point to one detail that helped you understand it."],"check":"Can someone follow your explanation? Can you point to the detail in the text? A spoken answer counts.","extension":""},
-      {"id":"story","subject":"Language Arts","title":"Tell a tiny mystery","time":"10 minutes","context":"Connects to storytelling and reasoning in Werewolf","example":"A library book disappears. A bookmark is on the sofa and a book-shaped lump is under a cushion. The reader finds it there.","steps":["Invent a missing-object mystery with a beginning, problem and ending.","Tell it in about one minute. Include two clues.","Ask which clue helped your listener; retell one part more clearly. You can practise alone or with a toy."],"check":"Does the ending fit both clues? Did you keep imagined details separate from real events?","extension":""},
-      {"id":"fairness","subject":"Social Studies","title":"Make a game fairer","time":"10 minutes","context":"Connects to games and our classroom community","example":"Allow a practice round before scoring so a beginner can learn the rules.","steps":["Choose a familiar game. Explain one rule and whom it helps.","Imagine a new player cannot join in easily. Suggest one change.","Explain how your change helps people participate."],"check":"Name who benefits and explain why. Could your change create a different problem? Revise it if needed.","extension":""},
-      {"id":"science","subject":"Science","title":"Notice before you guess","time":"10 minutes","context":"General observation practice · no new science unit assigned","example":"‘The leaf has a brown edge’ is an observation. ‘It may have dried out’ is a possible explanation.","steps":["Choose a safe everyday object, such as a spoon or leaf.","Draw it and write three things you can directly observe.","Write one question and one possible explanation. Label the explanation ‘I think …’."],"check":"Can you separate what you observed from what you think caused it? Do not taste unknown objects or plants.","extension":""},
-      {"id":"french","subject":"French","title":"Use words you already know","time":"5–10 minutes","context":"Review only · use familiar classroom words","example":"If familiar: bonjour = hello; merci = thank you; au revoir = goodbye.","steps":["Choose three French words or phrases you have already learned.","Say each one and match it to a picture or meaning.","Cover your notes and try again. If none are familiar yet, skip this choice."],"check":"Can you match each phrase to its meaning without looking? Check classroom notes; ask at school about pronunciation.","extension":""},
-      {"id":"arts","subject":"Arts Education","title":"Draw the same object twice","time":"10–15 minutes","context":"General drawing and observation practice","example":"A mug handle may appear on the side in one view and be hidden in the other.","steps":["Draw a safe everyday object from the front.","Turn it or move your seat and draw it from another angle.","Circle one detail that changed and one that stayed the same."],"check":"Can someone tell the drawings show different views? Explain one choice of line or shape.","extension":""},
-      {"id":"adst","subject":"ADST","title":"Build, test and improve","time":"10–15 minutes","context":"General design practice","example":"Fold a sheet into a tent. If it tips, try a wider base.","steps":["Use one sheet of scrap paper to make a freestanding name card. Keep it at home.","Test whether it stands for ten seconds.","Change one fold and test again. Draw or describe what improved."],"check":"What did you change? Did the second version stand more steadily? An unsuccessful test still gives useful information.","extension":""},
-      {"id":"movement","subject":"Physical and Health Education","title":"Move in a way that works for you","time":"10–15 minutes","context":"Connects to active play and shared rules","example":"Try three favourite movements with pauses between them.","steps":["Choose a walk, dance, stretch or comfortable seated movement.","Choose a safe space and a pace that feels manageable.","Notice how you feel before and after."],"check":"Describe how your body felt and one choice that helped you move safely. There is no speed or distance target.","extension":""},
-      {"id":"career","subject":"Career Education","title":"Prepare for tomorrow","time":"5 minutes","context":"Connects to classroom routines","example":"‘I can pack my book. I need help finding the form.’","steps":["Check your planner or the reminder you were given.","Choose one useful task: pack a book, organize supplies or put a form where an adult will see it.","Name one thing you can do independently and one thing you need help with."],"check":"Can you find the item you need? Choose one small next step; do not share private family information.","extension":""}
+      {
+        "id": "math",
+        "subject": "Math",
+        "title": "Explain decimal place value",
+        "time": "10 minutes",
+        "context": "Review of decimal place value taught in class",
+        "example": "3.47 = 3 + 0.4 + 0.07. The 4 represents four tenths.",
+        "steps": [
+          "In 6.284, what is each digit worth? Say, draw or write your explanation.",
+          "Write 2.305 in expanded form. What does the zero tell you?",
+          "Explain why 0.5 and 0.50 name the same amount."
+        ],
+        "check": "6 ones, 2 tenths, 8 hundredths and 4 thousandths. 2.305 = 2 + 0.3 + 0.005; zero hundredths. Five tenths equals fifty hundredths, so 0.5 = 0.50.",
+        "extension": "Change the tenths digit in 3.47 from 4 to 6. Explain why the number increases by 0.2."
+      },
+      {
+        "id": "reading",
+        "subject": "Language Arts",
+        "title": "Read, notice and explain",
+        "time": "10–15 minutes",
+        "context": "Connects to reading and listening routines",
+        "example": "Try: ‘I think the character is worried because they keep checking the door.’ For nonfiction: ‘The main idea is … One detail is …’",
+        "steps": [
+          "Read or listen to a short part of a book you choose.",
+          "Tell, draw or write one important event or idea.",
+          "Point to one detail that helped you understand it."
+        ],
+        "check": "Can someone follow your explanation? Can you point to the detail in the text? A spoken answer counts.",
+        "extension": ""
+      },
+      {
+        "id": "story",
+        "subject": "Language Arts",
+        "title": "Tell a tiny mystery",
+        "time": "10 minutes",
+        "context": "Connects to storytelling and reasoning in Werewolf",
+        "example": "A library book disappears. A bookmark is on the sofa and a book-shaped lump is under a cushion. The reader finds it there.",
+        "steps": [
+          "Invent a missing-object mystery with a beginning, problem and ending.",
+          "Tell it in about one minute. Include two clues.",
+          "Ask which clue helped your listener; retell one part more clearly. You can practise alone or with a toy."
+        ],
+        "check": "Does the ending fit both clues? Did you keep imagined details separate from real events?",
+        "extension": ""
+      },
+      {
+        "id": "fairness",
+        "subject": "Social Studies",
+        "title": "Make a game fairer",
+        "time": "10 minutes",
+        "context": "Connects to games and our classroom community",
+        "example": "Allow a practice round before scoring so a beginner can learn the rules.",
+        "steps": [
+          "Choose a familiar game. Explain one rule and whom it helps.",
+          "Imagine a new player cannot join in easily. Suggest one change.",
+          "Explain how your change helps people participate."
+        ],
+        "check": "Name who benefits and explain why. Could your change create a different problem? Revise it if needed.",
+        "extension": ""
+      },
+      {
+        "id": "science",
+        "subject": "Science",
+        "title": "Notice before you guess",
+        "time": "10 minutes",
+        "context": "General observation practice · no new science unit assigned",
+        "example": "‘The leaf has a brown edge’ is an observation. ‘It may have dried out’ is a possible explanation.",
+        "steps": [
+          "Choose a safe everyday object, such as a spoon or leaf.",
+          "Draw it and write three things you can directly observe.",
+          "Write one question and one possible explanation. Label the explanation ‘I think …’."
+        ],
+        "check": "Can you separate what you observed from what you think caused it? Do not taste unknown objects or plants.",
+        "extension": ""
+      },
+      {
+        "id": "french",
+        "subject": "French",
+        "title": "Use words you already know",
+        "time": "5–10 minutes",
+        "context": "Review only · use familiar classroom words",
+        "example": "If familiar: bonjour = hello; merci = thank you; au revoir = goodbye.",
+        "steps": [
+          "Choose three French words or phrases you have already learned.",
+          "Say each one and match it to a picture or meaning.",
+          "Cover your notes and try again. If none are familiar yet, skip this choice."
+        ],
+        "check": "Can you match each phrase to its meaning without looking? Check classroom notes; ask at school about pronunciation.",
+        "extension": ""
+      },
+      {
+        "id": "arts",
+        "subject": "Arts Education",
+        "title": "Draw the same object twice",
+        "time": "10–15 minutes",
+        "context": "General drawing and observation practice",
+        "example": "A mug handle may appear on the side in one view and be hidden in the other.",
+        "steps": [
+          "Draw a safe everyday object from the front.",
+          "Turn it or move your seat and draw it from another angle.",
+          "Circle one detail that changed and one that stayed the same."
+        ],
+        "check": "Can someone tell the drawings show different views? Explain one choice of line or shape.",
+        "extension": ""
+      },
+      {
+        "id": "adst",
+        "subject": "ADST",
+        "title": "Build, test and improve",
+        "time": "10–15 minutes",
+        "context": "General design practice",
+        "example": "Fold a sheet into a tent. If it tips, try a wider base.",
+        "steps": [
+          "Use one sheet of scrap paper to make a freestanding name card. Keep it at home.",
+          "Test whether it stands for ten seconds.",
+          "Change one fold and test again. Draw or describe what improved."
+        ],
+        "check": "What did you change? Did the second version stand more steadily? An unsuccessful test still gives useful information.",
+        "extension": ""
+      },
+      {
+        "id": "movement",
+        "subject": "Physical and Health Education",
+        "title": "Move in a way that works for you",
+        "time": "10–15 minutes",
+        "context": "Connects to active play and shared rules",
+        "example": "Try three favourite movements with pauses between them.",
+        "steps": [
+          "Choose a walk, dance, stretch or comfortable seated movement.",
+          "Choose a safe space and a pace that feels manageable.",
+          "Notice how you feel before and after."
+        ],
+        "check": "Describe how your body felt and one choice that helped you move safely. There is no speed or distance target.",
+        "extension": ""
+      },
+      {
+        "id": "career",
+        "subject": "Career Education",
+        "title": "Prepare for tomorrow",
+        "time": "5 minutes",
+        "context": "Connects to classroom routines",
+        "example": "‘I can pack my book. I need help finding the form.’",
+        "steps": [
+          "Check your planner or the reminder you were given.",
+          "Choose one useful task: pack a book, organize supplies or put a form where an adult will see it.",
+          "Name one thing you can do independently and one thing you need help with."
+        ],
+        "check": "Can you find the item you need? Choose one small next step; do not share private family information.",
+        "extension": ""
+      }
     ]
   },
   "districtResources": {
@@ -31,21 +171,117 @@
     "intro": "Optional choices from Surrey Schools ONE’s approved digital-resource directory. Approval conditions vary by resource; these are not extra assignments or a claim that every account is ready.",
     "access": "Open a Surrey listing below for its Visit Website link and current access steps. For district passwords, use PASSWORDS → Parent/Student on Surrey Schools ONE; that area asks for a Surrey Schools sign-in. Never post passwords here. If school access or consent is not ready, ask Mr. Wyatt and use the screen-free choice. No purchase is needed.",
     "items": [
-      {"title":"Sora","subject":"Reading & listening","href":"https://surreyschoolsone.ca/resources/sora","status":"District approved · school sign-in","description":"Borrow ebooks and audiobooks through the school reading service. Surrey’s listing directs students to sign in with their Surrey Schools email and password.","activity":"Read or listen for 10–15 minutes. Retell one part and explain a detail that stood out.","offline":"Read a book or comic you have, or listen to someone tell a story."},
-      {"title":"Math Learning Center apps","subject":"Math · visual models","href":"https://surreyschoolsone.ca/resources/math-learning-center","status":"District-approved apps · free · no login","description":"Use the free virtual manipulatives to show familiar maths. Surrey’s approval covers the apps, not the learning resources sold in the store.","activity":"Model 243 as 2 hundreds, 4 tens and 3 ones. Show another way: 1 hundred, 14 tens and 3 ones. Explain why the value stays the same.","offline":"Draw and label the hundreds, tens and ones on paper."},
-      {"title":"World Book Student","subject":"Research · Grade 5+","href":"https://surreyschoolsone.ca/resources/world-book-student","status":"District subscription · consent required","description":"An encyclopedia with articles, images and read-aloud support. Surrey lists conditional approval requiring a signed Technology Tool Consent form. Use the district access steps, not a paid personal subscription.","activity":"Choose one question about a familiar topic. Read a short article, write two facts in your own words and record the article title.","offline":"Use a nonfiction book, or write your question to bring to school."},
-      {"title":"Explora Primary","subject":"Research · Grades 4–7","href":"https://surreyschoolsone.ca/resources/explora-primary","status":"District subscription · consent required","description":"Surrey’s Grades 4–7 research database, with text and read-aloud options. Its conditional approval requires a signed Technology Tool Consent form and district access.","activity":"Search a familiar science or social studies topic. Explain one new fact and record the title of the source where you found it.","offline":"Read a nonfiction page you already have. Share a fact and point to its source."},
-      {"title":"Learn360","subject":"Science & other subjects","href":"https://surreyschoolsone.ca/resources/learn-360","status":"District subscription · consent required","description":"Educational videos, audio and learning materials. Surrey’s conditional approval requires a signed Technology Tool Consent form. Follow the student access steps on the listing.","activity":"With an adult, choose a short clip about a familiar topic. Pause and explain two things you learned and one question you still have.","offline":"Draw a familiar object and label two observations and one question."},
-      {"title":"Curio (CBC)","subject":"Canadian stories · English & French","href":"https://surreyschoolsone.ca/resources/curio","status":"District subscription · check student setup","description":"CBC video and audio resources. Surrey requires a signed Technology Tool Consent form and an account; its published sign-in steps are labelled for teachers. Ask Mr. Wyatt about student access before creating an account.","activity":"Once access is confirmed, choose an age-appropriate short item with an adult. Retell its main idea and explain one supporting detail.","offline":"Discuss a story or community event with an adult. Separate what you know from what you wonder."}
+      {
+        "title": "Sora",
+        "subject": "Reading & listening",
+        "href": "https://surreyschoolsone.ca/resources/sora",
+        "status": "District approved · school sign-in",
+        "description": "Borrow ebooks and audiobooks through the school reading service. Surrey’s listing directs students to sign in with their Surrey Schools email and password.",
+        "activity": "Read or listen for 10–15 minutes. Retell one part and explain a detail that stood out.",
+        "offline": "Read a book or comic you have, or listen to someone tell a story."
+      },
+      {
+        "title": "Math Learning Center apps",
+        "subject": "Math · visual models",
+        "href": "https://surreyschoolsone.ca/resources/math-learning-center",
+        "status": "District-approved apps · free · no login",
+        "description": "Use the free virtual manipulatives to show familiar maths. Surrey’s approval covers the apps, not the learning resources sold in the store.",
+        "activity": "Model 243 as 2 hundreds, 4 tens and 3 ones. Show another way: 1 hundred, 14 tens and 3 ones. Explain why the value stays the same.",
+        "offline": "Draw and label the hundreds, tens and ones on paper."
+      },
+      {
+        "title": "World Book Student",
+        "subject": "Research · Grade 5+",
+        "href": "https://surreyschoolsone.ca/resources/world-book-student",
+        "status": "District subscription · consent required",
+        "description": "An encyclopedia with articles, images and read-aloud support. Surrey lists conditional approval requiring a signed Technology Tool Consent form. Use the district access steps, not a paid personal subscription.",
+        "activity": "Choose one question about a familiar topic. Read a short article, write two facts in your own words and record the article title.",
+        "offline": "Use a nonfiction book, or write your question to bring to school."
+      },
+      {
+        "title": "Explora Primary",
+        "subject": "Research · Grades 4–7",
+        "href": "https://surreyschoolsone.ca/resources/explora-primary",
+        "status": "District subscription · consent required",
+        "description": "Surrey’s Grades 4–7 research database, with text and read-aloud options. Its conditional approval requires a signed Technology Tool Consent form and district access.",
+        "activity": "Search a familiar science or social studies topic. Explain one new fact and record the title of the source where you found it.",
+        "offline": "Read a nonfiction page you already have. Share a fact and point to its source."
+      },
+      {
+        "title": "Learn360",
+        "subject": "Science & other subjects",
+        "href": "https://surreyschoolsone.ca/resources/learn-360",
+        "status": "District subscription · consent required",
+        "description": "Educational videos, audio and learning materials. Surrey’s conditional approval requires a signed Technology Tool Consent form. Follow the student access steps on the listing.",
+        "activity": "With an adult, choose a short clip about a familiar topic. Pause and explain two things you learned and one question you still have.",
+        "offline": "Draw a familiar object and label two observations and one question."
+      },
+      {
+        "title": "Curio (CBC)",
+        "subject": "Canadian stories · English & French",
+        "href": "https://surreyschoolsone.ca/resources/curio",
+        "status": "District subscription · check student setup",
+        "description": "CBC video and audio resources. Surrey requires a signed Technology Tool Consent form and an account; its published sign-in steps are labelled for teachers. Ask Mr. Wyatt about student access before creating an account.",
+        "activity": "Once access is confirmed, choose an age-appropriate short item with an adult. Retell its main idea and explain one supporting detail.",
+        "offline": "Discuss a story or community event with an adult. Separate what you know from what you wonder."
+      }
     ]
   },
   "resources": [
-    {"title":"Prodigy Math","subject":"Math","href":"https://play.prodigygame.com/","description":"Use school-provided login details when available. Choose familiar maths or practice your teacher identifies. A paid membership is not required for this menu.","offline":"Use the place-value activity above or explain a familiar problem on paper."},
-    {"title":"NoRedInk","subject":"Language Arts","href":"https://www.noredink.com/","description":"Use class instructions and account details supplied by your teacher. If access is not ready or no practice is listed, choose reading or storytelling.","offline":"Write three sentences about your reading. Check capitals, sentence endings and whether each sentence makes sense."},
-    {"title":"Reading in any language","subject":"Language Arts","href":"","description":"Choose a book, comic or other text you have, or listen to someone read. Discuss one idea and the detail that supports it.","offline":"Use a book at home or a borrowed classroom or library book."},
-    {"title":"Math Antics","subject":"Math","href":"https://mathantics.com/","description":"Optional explanation videos. Choose Place Value or Decimal Place Value when reviewing a familiar skill. The written model above is enough to begin.","offline":"Try the written example and questions above; no worksheet subscription is needed."},
-    {"title":"Truth and Reconciliation family guide","subject":"Social Studies","href":"/truth-and-reconciliation","description":"For families when this learning begins in class. Preview the selected sources and follow your child’s readiness. Conversation is optional.","offline":"Ask what your child would like to share from class. They may pass; no separate research or submission is expected."},
-    {"title":"Rights and expression family guide","subject":"Social Studies","href":"/rights","description":"An optional connection to our rights and belonging resources. Follow classroom timing; this is not extra assigned research.","offline":"Discuss how a familiar game or shared space could include people fairly. Use a fictional example."}
+    {
+      "title": "Matific",
+      "subject": "Math · extra practice & challenge",
+      "href": "https://www.matific.com/ca/en-ca/login-page/",
+      "description": "Optional extra maths practice and challenge using your school-provided account once access is working. Try a short session of around 10–15 minutes. Students who would like to work ahead may explore more challenging activities available in their account when ready. Explain your thinking and ask for help if a new idea is confusing. There is no required score, weekly target or extra submission. You do not need to buy a subscription or create a separate account.",
+      "offline": "Try the decimal-place-value activity above, then invent a harder example and explain your reasoning. If you cannot sign in, use this option and ask Mr. Wyatt at school."
+    },
+    {
+      "title": "Prodigy Math",
+      "subject": "Math",
+      "href": "https://play.prodigygame.com/",
+      "description": "Use school-provided login details when available. Choose familiar maths or practice your teacher identifies. A paid membership is not required for this menu.",
+      "offline": "Use the place-value activity above or explain a familiar problem on paper."
+    },
+    {
+      "title": "NoRedInk",
+      "subject": "Language Arts",
+      "href": "https://www.noredink.com/",
+      "description": "Use class instructions and account details supplied by your teacher. If access is not ready or no practice is listed, choose reading or storytelling.",
+      "offline": "Write three sentences about your reading. Check capitals, sentence endings and whether each sentence makes sense."
+    },
+    {
+      "title": "Reading in any language",
+      "subject": "Language Arts",
+      "href": "",
+      "description": "Choose a book, comic or other text you have, or listen to someone read. Discuss one idea and the detail that supports it.",
+      "offline": "Use a book at home or a borrowed classroom or library book."
+    },
+    {
+      "title": "Math Antics",
+      "subject": "Math",
+      "href": "https://mathantics.com/",
+      "description": "Optional explanation videos. Choose Place Value or Decimal Place Value when reviewing a familiar skill. The written model above is enough to begin.",
+      "offline": "Try the written example and questions above; no worksheet subscription is needed."
+    },
+    {
+      "title": "Truth and Reconciliation family guide",
+      "subject": "Social Studies",
+      "href": "/truth-and-reconciliation",
+      "description": "For families when this learning begins in class. Preview the selected sources and follow your child’s readiness. Conversation is optional.",
+      "offline": "Ask what your child would like to share from class. They may pass; no separate research or submission is expected."
+    },
+    {
+      "title": "Rights and expression family guide",
+      "subject": "Social Studies",
+      "href": "/rights",
+      "description": "An optional connection to our rights and belonging resources. Follow classroom timing; this is not extra assigned research.",
+      "offline": "Discuss how a familiar game or shared space could include people fairly. Use a fictional example."
+    }
   ],
-  "familyCheck": ["Ask: ‘What did you try, and why?’","Notice one thing your child did independently and one place they needed help.","Use checking guidance after an attempt. Correct together without turning optional practice into a test.","Keep notes at home. Contact Mr. Wyatt privately about persistent difficulty; do not post names, scores or work on this public site."]
+  "familyCheck": [
+    "Ask: ‘What did you try, and why?’",
+    "Notice one thing your child did independently and one place they needed help.",
+    "Use checking guidance after an attempt. Correct together without turning optional practice into a test.",
+    "Keep notes at home. Contact Mr. Wyatt privately about persistent difficulty; do not post names, scores or work on this public site."
+  ]
 }
