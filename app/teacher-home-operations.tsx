@@ -68,7 +68,7 @@ export default function TeacherHomeOperations({ timeline, onNavigate, onProjectM
         <article className="teacher-home-morning-card">
           <div className="teacher-home-morning-image"><Image unoptimized src={activity.imageSrc} alt={activity.imageAlt} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 60vw, 34vw" /></div>
           <div className="teacher-home-morning-copy">
-            <header><span>MORNING SCREEN</span><b data-ready={morning ? true : undefined}>{morning ? `Ready · ${displayTime(morning.publishedAt)}` : "Needs publishing"}</b></header>
+            <header><span>MORNING SCREEN</span><b data-ready={morning ? true : undefined}>{morning ? `Ready · ${displayTime(morning.publishedAt)}` : "Not set on this device"}</b></header>
             <div><small>{activity.label}</small><h2>{activity.title}</h2></div>
             <dl>
               <div><dt>WEATHER</dt><dd>{morning?.weather?.summary ?? "Not added"}</dd></div>
