@@ -1,5 +1,6 @@
 "use client";
 
+import { useId, useState } from "react";
 import { TeacherMediaPreparation } from "./teacher-media-preparation";
 
 type Resource = {
@@ -96,6 +97,20 @@ function InfoFrame({ eyebrow, title, summary, children, source }: { eyebrow: str
   );
 }
 
+type ProcessStep = { label: string; question: string; action: string; why: string; example?: string };
+
+/** Keep the whole route visible while projecting just one process decision at a time. */
+function FocusedProcess({ steps }: { steps: ProcessStep[] }) {
+  const [active, setActive] = useState(0);
+  const panelId = useId();
+  const current = steps[active];
+  return <div className="info-focused-process">
+    <nav aria-label="Choose a process step">{steps.map((step, index) => <button type="button" key={step.label} aria-pressed={active === index} aria-controls={panelId} onClick={() => setActive(index)}><b>{index + 1}</b><span>{step.label}</span></button>)}</nav>
+    <article id={panelId} className="info-focused-process-active" aria-live="polite"><small>STEP {active + 1} OF {steps.length}</small><h4>{current.question}</h4><p>{current.action}</p><p>{current.why}</p>{current.example && <p className="info-focused-process-example"><b>Try a practice idea:</b> {current.example}</p>}</article>
+    <ol className="info-focused-process-print">{steps.map((step) => <li key={step.label}><b>{step.label}: {step.question}</b><p>{step.action} {step.why}</p>{step.example && <p>Practice idea: {step.example}</p>}</li>)}</ol>
+  </div>;
+}
+
 export function ExperienceInfographic({ experienceId }: { experienceId: string }) {
   if (experienceId === "pattern-forecast") return (
     <InfoFrame eyebrow="VISUAL THINKING PATH" title="One pattern, five connected views" summary="Every representation must describe the same growth. If one view disagrees, find and repair the mismatch.">
@@ -162,16 +177,16 @@ export function ExperienceInfographic({ experienceId }: { experienceId: string }
     </InfoFrame>
   );
   if (experienceId === "each-one-teach-one") return (
-    <InfoFrame eyebrow="EACH ONE, TEACH ONE" title="Question → verified idea → learner experience" summary="Every route carries the same thinking. Build the complete paper path first, then let evidence—not the fanciest tool—decide what to improve.">
-      <div className="info-learning-path">
-        <article><small>1 · CHOOSE + VERIFY</small><strong>One safe question · two teacher-approved sources · one honest limit</strong><p>Know enough to teach without pretending the evidence says more than it does.</p></article>
-        <article><small>2 · AIM + RULES</small><strong>Audience · learning intention · signs it works · constraints</strong><p>Name what the learner should understand or do.</p></article>
-        <article><small>3 · PAPER PATH</small><strong>Invitation · action · information · choice · feedback · check · ending</strong><p>Draw the whole journey before opening a build tool.</p></article>
-        <article><small>4 · BUILD + TEST + REVISE</small><strong>Smallest complete version · no-name observation · two meaningful changes</strong><p>Change content and access, navigation, or feedback.</p></article>
-        <article><small>5 · TEACH + CHECK</small><strong>Identify · explain · apply · name a source or limit</strong><p>Credit tools, reflect in your own words, and name the next improvement.</p></article>
-      </div>
-      <div className="info-source-rule"><b>EQUIVALENT ROUTES:</b><span>PHYSICAL / NO TECH</span><span>PAPER BRANCH</span><span>BLOXELS</span><span>MINECRAFT</span><span>PRIVATE APP / SITE PROTOTYPE</span></div>
-      <p className="info-decision-rule"><b>THE PAPER ROUTE IS ALWAYS REAL:</b> Wi-Fi, a device, an account, or AI may extend the experience; none is required to learn, test, revise, teach, or show the ADST thinking.</p>
+    <InfoFrame eyebrow="EACH ONE, TEACH ONE" title="Can someone learn your idea without your help?" summary="Choose a step to investigate. First make a complete paper path; then test it with a new learner and improve it from evidence.">
+      <FocusedProcess steps={[
+        { label: "Choose + verify", question: "What can you teach honestly?", action: "Choose one safe question. Check two teacher-approved sources and name one limit.", why: "Know enough to teach without claiming more than the evidence shows.", example: "Help a learner tell a visible detail from a guess about a jar photo." },
+        { label: "Aim + rules", question: "What will the learner be able to do?", action: "Name your audience, learning goal, success check, and constraints.", why: "Decide what understanding would look like before choosing a tool." },
+        { label: "Paper path", question: "Can a learner follow the whole journey?", action: "Draw invitation → action → information → choice → feedback → check → ending.", why: "Make every next move clear on paper before opening a build tool." },
+        { label: "Build + test", question: "What happens when someone new tries it?", action: "Build the smallest complete version. Observe without recording names, then make two meaningful changes.", why: "Improve what you teach and either access, navigation, or feedback." },
+        { label: "Teach + check", question: "Can the learner use the idea again?", action: "Ask them to identify, explain, apply it in a new example, and name a source or limit.", why: "Credit tools, reflect in your own words, and name the next improvement." },
+      ]} />
+      <details className="info-focused-process-routes"><summary>Choose a making route · paper works</summary><div className="info-source-rule"><span>PHYSICAL / NO TECH</span><span>PAPER BRANCH</span><span>BLOXELS</span><span>MINECRAFT</span><span>PRIVATE APP / SITE PROTOTYPE</span></div><p>Wi-Fi, a device, an account, or AI may extend the experience; none is required to learn, test, revise, teach, or show the ADST thinking.</p></details>
+      <p className="info-focused-process-routes-print">Making routes: physical/no tech, paper branch, Bloxels, Minecraft, or private app/site prototype. The paper route supports the full learning and assessment; digital tools and AI are optional.</p>
     </InfoFrame>
   );
   if (experienceId === "fraction-ratio-remix") return (
