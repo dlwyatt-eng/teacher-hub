@@ -1,14 +1,14 @@
-.visual-teaching-moment{max-width:1180px;margin:12px auto 24px;padding:clamp(22px,4vw,52px);background:#fffdf8;border-top:5px solid #cf8d4e;color:#233c37}
+.visual-teaching-moment{max-width:1180px;margin:12px auto 24px;padding:clamp(20px,2vw,28px) clamp(22px,3vw,42px);background:#fffdf8;border-top:5px solid #cf8d4e;color:#233c37}
 .visual-teaching-moment header small{font-size:.84rem;font-weight:800;letter-spacing:.12em;color:#795033}
-.visual-teaching-moment h2{font:650 clamp(2rem,4vw,3.4rem)/1.12 Georgia,serif;max-width:22ch;margin:12px 0 30px}
-.visual-teaching-moment__model{padding:clamp(18px,3vw,40px) 0;border-block:1px solid #cbd5cb}
-.visual-teaching-moment__task{display:flex;flex-wrap:wrap;gap:12px 34px;margin-top:22px}
+.visual-teaching-moment h2{font:650 clamp(2rem,3vw,2.8rem)/1.12 Georgia,serif;margin:8px 0 16px}
+.visual-teaching-moment__model{padding:clamp(12px,1.5vw,20px) 0;border-block:1px solid #cbd5cb}
+.visual-teaching-moment__task{display:flex;flex-wrap:wrap;gap:12px 34px;margin-top:14px}
 .visual-teaching-moment__task p{flex:1 1 290px;margin:0;font-size:clamp(1.05rem,1.7vw,1.35rem);line-height:1.45}
 .visual-teaching-moment__task b{display:block;text-transform:uppercase;font-size:.8em;letter-spacing:.06em;color:#815132;margin-bottom:6px}
 .visual-invoice,.visual-evidence-chain{display:flex;align-items:stretch;justify-content:center;gap:clamp(8px,1.5vw,22px)}
-.visual-invoice>div,.visual-evidence-chain>div{display:grid;align-content:center;gap:10px;min-width:0;flex:1;padding:20px 10px;text-align:center}
+.visual-invoice>div,.visual-evidence-chain>div{display:grid;align-content:center;gap:8px;min-width:0;flex:1;padding:12px 10px;text-align:center}
 .visual-invoice>div span,.visual-evidence-chain small{font-size:clamp(.7rem,1.1vw,.95rem);font-weight:800;letter-spacing:.08em;color:#52665c}
-.visual-invoice strong{font-size:clamp(2.2rem,4.3vw,4rem);line-height:1;white-space:nowrap}
+.visual-invoice strong{font-size:clamp(2.2rem,4vw,3.6rem);line-height:1;white-space:nowrap}
 .visual-invoice__claim{background:#f9e8d9;outline:2px solid #b96338;outline-offset:-2px}
 .visual-invoice>span,.visual-evidence-chain>span{align-self:center;font-size:clamp(1.5rem,3vw,3rem);color:#765842}
 .visual-evidence-chain>div{text-align:left;padding:12px;border-left:4px solid #7d9b8c}
