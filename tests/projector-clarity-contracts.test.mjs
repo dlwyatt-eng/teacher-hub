@@ -12,14 +12,14 @@ async function importIsolatedTs(relativePath) {
   return importIsolatedTsFile(root, relativePath);
 }
 
-test("projector help preserves learning, first-step and finish guidance alongside the math discussion route", async () => {
+test("projector shows the active teaching moment before optional help while preserving guidance", async () => {
   const source = (await read("app/learning-program.tsx")).replaceAll("&apos;", "'");
+  const activeContent = source.indexOf("{activePart.content}", source.indexOf('className="projector-lesson-player__stage"'));
+  const helpStart = source.indexOf('<ProjectorLessonHelp key={`${selected.id}-help`}', activeContent);
   const stripStart = source.indexOf('<section className="projector-clarity-strip"');
-  const activeContent = source.indexOf('program.subject !== "Mathematics" && activePart.content', stripStart);
 
   assert.ok(stripStart >= 0, "The projector clarity strip is missing.");
-  assert.ok(activeContent > stripStart, "Non-math content must retain its existing help-before-content order.");
-  assert.ok(source.indexOf('program.subject === "Mathematics" && activePart.content') < source.indexOf('<ProjectorLessonHelp key={`${selected.id}-help`}'), "Math must show the concrete discussion before optional help.");
+  assert.ok(activeContent >= 0 && helpStart > activeContent && stripStart > helpStart, "Each subject should show its active content before optional help.");
   assert.match(source, /aria-label="Learning goal, first action, and finish"/);
   assert.match(source, /data-learning-phase="learn"[^>]*><small>WE ARE LEARNING<\/small><strong>\{learningLine\}<\/strong>/);
   assert.match(source, /data-learning-phase="do"[^>]*><small>FIRST STEP<\/small><strong>\{studentContract\.firstAction\}<\/strong>/);
