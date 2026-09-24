@@ -535,7 +535,7 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
   } satisfies DailyLaunch;
   return (
     <article className="program-experience-detail">
-      {program.subject === "Mathematics" && <><div className="math-teacher-launch"><a href={`?subject=Mathematics&experience=${encodeURIComponent(experience.id)}&mode=student`}>Open student screens →</a></div>{experience.id === "decimal-dispatch" && <DecimalInvoiceLaunch />}<details className="math-resource-drawer"><summary>Teaching materials · worksheets, videos, games &amp; practice</summary><MathResourceWorkbench key={experience.id} experienceId={experience.id} /></details></>}
+      {program.subject === "Mathematics" && <><div className="math-teacher-launch"><a href={`?subject=Mathematics&experience=${encodeURIComponent(experience.id)}&mode=student`}>Open student screens →</a></div>{experience.id === "decimal-dispatch" ? <DecimalInvoiceLaunch /> : <section className="math-teacher-anchor" aria-label="Lesson question and first move"><p><small>BIG QUESTION</small><strong>{studentContract.challenge}</strong></p><p><small>FIRST MOVE</small><span>{studentContract.firstAction}</span></p></section>}<details className="math-resource-drawer"><summary>Teaching materials · worksheets, videos, games &amp; practice</summary><MathResourceWorkbench key={experience.id} experienceId={experience.id} /></details></>}
       <details className="lesson-preparation-extras"><summary>Pin lesson, print materials &amp; optional resources</summary>
       <TeacherDailyLaunchButton launch={dailyLaunch} />
       <OptionalTeachingResources key={experience.id} lessonId={experience.id} teacher extras={[

@@ -22,4 +22,6 @@
 @media(max-width:700px){.visual-decimal-model{display:block}.visual-decimal-model>span{display:block;text-align:center;line-height:1.2}.visual-decimal-model>div{padding:12px}}
 @media print{.visual-teaching-moment{border:0;border-top:3px solid #555;color:#000;break-inside:avoid}.visual-invoice__claim{background:none}.visual-teaching-moment__task b,.visual-teaching-moment header small{color:#000}}
 .math-resource-drawer{margin:16px 0}.math-resource-drawer>summary{padding:15px 18px;border:1px solid #b6cbb9;border-radius:9px;color:#234638;background:#f4f8f2;font-weight:750;cursor:pointer}.math-resource-drawer[open]>summary{border-radius:9px 9px 0 0}.math-resource-drawer--projector{margin:0 24px 86px}.math-resource-drawer :focus-visible{outline:3px solid #b96c00;outline-offset:3px}
+.math-teacher-anchor{margin:16px 0;padding:10px 0;border-block:1px solid #cbd5cb;color:#233c37}.math-teacher-anchor p{margin:7px 0;line-height:1.45}.math-teacher-anchor small{display:inline-block;min-width:105px;margin-right:12px;color:#795033;font-size:.78rem;font-weight:800;letter-spacing:.08em}.math-teacher-anchor strong{font:650 clamp(1.25rem,1.7vw,1.55rem)/1.3 Georgia,serif}.math-teacher-anchor span{font-size:1rem}
+@media(max-width:700px){.math-teacher-anchor small{display:block;margin-bottom:4px}}
 @media print{.math-resource-drawer{display:none}}
