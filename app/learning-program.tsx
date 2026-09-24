@@ -50,6 +50,7 @@ import { TeacherMediaPreparation } from "./teacher-media-preparation";
 import CurrentConnectionPlayer from "./current-connection";
 import { currentConnectionForLesson } from "./current-connections";
 import { ClassroomCompanion } from "./classroom-companions";
+import { DecimalInvoiceLaunch, DecimalInvoiceModel, EvidenceInferenceLaunch } from "./visual-teaching-moments";
 import "./learning-program.css";
 import "./readiness-launch.css";
 import "./math-program.css";
@@ -534,7 +535,7 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
   } satisfies DailyLaunch;
   return (
     <article className="program-experience-detail">
-      {program.subject === "Mathematics" && <><div className="math-teacher-launch"><a href={`?subject=Mathematics&experience=${encodeURIComponent(experience.id)}&mode=student`}>Open student screens →</a></div><MathResourceWorkbench key={experience.id} experienceId={experience.id} /></>}
+      {program.subject === "Mathematics" && <><div className="math-teacher-launch"><a href={`?subject=Mathematics&experience=${encodeURIComponent(experience.id)}&mode=student`}>Open student screens →</a></div>{experience.id === "decimal-dispatch" ? <><DecimalInvoiceLaunch /><details className="math-resource-drawer"><summary>Teaching materials · worksheets, videos, games &amp; practice</summary><MathResourceWorkbench key={experience.id} experienceId={experience.id} /></details></> : <MathResourceWorkbench key={experience.id} experienceId={experience.id} />}</>}
       <details className="lesson-preparation-extras"><summary>Pin lesson, print materials &amp; optional resources</summary>
       <TeacherDailyLaunchButton launch={dailyLaunch} />
       <OptionalTeachingResources key={experience.id} lessonId={experience.id} teacher extras={[
@@ -900,7 +901,7 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
     : null;
 
   const parts: Array<{ label: string; verb: string; content: ReactNode }> = [];
-  if (program.subject === "Mathematics") {
+  if (program.subject === "Mathematics" && selected.id !== "decimal-dispatch") {
     const companionPacks = mathPacksFor(selected.id).filter(pack => pack.role !== "MATHUP / WNCP BRIDGE");
     parts.push({ label: "Worksheet talk", verb: "Discuss", content: <MathCompanionSelector key={selected.id} experienceId={selected.id} packIds={companionPacks.map(pack => pack.id)} /> });
   }
@@ -911,7 +912,9 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
     if (learnStage) parts.push({ label: "Learn", verb: "See it", content: learnStage });
     parts.push({ label: "Explore", verb: "Try", content: <div id="mission-path" className="student-interactive-mission projector-active-object">{interactiveLab}</div> });
   } else {
-    if (showLook) parts.push({ label: "Look", verb: "Notice", content: hasExploration ? <LessonExplorations lessonId={selected.id} initiallyOpen /> : <section className="projector-active-object projector-look-stage"><ExactAnchorVisual experience={selected} media={media} /><ExperienceInfographic experienceId={selected.id} />{program.subject === "Arts Education" && <MediaStrip items={media} student />}<LocalIndigenousResourceDock experienceId={selected.id} student />{selected.id === "graph-story-lab" && <><LocalRestorationInfographic /><ResponsibleDataInfographic /></>}</section> });
+    if (showLook) parts.push({ label: "Look", verb: "Notice", content: selected.id === "decimal-dispatch" ? <DecimalInvoiceLaunch /> : hasExploration ? <LessonExplorations lessonId={selected.id} initiallyOpen /> : <section className="projector-active-object projector-look-stage"><ExactAnchorVisual experience={selected} media={media} /><ExperienceInfographic experienceId={selected.id} />{program.subject === "Arts Education" && <MediaStrip items={media} student />}<LocalIndigenousResourceDock experienceId={selected.id} student />{selected.id === "graph-story-lab" && <><LocalRestorationInfographic /><ResponsibleDataInfographic /></>}</section> });
+    if (selected.id === "three-voices") parts.push({ label: "Reason", verb: "Think", content: <EvidenceInferenceLaunch /> });
+    if (selected.id === "decimal-dispatch") parts.push({ label: "Model", verb: "See it", content: <DecimalInvoiceModel /> });
     if (program.subject === "Applied Design, Skills & Technologies") parts.push({ label: "Ready", verb: "Choose", content: <ProjectorRouteReady contract={studentContract} /> });
     if (learnStage) parts.push({ label: "Learn", verb: "See it", content: learnStage });
     if (projectorCards.length > 0) parts.push({ label: selected.id === "ordinary-object-story" ? "Tell" : "Try", verb: selected.id === "ordinary-object-story" ? "Tell" : "Choose", content: <ProjectorCaseDeck
@@ -933,6 +936,10 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
     </section> });
     if (selected.id === fourArtsExperienceId) parts.push({ label: "Cue lab", verb: "Optional", content: <section className="projector-active-object"><FourArtsLab /></section> });
   }
+  if (selected.id === "decimal-dispatch") {
+    const companionPacks = mathPacksFor(selected.id).filter(pack => pack.role !== "MATHUP / WNCP BRIDGE");
+    parts.push({ label: "Worksheet", verb: "Discuss", content: <MathCompanionSelector key={selected.id} experienceId={selected.id} packIds={companionPacks.map(pack => pack.id)} /> });
+  }
   if (currentConnection) parts.push({ label: "Source", verb: "Investigate", content: <CurrentConnectionPlayer connection={currentConnection} /> });
   parts.push({ label: "Done", verb: "Check", content: <section className="projector-active-object projector-done-screen"><header><small>YOU&apos;RE DONE WHEN</small><h2>Show what you learned—not just what you made.</h2></header><ol>{studentContract.finishEvidence.map((item, index) => <li key={item}><b>{index + 1}</b><span>{item}</span></li>)}</ol><footer><strong>{studentContract.saveAction.message}</strong><span>If AI helped, check every idea and rewrite it in your own words. Never add private information or raw AI output to SpacesEDU.</span></footer></section> });
   const activePart = parts[Math.min(projectorPart, parts.length - 1)] ?? parts[0];
@@ -951,7 +958,7 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
         <nav ref={partNavRef} aria-label="Lesson parts">{parts.map((part, index) => <button type="button" key={`${part.label}-${index}`} className={projectorPart === index ? "active" : ""} aria-current={projectorPart === index ? "step" : undefined} onClick={() => setProjectorPart(index)}><b>{index + 1}</b><span>{part.label}</span></button>)}</nav>
       </header>
 
-      {program.subject === "Mathematics" && <MathResourceWorkbench key={selected.id} experienceId={selected.id} projector />}
+      {program.subject === "Mathematics" && selected.id !== "decimal-dispatch" && <MathResourceWorkbench key={selected.id} experienceId={selected.id} projector />}
       <main className="projector-lesson-player__stage" aria-live="polite">
 
         {program.subject === "Mathematics" && activePart.content}
@@ -975,6 +982,8 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
           <WorldJourney theme={theme} stops={worldStops} activeId={selected.id} onSelect={onExperience} />
         </details>
       </main>
+
+      {selected.id === "decimal-dispatch" && <details className="math-resource-drawer math-resource-drawer--projector"><summary>Optional worksheets, videos &amp; games</summary><MathResourceWorkbench key={selected.id} experienceId={selected.id} projector /></details>}
 
       <footer className="projector-lesson-player__controls">
         <button type="button" disabled={projectorPart === 0} onClick={() => setProjectorPart((value) => Math.max(0, value - 1))}>← Back</button>
