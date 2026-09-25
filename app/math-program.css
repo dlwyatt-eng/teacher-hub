@@ -111,3 +111,5 @@
 .magnitude-period-chart tr { display: table-row; }
 .magnitude-period-chart th, .magnitude-period-chart td { display: table-cell; width: 25%; white-space: normal; overflow-wrap: anywhere; }
 .magnitude-period-chart caption { display: table-caption; caption-side: top; }
+.math-pack-logistics section>a{color:#165e70;font-size:10px;font-weight:800;line-height:1.35;text-decoration:underline;text-underline-offset:2px}
+.math-calendar-list header a{padding:4px 6px;border-radius:5px;background:#e5f2f2;color:#155d70;font-size:8px;font-weight:800;text-decoration:underline;text-underline-offset:2px}

@@ -22,6 +22,7 @@ import { PheSeasonPlan } from "./phe-season-plan";
 import { MathPacingPanel } from "./math-pacing-panel";
 import { MathResourceWorkbench, MathCompanionSelector } from "./math-resource-workbench";
 import MathThinkingRoutines from "./math-thinking-routines";
+import { mathUpLinkFor } from "./mathup-links";
 import { ExperienceInfographic, LocalIndigenousResourceDock, LocalRestorationInfographic, ResponsibleDataInfographic } from "./infographic-library";
 import { printClosest } from "./print-support";
 import { spacesPolicyForActivity } from "./classroom-program";
@@ -246,9 +247,9 @@ function MathUpMap({ program }: { program: LearningProgram }) {
   ] as const;
   return (
     <section className="mathup-map">
-      <header><div><p className="section-kicker">GRADE 6 CURRICULUM CHECK</p><h2>Choose the explanation. Investigate together. Use MathUP when it helps.</h2><p>The 22 MathUP topics stay mapped here so nothing important disappears. Teach from the Hub, add a Math Antics explanation, or combine both; neither outside resource has to dictate the live lesson.</p></div><span>22 TOPICS · 4 STRANDS</span></header>
-      <div>{strands.map(strand => <article key={strand.id}><header><b>{strand.id}</b><strong>{strand.label}</strong></header>{mathUpTopics.filter(topic => topic.strand === strand.id).map(topic => <section key={`${topic.strand}-${topic.title}`}><div><strong>{topic.starred && <span aria-label="starred in supplied list">★ </span>}{topic.title}</strong><small>{topic.timing} · {topic.role}{topic.pairedWith ? ` · paired with ${topic.pairedWith}` : ""}</small></div><p>{topic.experienceIds.map(id => program.experiences.find(item => item.id === id)?.title ?? mathSupportPacks.find(pack => pack.id === id)?.shortTitle ?? id).join(" · ")}</p></section>)}</article>)}</div>
-      <footer><span>★ means “starred in the supplied MathUP list.”</span><strong>Use this map to check coverage and find an optional MathUP game, centre, assessment, or extra-practice route.</strong></footer>
+      <header><div><p className="section-kicker">GRADE 6 CURRICULUM CHECK</p><h2>Choose the explanation. Investigate together. Use MathUP when it helps.</h2><p>The 23 MathUP topics stay mapped here so nothing important disappears. Teach from the Hub, add a Math Antics explanation, or combine both; neither outside resource has to dictate the live lesson.</p></div><span>23 TOPICS · 4 STRANDS</span></header>
+      <div>{strands.map(strand => <article key={strand.id}><header><b>{strand.id}</b><strong>{strand.label}</strong></header>{mathUpTopics.filter(topic => topic.strand === strand.id).map(topic => { const link = mathUpLinkFor(topic.title); return <section key={`${topic.strand}-${topic.title}`}><div><strong>{topic.starred && <span aria-label="starred in supplied list">★ </span>}{topic.title}</strong><small>{topic.timing} · {topic.role}{topic.pairedWith ? ` · paired with ${topic.pairedWith}` : ""}</small>{link && <a href={link.url} target="_blank" rel="noreferrer">MathUP {link.label} ↗</a>}</div><p>{topic.experienceIds.map(id => program.experiences.find(item => item.id === id)?.title ?? mathSupportPacks.find(pack => pack.id === id)?.shortTitle ?? id).join(" · ")}</p></section>; })}</article>)}</div>
+      <footer><span>★ means “starred in the supplied MathUP list.” Links require your MathUP access.</span><strong>Preview the linked activity for fit. The Hub lesson and investigation work without it.</strong></footer>
     </section>
   );
 }
@@ -267,8 +268,8 @@ function MathResourceDock({ experience }: { experience: ProgramExperience }) {
         <article><b>2 · THIS SCREEN</b><p>Use the class investigation to move, test, repair, compare, and explain the idea together.</p></article>
         <article><b>3 · MATHUP · OPTIONAL</b><p>Check alignment, then choose a game, centre, quick assessment, or extra practice only when the class needs it.</p></article>
       </div>
-      <div className="math-resource-topics">{topics.map(topic => <span key={`${topic.strand}-${topic.title}`}><b>{topic.strand}</b>{topic.starred && "★ "}{topic.title}<small>{topic.timing}</small></span>)}</div>
-      <footer><a href={mathAntics?.url ?? mathResourceRoutes.mathAntics} target="_blank" rel="noreferrer">Open Math Antics{mathAntics ? ` · ${mathAntics.title}` : " library"} ↗</a>{mathAntics?.secondary && <a href={mathAntics.secondary.url} target="_blank" rel="noreferrer">Also useful · {mathAntics.secondary.title} ↗</a>}{experience.id === "magnitude-gallery" && <a href="https://apps.mathlearningcenter.org/number-line/" target="_blank" rel="noreferrer">Open free number-line tool ↗</a>}<a href={mathResourceRoutes.mathUp} target="_blank" rel="noreferrer">Open school MathUP access ↗</a><p>Math Antics is optional explanation support. MathUP remains the curriculum cross-check and optional game/practice shelf. This site supplies the shared-screen model and investigation.</p></footer>
+      <div className="math-resource-topics">{topics.map(topic => { const link = mathUpLinkFor(topic.title); return <span key={`${topic.strand}-${topic.title}`}><b>{topic.strand}</b>{topic.starred && "★ "}{topic.title}<small>{topic.timing}</small>{link && <a href={link.url} target="_blank" rel="noreferrer">MathUP {link.label} ↗</a>}</span>; })}</div>
+      <footer><a href={mathAntics?.url ?? mathResourceRoutes.mathAntics} target="_blank" rel="noreferrer">Open Math Antics{mathAntics ? ` · ${mathAntics.title}` : " library"} ↗</a>{mathAntics?.secondary && <a href={mathAntics.secondary.url} target="_blank" rel="noreferrer">Also useful · {mathAntics.secondary.title} ↗</a>}{experience.id === "magnitude-gallery" && <a href="https://apps.mathlearningcenter.org/number-line/" target="_blank" rel="noreferrer">Open free number-line tool ↗</a>}<a href={mathResourceRoutes.mathUp} target="_blank" rel="noreferrer">Open school MathUP access ↗</a><p>Math Antics is optional explanation support. MathUP links require your access; preview the activity and its level before using it. This site supplies the shared-screen model and investigation.</p></footer>
       {mathAntics && <TeacherMediaPreparation urls={[mathAntics.url, mathAntics.secondary?.url]} />}
     </section>
   );

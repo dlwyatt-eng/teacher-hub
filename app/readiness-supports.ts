@@ -276,6 +276,7 @@ export const mathUpTopics: MathUpTopic[] = [
   { strand: "N", title: "Representing, Estimating, and Comparing Decimal Numbers", arcId: "math-fractions", timing: "November", role: "Core sequence", experienceIds: ["decimal-operations-pack", "magnitude-gallery", "decimal-dispatch"] },
   { strand: "N", title: "Representing, Comparing, and Ordering Fractions", arcId: "math-fractions", timing: "Late October–November", role: "Core sequence", experienceIds: ["fraction-ratio-percent-pack", "fraction-ratio-remix"] },
   { strand: "N", title: "Multiplying and Dividing With Decimal Numbers", arcId: "math-fractions", timing: "November–December", role: "Core sequence", experienceIds: ["decimal-operations-pack", "decimal-dispatch", "sale-lab"] },
+  { strand: "N", title: "BC_Financial Literacy", arcId: "math-fractions", timing: "December · money and budgeting", role: "Core sequence", experienceIds: ["sale-lab", "space-under-constraints"] },
   { strand: "PR", title: "Patterns", starred: true, arcId: "math-patterns", timing: "January", role: "Core sequence", experienceIds: ["pattern-forecast"] },
   { strand: "PR", title: "Algebra", arcId: "math-patterns", timing: "January–February", role: "Core sequence", experienceIds: ["pattern-forecast", "equation-balance"] },
   { strand: "SS", title: "Angles", arcId: "math-geometry", timing: "Late March", role: "Core sequence", experienceIds: ["angle-triangle-pack", "geometry-field-lab"] },
