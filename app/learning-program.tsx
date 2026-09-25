@@ -21,6 +21,7 @@ import { CaptainLeadershipPanel } from "./captain-leadership-panel";
 import { PheSeasonPlan } from "./phe-season-plan";
 import { MathPacingPanel } from "./math-pacing-panel";
 import { MathResourceWorkbench, MathCompanionSelector } from "./math-resource-workbench";
+import MathThinkingRoutines from "./math-thinking-routines";
 import { ExperienceInfographic, LocalIndigenousResourceDock, LocalRestorationInfographic, ResponsibleDataInfographic } from "./infographic-library";
 import { printClosest } from "./print-support";
 import { spacesPolicyForActivity } from "./classroom-program";
@@ -734,7 +735,7 @@ export function LearningProgramTab({ program, record, tab, selectedExperienceId,
     </div>
   );
 
-  if (program.subject === "Mathematics") return <div className="learning-program program-resources"><MathResourceWorkbench allTopics /><MathUpMap program={program} /></div>;
+  if (program.subject === "Mathematics") return <div className="learning-program program-resources"><MathThinkingRoutines /><MathResourceWorkbench allTopics /><MathUpMap program={program} /></div>;
 
   return (
     <div className="learning-program program-resources">

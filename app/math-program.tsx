@@ -10,6 +10,7 @@ import { mathStudentPacksFor, type MathStudentWorkshopPlacement } from "./math-s
 import type { LearningProgram, ReadinessLevel } from "./program-types";
 import { printClosest } from "./print-support";
 import { MagnitudeWorkedModel, MagnitudePaperSheets } from "./math-magnitude-models";
+import MathThinkingRoutines from "./math-thinking-routines";
 
 const levelCopy: Record<ReadinessLevel, { label: string; time: string; description: string }> = {
   full: { label: "Full background lesson", time: "40–55 MIN", description: "Teach the model, guided practice, partner task, and independent check." },
@@ -263,6 +264,7 @@ export function MathYearImplementation({ program }: { program: LearningProgram }
     <section className="math-year-implementation">
       <header><div><p>TEACHING CALENDAR · 1–2 NEW LESSONS IN A TYPICAL WEEK</p><h2>Clear visual explanation. Shared investigation. Practice when it helps.</h2><span>Choose a Math Antics-supported, hybrid, or teacher-led Hub model, let the Classroom OS carry the class investigation, and open MathUP when a game, check, or extra practice would help.</span></div><a href="https://curriculum.gov.bc.ca/curriculum/mathematics/6/core" target="_blank" rel="noreferrer">B.C. Mathematics 6 ↗</a></header>
       <section className="math-fluency-rhythm"><header><span>OPTIONAL FLUENCY RHYTHM · ADAPT TO THE WEEK</span><strong>Accurate · flexible · efficient · no public speed ranking</strong></header><div>{mathFluencyRhythm.map(item => <article key={item.day}><b>{item.day}</b><div><strong>{item.title}</strong><small>{item.minutes}</small><p>{item.detail}</p></div></article>)}</div></section>
+      <MathThinkingRoutines />
       <MathPacingPanel />
       <MathAnticsYearIntro />
       <MathGamesIntro />
