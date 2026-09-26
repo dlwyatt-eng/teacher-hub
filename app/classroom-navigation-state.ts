@@ -45,3 +45,16 @@ export function recordNavigation(): string {
     return trail.at(-2) || HOME_HREF;
   } catch { return HOME_HREF; }
 }
+
+export function dayPlanStatus(plan: Pick<DayPlan, 'date'>, today = vancouverDateKey()) {
+  if (!plan.date) return 'Reusable template';
+  if (plan.date === today) return "Today's plan";
+  return plan.date < today ? 'Archived plan' : 'Upcoming plan';
+}
+
+export function classroomRouteForMode(route: string, projector: boolean) {
+  if (!projector) return route;
+  const params = new URLSearchParams(route);
+  params.set('mode', 'student');
+  return `?${params.toString()}`;
+}

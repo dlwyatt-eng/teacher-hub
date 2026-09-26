@@ -6,7 +6,7 @@ import './day-plan-library.css';
 import {displayedDayPlan,rememberDisplayedDay} from './classroom-navigation-state';
 export {default as DayPlanMorning} from './day-plan-morning';
 export function useSelectedDayPlan(){
- const read=()=>{try{const id=typeof window==='undefined'?null:new URLSearchParams(window.location.search).get('dayPlan');return id?listDayPlans().find(p=>p.id===id):dayPlanForDate(vancouverDateKey());}catch{return undefined;}};
+ const read=()=>{try{const id=typeof window==='undefined'?null:new URLSearchParams(window.location.search).get('dayPlan');return id?listDayPlans().find(p=>p.id===id):displayedDayPlan();}catch{return undefined;}};
  const [plan,setPlan]=useState(read);
  useEffect(()=>{const refresh=()=>setPlan(read());window.addEventListener(DAY_ARCHIVE_EVENT,refresh);window.addEventListener('storage',refresh);const timer=window.setInterval(refresh,60000);return()=>{window.removeEventListener(DAY_ARCHIVE_EVENT,refresh);window.removeEventListener('storage',refresh);window.clearInterval(timer);};},[]);
  return plan;

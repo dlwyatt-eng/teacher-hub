@@ -8,3 +8,7 @@
 @media(max-width:850px){.day-board{padding:18px}.day-board-welcome{grid-template-columns:1fr}.day-live{border-left:0;border-top:1px solid #ffffff26;grid-template-columns:1fr 1fr;gap:18px}.day-live-weather{border-top:0;border-left:1px solid #ffffff26;padding:0 0 0 18px}.day-board-sequence{grid-template-columns:1fr}.day-board-greeting{padding:22px}.day-board-heading{align-items:start;flex-direction:column;gap:6px}}
 @media(max-width:480px){.day-live{grid-template-columns:1fr;padding:18px}.day-live-weather{border:0;border-top:1px solid #ffffff26;padding:12px 0 0}.day-step-dialog{padding:20px}.day-board-sequence>li{gap:8px;padding:12px}.day-block-icon{width:30px;font-size:26px}}
 @media print{.day-board{padding:0;min-height:0}.day-board-welcome{background:white;color:#173d32;border:1px solid #bdd0c0}.day-board-greeting>p:first-child{color:#173d32}.day-live,.day-board-landscape,.day-board-links,.day-plan-update,.day-step-dialog{display:none}.day-board-welcome{grid-template-columns:1fr}.day-board-sequence>li{break-inside:avoid}.day-block-title{font-size:18px}}
+
+.day-plan-date{margin:0 0 12px;padding:9px 14px;border-left:4px solid #97701d;background:#fff4d7;font-size:18px;line-height:1.4;color:#443414}
+.day-plan-date time{font-variant-numeric:tabular-nums}
+@media print{.day-plan-date{background:white;color:black;border-color:black}}

@@ -1,7 +1,7 @@
 'use client';
 import {useEffect, useState} from 'react';
 import {DAY_ARCHIVE_EVENT, listDayPlans} from './day-plan-store';
-import {displayedDayPlan, editDayHref, HOME_HREF, recordNavigation, rememberDisplayedDay, shapeOfDayHref} from './classroom-navigation-state';
+import {classroomRouteForMode, dayPlanStatus, displayedDayPlan, editDayHref, HOME_HREF, recordNavigation, rememberDisplayedDay, shapeOfDayHref} from './classroom-navigation-state';
 import './classroom-navigation.css';
 
 function useDisplayPlan(routeKey = '') {
@@ -19,28 +19,33 @@ function useDisplayPlan(routeKey = '') {
 export function ClassroomNavigation({active, routeKey, projector}: {active: string; routeKey: string; projector: boolean}) {
   const plan = useDisplayPlan(routeKey);
   const [back, setBack] = useState(HOME_HREF);
+  const [moreOpen, setMoreOpen] = useState(false);
+  useEffect(() => setMoreOpen(false), [routeKey]);
   useEffect(() => {
     if (new URLSearchParams(window.location.search).has('dayPlan')) rememberDisplayedDay(plan.id);
     setBack(recordNavigation());
   }, [routeKey, plan.id]);
   const mode = projector ? '&mode=student' : '';
   return <nav className="classroom-nav" aria-label="Classroom shortcuts">
-    <a href={back} aria-label="Back to previous classroom screen">← Back</a>
-    <a href={HOME_HREF} aria-current={active === 'Home' && !projector ? 'page' : undefined}>Home</a>
+    <a href={classroomRouteForMode(back, projector)} aria-label="Back to previous classroom screen">← Back</a>
+    <a href={classroomRouteForMode(HOME_HREF, projector)} aria-current={active === 'Home' ? 'page' : undefined}>Home</a>
     <a href={shapeOfDayHref(plan.id)} aria-current={active === 'Morning Screen' && projector ? 'page' : undefined}>Shape of the Day</a>
+    <button type="button" className="classroom-nav-toggle" aria-expanded={moreOpen} aria-controls="classroom-more-links" onClick={() => setMoreOpen(value => !value)}>More</button>
+    <div id="classroom-more-links" className={`classroom-nav-extra${moreOpen ? ' is-open' : ''}`}>
     <label className="classroom-day-picker">Day plan <select value={plan.id} onChange={event => window.location.assign(shapeOfDayHref(event.target.value))}>
       {listDayPlans().map(day => <option key={day.id} value={day.id}>{day.date || 'Template'} · {day.title}</option>)}
     </select></label>
     <a href={`?view=Games+%26+Activities${mode}`} aria-current={active === 'Games & Activities' ? 'page' : undefined}>Activities</a>
     <a href={`?view=Responsibilities${mode}`} aria-current={active === 'Responsibilities' ? 'page' : undefined}>Responsibilities</a>
     {!projector && <a href={editDayHref(plan.id)} aria-current={active === 'Day Plans' ? 'page' : undefined}>Saved day plans</a>}
+    </div>
   </nav>;
 }
 
 export function ClassroomLaunch() {
   const plan = useDisplayPlan();
   return <section className="classroom-launch" aria-labelledby="classroom-launch-title">
-    <div className="classroom-launch-heading"><div><p className="section-kicker">START HERE</p><h2 id="classroom-launch-title">Run the day</h2></div><p>{plan.date || 'Reusable template'} · {plan.title}</p></div>
+    <div className="classroom-launch-heading"><div><p className="section-kicker">START HERE</p><h2 id="classroom-launch-title">Run the day</h2></div><p><strong>{dayPlanStatus(plan)}</strong>{plan.date && ` · ${plan.date}`}<br />{plan.title}</p></div>
     <div className="classroom-launch-grid">
       <a className="classroom-launch-primary" href={shapeOfDayHref(plan.id)}><span aria-hidden="true">☀</span><strong>Shape of the Day</strong><p>Display the welcome screen and open each activity in order.</p><b>Open on projector →</b></a>
       <a href="?view=Games+%26+Activities&mode=student"><span aria-hidden="true">✦</span><strong>Activities</strong><p>Similar, Different and Would You Rather cards.</p><b>Choose a deck →</b></a>

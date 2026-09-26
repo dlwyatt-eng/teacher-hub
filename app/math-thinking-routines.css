@@ -1,7 +1,7 @@
 .math-thinking-routines{margin:22px 0;padding:20px;border:1px solid #bdd6d8;border-radius:20px;background:#eaf4f3;color:#173f50}
 .math-thinking-routines__header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
 .math-thinking-routines__header small,.math-thinking-routines__board small{font-size:10px;font-weight:900;letter-spacing:.12em;color:#26717c}
-.math-thinking-routines__header h2{margin:6px 0;font:600 29px/1.15 Georgia,serif}
+.math-thinking-routines__header :is(h1,h2){margin:6px 0;font:600 29px/1.15 Georgia,serif}
 .math-thinking-routines__header p{max-width:740px;margin:0;color:#42646a;line-height:1.5}
 .math-thinking-routines__header button,.math-thinking-routines__menu button{border:1px solid #9dc2c5;border-radius:10px;background:#fff;color:#174b58;cursor:pointer;font-weight:800}
 .math-thinking-routines__header button{flex:none;padding:10px 13px}

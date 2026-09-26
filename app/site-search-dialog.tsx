@@ -20,6 +20,7 @@ export type SiteSearchEntry = {
 const programs = { ...coreLearningPrograms, ...integratedLearningPrograms };
 
 const studentAgencyPages = [
+  ["Math Thinking Routines", "Math thinking routines", "Number of the Day or Week, Mystery Number, Esti-Mysteries, Splat, Leaping Numbers, Which One Doesn’t Belong WODB, Estimation 180, Open Middle, Visual Patterns, Estimation Clipboards, Pass the Pigs: paper and partner reasoning with optional creator links."],
   ["Shape of the Day", "Shape of the Day", "Open the welcome home screen and daily schedule on the projector, then launch each activity."],
   ["Games & Activities", "Games & Activities", "Community builders, Find Someone Similar, Find Someone Different, Would You Rather, quick fillers and discussion cards."],
   ["Responsibilities", "Responsibilities", "Classroom expectations, routines, everyone’s responsibilities, Team Captain jobs and cleanup posters."],
@@ -41,7 +42,6 @@ const teacherPages = [
   ["Cross-Curricular Projects", "Open larger projects that connect several subjects."],
   ["SpacesEDU Evidence", "Plan useful portfolio evidence without posting everything."],
   ["AI Activity Studio", "Prepare, test, and connect the teacher-created SchoolAI pilot activities."],
-  ["Visual Review Studio", "Compare original image candidates, preview placements, record decisions, and export the approved visual direction."],
   ["Assessment Studio", "Review evidence and plan reporting."],
   ["Classroom Guide", "Open routines and guidance for students, families, and teachers."],
 ] as const;
@@ -187,6 +187,7 @@ export default function SiteSearchDialog({ audience, onNavigate, onClose }: Site
         <input
           ref={inputRef}
           type="search"
+          aria-label="Search lessons, units and tools"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           onKeyDown={(event) => {

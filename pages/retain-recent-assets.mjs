@@ -17,6 +17,8 @@ export async function retainRecentAssets(dist, history) {
     try { entries = await readdir(directory, { withFileTypes: true }); }
     catch (error) { if (error.code === 'ENOENT') continue; throw error; }
     for (const entry of entries) {
+      // Retired internal review UI must not return through the old-asset cache.
+      if (entry.name.startsWith('visual-review-studio-')) continue;
       if (!entry.isFile() || !/-[\w-]{8,}\.[\w.]+$/.test(entry.name)) continue;
       await cp(path.join(directory, entry.name), path.join(assets, entry.name), { force: false, errorOnExist: false });
       retained++;

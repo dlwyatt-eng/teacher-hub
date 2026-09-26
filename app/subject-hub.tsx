@@ -143,6 +143,7 @@ export default function SubjectHub({ subject, mode, onBack, onOpenLesson, initia
         <div><p className="eyebrow">GRADE 6 · OFFICIAL BC CURRICULUM</p><h1>{subject.name}</h1><p>Choose a lesson, check the preparation, then open the student screens.</p></div>
 
       </section>
+      {subject.name === "Mathematics" && <p><a className="math-routines-link" href="?view=Math+Thinking+Routines">Math thinking routines · short partner and projector activities →</a></p>}
       <div className="tab-bar" role="tablist" aria-label={`${subject.short} curriculum sections`}>
         {tabs.map((item, index) => <button id={`${tabIdBase}-tab-${index}`} role="tab" aria-controls={`${tabIdBase}-panel`} aria-selected={tab === item} tabIndex={tab === item ? 0 : -1} className={tab === item ? "selected" : ""} key={item} onClick={() => setTab(item)} onKeyDown={(event) => moveTabFocus(event, index)}>{item}</button>)}
       </div>

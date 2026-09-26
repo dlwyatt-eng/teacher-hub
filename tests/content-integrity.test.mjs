@@ -160,7 +160,7 @@ test("major views remain lazy, recoverable, and free of the fixed-position state
   const science = await read("app/inquiry-experience.tsx");
   const globalCss = await read("app/globals.css");
   const auditCss = await read("app/classroom-audit.css");
-  for (const view of ["inquiry-experience", "subject-hub", "school-year-planning", "year-plan-page", "first-week-mission", "ai-tensions-lab", "visual-review-studio"]) {
+  for (const view of ["inquiry-experience", "subject-hub", "school-year-planning", "year-plan-page", "first-week-mission", "ai-tensions-lab", "math-thinking-routines"]) {
     assert.match(page, new RegExp(`lazy\\(\\(\\) => import\\(\"\\./${view}\"\\)`), `Missing lazy boundary for ${view}.`);
   }
   for (const view of ["social-studies-program", "learning-program"]) {

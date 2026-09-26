@@ -11,3 +11,18 @@
 @media(max-width:780px){.classroom-nav,.projector-shell .classroom-nav{top:61px}.classroom-nav a,.projector-shell .classroom-nav a{font-size:14px;padding:9px 10px}}
 @media(max-width:480px){.classroom-launch-grid{grid-template-columns:1fr}.classroom-launch-grid>a{padding:20px}}
 @media print{.classroom-nav{display:none!important}}
+
+/* Compact shortcuts expand on demand without a multi-screen horizontal strip. */
+.classroom-nav-extra{display:contents}
+.classroom-nav-toggle{display:none}
+.classroom-nav a,.classroom-nav-toggle,.classroom-day-picker select{min-height:44px;box-sizing:border-box}
+@media(max-width:1200px){
+ .classroom-nav,.projector-shell .classroom-nav{position:static;flex-wrap:wrap;overflow:visible;gap:4px;padding:6px 10px}
+ .classroom-nav a,.projector-shell .classroom-nav a{font-size:14px;padding:12px 9px}
+ .classroom-nav-toggle{display:block;padding:9px;border:1px solid #9fb4a5;border-radius:8px;background:white;color:#234d3c;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer}
+ .classroom-nav-toggle:focus-visible{outline:3px solid #b36a08;outline-offset:3px}
+ .classroom-nav-extra{display:none}
+ .classroom-nav-extra.is-open{display:flex;flex-wrap:wrap;width:100%;gap:4px;padding-top:6px;border-top:1px solid #cbdacf}
+ .classroom-day-picker{flex:1 1 100%;min-width:0}
+ .classroom-day-picker select{flex:1;min-width:0;max-width:100%;width:100%}
+}

@@ -38,7 +38,9 @@ export function readDayRevisions():DayRevision[]{
 }
 export function listDayPlans():DayPlan[]{
  const plans=new Map(publishedDayPlans.map(p=>[p.id,p]));
- for(const r of readDayRevisions())plans.set(r.plan.id,r.plan);
+ // Reading must not break the published classroom when browser storage is blocked or damaged.
+ // Writes still use strict readDayRevisions and cannot overwrite an unreadable archive.
+ try { for(const r of readDayRevisions())plans.set(r.plan.id,r.plan); } catch { /* Keep published plans available. */ }
  return [...plans.values()].sort((a,b)=>b.date.localeCompare(a.date));
 }
 export function dayPlanForDate(date:string):DayPlan|undefined{const matches=listDayPlans().filter(p=>p.date===date);return matches.find(p=>!p.id.startsWith("week-day-"))??matches[0];}

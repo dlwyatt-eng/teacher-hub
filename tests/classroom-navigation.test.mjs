@@ -43,3 +43,28 @@ test('Back never uses an external destination or cycles through a stale forward 
   assert.deepEqual(nav.visitRoute(['https://example.com','//example.com','?view=Home','?view=Responsibilities'],'?view=Home'),['?view=Home']);
   assert.deepEqual(nav.visitRoute(['?view=Home'],'?view=Home'),['?view=Home']);
 });
+
+test('navigation reads published plans when local data is unavailable without overwriting damaged data', () => {
+  const damaged = '{unreadable';
+  let writes = 0;
+  globalThis.window = {localStorage:{getItem:()=>damaged,setItem:()=>writes++}};
+  assert.equal(store.listDayPlans().length,store.publishedDayPlans.length);
+  assert.throws(()=>store.saveDayPlan(store.publishedDayPlans[0]));
+  assert.equal(writes,0);
+  window.localStorage.getItem=()=>{throw new Error('Storage blocked');};
+  assert.equal(store.listDayPlans().length,store.publishedDayPlans.length);
+  delete globalThis.window;
+});
+
+test('archive status distinguishes past, current, future and undated plans', () => {
+  assert.equal(nav.dayPlanStatus({date:'2026-09-24'},'2026-09-25'),'Archived plan');
+  assert.equal(nav.dayPlanStatus({date:'2026-09-25'},'2026-09-25'),"Today's plan");
+  assert.equal(nav.dayPlanStatus({date:'2026-09-28'},'2026-09-25'),'Upcoming plan');
+  assert.equal(nav.dayPlanStatus({date:''},'2026-09-25'),'Reusable template');
+});
+
+test('projector Home and Back preserve the student display mode', () => {
+  assert.equal(nav.classroomRouteForMode('?view=Home',true),'?view=Home&mode=student');
+  assert.equal(nav.classroomRouteForMode('?view=Day+Plans&mode=teacher',true),'?view=Day+Plans&mode=student');
+  assert.equal(nav.classroomRouteForMode('?view=Home',false),'?view=Home');
+});

@@ -133,13 +133,14 @@ export const mathThinkingRoutines: Routine[] = [
   },
 ];
 
-export default function MathThinkingRoutines() {
+export default function MathThinkingRoutines({ standalone = false }: { standalone?: boolean }) {
+  const Heading = standalone ? "h1" : "h2";
   const [selected, setSelected] = useState(mathThinkingRoutines[0].id);
   const [focusMode, setFocusMode] = useState(false);
   const routine = mathThinkingRoutines.find(item => item.id === selected) ?? mathThinkingRoutines[0];
   return <section id="math-thinking-routines" className={`math-thinking-routines${focusMode ? " math-thinking-routines--focus" : ""}`} aria-label="Math thinking routines">
     <header className="math-thinking-routines__header">
-      <div><small>REPEATABLE · PARTNER FRIENDLY · PROJECTOR READY</small><h2>Math thinking routines</h2><p>Choose one 5–20 minute start. Students think alone, compare strategies, and leave a small record. Every example below works with paper and classroom materials.</p></div>
+      <div><small>REPEATABLE · PARTNER FRIENDLY · PROJECTOR READY</small><Heading>Math thinking routines</Heading><p>Choose one 5–20 minute start. Students think alone, compare strategies, and leave a small record. Every example below works with paper and classroom materials.</p></div>
       <button type="button" aria-pressed={focusMode} onClick={() => setFocusMode(value => !value)}>{focusMode ? "Show all routines" : "Focus on one routine"}</button>
     </header>
     <nav className="math-thinking-routines__menu" aria-label="Choose a math thinking routine">

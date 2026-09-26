@@ -1,7 +1,7 @@
 'use client';
 import {useRef,useState} from 'react';
 import {type DayPlan} from './day-plan-store';
-import {shapeOfDayHref} from './classroom-navigation-state';
+import {dayPlanStatus,shapeOfDayHref} from './classroom-navigation-state';
 import ClassroomLiveStatus from './classroom-live-status';
 import './day-plan-morning.css';
 
@@ -25,6 +25,7 @@ export default function DayPlanMorning({plan}:{plan:DayPlan}){
   const block=focused===null?null:plan.blocks[focused];
   const showSteps=(index:number)=>{setFocused(index);dialog.current?.showModal();};
   return <section className="day-board" aria-labelledby="day-board-title">
+    <p className="day-plan-date"><strong>{dayPlanStatus(plan)}</strong>{plan.date && <> · <time dateTime={plan.date}>{plan.date}</time></>}</p>
     <header className="day-board-welcome">
       <div className="day-board-greeting"><p>WALNUT ROAD · GRADE 6</p><h1 id="day-board-title">{plan.greeting}</h1><p>{plan.arrival}</p>
         <svg className="day-board-landscape" viewBox="0 0 500 150" aria-hidden="true"><circle cx="390" cy="45" r="28" fill="#edc774"/><path d="M0 150 110 44 184 120 265 20 375 137 450 60 500 130V150Z" fill="#628879"/><path d="m215 77 50-57 47 50-33-13-13 14-19-26Z" fill="#e8eee0"/><path d="M0 150 85 85 180 150 335 92 425 150Z" fill="#315e50"/><g fill="#183e34"><path d="m38 145 22-45 22 45Zm20 0h5v5h-5Z"/><path d="m405 145 25-61 25 61Zm22 0h6v5h-6Z"/><path d="m450 145 19-45 19 45Zm17 0h4v5h-4Z"/></g></svg>

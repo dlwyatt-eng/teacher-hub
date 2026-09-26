@@ -30,3 +30,17 @@
 
 /* Keep the model ahead of repeated workshop framing; preserve it in print. */
 @media screen{.projector-math-learn .student-math-workshops>header{padding:10px 18px}.projector-math-learn .student-math-workshops>header :is(span,h2){display:none}.projector-math-learn .student-math-workshops>header p{margin:0;font-size:1rem}.projector-math-learn .student-math-print-heading h3{display:none}.projector-lesson-player>.projector-lesson-picker{padding:4px 12px}.projector-lesson-player>.projector-lesson-picker>summary{padding:6px 0;min-height:0}.projector-lesson-player .projector-help-panel .projector-clarity-strip{margin:0 0 12px}}
+
+/* Preserve the desktop workspace; let the tablet toolbar reflow within it. */
+.main-area,.top-actions,.breadcrumbs,.curriculum-main{min-width:0}
+@media(min-width:781px) and (max-width:1150px){
+ .main-area>.topbar,.projector-shell .main-area>.topbar{position:static;height:auto;min-height:68px;flex-wrap:wrap;gap:8px;padding:12px 18px}
+ .topbar .breadcrumbs{flex:1 1 100%;overflow-wrap:anywhere}
+ .topbar .top-actions{flex-wrap:wrap;gap:6px;max-width:100%}
+ .topbar .context-curriculum-link strong,.topbar .context-curriculum-link b{display:none}
+ .topbar .context-curriculum-link{padding:6px;min-width:40px}
+ .main-area>.page{padding-left:24px;padding-right:24px}
+}
+.math-routines-link{display:inline-block;padding:12px 16px;border:1px solid #afc6b7;border-radius:10px;color:#234d3c;background:#f4f8f2;font-size:16px;font-weight:700;line-height:1.5}
+.math-routines-link:focus-visible{outline:3px solid #a15c00;outline-offset:3px}
+@media print{.math-routines-link{display:none}}

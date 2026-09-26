@@ -57,7 +57,7 @@ const MonthlyCalendar = lazy(() => import("./monthly-calendar"));
 const CalendarProvocationsPage = lazy(() => import("./calendar-provocations-page"));
 const SavedResourceLibrary = lazy(() => import("./saved-resource-library"));
 const TocResourceLibrary = lazy(() => import("./toc-resource-library"));
-const VisualReviewStudio = lazy(() => import("./visual-review-studio"));
+const MathThinkingRoutines = lazy(() => import("./math-thinking-routines"));
 const ProficiencyModelsLibrary = lazy(() => import("./proficiency-models-panel").then((module) => ({ default: module.ProficiencyModelsLibrary })));
 
 const STUDENT_FAMILY_SITE_URL = "https://dlwyatt-eng.github.io/learn/";
@@ -348,9 +348,9 @@ function subjectHubLocationFromClassroom(location: ClassroomLocation, subject: S
 }
 
 const standaloneViews = new Set([
-  "Home", "Day Plans", "Games & Activities", "Responsibilities", "Opening Welcome", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Weekly Plan", "Monthly Calendar",
+  "Home", "Day Plans", "Games & Activities", "Responsibilities", "Math Thinking Routines", "Opening Welcome", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Weekly Plan", "Monthly Calendar",
   "Calendar Provocations", "First Week Mission", "TOC & Emergency Plans", "TTOC Day Plan", "Cross-Curricular Projects",
-  "Project Template", "Teaching OS Map", "Year Plan", "SpacesEDU Evidence", "AI Activity Studio", "Visual Review Studio",
+  "Project Template", "Teaching OS Map", "Year Plan", "SpacesEDU Evidence", "AI Activity Studio",
   "Assessment Studio", "Classroom Guide", "Saved Resources",
 ]);
 
@@ -360,7 +360,7 @@ function normalizeLegacyView(active?: string) {
   return "Home";
 }
 
-const projectorSafePages = new Set(["Games & Activities", "Responsibilities", "Home", "Opening Welcome", "First Week Mission", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Calendar Provocations"]);
+const projectorSafePages = new Set(["Games & Activities", "Responsibilities", "Math Thinking Routines", "Home", "Opening Welcome", "First Week Mission", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Calendar Provocations"]);
 
 function isProjectorSafePage(active: string) {
   return projectorSafePages.has(active);
@@ -744,9 +744,9 @@ function ClassroomHome() {
             <span className="nav-icon">↔</span> AI Tensions Lab
           </button>
           </details>
-          <details className="nav-disclosure" open={["SpacesEDU Evidence", "Assessment Studio", "AI Activity Studio", "Visual Review Studio", "Teaching OS Map", "Classroom Guide"].includes(active) || undefined}>
+          <details className="nav-disclosure" open={["SpacesEDU Evidence", "Assessment Studio", "AI Activity Studio", "Teaching OS Map", "Classroom Guide"].includes(active) || undefined}>
             <summary>Assessment &amp; teacher tools</summary>
-            {["SpacesEDU Evidence", "Assessment Studio", "Classroom Guide", "AI Activity Studio", "Visual Review Studio", "Teaching OS Map"].map(label => <button key={label} className={`nav-item ${active === label ? "active" : ""}`} onClick={() => navigateToPage(label)}>{label}</button>)}
+            {["SpacesEDU Evidence", "Assessment Studio", "Classroom Guide", "AI Activity Studio", "Teaching OS Map"].map(label => <button key={label} className={`nav-item ${active === label ? "active" : ""}`} onClick={() => navigateToPage(label)}>{label}</button>)}
           </details>
         </nav>
 
@@ -831,8 +831,8 @@ function ClassroomHome() {
           <SpacesEvidencePage mode={mode} onHome={goHome} onAssessment={() => navigateToPage("Assessment Studio")} onProjects={() => navigateToPage("Cross-Curricular Projects")} />
         ) : active === "AI Activity Studio" ? (
           <AiActivityStudio key={aiStudioInitialId ?? "default"} onHome={goHome} initialActivityId={aiStudioInitialId} />
-        ) : active === "Visual Review Studio" ? (
-          <VisualReviewStudio onHome={goHome} />
+        ) : active === "Math Thinking Routines" ? (
+          <div className="page"><MathThinkingRoutines standalone /></div>
         ) : active === "Assessment Studio" ? (
           <AssessmentStudioPage mode={mode} onHome={goHome} />
         ) : active === "Classroom Guide" ? (
@@ -882,7 +882,7 @@ function Dashboard({ onSubject, onNavigate, onOpenScienceLesson, onProjectMornin
       <details className="opening-daily-tools"><summary>Opening week &amp; rotations · welcome, Discovery booklet and first maths blocks</summary><OpeningWeekCockpit onNavigate={onNavigate} /></details>
       <details className="opening-daily-tools"><summary>More arrival tools &amp; pinned lesson</summary><TeacherHomeOperations timeline={morningTimeline} onNavigate={onNavigate} onProjectMorning={onProjectMorning} publicSiteHref={STUDENT_FAMILY_SITE_URL} /><TeacherDailyLaunchManager /></details>
       <nav className="connected-hubs" aria-label="Connected classroom hubs"><a href={STUDENT_FAMILY_SITE_URL} target="_blank" rel="noreferrer">Student &amp; Family Hub ↗</a><a href="https://dlwyatt-eng.github.io/equity-hub/" target="_blank" rel="noreferrer">Equity Hub · K–7 lessons ↗</a></nav>
-      <p className="section-kicker">Classroom OS reviewed September 23, 2026 · daily plans may change</p>
+      <p className="section-kicker">Public educator preview · keep confidential records in district tools</p>
 
       <details className="teacher-home-resources">
         <summary><span><small>MORE TEACHER RESOURCES</small><strong>Sources, year tools &amp; public links</strong></span><b>Open ↓</b></summary>
@@ -1007,7 +1007,7 @@ function AssessmentStudioPage({ mode, onHome }: { mode: "teacher" | "projector";
 
       <section className="assessment-source-note">
         <div><p className="section-kicker">WHY THIS MODEL FITS B.C.</p><h2>Assessment is an ongoing body of evidence.</h2><p>B.C. reporting for Grades K–9 combines the Provincial Proficiency Scale, descriptive feedback, student Core Competency self-assessment, and goal setting. These highlights organize evidence without turning every engaging task into a mark.</p></div>
-        <div><a href="https://www2.gov.bc.ca/gov/content/education-training/k-12/administration/legislation-policy/public-schools/student-reporting" target="_blank" rel="noreferrer">B.C. Student Reporting Policy ↗</a><a href="https://curriculum.gov.bc.ca/classroom-assessment" target="_blank" rel="noreferrer">B.C. Classroom Assessment ↗</a><a href="https://curriculum.gov.bc.ca/learning-pathways/k-12-learning-progressions" target="_blank" rel="noreferrer">Cross-Curricular Learning Progressions ↗</a></div>
+        <div><a href="https://www2.gov.bc.ca/gov/content/education-training/k-12/administration/legislation-policy/public-schools/student-reporting" target="_blank" rel="noreferrer">B.C. Student Reporting Policy ↗</a><a href="https://curriculum.gov.bc.ca/classroom-assessment" target="_blank" rel="noreferrer">B.C. Classroom Assessment ↗</a><a href="https://curriculum.gov.bc.ca/learning-pathways" target="_blank" rel="noreferrer">B.C. Learning Pathways ↗</a></div>
       </section>
     </div>
   );
