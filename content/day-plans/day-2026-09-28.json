@@ -4,13 +4,13 @@
   "title": "Monday · Reconciliation Walk, decimals and Nevermoor",
   "greeting": "Good morning, Grade 6!",
   "arrival": "Our Reconciliation Walk begins at 9:30. Start with your teacher's morning directions.",
-  "note": "Working plan. Walk return may shift; outdoor choice time expands or contracts with it. Carry math practice forward if reconciliation learning needs more time. Career content stays flexible until the Be The Change Earth Alliance resource is reviewed. LST timing awaits final confirmation. Planned teaching, not a completion record.",
+  "note": "Working plan: walk and outdoor time can shift. Carry math practice forward if needed. Career content awaits resource review; LST timing awaits confirmation.",
   "reflection": "",
   "blocks": [
     {
       "time": "8:35–9:15 am",
       "title": "Social Studies · TRC Calls to Action",
-      "notes": "Connect Orange Shirt Day and previous residential school learning to the TRC's purpose: Survivors and communities called for changes, not just awareness. Select one education-related Call to Action from NCTR (for example, #62 about education developed with Indigenous peoples) and attribute it. Brief sequence: recall learning; read and paraphrase the selected call; ask who is asked to act, what should change and why; invite one spoken or written response. Finish before walk preparation. Source: https://nctr.ca/about/truth-and-reconciliation-commission-of-canada-calls-to-action/",
+      "notes": "Connect Orange Shirt Day and residential school learning to changes sought by Survivors and communities. Read one attributed education-related TRC Call to Action, such as #62; paraphrase it and ask who must act, what changes and why. One spoken or written response. Finish before walk prep. NCTR: https://nctr.ca/about/truth-and-reconciliation-commission-of-canada-calls-to-action/",
       "href": "",
       "studentSteps": [
         "What change does this Call to Action ask for?",
@@ -20,26 +20,26 @@
     {
       "time": "9:15–9:25 am",
       "title": "Get ready for the walk",
-      "notes": "Washroom, outdoor clothing, route and group expectations. Check the accessible route and participation choices with support staff; leave 9:25–9:30 for transition to the starting point.",
+      "notes": "Washroom, clothing, route and expectations. Confirm accessible participation; transition to the start by 9:30.",
       "href": ""
     },
     {
       "time": "9:30–about 10:00 am",
       "title": "Reconciliation Walk",
-      "notes": "Expected walk is about 20–30 minutes, with return around 9:50–10:00. Follow school guidance for route and gathering point.",
+      "notes": "About 20–30 minutes. Follow the school's route and gathering guidance; return around 9:50–10:00.",
       "href": ""
     },
     {
       "time": "After walk–10:20 am",
       "title": "Outdoor community choices",
-      "notes": "Use remaining time for inclusive, accessible choice-based play and connection, not a formal PE lesson. Offer usable pavement space and choices such as chalk, casual ball passing, walking and talking or an accessible game students choose together. Check that each student can participate meaningfully. Expand or shorten according to return time.",
+      "notes": "Inclusive choice time on usable pavement: chalk, casual ball passing, walking/talking or an accessible game. Check meaningful participation. Flex with return time; no formal PE lesson.",
       "href": "",
       "studentSteps": ["Choose a way to move, play or talk together.", "Make room for everyone to join in."]
     },
     {
       "time": "About 10:20–10:35 am",
       "title": "Snack",
-      "notes": "Return, wash hands and have snack before recess. Timing can flex slightly with the walk.",
+      "notes": "Wash hands and snack before recess; flex with return time.",
       "href": ""
     },
     {
@@ -51,7 +51,7 @@
     {
       "time": "10:50–11:50 am",
       "title": "Mathematics · compare and round decimals",
-      "notes": "Model aligned-digit comparison: 4.386 > 4.368 because the hundredths digits differ (8 > 6). Round 4.386 to the nearest hundredth: the thousandths digit 6 rounds the hundredths 8 up to 9, giving 4.39. Guide a second example together. Independent check: compare 4.305 and 4.350 (4.305 < 4.350); round 7.264 to the nearest hundredth (7.26). Ask students to explain the deciding digit. Use existing decimal resources if helpful; carry remaining practice forward if morning timing shifts.",
+      "notes": "Align digits: 4.386 > 4.368 (hundredths 8 > 6). Round 4.386 to hundredths: thousandths 6 raises 8 to 9, so 4.39. Guide another example. Independent check: 4.305 < 4.350; 7.264 rounds to 7.26. Ask for the deciding digit. Carry practice forward if needed.",
       "href": "",
       "studentSteps": [
         "Compare decimals one place at a time.",
@@ -68,33 +68,33 @@
     {
       "time": "12:35–12:55 pm",
       "title": "Quiet individual time",
-      "notes": "Independent reading, drawing or appropriate colouring. A calm return from lunch.",
+      "notes": "Independent reading, drawing or colouring.",
       "href": ""
     },
     {
       "time": "12:55–1:40 pm",
       "title": "Language Arts · Nevermoor",
-      "notes": "Resume listening from the class's actual stopping point; do not guess a chapter. Pause for one character choice and a supporting detail. Model a two-sentence response, then ask students for one brief written, drawn-with-caption or spoken response using a detail from today's listening. No large assignment.",
+      "notes": "Resume at the actual stopping point. Model a two-sentence response about one character choice with a story detail. Students give one short written, captioned drawing or spoken response; no large assignment.",
       "href": "",
       "studentSteps": ["Listen for one character choice.", "Share a short response with a story detail."]
     },
     {
       "time": "1:40–2:05 pm",
       "title": "Career Education · strengths and contribution",
-      "notes": "Flexible launch while the existing Be The Change Earth Alliance Career resource awaits review. Use a simple discussion or note: name one strength or interest, one value or community need, and one way people can contribute. Link gently to future careers, responsibility and possible solutions; do not imply the booklet has been selected or copy its contents. See the Career Education curriculum planning placeholder.",
+      "notes": "Flexible launch pending review of the Be The Change Earth Alliance booklet. Discuss or note one strength/interest, value or community need, and way to contribute. Connect to careers, responsibility and solutions. Do not imply a pack has been selected or reproduce it.",
       "href": "",
       "studentSteps": ["Name a strength or interest you can use.", "How could it help someone or our community?"]
     },
     {
       "time": "2:05–2:20 pm",
       "title": "Classroom community",
-      "notes": "Flexible reflection, community-building or unfinished learning. A short check-in about including everyone outdoors can fit if useful.",
+      "notes": "Reflection, community building or unfinished learning; revisit inclusion if useful.",
       "href": ""
     },
     {
       "time": "2:20–2:35 pm",
       "title": "Planners, jobs and dismissal",
-      "notes": "Planners, classroom jobs, cleanup and dismissal preparation.",
+      "notes": "Planners, jobs, cleanup and dismissal prep.",
       "href": ""
     }
   ],

@@ -22,14 +22,13 @@ import {
 } from "./weekly-plan";
 import { SiteSearch, type SiteSearchTarget } from "./site-search";
 import type { MorningTimelineItem } from "./morning-screen";
-import StudentAgencyDock from "./student-agency-dock";
 import { vancouverDateKey as morningDateKey } from "./morning-screen-state";
 const TeacherHomeOperations = lazy(() => import("./teacher-home-operations"));
 const ClassroomLaunch = lazy(() => import("./classroom-navigation").then(m => ({default:m.ClassroomLaunch})));
 const ClassroomNavigation = lazy(() => import("./classroom-navigation").then(m => ({default:m.ClassroomNavigation})));
 const openShapeOfDay = () => import("./classroom-navigation-state").then(({shapeOfDayHref}) => window.location.assign(shapeOfDayHref()));
 import "./teaching-workspace.css";
-import { OpeningWeekCockpit, OpeningWelcome } from "./opening-week";
+import OpeningWelcome from "./opening-welcome";
 import { currentLearningWindow } from "./current-learning-phase";
 import { subjects, type Subject } from "./subject-catalog";
 import type { SubjectHubLocation } from "./subject-hub";
@@ -48,6 +47,8 @@ const FirstWeekMission = lazy(() => import("./first-week-mission"));
 const AiActivityStudio = lazy(() => import("./ai-activity-studio"));
 const AiTensionsLab = lazy(() => import("./ai-tensions-lab"));
 const DayPlanLibrary = lazy(() => import("./day-plan-library"));
+const StudentAgencyDock = lazy(() => import("./student-agency-dock"));
+const OpeningWeekCockpit = lazy(() => import("./opening-week").then(m => ({default:m.OpeningWeekCockpit})));
 const GamesActivities = lazy(() => import("./games-activities"));
 const ResponsibilitiesPage = lazy(() => import("./responsibilities-page"));
 const MorningScreen = lazy(() => import("./morning-screen"));
@@ -879,7 +880,7 @@ function Dashboard({ onSubject, onNavigate, onOpenScienceLesson, onProjectMornin
         <ol><li><strong>Choose a subject and lesson.</strong> Check the time, materials and finished work. The sequence is a guide; adapt it to your class.</li><li><strong>Open student screens.</strong> Model and work through one part at a time. Lesson help keeps setup, examples, checks and print tools close by.</li><li><strong>Notice what students understand.</strong> Use the lesson check to decide what comes next. Save selected evidence in SpacesEDU when useful.</li></ol>
         <p>A teacher computer and projector are the main setup. Use the lesson’s paper route when devices or Wi-Fi are unavailable.</p>
       </details>
-      <details className="opening-daily-tools"><summary>Opening week &amp; rotations · welcome, Discovery booklet and first maths blocks</summary><OpeningWeekCockpit onNavigate={onNavigate} /></details>
+      <details className="opening-daily-tools"><summary>Opening week &amp; rotations · welcome, Discovery booklet and first maths blocks</summary><Suspense fallback={null}><OpeningWeekCockpit onNavigate={onNavigate} /></Suspense></details>
       <details className="opening-daily-tools"><summary>More arrival tools &amp; pinned lesson</summary><TeacherHomeOperations timeline={morningTimeline} onNavigate={onNavigate} onProjectMorning={onProjectMorning} publicSiteHref={STUDENT_FAMILY_SITE_URL} /><TeacherDailyLaunchManager /></details>
       <nav className="connected-hubs" aria-label="Connected classroom hubs"><a href={STUDENT_FAMILY_SITE_URL} target="_blank" rel="noreferrer">Student &amp; Family Hub ↗</a><a href="https://dlwyatt-eng.github.io/equity-hub/" target="_blank" rel="noreferrer">Equity Hub · K–7 lessons ↗</a></nav>
       <p className="section-kicker">Public educator preview · keep confidential records in district tools</p>
@@ -947,7 +948,7 @@ function StudentHome({ onSubject, onOpenScienceLesson, onNavigate }: { onSubject
     <div className="page student-home">
       <StudentHomePortal featured={featuredStudentLaunch} onOpenMission={openMission} />
 
-      <StudentAgencyDock onNewsroom={() => onNavigate("Newsroom")} onInquiry={() => onNavigate("My Inquiry")} />
+      <Suspense fallback={null}><StudentAgencyDock onNewsroom={() => onNavigate("Newsroom")} onInquiry={() => onNavigate("My Inquiry")} /></Suspense>
 
       <StudentWorldAtlas launches={studentWorldAtlasLaunches} onOpenMission={openMission} />
 

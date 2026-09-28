@@ -1,6 +1,7 @@
 "use client";
 
 import "./opening-week.css";
+export { default as OpeningWelcome } from "./opening-welcome";
 
 export function OpeningWeekCockpit({ onNavigate }: { onNavigate: (page: string) => void }) {
   return <section className="opening-week" aria-labelledby="opening-week-title">
@@ -17,8 +18,4 @@ export function OpeningWeekCockpit({ onNavigate }: { onNavigate: (page: string) 
     </div>
     <footer><a href="https://dlwyatt-eng.github.io/learn/" target="_blank" rel="noreferrer">Student &amp; Family Hub ↗</a><a href="https://dlwyatt-eng.github.io/equity-hub/" target="_blank" rel="noreferrer">Standalone Equity Hub ↗</a><span>Current teaching release: GitHub Pages. Older ChatGPT Site copies are not this release.</span></footer>
   </section>;
-}
-
-export function OpeningWelcome() {
-  return <section className="opening-welcome" aria-labelledby="opening-welcome-title"><p>WELCOME TO GRADE 6</p><h1 id="opening-welcome-title">Come in. Get comfortable.</h1><ol><li>Choose an available seat.</li><li>Have a pencil ready. We will give you a page.</li><li>Notice one interesting detail in the room.</li></ol><aside>When we share, you may speak, point or pass. You never have to tell a private story.</aside><p>Today: a welcome, one Discovery page and time to make it your own.</p></section>;
 }
