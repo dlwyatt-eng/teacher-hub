@@ -1,28 +1,38 @@
 {
   "id": "day-2026-09-29",
   "date": "2026-09-29",
-  "title": "Tuesday · Orange Shirt Day, decimals and reflection",
+  "title": "Tuesday · SpacesEDU, Career, decimals and Nevermoor",
   "greeting": "Good morning, Grade 6!",
-  "arrival": "Attendance; Orange Shirt Day.",
-  "note": "Orange Shirt Day; confirm noon event. Prep 12:35–1:35.",
+  "arrival": "Attendance first. We have computers until 10:30; get ready to show what you have learned.",
+  "note": "Computers 8:30–10:30; French/Health prep 12:35–1:35. Monday: walk complete, rounding begun, Action Packs explored; Nevermoor not started. Career SpacesEDU assignment still to create. No class walk reflection Tuesday. School closed Wednesday, September 30. SchoolAI only as an optional scaffold after an independent attempt. Teacher launches: https://ca.spacesedu.com/ and https://www.bethechangeearthalliance.org/c4c .",
   "reflection": "",
   "blocks": [
     {
-      "time": "8:35–8:50 am",
-      "title": "Arrival and attendance",
-      "notes": "",
-      "href": ""
+      "time": "8:35–9:40 am",
+      "title": "Computers · SpacesEDU learning posts",
+      "notes": "Attendance first. Model a post that shows selected work, explains learning and names one next step. Finish or improve existing posts; offer an offline draft if access fails. Keep private Discovery originals offline. https://ca.spacesedu.com/",
+      "href": "https://ca.spacesedu.com/",
+      "studentSteps": [
+        "Choose one piece of learning you are ready to explain.",
+        "Show the work and tell what you learned or changed.",
+        "Add one next step; save your post or draft."
+      ]
     },
     {
-      "time": "8:50–9:35 am",
-      "title": "Mathematics · decimal reasoning",
-      "notes": "Use the prior lesson evidence to choose practice or reteaching.",
-      "href": ""
+      "time": "9:40–10:20 am",
+      "title": "Career Education · choose an inquiry",
+      "notes": "Project Monday’s signed-in Be the Change Action Pack choices. Students choose an issue, give a reason and record one inquiry question on paper or an approved draft. The Career SpacesEDU activity is not yet created; do not assign a pack. Teacher launch: https://www.bethechangeearthalliance.org/c4c .",
+      "href": "",
+      "studentSteps": [
+        "Browse the Action Pack topics with the class.",
+        "Choose one issue you care about and tell why.",
+        "Write, draw or dictate a question you could investigate."
+      ]
     },
     {
-      "time": "9:35–10:35 am",
-      "title": "English Language Arts · Nevermoor response",
-      "notes": "Continue listening from the actual stopping point. Model evidence from the text; students write, draw, or dictate a short response. Snack about 10:20.",
+      "time": "10:20–10:35 am",
+      "title": "Save, return computers and snack",
+      "notes": "Save work and return the booked computers by 10:30. Snack near 10:20 as usual; finish the transition before recess.",
       "href": ""
     },
     {
@@ -33,11 +43,13 @@
     },
     {
       "time": "10:50–11:50 am",
-      "title": "Social Studies · Orange Shirt Day reflection",
-      "notes": "Keep Phyllis Webstad’s account distinct from Chanie Wenjack’s story. Use the agreed three prompts; students choose two.",
-      "href": "./activities/orange-shirt-art.html",
+      "title": "Mathematics · continue rounding decimals",
+      "notes": "Continue Monday’s rounding. Model 7.264 to hundredths: thousandths 4 keeps hundredths 6, giving 7.26. Guided practice, then an independent check with explanation. If secure, compare 4.386 > 4.368 by aligning places; hundredths 8 > 6. Carry comparing forward if rounding needs the hour. Math Antics is optional; the lesson works without video.",
+      "href": "?subject=Mathematics&mode=student",
       "studentSteps": [
-        "Think about what we learned and what we should remember."
+        "Round decimals and explain which digit made the decision.",
+        "Try a few on your own and check your place values.",
+        "If ready, compare two decimals one place at a time."
       ]
     },
     {
@@ -49,33 +61,28 @@
     {
       "time": "12:35–1:35 pm",
       "title": "Core French and Health Education",
-      "notes": "",
+      "notes": "Fixed prep block with the specialist teacher.",
       "href": ""
     },
     {
-      "time": "1:35–1:50 pm",
-      "title": "Quiet individual time",
-      "notes": "",
-      "href": ""
-    },
-    {
-      "time": "1:50–2:05 pm",
-      "title": "Core Competencies & Project Time",
-      "notes": "",
-      "href": ""
-    },
-    {
-      "time": "2:05–2:20 pm",
-      "title": "Classroom community",
-      "notes": "",
-      "href": ""
+      "time": "1:35–2:20 pm",
+      "title": "Language Arts · begin Nevermoor",
+      "notes": "Begin the novel from the start. Listen to a manageable opening; pause for setting and character talk. Model a prediction supported by one heard detail. Students write, draw with a caption or dictate briefly. Carry the story forward without rushing.",
+      "href": "?subject=English+Language+Arts&mode=student",
+      "studentSteps": [
+        "Listen for one interesting detail about a character or the setting.",
+        "Share a prediction and the story detail that supports it."
+      ]
     },
     {
       "time": "2:20–2:35 pm",
       "title": "Planners, jobs and dismissal",
-      "notes": "",
+      "notes": "Tidy, complete classroom jobs and planners, and remind students that school is closed Wednesday, September 30.",
       "href": ""
     }
   ],
-  "backups": []
+  "backups": [
+    "If a computer sign-in stalls, draft the learning explanation and Career inquiry question on paper; return to the post later.",
+    "If rounding needs the full hour, carry comparing decimals forward rather than rushing it."
+  ]
 }
