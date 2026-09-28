@@ -1,0 +1,78 @@
+{
+  "id": "day-2026-10-02",
+  "date": "2026-10-02",
+  "title": "Friday · French, gym, art and community",
+  "greeting": "Good morning, Grade 6!",
+  "arrival": "Attendance; French, gym and art today.",
+  "note": "",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:50 am",
+      "title": "Arrival and attendance",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "8:50–9:35 am",
+      "title": "Mathematics · decimal check and next steps",
+      "notes": "Use the prior lesson evidence to choose practice or reteaching.",
+      "href": ""
+    },
+    {
+      "time": "9:35–10:35 am",
+      "title": "Core French and Health Education",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "10:50–11:10 am",
+      "title": "Snack and prepare for gym",
+      "notes": "Use an accessible, cooperative activity.",
+      "href": ""
+    },
+    {
+      "time": "11:10–11:50 am",
+      "title": "Gym · movement and team skills",
+      "notes": "Use an accessible, cooperative activity.",
+      "href": ""
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "12:35–12:55 pm",
+      "title": "Quiet individual time",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "12:55–2:05 pm",
+      "title": "Arts Education · create and explain",
+      "notes": "Make or continue art; explain one artistic choice.",
+      "href": "./activities/orange-shirt-art.html"
+    },
+    {
+      "time": "2:05–2:20 pm",
+      "title": "Classroom community",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "2:20–2:35 pm",
+      "title": "Planners, jobs and dismissal",
+      "notes": "",
+      "href": ""
+    }
+  ],
+  "backups": []
+}

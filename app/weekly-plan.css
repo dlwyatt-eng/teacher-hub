@@ -517,3 +517,15 @@
   .weekly-plan__route li { color: #111; font-size: 7.5pt; line-height: 1.25; }
   .weekly-plan__notes { padding: 1mm 2mm 2mm; }
 }
+.recurring-timetable{margin:1.2rem 0;padding:1.2rem;border:1px solid #b8c8c2;border-radius:18px;background:#f8fbf9;color:#17362f}
+.recurring-timetable__heading{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.recurring-timetable__heading h2{margin:.15rem 0 .35rem;font-size:1.5rem}
+.recurring-timetable>p{max-width:85ch;line-height:1.45}
+.recurring-timetable__scroll{overflow-x:auto}
+.recurring-timetable table{width:100%;min-width:760px;border-collapse:collapse;font-size:.91rem;line-height:1.35}
+.recurring-timetable th,.recurring-timetable td{padding:.58rem .55rem;border-bottom:1px solid #d4ded9;text-align:left;vertical-align:top}
+.recurring-timetable thead th{background:#e3f0ea}
+.recurring-timetable tbody th{white-space:nowrap;font-weight:700}
+.recurring-timetable tbody tr:nth-child(even){background:#f0f6f2}
+.recurring-timetable__note{font-size:.9rem}
+@media print{.recurring-timetable{border:0;padding:0;background:white;color:black}.recurring-timetable table{min-width:0;font-size:9pt}.recurring-timetable th,.recurring-timetable td{padding:5pt 4pt}}

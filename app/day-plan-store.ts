@@ -1,3 +1,7 @@
+import octoberFriday from '../content/day-plans/day-2026-10-02.json';
+import octoberThursday from '../content/day-plans/day-2026-10-01.json';
+import septemberTuesday from '../content/day-plans/day-2026-09-29.json';
+import septemberMonday from '../content/day-plans/day-2026-09-28.json';
 import thursdayDay from '../content/day-plans/day-2026-09-24.json';
 import wednesdayDay from '../content/day-plans/day-2026-09-23.json';
 import tuesdayDay from '../content/day-plans/day-2026-09-22.json';
@@ -12,8 +16,8 @@ export type DayPlan = {id:string; date:string; title:string; greeting:string; ar
 export type DayRevision = {revisionId:string; savedAt:string; plan:DayPlan};
 export const DAY_ARCHIVE_KEY='wyatt-day-plan-archive-v1';
 export const DAY_ARCHIVE_EVENT='wyatt:day-plan-archive';
-export const publishedDayPlans:DayPlan[]=[thursdayDay,wednesdayDay,tuesdayDay,mondayDay,thirdDay,secondDay,flexibleFirstDay,firstDay];
-export const DEFAULT_DAY_PLAN_ID=thursdayDay.id;
+export const publishedDayPlans:DayPlan[]=[thursdayDay,octoberFriday,octoberThursday,septemberTuesday,septemberMonday,wednesdayDay,tuesdayDay,mondayDay,thirdDay,secondDay,flexibleFirstDay,firstDay];
+export const DEFAULT_DAY_PLAN_ID=septemberMonday.id;
 const str=(v:unknown,max:number)=>typeof v==='string' && v.length<=max;
 export function parseDayPlan(value:unknown):DayPlan|null {
  if(!value || typeof value!=='object')return null;

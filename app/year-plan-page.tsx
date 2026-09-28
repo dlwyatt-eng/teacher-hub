@@ -1,5 +1,6 @@
 "use client";
 import { RightsPlanning } from "./rights-planning";
+import RecurringTimetable from "./recurring-timetable";
 
 import { ExplorationAnnualMap, type ExplorationDestination } from "./virtual-explorations";
 import { useState } from "react";
@@ -43,6 +44,7 @@ export default function YearPlanPage({ mode, onHome, onAssessment, onWeeklyPlan,
 
       {mode === "teacher" && <ExplorationAnnualMap onExplore={onExplore} />}
 
+      {mode === "teacher" && <RecurringTimetable />}
       <RightsPlanning />
       <section className="calendar-reality" aria-label="School year timing notes">
         <article><small>SCHOOL OPENS</small><strong>Tuesday, Sept. 8</strong><p>Use the first two weeks for belonging, routines, learning profiles, and inquiry habits.</p></article>

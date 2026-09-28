@@ -1,5 +1,6 @@
 "use client";
 import { RightsPlanning } from "./rights-planning";
+import RecurringTimetable from "./recurring-timetable";
 
 import { useState } from "react";
 import { CaptainLeadershipPanel } from "./captain-leadership-panel";
@@ -67,6 +68,7 @@ export function SchoolYearWeeklyPlan({ initialLaunchId, specialLaunches }: Plann
 
   return (
     <>
+      <RecurringTimetable />
       <RightsPlanning />
       <WeeklyPlanPresetSelector
         presets={options}

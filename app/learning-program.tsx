@@ -657,6 +657,14 @@ export function LearningProgramTab({ program, record, tab, selectedExperienceId,
       {program.subject === "Physical & Health Education" && <PheSeasonPlan />}
       {program.subject === "English Language Arts" && <WerewolfUnitLink />}
       {program.subject === "Career Education" && <CaptainLeadershipPanel initialRoute="reflection" />}
+      {program.subject === "Career Education" && <details className="math-full-plan">
+        <summary>Teacher planning · Be The Change Earth Alliance</summary>
+        <div>
+          <p>An existing Career resource/booklet may fit the Grade 6 sequence. Review the authorized resource before choosing a lesson or sharing a teacher-use link. Monday, September 28 has a flexible 1:40–2:05 Career Education launch; the booklet content and lesson length are still unconfirmed.</p>
+          <p>At review, identify the best Grade 6 fit, what works now, approximate time, how independently students can use it, and connections to B.C. Career Education and the Core Competencies. Keep proprietary pages in authorized access.</p>
+          <p>Possible inquiry thread: strengths and interests → values and community needs → careers and contribution → responsibility, actions and solutions. Ask how human progress helps people, creates problems or relies on exploitation only when the selected material and class readiness support that question.</p>
+        </div>
+      </details>}
       <WorldAtlasIntroduction />
       <MathUpMap program={program} />
       {program.subject === "Mathematics" && <MathYearImplementation program={program} />}
