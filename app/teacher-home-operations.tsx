@@ -95,6 +95,8 @@ export default function TeacherHomeOperations({ timeline, onNavigate, onProjectM
         <button type="button" onClick={() => onNavigate("TTOC Day Plan")}><span aria-hidden="true">☷</span><strong>TTOC / print</strong></button>
         <button type="button" onClick={() => onNavigate("Monthly Calendar")}><span aria-hidden="true">▦</span><strong>Month</strong></button>
         <button type="button" onClick={() => onNavigate("Visual Review Studio")}><span aria-hidden="true">◫</span><strong>Choose visuals</strong></button>
+        <a href="https://studentvote.ca/bc/classroom-resources/" target="_blank" rel="noreferrer"><span aria-hidden="true">◉</span><strong>BC Student Vote</strong></a>
+        <a href="https://dlwyatt-eng.github.io/teacher-hub/resources/soccer-playday-quick-reference.html" target="_blank" rel="noreferrer"><span aria-hidden="true">⚽</span><strong>Soccer quick ref</strong></a>
         <a href={publicSiteHref} target="_blank" rel="noreferrer" aria-label="Open the public Student and Family site"><span aria-hidden="true">↗</span><strong>Public site</strong></a>
       </nav>
     </section>
