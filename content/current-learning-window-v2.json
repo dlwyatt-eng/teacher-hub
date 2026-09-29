@@ -1,6 +1,6 @@
 {
   "schemaVersion": "classroom-os-current-window/v2",
-  "contentVersion": "2026-09-28-public-class-schedule",
+  "contentVersion": "2026-09-28-october-equity-calendar-cleanup",
   "sourceUpdatedAt": "2026-09-28",
   "window": {
     "id": "september-opening",
@@ -1277,7 +1277,7 @@
       },
       {
         "title": "Orange-shirt art examples",
-        "text": "On Thursday we plan to begin original artwork connected to Phyllis Webstad’s account and our Truth and Reconciliation learning. The linked examples offer simple symbols, and everyone may begin regardless of unfinished booklet work.",
+        "text": "Orange-shirt art examples are available for our Truth and Reconciliation learning. The linked examples offer simple symbols, and unfinished booklet work does not prevent students from joining the shared art lesson.",
         "link": {
           "label": "See the art examples",
           "url": "https://dlwyatt-eng.github.io/teacher-hub/activities/orange-shirt-art.html"
@@ -1347,8 +1347,8 @@
     ],
     "hotLunchNotice": "The school events calendar lists PAC Hot Lunch on Friday, October 2. Ordering and distribution details were not available in the earlier notice; please check school or PAC instructions before relying on it.",
     "volunteerInvitation": {
-      "title": "Interested in helping?",
-      "text": "We will likely need parent volunteers to drive for field trips and may need help refereeing soccer. If you are interested, or know a high-school student who may be interested in refereeing, please contact Mr. Wyatt. Opportunities and dates are still being arranged; the school will confirm the requirements and approval for each role.",
+      "title": "Interested in helping later this year?",
+      "text": "School volunteer approval can take time. Families interested in helping with future field trips or class activities can begin the district volunteer process early. Forms are submitted to the school office, and driver requirements apply when transportation is involved.",
       "linkLabel": "Email Mr. Wyatt about volunteering"
     }
   },
@@ -1484,8 +1484,8 @@
   ],
   "publicMonthUpdates": {
     "October": {
-      "focus": "Identity, place, evidence, maps, and whose perspectives are represented; a short introduction to expression and fair disagreement",
-      "highlight": "October · Can I disagree? Expression, dignity and fair disagreement."
+      "focus": "Identity, place, evidence, maps, and whose perspectives are represented; October connections include Latin American Heritage Month and Women’s History Month, with source-based stories about contributions, representation, barriers, and belonging; continue fair disagreement.",
+      "highlight": "October · Whose stories shape a community? Latin American Heritage Month + Women’s History Month, connected to representation, rights and evidence."
     },
     "November": {
       "focus": "Government, human rights, media, systems, and respectful disagreement; children’s rights and National Child Day on November 20",
