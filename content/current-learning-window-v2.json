@@ -1,6 +1,6 @@
 {
   "schemaVersion": "classroom-os-current-window/v2",
-  "contentVersion": "2026-09-28-october-equity-calendar-cleanup",
+  "contentVersion": "2026-09-28-october-equity-calendar-visible",
   "sourceUpdatedAt": "2026-09-28",
   "window": {
     "id": "september-opening",
@@ -1392,6 +1392,22 @@
       "dateLabel": "Wed, September 30",
       "title": "National Day for Truth and Reconciliation",
       "detail": "School closed."
+    },
+    {
+      "id": "latin-american-heritage-month",
+      "date": null,
+      "month": "2026-10",
+      "dateLabel": "October 2026",
+      "title": "Latin American Heritage Month",
+      "detail": "Classroom connection: stories, contributions, languages, representation, and belonging. No family action is required."
+    },
+    {
+      "id": "womens-history-month",
+      "date": null,
+      "month": "2026-10",
+      "dateLabel": "October 2026",
+      "title": "Women’s History Month",
+      "detail": "Classroom connection: contributions, recognition, barriers, rights, and whose stories are remembered. No family action is required."
     },
     {
       "id": "open-house",
