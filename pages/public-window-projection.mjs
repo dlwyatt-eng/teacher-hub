@@ -50,7 +50,7 @@ export function buildPublicManifest(existing, source, homePractice) {
     sourceUpdatedAt: source.sourceUpdatedAt,
     window: projectPublicWindow(source.window),
     ...pick(existing, PUBLIC_MANIFEST_KEYS),
-    ...pick(source, ["classroomWelcome", "schoolEvents"]),
+    ...pick(source, ["classroomWelcome", "schoolEvents", "classSchedule"]),
     ...(homePractice ? { homePractice } : {}),
     yearMonths: existing.yearMonths.map(month => {
       const update = source.publicMonthUpdates?.[month.month];

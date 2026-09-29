@@ -1,6 +1,6 @@
 {
   "schemaVersion": "classroom-os-current-window/v2",
-  "contentVersion": "2026-09-28-tuesday-shape-of-day",
+  "contentVersion": "2026-09-28-public-class-schedule",
   "sourceUpdatedAt": "2026-09-28",
   "window": {
     "id": "september-opening",
@@ -1383,7 +1383,7 @@
       "month": "2026-09",
       "dateLabel": "Tue, September 29",
       "title": "Orange Shirt Day",
-      "detail": "Classroom learning and reflection; no home assignment."
+      "detail": "Students are invited to wear an orange shirt on Tuesday if they have one. No purchase is needed; everyone can take part in our classroom learning and reflection."
     },
     {
       "id": "truth-reconciliation",
@@ -1495,5 +1495,75 @@
       "focus": "Root causes, affected perspectives, existing responses, and possible leverage points; racism, equality and freedom of expression for Human Rights Day on December 10",
       "highlight": "Dec. 10 · Rights gallery: racism, equality, expression and fair responses."
     }
+  },
+  "classSchedule": {
+    "updatedOn": "September 28, 2026",
+    "weekOf": "September 28–October 2",
+    "through": "2026-10-02",
+    "days": [
+      {
+        "date": "2026-09-28",
+        "label": "Mon 28",
+        "morning": "Reconciliation Walk",
+        "later": "Decimal rounding; Career Action Packs",
+        "reminder": "Completed in class"
+      },
+      {
+        "date": "2026-09-29",
+        "label": "Tue 29",
+        "morning": "Computers and Career Education",
+        "later": "Math after recess; French/Health after lunch; Nevermoor planned",
+        "reminder": "Orange Shirt Day — wear orange if you have an orange shirt"
+      },
+      {
+        "date": "2026-09-30",
+        "label": "Wed 30",
+        "morning": "School closed",
+        "later": "National Day for Truth and Reconciliation",
+        "reminder": ""
+      },
+      {
+        "date": "2026-10-01",
+        "label": "Thu 1",
+        "morning": "Library book exchange · 9:20–9:35 am",
+        "later": "PE · 11:10–11:50 am; project time after lunch",
+        "reminder": "Open House · 5:30–6:30 pm"
+      },
+      {
+        "date": "2026-10-02",
+        "label": "Fri 2",
+        "morning": "French/Health · 9:35–10:35 am",
+        "later": "PE · 11:10–11:50 am; Arts in the afternoon",
+        "reminder": "PAC Hot Lunch listed — check school/PAC ordering details"
+      }
+    ],
+    "regular": [
+      {
+        "day": "Tuesday",
+        "activity": "French/Health",
+        "time": "12:35–1:35 pm"
+      },
+      {
+        "day": "Thursday",
+        "activity": "Library book exchange",
+        "time": "9:20–9:35 am"
+      },
+      {
+        "day": "Thursday",
+        "activity": "PE",
+        "time": "11:10–11:50 am"
+      },
+      {
+        "day": "Friday",
+        "activity": "French/Health",
+        "time": "9:35–10:35 am"
+      },
+      {
+        "day": "Friday",
+        "activity": "PE",
+        "time": "11:10–11:50 am"
+      }
+    ],
+    "note": "This is our working pattern so far. The Shape of the Day and school notices carry day-to-day changes."
   }
 }
