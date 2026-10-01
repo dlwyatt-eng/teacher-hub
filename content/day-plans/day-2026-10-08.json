@@ -1,0 +1,191 @@
+{
+  "id": "day-2026-10-08",
+  "date": "2026-10-08",
+  "status": "tentative",
+  "title": "Tentative · Thursday · library and early dismissal",
+  "greeting": "Good morning, Grade 6!",
+  "arrival": "This is our working plan. We may adjust it to finish learning well.",
+  "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately. Early dismissal is 1:35 pm; finish jobs and community beforehand. Keep regular library and shared gym unless the school revises the timetable.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:45 am",
+      "title": "Arrival and attendance",
+      "notes": "Attendance before form collection. Collect routine forms afterward; preview tentative day.",
+      "href": "",
+      "firstAction": "Settle in and answer attendance.",
+      "studentSteps": [
+        "Answer attendance, then hand in any forms.",
+        "Look at today’s plan and get paper and a pencil ready."
+      ],
+      "titleKo": "등교·출석 확인",
+      "firstActionKo": "자리에 앉고 출석을 부르면 대답하세요."
+    },
+    {
+      "time": "8:45–9:20 am",
+      "title": "Mathematics · one model, practice and check",
+      "notes": "Choose one concept from the latest check, then one model and two practice items. Comparison option: 4.305 < 4.350, decided by hundredths; rounding option: 7.268 to hundredths is 7.27. Ask for an explanation rather than speed, and stop for library.",
+      "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
+      "firstAction": "Choose one comparison or rounding question you can explain.",
+      "studentSteps": [
+        "Try the model on paper or a whiteboard.",
+        "Explain which place or strategy supports your answer.",
+        "Complete one independent check; use it to choose our next step."
+      ],
+      "activity": {
+        "label": "Number comparison lesson",
+        "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "수학 · 예제 하나, 연습과 확인",
+      "firstActionKo": "설명할 수 있는 수 비교 문제나 반올림 문제를 하나 고르세요."
+    },
+    {
+      "time": "9:20–9:35 am",
+      "title": "Library · book exchange",
+      "notes": "Established Thursday book exchange; return to class by 9:35.",
+      "href": "",
+      "firstAction": "Bring your library book and follow the exchange routine.",
+      "titleKo": "도서관 · 책 반납과 대출",
+      "firstActionKo": "도서관 책을 가져오고 정해진 순서대로 반납과 대출을 하세요."
+    },
+    {
+      "time": "9:35–10:20 am",
+      "title": "English Language Arts · Nevermoor",
+      "notes": "Allow an unhurried listening segment and one idea/detail/explanation response. Use a character recommendation only if the scene offers a meaningful choice; otherwise record a question or prediction. Record the bookmark.",
+      "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+      "firstAction": "Recall the last part we actually heard, or listen to the opening.",
+      "studentSteps": [
+        "Listen for a character or setting detail.",
+        "Write, draw or say an idea and the detail that supports it.",
+        "Keep one question for our next reading."
+      ],
+      "activity": {
+        "label": "Story evidence lesson",
+        "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "영어 · Nevermoor",
+      "firstActionKo": "지난번에 들은 마지막 부분을 떠올리거나 이야기의 시작 부분을 들으세요."
+    },
+    {
+      "time": "10:20–10:35 am",
+      "title": "Snack",
+      "notes": "Protect the usual 10:20 snack start.",
+      "href": "",
+      "firstAction": "Have your snack and tidy your space.",
+      "titleKo": "간식 시간",
+      "firstActionKo": "간식을 먹고 자기 자리를 정리하세요."
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "notes": "",
+      "href": "",
+      "firstAction": "Follow our recess routine.",
+      "titleKo": "쉬는 시간",
+      "firstActionKo": "쉬는 시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "10:50–11:10 am",
+      "title": "Social Studies · evidence and source checking",
+      "notes": "Revisit one familiar fictional claim/source pair. Point to the detail that supports a correction and name one unknown. If the trail is new, model one example and save the full investigation for later.",
+      "href": "?subject=Social+Studies&socialLesson=trace-the-claim&mode=student",
+      "firstAction": "Look at the claim and find the source that could check it.",
+      "studentSteps": [
+        "Separate what the source says from what you think.",
+        "Point to an exact detail that supports or changes a claim.",
+        "Write one careful conclusion and one remaining question."
+      ],
+      "activity": {
+        "label": "Trace the Claim activity",
+        "href": "?subject=Social+Studies&socialLesson=trace-the-claim&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "사회 · 근거와 자료 출처 확인하기",
+      "firstActionKo": "주장을 살펴보고 이를 확인할 수 있는 자료를 찾으세요."
+    },
+    {
+      "time": "11:10–11:50 am",
+      "title": "Physical and Health Education · shared gym",
+      "notes": "Choose a familiar cooperative passing/target activity after checking space, equipment and access. Warm up, practise controlled movements at a suitable distance, then play a short challenge and cool down. Adjust equipment, distance or role so everyone participates.",
+      "href": "",
+      "firstAction": "Listen to the safety directions and choose a way to join.",
+      "studentSteps": [
+        "Practise a controlled pass or target movement.",
+        "Help everyone get an active turn.",
+        "Name one action that helped the group."
+      ],
+      "titleKo": "체육·보건 · 함께하는 체육",
+      "firstActionKo": "안전 수칙을 듣고 참여할 방법을 고르세요."
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "notes": "Usual intermediate routine: outside 11:50–12:12; transition 12:12–12:13; eating 12:13–12:35.",
+      "href": "",
+      "firstAction": "Follow our outside-play and lunch routine.",
+      "titleKo": "점심시간",
+      "firstActionKo": "바깥 놀이와 점심시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "12:35–12:50 pm",
+      "title": "Quiet individual time",
+      "notes": "Preserve a calm reset; a quiet non-reading choice is available.",
+      "href": "",
+      "firstAction": "Choose quiet reading, drawing or an unfinished task.",
+      "titleKo": "조용한 개인 활동 시간",
+      "firstActionKo": "조용히 책 읽기, 그림 그리기, 끝내지 못한 활동 중 하나를 고르세요."
+    },
+    {
+      "time": "12:50–1:15 pm",
+      "title": "Career Education · notice a skill in action",
+      "notes": "Point to one action visible in the inquiry work, then independently suggest a skill or kind of work it may connect to. Ask what evidence supports that connection. Finish “At first I thought __; after trying __ I noticed __; next I wonder __”; an unfinished inquiry may end with a question.",
+      "href": "?subject=Career+Education&experience=career-constellation&mode=student",
+      "firstAction": "Look at your activity work and point to one action you actually tried.",
+      "studentSteps": [
+        "Find evidence of an action you tried.",
+        "Suggest a skill or kind of work that may connect.",
+        "Record one change in thinking or next question."
+      ],
+      "activity": {
+        "label": "Career connection lesson",
+        "href": "?subject=Career+Education&experience=career-constellation&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "진로 교육 · 활동 속에서 사용한 능력 찾기",
+      "firstActionKo": "활동한 내용을 살펴보고 직접 해 본 행동 한 가지를 짚어 보세요."
+    },
+    {
+      "time": "1:15–1:25 pm",
+      "title": "Planners, jobs and cleanup",
+      "notes": "Early-dismissal adaptation of the usual afternoon routine.",
+      "href": "?view=Responsibilities&mode=student",
+      "firstAction": "Record the reminder and restore our room.",
+      "activity": {
+        "label": "Class responsibilities",
+        "href": "?view=Responsibilities&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "알림장·맡은 일·정리",
+      "firstActionKo": "안내 사항을 적고 교실을 정리하세요."
+    },
+    {
+      "time": "1:25–1:35 pm",
+      "title": "Classroom community and early dismissal",
+      "notes": "Short closing circle; passing is welcome. Dismiss at 1:35 pm.",
+      "href": "",
+      "firstAction": "Share, point to or quietly think of one helpful action.",
+      "studentSteps": [
+        "Notice one way someone helped learning today.",
+        "Check your belongings and get ready for dismissal."
+      ],
+      "titleKo": "학급 활동·조기 하교",
+      "firstActionKo": "도움이 된 행동 한 가지를 말하거나 가리키거나 조용히 떠올려 보세요."
+    }
+  ],
+  "backups": [
+    "Carry unfinished learning into the next suitable block rather than adding a second full lesson.",
+    "If the projector or sign-in fails, use paper, the board and available class materials."
+  ]
+}

@@ -11,67 +11,100 @@
       "time": "8:35–9:20 am",
       "title": "Mathematics · compare whole numbers and decimals",
       "notes": "Compare 4,305 < 4,350; 4.305 < 4.350; 0.50 > 0.45. Name deciding places. Check 6.08 < 6.8.",
-      "href": "?subject=Mathematics&mode=student"
+      "href": "?subject=Mathematics&mode=student",
+      "titleKo": "수학 · 수의 크기 비교",
+      "firstAction": "Compare 4,305 and 4,350.",
+      "firstActionKo": "4,305와 4,350의 크기를 비교하세요."
     },
     {
       "time": "9:20–9:35 am",
       "title": "Library · book exchange",
       "notes": "",
-      "href": ""
+      "href": "",
+      "titleKo": "도서관 · 책 반납과 대출",
+      "firstAction": "Get your library book ready.",
+      "firstActionKo": "도서관 책을 준비하세요."
     },
     {
       "time": "9:35–10:20 am",
       "title": "English Language Arts · Nevermoor",
       "notes": "",
-      "href": "?subject=English+Language+Arts&mode=student"
+      "href": "?subject=English+Language+Arts&mode=student",
+      "titleKo": "영어 · Nevermoor",
+      "firstAction": "Listen to the teacher’s directions for Nevermoor.",
+      "firstActionKo": "Nevermoor 활동에 대한 선생님의 안내를 들으세요."
     },
     {
       "time": "10:20–10:35 am",
       "title": "Snack",
       "notes": "",
-      "href": ""
+      "href": "",
+      "titleKo": "간식 시간",
+      "firstAction": "Get your snack ready.",
+      "firstActionKo": "간식을 준비하세요."
     },
     {
       "time": "10:35–10:50 am",
       "title": "Recess",
       "notes": "",
-      "href": ""
+      "href": "",
+      "titleKo": "쉬는 시간",
+      "firstAction": "Listen to the recess directions.",
+      "firstActionKo": "쉬는 시간에 대한 안내를 들으세요."
     },
     {
       "time": "10:50–11:10 am",
       "title": "Open House · binder check",
       "notes": "",
-      "href": ""
+      "href": "",
+      "titleKo": "학교 공개 행사 · 바인더 확인",
+      "firstAction": "Get your binder ready.",
+      "firstActionKo": "바인더를 준비하세요."
     },
     {
       "time": "11:10–11:50 am",
       "title": "Shared gym · cooperative movement",
       "notes": "",
-      "href": ""
+      "href": "",
+      "titleKo": "체육 · 함께 움직이기",
+      "firstAction": "Listen to the activity directions.",
+      "firstActionKo": "활동 방법에 대한 안내를 들으세요."
     },
     {
       "time": "11:50 am–12:35 pm",
       "title": "Lunch",
       "notes": "",
-      "href": ""
+      "href": "",
+      "titleKo": "점심시간",
+      "firstAction": "Get ready for lunch.",
+      "firstActionKo": "점심 먹을 준비를 하세요."
     },
     {
       "time": "12:35–1:00 pm",
       "title": "Quiet individual time",
       "notes": "",
-      "href": ""
+      "href": "",
+      "titleKo": "조용한 개인 활동 시간",
+      "firstAction": "Start your quiet individual activity.",
+      "firstActionKo": "조용히 개인 활동을 시작하세요."
     },
     {
       "time": "1:00–2:05 pm",
       "title": "Career Education and ADST · Action Pack inquiry",
       "notes": "Action Pack inquiry: question, career action, sketch.",
-      "href": ""
+      "href": "",
+      "titleKo": "진로·디자인·기술 · Action Pack 탐구",
+      "firstAction": "Think of a question for your Action Pack inquiry.",
+      "firstActionKo": "Action Pack에서 탐구할 질문을 생각해 보세요."
     },
     {
       "time": "2:05–2:35 pm",
       "title": "Community, planners and jobs",
       "notes": "",
-      "href": ""
+      "href": "",
+      "titleKo": "학급 활동·알림장·맡은 일",
+      "firstAction": "Get your planner ready.",
+      "firstActionKo": "알림장을 준비하세요."
     }
   ],
   "backups": []

@@ -1,3 +1,12 @@
+import october05 from '../content/day-plans/day-2026-10-05.json';
+import october06 from '../content/day-plans/day-2026-10-06.json';
+import october07 from '../content/day-plans/day-2026-10-07.json';
+import october08 from '../content/day-plans/day-2026-10-08.json';
+import october09 from '../content/day-plans/day-2026-10-09.json';
+import october13 from '../content/day-plans/day-2026-10-13.json';
+import october14 from '../content/day-plans/day-2026-10-14.json';
+import october15 from '../content/day-plans/day-2026-10-15.json';
+import october16 from '../content/day-plans/day-2026-10-16.json';
 import octoberFriday from '../content/day-plans/day-2026-10-02.json';
 import octoberThursday from '../content/day-plans/day-2026-10-01.json';
 import septemberTuesday from '../content/day-plans/day-2026-09-29.json';
@@ -10,36 +19,10 @@ import thirdDay from '../content/day-plans/day-2026-09-18.json';
 import secondDay from '../content/day-plans/second-full-day.json';
 import flexibleFirstDay from '../content/day-plans/first-full-day-flexible.json';
 import firstDay from '../content/day-plans/first-full-day.json';
-import {isIsoDateKey} from './morning-screen-state';
-export type DayBlock = {time:string; title:string; notes:string; href:string; studentSteps?:string[]};
-export type DayPlan = {id:string; date:string; title:string; greeting:string; arrival:string; note:string; reflection:string; blocks:DayBlock[]; backups:string[]};
-export type DayRevision = {revisionId:string; savedAt:string; plan:DayPlan};
-export const DAY_ARCHIVE_KEY='wyatt-day-plan-archive-v1';
-export const DAY_ARCHIVE_EVENT='wyatt:day-plan-archive';
-export const publishedDayPlans:DayPlan[]=[thursdayDay,octoberFriday,octoberThursday,septemberTuesday,septemberMonday,wednesdayDay,tuesdayDay,mondayDay,thirdDay,secondDay,flexibleFirstDay,firstDay];
+import {parseDayPlan,readDayRevisions,type DayPlan} from './day-plan-storage';
+export * from './day-plan-storage';
+export const publishedDayPlans:DayPlan[]=[thursdayDay,octoberFriday,octoberThursday,septemberTuesday,septemberMonday,wednesdayDay,tuesdayDay,mondayDay,thirdDay,secondDay,flexibleFirstDay,firstDay,october05,october06,october07,october08,october09,october13,october14,october15,october16].map(plan=>{const clean=parseDayPlan(plan);if(!clean)throw new Error('Invalid published day plan');return clean;});
 export const DEFAULT_DAY_PLAN_ID=septemberMonday.id;
-const str=(v:unknown,max:number)=>typeof v==='string' && v.length<=max;
-export function parseDayPlan(value:unknown):DayPlan|null {
- if(!value || typeof value!=='object')return null;
- const p=value as DayPlan;
- if(!str(p.id,160)||!p.id||!str(p.date,10)||(p.date!==''&&!isIsoDateKey(p.date))||!str(p.title,160)||!p.title.trim()||!str(p.greeting,160)||!str(p.arrival,800)||!str(p.note,6000)||!str(p.reflection,6000))return null;
- if(!Array.isArray(p.blocks)||p.blocks.length<1||p.blocks.length>30||!p.blocks.every(b=>b&&str(b.time,60)&&str(b.title,180)&&b.title.trim()&&str(b.notes,6000)&&str(b.href,500)&&(b.href===''||b.href.startsWith('?view=')||b.href.startsWith('?subject=')||/^\.\/activities\/[a-z0-9-]+\.html$/.test(b.href)||b.href==='https://ca.spacesedu.com/')&&(b.studentSteps===undefined||(Array.isArray(b.studentSteps)&&b.studentSteps.length<=8&&b.studentSteps.every(step=>str(step,500))))))return null;
- if(!Array.isArray(p.backups)||p.backups.length>30||!p.backups.every(b=>str(b,1000)))return null;
- return {id:p.id,date:p.date,title:p.title,greeting:p.greeting,arrival:p.arrival,note:p.note,reflection:p.reflection,blocks:p.blocks.map(b=>({time:b.time,title:b.title,notes:b.notes,href:b.href,...(b.studentSteps?{studentSteps:[...b.studentSteps]}:{})})),backups:[...p.backups]};
-}
-export function parseDayArchive(raw:unknown):DayRevision[] {
- if(!Array.isArray(raw))throw new Error('Choose a Day Plans JSON backup.');
- return raw.map(r=>{
-  const plan=parseDayPlan(r?.plan);
-  if(!plan||!str(r.revisionId,200)||typeof r.savedAt!=='string'||!Number.isFinite(Date.parse(r.savedAt)))throw new Error('The backup contains an invalid plan; nothing was imported.');
-  return {revisionId:r.revisionId,savedAt:r.savedAt,plan};
- });
-}
-export function readDayRevisions():DayRevision[]{
- if(typeof window==='undefined')return [];
- const raw=window.localStorage.getItem(DAY_ARCHIVE_KEY);
- return raw?parseDayArchive(JSON.parse(raw)):[];
-}
 export function listDayPlans():DayPlan[]{
  const plans=new Map(publishedDayPlans.map(p=>[p.id,p]));
  // Reading must not break the published classroom when browser storage is blocked or damaged.
@@ -48,20 +31,3 @@ export function listDayPlans():DayPlan[]{
  return [...plans.values()].sort((a,b)=>b.date.localeCompare(a.date));
 }
 export function dayPlanForDate(date:string):DayPlan|undefined{const matches=listDayPlans().filter(p=>p.date===date);return matches.find(p=>!p.id.startsWith("week-day-"))??matches[0];}
-export function saveDayPlan(plan:DayPlan):DayRevision[]{
- const clean=parseDayPlan(plan);if(!clean)throw new Error('Complete the title, date and activity fields before saving.');
- const records=readDayRevisions();
- const last=[...records].reverse().find(r=>r.plan.id===plan.id);
- if(last&&JSON.stringify(last.plan)===JSON.stringify(clean))return records;
- const next=[...records,{revisionId:crypto.randomUUID(),savedAt:new Date().toISOString(),plan:clean}];
- window.localStorage.setItem(DAY_ARCHIVE_KEY,JSON.stringify(next));
- window.dispatchEvent(new Event(DAY_ARCHIVE_EVENT));return next;
-}
-export function importDayArchive(value:unknown){
- const incoming=parseDayArchive(value), current=readDayRevisions(), ids=new Set(current.map(r=>r.revisionId));
- // Reusing an id with changed bytes is not silently accepted.
- for(const r of incoming){const match=current.find(c=>c.revisionId===r.revisionId);if(match&&JSON.stringify(match)!==JSON.stringify(r))throw new Error('Conflicting revision in backup; existing plans were kept.');}
- const next=[...current,...incoming.filter(r=>!ids.has(r.revisionId))].sort((a,b)=>a.savedAt.localeCompare(b.savedAt));
- window.localStorage.setItem(DAY_ARCHIVE_KEY,JSON.stringify(next));window.dispatchEvent(new Event(DAY_ARCHIVE_EVENT));return next;
-}
-export function schoolYear(date:string){if(!date)return 'Templates';const y=Number(date.slice(0,4))-(Number(date.slice(5,7))<9?1:0);return `${y}–${y+1}`;}

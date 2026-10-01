@@ -1,7 +1,7 @@
 'use client';
 import {useEffect, useState} from 'react';
 import {DAY_ARCHIVE_EVENT, listDayPlans} from './day-plan-store';
-import {classroomRouteForMode, dayPlanStatus, displayedDayPlan, editDayHref, HOME_HREF, recordNavigation, rememberDisplayedDay, shapeOfDayHref} from './classroom-navigation-state';
+import {DISPLAYED_DAY_EVENT, classroomRouteForMode, dayPlanStatus, displayedDayPlan, editDayHref, HOME_HREF, recordNavigation, rememberDisplayedDay, shapeOfDayHref} from './classroom-navigation-state';
 import './classroom-navigation.css';
 
 function useDisplayPlan(routeKey = '') {
@@ -10,8 +10,9 @@ function useDisplayPlan(routeKey = '') {
     const refresh = () => setPlan(displayedDayPlan());
     refresh();
     window.addEventListener(DAY_ARCHIVE_EVENT, refresh);
+    window.addEventListener(DISPLAYED_DAY_EVENT, refresh);
     window.addEventListener('storage', refresh);
-    return () => { window.removeEventListener(DAY_ARCHIVE_EVENT, refresh); window.removeEventListener('storage', refresh); };
+    return () => { window.removeEventListener(DISPLAYED_DAY_EVENT, refresh); window.removeEventListener(DAY_ARCHIVE_EVENT, refresh); window.removeEventListener('storage', refresh); };
   }, [routeKey]);
   return plan;
 }
@@ -30,6 +31,7 @@ export function ClassroomNavigation({active, routeKey, projector}: {active: stri
     <a href={classroomRouteForMode(back, projector)} aria-label="Back to previous classroom screen">← Back</a>
     <a href={classroomRouteForMode(HOME_HREF, projector)} aria-current={active === 'Home' ? 'page' : undefined}>Home</a>
     <a href={shapeOfDayHref(plan.id)} aria-current={active === 'Morning Screen' && projector ? 'page' : undefined}>Shape of the Day</a>
+    {active==='Morning Screen'&&<a href={editDayHref(plan.id)}>Edit this day</a>}
     <button type="button" className="classroom-nav-toggle" aria-expanded={moreOpen} aria-controls="classroom-more-links" onClick={() => setMoreOpen(value => !value)}>More</button>
     <div id="classroom-more-links" className={`classroom-nav-extra${moreOpen ? ' is-open' : ''}`}>
     <label className="classroom-day-picker">Day plan <select value={plan.id} onChange={event => window.location.assign(shapeOfDayHref(event.target.value))}>

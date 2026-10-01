@@ -12,3 +12,18 @@
 .day-plan-date{margin:0 0 12px;padding:9px 14px;border-left:4px solid #97701d;background:#fff4d7;font-size:18px;line-height:1.4;color:#443414}
 .day-plan-date time{font-variant-numeric:tabular-nums}
 @media print{.day-plan-date{background:white;color:black;border-color:black}}
+
+/* Added language support takes its own space; English remains the main line. */
+.day-board-heading{align-items:center;flex-wrap:wrap}.day-board-heading>div{display:grid;gap:4px}
+.day-language-toggle{display:inline-flex;align-items:center;gap:7px;flex-wrap:wrap;border:1px solid #9aae9b;border-radius:10px;padding:10px 13px;background:#fffdf6;color:#234d3a;font:inherit;font-size:16px;font-weight:650;line-height:1.35;cursor:pointer;min-height:44px}
+.day-language-toggle[aria-pressed=true]{background:#dcead7;border-color:#537957}.day-language-state{border-radius:5px;padding:2px 7px;background:#edf0e6;font-size:13px}.day-language-toggle[aria-pressed=true] .day-language-state{background:#2e603f;color:#fff}
+.day-board-sequence>li{align-items:flex-start}.day-block-icon{margin-top:10px}.day-block-content{flex:1}
+.day-korean{display:block;font-family:Arial,'Noto Sans KR',sans-serif;font-weight:500;line-height:1.55;color:#365c48;word-break:keep-all;overflow-wrap:anywhere}.day-block-korean{font-size:clamp(19px,1.6vw,24px);margin:5px 0 0}
+.day-first-action{margin:12px 0 0;padding:10px 0 0;border-top:1px solid #d7dfd0}.day-first-action>strong{display:block;font-size:12px;line-height:1.4;letter-spacing:.07em;text-transform:uppercase;color:#546a54}.day-first-action>p{font-size:clamp(18px,1.5vw,22px);line-height:1.5;margin:3px 0 0;overflow-wrap:anywhere}.day-first-action>.day-korean{margin-top:5px}
+.day-material-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.day-material-link{display:grid;gap:4px;max-width:100%;box-sizing:border-box;border:1px solid #afbea5;border-radius:9px;padding:10px 12px;color:#21482f;background:#e7eedc;text-decoration:none;overflow-wrap:anywhere}.day-material-link>span{font-size:14px;line-height:1.4}.day-material-link>strong{font-size:18px;line-height:1.35}.day-material-worksheet{background:#fff3d3;border-color:#d0b87c;color:#654819}.day-material-link:hover{box-shadow:0 0 0 1px currentColor}.day-full-lesson{flex-basis:100%;font-size:15px;line-height:1.5;color:#385e47;text-underline-offset:3px;padding:4px 0}
+.day-step-dialog h2>.day-korean{font-size:clamp(24px,2.4vw,32px);margin-top:9px}.day-step-dialog .day-first-action{margin:0 0 20px;padding:16px;border:1px solid #d4dec9;border-left:4px solid #597b50;border-radius:8px;background:#edf2e4}.day-step-dialog .day-first-action>strong{font-size:14px}.day-step-dialog .day-first-action>p{font-size:clamp(22px,2vw,28px)}.day-step-dialog .day-material-links{margin:16px 0 24px}.day-step-dialog .day-material-link>strong{font-size:21px}.day-step-dialog .day-material-link>span,.day-step-dialog .day-full-lesson{font-size:17px}
+@media(max-width:850px){.day-board-heading{align-items:flex-start;gap:12px}.day-language-toggle{align-self:flex-start}}
+@media(max-width:480px){.day-material-link{width:100%}.day-block-icon{margin-top:12px}}
+@media print{.day-language-toggle,.day-material-links{display:none}.day-first-action>p,.day-block-korean{font-size:16px}.day-first-action{margin-top:8px;padding-top:7px}}
+
+.day-block-open-hint{display:block;font-size:14px;line-height:1.4;font-weight:650;margin-top:5px;text-decoration:underline;text-underline-offset:3px}.day-board .day-block-title>.day-block-open-hint{color:#385e47}

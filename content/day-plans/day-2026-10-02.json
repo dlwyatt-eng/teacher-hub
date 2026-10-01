@@ -11,67 +11,100 @@
       "time": "8:35–8:50 am",
       "title": "Arrival and attendance",
       "notes": "",
-      "href": ""
+      "href": "",
+      "titleKo": "등교·출석 확인",
+      "firstAction": "Listen to the teacher’s directions.",
+      "firstActionKo": "선생님의 안내를 들으세요."
     },
     {
       "time": "8:50–9:35 am",
       "title": "Mathematics · decimal check and next steps",
       "notes": "Use the prior lesson evidence to choose practice or reteaching.",
-      "href": ""
+      "href": "",
+      "titleKo": "수학 · 소수 학습 확인과 다음 단계",
+      "firstAction": "Listen to the directions for your math task.",
+      "firstActionKo": "수학 활동에 대한 안내를 들으세요."
     },
     {
       "time": "9:35–10:35 am",
       "title": "Core French and Health Education",
       "notes": "",
-      "href": ""
+      "href": "",
+      "titleKo": "프랑스어·보건",
+      "firstAction": "Listen to the teacher’s directions.",
+      "firstActionKo": "선생님의 안내를 들으세요."
     },
     {
       "time": "10:35–10:50 am",
       "title": "Recess",
       "notes": "",
-      "href": ""
+      "href": "",
+      "titleKo": "쉬는 시간",
+      "firstAction": "Listen to the recess directions.",
+      "firstActionKo": "쉬는 시간에 대한 안내를 들으세요."
     },
     {
       "time": "10:50–11:10 am",
       "title": "Snack and prepare for gym",
       "notes": "Use an accessible, cooperative activity.",
-      "href": ""
+      "href": "",
+      "titleKo": "간식 먹고 체육 준비하기",
+      "firstAction": "Get your snack ready.",
+      "firstActionKo": "간식을 준비하세요."
     },
     {
       "time": "11:10–11:50 am",
       "title": "Gym · movement and team skills",
       "notes": "Use an accessible, cooperative activity.",
-      "href": ""
+      "href": "",
+      "titleKo": "체육 · 몸 움직이기와 협동",
+      "firstAction": "Listen to the activity directions.",
+      "firstActionKo": "활동 방법에 대한 안내를 들으세요."
     },
     {
       "time": "11:50 am–12:35 pm",
       "title": "Lunch",
       "notes": "",
-      "href": ""
+      "href": "",
+      "titleKo": "점심시간",
+      "firstAction": "Get ready for lunch.",
+      "firstActionKo": "점심 먹을 준비를 하세요."
     },
     {
       "time": "12:35–12:55 pm",
       "title": "Quiet individual time",
       "notes": "",
-      "href": ""
+      "href": "",
+      "titleKo": "조용한 개인 활동 시간",
+      "firstAction": "Start your quiet individual activity.",
+      "firstActionKo": "조용히 개인 활동을 시작하세요."
     },
     {
       "time": "12:55–2:05 pm",
       "title": "Arts Education · create and explain",
       "notes": "Make or continue art; explain one artistic choice.",
-      "href": "./activities/orange-shirt-art.html"
+      "href": "./activities/orange-shirt-art.html",
+      "titleKo": "미술 · 만들고 설명하기",
+      "firstAction": "Begin or continue your art.",
+      "firstActionKo": "작품을 만들기 시작하거나 이어서 만드세요."
     },
     {
       "time": "2:05–2:20 pm",
       "title": "Classroom community",
       "notes": "",
-      "href": ""
+      "href": "",
+      "titleKo": "학급 활동",
+      "firstAction": "Listen to the teacher’s directions.",
+      "firstActionKo": "선생님의 안내를 들으세요."
     },
     {
       "time": "2:20–2:35 pm",
       "title": "Planners, jobs and dismissal",
       "notes": "",
-      "href": ""
+      "href": "",
+      "titleKo": "알림장·맡은 일·하교",
+      "firstAction": "Get your planner ready.",
+      "firstActionKo": "알림장을 준비하세요."
     }
   ],
   "backups": []

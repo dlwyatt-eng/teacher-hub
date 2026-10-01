@@ -1,6 +1,7 @@
 import {DEFAULT_DAY_PLAN_ID, listDayPlans, publishedDayPlans, type DayPlan} from './day-plan-store';
 import {vancouverDateKey} from './morning-screen-state';
 
+export const DISPLAYED_DAY_EVENT = 'wyatt:displayed-day';
 const DAY_KEY = 'wyatt-displayed-day-v1';
 const TRAIL_KEY = 'wyatt-navigation-trail-v1';
 export const HOME_HREF = '?view=Home';
@@ -8,8 +9,8 @@ export const HOME_HREF = '?view=Home';
 export function chooseDisplayPlan(plans: DayPlan[], date: string, explicit?: string | null, remembered?: {id: string; date: string} | null): DayPlan {
   return plans.find(p => p.id === explicit)
     ?? plans.find(p => remembered?.date === date && p.id === remembered.id)
-    ?? plans.find(p => p.date === date && !p.id.startsWith('week-day-'))
-    ?? plans.find(p => p.date === date)
+    ?? plans.find(p => p.date === date && p.status !== 'tentative' && !p.id.startsWith('week-day-'))
+    ?? plans.find(p => p.date === date && p.status !== 'tentative')
     ?? plans.find(p => p.id === DEFAULT_DAY_PLAN_ID)
     ?? publishedDayPlans[0];
 }
@@ -19,12 +20,14 @@ export function displayedDayPlan(): DayPlan {
   try { plans = listDayPlans(); } catch { /* Published plans remain usable. */ }
   let remembered = null;
   try { remembered = JSON.parse(window.sessionStorage.getItem(DAY_KEY) || 'null'); } catch { /* Storage is optional. */ }
-  const explicit = typeof window === 'undefined' ? null : new URLSearchParams(window.location.search).get('dayPlan');
+  const params = typeof window === 'undefined' ? null : new URLSearchParams(window.location.search);
+  const explicit = params?.get('dayPlan') ?? (params?.get('view') === 'Day Plans' ? params.get('plan') : null);
   return chooseDisplayPlan(plans, vancouverDateKey(), explicit, remembered);
 }
 
 export function rememberDisplayedDay(id: string) {
   try { window.sessionStorage.setItem(DAY_KEY, JSON.stringify({id, date: vancouverDateKey()})); } catch { /* Navigation still works without storage. */ }
+  if (typeof window !== 'undefined') window.dispatchEvent?.(new Event(DISPLAYED_DAY_EVENT));
 }
 
 export const shapeOfDayHref = (id = displayedDayPlan().id) => `?view=Morning+Screen&mode=student&dayPlan=${encodeURIComponent(id)}`;
@@ -46,7 +49,8 @@ export function recordNavigation(): string {
   } catch { return HOME_HREF; }
 }
 
-export function dayPlanStatus(plan: Pick<DayPlan, 'date'>, today = vancouverDateKey()) {
+export function dayPlanStatus(plan: Pick<DayPlan, 'date'|'status'>, today = vancouverDateKey()) {
+  if (plan.status === 'tentative') return 'Tentative plan · review before teaching';
   if (!plan.date) return 'Reusable template';
   if (plan.date === today) return "Today's plan";
   return plan.date < today ? 'Archived plan' : 'Upcoming plan';

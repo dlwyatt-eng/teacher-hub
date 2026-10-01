@@ -1,0 +1,177 @@
+{
+  "id": "day-2026-10-05",
+  "date": "2026-10-05",
+  "status": "tentative",
+  "title": "Tentative · Monday · number sense, story and inquiry",
+  "greeting": "Good morning, Grade 6!",
+  "arrival": "This is our working plan. We may adjust it to finish learning well.",
+  "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately. Start with the Mathematics check before choosing the week’s next concept.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:45 am",
+      "title": "Arrival and attendance",
+      "notes": "Attendance before form collection. Collect routine forms afterward; preview tentative day.",
+      "href": "",
+      "firstAction": "Settle in and answer attendance.",
+      "studentSteps": [
+        "Answer attendance, then hand in any forms.",
+        "Look at today’s plan and get paper and a pencil ready."
+      ],
+      "titleKo": "등교·출석 확인",
+      "firstActionKo": "자리에 앉고 출석을 부르면 대답하세요."
+    },
+    {
+      "time": "8:45–9:45 am",
+      "title": "Mathematics · round, compare and explain",
+      "notes": "Check independently: 6.08 vs 6.8 (<), 0.50 vs 0.5 (=), and 7.264 to hundredths (7.26). Model the weakest idea, using 6.080 < 6.800 or a labelled chart. Partners order 0.405, 0.45, 0.5; add whole-number comparisons only if ready. Exit: explain 0.62 > 0.602.",
+      "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
+      "firstAction": "Compare 6.08 and 6.8. Show how you know.",
+      "studentSteps": [
+        "Try the model on paper or a whiteboard.",
+        "Explain which place or strategy supports your answer.",
+        "Complete one independent check; use it to choose our next step."
+      ],
+      "activity": {
+        "label": "Number comparison lesson",
+        "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "수학 · 반올림하고 비교하고 설명하기",
+      "firstActionKo": "6.08과 6.8의 크기를 비교하고, 어떻게 알았는지 보여 주세요."
+    },
+    {
+      "time": "9:45–10:20 am",
+      "title": "English Language Arts · Nevermoor",
+      "notes": "If the journal needs launching, model idea + heard detail + explanation. Otherwise revisit a prediction using one new detail. Allow brief writing, labelled drawing, speech or dictation, and record the bookmark.",
+      "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+      "firstAction": "Recall the last part we actually heard, or listen to the opening.",
+      "studentSteps": [
+        "Listen for a character or setting detail.",
+        "Write, draw or say an idea and the detail that supports it.",
+        "Keep one question for our next reading."
+      ],
+      "activity": {
+        "label": "Story evidence lesson",
+        "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "영어 · Nevermoor",
+      "firstActionKo": "지난번에 들은 마지막 부분을 떠올리거나 이야기의 시작 부분을 들으세요."
+    },
+    {
+      "time": "10:20–10:35 am",
+      "title": "Snack",
+      "notes": "Protect the usual 10:20 snack start.",
+      "href": "",
+      "firstAction": "Have your snack and tidy your space.",
+      "titleKo": "간식 시간",
+      "firstActionKo": "간식을 먹고 자기 자리를 정리하세요."
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "notes": "",
+      "href": "",
+      "firstAction": "Follow our recess routine.",
+      "titleKo": "쉬는 시간",
+      "firstActionKo": "쉬는 시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "10:50–11:50 am",
+      "title": "Social Studies · evidence and source checking",
+      "notes": "Start at the first untaught step of Trace the Claim’s fictional school-trip trail. Model claim versus checkable detail, play one A/B/C round, then trace part of the rumour. Partners underline wording that changes the claim and write a careful correction. If already familiar, apply the routine to an available, previewed Action Pack source with creator/title visible.",
+      "href": "?subject=Social+Studies&socialLesson=trace-the-claim&mode=student",
+      "firstAction": "Look at the claim and find the source that could check it.",
+      "studentSteps": [
+        "Separate what the source says from what you think.",
+        "Point to an exact detail that supports or changes a claim.",
+        "Write one careful conclusion and one remaining question."
+      ],
+      "activity": {
+        "label": "Trace the Claim activity",
+        "href": "?subject=Social+Studies&socialLesson=trace-the-claim&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "사회 · 근거와 자료 출처 확인하기",
+      "firstActionKo": "주장을 살펴보고 이를 확인할 수 있는 자료를 찾으세요."
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "notes": "Usual intermediate routine: outside 11:50–12:12; transition 12:12–12:13; eating 12:13–12:35.",
+      "href": "",
+      "firstAction": "Follow our outside-play and lunch routine.",
+      "titleKo": "점심시간",
+      "firstActionKo": "바깥 놀이와 점심시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "12:35–1:00 pm",
+      "title": "Quiet individual time",
+      "notes": "Preserve a calm reset; a quiet non-reading choice is available.",
+      "href": "",
+      "firstAction": "Choose quiet reading, drawing or an unfinished task.",
+      "titleKo": "조용한 개인 활동 시간",
+      "firstActionKo": "조용히 책 읽기, 그림 그리기, 끝내지 못한 활동 중 하나를 고르세요."
+    },
+    {
+      "time": "1:00–2:00 pm",
+      "title": "Career Education · Action Pack question and first check",
+      "notes": "Recover the chosen issue/question; do not restart finished work. Initial check: what do I think now, and what do I want to find out? Use the teacher’s available Be the Change choices for one manageable student-chosen activity, then ask what action/skill students noticed and who might use it. Final reflection: one changed idea, one possible work/service connection and one next question; students discover the connection themselves.",
+      "href": "?subject=Career+Education&experience=career-constellation&mode=student",
+      "firstAction": "Record the issue you chose, or one you want to explore.",
+      "studentSteps": [
+        "Choose or recover your issue and question.",
+        "Try one small part of your chosen activity.",
+        "Reflect on an action you used and where it might help."
+      ],
+      "activity": {
+        "label": "Career connection lesson",
+        "href": "?subject=Career+Education&experience=career-constellation&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "진로 교육 · Action Pack 질문과 첫 점검",
+      "firstActionKo": "선택한 문제나 탐구해 보고 싶은 문제를 적으세요."
+    },
+    {
+      "time": "2:00–2:15 pm",
+      "title": "Planners, jobs and cleanup",
+      "notes": "Keep routine cleanup around 2:00; move unfinished learning forward.",
+      "href": "?view=Responsibilities&mode=student",
+      "firstAction": "Restore our room and record any confirmed reminders.",
+      "activity": {
+        "label": "Class responsibilities",
+        "href": "?view=Responsibilities&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "알림장·맡은 일·정리",
+      "firstActionKo": "교실을 정리하고 확정된 안내 사항을 적으세요."
+    },
+    {
+      "time": "2:15–2:30 pm",
+      "title": "Classroom community",
+      "notes": "Use a short check-in, appreciation or familiar cooperative game. Students may speak, draw, point or pass; keep feedback specific and avoid public rankings.",
+      "href": "",
+      "firstAction": "Notice one helpful action from today.",
+      "studentSteps": [
+        "Offer one specific appreciation or listen.",
+        "Name a small next step for tomorrow."
+      ],
+      "titleKo": "학급 활동",
+      "firstActionKo": "오늘 도움이 된 행동 한 가지를 떠올려 보세요."
+    },
+    {
+      "time": "2:30–2:35 pm",
+      "title": "Pack up and dismissal",
+      "notes": "",
+      "href": "",
+      "firstAction": "Check your belongings and get ready for a calm departure.",
+      "titleKo": "짐 챙기기·하교",
+      "firstActionKo": "자기 물건을 확인하고 차분히 하교할 준비를 하세요."
+    }
+  ],
+  "backups": [
+    "Carry unfinished learning into the next suitable block rather than adding a second full lesson.",
+    "If the projector or sign-in fails, use paper, the board and available class materials."
+  ]
+}

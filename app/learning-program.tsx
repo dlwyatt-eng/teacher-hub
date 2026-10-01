@@ -37,6 +37,9 @@ import EquationBalanceLab from "./math-equation-lab";
 import type { DailyLaunch } from "./daily-launch";
 import { TeacherDailyLaunchButton } from "./student-home-portal";
 import { ProjectorQuickStart } from "./projector-lesson";
+import { classroomLaunchFor } from "./lesson-classroom-launches";
+import { ClassroomLaunchStage, ClassroomLaunchResources, TeacherClassroomLaunch } from "./lesson-classroom-launch";
+import "./lesson-classroom-launch.css";
 import ProjectorCaseDeck from "./projector-case-deck";
 import SourceMosaicLab, { SourceMosaicStaticPack, sourceMosaicExperienceId } from "./ela-source-mosaic-lab";
 import GeometryScreenLab from "./math-geometry-screen-lab";
@@ -537,6 +540,7 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
   } satisfies DailyLaunch;
   return (
     <article className="program-experience-detail">
+      {classroomLaunchFor(experience.id) && <TeacherClassroomLaunch launch={classroomLaunchFor(experience.id)!} />}
       {program.subject === "Mathematics" && <><div className="math-teacher-launch"><a href={`?subject=Mathematics&experience=${encodeURIComponent(experience.id)}&mode=student`}>Open student screens →</a></div>{experience.id === "decimal-dispatch" ? <DecimalInvoiceLaunch /> : <section className="math-teacher-anchor" aria-label="Lesson question and first move"><p><small>BIG QUESTION</small><strong>{studentContract.challenge}</strong></p><p><small>FIRST MOVE</small><span>{studentContract.firstAction}</span></p></section>}<details className="math-resource-drawer"><summary>Teaching materials · worksheets, videos, games &amp; practice</summary><MathResourceWorkbench key={experience.id} experienceId={experience.id} /></details></>}
       <details className="lesson-preparation-extras"><summary>Pin lesson, print materials &amp; optional resources</summary>
       <TeacherDailyLaunchButton launch={dailyLaunch} />
@@ -841,6 +845,10 @@ function ProjectorRouteReady({ contract }: { contract: StudentLessonContract }) 
 export function StudentLearningProgram({ program, record, selectedExperienceId, onExperience }: StudentProgramProps) {
   const selected = selectedExperience(program, selectedExperienceId);
   const [projectorPart, setProjectorPart] = useState(0);
+  const [fullSequenceFor, setFullSequenceFor] = useState<string | null>(null);
+  const classroomLaunch = classroomLaunchFor(selected.id);
+  const focusedLaunch = classroomLaunch && fullSequenceFor !== selected.id ? classroomLaunch : null;
+  useEffect(() => { setProjectorPart(0); }, [selected.id]);
   const partNavRef = useRef<HTMLElement>(null);
   useEffect(() => {
     const currentPart = partNavRef.current?.querySelector<HTMLElement>('[aria-current="step"]');
@@ -948,6 +956,11 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
   }
   if (currentConnection) parts.push({ label: "Source", verb: "Investigate", content: <CurrentConnectionPlayer connection={currentConnection} /> });
   parts.push({ label: "Done", verb: "Check", content: <section className="projector-active-object projector-done-screen"><header><small>YOU&apos;RE DONE WHEN</small><h2>Show what you learned—not just what you made.</h2></header><ol>{studentContract.finishEvidence.map((item, index) => <li key={item}><b>{index + 1}</b><span>{item}</span></li>)}</ol><footer><strong>{studentContract.saveAction.message}</strong><span>If AI helped, check every idea and rewrite it in your own words. Never add private information or raw AI output to SpacesEDU.</span></footer></section> });
+  // Reuse the existing player navigation; never stack a second lesson player.
+  // Switching to Full sequence restores the original parts and all their materials.
+  if (focusedLaunch) parts.splice(0, parts.length, ...focusedLaunch.stages.map((stage, index) => ({
+    label: stage.label, verb: stage.label, content: <ClassroomLaunchStage key={`${selected.id}-${index}`} launch={focusedLaunch} stageIndex={index} />,
+  })));
   const activePart = parts[Math.min(projectorPart, parts.length - 1)] ?? parts[0];
   const companionRole = learningCompanionRole(activePart.label, activePart.verb, projectorPart, parts.length);
   const clarityPhase = activePart.label === "Done"
@@ -960,14 +973,15 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
     <div className="student-program projector-lesson-player world-surface" data-world={theme.id} style={worldStyle(theme)}>
       <details className="projector-lesson-picker"><summary>Change lesson</summary><LessonSwitcher program={program} selected={selected} onExperience={onExperience} /></details>
       <header className="projector-lesson-player__bar">
-        <div><small>{program.subject.toUpperCase()} · {selectedArc.title.toUpperCase()}</small><h1>{studentTitleFor(selected)}</h1><p>{studentContract.challenge}</p></div>
+        <div><small>{program.subject.toUpperCase()} · {selectedArc.title.toUpperCase()}</small><h1>{focusedLaunch?.title ?? studentTitleFor(selected)}</h1><p>{focusedLaunch?.question ?? studentContract.challenge}</p>{classroomLaunch && <div className="classroom-launch-choice" role="group" aria-label="Choose lesson length"><button type="button" aria-pressed={Boolean(focusedLaunch)} onClick={() => { setFullSequenceFor(null); setProjectorPart(0); }}>Focused lesson</button><button type="button" aria-pressed={!focusedLaunch} onClick={() => { setFullSequenceFor(selected.id); setProjectorPart(0); }}>Full sequence</button><span>{focusedLaunch ? classroomLaunch.duration + " · paper-first" : "Original lesson + materials"}</span></div>}</div>
         <nav ref={partNavRef} aria-label="Lesson parts">{parts.map((part, index) => <button type="button" key={`${part.label}-${index}`} className={projectorPart === index ? "active" : ""} aria-current={projectorPart === index ? "step" : undefined} onClick={() => setProjectorPart(index)}><b>{index + 1}</b><span>{part.label}</span></button>)}</nav>
       </header>
 
       <main className="projector-lesson-player__stage" aria-live="polite">
 
         {activePart.content}
-        <ProjectorLessonHelp key={`${selected.id}-help`} panels={[
+        {focusedLaunch && <ClassroomLaunchResources launch={focusedLaunch} />}
+        {!focusedLaunch && <ProjectorLessonHelp key={`${selected.id}-help`} panels={[
           {label: "Get ready", content: <><section className="projector-clarity-strip" aria-label="Learning goal, first action, and finish"><article data-learning-phase="learn" data-current={clarityPhase === "learn"}><small>WE ARE LEARNING</small><strong>{learningLine}</strong></article><article data-learning-phase="do" data-current={clarityPhase === "do"}><small>FIRST STEP</small><strong>{studentContract.firstAction}</strong></article><article data-learning-phase="done" data-current={clarityPhase === "done"}><small>WE WILL MAKE / SHOW</small><strong>{studentFinishSummary(selected.id, plainForStudents(selected.product))}</strong></article></section><ClassroomCompanion
           key={`${selected.id}-${projectorPart}`}
           role={companionRole}
@@ -979,7 +993,7 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
           {label: "Explain & model", content: <><HelpList title="Explain the idea" items={readinessLaunch.background} /><h3>{readinessLaunch.example.title}</h3><ol>{readinessLaunch.example.steps.map((step, index) => <li key={index}>{step}</li>)}</ol><p>{readinessLaunch.example.conclusion}</p><h3>Words we use</h3>{projectorWords.map(word => <p key={word.term}><b>{word.term}:</b> {word.meaning}<br /><b>Example:</b> {word.example}</p>)}</>},
           {label: "Ask & check", content: <><HelpList title="Look for in the work" items={selected.lookFors} />{readinessLaunch.questions.map((question, index) => <section key={index}><h3>{question.prompt}</h3><ul>{question.choices.map(choice => <li key={choice}>{choice}</li>)}</ul><RevealForDiscussion><p>{question.choices[question.answer]} — {question.feedback}</p></RevealForDiscussion></section>)}<p><b>If students need another try:</b> {readinessLaunch.reteach}</p><p>{studentContract.saveAction.message}</p>{program.subject === "Mathematics" && <RevealForDiscussion label="Open mathematics teaching notes / answers"><MathTeacherWorkshops experienceId={selected.id} placement={phasedCoordinateBridge ? "extension" : "before"} /></RevealForDiscussion>}{kit && <RevealForDiscussion label="Open supplied answer cards"><HelpList title="Check after trying" items={kit.cards.filter(card => /(?:answer|core answers|teacher key)/i.test(card.title)).map(card => `${card.title}: ${card.body}`)} /></RevealForDiscussion>}</>},
           {label: "Sources & print", content: <>{kit && (program.subject === "Arts Education" ? <ArtsStudioFolio experience={selected} kit={{...kit, cards: kit.cards.filter(card => !/(?:answer|core answers|teacher key)/i.test(card.title))}} /> : <KitCards kit={kit} experienceId={selected.id} student />)}{selected.id === sourceMosaicExperienceId && <SourceMosaicStaticPack />}<MediaStrip items={media} student /><OptionalTeachingResources lessonId={selected.id} teacher extras={interactiveLab ? [{id: "model", title: "Interactive model", content: interactiveLab}] : []} /><details><summary>More teacher-selected subject sources</summary>{program.resources.map(resource => <p key={resource.url}><a href={resource.url} target="_blank" rel="noreferrer">{resource.label}</a> · {resource.source}<br />{resource.purpose}</p>)}</details></>}
-        ]} />
+        ]} />}
         <details className="student-program-picker student-unit-map-drawer" id="unit-map">
           <summary><span><small>UNIT MAP</small><strong>{selectedArc.title}</strong></span><b>Open ▾</b></summary>
           <div>{program.arcs.map((arc) => <section key={arc.id}><p>{arc.number} · {arc.title}</p>{arc.experienceIds.map((id) => {const experience = program.experiences.find((item) => item.id === id);return experience ? <button key={id} className={selected.id === id ? "selected" : ""} onClick={() => onExperience(id)}>{studentTitleFor(experience)}</button> : null;})}</section>)}</div>
