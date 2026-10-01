@@ -11,7 +11,7 @@
       "time": "8:35–9:20 am",
       "title": "Mathematics · compare whole numbers and decimals",
       "notes": "Compare 4,305 < 4,350; 4.305 < 4.350; 0.50 > 0.45. Name deciding places. Check 6.08 < 6.8.",
-      "href": "?subject=Mathematics&mode=student",
+      "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
       "titleKo": "수학 · 수의 크기 비교",
       "firstAction": "Compare 4,305 and 4,350.",
       "firstActionKo": "4,305와 4,350의 크기를 비교하세요."
@@ -29,7 +29,7 @@
       "time": "9:35–10:20 am",
       "title": "English Language Arts · Nevermoor",
       "notes": "",
-      "href": "?subject=English+Language+Arts&mode=student",
+      "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
       "titleKo": "영어 · Nevermoor",
       "firstAction": "Listen to the teacher’s directions for Nevermoor.",
       "firstActionKo": "Nevermoor 활동에 대한 선생님의 안내를 들으세요."
@@ -92,7 +92,7 @@
       "time": "1:00–2:05 pm",
       "title": "Career Education and ADST · Action Pack inquiry",
       "notes": "Action Pack inquiry: question, career action, sketch.",
-      "href": "",
+      "href": "?subject=Career+Education&experience=career-constellation&mode=student",
       "titleKo": "진로·디자인·기술 · Action Pack 탐구",
       "firstAction": "Think of a question for your Action Pack inquiry.",
       "firstActionKo": "Action Pack에서 탐구할 질문을 생각해 보세요."
