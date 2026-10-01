@@ -35,6 +35,7 @@ const emittedEntries = await Promise.all(emittedFiles.map(async (file) => [
 ]));
 const emittedByPath = new Map(emittedEntries);
 const emitted = emittedEntries.map(([, content]) => content).join("\n");
+assert.doesNotMatch(emitted, /\.\/teacher-hub\/(?:printables|images|downloads|icons)\//, "A relative material path was incorrectly prefixed with the Pages base.");
 for (const phrase of ["Grade 6 Discovery Rotations", "Identity Constellation", "MANUAL MODE"]) {
   assert.ok(emitted.includes(phrase), `Fresh artifact is missing expected content: ${phrase}`);
 }

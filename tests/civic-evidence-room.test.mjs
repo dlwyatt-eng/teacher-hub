@@ -104,7 +104,7 @@ test("Civic sources are current and Pages rewriting cannot corrupt external path
     assert.ok(program.includes(current) || pathway.includes(current), `Current source is missing: ${current}`);
   }
   assert.match(search, /The Civic Evidence Room/);
-  assert.match(postbuild, /\(\?<!\[A-Za-z0-9\]\)/);
+  assert.match(postbuild, /\(\?<!\[A-Za-z0-9\.\]\)/);
   assert.doesNotMatch(postbuild, /replaceAll\(`\/\$\{folder\}\//);
 });
 
