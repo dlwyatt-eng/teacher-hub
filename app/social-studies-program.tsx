@@ -89,7 +89,7 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
       { title: "Meet the three maps", action: "Watch the class screen. For each map, point to one detail you can actually see. Say it aloud, add it to the board, or sketch it on paper.", product: "One visible detail and one question from each map" },
       { title: "Find each map’s job", action: "Look at who made the map and what it shows. Decide what the map helps people find, understand, or plan.", product: "A spoken, board, or paper comparison of the three map jobs" },
       { title: "Use the maps together", action: "Choose useful details from more than one map. Explain something about Fleetwood that one map could not show by itself.", product: "One class claim with evidence and one thing the maps still cannot tell us" },
-      { title: "Teach the mapmaker’s choices", action: "Choose a Fleetwood question. Explain what each map adds, what it leaves out, and why several perspectives help.", product: "A short explanation shared aloud, on the board, or on paper" },
+      { title: "Teach the mapmaker’s choices", action: "Choose a Fleetwood question. Use two maps to propose an answer. Explain what each adds and one question that needs another source or a person’s knowledge.", product: "A short explanation shared aloud, on the board, or on paper" },
     ],
   },
   "who-drew-the-world": {
@@ -245,7 +245,7 @@ const studentLessonCopy: Record<string, StudentLessonCopy> = {
       { title: "Discover three real responses", action: "At each station, record: Who is acting? What are they trying to change? What did they do? What result does the source show? Who does it reach? What is still unknown?", product: "Three concise response records" },
       { title: "Sort by what the response does", action: "Sort responses into help now, prevent the problem, or change the rules and conditions. A response can fit more than one group. Use a source to explain your choice.", product: "A sort with a reason for each choice; change a choice if the evidence calls for it" },
       { title: "Put each response under pressure", action: "Ask: Is there evidence it works? Who benefits or misses out? Who pays? Are rights respected? What new problem might it cause? Then try one surprise change, such as less funding.", product: "A comparison with one serious limit" },
-      { title: "Borrow carefully", action: "Keep, adapt, or question one feature. Turn your reason into a design rule for your own project.", product: "One rule for our project, with a source-based reason" },
+      { title: "Borrow carefully", action: "Keep, adapt, or question one feature. Explain a condition under which it could help and a condition under which it might fail. Use those limits in your project’s design rule.", product: "One rule for our project, with a source-based reason" },
     ],
   },
   "make-it-teachable": {

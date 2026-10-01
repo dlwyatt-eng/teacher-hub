@@ -440,7 +440,7 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
         "Break point: neurons are living cells using electrical and chemical signals; they do not work exactly like internet cables and routers.",
         "Final wording: ‘A message network helps us picture signal routes, but it does not copy how living neurons create and process signals.’",
       ],
-      conclusion: "A strong metaphor names the useful match and posts a clear stop sign where the match ends.",
+      conclusion: "A useful metaphor reveals a connection. Explain where that comparison helps and where a literal reading would mislead.",
     },
     checks: [
       {
@@ -460,9 +460,9 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
   }),
 
   "precision-poetry": support("precision-poetry", {
-    purpose: "Turn an exact observation into a vivid poem without bending the science until it becomes false.",
+    purpose: "Use an exact observation to explore an image or feeling. Distinguish a literal science claim from figurative language.",
     background: [
-      "Observation records what can be noticed. Explanation tells why it may be happening. A poem can use both, but should not mix them carelessly.",
+      "Observation records what you notice; explanation proposes why. A poem can also imagine or personify. Explain which kind of language you chose and what it does.",
       "Precise subject words can carry sound, rhythm, and meaning; they do not have to be replaced by vague ‘poetic’ words.",
       "Imagery helps an audience picture, hear, or feel a moment through carefully chosen details.",
       "Line breaks and repeated sounds guide pace and emphasis when a poem is read aloud.",
@@ -610,7 +610,7 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
         "Unknown layer: mark that the card does not establish cultural meaning, community response, season, or how the site changes over time.",
         "Viewer response says the water path is clear but the bench disappears. Increase value contrast around the bench and test again.",
       ],
-      conclusion: "Visual technique creates meaning while the four-part legend keeps evidence and imagination honest.",
+      conclusion: "The legend distinguishes source, observation, and invention. Two viewers may still build different meanings from the same visual choices.",
     },
     checks: [
       { prompt: "Which note belongs under artistic interpretation?", choices: ["The official source names the artist and title.", "I directly counted three repeated forms.", "I used widening blue curves to make the water route feel more active."], answer: 2, feedback: "The artist chose the widening curves and their intended effect. The other choices are source context or direct observation." },
@@ -623,7 +623,7 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
     purpose: "Use sequence and spacing to guide an audience, then improve the path after a no-coaching test.",
     background: [
       "Sequence is the order in which the audience meets each part. Spacing shows which parts belong together.",
-      "A clear entry point tells the audience where to begin; a clear ending shows when the experience is complete.",
+      "An entry point helps an audience begin. A fixed order or an open route can both work: explain which serves this artwork and its audience.",
       "During a test, record what the viewer does, where they pause, and what they ask. Do not record names or ratings.",
     ],
     terms: terms(
@@ -641,7 +641,7 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
         "Revision: enlarge the moth image as entry, sequence moth → rain → snail, place the sound cue at rain, and end with ‘trace one pattern.’",
         "Second test: viewers begin at the moth and reach the ending, but one cannot access the sound; add the printed graphic-score route beside it.",
       ],
-      conclusion: "The revision follows audience actions and improves both artistic sequence and access.",
+      conclusion: "This revision improves access to the intended sequence. A different arrangement could invite exploration; test it against that intention instead.",
     },
     checks: [
       { prompt: "Which note is audience evidence?", choices: ["I think the display is beautiful.", "The viewer began at the middle caption, paused for twelve seconds, and asked where to start.", "Everyone will love the colours."], answer: 1, feedback: "It records an observable route, pause, and question without turning the test into a rating." },

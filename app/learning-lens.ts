@@ -76,11 +76,14 @@ export function runSheetAccessibilityFor(subject: string): readonly string[] {
 }
 
 const discussionBySubject: Record<string, readonly string[]> = {
-  Science: ["What did you observe—not infer?", "Which result supports that idea?", "What result would make us revise the model?"],
-  "Social Studies": ["What does the source actually show?", "Who is affected or still missing?", "What new evidence would make us revise?"],
-  Mathematics: ["What makes the strategy work?", "Where is that visible in the model?", "Can another representation verify it?"],
-  "English Language Arts": ["Which exact detail shaped your interpretation?", "What did the creator choose or leave out?", "What revision would help this audience?"],
-  "Arts Education": ["Which exact artistic element or technique do you notice?", "What effect does that choice have—and what evidence makes you say so?", "What could change while the intention stays clear?", "How does the creator, work, place, time, or context shape our response?"],
+  Science: ["Which observation supports your explanation? Could another explanation fit it?", "What fair test would help us tell those explanations apart?", "What can this model or result explain, and what remains uncertain?"],
+  "Social Studies": ["What does this source support, and whose account could add or challenge something?", "Who benefits, who carries a cost, and who has power to change the decision?", "Which response can you justify, and what consequence or missing evidence still concerns you?"],
+  Mathematics: ["Why does your strategy work for these numbers?", "Can a different representation confirm it or expose a mistake?", "Would your claim always hold? Try another case or a counterexample."],
+  "English Language Arts": ["Which detail supports your reading, and which detail complicates it?", "Could another reader make a different case from the same text? Compare the evidence.", "Which uncertainty is worth keeping, and which confusion needs a revision for this audience?"],
+  "Arts Education": ["Which element or technique shaped your response? Point to a moment or detail.", "How does the artist's context inform your reading without fixing a single meaning?", "How could two viewers respond differently to this choice?", "What would a revision gain or lose? Explain what you would change or deliberately keep."],
+  "Applied Design, Skills & Technologies": ["Which need is stated, and which have we assumed?", "What does each possible design improve, and what does it make harder?", "Whose use did we test? What would we need to learn before claiming it works more widely?"],
+  "Physical & Health Education": ["What changed in participation, choice, or enjoyment? Where does the evidence disagree?", "What did the rule or environment make easier or harder?", "Would this strategy work in another situation? Explain what we should test next."],
+  "Career Education": ["Which action helped in this task, and when might a different action help?", "Whose less visible contribution made the result possible?", "What could you try next to learn about a skill without deciding your whole future?"],
 };
 
 export function runSheetDiscussionMovesFor(subject: string): readonly string[] {

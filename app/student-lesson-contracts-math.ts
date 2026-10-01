@@ -15,8 +15,8 @@ export const mathStudentLessonContracts = {
     ] }],
     steps: [
       { title: "Estimate + start", action: "Predict the answer's size, then begin with any sensible method.", finishCheck: "You have an estimate and a visible first move.", minutes: "3 min" },
-      { title: "Compare two routes", action: "Study two correct class solutions. Find where they use the same facts and where their moves differ.", finishCheck: "You can explain one connection between the routes.", minutes: "5 min" },
-      { title: "Borrow one move", action: "Solve again using one useful move from another route, then compare it with your first attempt.", finishCheck: "Both routes agree, or you found and repaired the mismatch.", minutes: "8 min" },
+      { title: "Compare two routes", action: "Compare two correct class solutions. Find the shared facts, then decide which route you would use for these numbers and why.", finishCheck: "You can explain one connection between the routes.", minutes: "5 min" },
+      { title: "Borrow one move", action: "Solve again using one useful move from another route, then compare it with your first attempt.", finishCheck: "Both routes agree, or you repaired the mismatch. Explain when the borrowed move would be useful.", minutes: "8 min" },
       { title: "Coach + check", action: "Teach one route to a partner one move at a time. Switch, then check the answer another way.", finishCheck: "Both partners can reuse one move and explain why the answer is reasonable.", minutes: "7 min" },
     ],
     finishEvidence: ["A quick estimate", "One accurate calculation route", "A second route or check", "A connection between methods", "A partner explanation"],
@@ -36,25 +36,25 @@ export const mathStudentLessonContracts = {
   {
     "title": "Make two identical kits",
     "action": "Share 24 red and 36 blue counters equally between two kits. Use every counter.",
-    "finishCheck": "Each kit has 12 red and 18 blue counters.",
+    "finishCheck": "Each kit has the same amount of each colour. Recombine the kits to check both original totals.",
     "minutes": "Session 1 · 10 min"
   },
   {
     "title": "Find the possible numbers of kits",
     "action": "List the factors of 24 and the factors of 36. Circle numbers in both lists. Test one circled number with counters.",
-    "finishCheck": "The shared factors are 1, 2, 3, 4, 6 and 12. Each divides both supplies exactly.",
+    "finishCheck": "Each circled number divides both supplies exactly. Explain how your lists show you have found every possibility.",
     "minutes": "Session 1 · 35 min"
   },
   {
     "title": "Make the most kits",
     "action": "Choose the greatest shared factor. Divide each colour by that number to find what belongs in one kit.",
-    "finishCheck": "You make 12 kits with 2 red and 3 blue in each. Check: 12 × 2 = 24 and 12 × 3 = 36.",
+    "finishCheck": "Explain why a larger number of identical kits would not work. Multiply back to check both supplies.",
     "minutes": "Session 1 · 10 min"
   },
   {
     "title": "Find the next shared flash",
     "action": "Two lights flash together at 0. One flashes every 4 seconds and one every 6 seconds. Write both sets of times until a time appears in both lists.",
-    "finishCheck": "4, 8, 12 and 6, 12 first share 12 seconds. Use the same method on the 6-second and 8-second kit card.",
+    "finishCheck": "Identify the first shared time after zero and explain why it is first. Then try the 6-second and 8-second kit card.",
     "minutes": "Session 2 · 55 min"
   },
   {
@@ -212,7 +212,7 @@ export const mathStudentLessonContracts = {
       { title: "Build percent landmarks", action: "Match 10%, 25%, and 50% to shaded grids, friendly fractions, and whole-number examples.", finishCheck: "Every model and number agrees.", minutes: "Session 1 · 55 min" },
       { title: "Find sale prices", action: "Find the amount saved first, then subtract it from the original price.", finishCheck: "Each offer separates original price, discount, and final price.", minutes: "Session 2 · 55 min" },
       { title: "Read the brief", action: "Mark the required items, spending limit, and two useful or welcoming features.", finishCheck: "Your group knows the must-haves before shopping.", minutes: "Session 3 · 20 min" },
-      { title: "Build a budget plan", action: "Choose offers, show each calculation, and keep a running total.", finishCheck: "Every must-have is included and the checked total stays within the limit.", minutes: "Session 3 · 35 min" },
+      { title: "Build a budget plan", action: "Compare two possible purchases using the brief. Show the prices and running total, then justify your choice using both cost and usefulness.", finishCheck: "Every must-have is included and the checked total stays within the limit.", minutes: "Session 3 · 35 min" },
       { title: "Respond + redesign", action: "Draw a surprise card, change the plan, recalculate affected totals, and show before and after.", finishCheck: "The revised plan still meets the needs and budget.", minutes: "Session 4 · 55 min" },
     ],
     finishEvidence: ["Percent and fraction models", "Correct savings and prices", "A complete event plan", "A checked total", "A recalculated redesign"],
@@ -249,8 +249,8 @@ export const mathStudentLessonContracts = {
     steps: [
       { title: "Become the graph", action: "Place the shared data in time order and make each height match its value.", finishCheck: "The class model matches every data card.", minutes: "Session 1 · 25 min" },
       { title: "Tell the pattern", action: "Describe where the amount rises, falls, or stays close without explaining why yet.", finishCheck: "Every statement can be checked against the values.", minutes: "Session 1 · 25 min" },
-      { title: "Compare the scales", action: "Inspect two graphs made from the same data. Compare starting points and jump sizes.", finishCheck: "You can explain why one graph looks steeper without calling its values false.", minutes: "Session 2 · 50–55 min" },
-      { title: "Build an honest graph", action: "Draw the data with a title, labelled axes, units, equal jumps, and a useful scale.", finishCheck: "A partner can recover every original value from the graph.", minutes: "Session 3 · 35–40 min" },
+      { title: "Compare the scales", action: "Compare the starting points and jumps on two graphs of the same data. Which helps you read exact values? Which helps you notice small changes? Justify a scale for your purpose.", finishCheck: "You can explain why one graph looks steeper without calling its values false.", minutes: "Session 2 · 50–55 min" },
+      { title: "Build an honest graph", action: "Draw the data with a title, labelled axes, units, equal jumps, and a useful scale.", finishCheck: "A partner can recover the original values. Explain what your scale makes easier to notice and what it makes less obvious.", minutes: "Session 3 · 35–40 min" },
       { title: "Claim + limit", action: "Write one sentence the graph supports and one question it cannot answer.", finishCheck: "The claim uses visible data and the limit names missing information.", minutes: "Session 3 · 15 min" },
     ],
     finishEvidence: ["A correct class or desk model", "A same-data scale comparison", "An accurate line graph", "One supported claim", "One honest limit"],
@@ -270,7 +270,7 @@ export const mathStudentLessonContracts = {
       { title: "Test 20 times", action: "Test the game 20 times in the same way. Tally every result, including repeated results that surprise you.", finishCheck: "The table contains exactly 20 trials.", minutes: "Session 1 · 20 min" },
       { title: "Combine + compare", action: "Add class results and compare the experimental fraction with the design prediction.", finishCheck: "You name both fractions and describe the difference without calling normal variation cheating.", minutes: "Session 2 · 50–55 min" },
       { title: "Change the chance", action: "Alter one section, face, or counter. Predict the new chance before testing.", finishCheck: "The changed design and prediction agree.", minutes: "Session 3 · 45–55 min" },
-      { title: "Retest + explain", action: "Run another fair test and explain what changed, what varied, and what a larger test might show.", finishCheck: "Your conclusion uses the design and trial evidence.", minutes: "Session 4 · 45–55 min" },
+      { title: "Retest + explain", action: "Run another fair test. Separate the chance predicted by the design from the results you observed. Explain why another group could get different results without either group making an error.", finishCheck: "Your conclusion uses the design and trial evidence.", minutes: "Session 4 · 45–55 min" },
     ],
     finishEvidence: ["A design-based probability", "A complete tally", "A class-total comparison", "A redesigned game", "An explanation of variation"],
     saveAction: { kind: "keep-in-class", message: "Keep the chance-game record in class. Add it only if it is selected as the Data and Probability example." }, readiness: "teach",

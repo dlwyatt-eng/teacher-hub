@@ -16,6 +16,10 @@ Preserve the current source and the existing GitHub Pages addresses. Compare loc
 - Show manageable amounts of student text. Verify controls and graphics with the actual supported visual-review tools when requested and available. Preserve all printable questions and exclude teacher-only answers.
 - Compare curriculum coverage with current official BC standards. Distinguish optional extensions from required Grade 6 learning. Teacher-authored resources are useful comparators, not evidence of universal classroom practice.
 
+## Interpretive depth
+
+Keep clear starting inputs, models, and accessible directions while allowing supported interpretations, competing explanations, and justified design choices. Assess disciplinary thinking rather than box counts or decoration. Distinguish a factual error from a different defensible reading; do not force consensus or a revision unsupported by evidence. When revising lesson language, align teacher, projector, print and optional AI instructions. See `docs/LESSON_NUANCE_SWEEP_2026-09-30.md`.
+
 ## Honest release reports
 
 Report mathematical/content review, automated checks, visual checks, classroom use and publication as separate evidence. If browser access or another check is unavailable, say so explicitly. Repairs may be published with a stated testing limitation; do not call the entire sequence classroom-ready on that basis.

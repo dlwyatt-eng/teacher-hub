@@ -2,7 +2,7 @@ import { werewolfLessons } from "./werewolf-lessons";
 // Authored student-facing summaries. Full assessment criteria stay in each lesson contract.
 export const STUDENT_FINISH_SUMMARIES: Record<string, string> = {
   ...Object.fromEntries(werewolfLessons.map(l => [l.id, l.product])),
-  "ordinary-object-story": "A spoken story and six-sentence draft that help a listener follow the beginning, turning point, and ending.",
+  "ordinary-object-story": "A spoken story and short draft with a clear sequence and a detail that gives the listener something to interpret.",
   "magnitude-gallery": "Two number lines showing 0.008, with an explanation of how the scale changes its position.",
   "pattern-forecast": "A pattern card showing how your rule predicts Stage 10 without building every stage.",
   "source-mosaic": "A suggestion for a cooler, more welcoming outdoor area, using facts from more than one source.",
@@ -41,7 +41,7 @@ export const STUDENT_FINISH_SUMMARIES: Record<string, string> = {
   "three-voices": "Three versions of one scene showing what each narrator notices differently while keeping the same facts.",
   "edit-room": "A three-picture edit and caption that guide the audience without hiding important parts of the event.",
   "character-council": "A suggestion for what a character should do next, explained using text details and a response to another idea.",
-  "turning-point-remix": "A scene retold in a new form that keeps the original problem and important meaning clear.",
+  "turning-point-remix": "A scene retold from a chosen viewpoint, with a note about what that viewpoint reveals and leaves out.",
   "bloxels-story-blueprint": "A story plan and game map that put clues where players need them to follow the story.",
   "hook-cold-audience": "A tested opening that catches attention and helps the audience understand the idea you want to teach.",
   "metaphor-with-limits": "A science explanation using a comparison, with a warning about where the comparison stops working.",

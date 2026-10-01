@@ -5,7 +5,7 @@ import { schoolAILessonCoaching } from "./schoolai-lesson-coaching";
 import "./schoolai-support.css";
 
 const coaches = [
-  ["Discuss together", "Ask one question about the lesson. Invite different explanations, then ask the class to check the evidence.", "Agree on an answer and explain one reason."],
+  ["Discuss together", "Ask one question about the lesson. Invite different explanations, then ask the class to check the evidence.", "Explain a supported answer and a remaining question. If interpretations differ, compare the evidence without forcing agreement."],
   ["Help me get started", "Break the task into smaller steps. Model a similar example, then ask the learner to try the first step of their own task. Give one hint at a time.", "Complete one step independently and explain it."],
   ["Practise with a partner", "Offer one related practice question at a time. Ask partners to explain and check each other, then switch roles. Do not reveal the answer before an attempt.", "Each partner explains one solution without AI."],
   ["Try a deeper challenge", "Offer one challenge that deepens this lesson rather than adding repetitive questions. For mathematics, optional exponents or four-quadrant coordinates may be used only when relevant; explain unfamiliar ideas first.", "Make a solution, model or counterexample and justify it."],

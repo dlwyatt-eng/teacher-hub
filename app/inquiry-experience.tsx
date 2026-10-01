@@ -131,7 +131,7 @@ const studentMoves: Record<string, StudentMove[]> = {
     { label: "Choose a plane and explain", action: "Choose the plane you think will fly farthest. Use one feature of its shape in your reason.", response: "A prediction that begins: ‘I predict… because…’" },
     { label: "Fix the flight test", action: "Make the launch, start line, measuring, and number of trials the same for every plane.", response: "A short list of rules for a fair test" },
     { label: "Run three rounds", action: "Test every plane three times. Compare all the results, not only the longest flight.", response: "Nine distances, three averages, and one pattern" },
-    { label: "Choose the supported claim", action: "Use the average and how steady the flights were. Then name one limit of this test.", response: "A claim, two pieces of evidence, and one limit" },
+    { label: "Choose the supported claim", action: "Use the average and spread of the flights. Would you choose the same plane for one long flight as for reliable flights? Explain what the evidence supports and what three trials leave uncertain.", response: "A claim, two pieces of evidence, and one limit" },
   ],
   "signal-case": [
     { label: "Test your reaction time", action: "Complete three trials. Notice whether your results are exactly the same or different.", response: "Three results and one possible reason they changed" },
@@ -238,7 +238,7 @@ const studentMoves: Record<string, StudentMove[]> = {
   "cosmic-exhibit-studio": [
     { label: "Find the beautiful mistakes", action: "Open each poster claim and decide what is misleading.", response: "Classify it as scale, structure, motion, evidence, or a missing warning." },
     { label: "Choose one story", action: "Decide on the single idea your audience should remember.", response: "If the title includes “and,” the topic may still be too broad." },
-    { label: "Build, cite, and warn", action: "Create the exhibit and add a visible note explaining what the model distorts.", response: "A partner checks accuracy before decoration." },
+    { label: "Build, cite, and warn", action: "Create the exhibit. Explain which relationship the model helps us understand and which feature it distorts. Would a different model serve another question better?", response: "A partner checks the explanation, source evidence, and model limit before finishing." },
     { label: "Bring possible topics", action: "Compare your four topic possibilities for interest, evidence, safety, scope, and value to the class.", response: "Bring your best two to the expert-team planning conference." },
   ],
 };

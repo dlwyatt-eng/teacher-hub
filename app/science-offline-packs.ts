@@ -479,7 +479,7 @@ const packs = {
         prompts: [
           "Turn a broad topic into one two-minute learning goal—for example: why distant light is old, how rotation changes our sky view, why a scale model must distort size or distance, or what problem one Canadian technology addresses.",
           "Plan: learning goal; source capsule 1 and what it supports; source capsule 2 and what it supports; visual/model; audience action; exact ‘This model distorts…’ warning; two-minute teaching order.",
-          "Peer-audit: Is the idea focused? Are important claims supported? Are creator/source names visible? Is structure or motion accurate? Is every distortion named? Is uncertainty honest? Does the audience do some thinking?",
+          "Peer-audit: What question does this model answer? What would a different model show better? Check the claims, source credits, structure or motion, and named distortions. Ask the audience to explain a relationship the model helped them understand.",
           "Record feedback, make one visible before/after revision, teach for two minutes, and complete an individual reflection naming the evidence that caused the revision. Keep work local unless the teacher selects it for the June showcase.",
         ],
       },

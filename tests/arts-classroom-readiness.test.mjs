@@ -95,7 +95,7 @@ test("Arts exposes the rebuilt four-arc, six-studio year pathway", async () => {
 
   const foundation = artsProgram.experiences.find((experience) => experience.id === "four-arts-languages");
   assert.match(foundation.duration, /5 × 50–60 min/);
-  assert.match(foundation.product, /complete.*four-part Arts folio/i);
+  assert.match(foundation.product, /four-part Arts folio/i);
   assert.match(foundation.studentMission, /visual study.*graphic sound score.*tableau storyboard.*movement score/i);
 });
 
@@ -239,9 +239,9 @@ test("LearningProgram ships a dedicated complete printable Arts folio route", as
   assert.match(learningProgram, /Large visual planning area/);
   assert.match(learningProgram, /Writing and reflection space/);
 
-  assert.match(learningProgram, /Complete the whole folio\./, "Students need an explicit whole-folio expectation.");
-  assert.match(learningProgram, /Every response section receives evidence, a purposeful attempt, or an agreed accessibility route\./, "The whole-folio promise must preserve an equivalent accessibility route.");
-  assert.match(learningProgram, /Add colour, symbols, borders, spacing, pattern, or drawing where they strengthen meaning; decoration is never graded\./, "Decoration should be invited purposefully without becoming an assessment criterion.");
+  assert.match(learningProgram, /Record observations, technique trials, choices, and responses/, "The folio must keep evidence of artistic thinking explicit.");
+  assert.doesNotMatch(learningProgram, /Every response section receives|Complete the whole folio\./, "Box completion must not stand in for artistic understanding.");
+  assert.match(learningProgram, /when they serve your intention; decoration is never graded\./, "Visual choices must serve intention rather than a decoration requirement.");
   assert.match(learningProgram, /WHOLE-FOLIO CHECK/);
   assert.match(learningProgram, /An accommodation may reduce response length or use oral\/scribed evidence without deleting the learning section\./, "Accessibility may change response mode or length without silently deleting the learning.");
 

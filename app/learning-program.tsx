@@ -201,12 +201,12 @@ function ArtsStudioFolio({ experience, kit }: { experience: ProgramExperience; k
       <div><p className="section-kicker">COMPLETE STUDENT ORGANIZER · PRINT OR COPY THE HEADINGS</p><h3>{experience.title} · studio folio</h3><p>Student / initials: ____________________ &nbsp; Date(s): ____________________</p></div>
       <button type="button" onClick={(event) => printClosest(event.currentTarget, ".arts-studio-folio")}>Print complete folio</button>
     </header>
-    <p className="arts-studio-folio__promise"><b>Complete the whole folio.</b> Every response section receives evidence, a purposeful attempt, or an agreed accessibility route. Add colour, symbols, borders, spacing, pattern, or drawing where they strengthen meaning; decoration is never graded.</p>
+    <p className="arts-studio-folio__promise"><b>Use the folio to develop your work.</b> Record observations, technique trials, choices, and responses. A labelled question or sketch can show thinking; every box need not contain a polished answer. Use colour, symbols, space, or pattern when they serve your intention; decoration is never graded.</p>
     <div>{kit.cards.map((card, index) => <article className={`arts-folio-page arts-folio-page--${artsFolioWorkspaceKind(card.title)}`} key={card.title}>
       <header><span>{String(index + 1).padStart(2, "0")}</span><div><h4>{card.title}</h4><p>{card.body}</p></div></header>
       <ArtsFolioWorkspace title={card.title} />
     </article>)}</div>
-    <footer><b>WHOLE-FOLIO CHECK</b><span>All response sections visited · source and creative credit visible · safety/access route followed · audience or performer evidence recorded · revision and next improvement named. An accommodation may reduce response length or use oral/scribed evidence without deleting the learning section.</span></footer>
+    <footer><b>WHOLE-FOLIO CHECK</b><span>Technique trials and choices recorded · source and creative credit visible · safety/access route followed · audience or performer evidence considered · revision or retained choice explained. An accommodation may reduce response length or use oral/scribed evidence without deleting the learning section.</span></footer>
   </section>;
 }
 

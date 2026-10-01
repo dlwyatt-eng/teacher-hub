@@ -69,7 +69,7 @@ export const classroomLaunches: ClassroomLaunch[] = [
     subject: "English Language Arts",
     title: "A clue changes the choice",
     duration: "30–40 min",
-    question: "What might a character do next, and what clue supports your idea?",
+    question: "What makes this character’s choice difficult, and what does the text let us infer?",
     goal: "Separate a story detail from a prediction, then revise using evidence.",
     materials: "Class copy or approved audio of Nevermoor, current bookmark, pencil + paper or response sheet. Speaking with a scribe works too.",
     preparation: [
@@ -80,13 +80,13 @@ export const classroomLaunches: ClassroomLaunch[] = [
     stages: [
       { label: "Notice", minutes: "3 min", title: "Your first idea is allowed to change.", prompt: "A promise points one way. New information points another.", moves: ["Should a character stick to a promise or reconsider? Think first, then compare ideas.", "Before deciding, name one thing you would need to know."] },
       { label: "Model", minutes: "6–8 min", title: "A detail is evidence. A prediction is your thinking.", prompt: "Original fictional case · Lina and the library vote", moves: ["Detail: 18 of 25 younger readers chose the comics workshop in the survey.", "Prediction: Lina might ask for another discussion because the survey adds new information.", "Another view: her promise matters too. She could explain the survey to her friend before the vote."] },
-      { label: "Try", minutes: "15–20 min", title: "Listen for a clue. Build two possibilities.", prompt: "Read or listen from our actual bookmark to the teacher's stopping point.", moves: ["On paper, name the character and problem. Paraphrase one exact detail and note where it occurred.", "Suggest two possible next actions. Connect each to a clue, or mark what you do not yet know.", "Trade ideas. A partner asks: ‘Which detail supports that?’ Revise one sentence after checking."] },
+      { label: "Try", minutes: "15–20 min", title: "Listen for a clue. Build two possibilities.", prompt: "Read or listen from our actual bookmark to the teacher's stopping point.", moves: ["On paper, name the character and problem. Paraphrase one exact detail and note where it occurred.", "Suggest two possible actions. For each, name a clue and something the character could gain, lose, or misunderstand.", "Trade ideas. Ask: ‘Which detail makes your choice harder?’ Revise or defend your idea after checking the text."] },
       { label: "Check", minutes: "5 min", title: "What changed your thinking?", prompt: "Write or say: ‘I think ___ because the text shows ___.’", moves: ["Add: ‘Another possibility is ___. I would need to know ___.’", "Point to the difference between the text detail and your prediction.", "Keep your response in your reading journal. No upload needed."] },
     ],
     paperPrompts: [
       { title: "1 · Our reading", prompt: "Text + start/stop point: ____. Character + problem: ____. No book today? Use the Lina case above." },
       { title: "2 · A clue I can locate", prompt: "Paraphrase one exact detail. Note its page, audio point or moment. What does it show?" },
-      { title: "3 · Two possible choices", prompt: "The character might __ because __. Another possible choice is __ because __. What is still unknown?" },
+      { title: "3 · Two possible choices", prompt: "The character might __ because __, but risks __. Another choice is __. Which clue makes deciding difficult? What is unknown?" },
       { title: "4 · Check + revise", prompt: "After my partner's question, I think __ because the text shows __. I changed or kept my idea because __." },
     ],
     teacherCheck: [
@@ -111,7 +111,7 @@ export const classroomLaunches: ClassroomLaunch[] = [
     stages: [
       { label: "Notice", minutes: "4 min", title: "One issue. More than one useful role.", prompt: "Fictional challenge: a refill-station queue blocks a school doorway.", moves: ["Who could help the team understand the problem before it changes anything?", "Name an action, not a ‘type of person’. A role is a piece of work anyone can practise."] },
       { label: "Model", minutes: "7–9 min", title: "Turn a concern into a question and a skill.", prompt: "How could a queue leave a clear route through the doorway?", moves: ["Observer → notices where the queue forms → careful observation.", "Designer → sketches two queue layouts → planning and clear labels.", "Checker → traces routes on the paper plans → testing and explaining. A real change would need teacher approval."] },
-      { label: "Try", minutes: "18–25 min", title: "Build your question-to-action sketch.", prompt: "Start with your chosen Action Pack issue, or use our fictional queue.", moves: ["Write one question. Record one source detail and the pack title, or label your work ‘fictional case’.", "Sketch three connected roles. Label what each does and one useful skill. Mark guesses as ‘to check’.", "Choose a skill to practise with a paper sketch or safe class task. Ask a partner what evidence would show it helped."] },
+      { label: "Try", minutes: "18–25 min", title: "Build your question-to-action sketch.", prompt: "Start with your chosen Action Pack issue, or use our fictional queue.", moves: ["Write one question. Record one source detail and the pack title, or label your work ‘fictional case’.", "Sketch three connected roles. Label what each does and one useful skill. Mark guesses as ‘to check’.", "Choose a skill to practise with a paper sketch or safe class task. Ask whose needs the plan addresses, whose view is missing, and what evidence would show it helped."] },
       { label: "Check", minutes: "6 min", title: "What is your next useful move?", prompt: "Explain: question → role → skill → safe first step.", moves: ["Before a class test, record: ‘I will try __. I will look for __.’ Get teacher approval for a real-world action.", "After trying it: ‘I did __. The evidence was __. Next I would __.’ If not tried yet, label it ‘planned’.", "Keep the sketch in class. A SpacesEDU post is only needed if the teacher later opens an activity."] },
     ],
     paperPrompts: [
