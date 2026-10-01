@@ -1,8 +1,8 @@
 {
-  "id": "day-2026-10-14",
-  "date": "2026-10-14",
+  "id": "day-2026-10-07",
+  "date": "2026-10-07",
   "status": "tentative",
-  "title": "Tentative · Wednesday · continue, test and reflect",
+  "title": "Tentative · Wednesday · test evidence and make a first version",
   "greeting": "Good morning, Grade 6!",
   "arrival": "This is our working plan. We may adjust it to finish learning well.",
   "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately.",
@@ -23,10 +23,10 @@
     },
     {
       "time": "8:45–9:45 am",
-      "title": "Mathematics · use evidence to choose practice",
-      "notes": "Continue Tuesday’s actual route: decimal comparison/rounding with a visual explanation, or already-introduced partial products. For operations, compare 24 × 10 + 24 × 5 and 20 × 15 + 4 × 15; both give 360. Repair 36 × 24 = 720 + 24: four groups of 36 are 144, giving 864. Match the independent check to the chosen route; division can wait.",
+      "title": "Mathematics · comparison detectives",
+      "notes": "Model the error “more decimal digits means greater”: 0.405 < 0.450. Pairs repair 6.08 > 6.8 and 0.50 ≠ 0.5 using a chart or line, then choose targeted rounding or ordering practice. Independent check: 2.005 < 2.05 < 2.5, with the deciding place explained. Secure learners can discuss a whole-number strategy without starting another full lesson.",
       "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
-      "firstAction": "Recover yesterday’s model and explain the first step.",
+      "firstAction": "Decide whether 0.405 is greater than 0.45 and explain.",
       "studentSteps": [
         "Try the model on paper or a whiteboard.",
         "Explain which place or strategy supports your answer.",
@@ -37,13 +37,13 @@
         "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
         "studentSafe": true
       },
-      "titleKo": "수학 · 학습 결과에 맞는 연습 고르기",
-      "firstActionKo": "어제 배운 예제를 다시 보고 첫 단계를 설명하세요."
+      "titleKo": "수학 · 수 비교 탐정",
+      "firstActionKo": "0.405가 0.45보다 큰지 판단하고 이유를 설명하세요."
     },
     {
       "time": "9:45–10:20 am",
       "title": "English Language Arts · Nevermoor",
-      "notes": "Continue the novel and a short evidence response. Hold a small character council only if the scene supports two plausible choices; otherwise use an inference and detail. Record the bookmark.",
+      "notes": "Make a two-column note: detail heard / what it suggests. Hear a partner’s different idea, then revise or defend your own with the text. Record the bookmark.",
       "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
       "firstAction": "Recall the last part we actually heard, or listen to the opening.",
       "studentSteps": [
@@ -79,22 +79,22 @@
     },
     {
       "time": "10:50–11:50 am",
-      "title": "Social Studies · maps and perspective",
-      "notes": "Finish an earlier inquiry first if needed. Otherwise open Three maps of Fleetwood and preview its linked maps before class. Use the Meet and Purpose scenes, modelling visible detail versus inference. Compare two maps before adding the third if time permits. A missing label does not prove a place or community does not exist. Keep one supported claim and one unanswered question; continue later instead of completing the whole sequence in one hour.",
-      "href": "?subject=Social+Studies&socialLesson=maps-make-arguments&mode=student",
-      "firstAction": "Look at the first Fleetwood map. Point to a detail you can actually see.",
+      "title": "Science · the evidence challenge",
+      "notes": "Resume the actual fair-test stopping point. Paper data in metres: Dart 8.4, 4.2, 5.1; Glider 6.2, 6.5, 6.3; Stunt 4.9, 5.2, 5.0. Compare repeated results and consistency; supplied means rounded to tenths are 5.9, 6.3, 5.0, so calculating means need not be assessed. Finish with a claim, two results and one limit, or continue the fair-test plan if needed.",
+      "href": "?view=Science+Lesson&lesson=science-launch&mode=student",
+      "firstAction": "Make a prediction and give one reason.",
       "studentSteps": [
-        "Compare the projected maps: who made each, and what does it make easy to see?",
-        "Choose a question about Fleetwood. Explain which map helps answer it.",
-        "Name a limit or a missing perspective; explain what other source would help."
+        "Name what changes, what we measure and what stays the same.",
+        "Compare more than one result before deciding.",
+        "Use a result to explain your claim and one limit."
       ],
       "activity": {
-        "label": "Maps and perspective",
-        "href": "?subject=Social+Studies&socialLesson=maps-make-arguments&mode=student",
+        "label": "Science evidence challenge",
+        "href": "?view=Science+Lesson&lesson=science-launch&mode=student",
         "studentSafe": true
       },
-      "titleKo": "사회 · 지도와 관점",
-      "firstActionKo": "첫 번째 Fleetwood 지도를 보세요. 실제로 보이는 정보를 하나 짚어 보세요."
+      "titleKo": "과학 · 근거 찾기 도전",
+      "firstActionKo": "결과를 예상하고 그 이유를 한 가지 설명하세요."
     },
     {
       "time": "11:50 am–12:35 pm",
@@ -117,7 +117,7 @@
     {
       "time": "1:00–2:00 pm",
       "title": "ADST · make, test and improve",
-      "notes": "Return to the paper prototype, or make the first small version if needed. Watch a new user’s first action without coaching and record a pause or misunderstanding without names. Check the message against its source before improving the design, then retest one change. Keep a before/after sketch and an evidence-based reason.",
+      "notes": "Use an inquiry message/task only when it is supported; otherwise continue inquiry work. Make a small three-step instruction card, sorting task or question-and-evidence card after a fictional teacher model. Name the user and one success test, then watch a partner try without coaching and note a pause without names. Revise one confusing part; keep the prototype in class.",
       "href": "?subject=ADST&experience=cold-test-prototype&mode=student",
       "firstAction": "Choose one small paper version another person can try.",
       "studentSteps": [
@@ -172,7 +172,6 @@
   ],
   "backups": [
     "Carry unfinished learning into the next suitable block rather than adding a second full lesson.",
-    "If the projector or sign-in fails, use paper, the board and available class materials.",
-    "If the operations route has been selected: ?subject=Mathematics&experience=strategy-league&mode=student"
+    "If the projector or sign-in fails, use paper, the board and available class materials."
   ]
 }

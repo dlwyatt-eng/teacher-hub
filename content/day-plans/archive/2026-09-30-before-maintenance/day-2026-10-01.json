@@ -4,7 +4,7 @@
   "title": "Thursday · Open House",
   "greeting": "Good morning!",
   "arrival": "Attendance. Open House tonight, 5:30–6:30.",
-  "note": "Flexible option: use learning blocks for finishing selected work, improving a SpacesEDU post and preparing for Open House. Keep library, gym and meal times. Choose this route if useful; the subject blocks below remain available. Do not assume comparing or Nevermoor has already begun.",
+  "note": "",
   "reflection": "",
   "blocks": [
     {
@@ -107,8 +107,5 @@
       "firstActionKo": "알림장을 준비하세요."
     }
   ],
-  "backups": [
-    "Finishing route: choose one existing piece with your teacher; identify one useful improvement; finish it and explain the change. Post only the selected work in the approved class portfolio when access is ready. No new account or extra home upload.",
-    "Open House preparation: choose a piece you are comfortable sharing, practise explaining one choice and one next step, then organize your space. Private feedback and personal information stay private."
-  ]
+  "backups": []
 }

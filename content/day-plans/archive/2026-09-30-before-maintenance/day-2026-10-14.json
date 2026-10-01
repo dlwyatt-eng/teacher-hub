@@ -79,22 +79,22 @@
     },
     {
       "time": "10:50–11:50 am",
-      "title": "Social Studies · maps and perspective",
-      "notes": "Finish an earlier inquiry first if needed. Otherwise open Three maps of Fleetwood and preview its linked maps before class. Use the Meet and Purpose scenes, modelling visible detail versus inference. Compare two maps before adding the third if time permits. A missing label does not prove a place or community does not exist. Keep one supported claim and one unanswered question; continue later instead of completing the whole sequence in one hour.",
-      "href": "?subject=Social+Studies&socialLesson=maps-make-arguments&mode=student",
-      "firstAction": "Look at the first Fleetwood map. Point to a detail you can actually see.",
+      "title": "Science · the evidence challenge",
+      "notes": "Finish the evidence-challenge conclusion first. If ready, design a better paper comparison: one changed feature, one measured outcome, shared conditions and repeated trials. Partners identify and repair one unfair condition. Keep the focused question and fair-test explanation; no new equipment is needed.",
+      "href": "?view=Science+Lesson&lesson=science-launch&mode=student",
+      "firstAction": "Make a prediction and give one reason.",
       "studentSteps": [
-        "Compare the projected maps: who made each, and what does it make easy to see?",
-        "Choose a question about Fleetwood. Explain which map helps answer it.",
-        "Name a limit or a missing perspective; explain what other source would help."
+        "Name what changes, what we measure and what stays the same.",
+        "Compare more than one result before deciding.",
+        "Use a result to explain your claim and one limit."
       ],
       "activity": {
-        "label": "Maps and perspective",
-        "href": "?subject=Social+Studies&socialLesson=maps-make-arguments&mode=student",
+        "label": "Science evidence challenge",
+        "href": "?view=Science+Lesson&lesson=science-launch&mode=student",
         "studentSafe": true
       },
-      "titleKo": "사회 · 지도와 관점",
-      "firstActionKo": "첫 번째 Fleetwood 지도를 보세요. 실제로 보이는 정보를 하나 짚어 보세요."
+      "titleKo": "과학 · 근거 찾기 도전",
+      "firstActionKo": "결과를 예상하고 그 이유를 한 가지 설명하세요."
     },
     {
       "time": "11:50 am–12:35 pm",

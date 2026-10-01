@@ -1,31 +1,31 @@
 {
-  "updatedOn": "September 30, 2026",
+  "updatedOn": "September 23, 2026",
   "policy": "Separate daily homework is not routinely assigned. This is optional practice for families who want a regular routine. Choose what is useful; there is no expectation to complete the whole menu or submit optional practice.",
   "unfinished": "Check your planner and the instructions Mr. Wyatt has given you. Finish only the small piece identified for you, using the support agreed at school. An unfinished class activity is not automatically homework. If you were absent or are unsure, ask where to begin.",
   "routine": "Read or listen for 10–15 minutes, then choose one short activity. Families wanting a longer routine can add a second choice, keeping the total around 30–40 minutes including reading, or less when needed. Spread choices across evenings or select a few for the weekend; do not save up a catch-up pile.",
   "stopRule": "Stop if the work is confusing, upsetting or taking much longer than expected. Let Mr. Wyatt know which part was difficult. Rest, play, family time and activities outside school matter too.",
   "access": "Use paper, drawings, spoken explanations or a language that helps you think. Every menu activity can be done without an online account. No purchase, AI tool or routine portfolio upload is required.",
   "week": {
-    "id": "2026-09-28",
-    "label": "September 28–October 4 · Rounding and explaining choices",
-    "from": "2026-09-28",
-    "through": "2026-10-04",
-    "connection": "Rounding decimals began on September 28. Try the supported example below, or return to familiar place value. Comparing decimals is a planned next step, not assumed completed. Reading can use any chosen book; Nevermoor progress is not assumed. All choices are optional and need no account or upload.",
+    "id": "2026-09-23",
+    "label": "September 23–27 · Place value and explaining our thinking",
+    "from": "2026-09-23",
+    "through": "2026-09-27",
+    "connection": "Decimal place value is now complete. Practise a familiar skill if useful. Rounding and comparing decimals are planned next, not assumed completed. Other choices remain optional general practice; no account setup or portfolio upload is required at home.",
     "activities": [
       {
         "id": "math",
         "subject": "Math",
-        "title": "Round and explain what changes",
+        "title": "Explain decimal place value",
         "time": "10 minutes",
-        "context": "Supported practice · rounding began in class",
-        "example": "Round 3.47 to the nearest tenth. It lies between 3.4 and 3.5; the halfway point is 3.45. It is closer to 3.5, so 3.47 rounds to 3.5. The original number is still 3.47.",
+        "context": "Review of decimal place value taught in class",
+        "example": "3.47 = 3 + 0.4 + 0.07. The 4 represents four tenths.",
         "steps": [
-          "Round 6.284 to the nearest tenth. Name the two neighbouring tenths and explain which is nearer.",
-          "Round 2.305 to the nearest hundredth. Use the classroom convention: halfway rounds to the higher hundredth for these positive numbers.",
-          "If rounding is still unfamiliar, explain the value of each digit in 6.284 instead."
+          "In 6.284, what is each digit worth? Say, draw or write your explanation.",
+          "Write 2.305 in expanded form. What does the zero tell you?",
+          "Explain why 0.5 and 0.50 name the same amount."
         ],
-        "check": "6.284 lies between 6.2 and 6.3 and is nearer 6.3. 2.305 is halfway between 2.30 and 2.31, so it rounds to 2.31 using our convention. Place-value alternative: 6 ones, 2 tenths, 8 hundredths, 4 thousandths.",
-        "extension": "A measurement of 3.47 m is reported as 3.5 m. When might that be precise enough? When would you want the original measurement? Explain your choice."
+        "check": "6 ones, 2 tenths, 8 hundredths and 4 thousandths. 2.305 = 2 + 0.3 + 0.005; zero hundredths. Five tenths equals fifty hundredths, so 0.5 = 0.50.",
+        "extension": "Change the tenths digit in 3.47 from 4 to 6. Explain why the number increases by 0.2."
       },
       {
         "id": "reading",
@@ -37,9 +37,9 @@
         "steps": [
           "Read or listen to a short part of a book you choose.",
           "Tell, draw or write one important event or idea.",
-          "Point to one detail that supports your idea. Could the same detail suggest another reasonable interpretation? For nonfiction, name something the text does not tell you."
+          "Point to one detail that helped you understand it."
         ],
-        "check": "Can someone follow your explanation and find the detail? Different interpretations can work when the text supports them. A spoken answer counts.",
+        "check": "Can someone follow your explanation? Can you point to the detail in the text? A spoken answer counts.",
         "extension": ""
       },
       {
@@ -233,14 +233,14 @@
       "subject": "Math · extra practice & challenge",
       "href": "https://www.matific.com/ca/en-ca/login-page/",
       "description": "Optional extra maths practice and challenge using your school-provided account once access is working. Try a short session of around 10–15 minutes. Students who would like to work ahead may explore more challenging activities available in their account when ready. Explain your thinking and ask for help if a new idea is confusing. There is no required score, weekly target or extra submission. You do not need to buy a subscription or create a separate account.",
-      "offline": "Try the rounding or place-value activity above, then invent a harder example and explain your reasoning. If you cannot sign in, use this option and ask Mr. Wyatt at school."
+      "offline": "Try the decimal-place-value activity above, then invent a harder example and explain your reasoning. If you cannot sign in, use this option and ask Mr. Wyatt at school."
     },
     {
       "title": "Prodigy Math",
       "subject": "Math",
       "href": "https://play.prodigygame.com/",
       "description": "Use school-provided login details when available. Choose familiar maths or practice your teacher identifies. A paid membership is not required for this menu.",
-      "offline": "Use the rounding or place-value activity above or explain a familiar problem on paper."
+      "offline": "Use the place-value activity above or explain a familiar problem on paper."
     },
     {
       "title": "NoRedInk",

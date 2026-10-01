@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {existsSync} from 'node:fs';
 import assert from 'node:assert/strict';
 import { moduleLoader } from './helpers/load-rendered-module.mjs';
 
@@ -34,10 +35,15 @@ test('exact references preserve next-day teacher choice and do not invent worksh
   assert.equal(friday.blocks.find(block => block.title.startsWith('Mathematics')).notes,
     'Use the prior lesson evidence to choose practice or reteaching.');
   assert.equal(friday.blocks.find(block => block.title.startsWith('Arts Education')).href,
-    './activities/orange-shirt-art.html');
+    './activities/autumn-forest.html');
   assert.ok(!friday.blocks.some(block => /English Language Arts|Career Education/.test(block.title)));
   for (const date of ['2026-10-01', '2026-10-02']) {
     assert.equal(day(date).blocks.length, 11);
-    for (const block of day(date).blocks) assert.equal(block.worksheet, undefined);
+    for (const block of day(date).blocks) {
+      if(block.worksheet) {
+        assert.equal(block.worksheet.studentSafe, true);
+        assert.ok(existsSync('public/' + block.worksheet.href.slice(2)), 'supplied material exists');
+      }
+    }
   }
 });

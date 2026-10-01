@@ -79,22 +79,22 @@
     },
     {
       "time": "10:50–11:50 am",
-      "title": "Science · the evidence challenge",
-      "notes": "Resume the actual fair-test stopping point. Paper data in metres: Dart 8.4, 4.2, 5.1; Glider 6.2, 6.5, 6.3; Stunt 4.9, 5.2, 5.0. Compare repeated results and consistency; supplied means rounded to tenths are 5.9, 6.3, 5.0, so calculating means need not be assessed. Finish with a claim, two results and one limit, or continue the fair-test plan if needed.",
-      "href": "?view=Science+Lesson&lesson=science-launch&mode=student",
-      "firstAction": "Make a prediction and give one reason.",
+      "title": "Social Studies · trace a claim",
+      "notes": "Finish the source trail before transferring the routine. If ready, choose one already-previewed Action Pack or official election source; show creator, date, title and exact claim on the projector. Ask what it supports and what it cannot establish. If a suitable source is unavailable, use another supplied A/B/C round. A spoken explanation or brief paper note is enough; no new portfolio post.",
+      "href": "?subject=Social+Studies&socialLesson=trace-the-claim&mode=student",
+      "firstAction": "Find the last source we checked. What did it actually tell us?",
       "studentSteps": [
-        "Name what changes, what we measure and what stays the same.",
-        "Compare more than one result before deciding.",
-        "Use a result to explain your claim and one limit."
+        "Resume the fictional school-trip trail at our stopping point.",
+        "Compare the original wording with the repeated claim. Mark what changed.",
+        "Explain what the evidence supports and what remains unknown."
       ],
       "activity": {
-        "label": "Science evidence challenge",
-        "href": "?view=Science+Lesson&lesson=science-launch&mode=student",
+        "label": "Trace a claim",
+        "href": "?subject=Social+Studies&socialLesson=trace-the-claim&mode=student",
         "studentSafe": true
       },
-      "titleKo": "과학 · 근거 찾기 도전",
-      "firstActionKo": "결과를 예상하고 그 이유를 한 가지 설명하세요."
+      "titleKo": "사회 · 주장과 근거 확인하기",
+      "firstActionKo": "지난번에 확인한 자료를 찾으세요. 그 자료는 무엇을 알려 주었나요?"
     },
     {
       "time": "11:50 am–12:35 pm",

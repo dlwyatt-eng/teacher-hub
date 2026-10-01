@@ -2,7 +2,7 @@
   "id": "day-2026-10-06",
   "date": "2026-10-06",
   "status": "tentative",
-  "title": "Tentative · Tuesday · scales, fair tests and French",
+  "title": "Tentative · Tuesday · rounding, source checking and French",
   "greeting": "Good morning, Grade 6!",
   "arrival": "This is our working plan. We may adjust it to finish learning well.",
   "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately.",
@@ -23,22 +23,22 @@
     },
     {
       "time": "8:45–9:45 am",
-      "title": "Mathematics · number lines and rounding",
-      "notes": "Revisit Monday’s weakest check, then model 0.45 halfway between 0.4 and 0.5; to the nearest tenth it rounds to 0.5. If ready, use ten equal jumps from 0 to 0.1 and locate 0.04: each jump is 0.01. Partners explain 0.04 versus 0.4; support stays on one scale, extension places 0.008 on 0–0.01. Exit: label one interval and place one value.",
-      "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
-      "firstAction": "Label a line from 0 to 1 in ten equal jumps.",
+      "title": "Mathematics · rounding and useful precision",
+      "notes": "Revisit Monday’s weakest check. Model 7.264 to hundredths: thousandths 4 leaves hundredths 6, so 7.26. Compare 7.265, which rounds to 7.27 using the usual halfway-up convention for positive numbers. Practise 6.284 to tenths (6.3) and 2.305 to hundredths (2.31). Discuss when a rounded measurement is useful and when exact detail matters. Number lines are optional support, not a new lesson. If ready, use the linked comparison lesson; otherwise keep practising rounding on paper.",
+      "href": "./activities/rounding-decimals.html",
+      "firstAction": "Round 6.284 to the nearest tenth and explain which digit helps you decide.",
       "studentSteps": [
         "Try the model on paper or a whiteboard.",
         "Explain which place or strategy supports your answer.",
         "Complete one independent check; use it to choose our next step."
       ],
       "activity": {
-        "label": "Number comparison lesson",
-        "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
+        "label": "Rounding model and practice",
+        "href": "./activities/rounding-decimals.html",
         "studentSafe": true
       },
-      "titleKo": "수학 · 수직선과 반올림",
-      "firstActionKo": "0부터 1까지 수직선을 10등분하고 수를 써 넣으세요."
+      "titleKo": "수학 · 반올림과 필요한 정확도",
+      "firstActionKo": "6.284를 소수 첫째 자리까지 반올림하고 어떻게 판단했는지 설명하세요."
     },
     {
       "time": "9:45–10:20 am",
@@ -79,22 +79,22 @@
     },
     {
       "time": "10:50–11:50 am",
-      "title": "Science · the evidence challenge",
-      "notes": "Predict Dart, Glider or Stunt with a design-feature reason. Diagnose the supplied unfair setup on paper, then name design, distance and shared conditions. Use the existing simulation or fictional table; physical flying is optional with a clear supervised lane and consistent launch method. Stop after the fair-test plan if it needs the hour.",
-      "href": "?view=Science+Lesson&lesson=science-launch&mode=student",
-      "firstAction": "Make a prediction and give one reason.",
+      "title": "Social Studies · trace a claim",
+      "notes": "Resume Monday’s first unfinished step. Use the supplied fictional school-trip post, original update, calendar and permission form. Model how “Friday’s trip is postponed” became “all year.” Work through the source trail, then explain a correction using exact wording. Do not infer deliberate deception from an error.",
+      "href": "?subject=Social+Studies&socialLesson=trace-the-claim&mode=student",
+      "firstAction": "Find the last source we checked. What did it actually tell us?",
       "studentSteps": [
-        "Name what changes, what we measure and what stays the same.",
-        "Compare more than one result before deciding.",
-        "Use a result to explain your claim and one limit."
+        "Resume the fictional school-trip trail at our stopping point.",
+        "Compare the original wording with the repeated claim. Mark what changed.",
+        "Explain what the evidence supports and what remains unknown."
       ],
       "activity": {
-        "label": "Science evidence challenge",
-        "href": "?view=Science+Lesson&lesson=science-launch&mode=student",
+        "label": "Trace a claim",
+        "href": "?subject=Social+Studies&socialLesson=trace-the-claim&mode=student",
         "studentSafe": true
       },
-      "titleKo": "과학 · 근거 찾기 도전",
-      "firstActionKo": "결과를 예상하고 그 이유를 한 가지 설명하세요."
+      "titleKo": "사회 · 주장과 근거 확인하기",
+      "firstActionKo": "지난번에 확인한 자료를 찾으세요. 그 자료는 무엇을 알려 주었나요?"
     },
     {
       "time": "11:50 am–12:35 pm",

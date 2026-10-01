@@ -81,27 +81,12 @@
     },
     {
       "time": "12:55–2:05 pm",
-      "title": "Arts Education · layered autumn forest",
-      "notes": "Use the four illustrated steps and teacher notes. Paper, pastels or pencil crayons, paper scraps, scissors and glue; drawing or pre-cut shapes are equivalent routes. About 70 minutes: notice/sketch 10, background 15, layers 30, refine/share 15. Assess intentional depth and mood choices, not copying the example.",
-      "href": "./activities/autumn-forest.html",
-      "titleKo": "미술 · 겹겹이 만드는 가을 숲",
-      "firstAction": "Look at the forest example. Which tree seems closest, and what makes it seem close?",
-      "firstActionKo": "숲 그림을 보세요. 어떤 나무가 가장 가까워 보이나요? 왜 그렇게 보이나요?",
-      "studentSteps": [
-        "Choose the mood and colours for your forest. Make the background.",
-        "Try small distant trees, middle trees and larger foreground trees; arrange before gluing.",
-        "Explain how one colour, size or overlap choice affects depth or mood. Keep or change it for a reason."
-      ],
-      "activity": {
-        "label": "Four illustrated forest steps",
-        "href": "./activities/autumn-forest.html",
-        "studentSafe": true
-      },
-      "worksheet": {
-        "label": "Illustrated PDF · 4 steps + teacher notes",
-        "href": "./printables/autumn-forest/Layered_Autumn_Forest_Step_by_Step.pdf",
-        "studentSafe": true
-      }
+      "title": "Arts Education · create and explain",
+      "notes": "Make or continue art; explain one artistic choice.",
+      "href": "./activities/orange-shirt-art.html",
+      "titleKo": "미술 · 만들고 설명하기",
+      "firstAction": "Begin or continue your art.",
+      "firstActionKo": "작품을 만들기 시작하거나 이어서 만드세요."
     },
     {
       "time": "2:05–2:20 pm",

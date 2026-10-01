@@ -13,6 +13,7 @@ test('two upcoming school weeks keep nine tentative dated plans, no holiday less
  for(const plan of drafts){
   assert.equal(plan.status,'tentative');
   assert.equal(plan.reflection,'');
+  assert.ok(!plan.blocks.some(block=>block.title.startsWith('Science')), 'first-half plans focus on Social Studies');
   assert.deepEqual(store.parseDayPlan(plan),plan);
   assert.match(nav.dayPlanStatus(plan,plan.date),/Tentative.*review before teaching/);
   for(const block of plan.blocks){

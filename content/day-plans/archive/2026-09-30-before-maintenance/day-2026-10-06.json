@@ -1,8 +1,8 @@
 {
-  "id": "day-2026-10-14",
-  "date": "2026-10-14",
+  "id": "day-2026-10-06",
+  "date": "2026-10-06",
   "status": "tentative",
-  "title": "Tentative · Wednesday · continue, test and reflect",
+  "title": "Tentative · Tuesday · scales, fair tests and French",
   "greeting": "Good morning, Grade 6!",
   "arrival": "This is our working plan. We may adjust it to finish learning well.",
   "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately.",
@@ -23,10 +23,10 @@
     },
     {
       "time": "8:45–9:45 am",
-      "title": "Mathematics · use evidence to choose practice",
-      "notes": "Continue Tuesday’s actual route: decimal comparison/rounding with a visual explanation, or already-introduced partial products. For operations, compare 24 × 10 + 24 × 5 and 20 × 15 + 4 × 15; both give 360. Repair 36 × 24 = 720 + 24: four groups of 36 are 144, giving 864. Match the independent check to the chosen route; division can wait.",
+      "title": "Mathematics · number lines and rounding",
+      "notes": "Revisit Monday’s weakest check, then model 0.45 halfway between 0.4 and 0.5; to the nearest tenth it rounds to 0.5. If ready, use ten equal jumps from 0 to 0.1 and locate 0.04: each jump is 0.01. Partners explain 0.04 versus 0.4; support stays on one scale, extension places 0.008 on 0–0.01. Exit: label one interval and place one value.",
       "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
-      "firstAction": "Recover yesterday’s model and explain the first step.",
+      "firstAction": "Label a line from 0 to 1 in ten equal jumps.",
       "studentSteps": [
         "Try the model on paper or a whiteboard.",
         "Explain which place or strategy supports your answer.",
@@ -37,13 +37,13 @@
         "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
         "studentSafe": true
       },
-      "titleKo": "수학 · 학습 결과에 맞는 연습 고르기",
-      "firstActionKo": "어제 배운 예제를 다시 보고 첫 단계를 설명하세요."
+      "titleKo": "수학 · 수직선과 반올림",
+      "firstActionKo": "0부터 1까지 수직선을 10등분하고 수를 써 넣으세요."
     },
     {
       "time": "9:45–10:20 am",
       "title": "English Language Arts · Nevermoor",
-      "notes": "Continue the novel and a short evidence response. Hold a small character council only if the scene supports two plausible choices; otherwise use an inference and detail. Record the bookmark.",
+      "notes": "Listen for what a character may feel or want, then support an inference with one real detail. Compare two defensible ideas. Keep the response short and record the bookmark.",
       "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
       "firstAction": "Recall the last part we actually heard, or listen to the opening.",
       "studentSteps": [
@@ -79,22 +79,22 @@
     },
     {
       "time": "10:50–11:50 am",
-      "title": "Social Studies · maps and perspective",
-      "notes": "Finish an earlier inquiry first if needed. Otherwise open Three maps of Fleetwood and preview its linked maps before class. Use the Meet and Purpose scenes, modelling visible detail versus inference. Compare two maps before adding the third if time permits. A missing label does not prove a place or community does not exist. Keep one supported claim and one unanswered question; continue later instead of completing the whole sequence in one hour.",
-      "href": "?subject=Social+Studies&socialLesson=maps-make-arguments&mode=student",
-      "firstAction": "Look at the first Fleetwood map. Point to a detail you can actually see.",
+      "title": "Science · the evidence challenge",
+      "notes": "Predict Dart, Glider or Stunt with a design-feature reason. Diagnose the supplied unfair setup on paper, then name design, distance and shared conditions. Use the existing simulation or fictional table; physical flying is optional with a clear supervised lane and consistent launch method. Stop after the fair-test plan if it needs the hour.",
+      "href": "?view=Science+Lesson&lesson=science-launch&mode=student",
+      "firstAction": "Make a prediction and give one reason.",
       "studentSteps": [
-        "Compare the projected maps: who made each, and what does it make easy to see?",
-        "Choose a question about Fleetwood. Explain which map helps answer it.",
-        "Name a limit or a missing perspective; explain what other source would help."
+        "Name what changes, what we measure and what stays the same.",
+        "Compare more than one result before deciding.",
+        "Use a result to explain your claim and one limit."
       ],
       "activity": {
-        "label": "Maps and perspective",
-        "href": "?subject=Social+Studies&socialLesson=maps-make-arguments&mode=student",
+        "label": "Science evidence challenge",
+        "href": "?view=Science+Lesson&lesson=science-launch&mode=student",
         "studentSafe": true
       },
-      "titleKo": "사회 · 지도와 관점",
-      "firstActionKo": "첫 번째 Fleetwood 지도를 보세요. 실제로 보이는 정보를 하나 짚어 보세요."
+      "titleKo": "과학 · 근거 찾기 도전",
+      "firstActionKo": "결과를 예상하고 그 이유를 한 가지 설명하세요."
     },
     {
       "time": "11:50 am–12:35 pm",
@@ -106,7 +106,16 @@
       "firstActionKo": "바깥 놀이와 점심시간에는 정해진 순서대로 하세요."
     },
     {
-      "time": "12:35–1:00 pm",
+      "time": "12:35–1:35 pm",
+      "title": "Core French and Health Education",
+      "notes": "Established specialist/prep block; follow the specialist’s programme.",
+      "href": "",
+      "firstAction": "Get ready and follow your specialist teacher’s directions.",
+      "titleKo": "프랑스어·보건",
+      "firstActionKo": "준비를 마치고 담당 선생님의 안내를 따르세요."
+    },
+    {
+      "time": "1:35–1:45 pm",
       "title": "Quiet individual time",
       "notes": "Preserve a calm reset; a quiet non-reading choice is available.",
       "href": "",
@@ -115,26 +124,26 @@
       "firstActionKo": "조용히 책 읽기, 그림 그리기, 끝내지 못한 활동 중 하나를 고르세요."
     },
     {
-      "time": "1:00–2:00 pm",
-      "title": "ADST · make, test and improve",
-      "notes": "Return to the paper prototype, or make the first small version if needed. Watch a new user’s first action without coaching and record a pause or misunderstanding without names. Check the message against its source before improving the design, then retest one change. Keep a before/after sketch and an evidence-based reason.",
-      "href": "?subject=ADST&experience=cold-test-prototype&mode=student",
-      "firstAction": "Choose one small paper version another person can try.",
+      "time": "1:45–2:10 pm",
+      "title": "Career Education · Action Pack continuation",
+      "notes": "Resume Monday’s actual stopping point. Ask what remains unclear, then complete one activity step, annotate a source detail or improve the question. End with “I tried __; I noticed __; next I need __.”",
+      "href": "?subject=Career+Education&experience=career-constellation&mode=student",
+      "firstAction": "Find your last question and mark the next small step.",
       "studentSteps": [
-        "Name the user, purpose and one sign it works.",
-        "Try the paper version and observe without giving hints.",
-        "Make one change based on what you noticed."
+        "Recover your last question.",
+        "Complete one useful next step.",
+        "Leave a clear note about where to continue."
       ],
       "activity": {
-        "label": "Paper prototype and test",
-        "href": "?subject=ADST&experience=cold-test-prototype&mode=student",
+        "label": "Career connection lesson",
+        "href": "?subject=Career+Education&experience=career-constellation&mode=student",
         "studentSafe": true
       },
-      "titleKo": "디자인·기술 · 만들고 시험해 보고 고치기",
-      "firstActionKo": "다른 사람이 시험해 볼 간단한 종이 초안을 하나 고르세요."
+      "titleKo": "진로 교육 · Action Pack 이어서 하기",
+      "firstActionKo": "지난번 질문을 찾아 다음에 할 작은 일 하나를 표시하세요."
     },
     {
-      "time": "2:00–2:15 pm",
+      "time": "2:10–2:20 pm",
       "title": "Planners, jobs and cleanup",
       "notes": "Keep routine cleanup around 2:00; move unfinished learning forward.",
       "href": "?view=Responsibilities&mode=student",
@@ -148,7 +157,7 @@
       "firstActionKo": "교실을 정리하고 확정된 안내 사항을 적으세요."
     },
     {
-      "time": "2:15–2:30 pm",
+      "time": "2:20–2:30 pm",
       "title": "Classroom community",
       "notes": "Use a short check-in, appreciation or familiar cooperative game. Students may speak, draw, point or pass; keep feedback specific and avoid public rankings.",
       "href": "",
@@ -172,7 +181,6 @@
   ],
   "backups": [
     "Carry unfinished learning into the next suitable block rather than adding a second full lesson.",
-    "If the projector or sign-in fails, use paper, the board and available class materials.",
-    "If the operations route has been selected: ?subject=Mathematics&experience=strategy-league&mode=student"
+    "If the projector or sign-in fails, use paper, the board and available class materials."
   ]
 }
