@@ -42,7 +42,7 @@ test('exact references preserve next-day teacher choice and do not invent worksh
     for (const block of day(date).blocks) {
       if(block.worksheet) {
         assert.equal(block.worksheet.studentSafe, true);
-        assert.ok(existsSync('public/' + block.worksheet.href.slice(2)), 'supplied material exists');
+        assert.ok(existsSync('public/' + new URL(block.worksheet.href, 'https://dlwyatt-eng.github.io/teacher-hub/').pathname.replace(/^\/teacher-hub\//, '')), 'supplied material exists');
       }
     }
   }
