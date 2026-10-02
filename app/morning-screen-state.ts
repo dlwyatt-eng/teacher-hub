@@ -283,7 +283,7 @@ export function createMorningScreenDraft(date = vancouverDateKey()): MorningScre
   return {
     version: 1,
     date: safeDate,
-    greeting: "Good morning, Grade 6!",
+    greeting: "Good morning, Division 8!",
     announcements: [],
     reminders: [],
     activityId,

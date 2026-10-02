@@ -3,9 +3,9 @@
   "date": "2026-10-13",
   "status": "tentative",
   "title": "Tentative · Tuesday · return, reconnect and choose next steps",
-  "greeting": "Good morning, Grade 6!",
+  "greeting": "Good morning, Division 8!",
   "arrival": "This is our working plan. We may adjust it to finish learning well.",
-  "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately. Return after Monday’s Thanksgiving closure. Choose number consolidation or the operations bridge from actual readiness.",
+  "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately. Return after Monday’s Thanksgiving closure. Choose number consolidation or the operations bridge from actual readiness. Mr. Eckert teaches Core French only. Mr. Wyatt teaches Physical and Health Education, including classroom health learning and PE.",
   "reflection": "",
   "blocks": [
     {
@@ -107,12 +107,12 @@
     },
     {
       "time": "12:35–1:35 pm",
-      "title": "Core French and Health Education",
-      "notes": "Established specialist/prep block; follow the specialist’s programme.",
+      "title": "Core French · Mr. Eckert",
+      "notes": "French-only specialist block with Mr. Eckert; this is Mr. Wyatt’s prep. Classroom health learning and PE are taught by Mr. Wyatt.",
       "href": "",
-      "firstAction": "Get ready and follow your specialist teacher’s directions.",
-      "titleKo": "프랑스어·보건",
-      "firstActionKo": "준비를 마치고 담당 선생님의 안내를 따르세요."
+      "firstAction": "Get your French materials ready and follow Mr. Eckert’s directions.",
+      "titleKo": "프랑스어 · Eckert 선생님",
+      "firstActionKo": "프랑스어 준비물을 꺼내고 Eckert 선생님의 안내를 따르세요."
     },
     {
       "time": "1:35–1:45 pm",

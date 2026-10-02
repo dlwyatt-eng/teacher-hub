@@ -3,9 +3,9 @@
   "date": "2026-10-07",
   "status": "tentative",
   "title": "Tentative · Wednesday · test evidence and make a first version",
-  "greeting": "Good morning, Grade 6!",
+  "greeting": "Good morning, Division 8!",
   "arrival": "This is our working plan. We may adjust it to finish learning well.",
-  "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately.",
+  "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately. Mr. Eckert teaches Core French only. Mr. Wyatt teaches Physical and Health Education, including classroom health learning and PE.",
   "reflection": "",
   "blocks": [
     {
@@ -115,9 +115,23 @@
       "firstActionKo": "조용히 책 읽기, 그림 그리기, 끝내지 못한 활동 중 하나를 고르세요."
     },
     {
-      "time": "1:00–2:00 pm",
+      "time": "1:00–1:25 pm",
+      "title": "Physical and Health Education · feelings, choices and help",
+      "notes": "Mr. Wyatt teaches this classroom health block. Use a fictional scenario: a student feels overwhelmed when a group game becomes loud and competitive. Model noticing a feeling or body cue, choosing a helpful next action, and asking a trusted adult for support. Partners propose two possible responses and explain why each may help; no personal disclosure is required. Practise a help-seeking sentence: “I feel overwhelmed. Could I take a quiet break and rejoin?” Exit: write, draw or say one possible strategy and one trusted adult the fictional student could ask. Students may pass on public sharing.",
+      "href": "?subject=Physical+%26+Health+Education&mode=student",
+      "firstAction": "Think about a fictional student who feels overwhelmed during a noisy game.",
+      "studentSteps": [
+        "Notice one feeling or body clue the student might experience.",
+        "With a partner, suggest two helpful choices and explain why they could help.",
+        "Practise asking a trusted adult for support; write, draw or say one next step."
+      ],
+      "titleKo": "체육·보건 · 감정, 선택, 도움 요청",
+      "firstActionKo": "시끄러운 놀이 중 힘들어하는 가상의 학생을 생각해 보세요."
+    },
+    {
+      "time": "1:25–2:00 pm",
       "title": "ADST · make, test and improve",
-      "notes": "Use an inquiry message/task only when it is supported; otherwise continue inquiry work. Make a small three-step instruction card, sorting task or question-and-evidence card after a fictional teacher model. Name the user and one success test, then watch a partner try without coaching and note a pause without names. Revise one confusing part; keep the prototype in class.",
+      "notes": "Use an inquiry message/task only when it is supported; otherwise continue inquiry work. Make a small three-step instruction card, sorting task or question-and-evidence card after a fictional teacher model. Name the user and one success test, then watch a partner try without coaching and note a pause without names. Revise one confusing part; keep the prototype in class. Use 35 minutes for one small prototype cycle; carry unfinished work forward.",
       "href": "?subject=ADST&experience=cold-test-prototype&mode=student",
       "firstAction": "Choose one small paper version another person can try.",
       "studentSteps": [

@@ -1,11 +1,11 @@
 {
-  "id": "day-2026-10-05",
-  "date": "2026-10-05",
+  "id": "day-2026-10-13",
+  "date": "2026-10-13",
   "status": "tentative",
-  "title": "Tentative · Monday · number sense, story and inquiry",
-  "greeting": "Good morning, Division 8!",
+  "title": "Tentative · Tuesday · return, reconnect and choose next steps",
+  "greeting": "Good morning, Grade 6!",
   "arrival": "This is our working plan. We may adjust it to finish learning well.",
-  "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately. Start with the Mathematics check before choosing the week’s next concept. Mr. Eckert teaches Core French only. Mr. Wyatt teaches Physical and Health Education, including classroom health learning and PE.",
+  "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately. Return after Monday’s Thanksgiving closure. Choose number consolidation or the operations bridge from actual readiness.",
   "reflection": "",
   "blocks": [
     {
@@ -23,10 +23,10 @@
     },
     {
       "time": "8:45–9:45 am",
-      "title": "Mathematics · round, compare and explain",
-      "notes": "Check independently: 6.08 vs 6.8 (<), 0.50 vs 0.5 (=), and 7.264 to hundredths (7.26). Model the weakest idea, using 6.080 < 6.800 or a labelled chart. Partners order 0.405, 0.45, 0.5; add whole-number comparisons only if ready. Exit: explain 0.62 > 0.602.",
+      "title": "Mathematics · number review or next strategy",
+      "notes": "Retrieve Friday’s actual number work and choose one route for the hour. If comparison/rounding needs more time, use a chart, line and matched practice. If ready, open strategy-league/o1: draw 23 × 16 = 230 + 138 = 368, then let partners represent 24 × 15 = 360. Check 32 × 14 = 448 against an estimate; the operations link is in Backups.",
       "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
-      "firstAction": "Compare 6.08 and 6.8. Show how you know.",
+      "firstAction": "Use place value to compare 6.08 and 6.8, then explain one strategy.",
       "studentSteps": [
         "Try the model on paper or a whiteboard.",
         "Explain which place or strategy supports your answer.",
@@ -37,13 +37,13 @@
         "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
         "studentSafe": true
       },
-      "titleKo": "수학 · 반올림하고 비교하고 설명하기",
-      "firstActionKo": "6.08과 6.8의 크기를 비교하고, 어떻게 알았는지 보여 주세요."
+      "titleKo": "수학 · 수 복습 또는 다음 풀이 방법",
+      "firstActionKo": "자릿값을 이용해 6.08과 6.8을 비교하고 풀이 방법 한 가지를 설명하세요."
     },
     {
       "time": "9:45–10:20 am",
       "title": "English Language Arts · Nevermoor",
-      "notes": "If the journal needs launching, model idea + heard detail + explanation. Otherwise revisit a prediction using one new detail. Allow brief writing, labelled drawing, speech or dictation, and record the bookmark.",
+      "notes": "Reconstruct the last scene with two reliable details before listening on. Mark uncertainty instead of filling story gaps. Add one new idea/detail response and record the bookmark.",
       "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
       "firstAction": "Recall the last part we actually heard, or listen to the opening.",
       "studentSteps": [
@@ -80,7 +80,7 @@
     {
       "time": "10:50–11:50 am",
       "title": "Social Studies · evidence and source checking",
-      "notes": "Start at the first untaught step of Trace the Claim’s fictional school-trip trail. Model claim versus checkable detail, play one A/B/C round, then trace part of the rumour. Partners underline wording that changes the claim and write a careful correction. If already familiar, apply the routine to an available, previewed Action Pack source with creator/title visible.",
+      "notes": "Resume the fictional source trail or an already-previewed Action Pack source. Record title/creator, one supported idea and one unknown. Partners find and revise a conclusion that says more than the evidence supports; reuse the fictional trail if the selected source is unavailable.",
       "href": "?subject=Social+Studies&socialLesson=trace-the-claim&mode=student",
       "firstAction": "Look at the claim and find the source that could check it.",
       "studentSteps": [
@@ -106,7 +106,16 @@
       "firstActionKo": "바깥 놀이와 점심시간에는 정해진 순서대로 하세요."
     },
     {
-      "time": "12:35–1:00 pm",
+      "time": "12:35–1:35 pm",
+      "title": "Core French and Health Education",
+      "notes": "Established specialist/prep block; follow the specialist’s programme.",
+      "href": "",
+      "firstAction": "Get ready and follow your specialist teacher’s directions.",
+      "titleKo": "프랑스어·보건",
+      "firstActionKo": "준비를 마치고 담당 선생님의 안내를 따르세요."
+    },
+    {
+      "time": "1:35–1:45 pm",
       "title": "Quiet individual time",
       "notes": "Preserve a calm reset; a quiet non-reading choice is available.",
       "href": "",
@@ -115,26 +124,26 @@
       "firstActionKo": "조용히 책 읽기, 그림 그리기, 끝내지 못한 활동 중 하나를 고르세요."
     },
     {
-      "time": "1:00–2:00 pm",
-      "title": "Career Education · Action Pack question and first check",
-      "notes": "Recover the chosen issue/question; do not restart finished work. Initial check: what do I think now, and what do I want to find out? Use the teacher’s available Be the Change choices for one manageable student-chosen activity, then ask what action/skill students noticed and who might use it. Final reflection: one changed idea, one possible work/service connection and one next question; students discover the connection themselves.",
+      "time": "1:45–2:10 pm",
+      "title": "Career Education · recover the inquiry and next step",
+      "notes": "Read the last reflection and separate evidence from guesses. Choose one achievable move: clarify the question, find an available source detail or improve the paper record. Close with an action, skill and possible work/service connection in the student’s own words.",
       "href": "?subject=Career+Education&experience=career-constellation&mode=student",
-      "firstAction": "Record the issue you chose, or one you want to explore.",
+      "firstAction": "Read your last reflection and choose one achievable next move.",
       "studentSteps": [
-        "Choose or recover your issue and question.",
-        "Try one small part of your chosen activity.",
-        "Reflect on an action you used and where it might help."
+        "Find your last question or reflection.",
+        "Complete one step that adds evidence.",
+        "Record what to continue next."
       ],
       "activity": {
         "label": "Career connection lesson",
         "href": "?subject=Career+Education&experience=career-constellation&mode=student",
         "studentSafe": true
       },
-      "titleKo": "진로 교육 · Action Pack 질문과 첫 점검",
-      "firstActionKo": "선택한 문제나 탐구해 보고 싶은 문제를 적으세요."
+      "titleKo": "진로 교육 · 탐구 돌아보기와 다음 단계",
+      "firstActionKo": "지난번에 활동을 돌아보며 쓴 글을 읽고, 다음에 할 수 있는 일 하나를 고르세요."
     },
     {
-      "time": "2:00–2:15 pm",
+      "time": "2:10–2:20 pm",
       "title": "Planners, jobs and cleanup",
       "notes": "Keep routine cleanup around 2:00; move unfinished learning forward.",
       "href": "?view=Responsibilities&mode=student",
@@ -148,7 +157,7 @@
       "firstActionKo": "교실을 정리하고 확정된 안내 사항을 적으세요."
     },
     {
-      "time": "2:15–2:30 pm",
+      "time": "2:20–2:30 pm",
       "title": "Classroom community",
       "notes": "Use a short check-in, appreciation or familiar cooperative game. Students may speak, draw, point or pass; keep feedback specific and avoid public rankings.",
       "href": "",
@@ -172,6 +181,7 @@
   ],
   "backups": [
     "Carry unfinished learning into the next suitable block rather than adding a second full lesson.",
-    "If the projector or sign-in fails, use paper, the board and available class materials."
+    "If the projector or sign-in fails, use paper, the board and available class materials.",
+    "If the operations route has been selected: ?subject=Mathematics&experience=strategy-league&mode=student"
   ]
 }

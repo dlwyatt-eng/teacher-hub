@@ -1,11 +1,11 @@
 {
-  "id": "day-2026-10-05",
-  "date": "2026-10-05",
+  "id": "day-2026-10-07",
+  "date": "2026-10-07",
   "status": "tentative",
-  "title": "Tentative · Monday · number sense, story and inquiry",
-  "greeting": "Good morning, Division 8!",
+  "title": "Tentative · Wednesday · test evidence and make a first version",
+  "greeting": "Good morning, Grade 6!",
   "arrival": "This is our working plan. We may adjust it to finish learning well.",
-  "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately. Start with the Mathematics check before choosing the week’s next concept. Mr. Eckert teaches Core French only. Mr. Wyatt teaches Physical and Health Education, including classroom health learning and PE.",
+  "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately.",
   "reflection": "",
   "blocks": [
     {
@@ -23,10 +23,10 @@
     },
     {
       "time": "8:45–9:45 am",
-      "title": "Mathematics · round, compare and explain",
-      "notes": "Check independently: 6.08 vs 6.8 (<), 0.50 vs 0.5 (=), and 7.264 to hundredths (7.26). Model the weakest idea, using 6.080 < 6.800 or a labelled chart. Partners order 0.405, 0.45, 0.5; add whole-number comparisons only if ready. Exit: explain 0.62 > 0.602.",
+      "title": "Mathematics · comparison detectives",
+      "notes": "Model the error “more decimal digits means greater”: 0.405 < 0.450. Pairs repair 6.08 > 6.8 and 0.50 ≠ 0.5 using a chart or line, then choose targeted rounding or ordering practice. Independent check: 2.005 < 2.05 < 2.5, with the deciding place explained. Secure learners can discuss a whole-number strategy without starting another full lesson.",
       "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
-      "firstAction": "Compare 6.08 and 6.8. Show how you know.",
+      "firstAction": "Decide whether 0.405 is greater than 0.45 and explain.",
       "studentSteps": [
         "Try the model on paper or a whiteboard.",
         "Explain which place or strategy supports your answer.",
@@ -37,13 +37,13 @@
         "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
         "studentSafe": true
       },
-      "titleKo": "수학 · 반올림하고 비교하고 설명하기",
-      "firstActionKo": "6.08과 6.8의 크기를 비교하고, 어떻게 알았는지 보여 주세요."
+      "titleKo": "수학 · 수 비교 탐정",
+      "firstActionKo": "0.405가 0.45보다 큰지 판단하고 이유를 설명하세요."
     },
     {
       "time": "9:45–10:20 am",
       "title": "English Language Arts · Nevermoor",
-      "notes": "If the journal needs launching, model idea + heard detail + explanation. Otherwise revisit a prediction using one new detail. Allow brief writing, labelled drawing, speech or dictation, and record the bookmark.",
+      "notes": "Make a two-column note: detail heard / what it suggests. Hear a partner’s different idea, then revise or defend your own with the text. Record the bookmark.",
       "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
       "firstAction": "Recall the last part we actually heard, or listen to the opening.",
       "studentSteps": [
@@ -79,22 +79,22 @@
     },
     {
       "time": "10:50–11:50 am",
-      "title": "Social Studies · evidence and source checking",
-      "notes": "Start at the first untaught step of Trace the Claim’s fictional school-trip trail. Model claim versus checkable detail, play one A/B/C round, then trace part of the rumour. Partners underline wording that changes the claim and write a careful correction. If already familiar, apply the routine to an available, previewed Action Pack source with creator/title visible.",
+      "title": "Social Studies · trace a claim",
+      "notes": "Finish the source trail before transferring the routine. If ready, choose one already-previewed Action Pack or official election source; show creator, date, title and exact claim on the projector. Ask what it supports and what it cannot establish. If a suitable source is unavailable, use another supplied A/B/C round. A spoken explanation or brief paper note is enough; no new portfolio post.",
       "href": "?subject=Social+Studies&socialLesson=trace-the-claim&mode=student",
-      "firstAction": "Look at the claim and find the source that could check it.",
+      "firstAction": "Find the last source we checked. What did it actually tell us?",
       "studentSteps": [
-        "Separate what the source says from what you think.",
-        "Point to an exact detail that supports or changes a claim.",
-        "Write one careful conclusion and one remaining question."
+        "Resume the fictional school-trip trail at our stopping point.",
+        "Compare the original wording with the repeated claim. Mark what changed.",
+        "Explain what the evidence supports and what remains unknown."
       ],
       "activity": {
-        "label": "Trace the Claim activity",
+        "label": "Trace a claim",
         "href": "?subject=Social+Studies&socialLesson=trace-the-claim&mode=student",
         "studentSafe": true
       },
-      "titleKo": "사회 · 근거와 자료 출처 확인하기",
-      "firstActionKo": "주장을 살펴보고 이를 확인할 수 있는 자료를 찾으세요."
+      "titleKo": "사회 · 주장과 근거 확인하기",
+      "firstActionKo": "지난번에 확인한 자료를 찾으세요. 그 자료는 무엇을 알려 주었나요?"
     },
     {
       "time": "11:50 am–12:35 pm",
@@ -116,22 +116,22 @@
     },
     {
       "time": "1:00–2:00 pm",
-      "title": "Career Education · Action Pack question and first check",
-      "notes": "Recover the chosen issue/question; do not restart finished work. Initial check: what do I think now, and what do I want to find out? Use the teacher’s available Be the Change choices for one manageable student-chosen activity, then ask what action/skill students noticed and who might use it. Final reflection: one changed idea, one possible work/service connection and one next question; students discover the connection themselves.",
-      "href": "?subject=Career+Education&experience=career-constellation&mode=student",
-      "firstAction": "Record the issue you chose, or one you want to explore.",
+      "title": "ADST · make, test and improve",
+      "notes": "Use an inquiry message/task only when it is supported; otherwise continue inquiry work. Make a small three-step instruction card, sorting task or question-and-evidence card after a fictional teacher model. Name the user and one success test, then watch a partner try without coaching and note a pause without names. Revise one confusing part; keep the prototype in class.",
+      "href": "?subject=ADST&experience=cold-test-prototype&mode=student",
+      "firstAction": "Choose one small paper version another person can try.",
       "studentSteps": [
-        "Choose or recover your issue and question.",
-        "Try one small part of your chosen activity.",
-        "Reflect on an action you used and where it might help."
+        "Name the user, purpose and one sign it works.",
+        "Try the paper version and observe without giving hints.",
+        "Make one change based on what you noticed."
       ],
       "activity": {
-        "label": "Career connection lesson",
-        "href": "?subject=Career+Education&experience=career-constellation&mode=student",
+        "label": "Paper prototype and test",
+        "href": "?subject=ADST&experience=cold-test-prototype&mode=student",
         "studentSafe": true
       },
-      "titleKo": "진로 교육 · Action Pack 질문과 첫 점검",
-      "firstActionKo": "선택한 문제나 탐구해 보고 싶은 문제를 적으세요."
+      "titleKo": "디자인·기술 · 만들고 시험해 보고 고치기",
+      "firstActionKo": "다른 사람이 시험해 볼 간단한 종이 초안을 하나 고르세요."
     },
     {
       "time": "2:00–2:15 pm",

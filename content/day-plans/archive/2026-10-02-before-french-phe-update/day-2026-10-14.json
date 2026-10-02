@@ -1,11 +1,11 @@
 {
-  "id": "day-2026-10-05",
-  "date": "2026-10-05",
+  "id": "day-2026-10-14",
+  "date": "2026-10-14",
   "status": "tentative",
-  "title": "Tentative · Monday · number sense, story and inquiry",
-  "greeting": "Good morning, Division 8!",
+  "title": "Tentative · Wednesday · continue, test and reflect",
+  "greeting": "Good morning, Grade 6!",
   "arrival": "This is our working plan. We may adjust it to finish learning well.",
-  "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately. Start with the Mathematics check before choosing the week’s next concept. Mr. Eckert teaches Core French only. Mr. Wyatt teaches Physical and Health Education, including classroom health learning and PE.",
+  "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately.",
   "reflection": "",
   "blocks": [
     {
@@ -23,10 +23,10 @@
     },
     {
       "time": "8:45–9:45 am",
-      "title": "Mathematics · round, compare and explain",
-      "notes": "Check independently: 6.08 vs 6.8 (<), 0.50 vs 0.5 (=), and 7.264 to hundredths (7.26). Model the weakest idea, using 6.080 < 6.800 or a labelled chart. Partners order 0.405, 0.45, 0.5; add whole-number comparisons only if ready. Exit: explain 0.62 > 0.602.",
+      "title": "Mathematics · use evidence to choose practice",
+      "notes": "Continue Tuesday’s actual route: decimal comparison/rounding with a visual explanation, or already-introduced partial products. For operations, compare 24 × 10 + 24 × 5 and 20 × 15 + 4 × 15; both give 360. Repair 36 × 24 = 720 + 24: four groups of 36 are 144, giving 864. Match the independent check to the chosen route; division can wait.",
       "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
-      "firstAction": "Compare 6.08 and 6.8. Show how you know.",
+      "firstAction": "Recover yesterday’s model and explain the first step.",
       "studentSteps": [
         "Try the model on paper or a whiteboard.",
         "Explain which place or strategy supports your answer.",
@@ -37,13 +37,13 @@
         "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
         "studentSafe": true
       },
-      "titleKo": "수학 · 반올림하고 비교하고 설명하기",
-      "firstActionKo": "6.08과 6.8의 크기를 비교하고, 어떻게 알았는지 보여 주세요."
+      "titleKo": "수학 · 학습 결과에 맞는 연습 고르기",
+      "firstActionKo": "어제 배운 예제를 다시 보고 첫 단계를 설명하세요."
     },
     {
       "time": "9:45–10:20 am",
       "title": "English Language Arts · Nevermoor",
-      "notes": "If the journal needs launching, model idea + heard detail + explanation. Otherwise revisit a prediction using one new detail. Allow brief writing, labelled drawing, speech or dictation, and record the bookmark.",
+      "notes": "Continue the novel and a short evidence response. Hold a small character council only if the scene supports two plausible choices; otherwise use an inference and detail. Record the bookmark.",
       "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
       "firstAction": "Recall the last part we actually heard, or listen to the opening.",
       "studentSteps": [
@@ -79,22 +79,22 @@
     },
     {
       "time": "10:50–11:50 am",
-      "title": "Social Studies · evidence and source checking",
-      "notes": "Start at the first untaught step of Trace the Claim’s fictional school-trip trail. Model claim versus checkable detail, play one A/B/C round, then trace part of the rumour. Partners underline wording that changes the claim and write a careful correction. If already familiar, apply the routine to an available, previewed Action Pack source with creator/title visible.",
-      "href": "?subject=Social+Studies&socialLesson=trace-the-claim&mode=student",
-      "firstAction": "Look at the claim and find the source that could check it.",
+      "title": "Social Studies · maps and perspective",
+      "notes": "Finish an earlier inquiry first if needed. Otherwise open Three maps of Fleetwood and preview its linked maps before class. Use the Meet and Purpose scenes, modelling visible detail versus inference. Compare two maps before adding the third if time permits. A missing label does not prove a place or community does not exist. Keep one supported claim and one unanswered question; continue later instead of completing the whole sequence in one hour.",
+      "href": "?subject=Social+Studies&socialLesson=maps-make-arguments&mode=student",
+      "firstAction": "Look at the first Fleetwood map. Point to a detail you can actually see.",
       "studentSteps": [
-        "Separate what the source says from what you think.",
-        "Point to an exact detail that supports or changes a claim.",
-        "Write one careful conclusion and one remaining question."
+        "Compare the projected maps: who made each, and what does it make easy to see?",
+        "Choose a question about Fleetwood. Explain which map helps answer it.",
+        "Name a limit or a missing perspective; explain what other source would help."
       ],
       "activity": {
-        "label": "Trace the Claim activity",
-        "href": "?subject=Social+Studies&socialLesson=trace-the-claim&mode=student",
+        "label": "Maps and perspective",
+        "href": "?subject=Social+Studies&socialLesson=maps-make-arguments&mode=student",
         "studentSafe": true
       },
-      "titleKo": "사회 · 근거와 자료 출처 확인하기",
-      "firstActionKo": "주장을 살펴보고 이를 확인할 수 있는 자료를 찾으세요."
+      "titleKo": "사회 · 지도와 관점",
+      "firstActionKo": "첫 번째 Fleetwood 지도를 보세요. 실제로 보이는 정보를 하나 짚어 보세요."
     },
     {
       "time": "11:50 am–12:35 pm",
@@ -116,22 +116,22 @@
     },
     {
       "time": "1:00–2:00 pm",
-      "title": "Career Education · Action Pack question and first check",
-      "notes": "Recover the chosen issue/question; do not restart finished work. Initial check: what do I think now, and what do I want to find out? Use the teacher’s available Be the Change choices for one manageable student-chosen activity, then ask what action/skill students noticed and who might use it. Final reflection: one changed idea, one possible work/service connection and one next question; students discover the connection themselves.",
-      "href": "?subject=Career+Education&experience=career-constellation&mode=student",
-      "firstAction": "Record the issue you chose, or one you want to explore.",
+      "title": "ADST · make, test and improve",
+      "notes": "Return to the paper prototype, or make the first small version if needed. Watch a new user’s first action without coaching and record a pause or misunderstanding without names. Check the message against its source before improving the design, then retest one change. Keep a before/after sketch and an evidence-based reason.",
+      "href": "?subject=ADST&experience=cold-test-prototype&mode=student",
+      "firstAction": "Choose one small paper version another person can try.",
       "studentSteps": [
-        "Choose or recover your issue and question.",
-        "Try one small part of your chosen activity.",
-        "Reflect on an action you used and where it might help."
+        "Name the user, purpose and one sign it works.",
+        "Try the paper version and observe without giving hints.",
+        "Make one change based on what you noticed."
       ],
       "activity": {
-        "label": "Career connection lesson",
-        "href": "?subject=Career+Education&experience=career-constellation&mode=student",
+        "label": "Paper prototype and test",
+        "href": "?subject=ADST&experience=cold-test-prototype&mode=student",
         "studentSafe": true
       },
-      "titleKo": "진로 교육 · Action Pack 질문과 첫 점검",
-      "firstActionKo": "선택한 문제나 탐구해 보고 싶은 문제를 적으세요."
+      "titleKo": "디자인·기술 · 만들고 시험해 보고 고치기",
+      "firstActionKo": "다른 사람이 시험해 볼 간단한 종이 초안을 하나 고르세요."
     },
     {
       "time": "2:00–2:15 pm",
@@ -172,6 +172,7 @@
   ],
   "backups": [
     "Carry unfinished learning into the next suitable block rather than adding a second full lesson.",
-    "If the projector or sign-in fails, use paper, the board and available class materials."
+    "If the projector or sign-in fails, use paper, the board and available class materials.",
+    "If the operations route has been selected: ?subject=Mathematics&experience=strategy-league&mode=student"
   ]
 }

@@ -1,11 +1,11 @@
 {
-  "id": "day-2026-10-09",
-  "date": "2026-10-09",
+  "id": "day-2026-10-16",
+  "date": "2026-10-16",
   "status": "tentative",
-  "title": "Tentative · Friday · French, gym and Terry Fox Run",
-  "greeting": "Good morning, Division 8!",
+  "title": "Tentative · Friday · French, gym and a small arts share",
+  "greeting": "Good morning, Grade 6!",
   "arrival": "This is our working plan. We may adjust it to finish learning well.",
-  "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately. Terry Fox Run is 1:00–2:00 pm, replacing the long Arts block. School is closed Monday October 12; next school day is Tuesday October 13. Mr. Eckert teaches Core French only. Mr. Wyatt teaches Physical and Health Education, including classroom health learning and PE.",
+  "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately. Keep familiar paper-ready tasks available and check any school timetable changes before teaching.",
   "reflection": "",
   "blocks": [
     {
@@ -23,10 +23,10 @@
     },
     {
       "time": "8:50–9:35 am",
-      "title": "Mathematics · show what makes sense",
-      "notes": "Give a short check on taught ideas only: value of 6 in 3.064 (0.06); 0.70 vs 0.7 (=); 5.376 to hundredths (5.38); explain 5.306 < 5.36. Remove untaught items. Use the remaining time for a conference or targeted practice, and keep a brief next-step summary.",
+      "title": "Mathematics · explain and improve",
+      "notes": "Students explain one current-route example and improve an earlier misunderstanding. Optional matched check: order 0.56, 0.506, 0.65 (0.506 < 0.56 < 0.65), or calculate 32 × 14 = 448 if that strategy was taught. Collect one next-step note rather than launch a new topic.",
       "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
-      "firstAction": "Try the number questions on your own.",
+      "firstAction": "Choose one piece of this week’s Mathematics that you can explain.",
       "studentSteps": [
         "Try the model on paper or a whiteboard.",
         "Explain which place or strategy supports your answer.",
@@ -37,17 +37,17 @@
         "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
         "studentSafe": true
       },
-      "titleKo": "수학 · 이해한 내용 보여 주기",
-      "firstActionKo": "수에 관한 문제를 혼자 풀어 보세요."
+      "titleKo": "수학 · 설명하고 보완하기",
+      "firstActionKo": "이번 주에 배운 수학 내용 중 설명할 수 있는 것 하나를 고르세요."
     },
     {
       "time": "9:35–10:35 am",
-      "title": "Core French · Mr. Eckert",
-      "notes": "French-only specialist block with Mr. Eckert; this is Mr. Wyatt’s prep. Classroom health learning and PE are taught by Mr. Wyatt.",
+      "title": "Core French and Health Education",
+      "notes": "Established specialist/prep block; follow the specialist’s programme.",
       "href": "",
-      "firstAction": "Get your French materials ready and follow Mr. Eckert’s directions.",
-      "titleKo": "프랑스어 · Eckert 선생님",
-      "firstActionKo": "프랑스어 준비물을 꺼내고 Eckert 선생님의 안내를 따르세요."
+      "firstAction": "Get ready and follow your specialist teacher’s directions.",
+      "titleKo": "프랑스어·보건",
+      "firstActionKo": "준비를 마치고 담당 선생님의 안내를 따르세요."
     },
     {
       "time": "10:35–10:50 am",
@@ -70,7 +70,7 @@
     {
       "time": "11:10–11:50 am",
       "title": "Physical and Health Education · gym",
-      "notes": "Choose a familiar cooperative passing/target activity after checking space, equipment and access. Warm up, practise controlled movements at a suitable distance, then play a short challenge and cool down. Adjust equipment, distance or role so everyone participates. Keep the effort light ahead of the afternoon run.",
+      "notes": "Choose a familiar cooperative passing/target activity after checking space, equipment and access. Warm up, practise controlled movements at a suitable distance, then play a short challenge and cool down. Adjust equipment, distance or role so everyone participates.",
       "href": "",
       "firstAction": "Listen to the safety directions and choose a way to join.",
       "studentSteps": [
@@ -91,7 +91,7 @@
       "firstActionKo": "바깥 놀이와 점심시간에는 정해진 순서대로 하세요."
     },
     {
-      "time": "12:35–12:50 pm",
+      "time": "12:35–1:00 pm",
       "title": "Quiet individual time",
       "notes": "Preserve a calm reset; a quiet non-reading choice is available.",
       "href": "",
@@ -100,22 +100,23 @@
       "firstActionKo": "조용히 책 읽기, 그림 그리기, 끝내지 못한 활동 중 하나를 고르세요."
     },
     {
-      "time": "12:50–1:00 pm",
-      "title": "Terry Fox Run · prepare",
-      "notes": "Confirm route, weather, water, access and supervision with the school. Use walking, running or another school-approved participation route; do not make speed or distance a public ranking.",
-      "href": "",
-      "firstAction": "Listen to the school’s route and participation directions.",
-      "titleKo": "Terry Fox Run · 행사 준비",
-      "firstActionKo": "학교에서 안내하는 이동 경로와 참여 방법을 들으세요."
-    },
-    {
       "time": "1:00–2:00 pm",
-      "title": "Physical and Health Education · Terry Fox Run",
-      "notes": "Confirmed school event, 1:00–2:00 pm. Follow the school’s route, supervision and adapted participation directions. If rescheduled, use a familiar indoor movement/art continuation.",
-      "href": "",
-      "firstAction": "Join the school activity in the agreed safe way.",
-      "titleKo": "체육·보건 · Terry Fox Run",
-      "firstActionKo": "함께 정한 안전한 방법으로 학교 활동에 참여하세요."
+      "title": "Arts Education · visual choices and a small share",
+      "notes": "Continue existing art first, or use only the visual-art page of Four Arts Foundations. Demonstrate two original thumbnails with different emphasis, then let students make a small study using line, shape, colour or value. Partners say what they notice first; the artist revises one choice or explains why it works. Keep inquiry content accurate and assess the artistic choice separately.",
+      "href": "?subject=Arts+Education&experience=four-arts-languages&mode=student",
+      "firstAction": "Choose a work in progress, or sketch two ways to show one idea.",
+      "studentSteps": [
+        "Make or continue one small visual study.",
+        "Ask what a viewer notices first.",
+        "Revise one choice and explain its effect."
+      ],
+      "activity": {
+        "label": "Arts studio",
+        "href": "?subject=Arts+Education&experience=four-arts-languages&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "미술 · 표현 방법 고르고 간단히 소개하기",
+      "firstActionKo": "만들던 작품을 고르거나, 한 가지 생각을 표현할 두 가지 방법을 스케치하세요."
     },
     {
       "time": "2:00–2:15 pm",
@@ -156,7 +157,6 @@
   ],
   "backups": [
     "Carry unfinished learning into the next suitable block rather than adding a second full lesson.",
-    "If the projector or sign-in fails, use paper, the board and available class materials.",
-    "Before dismissal: remind students there is no school Monday October 12."
+    "If the projector or sign-in fails, use paper, the board and available class materials."
   ]
 }

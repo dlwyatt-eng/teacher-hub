@@ -218,7 +218,7 @@ function MorningProjector({
   return <main className="morning-projector" aria-labelledby="morning-projector-title" data-morning-date={saved.date}>
     <header className="morning-projector-header">
       <button className="morning-projector-home" type="button" onClick={onOpenHome} aria-label="Return to Classroom OS home">⌂</button>
-      <div><small>WALNUT ROAD · GRADE 6</small><h1 id="morning-projector-title">{saved.greeting}</h1></div>
+      <div><small>WALNUT ROAD · DIVISION 8</small><h1 id="morning-projector-title">{saved.greeting}</h1></div>
       <div className="morning-projector-date"><strong>{displayDate(saved.date)}</strong><span><WeatherLine weather={saved.weather} /></span></div>
     </header>
 
