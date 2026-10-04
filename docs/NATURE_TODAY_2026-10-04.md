@@ -31,3 +31,24 @@ The student journal contains student activities only. Teacher guidance and asses
 Prepared on the current remote baselines: Teacher Hub `b2ec122`; Equity Hub `65e3a80`. No reset or force push is part of this release. Exact post-push commit and source-tree matches are checked against the remote refs at publication. Automated, visual, classroom-use and publication evidence are reported separately; no classroom trial is claimed.
 
 Prepublication evidence: both complete `npm test` gates passed (Teacher Hub 233 tests; Equity Hub 27 tests), including TypeScript, production builds and copied-asset validation. `git diff --check` passed. All 29 PDF pages were rendered and visually reviewed; credits, source links and all 15 full-frame photos were checked. The ZIP integrity check passed. The component, JSON, credits and 19 public files match across hubs. The cloud browser cannot open the local preview address, so interactive browser checks remain a postdeployment gate. No classroom-use or mobile-device trial is claimed.
+
+## Published release and live checks
+
+Both GitHub Pages workflows succeeded on 4 October 2026. Publication used the connected GitHub integration because command-line Git had no push credentials. Existing main history was preserved with a fast-forward update.
+
+| Hub | Locally tested commit | Published commit | Identical source tree |
+| --- | --- | --- | --- |
+| Teacher | `3cb275970ae67dadbf90c8838708aac8880722d7` | `c7e431d41df385fba723f29b1d4d93f608480386` | `8bf122795b785c31ebc33eda58904c7f263b470c` |
+| Equity | `e6f00463adfaa07012b96d38083da87627444bc6` | `2b6fe4fcc7931146ff0a9f4c3acf23f501a55b0c` | `4a4fb21b458ad6ca98a853824f308bb2e8cb4431` |
+
+The source commits differ because the GitHub integration creates its own commit metadata; the complete file trees are identical. This subsequent documentation-only update records the evidence without changing the rendered resource.
+
+- Teacher live route: https://dlwyatt-eng.github.io/teacher-hub/?view=Nature+Today
+- Student live route: https://dlwyatt-eng.github.io/teacher-hub/?mode=student&view=Nature+Today
+- Equity live route: https://dlwyatt-eng.github.io/equity-hub/#nature-today
+- Teacher Pages run: https://github.com/dlwyatt-eng/teacher-hub/actions/runs/37238567367
+- Equity Pages run: https://github.com/dlwyatt-eng/equity-hub/actions/runs/37238646385
+
+Live desktop browser rehearsal checked Teacher student/Plan modes, next-image wrap, manual salmon selection, Notice/Explain/Revisit, keyboard ArrowRight and End, weekday reset, projector dialog, Escape and restored trigger focus. Teacher notes stayed out of student mode. Equity's direct route, Outdoor learning entry, Printables labels, manual selection and keyboard stage switching were exercised. Both views loaded the actual photos without horizontal overflow at the observed 1363px browser viewport. Full-frame projector images and both published layouts were visually inspected.
+
+Independent HTTP checks verified all 38 public assets (15 photos and four downloads on each hub): HTTP 200, correct MIME type and SHA-256 identical to the local release files. All four deliverables were saved successfully. No student records were added. No classroom-use or mobile-device trial is claimed.
