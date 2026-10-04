@@ -91,27 +91,9 @@
       "firstActionKo": "바깥 놀이와 점심시간에는 정해진 순서대로 하세요."
     },
     {
-      "time": "12:35–12:50 pm",
-      "title": "Quiet individual time",
-      "notes": "Preserve a calm reset; a quiet non-reading choice is available.",
-      "href": "",
-      "firstAction": "Choose quiet reading, drawing or an unfinished task.",
-      "titleKo": "조용한 개인 활동 시간",
-      "firstActionKo": "조용히 책 읽기, 그림 그리기, 끝내지 못한 활동 중 하나를 고르세요."
-    },
-    {
-      "time": "12:50–1:00 pm",
-      "title": "Terry Fox Run · prepare",
-      "notes": "Confirm route, weather, water, access and supervision with the school. Use walking, running or another school-approved participation route; do not make speed or distance a public ranking.",
-      "href": "",
-      "firstAction": "Listen to the school’s route and participation directions.",
-      "titleKo": "Terry Fox Run · 행사 준비",
-      "firstActionKo": "학교에서 안내하는 이동 경로와 참여 방법을 들으세요."
-    },
-    {
-      "time": "1:00–2:00 pm",
+      "time": "12:35–2:00 pm",
       "title": "Physical and Health Education · Terry Fox Run",
-      "notes": "Confirmed school event, 1:00–2:00 pm. Follow the school’s route, supervision and adapted participation directions. If rescheduled, use a familiar indoor movement/art continuation.",
+      "notes": "Confirmed school event, 12:35–2:00 pm. Have a full water bottle, running shoes and weather-appropriate clothing ready. Follow the school’s route, supervision and adapted participation directions. Confirm preparation arrangements with the school before the run; use walking, running or another school-approved participation route. Do not rank speed or distance. If rescheduled, use a familiar indoor movement/art continuation.",
       "href": "",
       "firstAction": "Join the school activity in the agreed safe way.",
       "titleKo": "체육·보건 · Terry Fox Run",

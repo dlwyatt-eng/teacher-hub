@@ -2,10 +2,10 @@
   "id": "day-2026-10-05",
   "date": "2026-10-05",
   "status": "tentative",
-  "title": "Tentative · Monday · number sense, story and inquiry",
+  "title": "Tentative · Monday · comparing numbers, fair communities and story planning",
   "greeting": "Good morning, Division 8!",
   "arrival": "This is our working plan. We may adjust it to finish learning well.",
-  "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately. Start with the Mathematics check before choosing the week’s next concept. Mr. Eckert teaches Core French only. Mr. Wyatt teaches Physical and Health Education, including classroom health learning and PE.",
+  "note": "Tentative Division 8 desk plan: adjust blocks to actual progress, including more time finishing last week’s art if needed. Comparing whole numbers and decimals has not started; rounding is mostly finished. Confirm the Nevermoor bookmark before reading. Monday Bloxels is paper planning. Technology is booked Tuesday and Thursday; exact times are unconfirmed. Choose useful pages from the linked booklets; completing every page Monday is not expected. LST times remain unconfirmed. Mr. Eckert teaches French during both prep blocks. Mr. Wyatt teaches Health/PHE. Record actual outcomes separately.",
   "reflection": "",
   "blocks": [
     {
@@ -22,28 +22,33 @@
       "firstActionKo": "자리에 앉고 출석을 부르면 대답하세요."
     },
     {
-      "time": "8:45–9:45 am",
-      "title": "Mathematics · round, compare and explain",
-      "notes": "Check independently: 6.08 vs 6.8 (<), 0.50 vs 0.5 (=), and 7.264 to hundredths (7.26). Model the weakest idea, using 6.080 < 6.800 or a labelled chart. Partners order 0.405, 0.45, 0.5; add whole-number comparisons only if ready. Exit: explain 0.62 > 0.602.",
+      "time": "8:45–9:35 am",
+      "title": "Mathematics · compare whole numbers and decimals",
+      "notes": "Brief rounding review: 7.264 to hundredths is 7.26. Introduce comparison, rather than assuming it is already taught. Model 4,582 > 4,528: thousands and hundreds match; compare tens, 8 > 2. Align place values and compare left to right. Model 4.70 > 4.65: ones match; 7 tenths > 6 tenths. Practice: 4,209 < 4,290; 6.4 > 6.04; 2.5 = 2.50; 0.63 < 0.7. Explain the deciding place. Exit: explain 6.08 < 6.8. Booklets A/B page 1 offer number choices; English–Korean packet page 1 provides a bilingual comparison model. Choose appropriate questions, not all sheets.",
       "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
-      "firstAction": "Compare 6.08 and 6.8. Show how you know.",
+      "firstAction": "Round 7.264 to the nearest hundredth, then compare 4,582 and 4,528.",
       "studentSteps": [
-        "Try the model on paper or a whiteboard.",
-        "Explain which place or strategy supports your answer.",
-        "Complete one independent check; use it to choose our next step."
+        "Review one rounding example together.",
+        "Compare from the greatest place value; stop at the first different digit.",
+        "Try a pair, explain the deciding place to a partner, then complete one independent comparison."
       ],
       "activity": {
         "label": "Number comparison lesson",
         "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
         "studentSafe": true
       },
-      "titleKo": "수학 · 반올림하고 비교하고 설명하기",
-      "firstActionKo": "6.08과 6.8의 크기를 비교하고, 어떻게 알았는지 보여 주세요."
+      "titleKo": "수학 · 정수와 소수의 크기 비교",
+      "firstActionKo": "7.264를 소수 둘째 자리까지 반올림한 뒤 4,582와 4,528의 크기를 비교하세요.",
+      "worksheet": {
+        "label": "Comparing numbers, fair communities and stories · English–Korean packet",
+        "href": "./printables/Monday_Learning_English_Korean.pdf",
+        "studentSafe": true
+      }
     },
     {
-      "time": "9:45–10:20 am",
+      "time": "9:35–10:20 am",
       "title": "English Language Arts · Nevermoor",
-      "notes": "If the journal needs launching, model idea + heard detail + explanation. Otherwise revisit a prediction using one new detail. Allow brief writing, labelled drawing, speech or dictation, and record the bookmark.",
+      "notes": "Confirm the actual class bookmark before reading; do not assume a chapter. Choose a short section and listen for what a character wants, feels or thinks. Model an idea plus a detail from this reading, then explain how the detail supports the idea. Students write, draw, say or dictate a brief response and a question. Record the stopping point. English–Korean packet page 5 provides a matching response page.",
       "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
       "firstAction": "Recall the last part we actually heard, or listen to the opening.",
       "studentSteps": [
@@ -57,7 +62,12 @@
         "studentSafe": true
       },
       "titleKo": "영어 · Nevermoor",
-      "firstActionKo": "지난번에 들은 마지막 부분을 떠올리거나 이야기의 시작 부분을 들으세요."
+      "firstActionKo": "지난번에 들은 마지막 부분을 떠올리거나 이야기의 시작 부분을 들으세요.",
+      "worksheet": {
+        "label": "Nevermoor response · English–Korean packet, page 5",
+        "href": "./printables/Monday_Learning_English_Korean.pdf",
+        "studentSafe": true
+      }
     },
     {
       "time": "10:20–10:35 am",
@@ -79,22 +89,27 @@
     },
     {
       "time": "10:50–11:50 am",
-      "title": "Social Studies · evidence and source checking",
-      "notes": "Start at the first untaught step of Trace the Claim’s fictional school-trip trail. Model claim versus checkable detail, play one A/B/C round, then trace part of the rumour. Partners underline wording that changes the claim and write a careful correction. If already familiar, apply the routine to an available, previewed Action Pack source with creator/title visible.",
-      "href": "?subject=Social+Studies&socialLesson=trace-the-claim&mode=student",
-      "firstAction": "Look at the claim and find the source that could check it.",
+      "title": "Social Studies and Language Arts · fair communities",
+      "notes": "Ask: What makes a community fair, and what would we improve? Begin with a shared-space example: one group uses a play area every recess. Model a possible improvement, who it affects and what still needs checking; different defensible solutions are welcome. Students choose a public issue, identify affected people and suggest a decision plus who could help make it. Use the community reflection to write or dictate a paragraph with a reason and an inquiry question. Partners identify a clear reason; revise one sentence when feedback helps. Booklets A/B page 2 and English–Korean packet page 2 offer alternative routes.",
+      "href": "",
+      "firstAction": "Think of a shared place or rule. Who can take part, and what could improve?",
       "studentSteps": [
-        "Separate what the source says from what you think.",
-        "Point to an exact detail that supports or changes a claim.",
-        "Write one careful conclusion and one remaining question."
+        "Choose a public issue and identify who is affected.",
+        "Explain one possible improvement, who could help decide, and a question to investigate.",
+        "Write or dictate a short paragraph. Share a reason with a partner and make a useful revision."
       ],
       "activity": {
-        "label": "Trace the Claim activity",
-        "href": "?subject=Social+Studies&socialLesson=trace-the-claim&mode=student",
+        "label": "Monday materials · choose a useful page",
+        "href": "./activities/monday-october-5.html",
         "studentSafe": true
       },
-      "titleKo": "사회 · 근거와 자료 출처 확인하기",
-      "firstActionKo": "주장을 살펴보고 이를 확인할 수 있는 자료를 찾으세요."
+      "titleKo": "사회와 영어 · 공정한 공동체",
+      "firstActionKo": "함께 쓰는 장소나 규칙을 생각해 보세요. 누가 참여할 수 있나요? 무엇을 개선할 수 있을까요?",
+      "worksheet": {
+        "label": "Our community reflection",
+        "href": "./printables/community-fairness-reflection.pdf",
+        "studentSafe": true
+      }
     },
     {
       "time": "11:50 am–12:35 pm",
@@ -106,7 +121,7 @@
       "firstActionKo": "바깥 놀이와 점심시간에는 정해진 순서대로 하세요."
     },
     {
-      "time": "12:35–1:00 pm",
+      "time": "12:35–12:55 pm",
       "title": "Quiet individual time",
       "notes": "Preserve a calm reset; a quiet non-reading choice is available.",
       "href": "",
@@ -115,23 +130,41 @@
       "firstActionKo": "조용히 책 읽기, 그림 그리기, 끝내지 못한 활동 중 하나를 고르세요."
     },
     {
-      "time": "1:00–2:00 pm",
-      "title": "Career Education · Action Pack question and first check",
-      "notes": "Recover the chosen issue/question; do not restart finished work. Initial check: what do I think now, and what do I want to find out? Use the teacher’s available Be the Change choices for one manageable student-chosen activity, then ask what action/skill students noticed and who might use it. Final reflection: one changed idea, one possible work/service connection and one next question; students discover the connection themselves.",
-      "href": "?subject=Career+Education&experience=career-constellation&mode=student",
-      "firstAction": "Record the issue you chose, or one you want to explore.",
+      "time": "12:55–1:40 pm",
+      "title": "ADST and Language Arts · Bloxels paper planning",
+      "notes": "Use paper today. Model a character who wants to cross a river: a broken bridge creates the obstacle; the player can repair it or find another route. Discuss how the choice changes the story. Partners plan character, setting, goal, obstacle and one small level with a start and goal. Each student writes their own 3–5 sentence opening, or uses an oral, drawn or dictated route. Booklets A/B pages 3–5 and English–Korean pages 3–4 offer alternatives. Build a small part during the next suitable Tuesday or Thursday technology block; exact booking times are unconfirmed.",
+      "href": "",
+      "firstAction": "Choose a character, what they want, and one obstacle. Plan on paper.",
       "studentSteps": [
-        "Choose or recover your issue and question.",
-        "Try one small part of your chosen activity.",
-        "Reflect on an action you used and where it might help."
+        "Plan a character, setting, goal and problem with your partner.",
+        "Sketch one small level: start, obstacle and goal. Show a player choice.",
+        "Write your own story opening using the plan. Explain one design choice."
       ],
       "activity": {
-        "label": "Career connection lesson",
-        "href": "?subject=Career+Education&experience=career-constellation&mode=student",
+        "label": "Monday materials · booklets and packet",
+        "href": "./activities/monday-october-5.html",
         "studentSafe": true
       },
-      "titleKo": "진로 교육 · Action Pack 질문과 첫 점검",
-      "firstActionKo": "선택한 문제나 탐구해 보고 싶은 문제를 적으세요."
+      "titleKo": "설계와 영어 · Bloxels 종이 계획",
+      "firstActionKo": "인물, 원하는 것, 장애물 하나를 정하고 종이에 계획하세요.",
+      "worksheet": {
+        "label": "Bloxels story and game planner",
+        "href": "./printables/Bloxels_Story_and_Game_Planner.pdf",
+        "studentSafe": true
+      }
+    },
+    {
+      "time": "1:40–2:00 pm",
+      "title": "Flexible finishing and revision · creative work",
+      "notes": "Finish or revise an earlier task, possibly last week’s art. Extend art time by adjusting an earlier flexible block if useful. Carry unfinished pages forward; no expectation to finish every booklet page today.",
+      "href": "",
+      "firstAction": "Choose one unfinished piece and a useful next step.",
+      "studentSteps": [
+        "Choose work to finish or improve.",
+        "Make one purposeful change and explain your choice."
+      ],
+      "titleKo": "미완성 활동 마무리와 수정",
+      "firstActionKo": "끝내지 못한 활동 하나를 고르고 다음에 할 일을 정하세요."
     },
     {
       "time": "2:00–2:15 pm",
