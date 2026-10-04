@@ -38,6 +38,7 @@ export function ClassroomNavigation({active, routeKey, projector}: {active: stri
       {listDayPlans().map(day => <option key={day.id} value={day.id}>{day.date || 'Template'} · {day.title}</option>)}
     </select></label>
     <a href={`?view=Games+%26+Activities${mode}`} aria-current={active === 'Games & Activities' ? 'page' : undefined}>Activities</a>
+    <a href={`?view=Nature+Today${mode}`} aria-current={active === "Nature Today" ? "page" : undefined}>Nature Today</a>
     <a href={`?view=Responsibilities${mode}`} aria-current={active === 'Responsibilities' ? 'page' : undefined}>Responsibilities</a>
     {!projector && <a href={editDayHref(plan.id)} aria-current={active === 'Day Plans' ? 'page' : undefined}>Saved day plans</a>}
     </div>
@@ -57,6 +58,7 @@ export function ClassroomLaunch() {
       <a href={editDayHref(plan.id)}>Edit day plan / archive</a>
       <a href="?view=Morning+Screen">Arrival challenge &amp; notices</a>
       <a href="?subject=English+Language+Arts&experience=werewolf-learn&mode=student">Werewolf</a>
+      <a href="?view=Nature+Today&mode=student">Nature Today · 2–5 minutes</a>
       <a href="?view=Weekly+Plan">Week plan</a>
       <a href="?view=TOC+%26+Emergency+Plans">TOC &amp; printables</a>
     </nav>

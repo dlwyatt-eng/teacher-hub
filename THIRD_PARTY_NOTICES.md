@@ -32,3 +32,7 @@ THIS SOFTWARE.
 ## Belonging printable icons
 
 The PDFs in `public/printables/belonging/` use Font Awesome Free 6 solid icons, copyright Fonticons, Inc., under CC BY 4.0: https://fontawesome.com/license/free and https://creativecommons.org/licenses/by/4.0/. Icons are scaled and rendered in monochrome. Source: https://github.com/FortAwesome/Font-Awesome/tree/6.x/svgs/solid. No Indigenous cultural imagery is reproduced.
+
+## Nature Today photo bank
+
+The 15 photographs in `public/images/nature-today/` retain their source licences. See [complete photograph credits](docs/NATURE_TODAY_PHOTO_CREDITS.md) and `content/nature-today.json` for original titles, creators, source and licence links, place, date, uncertainty and changes.

@@ -51,6 +51,7 @@ const StudentAgencyDock = lazy(() => import("./student-agency-dock"));
 const OpeningWeekCockpit = lazy(() => import("./opening-week").then(m => ({default:m.OpeningWeekCockpit})));
 const GamesActivities = lazy(() => import("./games-activities"));
 const ResponsibilitiesPage = lazy(() => import("./responsibilities-page"));
+const NatureToday = lazy(() => import("./nature-today"));
 const MorningScreen = lazy(() => import("./morning-screen"));
 const NewsroomHub = lazy(() => import("./student-agency-hub").then((module) => ({ default: module.NewsroomHub })));
 const MyInquiryHub = lazy(() => import("./student-agency-hub").then((module) => ({ default: module.MyInquiryHub })));
@@ -349,7 +350,7 @@ function subjectHubLocationFromClassroom(location: ClassroomLocation, subject: S
 }
 
 const standaloneViews = new Set([
-  "Home", "Day Plans", "Games & Activities", "Responsibilities", "Math Thinking Routines", "Opening Welcome", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Weekly Plan", "Monthly Calendar",
+  "Nature Today", "Home", "Day Plans", "Games & Activities", "Responsibilities", "Math Thinking Routines", "Opening Welcome", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Weekly Plan", "Monthly Calendar",
   "Calendar Provocations", "First Week Mission", "TOC & Emergency Plans", "TTOC Day Plan", "Cross-Curricular Projects",
   "Project Template", "Teaching OS Map", "Year Plan", "SpacesEDU Evidence", "AI Activity Studio",
   "Assessment Studio", "Classroom Guide", "Saved Resources",
@@ -361,7 +362,7 @@ function normalizeLegacyView(active?: string) {
   return "Home";
 }
 
-const projectorSafePages = new Set(["Games & Activities", "Responsibilities", "Math Thinking Routines", "Home", "Opening Welcome", "First Week Mission", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Calendar Provocations"]);
+const projectorSafePages = new Set(["Nature Today", "Games & Activities", "Responsibilities", "Math Thinking Routines", "Home", "Opening Welcome", "First Week Mission", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Calendar Provocations"]);
 
 function isProjectorSafePage(active: string) {
   return projectorSafePages.has(active);
@@ -712,6 +713,7 @@ function ClassroomHome() {
           <button className={`nav-item ${active === "Morning Screen" ? "active" : ""}`} onClick={() => void openShapeOfDay()}>
             <span className="nav-icon">☀</span> Shape of the Day
           </button>
+          <button className={`nav-item ${active === "Nature Today" ? "active" : ""}`} onClick={() => navigateToPage("Nature Today")}><span className="nav-icon">◉</span> Nature Today</button>
           <p className="nav-label second">SUBJECTS</p>
           {subjects.map((subject) => (
             <button key={subject.name} className={`nav-item ${active === subject.short ? "active" : ""}`} onClick={() => chooseSubject(subject)}>
@@ -798,6 +800,8 @@ function ClassroomHome() {
           <GamesActivities projector={mode === "projector"} />
         ) : active === "Responsibilities" ? (
           <ResponsibilitiesPage />
+        ) : active === "Nature Today" ? (
+          <NatureToday audience={mode === "projector" ? "student" : "teacher"} hub="teacher" />
         ) : active === "Morning Screen" ? (
           <MorningScreen audience={mode === "projector" ? "student" : "teacher"} onOpenHome={goHome} timeline={morningTimeline} />
         ) : active === "Newsroom" ? (
