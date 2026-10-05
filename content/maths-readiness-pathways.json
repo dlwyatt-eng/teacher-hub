@@ -1,0 +1,382 @@
+{
+  "id": "maths-readiness",
+  "title": "Which place decides?",
+  "subtitle": "Check the idea, choose a useful lesson, then try fresh numbers.",
+  "version": "2026-10-05",
+  "intro": "A short entry check for place value, number comparison and decimal equivalence. Explain by writing, speaking, pointing to labelled places or drawing. The teacher uses the evidence to choose a next step; this is not a timed contest or a grade.",
+  "teacherOverview": [
+    "The current October 5 plan says comparing numbers has not started and rounding is mostly finished. Treat this as an entry check and lesson choice, not evidence that a planned lesson has already happened.",
+    "Allow about 12 minutes for the six readiness items. Read prompts without explaining the mathematics; allow usual access supports and extra time. A learner may dictate a reason or use a place-value chart. Clarify language before interpreting an answer as a mathematical difficulty.",
+    "Read the work for the actual idea: digit value, equal units, first unequal place, and a reason for equality. Do not total answers into a cutoff, sort students automatically, or assign permanent groups. A correct symbol without an explanation needs a brief follow-up conversation.",
+    "Choose one route for this block: represent and reteach, compare and consolidate, or deepen and apply. These are different next actions, not learner labels. Start together if useful, then confer with individuals. Students need not complete all three routes.",
+    "Teach the route's supplied model, try its practice, and finish with its two fresh recheck items independently. Compare the explanation with the earlier evidence. If the idea is still uncertain, change the representation and revisit it; completing a sheet is not the decision rule.",
+    "Use the separate whole-number multiplication mini-check before revealing the partial-products model. Success comparing decimals does not by itself show multiplication readiness. Cover the bridge model and practice while learners attempt the gate; offer the bridge later if that makes the block manageable.",
+    "Rounding is a brief, separate retrieval or repair only when recent work shows a need. The represent route contains an exact probe, model and fresh retry. It is not an extra compulsory lesson.",
+    "This is a narrow number-understanding sequence. Thousandths and whole-number strategies revisit earlier learning and strengthen Grade 6 work; the larger-number task extends to billions. The optional whole-number partial-products bridge prepares for later decimal operations, without claiming complete Grade 6 coverage.",
+    "All core examples are original and work on paper. Optional Math Antics explanations and existing MathUP topic links remain available. Use a short, relevant segment or task only if it answers the observed need. No account, upload, marks database or interim-report workflow is part of this sequence."
+  ],
+  "sources": [
+    {
+      "title": "BC Mathematics 6 curriculum",
+      "url": "https://curriculum.gov.bc.ca/curriculum/mathematics/6/core",
+      "note": "Official scope: number understanding from thousandths to billions, facts, estimation, representations and explanations, and decimal operations. Route choices and suggested minutes here are teacher planning decisions, not Ministry thresholds."
+    },
+    {
+      "title": "BC Mathematics 5 curriculum",
+      "url": "https://curriculum.gov.bc.ca/curriculum/mathematics/5/core",
+      "note": "Prior learning includes thousandths and whole-number multiplication/division. Use retrieval and representations where needed; do not present these as entirely new Grade 6 expectations."
+    },
+    {
+      "title": "Math Antics: Decimal Place Value",
+      "url": "https://mathantics.com/lesson/decimal-place-value",
+      "note": "Optional explanation from the existing magnitude-gallery route. Pause to name a digit's value; then use this sequence's original model and fresh practice. The paper route is complete without the video."
+    },
+    {
+      "title": "Math Antics: Multi-Digit Multiplication Pt. 2",
+      "url": "https://mathantics.com/lesson/multi-digit-multiplication-pt2",
+      "note": "Optional after the separate multiplication mini-check. Keep attention on what each partial product counts; division can wait."
+    },
+    {
+      "title": "MathUP: Representing, Estimating, and Comparing Decimal Numbers",
+      "url": "https://nat.mathup.ca/ui/GradePartMain/Games%20and%20Puzzles/7?topic=Representing%2C%20Estimating%2C%20and%20Comparing%20Decimal%20Numbers",
+      "note": "Existing optional topic navigation; approved access may be needed. No MathUP questions, slides or answers are reproduced here."
+    },
+    {
+      "title": "MathUP: Whole Number Operations",
+      "url": "https://nat.mathup.ca/ui/GradePartMain/Games%20and%20Puzzles/7?topic=Whole%20Number%20Operations",
+      "note": "Existing optional follow-up topic for the multiplication bridge; choose a matching task only after reviewing learner evidence."
+    }
+  ],
+  "readiness": {
+    "title": "What do you notice about the places?",
+    "minutes": 12,
+    "firstAction": "Work on your own first. For each comparison, write <, > or = and give a short reason. You may use a labelled place-value chart or explain aloud. Mark a question you want help with; this helps us choose what to learn next.",
+    "items": [
+      {
+        "id": "ready-digit-value",
+        "prompt": "What is the value of the digit 4 in 58,406? What is its value in 3.406? Name each place.",
+        "answer": "In 58,406, the 4 is in the hundreds place and has value 400. In 3.406, the 4 is in the tenths place and has value 0.4, or four tenths.",
+        "lookFor": "Distinguishes the digit 4 from its value and names the units. An answer of 4 in both cases suggests representing place-value units before comparing.",
+        "routeId": "represent-reteach"
+      },
+      {
+        "id": "ready-whole-comparison",
+        "prompt": "45,082 __ 45,208. Name the first place that decides the comparison.",
+        "answer": "45,082 < 45,208. The ten-thousands and thousands match; the hundreds first differ: 0 hundreds is less than 2 hundreds.",
+        "lookFor": "Compares from the greatest place and identifies hundreds, rather than picking a larger final digit.",
+        "routeId": "compare-consolidate"
+      },
+      {
+        "id": "ready-decimal-units",
+        "prompt": "6.4 __ 6.04. Explain what the 4 is worth in each number.",
+        "answer": "6.4 > 6.04. Four tenths is greater than four hundredths; the ones match and the tenths first differ: 4 versus 0.",
+        "lookFor": "Keeps the whole fixed and distinguishes tenths from hundredths. More written digits does not mean a greater decimal.",
+        "routeId": "represent-reteach"
+      },
+      {
+        "id": "ready-equivalence",
+        "prompt": "2.5 __ 2.50. Explain using tenths and hundredths.",
+        "answer": "2.5 = 2.50. Five tenths equals fifty hundredths; both numbers are 2 wholes and 50 hundredths.",
+        "lookFor": "Explains the unchanged value, not just a rule to ignore zeros. Zeros in other positions can change a value.",
+        "routeId": "represent-reteach"
+      },
+      {
+        "id": "ready-thousandths",
+        "prompt": "0.507 __ 0.57. Name the first unequal place.",
+        "answer": "0.507 < 0.570. The ones and tenths match; the hundredths differ: 0 is less than 7.",
+        "lookFor": "Aligns equivalent places, including the zero hundredths in 0.507, before comparing.",
+        "routeId": "compare-consolidate"
+      },
+      {
+        "id": "ready-explain-error",
+        "prompt": "A learner says, ‘0.308 is greater than 0.8 because 308 is greater than 8.’ Do you agree? Give a place-value reason.",
+        "answer": "Disagree: 0.308 < 0.800. At the first unequal place, 3 tenths is less than 8 tenths. The digits after a decimal cannot be compared as unrelated whole numbers.",
+        "lookFor": "Uses equal units or a valid labelled representation to challenge the claim. A memorized rule without an explanation needs a follow-up example.",
+        "routeId": "compare-consolidate"
+      }
+    ],
+    "routing": [
+      {
+        "routeId": "represent-reteach",
+        "when": "A learner cannot yet connect digits to their units, treats tenths and hundredths as interchangeable, or thinks a trailing decimal zero changes the value.",
+        "teacherMove": "Ask the learner to name the whole and build the model in labelled places. Check whether a language barrier or a notation slip explains the response. Choose this route only where the representation would help."
+      },
+      {
+        "routeId": "compare-consolidate",
+        "when": "Place values are meaningful, but comparisons are inconsistent, the deciding place is unclear, or equality still needs a reason.",
+        "teacherMove": "Use the left-to-right comparison model and ask for the first unequal place. Separate a correct symbol from a sound explanation; do not infer understanding from speed."
+      },
+      {
+        "routeId": "deepen-apply",
+        "when": "The learner consistently explains place value, comparisons and equivalence in the check and a brief follow-up, and is ready to apply those ideas to constraints or a less familiar scale.",
+        "teacherMove": "Invite a measurement decision or bounded digit puzzle, and require a reason. This is an optional application of number understanding, not automatic promotion to multiplication."
+      }
+    ]
+  },
+  "routes": [
+    {
+      "id": "represent-reteach",
+      "title": "Represent and explain the units",
+      "when": "A labelled representation would make the meaning of a digit or an equivalent decimal clearer.",
+      "goal": "Show what each digit counts and explain a comparison or equality using the same units.",
+      "minutes": 20,
+      "materials": ["Pencil and paper or the supplied route page", "Optional place-value counters; label each counter's unit"],
+      "example": {
+        "prompt": "Compare 2.4 and 2.04. Use the same whole for both numbers.",
+        "steps": [
+          "Use these columns: ones, tenths, hundredths, thousandths. For 2.400 the entries are 2, 4, 0, 0. For 2.040 they are 2, 0, 4, 0.",
+          "Both have 2 ones. Four tenths equals forty hundredths, so 2.4 is 2 wholes and 40 hundredths. The other number is 2 wholes and 4 hundredths.",
+          "Compare the tenths first: 4 tenths is greater than 0 tenths. Write 2.4 > 2.04.",
+          "The final zeros in 2.400 and 2.040 help align the places; they add no extra value. The zero between the decimal point and the 4 in 2.04 holds the tenths place."
+        ],
+        "answer": "2.4 > 2.04. The tenths are the first unequal place; 40 hundredths is greater than 4 hundredths."
+      },
+      "practice": [
+        {
+          "id": "represent-expanded",
+          "prompt": "Write 6.205 as a sum of its non-zero place values. What is the value of the 5?",
+          "answer": "6.205 = 6 + 0.2 + 0.005. The 5 has value five thousandths, or 0.005; there are zero hundredths."
+        },
+        {
+          "id": "represent-equality",
+          "prompt": "0.7 __ 0.70. Express both numbers in hundredths and explain.",
+          "answer": "0.7 = 0.70. Seven tenths is seventy hundredths; both are 70 hundredths."
+        },
+        {
+          "id": "represent-zero-place",
+          "prompt": "Write the ones, tenths, hundredths and thousandths in 0.406. Then compare 0.406 and 0.46.",
+          "answer": "0 ones, 4 tenths, 0 hundredths and 6 thousandths. 0.406 < 0.460 because the hundredths first differ: 0 < 6."
+        }
+      ],
+      "recheck": [
+        {
+          "id": "represent-recheck-comparison",
+          "prompt": "On your own: 3.07 __ 3.7. Show the places or explain what each 7 counts.",
+          "answer": "3.070 < 3.700. Seven hundredths is less than seven tenths; the first unequal place is tenths, 0 < 7.",
+          "lookFor": "The learner independently distinguishes the units and keeps the ones aligned. If uncertain, return to labelled units with a new pair."
+        },
+        {
+          "id": "represent-recheck-equivalence",
+          "prompt": "0.6 __ 0.60. Explain why your symbol is correct.",
+          "answer": "0.6 = 0.60. Six tenths equals sixty hundredths; the extra final zero does not change the value.",
+          "lookFor": "A unit-based explanation of equality, rather than a claim that every zero can be removed."
+        }
+      ],
+      "teacherNotes": [
+        "Use one fixed whole throughout. A counter labelled 0.1 represents a tenth and one labelled 0.01 represents a hundredth; do not silently change what a block stands for.",
+        "If tenths and hundredths are still unfamiliar, first show 0.4 as 4 tenths and 40 hundredths, then contrast it with 0.04 as 4 hundredths. Return to the supplied 2.4 and 2.04 model. Avoid adding a second concept such as a changing number-line scale.",
+        "Optional rounding probe, only if recent work raises a need: round 5.276 to the nearest hundredth. Expected 5.28: it lies above the midpoint 5.275 between 5.27 and 5.28. A correct answer with a sound reason needs no extra rounding lesson.",
+        "If the rounding probe needs repair, use a separate five-minute model: 4.362 is between 4.36 and 4.37, below the midpoint 4.365, so rounds to 4.36. Fresh retry: 7.438 to the nearest hundredth is 7.44, because it is above the midpoint 7.435 between 7.43 and 7.44. A number line is optional; adjacent values and a midpoint are sufficient.",
+        "If the fresh comparison and equality are explained independently, use compare-and-consolidate practice next. If not, revisit the particular unit relationship rather than repeating every readiness item."
+      ],
+      "access": [
+        "Read the prompt aloud without naming the deciding place. Accept an oral explanation, dictated response or pointing to labelled places.",
+        "Use a chart headed ones, tenths, hundredths, thousandths. State the unit names together before starting; do not rely on colour alone.",
+        "For a smaller entry, use 0.4 versus 0.04 with labelled units, then revisit the same principle with the supplied numbers. Fewer written questions can still give useful evidence."
+      ],
+      "existingExperienceId": "magnitude-gallery",
+      "studentPrompts": [
+        "First, label the places in the worked example. Point to what each digit counts.",
+        "Try the three practice tasks. Explain one answer to a partner using a unit name.",
+        "Finish with your route's fresh recheck on your own. Keep your first work so you can explain what changed."
+      ]
+    },
+    {
+      "id": "compare-consolidate",
+      "title": "Compare from the greatest place",
+      "when": "The units make sense; practice is needed to compare consistently and explain the deciding place.",
+      "goal": "Compare and order whole numbers and decimals, keeping equal values together and justifying the first difference.",
+      "minutes": 20,
+      "materials": ["Pencil and paper or the supplied route page", "Optional labelled place-value chart"],
+      "example": {
+        "prompt": "Compare 7.305 and 7.35. Explain the first unequal place.",
+        "steps": [
+          "Write 7.35 as 7.350 so equivalent places line up. The value stays the same.",
+          "Read from the greatest place: 7 ones matches 7 ones; 3 tenths matches 3 tenths.",
+          "The hundredths first differ: 0 hundredths is less than 5 hundredths. Stop there: 7.305 < 7.350.",
+          "The later 5 thousandths cannot overturn the earlier hundredths difference. Name the place in your explanation, not just the digit."
+        ],
+        "answer": "7.305 < 7.35. Hundredths decide: 0 < 5."
+      },
+      "practice": [
+        {
+          "id": "compare-whole",
+          "prompt": "8,046 __ 8,406. Name the first unequal place.",
+          "answer": "8,046 < 8,406. Thousands match; hundreds first differ, 0 < 4."
+        },
+        {
+          "id": "compare-decimal",
+          "prompt": "5.09 __ 5.9. Name the first unequal place.",
+          "answer": "5.090 < 5.900. Ones match; tenths first differ, 0 < 9."
+        },
+        {
+          "id": "compare-order",
+          "prompt": "Order 0.609, 0.69, 0.6 and 0.600 from least to greatest. Put equal values together and explain one comparison.",
+          "answer": "0.6 = 0.600 < 0.609 < 0.69. Written to thousandths these are 0.600, 0.600, 0.609 and 0.690; 600 < 609 < 690 thousandths."
+        }
+      ],
+      "recheck": [
+        {
+          "id": "compare-recheck-whole",
+          "prompt": "On your own: 9,072 __ 9,027. Name the first unequal place.",
+          "answer": "9,072 > 9,027. Thousands and hundreds match; tens first differ, 7 > 2.",
+          "lookFor": "Reads from the greatest place and names tens, even though the last digit of the smaller number is greater."
+        },
+        {
+          "id": "compare-recheck-decimal",
+          "prompt": "0.804 __ 0.84. Name the deciding place and explain why a longer decimal is not always greater.",
+          "answer": "0.804 < 0.840. Tenths match and hundredths decide: 0 < 4. This pair is a counterexample because the decimal with more written digits is smaller.",
+          "lookFor": "Uses aligned place values and connects the actual comparison to the claim about digit count."
+        }
+      ],
+      "teacherNotes": [
+        "This short route continues the existing ‘Which place decides?’ focused lesson. The full magnitude-gallery sequence, its optional scale work and original resources remain available; they are not additional tasks for this block.",
+        "If the learner cannot explain why final decimal zeros preserve value, return briefly to the represent route. Do not teach comparison as adding zeros and treating unrelated decimal parts as whole numbers.",
+        "Ask partners to challenge a reason politely: ‘Which place decides?’ or ‘Are these the same units?’ Keep the final recheck individual, with usual access supports.",
+        "If the recheck explanation is secure, invite deepen-and-apply next. If only one idea is uncertain, repair that idea and use another fresh pair; no overall score decides the next route."
+      ],
+      "access": [
+        "Offer the language frame: ‘The ___ places match. The ___ place decides because ___.’ Learners can point and speak instead of writing a paragraph.",
+        "Keep one pair visible at a time; let the learner align digits under named columns.",
+        "Say each complete number aloud on request. Give time to explain; speed is not the goal."
+      ],
+      "existingExperienceId": "magnitude-gallery",
+      "studentPrompts": [
+        "First, follow the model from the greatest place and identify the first difference.",
+        "Try the comparisons and the sort. Check a partner's reason, including any equal values.",
+        "Finish with your route's fresh recheck independently. Explain the deciding place."
+      ]
+    },
+    {
+      "id": "deepen-apply",
+      "title": "Use comparisons to make a decision",
+      "when": "Comparisons and equivalence are explained consistently; apply the ideas to limits and less familiar numbers.",
+      "goal": "Use precise decimal comparisons to meet conditions and justify a large-number comparison.",
+      "minutes": 25,
+      "materials": ["Pencil and paper or the supplied route page", "The fictional measurements below; no physical measuring is required"],
+      "example": {
+        "prompt": "Paper strips measure 1.205 m, 1.25 m and 1.250 m. Choose every strip that is at least 1.24 m long and less than 1.3 m long.",
+        "steps": [
+          "Use metres throughout. ‘At least 1.24’ includes 1.240; ‘less than 1.3’ excludes 1.300.",
+          "Compare 1.205 with 1.240. The hundredths decide: 0 < 4, so that strip is too short.",
+          "Write 1.25 as 1.250. Both remaining lengths are equal, greater than 1.240 and less than 1.300.",
+          "Select both strips marked 1.25 m and 1.250 m. Explain the two limits as well as the equality."
+        ],
+        "answer": "1.25 m and 1.250 m both meet the conditions. 1.205 m does not."
+      },
+      "practice": [
+        {
+          "id": "apply-measurement",
+          "prompt": "Ribbon lengths are 0.708 m, 0.78 m, 0.780 m and 0.807 m. Choose every length that is at least 0.75 m and less than 0.80 m. Explain each exclusion.",
+          "answer": "Choose 0.78 m and 0.780 m, which are equal. 0.708 m is below 0.750 m; 0.807 m is above 0.800 m and therefore fails the upper limit."
+        },
+        {
+          "id": "apply-digit-puzzle",
+          "prompt": "Use each digit 2, 4 and 7 exactly once after the decimal point: 0.___ . Find every possible number greater than 0.42 and less than 0.48. Explain how you know your list is complete.",
+          "answer": "0.427 and 0.472. The tenths must be 4; the remaining digits 2 and 7 can fill the hundredths and thousandths in only two orders. Both numbers lie strictly between 0.420 and 0.480."
+        },
+        {
+          "id": "apply-billions",
+          "prompt": "Compare 2,406,000,000 and 2,460,000,000. Which is greater, and which place first decides?",
+          "answer": "2,460,000,000 is greater. Both have 2 billions and 4 hundred-millions; the ten-millions first differ, 0 versus 6."
+        }
+      ],
+      "recheck": [
+        {
+          "id": "apply-recheck-limits",
+          "prompt": "On your own: lengths are 2.095 m, 2.105 m and 2.150 m. Choose every length that is at least 2.10 m and less than 2.15 m. Explain the boundary cases.",
+          "answer": "Only 2.105 m qualifies: 2.100 < 2.105 < 2.150. 2.095 m is below the minimum. 2.150 m equals the upper boundary 2.15 m, which ‘less than’ excludes.",
+          "lookFor": "Compares in equal units and interprets inclusion at the lower limit and exclusion at the upper limit. Check the language of the conditions before inferring a number misconception."
+        },
+        {
+          "id": "apply-recheck-puzzle",
+          "prompt": "Use each digit 1, 3 and 8 exactly once after the decimal point: 0.___ . Find all possibilities strictly between 0.31 and 0.39. Explain.",
+          "answer": "0.318 and 0.381. The tenths must be 3; the two orders of 1 and 8 give the only possibilities, and both are greater than 0.310 and less than 0.390.",
+          "lookFor": "Produces and checks the complete finite set, not just one guess. A systematic list or a place-value argument is valid."
+        }
+      ],
+      "teacherNotes": [
+        "The measurements are invented task inputs, not measured classroom results. Keep metres consistent; unit conversion and decimal arithmetic are not needed.",
+        "Distinguish understanding the words ‘at least’ and ‘less than’ from comparing decimals. Read or paraphrase the condition if needed without doing the comparison.",
+        "Accept any complete reasoning for the digit puzzles, including checking all six permutations. More than one method is valid; the finite answers are fixed by the stated conditions.",
+        "The billions comparison broadens the scale within Grade 6 number understanding. If the learner needs help reading a large number, group its billions, millions, thousands and ones; then ask which place actually decides.",
+        "A learner may continue applying number comparisons without moving to operations. Offer the separate multiplication mini-check only when considering that next teaching step."
+      ],
+      "access": [
+        "Read the condition in two parts: minimum included, maximum excluded. Let the learner mark each number ‘fits’, ‘too small’ or ‘too large/equal to the excluded limit’.",
+        "Offer movable digit cards 2, 4, 7 or 1, 3, 8, keeping each digit used once. Speaking a systematic list is as valid as writing it.",
+        "Use spaced groups when reading billions. Accept pointing to the deciding place and a brief oral explanation."
+      ],
+      "existingExperienceId": "magnitude-gallery",
+      "studentPrompts": [
+        "First, check how the worked example uses both limits and keeps units the same.",
+        "Try the three tasks. For a digit puzzle, show why no other arrangement fits.",
+        "Finish with your route's fresh recheck on your own. Explain a decision, not just a final number."
+      ]
+    }
+  ],
+  "bridge": {
+    "title": "Optional next step: whole-number partial products",
+    "firstAction": "Before the worked model is shown, try the four mini-check questions on your own with your usual access supports. Show or explain your thinking. Your teacher will decide with you whether to try the bridge or strengthen one earlier idea first.",
+    "items": [
+      {
+        "id": "bridge-groups",
+        "prompt": "Find 6 × 7. Explain with equal groups, an array or a known fact.",
+        "answer": "42. For example, 6 groups of 7 give 42; or 5 × 7 + 1 × 7 = 35 + 7 = 42.",
+        "lookFor": "Connects a fact to multiplication's meaning. Slow recall alone is not a reason to withhold the bridge; a chart may support facts when the structure is understood."
+      },
+      {
+        "id": "bridge-tens",
+        "prompt": "Find 23 × 10. Explain what the 2 and the 3 are worth in the result.",
+        "answer": "230. The original 2 tens become 2 hundreds; the original 3 ones become 3 tens. Multiplying by 10 makes each contribution ten times as large.",
+        "lookFor": "Understands the tens scaling rather than only reciting ‘add a zero’."
+      },
+      {
+        "id": "bridge-one-digit",
+        "prompt": "Solve 24 × 3 in your own way. Show how you kept track of tens and ones.",
+        "answer": "72. One route is 20 × 3 + 4 × 3 = 60 + 12 = 72. An accurate array, equal-groups drawing or another explained strategy is valid.",
+        "lookFor": "Maintains place values in a two-digit by one-digit multiplication and combines all parts."
+      },
+      {
+        "id": "bridge-estimate",
+        "prompt": "Estimate 31 × 9 using 30 × 10. Which possible answer is reasonable: 279 or 2,790? Explain without needing the exact calculation.",
+        "answer": "30 × 10 = 300, so 279 is reasonable and 2,790 is far too large. A product near 300 should be in the hundreds, not near 3,000.",
+        "lookFor": "Uses a meaningful magnitude check. Do not require exact calculation for an estimation question."
+      }
+    ],
+    "readyWhen": [
+      "The learner explains equal groups, preserves tens in multiplication by 10, shows a valid two-digit by one-digit strategy, and checks the product's approximate size. Use the actual explanations, not a score threshold.",
+      "Clarify a notation or language slip with one fresh example. Usual access supports or a fact chart can be used independently; fluency speed is separate from understanding the structure.",
+      "Only then reveal and teach the partial-products model. Keep the independent comparison evidence and the multiplication evidence separate. This whole-number bridge is optional preparation for later decimal work."
+    ],
+    "ifNotYet": [
+      "If equal groups are unclear: show 4 groups of 6 counters, total 24, then ask the learner to represent 5 groups of 6, total 30. Revisit the meaning before a larger multiplication.",
+      "If tens scaling is unclear: show 13 × 10 as 13 tens, or 130. Fresh retry: explain 17 × 10 = 170 using tens.",
+      "If the two-digit by one-digit structure is uncertain: model 12 × 3 = 10 × 3 + 2 × 3 = 30 + 6 = 36. Fresh retry: 14 × 3 = 42. Accept another valid model that preserves both parts.",
+      "If the size check is uncertain: compare the supplied possibilities with 30 × 10 = 300, then ask whether 369 or 3,690 is reasonable for 41 × 9 using 40 × 10 = 400. Expected: 369. Teach the uncertain idea before returning to the bridge; division can wait."
+    ],
+    "model": {
+      "prompt": "There are 14 packs with 23 stickers in each. Find 23 × 14 by splitting 14 into 10 + 4.",
+      "steps": [
+        "Estimate first: 20 × 15 = 300, a nearby friendly product. Keep 14 groups of 23 in mind.",
+        "Split the groups: 10 groups give 23 × 10 = 230; 4 groups give 23 × 4 = 92, because 80 + 12 = 92.",
+        "Combine every part: 230 + 92 = 322 stickers. These are partial products because each counts part of the full set of groups.",
+        "Check another split: 20 × 14 + 3 × 14 = 280 + 42 = 322. The exact answer also makes sense near the estimate of 300."
+      ],
+      "answer": "23 × 14 = 322 stickers. Both decompositions count all 14 groups of 23."
+    },
+    "practice": [
+      {
+        "id": "bridge-guided-practice",
+        "prompt": "With a partner: 12 packs have 32 counters each. Solve 32 × 12 using partial products. Label what each partial product counts.",
+        "answer": "32 × 12 = 32 × 10 + 32 × 2 = 320 + 64 = 384 counters. The parts count 10 packs and 2 packs. Another complete decomposition is valid."
+      },
+      {
+        "id": "bridge-fresh-recheck",
+        "prompt": "Fresh check, on your own: 13 trays hold 18 counters each. Estimate, then solve 18 × 13 with a visible strategy. Explain why each part belongs.",
+        "answer": "18 × 13 = 18 × 10 + 18 × 3 = 180 + 54 = 234 counters. A reasonable estimate is 20 × 13 = 260 or 20 × 10 = 200. The parts account for all 13 trays. Look for place-value-preserving products and a reasoned size check; revisit the specific uncertain part if needed."
+      }
+    ],
+    "existingExperienceId": "strategy-league"
+  }
+}

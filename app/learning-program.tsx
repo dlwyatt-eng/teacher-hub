@@ -19,6 +19,7 @@ import { WerewolfLessonStudio, WerewolfUnitLink } from "./werewolf-studio";
 import { werewolfLessonFor } from "./werewolf-lessons";
 import { CaptainLeadershipPanel } from "./captain-leadership-panel";
 import { PheSeasonPlan } from "./phe-season-plan";
+import { TeachingPathwayLink } from "./teaching-pathway-links";
 import { MathPacingPanel } from "./math-pacing-panel";
 import { MathResourceWorkbench, MathCompanionSelector } from "./math-resource-workbench";
 import MathThinkingRoutines from "./math-thinking-routines";
@@ -656,6 +657,7 @@ export function LearningProgramTab({ program, record, tab, selectedExperienceId,
         <span>{program.cadence}</span>
       </section>
       <section className="program-north-star"><span>WHY THIS PROGRAM EXISTS</span><blockquote>{program.northStar}</blockquote><div>{program.principles.map((principle, index) => <p key={principle}><b>{String(index + 1).padStart(2, "0")}</b>{principle}</p>)}</div></section>
+      <TeachingPathwayLink subject={program.subject} />
       {program.subject === "English Language Arts" && <ElaWorkshopRhythm />}
       {program.subject === "Arts Education" && <ArtsStudioRhythm />}
       {program.subject === "Physical & Health Education" && <PheSeasonPlan />}
@@ -693,6 +695,7 @@ export function LearningProgramTab({ program, record, tab, selectedExperienceId,
 
   if (tab === "Lessons") return (
     <div className={`learning-program program-lessons world-surface ${program.subject === "Mathematics" ? "program-lessons--math" : ""}`} data-world={selectedWorld.id} style={worldStyle(selectedWorld)}>
+      <TeachingPathwayLink subject={program.subject} />
       {program.subject === "Mathematics" && <details className="math-full-plan"><summary>Weekly math pacing · 1–2 new lessons, practice and lighter weeks</summary><MathPacingPanel /></details>}
       {program.subject === "Physical & Health Education" && <details className="math-full-plan"><summary>PE seasons · skills, practice and the SESAA calendar</summary><PheSeasonPlan /></details>}
       {program.subject === "English Language Arts" && !werewolfLessonFor(selected.id) && <WerewolfUnitLink />}

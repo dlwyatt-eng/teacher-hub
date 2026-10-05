@@ -52,6 +52,8 @@ const OpeningWeekCockpit = lazy(() => import("./opening-week").then(m => ({defau
 const GamesActivities = lazy(() => import("./games-activities"));
 const ResponsibilitiesPage = lazy(() => import("./responsibilities-page"));
 const NatureToday = lazy(() => import("./nature-today"));
+const PheSequence = lazy(() => import("./teaching-pathways").then(module => ({ default: module.PheSequence })));
+const MathsReadiness = lazy(() => import("./teaching-pathways").then(module => ({ default: module.MathsReadiness })));
 const MorningScreen = lazy(() => import("./morning-screen"));
 const NewsroomHub = lazy(() => import("./student-agency-hub").then((module) => ({ default: module.NewsroomHub })));
 const MyInquiryHub = lazy(() => import("./student-agency-hub").then((module) => ({ default: module.MyInquiryHub })));
@@ -311,6 +313,8 @@ function writeClassroomLocation(location: ClassroomLocation, action: "push" | "r
   if (location.active !== "Day Plans") url.searchParams.delete("plan");
   if (location.active !== "Responsibilities") url.searchParams.delete("essentials");
   if (location.active !== "Games & Activities") url.searchParams.delete("deck");
+  if (location.active !== "PHE Sequence") { url.searchParams.delete("pheWeek"); url.searchParams.delete("pheBlock"); }
+  if (location.active !== "Maths Readiness") url.searchParams.delete("mathRoute");
   for (const key of ["mode", "view", "subject", "lesson", "socialLesson", "socialScene", "experience"]) url.searchParams.delete(key);
   if (location.mode === "projector") url.searchParams.set("mode", "student");
   if (location.subject) {
@@ -350,6 +354,7 @@ function subjectHubLocationFromClassroom(location: ClassroomLocation, subject: S
 }
 
 const standaloneViews = new Set([
+  "PHE Sequence", "Maths Readiness",
   "Nature Today", "Home", "Day Plans", "Games & Activities", "Responsibilities", "Math Thinking Routines", "Opening Welcome", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Weekly Plan", "Monthly Calendar",
   "Calendar Provocations", "First Week Mission", "TOC & Emergency Plans", "TTOC Day Plan", "Cross-Curricular Projects",
   "Project Template", "Teaching OS Map", "Year Plan", "SpacesEDU Evidence", "AI Activity Studio",
@@ -362,7 +367,7 @@ function normalizeLegacyView(active?: string) {
   return "Home";
 }
 
-const projectorSafePages = new Set(["Nature Today", "Games & Activities", "Responsibilities", "Math Thinking Routines", "Home", "Opening Welcome", "First Week Mission", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Calendar Provocations"]);
+const projectorSafePages = new Set(["PHE Sequence", "Maths Readiness", "Nature Today", "Games & Activities", "Responsibilities", "Math Thinking Routines", "Home", "Opening Welcome", "First Week Mission", "Morning Screen", "Newsroom", "My Inquiry", "AI Tensions Lab", "Calendar Provocations"]);
 
 function isProjectorSafePage(active: string) {
   return projectorSafePages.has(active);
@@ -802,6 +807,10 @@ function ClassroomHome() {
           <ResponsibilitiesPage />
         ) : active === "Nature Today" ? (
           <NatureToday audience={mode === "projector" ? "student" : "teacher"} hub="teacher" />
+        ) : active === "PHE Sequence" ? (
+          <PheSequence audience={mode === "projector" ? "student" : "teacher"} />
+        ) : active === "Maths Readiness" ? (
+          <MathsReadiness audience={mode === "projector" ? "student" : "teacher"} />
         ) : active === "Morning Screen" ? (
           <MorningScreen audience={mode === "projector" ? "student" : "teacher"} onOpenHome={goHome} timeline={morningTimeline} />
         ) : active === "Newsroom" ? (

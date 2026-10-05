@@ -1,0 +1,1176 @@
+{
+  "id": "phe-six-weeks",
+  "title": "Six weeks of PHE: choices, skills and shared play",
+  "subtitle": "One classroom health lesson and two connected PE lessons per flexible week",
+  "version": "2026-10-05",
+  "intro": "Begin with controlled soccer-style passing and inclusive routines, then build toward light-ball volleyball. Each week connects a fictional health decision with purposeful movement, teacher modelling and teacher-approved captain practice. Repeat or adapt a week to actual readiness, facilities and time; no teaching date or league fixture is assumed.",
+  "teacherOverview": [
+    "Use six undated weeks. Each health lesson is 35 minutes; each PE lesson is 40 minutes, including transitions, captain preparation, equipment return and feedback. Each lesson supplies an exact 30-minute option in teacher notes.",
+    "PE1 is teacher skill-led. Its five-minute preparation segment assigns rotating captain jobs and secures teacher approval for PE2. PE2 repeats a taught activity; the teacher checks space/equipment/access, supervises throughout and makes safety decisions. Captains do not select teams by ability or invent new contact rules.",
+    "Provide purposeful physical options: suitable walking/wheeling/seated movement, sending/receiving, distances, ball types, range, pace and rest/return. Choose with the learner and relevant support plans. Observer/designer/director work can show strategy or sequencing, but it does not itself demonstrate physical performance; arrange suitable movement separately.",
+    "All health inputs are original fiction. No learner must disclose health, body, identity, medication, family, safety or relationship information. Offer private/oral/drawn/AAC responses, a different low-detail case or a pass on public sharing. Real concerns go privately to a responsible adult through school procedures.",
+    "Included text supplies every scenario, source capsule, worked model, game rule, movement cue and student prompt. Teachers supply the listed equipment, safe space and ordinary paper/pencils. A displayed cue is not a supplied physical cone, ball, card set or verified school help map. No family purchase, account, phone or internet access is required.",
+    "Preserve and revisit all six reviewed experiences: everyone-in-game, strategy-remix-league, rhythm-movement-lab, trusted-health-studio, safety-help-circuit and effort-meter-trail. Links identify their foundations; this sequence states any ground-ball adaptation and does not overwrite the original rules.",
+    "Use brief observation and learner explanations to choose the next teaching step. No interim/reporting kit, body measures, public fitness score, ability ranking, compulsory recording or SpacesEDU post is part of this sequence. Touch counts alone do not establish choice, belonging or enjoyment.",
+    "This is partial Grade 6 PHE coverage. Keep daily activity beyond two PE blocks and a broader movement programme. Plan remaining whole-year instruction for puberty/adolescence and identity; STI/serious communicable-disease risk reduction; fuller food-choice influences/planning; substance-use/addictive-behaviour risks; emergency-response principles; SAID (specific adaptation to imposed demands); and further movement experiences.",
+    "Core links refer to the official BC PHE6 curriculum. Optional Career leadership links are identified as optional. Source capsules support the stated claim only; a fictional ad is not research. Adaptation is not a guarantee of classroom readiness: rehearse the actual space, equipment and help routes before teaching."
+  ],
+  "sources": [
+    {
+      "title": "BC Physical and Health Education 6",
+      "url": "https://curriculum.gov.bc.ca/curriculum/physical-health-education/6/core",
+      "note": "Official Grade 6 competencies/content. This six-week sequence contributes to them; it is not full-year coverage."
+    },
+    {
+      "title": "BC Women's Hospital + Health Centre: Evaluating Online Health Info",
+      "url": "https://www.bcwomens.ca/health-info/staying-healthy/navigating-the-health-system/evaluating-online-health-info",
+      "note": "PHSA source for the short Week 4 paraphrased capsule. It evaluates sources, not a fictional product."
+    },
+    {
+      "title": "Canadian Paediatric Society: Health information on the Internet",
+      "url": "https://caringforkids.cps.ca/handouts/behavior-and-development/health_information_on_the_internet",
+      "note": "Canadian source-checking guidance, including sales/conflicts, evidence, review dates and privacy. Background for the Week 4 safe response; it does not test the fictional product."
+    },
+    {
+      "title": "MediaSmarts: Talking to Kids about Media and Body Image",
+      "url": "https://mediasmarts.ca/teacher-resources/talking-kids-about-media-body-image-tip-sheet",
+      "note": "Canadian media-literacy background for Week 5: constructed media, commercial purpose and respectful responses."
+    },
+    {
+      "title": "Kids Help Phone: Counsellor in the Classroom",
+      "url": "https://kidshelpphone.ca/get-involved/are-you-an-educator-check-out-counsellor-in-the-classroom",
+      "note": "Official educator resource supports general, non-disclosing discussion of help-seeking and online safety. No booking is needed for these original activities."
+    },
+    {
+      "title": "Kids Help Phone",
+      "url": "https://kidshelpphone.ca/",
+      "note": "Private support option: call 1-800-668-6868 or text CONNECT to 686868. Immediate danger requires the school emergency route or 911; this is not a substitute."
+    }
+  ],
+  "weeks": [
+    {
+      "id": "week-1",
+      "title": "A way into the game",
+      "focus": "Respect boundaries, establish controlled passes and design a safe return.",
+      "curriculum": [
+        "Core PHE6: safe/fair leadership, fundamental movement skills and healthy relationships.",
+        "Optional Career connection: rotating roles and inclusive collaboration."
+      ],
+      "health": {
+        "id": "w1-health",
+        "title": "Boundaries and a way back in",
+        "minutes": 35,
+        "goal": "Explain a participation barrier and propose a respectful boundary and a practical change.",
+        "materials": [
+          "Included: fictional case and model on the Week 1 page",
+          "Teacher supplies paper/pencils and an optional display"
+        ],
+        "setup": "Fictional case: A group makes a game rule: \"After every mistake, run the whole loop before rejoining.\" A player asks for a short walking return. The captain replies, \"Everyone must do exactly the same thing.\" Another player offers to pull the first player along without asking. Nobody has to explain a body or health need. The shared goal is to practise passing and return to the game safely.",
+        "model": "Model: \"Pulling someone without asking ignores a boundary. Ask first and accept no. We can offer a short walking or wheeling return and keep the same passing goal.\" This changes the participation rule without judging a player.",
+        "steps": [
+          {
+            "title": "Read the case",
+            "minutes": 5,
+            "action": "Read or listen. Identify the shared goal and one rule or action that blocks participation; describe the rule, not the person."
+          },
+          {
+            "title": "Model a boundary",
+            "minutes": 7,
+            "action": "Use the model. Rehearse \"Please ask first\" and \"No, thank you\" with words or a signal; accepting no needs no explanation."
+          },
+          {
+            "title": "Design one change",
+            "minutes": 12,
+            "action": "In pairs or privately, sketch an entry/return route and rewrite one rule. Explain how a player still practises passing."
+          },
+          {
+            "title": "Test against the case",
+            "minutes": 7,
+            "action": "Compare two designs for safety, choice and useful participation. Check whether help is invited and whether the return works without public disclosure."
+          },
+          {
+            "title": "Choose a transfer",
+            "minutes": 4,
+            "action": "Complete the page or explain one change privately. Name an instruction the group could use in this week's game."
+          }
+        ],
+        "check": "Can the learner connect a specific barrier, an accepted boundary and a feasible change while preserving the passing goal?",
+        "teacherNotes": [
+          "30-minute route: 5, 5, 10, 6, 4 minutes in the same order. Do not turn the discussion into a disability simulation.",
+          "Teach consent as asking and accepting the response. Do not require students to role-play unwanted contact or explain an access need."
+        ],
+        "access": [
+          "Use the fictional case only. Write, draw, point, dictate or respond privately; a personal story is never required.",
+          "Offer a different low-detail case or a pass on public sharing. Read the text aloud and explain vocabulary."
+        ],
+        "studentPrompts": [
+          "Which rule blocks the goal?",
+          "What can we change, and which boundary must be respected?"
+        ],
+        "existingExperienceId": "safety-help-circuit",
+        "studentCheck": "Show one barrier in the fictional case, your changed rule or route, and a respectful boundary sentence. Explain how the player still gets useful passing practice."
+      },
+      "pe1": {
+        "id": "w1-pe1",
+        "title": "Control, pass and invite a receiver",
+        "minutes": 40,
+        "goal": "Control a soft ball and send a playable pass to a ready partner, then move into safe space.",
+        "materials": [
+          "Teacher supplies one soft ball per pair",
+          "Teacher supplies eight markers per small game and clear boundary markers",
+          "Included: passing cues and captain plan below"
+        ],
+        "setup": "First use separate partner lanes about 2-3 m apart; check room to receive safely. Then introduce this teacher-taught Gate Pass ground-ball version. Mark four wide cone gates in a clear small court for two teams of three or four. Score by a controlled ground pass through a gate to a teammate. Stop the ball before passing; use a walking or wheeling pace. Defenders intercept moving passes only: no tackling, contact, body blocking or taking a held/stopped ball. After a score the other team restarts at an outside gate. No elimination. On \"freeze\", stop safely and secure the ball.",
+        "model": "Foot route: face a ready partner, place the support foot beside a still ball, use the inside of the other foot gently, then cushion the return. Hand route: roll smoothly toward the agreed target. Receiver signals ready before either pass.",
+        "steps": [
+          {
+            "title": "Warm up and stop",
+            "minutes": 5,
+            "action": "Travel or move in a chosen space at an easy pace. Rehearse freeze, spacing and asking before sending a ball."
+          },
+          {
+            "title": "Teach and try",
+            "minutes": 7,
+            "action": "Model the cues. Alternate five controlled sends and receives each, then repeat at a self-chosen distance."
+          },
+          {
+            "title": "Practise in the game",
+            "minutes": 14,
+            "action": "Demonstrate Gate Pass rules, then play short rounds. Pause briefly to practise a playable pass when control breaks down; restart without blame."
+          },
+          {
+            "title": "Prepare captains",
+            "minutes": 5,
+            "action": "Rotate setup, demonstration, welcome and timekeeping jobs. Plan the same game for PE2: skill, boundaries, freeze, one access choice and one permitted adjustment. Teacher checks it."
+          },
+          {
+            "title": "Cool down and return",
+            "minutes": 5,
+            "action": "Slow the movement, return balls on the signal and restore the space."
+          },
+          {
+            "title": "Explain a choice",
+            "minutes": 4,
+            "action": "Name one cue that made a pass playable and a space to move into after sending."
+          }
+        ],
+        "check": "Observe control and a playable pass across several attempts; ask why a receiver needs a ready signal.",
+        "teacherNotes": [
+          "30-minute route: 4, 6, 10, 4, 3, 3 minutes. Retain captain approval and ball-control modelling.",
+          "This is an explicit ground-ball adaptation of everyone-in-game. If space is insufficient, keep paired lanes rather than crowding a game."
+        ],
+        "access": [
+          "Choose walking, wheeling, seated sending/receiving, closer targets, a larger/light ball, or rest and return while practising purposeful movement.",
+          "A temporary observer can explain strategy; this does not demonstrate physical performance. Arrange an appropriate movement opportunity separately and privately."
+        ],
+        "studentPrompts": [
+          "What makes your pass playable?",
+          "Where can you move after passing?"
+        ],
+        "existingExperienceId": "everyone-in-game",
+        "studentCheck": "Use your chosen movement route to show two controlled sends and receives with a ready partner. Explain one cue that makes the pass playable."
+      },
+      "pe2": {
+        "id": "w1-pe2",
+        "title": "Captains: a game everyone can rejoin",
+        "minutes": 40,
+        "goal": "Practise a controlled pass and test one teacher-approved change to participation.",
+        "materials": [
+          "Teacher supplies one soft ball and eight gate markers per small game",
+          "Included: familiar rules and no-name observation prompt",
+          "Teacher supplies scrap paper only if a tally is useful"
+        ],
+        "setup": "Use the teacher-approved plan from PE1. Mark four wide cone gates in a clear small court for two teams of three or four. Score by a controlled ground pass through a gate to a teammate. Stop the ball before passing; use a walking or wheeling pace. Defenders intercept moving passes only: no tackling, contact, body blocking or taking a held/stopped ball. After a score the other team restarts at an outside gate. No elimination. On \"freeze\", stop safely and secure the ball.",
+        "model": "Captain demonstration: \"Signal ready; pass through this gate; receive under control. After a score, the other team restarts here. You can use a close rolling lane. Freeze means secure the ball.\" Show one whole restart before play.",
+        "steps": [
+          {
+            "title": "Set up and warm up",
+            "minutes": 5,
+            "action": "Teacher checks courts. Captains invite chosen easy movement and point out boundaries and return options."
+          },
+          {
+            "title": "Demonstrate familiar play",
+            "minutes": 5,
+            "action": "Use the model, show one pass and restart, and ask a player to demonstrate freeze. Teacher approves the start."
+          },
+          {
+            "title": "Play, change and replay",
+            "minutes": 20,
+            "action": "Play a short round, pause for one no-name observation about waiting or choices, then change only gate spacing or pass distance with teacher approval. Replay. Keep everyone in play."
+          },
+          {
+            "title": "Cool down and return",
+            "minutes": 5,
+            "action": "Use easy movement and return equipment on the teacher signal."
+          },
+          {
+            "title": "Give useful feedback",
+            "minutes": 5,
+            "action": "Players name one helpful instruction. Captains compare participation and choice before/after; touches alone do not prove a change helped."
+          }
+        ],
+        "check": "Look for a controlled pass, an accessible restart and a decision supported by group observations rather than rankings.",
+        "teacherNotes": [
+          "Teacher approves equipment, space, rules and access before play and remains responsible for supervision. Captains lead familiar practice, not new skills or emergency decisions.",
+          "30-minute route: setup/warm-up 4, demonstrate 4, play and adjust 14, cool-down/return 4, feedback 4. Preserve the stop signal and participation choices."
+        ],
+        "access": [
+          "Choose walking, wheeling, seated sending/receiving, closer targets, a larger/light ball, or rest and return while practising purposeful movement.",
+          "A temporary observer can explain strategy; this does not demonstrate physical performance. Arrange an appropriate movement opportunity separately and privately."
+        ],
+        "studentPrompts": [
+          "Which cue helped a pass?",
+          "Keep, revise or reject the change - why?"
+        ],
+        "existingExperienceId": "everyone-in-game",
+        "studentCheck": "Show a controlled pass and a safe restart. Then say whether to keep, revise or reject the group change, using one no-name observation about choice or waiting."
+      },
+      "studentPage": {
+        "title": "A rule can welcome or block",
+        "scenario": "Fictional case: A group makes a game rule: \"After every mistake, run the whole loop before rejoining.\" A player asks for a short walking return. The captain replies, \"Everyone must do exactly the same thing.\" Another player offers to pull the first player along without asking. Nobody has to explain a body or health need. The shared goal is to practise passing and return to the game safely.",
+        "model": "Model: \"Pulling someone without asking ignores a boundary. Ask first and accept no. We can offer a short walking or wheeling return and keep the same passing goal.\" This changes the participation rule without judging a player.",
+        "prompts": [
+          "Point to one barrier and one boundary in the case.",
+          "Draw or describe one rule/route change that preserves passing practice.",
+          "Write one respectful instruction and explain how you would check whether the change helps."
+        ]
+      }
+    },
+    {
+      "id": "week-2",
+      "title": "Pause, support, replay",
+      "focus": "Use a reset/help choice and create useful passing space.",
+      "curriculum": [
+        "Core PHE6: mental well-being strategies, healthy relationships, movement strategies and safe participation.",
+        "Health discussion supports decision-making; game practice supplies movement opportunities."
+      ],
+      "health": {
+        "id": "w2-health",
+        "title": "Pause, choose a strategy, ask for help",
+        "minutes": 35,
+        "goal": "Build a usable reset-and-help plan for a fictional frustrating moment.",
+        "materials": [
+          "Included: Week 2 fictional case, model and four strategy choices",
+          "Teacher supplies paper/pencils"
+        ],
+        "setup": "Fictional case: During a partner task, a student misses two passes, grips the ball tightly and says, \"I cannot do this.\" A teammate wants to restart immediately. The student asks for a short pause in the agreed rest place. Choose a next step that protects the pause, gets useful support and leaves a way to return. The student need not explain personal feelings to the group. Strategy choices: pause in the agreed place; use a quiet count; look at one task cue; ask a trusted adult for help. No strategy must work for everyone.",
+        "model": "Model: \"We can pause and put the ball down. The student could use a quiet count, look at the task card or ask the teacher for a cue. When ready, they could try a closer pass. A pause is a choice; it is not a punishment.\"",
+        "steps": [
+          {
+            "title": "Read the moment",
+            "minutes": 5,
+            "action": "Identify an observable cue in the case without diagnosing the student or guessing a private history."
+          },
+          {
+            "title": "Model a reset",
+            "minutes": 7,
+            "action": "Compare pausing, a quiet count, a task cue and adult help. Explain that the person can choose or change a strategy."
+          },
+          {
+            "title": "Make a small plan",
+            "minutes": 12,
+            "action": "Show three boxes: pause/protect space; choose a strategy or adult; decide a safe return or further help. Use the fictional student only."
+          },
+          {
+            "title": "Add a backup",
+            "minutes": 7,
+            "action": "Consider: the strategy does not help, or the first adult is busy. Revise the plan to seek another available trusted adult rather than pressure the student to continue."
+          },
+          {
+            "title": "Explain the fit",
+            "minutes": 4,
+            "action": "Share privately or with a partner why the chosen action fits the case. Passing on public sharing is allowed."
+          }
+        ],
+        "check": "Does the plan include a feasible first action, choice, an adult/backup route and a return that is not forced?",
+        "teacherNotes": [
+          "30-minute route: 5, 5, 10, 6, 4 minutes. This is strategy practice, not diagnosis or a promise to cure distress.",
+          "Before teaching, identify the available classroom/office support route. Any real concern goes privately to a responsible adult under school procedures."
+        ],
+        "access": [
+          "Use the fictional case only. Write, draw, point, dictate or respond privately; a personal story is never required.",
+          "Offer a different low-detail case or a pass on public sharing. Read the text aloud and explain vocabulary."
+        ],
+        "studentPrompts": [
+          "What can the student do first?",
+          "What if that strategy or first helper is unavailable?"
+        ],
+        "existingExperienceId": "safety-help-circuit",
+        "studentCheck": "Show your fictional three-step plan: pause, choose a strategy or helper, then return safely or get more help. Point to the backup if the first option is unavailable."
+      },
+      "pe1": {
+        "id": "w2-pe1",
+        "title": "Pass, move wide, support the next play",
+        "minutes": 40,
+        "goal": "Use open space and a short supporting pass in a non-contact possession game.",
+        "materials": [
+          "Teacher supplies soft balls, boundary/end-zone markers and optional pinnies",
+          "Included: three support cues and captain planning directions"
+        ],
+        "setup": "Retrieve the controlled pass from Week 1, then teach the ground-ball End-Zone Pass adaptation. Mark two end zones and clear sidelines for 3v3 or 4v4. Score when a teammate controls a ground pass in the end zone. Stop the ball before the next pass; move without the ball at walking/wheeling pace. Defenders intercept moving passes only; no tackling, contact, body blocking or taking a stopped ball. Out-of-bounds or a score gives the other team a stationary restart with clear space. No elimination; freeze means stop safely and secure the ball.",
+        "model": "Three players form a triangle about 2-3 m apart. After passing, move into clear space where the next receiver can see you. Say or signal \"ready\". If the lane closes, wait or choose a shorter safe pass rather than kicking through people.",
+        "steps": [
+          {
+            "title": "Warm up and retrieve",
+            "minutes": 5,
+            "action": "Practise stop, ready signal and short pass in partner lanes."
+          },
+          {
+            "title": "Model a support triangle",
+            "minutes": 7,
+            "action": "Use three players or floor markers to show a blocked lane and an open support option. Practise both directions."
+          },
+          {
+            "title": "Play, freeze and replay",
+            "minutes": 14,
+            "action": "Teach the end-zone rules; play short rounds. At a freeze, describe space rather than blame. Test one plan: move wide, form a triangle or choose a shorter pass."
+          },
+          {
+            "title": "Prepare captains",
+            "minutes": 5,
+            "action": "Plan PE2 with the same rules and one support cue. Assign rotating jobs; teacher checks space, access, stop and restart."
+          },
+          {
+            "title": "Cool down and return",
+            "minutes": 5,
+            "action": "Slow down and return equipment on the signal."
+          },
+          {
+            "title": "Explain the evidence",
+            "minutes": 4,
+            "action": "Point to a before/after position and explain how the support plan may have helped; the other team can affect the result too."
+          }
+        ],
+        "check": "Notice a controlled send/receive and movement into useful space; ask which cue guided the choice.",
+        "teacherNotes": [
+          "30-minute route: 4, 6, 10, 4, 3, 3 minutes. This adapts strategy-remix-league; it does not replace its original hand-pass experience.",
+          "Use separate play areas when ground rolling and foot passing would create unsafe mixed play; keep the same support-space problem."
+        ],
+        "access": [
+          "Choose walking, wheeling, seated sending/receiving, closer targets, a larger/light ball, or rest and return while practising purposeful movement.",
+          "A temporary observer can explain strategy; this does not demonstrate physical performance. Arrange an appropriate movement opportunity separately and privately."
+        ],
+        "studentPrompts": [
+          "Where is a useful support position?",
+          "What changed after your team tried its plan?"
+        ],
+        "existingExperienceId": "strategy-remix-league",
+        "studentCheck": "Show a controlled pass, then move or position yourself in a useful support space. Explain which open lane or ready signal guided your choice."
+      },
+      "pe2": {
+        "id": "w2-pe2",
+        "title": "Captains: one plan, then replay",
+        "minutes": 40,
+        "goal": "Apply one familiar support-space plan and make a reasoned adjustment.",
+        "materials": [
+          "Teacher supplies soft balls, end-zone/boundary markers and optional pinnies",
+          "Included: freeze questions and permitted strategy choices"
+        ],
+        "setup": "Use the approved End-Zone Pass plan. Mark two end zones and clear sidelines for 3v3 or 4v4. Score when a teammate controls a ground pass in the end zone. Stop the ball before the next pass; move without the ball at walking/wheeling pace. Defenders intercept moving passes only; no tackling, contact, body blocking or taking a stopped ball. Out-of-bounds or a score gives the other team a stationary restart with clear space. No elimination; freeze means stop safely and secure the ball.",
+        "model": "Captain: \"Our cue is move wide after passing. Watch this triangle. At freeze, point to an open lane without naming a player who made a mistake. Then we will replay the same plan.\"",
+        "steps": [
+          {
+            "title": "Set up and warm up",
+            "minutes": 5,
+            "action": "Teacher checks boundaries; captains lead familiar pass-and-move practice."
+          },
+          {
+            "title": "Show the plan",
+            "minutes": 5,
+            "action": "Demonstrate one support triangle, stop signal and legal restart. Offer close receiving lanes before play."
+          },
+          {
+            "title": "Play and replay",
+            "minutes": 20,
+            "action": "Play short rounds with a brief halfway freeze. Ask where the next safe pass could go. Teacher approves a spacing adjustment; replay without changing contact rules or excluding players."
+          },
+          {
+            "title": "Cool down and return",
+            "minutes": 5,
+            "action": "Reduce effort, return equipment and clear lanes."
+          },
+          {
+            "title": "Compare one moment",
+            "minutes": 5,
+            "action": "Describe one useful position before and after. Keep the conclusion tentative if the other team or space also changed."
+          }
+        ],
+        "check": "Can players use a support cue and explain a tactical choice? Can captains accept feedback and preserve safe participation?",
+        "teacherNotes": [
+          "Teacher approves equipment, space, rules and access before play and remains responsible for supervision. Captains lead familiar practice, not new skills or emergency decisions.",
+          "30-minute route: setup/warm-up 4, demonstrate 4, play and adjust 14, cool-down/return 4, feedback 4. Preserve the stop signal and participation choices."
+        ],
+        "access": [
+          "Choose walking, wheeling, seated sending/receiving, closer targets, a larger/light ball, or rest and return while practising purposeful movement.",
+          "A temporary observer can explain strategy; this does not demonstrate physical performance. Arrange an appropriate movement opportunity separately and privately."
+        ],
+        "studentPrompts": [
+          "Which space helped the next pass?",
+          "What would you test once more?"
+        ],
+        "existingExperienceId": "strategy-remix-league",
+        "studentCheck": "Show the support-space plan during a replay. Compare one position before and after, and name one reason the plan might need another test."
+      },
+      "studentPage": {
+        "title": "A pause with a next step",
+        "scenario": "Fictional case: During a partner task, a student misses two passes, grips the ball tightly and says, \"I cannot do this.\" A teammate wants to restart immediately. The student asks for a short pause in the agreed rest place. Choose a next step that protects the pause, gets useful support and leaves a way to return. The student need not explain personal feelings to the group. Strategy choices: pause in the agreed place; use a quiet count; look at one task cue; ask a trusted adult for help. No strategy must work for everyone.",
+        "model": "Model: \"We can pause and put the ball down. The student could use a quiet count, look at the task card or ask the teacher for a cue. When ready, they could try a closer pass. A pause is a choice; it is not a punishment.\"",
+        "prompts": [
+          "Name an observable clue, without guessing a diagnosis.",
+          "Make a three-step plan: pause, strategy/help, safe return or further help.",
+          "Add a backup if the first strategy or adult is unavailable."
+        ]
+      }
+    },
+    {
+      "id": "week-3",
+      "title": "A useful choice for today",
+      "focus": "Adjust effort privately and control a rhythmic sequence.",
+      "curriculum": [
+        "Core PHE6: exertion monitoring/adjustment, FITT, personal healthy-living goals and rhythmic movement.",
+        "This week does not complete the broader food-choice, SAID or yearlong fitness content."
+      ],
+      "health": {
+        "id": "w3-health",
+        "title": "A realistic choice for today",
+        "minutes": 35,
+        "goal": "Explain how changing one FITT feature can make a fictional activity plan more usable.",
+        "materials": [
+          "Included: Week 3 case, FITT definitions and model",
+          "Teacher supplies paper/pencils"
+        ],
+        "setup": "Fictional case: A student plans an after-school movement break but a long outdoor route is unavailable today. They have ten minutes and a clear indoor space, with no equipment to buy. Options are a short walk/wheel route, seated reaching and tapping, or a four-move rhythm pattern. They want a plan they can pause and change. This is not a prescription for anyone's body.",
+        "model": "Model: \"Keep ten minutes available, but change the type from an outdoor route to a seated rhythm pattern. Start gently and check whether to change, rest or ask for help.\" FITT means frequency/how often, intensity/how hard, time/how long and type/which activity. This example changes type, not all four at once.",
+        "steps": [
+          {
+            "title": "Read the constraints",
+            "minutes": 5,
+            "action": "Identify available time, space and equipment. Do not ask classmates to report exercise habits or health information."
+          },
+          {
+            "title": "Teach FITT",
+            "minutes": 7,
+            "action": "Use the four definitions and model. Contrast changing type with changing time; do not prescribe an effort target."
+          },
+          {
+            "title": "Make a plan",
+            "minutes": 12,
+            "action": "Choose one activity for the fictional student. State one FITT change, a private check-in and a rest/stop/help option."
+          },
+          {
+            "title": "Test a changed day",
+            "minutes": 7,
+            "action": "New condition: only five minutes remain. Revise the time or type. Explain a useful choice without calling one body or activity better."
+          },
+          {
+            "title": "Connect to PE",
+            "minutes": 4,
+            "action": "Name an adjustment that could be offered during the next movement lesson. Keep personal plans optional and private."
+          }
+        ],
+        "check": "Can the learner name the changed FITT feature, connect it to a real constraint and include a flexible check-in?",
+        "teacherNotes": [
+          "30-minute route: 5, 5, 10, 6, 4 minutes. A healthy-choice discussion is not evidence of physical activity.",
+          "Keep wider healthy-living teaching in the year plan, including food choices and influences; this lesson focuses on a feasible movement choice."
+        ],
+        "access": [
+          "Use the fictional case only. Write, draw, point, dictate or respond privately; a personal story is never required.",
+          "Offer a different low-detail case or a pass on public sharing. Read the text aloud and explain vocabulary."
+        ],
+        "studentPrompts": [
+          "Which FITT part did you change?",
+          "How could the plan adapt without buying anything?"
+        ],
+        "existingExperienceId": "effort-meter-trail",
+        "studentCheck": "Name the FITT part you changed in the fictional plan. Explain how it fits the time or space, then show the check-in and rest, stop or help option."
+      },
+      "pe1": {
+        "id": "w3-pe1",
+        "title": "Choose effort and control an eight-count",
+        "minutes": 40,
+        "goal": "Perform a controlled movement pattern and adjust pace, range or rest using a private effort check.",
+        "materials": [
+          "Teacher supplies space markers and stable seated/support options",
+          "Included: eight-count pattern and three station directions",
+          "Teacher supplies soft balls and target markers for the target-roll station"
+        ],
+        "setup": "Mark three uncrowded areas: travel in a short loop; eight-count pattern in a personal space; gentle roll to a target. Offer hand/tap movement instead of travel. No timed races or public effort recording.",
+        "model": "Pattern: reach on 1-2; step or tap on 3-4; hold a comfortable shape on 5-6; change direction on 7-8. Repeat slowly. Private effort scale: 1 very easy, 2 easy, 3 moderate, 4 hard, 5 very hard. Choose an adjustment; no target number is required.",
+        "steps": [
+          {
+            "title": "Warm up and check",
+            "minutes": 5,
+            "action": "Use chosen gentle movement. Model a private effort check or optional talk test; no learner must speak or report a number."
+          },
+          {
+            "title": "Teach the pattern",
+            "minutes": 7,
+            "action": "Practise all eight counts with standing, seated or arm/hand movement. Model a slower transition into the hold."
+          },
+          {
+            "title": "Try and adjust",
+            "minutes": 14,
+            "action": "Rotate through the three areas at a comfortable pace. Try a 60-second interval with flexible rest, then change one feature and repeat. Notice control rather than count repetitions."
+          },
+          {
+            "title": "Prepare captains",
+            "minutes": 5,
+            "action": "Plan the same three stations for PE2 with visual/spoken counts and a rest/return option. Teacher checks spacing and supervision."
+          },
+          {
+            "title": "Cool down and return",
+            "minutes": 5,
+            "action": "Use easy chosen movement; restore equipment and space."
+          },
+          {
+            "title": "Name an adjustment",
+            "minutes": 4,
+            "action": "Explain a pace, range, type or rest change without sharing an effort number."
+          }
+        ],
+        "check": "Observe control through eight counts and a purposeful movement adjustment. A card director shows sequencing, not physical performance.",
+        "teacherNotes": [
+          "30-minute route: 4, 6, 10, 4, 3, 3 minutes. Preserve rhythm-movement-lab and effort-meter-trail as complementary experiences.",
+          "Stop and tell an adult about pain, dizziness, unusual breathing trouble or another concern. Use school support plans; peers do not monitor one another's bodies."
+        ],
+        "access": [
+          "Use standing, seated, supported, walking, wheeling or hand/arm movement; change range or duration while retaining timing/control.",
+          "Use visual counts or silence; directing cards supports sequencing only. Provide an appropriate movement route separately when needed."
+        ],
+        "studentPrompts": [
+          "Which transition needs control?",
+          "What can you change to make today's movement useful?"
+        ],
+        "existingExperienceId": "rhythm-movement-lab",
+        "studentCheck": "Perform the eight-count pattern using your chosen movement route. Name one pace, range or rest adjustment and why it helped. Directing cards shows sequencing; it does not show the physical pattern."
+      },
+      "pe2": {
+        "id": "w3-pe2",
+        "title": "Captains: a familiar choice circuit",
+        "minutes": 40,
+        "goal": "Use controlled movement and a self-chosen adjustment within a familiar station routine.",
+        "materials": [
+          "Teacher supplies space/target markers, soft balls for the target-roll station and stable support options",
+          "Included: three station descriptions and eight-count model"
+        ],
+        "setup": "Use three supervised areas: short travel loop; marked personal-space rhythm; gentle target roll. Offer seated/arm routes and a rest/return place. Captains check instructions and timing; only the teacher decides safety changes.",
+        "model": "Captain shows the rhythm station: reach 1-2, step/tap 3-4, hold 5-6, change direction 7-8. \"Keep your own pace and range. You can pause and rejoin. We are checking control, not how many you finish.\"",
+        "steps": [
+          {
+            "title": "Set up and warm up",
+            "minutes": 5,
+            "action": "Teacher approves the three areas. Captains lead familiar gentle movement with visual or spoken cues."
+          },
+          {
+            "title": "Demonstrate choices",
+            "minutes": 5,
+            "action": "Show each station and the stop signal. Practise a quiet rest-and-return route; no explanation is required."
+          },
+          {
+            "title": "Move and adjust",
+            "minutes": 20,
+            "action": "Rotate with several short practice intervals and flexible rest. Halfway, offer one change in pace, range, distance or type. Keep effort numbers private."
+          },
+          {
+            "title": "Cool down and return",
+            "minutes": 5,
+            "action": "Slow chosen movements and return equipment together."
+          },
+          {
+            "title": "Explain what helped",
+            "minutes": 5,
+            "action": "Name one instruction or adjustment that improved control. Captains take feedback about clarity and access, not fitness."
+          }
+        ],
+        "check": "Look for a taught movement cue, safe control and an adjustment linked to a private check-in.",
+        "teacherNotes": [
+          "Teacher approves equipment, space, rules and access before play and remains responsible for supervision. Captains lead familiar practice, not new skills or emergency decisions.",
+          "30-minute route: setup/warm-up 4, demonstrate 4, play and adjust 14, cool-down/return 4, feedback 4. Preserve the stop signal and participation choices.",
+          "Retain the stop-and-tell-adult routine from PE1. Do not turn the stations into a competition or compulsory endurance test."
+        ],
+        "access": [
+          "Choose walking, wheeling, seated sending/receiving, closer targets, a larger/light ball, or rest and return while practising purposeful movement.",
+          "A temporary observer can explain strategy; this does not demonstrate physical performance. Arrange an appropriate movement opportunity separately and privately."
+        ],
+        "studentPrompts": [
+          "What helped you keep control?",
+          "Which adjustment could you choose next time?"
+        ],
+        "existingExperienceId": "effort-meter-trail",
+        "studentCheck": "Show one taught movement with control and a chosen adjustment. Explain the change without sharing an effort number. If observing, explain the cue and agree a suitable movement opportunity with the teacher."
+      },
+      "studentPage": {
+        "title": "Change one part of a plan",
+        "scenario": "Fictional case: A student plans an after-school movement break but a long outdoor route is unavailable today. They have ten minutes and a clear indoor space, with no equipment to buy. Options are a short walk/wheel route, seated reaching and tapping, or a four-move rhythm pattern. They want a plan they can pause and change. This is not a prescription for anyone's body.",
+        "model": "Model: \"Keep ten minutes available, but change the type from an outdoor route to a seated rhythm pattern. Start gently and check whether to change, rest or ask for help.\" FITT means frequency/how often, intensity/how hard, time/how long and type/which activity. This example changes type, not all four at once.",
+        "prompts": [
+          "Choose an activity for the fictional student and explain why it fits the available space/time.",
+          "Name one FITT change and add a private check-in plus rest/stop/help option.",
+          "Only five minutes remain: revise the plan and explain your choice."
+        ]
+      }
+    },
+    {
+      "id": "week-4",
+      "title": "Check a claim; guide a ball",
+      "focus": "Question health-message evidence while learning controlled light-ball contacts.",
+      "curriculum": [
+        "Core PHE6: analyze health messages and intentions; develop object-control skills and movement strategies.",
+        "Source evaluation is an authentic health competency; the capsule does not establish product effects."
+      ],
+      "health": {
+        "id": "w4-health",
+        "title": "A confident claim is not enough",
+        "minutes": 35,
+        "goal": "Separate a health-message claim from evidence and choose a privacy-safe next step.",
+        "materials": [
+          "Included: complete fictional ad, attributed source capsule and Week 4 model",
+          "Teacher supplies paper/pencils; internet is optional"
+        ],
+        "setup": "Fictional ad: \"NeonFocus Gear: Buy our PowerBand! Every wearer feels calm and gets better test scores after seven days. Our proof: 200 likes and one anonymous review. Post a face photo and a public daily energy score to join.\" The ad names no research study or qualified author. It is invented for this lesson. Source capsule - paraphrase of BC Women's Hospital + Health Centre (PHSA), 'Evaluating Online Health Info': Check who produced information, their qualifications, why it was made, when it was reviewed, and whether research can be checked. Begin with established health organizations, such as HealthLink BC. This guidance helps check a message; it does not establish whether NeonFocus works. Source: https://www.bcwomens.ca/health-info/staying-healthy/navigating-the-health-system/evaluating-online-health-info",
+        "model": "Model: \"The seller made the claim and may benefit from a sale. Likes show attention, not evidence for every wearer. The source capsule tells me what to check; it does not prove the PowerBand works or fails. I would pause, avoid posting private information and ask a trusted adult to help check.\"",
+        "steps": [
+          {
+            "title": "Read the two inputs",
+            "minutes": 5,
+            "action": "Read the ad and source capsule. Label the ad fictional and the capsule a paraphrase of a real PHSA source."
+          },
+          {
+            "title": "Model the distinction",
+            "minutes": 7,
+            "action": "Identify creator, purpose, exact claim and offered proof. A commercial purpose invites checking; it does not by itself establish that a claim is false."
+          },
+          {
+            "title": "Check the message",
+            "minutes": 12,
+            "action": "Mark what the ad provides and what is missing: identifiable expertise, checkable research or review date. Explain why a like count does not answer the exact claim."
+          },
+          {
+            "title": "Write a useful response",
+            "minutes": 7,
+            "action": "Say what is known, what remains uncertain and how to seek reliable adult-supported information without buying, testing or posting health/body data."
+          },
+          {
+            "title": "State the limit",
+            "minutes": 4,
+            "action": "Complete: \"This source helps me __; it does not prove __.\" Use only the supplied text."
+          }
+        ],
+        "check": "Can the learner distinguish claim/evidence, use the real source within its limits and protect privacy?",
+        "teacherNotes": [
+          "30-minute route: 5, 5, 10, 6, 4 minutes. No product experiment or personal health story is required.",
+          "The short capsule is sufficient offline. The linked source is for checking provenance; do not invent a study, trial result or product endorsement."
+        ],
+        "access": [
+          "Use the fictional case only. Write, draw, point, dictate or respond privately; a personal story is never required.",
+          "Offer a different low-detail case or a pass on public sharing. Read the text aloud and explain vocabulary."
+        ],
+        "studentPrompts": [
+          "What claim needs evidence?",
+          "What can the source actually support?"
+        ],
+        "existingExperienceId": "trusted-health-studio",
+        "studentCheck": "Separate the ad's claim from its offered proof. Explain one thing the real source helps you check, one thing it cannot prove, and your privacy-safe next step."
+      },
+      "pe1": {
+        "id": "w4-pe1",
+        "title": "A light ball: ready, move, guide",
+        "minutes": 40,
+        "goal": "Prepare for a gentle incoming ball and guide a controlled forearm pass toward a partner.",
+        "materials": [
+          "Teacher supplies light school-approved balls, one per pair/trio",
+          "Teacher supplies personal-space markers and an optional low net; a floor line is enough",
+          "Included: ready/pass cues and captain plan"
+        ],
+        "setup": "Use spaced partner lanes with a clear ball-retrieval route. Start 1-2 m apart with gentle tosses; a bounce/catch is available. No hard-driven balls, diving or play under a net. Freeze means stop and hold the ball.",
+        "model": "Ready: choose a stable position and face the sender. Move/position safely, join hands with thumbs roughly parallel and present a comfortable forearm surface. A gentle toss meets the forearms; guide toward the partner with a small controlled action, not a big arm swing. Catch and reset if needed.",
+        "steps": [
+          {
+            "title": "Warm up and retrieve",
+            "minutes": 5,
+            "action": "Use chosen travel/reach/tap movements and ready signals. Recall the open-space cue from passing games."
+          },
+          {
+            "title": "Teach and copy",
+            "minutes": 7,
+            "action": "Model a gentle toss, controlled forearm contact and a catch/reset. Partners signal ready before sending."
+          },
+          {
+            "title": "Practise cooperative returns",
+            "minutes": 14,
+            "action": "Take repeated turns as sender and receiver. Start toss-pass-catch, then try two controlled contacts if useful. Adjust distance, bounce or ball while retaining a clear target."
+          },
+          {
+            "title": "Prepare captains",
+            "minutes": 5,
+            "action": "Plan PE2 with only these familiar sequences. Assign rotating jobs and record stop, spacing, retrieval and choice rules for teacher approval."
+          },
+          {
+            "title": "Cool down and return",
+            "minutes": 5,
+            "action": "Use easy movement; collect balls only on the agreed signal."
+          },
+          {
+            "title": "Explain control",
+            "minutes": 4,
+            "action": "Name one cue that helped make the next contact playable."
+          }
+        ],
+        "check": "Observe preparation and controlled contact over several attempts; distinguish a catch/send bridge from a forearm-pass demonstration.",
+        "teacherNotes": [
+          "30-minute route: 4, 6, 10, 4, 3, 3 minutes. Volleyball is a teaching progression here, not a claim about a league date.",
+          "Use teacher-approved light equipment and familiar space. If control is not ready, retain toss/catch and targeted rolls before introducing more contacts."
+        ],
+        "access": [
+          "Offer seated, standing or wheeling positioning, closer partners, larger/light balls, a bounce or catch/reset; keep a meaningful sending/receiving action.",
+          "A temporary observer identifies ready/space cues but does not demonstrate contact skill; offer an appropriate movement route separately."
+        ],
+        "studentPrompts": [
+          "Where should the next ball go?",
+          "Which change makes the contact controllable?"
+        ],
+        "existingExperienceId": "strategy-remix-league",
+        "studentCheck": "Show a ready signal and two controlled returns using your chosen route. Name the skill you actually used: catch/send or forearm pass. Explain one cue that helped."
+      },
+      "pe2": {
+        "id": "w4-pe2",
+        "title": "Captains: keep the next ball playable",
+        "minutes": 40,
+        "goal": "Repeat a taught sending/receiving sequence and improve it with one practical adjustment.",
+        "materials": [
+          "Teacher supplies light balls, partner-lane markers and optional low net",
+          "Included: toss-pass-catch sequence and halfway questions"
+        ],
+        "setup": "Use PE1 partner/trio lanes, 1-2 m starting distance and clear retrieval space. The familiar sequence is gentle toss, controlled forearm pass, catch/reset; catch-send is an available bridge. No hard hits, diving or crossing under a net. Freeze means hold the ball.",
+        "model": "Captain: \"Ready? Gentle toss, guide to your partner, catch and reset. Our aim is a playable next ball, not the longest score. A closer distance or one bounce is available.\" Show a complete turn swap.",
+        "steps": [
+          {
+            "title": "Set up and warm up",
+            "minutes": 5,
+            "action": "Teacher checks lanes and equipment. Captains lead familiar ready-position movements."
+          },
+          {
+            "title": "Demonstrate and check",
+            "minutes": 5,
+            "action": "Show the sequence, turn swap and retrieval routine. Teacher confirms that every pair has a usable distance and route."
+          },
+          {
+            "title": "Practise and adjust",
+            "minutes": 20,
+            "action": "Use short repeated turns. At the halfway pause, partners select a closer target, gentler feed or clearer ready signal. Teacher approves; replay the same sequence."
+          },
+          {
+            "title": "Cool down and return",
+            "minutes": 5,
+            "action": "Ease the movement and return balls on the signal."
+          },
+          {
+            "title": "Name useful evidence",
+            "minutes": 5,
+            "action": "Describe a contact before/after the adjustment. Captains identify one instruction to keep or make clearer."
+          }
+        ],
+        "check": "Look for a taught control cue and a meaningful repeat opportunity; explain what improved without ranking pairs.",
+        "teacherNotes": [
+          "Teacher approves equipment, space, rules and access before play and remains responsible for supervision. Captains lead familiar practice, not new skills or emergency decisions.",
+          "30-minute route: setup/warm-up 4, demonstrate 4, play and adjust 14, cool-down/return 4, feedback 4. Preserve the stop signal and participation choices."
+        ],
+        "access": [
+          "Choose walking, wheeling, seated sending/receiving, closer targets, a larger/light ball, or rest and return while practising purposeful movement.",
+          "A temporary observer can explain strategy; this does not demonstrate physical performance. Arrange an appropriate movement opportunity separately and privately."
+        ],
+        "studentPrompts": [
+          "Was the next ball playable?",
+          "Which single change helped?"
+        ],
+        "existingExperienceId": "everyone-in-game",
+        "studentCheck": "Repeat the familiar sending/receiving sequence after one adjustment. Describe a specific change in the next ball. If observing, explain the strategy; physical skill needs a suitable movement demonstration."
+      },
+      "studentPage": {
+        "title": "Who made the claim? What supports it?",
+        "scenario": "Fictional ad: \"NeonFocus Gear: Buy our PowerBand! Every wearer feels calm and gets better test scores after seven days. Our proof: 200 likes and one anonymous review. Post a face photo and a public daily energy score to join.\" The ad names no research study or qualified author. It is invented for this lesson. Source capsule - paraphrase of BC Women's Hospital + Health Centre (PHSA), 'Evaluating Online Health Info': Check who produced information, their qualifications, why it was made, when it was reviewed, and whether research can be checked. Begin with established health organizations, such as HealthLink BC. This guidance helps check a message; it does not establish whether NeonFocus works. Source: https://www.bcwomens.ca/health-info/staying-healthy/navigating-the-health-system/evaluating-online-health-info",
+        "model": "Model: \"The seller made the claim and may benefit from a sale. Likes show attention, not evidence for every wearer. The source capsule tells me what to check; it does not prove the PowerBand works or fails. I would pause, avoid posting private information and ask a trusted adult to help check.\"",
+        "prompts": [
+          "Identify the ad's creator, purpose and exact claim.",
+          "Separate the offered proof from one missing piece of checkable evidence.",
+          "Explain what the PHSA capsule helps you check and what it does not prove.",
+          "Write a privacy-safe next step without buying, posting private details or testing the product."
+        ]
+      }
+    },
+    {
+      "id": "week-5",
+      "title": "Respect the person; improve the play",
+      "focus": "Challenge body-rating messages and practise controlled sends and shared space.",
+      "curriculum": [
+        "Core PHE6: respectful relationships, identity and media influences; object-control and movement strategies.",
+        "Body-respect work is a partial identity connection, not complete puberty/adolescence instruction."
+      ],
+      "health": {
+        "id": "w5-health",
+        "title": "Respect bodies; question the message",
+        "minutes": 35,
+        "goal": "Identify a harmful body-rating message and respond with a respectful boundary and source-aware explanation.",
+        "materials": [
+          "Included: fictional post description, short MediaSmarts background and Week 5 model",
+          "Teacher supplies paper/pencils; no body photographs are needed"
+        ],
+        "setup": "Fictional case: A made-up sportswear post labels a filtered image \"the only athletic look\" and asks viewers to rate bodies. Its small print says the picture was edited and the poster sells clothing. In a group chat, someone repeats the rating idea. You can question the message and set a boundary without rating yourself or anyone else. Media-literacy background: MediaSmarts explains that media are constructed and can have commercial purposes; its body-image guidance supports respectful critical discussion.",
+        "model": "Model: \"The image is edited and promotes clothing. It cannot tell us a person's health, worth or whole ability. I would say, 'Let's discuss the message, not rate bodies.' If targeting continues, ask a trusted adult for help.\"",
+        "steps": [
+          {
+            "title": "Read without rating",
+            "minutes": 5,
+            "action": "Identify what the fictional post asks viewers to do. Do not compare classmates, photographs or bodies."
+          },
+          {
+            "title": "Model a critical response",
+            "minutes": 7,
+            "action": "Use the supplied editing and sales details. Separate a message about appearance from evidence of health, worth or skill."
+          },
+          {
+            "title": "Rewrite the message",
+            "minutes": 12,
+            "action": "Replace the rating invitation with two lines that welcome varied ways to participate. Explain one wording choice."
+          },
+          {
+            "title": "Practise a boundary",
+            "minutes": 7,
+            "action": "Choose words, a signal or an adult-help route for the fictional chat. Consider a backup if targeting continues; do not role-play insults."
+          },
+          {
+            "title": "Connect to movement",
+            "minutes": 4,
+            "action": "Name a supportive practice cue such as \"ready when you are\" rather than a body comment."
+          }
+        ],
+        "check": "Does the response question the constructed message, avoid body judgments and offer a practical boundary/help route?",
+        "teacherNotes": [
+          "30-minute route: 5, 5, 10, 6, 4 minutes. This contributes to identity and respectful relationships; it is not full puberty/adolescence teaching.",
+          "MediaSmarts is attributed background, not a claim that one lesson prevents body-image concerns. Keep any personal concern private and use school support procedures."
+        ],
+        "access": [
+          "Use the fictional case only. Write, draw, point, dictate or respond privately; a personal story is never required.",
+          "Offer a different low-detail case or a pass on public sharing. Read the text aloud and explain vocabulary."
+        ],
+        "studentPrompts": [
+          "What can this image not tell us?",
+          "How can the group respond without judging a body?"
+        ],
+        "existingExperienceId": "trusted-health-studio",
+        "studentCheck": "Show your two respectful replacement lines and a boundary or help response. Explain why the edited image cannot establish a person's health, worth or whole ability."
+      },
+      "pe1": {
+        "id": "w5-pe1",
+        "title": "Underhand send and shared space",
+        "minutes": 40,
+        "goal": "Use a controlled underhand serve/send toward a safe target and communicate before receiving.",
+        "materials": [
+          "Teacher supplies light balls, service/target markers and optional low nets",
+          "Included: serve cues and small-court rules"
+        ],
+        "setup": "Use pairs/trios in separated lanes, beginning close to a large target. Teacher checks ball direction and retrieval. Progress to 2v2 across a low net or floor line only when control is ready. No jumping attacks, diving, contact or crossing into another court.",
+        "model": "Hold the light ball near waist level. Face the target, choose a stable stance, swing the other arm gently from below and guide the lower back of the ball with the heel of an open hand. Step or shift comfortably toward the target. Start close; a supported underhand toss practises direction first.",
+        "steps": [
+          {
+            "title": "Warm up and recall",
+            "minutes": 5,
+            "action": "Revisit ready position, gentle feed, forearm pass and catch/reset in spaced pairs."
+          },
+          {
+            "title": "Teach the underhand send",
+            "minutes": 7,
+            "action": "Model direction and controlled contact, with everyone behind the sender or safely in the receiving zone. Try several short-distance attempts."
+          },
+          {
+            "title": "Practise shared space",
+            "minutes": 14,
+            "action": "In pairs/trios, alternate sends and receiving. If ready, use 2v2 cooperative mini-courts: underhand send, receive/catch, send back. Call or signal before contact; rotate sender every three attempts."
+          },
+          {
+            "title": "Prepare captains",
+            "minutes": 5,
+            "action": "Plan the same mini-court or partner route. Teacher approves distances, access, retrieval, stops and rotation; no new skill is assigned to captains."
+          },
+          {
+            "title": "Cool down and return",
+            "minutes": 5,
+            "action": "Use easy movement and teacher-signalled collection."
+          },
+          {
+            "title": "Explain a cue",
+            "minutes": 4,
+            "action": "Name a cue that improved direction or prevented two receivers chasing the same ball."
+          }
+        ],
+        "check": "Look for a controlled underhand action and an agreed receiving signal. Distinguish a toss bridge from a serve contact.",
+        "teacherNotes": [
+          "30-minute route: 4, 6, 10, 4, 3, 3 minutes. Distance is adjustable; power is not the goal.",
+          "If a ball enters another lane, stop and signal rather than chase it through play. The teacher manages net/equipment changes."
+        ],
+        "access": [
+          "Use seated or standing sends, a nearer line, a larger/light ball, one bounce or a catch. Use an appropriate moving/send route without grading distance.",
+          "Observer feedback can identify direction/space choices; it does not establish a serve skill. Arrange physical practice separately when needed."
+        ],
+        "studentPrompts": [
+          "How can you aim a playable send?",
+          "Who will receive, and how will you signal?"
+        ],
+        "existingExperienceId": "strategy-remix-league",
+        "studentCheck": "Show a controlled underhand send toward your chosen target and an agreed receiving signal. Name whether you used a toss or serve contact, and explain one direction cue."
+      },
+      "pe2": {
+        "id": "w5-pe2",
+        "title": "Captains: cooperative mini-courts",
+        "minutes": 40,
+        "goal": "Apply familiar underhand sends, receiving cues and safe restarts in repeated small-group practice.",
+        "materials": [
+          "Teacher supplies light balls, court/service markers and optional low nets",
+          "Included: familiar mini-court routine"
+        ],
+        "setup": "Use approved pairs/trios or 2v2 mini-courts. Underhand send, receive/catch, return with a controlled send; one bounce is available. Rotate sender after three attempts and swap court positions. Freeze means hold the ball. No hard hits, jumping attacks, diving, contact or crossing into other courts.",
+        "model": "Captain: \"Start close. Signal ready, use an underhand send, then say or signal who receives. Catch and restart if needed. After three starts, rotate. A rally ending is our next practice chance, not a reason to leave.\"",
+        "steps": [
+          {
+            "title": "Set up and warm up",
+            "minutes": 5,
+            "action": "Teacher checks ball directions and retrieval space. Captains lead familiar ready/pass practice."
+          },
+          {
+            "title": "Show one full turn",
+            "minutes": 5,
+            "action": "Demonstrate the start, receiver signal, return and rotation. Confirm participation choices before teacher approval."
+          },
+          {
+            "title": "Play, pause and improve",
+            "minutes": 20,
+            "action": "Practise repeated cooperative exchanges. Halfway, invite one adjustment to distance, ball or receiver signal, checked by the teacher. Keep all players rotating through movement roles."
+          },
+          {
+            "title": "Cool down and return",
+            "minutes": 5,
+            "action": "Reduce effort and collect equipment on the signal."
+          },
+          {
+            "title": "Share one useful cue",
+            "minutes": 5,
+            "action": "Explain a change that improved control or choice; avoid comparing rally counts between teams."
+          }
+        ],
+        "check": "Observe familiar skill cues, communication and re-entry. Ask captains how feedback changed one instruction.",
+        "teacherNotes": [
+          "Teacher approves equipment, space, rules and access before play and remains responsible for supervision. Captains lead familiar practice, not new skills or emergency decisions.",
+          "30-minute route: setup/warm-up 4, demonstrate 4, play and adjust 14, cool-down/return 4, feedback 4. Preserve the stop signal and participation choices."
+        ],
+        "access": [
+          "Choose walking, wheeling, seated sending/receiving, closer targets, a larger/light ball, or rest and return while practising purposeful movement.",
+          "A temporary observer can explain strategy; this does not demonstrate physical performance. Arrange an appropriate movement opportunity separately and privately."
+        ],
+        "studentPrompts": [
+          "What helped the receiver prepare?",
+          "How can the next restart include everyone?"
+        ],
+        "existingExperienceId": "everyone-in-game",
+        "studentCheck": "Show the familiar send, receiving signal and safe restart. Explain one instruction that improved control or re-entry. If observing, explain the decision; this is strategy evidence, not a physical-skill demonstration."
+      },
+      "studentPage": {
+        "title": "Question the message, not a body",
+        "scenario": "Fictional case: A made-up sportswear post labels a filtered image \"the only athletic look\" and asks viewers to rate bodies. Its small print says the picture was edited and the poster sells clothing. In a group chat, someone repeats the rating idea. You can question the message and set a boundary without rating yourself or anyone else. Media-literacy background: MediaSmarts explains that media are constructed and can have commercial purposes; its body-image guidance supports respectful critical discussion.",
+        "model": "Model: \"The image is edited and promotes clothing. It cannot tell us a person's health, worth or whole ability. I would say, 'Let's discuss the message, not rate bodies.' If targeting continues, ask a trusted adult for help.\"",
+        "prompts": [
+          "Which details show that the post was constructed for a purpose?",
+          "Write two things the image cannot establish about a person.",
+          "Replace the body-rating invitation with two respectful lines.",
+          "Choose a boundary/help response if the group keeps targeting someone."
+        ]
+      }
+    },
+    {
+      "id": "week-6",
+      "title": "Protect, help and carry it forward",
+      "focus": "Use a realistic help path and lead familiar inclusive movement practice.",
+      "curriculum": [
+        "Core PHE6: responding to unsafe situations, boundaries/help, safe/fair leadership and movement strategies.",
+        "Emergency principles need further explicit teaching; this lesson does not provide first-aid certification or replace school procedures."
+      ],
+      "health": {
+        "id": "w6-health",
+        "title": "Protect first, get help, follow up",
+        "minutes": 35,
+        "goal": "Choose an immediate protection, an appropriate adult/help route and a backup for a fictional unsafe situation.",
+        "materials": [
+          "Included: two low-detail fictional cases, response model and Week 6 page",
+          "Teacher supplies paper/pencils and confirms actual school help roles/places before teaching"
+        ],
+        "setup": "Fictional case A: An unknown account offers a place on a sports team but asks a student to send a face photo, a home address and private health details. It says, \"Keep this secret and meet us alone.\" Case B: During school practice, a student is hurt and the area is unsafe. Choose one case. Use roles, not classmates' names. Available school routes must be confirmed by the teacher: classroom teacher, supervising adult or school office; a second available responsible adult is the backup.",
+        "model": "Model for case A: \"Do not reply, send details or go to the meeting. Move away from the message and tell an available trusted adult privately. If the first adult is unavailable or does not act, seek another responsible adult. An adult decides the next protection steps. If there is immediate danger, use emergency help now rather than wait to gather evidence.\"",
+        "steps": [
+          {
+            "title": "Read and check urgency",
+            "minutes": 5,
+            "action": "Choose a case or request a different low-detail case. Immediate danger needs adult/emergency help now; uncertainty is a reason to seek help, not investigate alone."
+          },
+          {
+            "title": "Model protect-help-follow-up",
+            "minutes": 7,
+            "action": "Use case A to show privacy and a backup route. For case B, move away from danger and alert the supervising adult immediately; peers do not diagnose or move an injured person."
+          },
+          {
+            "title": "Build a usable help path",
+            "minutes": 12,
+            "action": "Draw or write three steps: protect now; tell an appropriate adult and where to find them; name a backup if needed. Add a short help sentence without private detail."
+          },
+          {
+            "title": "Check a complication",
+            "minutes": 7,
+            "action": "The first helper is unavailable. Revise the route. Discuss how to reach another adult without confronting the unknown account or collecting risky evidence."
+          },
+          {
+            "title": "Connect the six weeks",
+            "minutes": 4,
+            "action": "Name one boundary, source-check or supportive instruction that belongs in the final familiar practice block."
+          }
+        ],
+        "check": "Does the plan prioritize safety, put responsibility with adults, protect privacy and include a feasible backup?",
+        "teacherNotes": [
+          "30-minute route: 5, 5, 10, 6, 4 minutes. Do not ask for personal accounts or stage a frightening emergency.",
+          "Confirm school emergency procedures and help routes. Kids Help Phone offers private support at 1-800-668-6868 or text CONNECT to 686868; immediate danger uses the school emergency route or 911."
+        ],
+        "access": [
+          "Use the fictional case only. Write, draw, point, dictate or respond privately; a personal story is never required.",
+          "Offer a different low-detail case or a pass on public sharing. Read the text aloud and explain vocabulary."
+        ],
+        "studentPrompts": [
+          "What must happen before explanation or evidence-gathering?",
+          "Who can help, and what is the backup?"
+        ],
+        "existingExperienceId": "safety-help-circuit",
+        "studentCheck": "Show the fictional help path: protect now, reach an appropriate adult, then use a backup if needed. Explain what changes when there is immediate danger."
+      },
+      "pe1": {
+        "id": "w6-pe1",
+        "title": "Choose a plan for a playable rally",
+        "minutes": 40,
+        "goal": "Combine familiar light-ball skills and test one strategy for control, shared space and participation.",
+        "materials": [
+          "Teacher supplies light balls, court/target markers and optional low nets",
+          "Included: familiar rally rules and captain plan"
+        ],
+        "setup": "Use the familiar partner or 2v2 court: controlled underhand start; agreed receive/catch or forearm-pass route; controlled return; rotate starter every three attempts. One bounce is available. No hard attacks, diving, contact or crossing courts. Freeze means stop safely and hold the ball.",
+        "model": "Before: two receivers chase one ball and leave the next space empty. Plan: agree a receiving signal and leave a clear support position. Replay a gentle send. A clearer call may help, but compare several attempts before deciding.",
+        "steps": [
+          {
+            "title": "Warm up and retrieve",
+            "minutes": 5,
+            "action": "Rehearse ready signal, one controlled forearm contact and an underhand send at a suitable distance."
+          },
+          {
+            "title": "Model one team plan",
+            "minutes": 7,
+            "action": "Show the before/after receiving example. Use floor positions to distinguish receiving from supporting without blaming a person."
+          },
+          {
+            "title": "Test and refine",
+            "minutes": 14,
+            "action": "Play repeated cooperative rallies. Freeze briefly to choose one change: receiver signal, spacing or gentler send. Replay and compare control plus player choice; no public rankings."
+          },
+          {
+            "title": "Prepare captains",
+            "minutes": 5,
+            "action": "Choose the already-taught partner/mini-court route for PE2. If needed, retain familiar Gate Pass or the eight-count pattern. Teacher approves every route, role and supervision arrangement."
+          },
+          {
+            "title": "Cool down and return",
+            "minutes": 5,
+            "action": "Use chosen easy movement and return equipment safely."
+          },
+          {
+            "title": "Explain the next step",
+            "minutes": 4,
+            "action": "Name one skill cue and one strategy to carry into the captain-led block."
+          }
+        ],
+        "check": "Look for taught physical cues and a strategy decision supported by play evidence, with uncertainty where several factors changed.",
+        "teacherNotes": [
+          "30-minute route: 4, 6, 10, 4, 3, 3 minutes. Repeat a prior week if the skills need more practice; six weeks is a flexible sequence.",
+          "The final block revisits familiar learning. It is not a tournament, fitness ranking, reporting task or new assessment kit."
+        ],
+        "access": [
+          "Choose walking, wheeling, seated sending/receiving, closer targets, a larger/light ball, or rest and return while practising purposeful movement.",
+          "A temporary observer can explain strategy; this does not demonstrate physical performance. Arrange an appropriate movement opportunity separately and privately."
+        ],
+        "studentPrompts": [
+          "Which cue makes the rally controllable?",
+          "What evidence would make you keep or revise the plan?"
+        ],
+        "existingExperienceId": "strategy-remix-league",
+        "studentCheck": "Show one taught movement cue during a cooperative exchange. Explain whether to keep or revise the team plan using a specific moment, and name anything that remains uncertain."
+      },
+      "pe2": {
+        "id": "w6-pe2",
+        "title": "Captains: familiar practice, thoughtful choices",
+        "minutes": 40,
+        "goal": "Lead and join familiar purposeful movement, then explain one useful adjustment.",
+        "materials": [
+          "Teacher supplies approved light balls, markers and optional low nets",
+          "Included: familiar rally routine and role prompts; no special event purchases"
+        ],
+        "setup": "Default: approved partner/2v2 cooperative volley practice. Use an underhand start, agreed catch/bounce/forearm-pass route and controlled return; rotate starter every three attempts. Freeze means hold the ball. No attacks, diving, contact or crossing courts. Teacher may approve the already-taught Gate Pass or eight-count route instead and restates its rules before play.",
+        "model": "Captain: \"Our goal is a playable next contact. Choose a route we have practised. Signal ready, send gently, rotate and reset. At the pause we will ask which instruction improves control and whether anyone needs a different way to join.\"",
+        "steps": [
+          {
+            "title": "Set up and warm up",
+            "minutes": 5,
+            "action": "Teacher approves space, familiar routes and roles. Captains lead a known gentle warm-up."
+          },
+          {
+            "title": "Show and check",
+            "minutes": 5,
+            "action": "Demonstrate the full selected routine, rotation, stop and return choices. Confirm it is familiar before the teacher starts play."
+          },
+          {
+            "title": "Practise, adjust and repeat",
+            "minutes": 20,
+            "action": "Repeat meaningful movement turns with flexible rest. At halfway, gather brief feedback; teacher approves one adjustment. Change leadership jobs without removing movement opportunities."
+          },
+          {
+            "title": "Cool down and return",
+            "minutes": 5,
+            "action": "Reduce effort, restore equipment and thank helpful actions without ranking players."
+          },
+          {
+            "title": "Carry learning forward",
+            "minutes": 5,
+            "action": "Name one movement cue, one inclusive instruction and one next practice choice. Keep any notes in class; no photo/video or personal health post is needed."
+          }
+        ],
+        "check": "Observe control, safe/fair choices and leadership that improves practice; explain one adjustment using what happened.",
+        "teacherNotes": [
+          "Teacher approves equipment, space, rules and access before play and remains responsible for supervision. Captains lead familiar practice, not new skills or emergency decisions.",
+          "30-minute route: setup/warm-up 4, demonstrate 4, play and adjust 14, cool-down/return 4, feedback 4. Preserve the stop signal and participation choices."
+        ],
+        "access": [
+          "Choose walking, wheeling, seated sending/receiving, closer targets, a larger/light ball, or rest and return while practising purposeful movement.",
+          "A temporary observer can explain strategy; this does not demonstrate physical performance. Arrange an appropriate movement opportunity separately and privately."
+        ],
+        "studentPrompts": [
+          "What did you practise, specifically?",
+          "Which instruction or choice should we keep next time?"
+        ],
+        "existingExperienceId": "everyone-in-game",
+        "studentCheck": "Show one familiar movement skill through your chosen route. Name one inclusive instruction and one next practice choice. If observing, share strategy evidence and agree a suitable movement opportunity with the teacher."
+      },
+      "studentPage": {
+        "title": "A help path that does not stop too soon",
+        "scenario": "Fictional case A: An unknown account offers a place on a sports team but asks a student to send a face photo, a home address and private health details. It says, \"Keep this secret and meet us alone.\" Case B: During school practice, a student is hurt and the area is unsafe. Choose one case. Use roles, not classmates' names. Available school routes must be confirmed by the teacher: classroom teacher, supervising adult or school office; a second available responsible adult is the backup.",
+        "model": "Model for case A: \"Do not reply, send details or go to the meeting. Move away from the message and tell an available trusted adult privately. If the first adult is unavailable or does not act, seek another responsible adult. An adult decides the next protection steps. If there is immediate danger, use emergency help now rather than wait to gather evidence.\"",
+        "prompts": [
+          "Choose case A or B. What is the immediate protection action?",
+          "Name an appropriate school adult/role and the confirmed place to find help.",
+          "Add a short help sentence and a backup route if the first helper is unavailable.",
+          "Explain what changes if there is immediate danger."
+        ]
+      }
+    }
+  ]
+}
