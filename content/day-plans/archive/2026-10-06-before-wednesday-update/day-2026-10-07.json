@@ -1,0 +1,191 @@
+{
+  "id": "day-2026-10-07",
+  "date": "2026-10-07",
+  "status": "tentative",
+  "title": "Tentative · Wednesday · test evidence and make a first version",
+  "greeting": "Good morning, Division 8!",
+  "arrival": "This is our working plan. We may adjust it to finish learning well.",
+  "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately. Mr. Eckert teaches Core French only. Mr. Wyatt teaches Physical and Health Education, including classroom health learning and PE.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:45 am",
+      "title": "Arrival and attendance",
+      "notes": "Attendance before form collection. Collect routine forms afterward; preview tentative day.",
+      "href": "",
+      "firstAction": "Settle in and answer attendance.",
+      "studentSteps": [
+        "Answer attendance, then hand in any forms.",
+        "Look at today’s plan and get paper and a pencil ready."
+      ],
+      "titleKo": "등교·출석 확인",
+      "firstActionKo": "자리에 앉고 출석을 부르면 대답하세요."
+    },
+    {
+      "time": "8:45–9:45 am",
+      "title": "Mathematics · comparison detectives",
+      "notes": "Model the error “more decimal digits means greater”: 0.405 < 0.450. Pairs repair 6.08 > 6.8 and 0.50 ≠ 0.5 using a chart or line, then choose targeted rounding or ordering practice. Independent check: 2.005 < 2.05 < 2.5, with the deciding place explained. Secure learners can discuss a whole-number strategy without starting another full lesson.",
+      "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
+      "firstAction": "Decide whether 0.405 is greater than 0.45 and explain.",
+      "studentSteps": [
+        "Try the model on paper or a whiteboard.",
+        "Explain which place or strategy supports your answer.",
+        "Complete one independent check; use it to choose our next step."
+      ],
+      "activity": {
+        "label": "Number comparison lesson",
+        "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "수학 · 수 비교 탐정",
+      "firstActionKo": "0.405가 0.45보다 큰지 판단하고 이유를 설명하세요."
+    },
+    {
+      "time": "9:45–10:20 am",
+      "title": "English Language Arts · Nevermoor",
+      "notes": "Make a two-column note: detail heard / what it suggests. Hear a partner’s different idea, then revise or defend your own with the text. Record the bookmark.",
+      "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+      "firstAction": "Recall the last part we actually heard, or listen to the opening.",
+      "studentSteps": [
+        "Listen for a character or setting detail.",
+        "Write, draw or say an idea and the detail that supports it.",
+        "Keep one question for our next reading."
+      ],
+      "activity": {
+        "label": "Story evidence lesson",
+        "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "영어 · Nevermoor",
+      "firstActionKo": "지난번에 들은 마지막 부분을 떠올리거나 이야기의 시작 부분을 들으세요."
+    },
+    {
+      "time": "10:20–10:35 am",
+      "title": "Snack",
+      "notes": "Protect the usual 10:20 snack start.",
+      "href": "",
+      "firstAction": "Have your snack and tidy your space.",
+      "titleKo": "간식 시간",
+      "firstActionKo": "간식을 먹고 자기 자리를 정리하세요."
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "notes": "",
+      "href": "",
+      "firstAction": "Follow our recess routine.",
+      "titleKo": "쉬는 시간",
+      "firstActionKo": "쉬는 시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "10:50–11:50 am",
+      "title": "Social Studies · trace a claim",
+      "notes": "Finish the source trail before transferring the routine. If ready, choose one already-previewed Action Pack or official election source; show creator, date, title and exact claim on the projector. Ask what it supports and what it cannot establish. If a suitable source is unavailable, use another supplied A/B/C round. A spoken explanation or brief paper note is enough; no new portfolio post.",
+      "href": "?subject=Social+Studies&socialLesson=trace-the-claim&mode=student",
+      "firstAction": "Find the last source we checked. What did it actually tell us?",
+      "studentSteps": [
+        "Resume the fictional school-trip trail at our stopping point.",
+        "Compare the original wording with the repeated claim. Mark what changed.",
+        "Explain what the evidence supports and what remains unknown."
+      ],
+      "activity": {
+        "label": "Trace a claim",
+        "href": "?subject=Social+Studies&socialLesson=trace-the-claim&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "사회 · 주장과 근거 확인하기",
+      "firstActionKo": "지난번에 확인한 자료를 찾으세요. 그 자료는 무엇을 알려 주었나요?"
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "notes": "Usual intermediate routine: outside 11:50–12:12; transition 12:12–12:13; eating 12:13–12:35.",
+      "href": "",
+      "firstAction": "Follow our outside-play and lunch routine.",
+      "titleKo": "점심시간",
+      "firstActionKo": "바깥 놀이와 점심시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "12:35–1:00 pm",
+      "title": "Quiet individual time",
+      "notes": "Preserve a calm reset; a quiet non-reading choice is available.",
+      "href": "",
+      "firstAction": "Choose quiet reading, drawing or an unfinished task.",
+      "titleKo": "조용한 개인 활동 시간",
+      "firstActionKo": "조용히 책 읽기, 그림 그리기, 끝내지 못한 활동 중 하나를 고르세요."
+    },
+    {
+      "time": "1:00–1:25 pm",
+      "title": "Physical and Health Education · feelings, choices and help",
+      "notes": "Mr. Wyatt teaches this classroom health block. Use a fictional scenario: a student feels overwhelmed when a group game becomes loud and competitive. Model noticing a feeling or body cue, choosing a helpful next action, and asking a trusted adult for support. Partners propose two possible responses and explain why each may help; no personal disclosure is required. Practise a help-seeking sentence: “I feel overwhelmed. Could I take a quiet break and rejoin?” Exit: write, draw or say one possible strategy and one trusted adult the fictional student could ask. Students may pass on public sharing.",
+      "href": "?subject=Physical+%26+Health+Education&mode=student",
+      "firstAction": "Think about a fictional student who feels overwhelmed during a noisy game.",
+      "studentSteps": [
+        "Notice one feeling or body clue the student might experience.",
+        "With a partner, suggest two helpful choices and explain why they could help.",
+        "Practise asking a trusted adult for support; write, draw or say one next step."
+      ],
+      "titleKo": "체육·보건 · 감정, 선택, 도움 요청",
+      "firstActionKo": "시끄러운 놀이 중 힘들어하는 가상의 학생을 생각해 보세요."
+    },
+    {
+      "time": "1:25–2:00 pm",
+      "title": "ADST · make, test and improve",
+      "notes": "Use an inquiry message/task only when it is supported; otherwise continue inquiry work. Make a small three-step instruction card, sorting task or question-and-evidence card after a fictional teacher model. Name the user and one success test, then watch a partner try without coaching and note a pause without names. Revise one confusing part; keep the prototype in class. Use 35 minutes for one small prototype cycle; carry unfinished work forward.",
+      "href": "?subject=ADST&experience=cold-test-prototype&mode=student",
+      "firstAction": "Choose one small paper version another person can try.",
+      "studentSteps": [
+        "Name the user, purpose and one sign it works.",
+        "Try the paper version and observe without giving hints.",
+        "Make one change based on what you noticed."
+      ],
+      "activity": {
+        "label": "Paper prototype and test",
+        "href": "?subject=ADST&experience=cold-test-prototype&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "디자인·기술 · 만들고 시험해 보고 고치기",
+      "firstActionKo": "다른 사람이 시험해 볼 간단한 종이 초안을 하나 고르세요."
+    },
+    {
+      "time": "2:00–2:15 pm",
+      "title": "Planners, jobs and cleanup",
+      "notes": "Keep routine cleanup around 2:00; move unfinished learning forward.",
+      "href": "?view=Responsibilities&mode=student",
+      "firstAction": "Restore our room and record any confirmed reminders.",
+      "activity": {
+        "label": "Class responsibilities",
+        "href": "?view=Responsibilities&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "알림장·맡은 일·정리",
+      "firstActionKo": "교실을 정리하고 확정된 안내 사항을 적으세요."
+    },
+    {
+      "time": "2:15–2:30 pm",
+      "title": "Classroom community",
+      "notes": "Use a short check-in, appreciation or familiar cooperative game. Students may speak, draw, point or pass; keep feedback specific and avoid public rankings.",
+      "href": "",
+      "firstAction": "Notice one helpful action from today.",
+      "studentSteps": [
+        "Offer one specific appreciation or listen.",
+        "Name a small next step for tomorrow."
+      ],
+      "titleKo": "학급 활동",
+      "firstActionKo": "오늘 도움이 된 행동 한 가지를 떠올려 보세요."
+    },
+    {
+      "time": "2:30–2:35 pm",
+      "title": "Pack up and dismissal",
+      "notes": "",
+      "href": "",
+      "firstAction": "Check your belongings and get ready for a calm departure.",
+      "titleKo": "짐 챙기기·하교",
+      "firstActionKo": "자기 물건을 확인하고 차분히 하교할 준비를 하세요."
+    }
+  ],
+  "backups": [
+    "Carry unfinished learning into the next suitable block rather than adding a second full lesson.",
+    "If the projector or sign-in fails, use paper, the board and available class materials."
+  ]
+}
