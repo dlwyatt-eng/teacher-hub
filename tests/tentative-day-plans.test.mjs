@@ -7,15 +7,15 @@ const nav=load('app/classroom-navigation-state.ts');
 const dates=['2026-10-05','2026-10-06','2026-10-07','2026-10-08','2026-10-09','2026-10-13','2026-10-14','2026-10-15','2026-10-16'];
 const drafts=store.publishedDayPlans.filter(plan=>dates.includes(plan.date));
 
-test('two upcoming school weeks keep nine tentative dated plans, no holiday lesson, and all bilingual pairs',()=>{
+test('two upcoming school weeks keep nine dated plans with confirmed Tuesday, no holiday lesson, and all bilingual pairs',()=>{
  assert.equal(drafts.length,9);
  assert.equal(new Set(drafts.map(plan=>plan.id)).size,9);
  for(const plan of drafts){
-  assert.equal(plan.status,'tentative');
+  assert.equal(plan.status,plan.date==='2026-10-06'?undefined:'tentative');
   assert.equal(plan.reflection,'');
   assert.ok(!plan.blocks.some(block=>block.title.startsWith('Science')), 'first-half plans focus on Social Studies');
   assert.deepEqual(store.parseDayPlan(plan),plan);
-  assert.match(nav.dayPlanStatus(plan,plan.date),/Tentative.*review before teaching/);
+  assert.match(nav.dayPlanStatus(plan,plan.date),plan.date==='2026-10-06'?/Today's plan/:/Tentative.*review before teaching/);
   for(const block of plan.blocks){
    assert.ok(block.titleKo?.trim(),`${plan.date}: ${block.title} Korean title`);
    assert.ok(block.firstAction?.trim(),`${plan.date}: ${block.title} first action`);
@@ -40,10 +40,16 @@ test('tentative drafts never automatically replace a current ready plan or expli
 test('specialist times, early dismissal, Friday snack and the Terry Fox block remain explicit',()=>{
  for(const plan of drafts){
   const weekday=new Date(`${plan.date}T12:00:00Z`).getUTCDay();
-  const french=plan.blocks.find(block=>/Core French/.test(block.title));
-  if(weekday===2)assert.equal(french.time,'12:35–1:35 pm');
+  const french=plan.blocks.find(block=>/French/.test(block.title));
+  if(weekday===2){
+   if(plan.date==='2026-10-06'){
+    assert.equal(french.time,'12:35 pm');
+    assert.equal(plan.blocks[plan.blocks.indexOf(french)+1].time,'1:35 pm');
+    assert.equal(nav.chooseDisplayPlan(store.publishedDayPlans,plan.date).id,plan.id);
+   }else assert.equal(french.time,'12:35–1:35 pm');
+  }
   if(weekday===5){assert.equal(french.time,'9:35–10:35 am');assert.match(plan.blocks.find(block=>/Snack/.test(block.title)).time,/10:50/);}
-  else assert.match(plan.blocks.find(block=>/^Snack/.test(block.title)).time,/10:20/);
+  else assert.match(plan.blocks.find(block=>/snack/i.test(block.title)).time,/10:20/);
   if(weekday===4){assert.equal(plan.blocks.find(block=>/^Library/.test(block.title)).time,'9:20–9:35 am');}
   if(weekday===4||weekday===5)assert.equal(plan.blocks.find(block=>/^Physical and Health Education.*gym/.test(block.title)).time,'11:10–11:50 am');
  }
