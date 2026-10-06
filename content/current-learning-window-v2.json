@@ -1,7 +1,7 @@
 {
   "schemaVersion": "classroom-os-current-window/v2",
-  "contentVersion": "2026-10-04-division8-family-notice",
-  "sourceUpdatedAt": "2026-10-04",
+  "contentVersion": "2026-10-05-tuesday-shape-of-day",
+  "sourceUpdatedAt": "2026-10-05",
   "window": {
     "id": "september-opening",
     "effectiveFrom": "2026-09-08",
@@ -1561,7 +1561,7 @@
     }
   },
   "classSchedule": {
-    "updatedOn": "October 4, 2026",
+    "updatedOn": "October 5, 2026",
     "weekOf": "October 5–9",
     "through": "2026-10-09",
     "days": [
@@ -1575,9 +1575,9 @@
       {
         "date": "2026-10-06",
         "label": "Tue 6",
-        "morning": "Number sense and reading",
-        "later": "Class learning; Core French with Mr. Eckert · 12:35–1:35 pm",
-        "reminder": "Terry Fox permission form due"
+        "morning": "Laptop work block · 8:45–10:20 am; after recess, class choice: maths, community reflection or Nevermoor",
+        "later": "French with Mr. Eckert · 12:35–1:35 pm; quiet reset and unfinished work",
+        "reminder": "Terry Fox permission form due; dismissal · 2:35 pm"
       },
       {
         "date": "2026-10-07",
