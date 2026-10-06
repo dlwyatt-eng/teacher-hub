@@ -11,13 +11,15 @@ const template = {...store.publishedDayPlans[0], date:''};
 
 test('normal entry uses the active plan, excludes tentative drafts and advances only to a reviewed teaching date', () => {
   const active = store.publishedDayPlans.find(p => p.id === store.DEFAULT_DAY_PLAN_ID);
+  const latest = [...store.publishedDayPlans].filter(p => p.status !== 'tentative' && p.date).sort((a,b) => b.date.localeCompare(a.date))[0];
   const future = {...active, id:'future', date:'2030-09-19'};
   const draft = {...active, id:'draft', date, status:'tentative'};
-  assert.equal(nav.chooseDisplayPlan([...store.publishedDayPlans, future, draft], date).id, active.id);
+  assert.equal(nav.chooseDisplayPlan([...store.publishedDayPlans, future, draft], date).id, latest.id);
   assert.equal(nav.chooseDisplayPlan([...store.publishedDayPlans, future], '2030-09-19').id, future.id);
   assert.equal(nav.chooseDisplayPlan(store.publishedDayPlans, '2026-10-05').id, active.id);
-  assert.equal(nav.chooseDisplayPlan(store.publishedDayPlans, '2026-10-16').id, active.id);
-  assert.equal(nav.chooseDisplayPlan(store.publishedDayPlans, date, 'missing').id, active.id);
+  assert.equal(nav.chooseDisplayPlan(store.publishedDayPlans, '2026-10-07').id, 'day-2026-10-07');
+  assert.equal(nav.chooseDisplayPlan(store.publishedDayPlans, '2026-10-16').id, latest.id);
+  assert.equal(nav.chooseDisplayPlan(store.publishedDayPlans, date, 'missing').id, latest.id);
   assert.equal(nav.chooseDisplayPlan([...store.publishedDayPlans, draft], date, 'draft').id, 'draft');
 });
 
