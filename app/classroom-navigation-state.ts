@@ -6,23 +6,29 @@ const DAY_KEY = 'wyatt-displayed-day-v1';
 const TRAIL_KEY = 'wyatt-navigation-trail-v1';
 export const HOME_HREF = '?view=Home';
 
-export function chooseDisplayPlan(plans: DayPlan[], date: string, explicit?: string | null, remembered?: {id: string; date: string} | null): DayPlan {
-  return plans.find(p => p.id === explicit)
-    ?? plans.find(p => remembered?.date === date && p.id === remembered.id)
-    ?? plans.find(p => p.date === date && p.status !== 'tentative' && !p.id.startsWith('week-day-'))
-    ?? plans.find(p => p.date === date && p.status !== 'tentative')
-    ?? plans.find(p => p.id === DEFAULT_DAY_PLAN_ID)
-    ?? publishedDayPlans[0];
+export function chooseDisplayPlan(plans: DayPlan[], date: string, explicit?: string | null): DayPlan {
+  const active = plans.find(p => p.id === DEFAULT_DAY_PLAN_ID && p.status !== 'tentative');
+  // A newer reviewed teaching day may take over on its Vancouver date. Drafts
+  // and old remembered archive selections never displace the active classroom plan.
+  const reviewed = plans.filter(p => p.date && p.date <= date && p.status !== 'tentative'
+    && !p.id.startsWith('week-day-') && (!active || p.date > active.date))
+    .sort((a, b) => b.date.localeCompare(a.date));
+  return plans.find(p => p.id === explicit) ?? reviewed[0] ?? active
+    ?? publishedDayPlans.find(p => p.id === DEFAULT_DAY_PLAN_ID)!;
+}
+
+export function dayPlanHref(route: string, id = displayedDayPlan().id): string {
+  const params = new URLSearchParams(route);
+  params.set('dayPlan', id);
+  return `?${params.toString()}`;
 }
 
 export function displayedDayPlan(): DayPlan {
   let plans = publishedDayPlans;
   try { plans = listDayPlans(); } catch { /* Published plans remain usable. */ }
-  let remembered = null;
-  try { remembered = JSON.parse(window.sessionStorage.getItem(DAY_KEY) || 'null'); } catch { /* Storage is optional. */ }
   const params = typeof window === 'undefined' ? null : new URLSearchParams(window.location.search);
   const explicit = params?.get('dayPlan') ?? (params?.get('view') === 'Day Plans' ? params.get('plan') : null);
-  return chooseDisplayPlan(plans, vancouverDateKey(), explicit, remembered);
+  return chooseDisplayPlan(plans, vancouverDateKey(), explicit);
 }
 
 export function rememberDisplayedDay(id: string) {
@@ -49,7 +55,8 @@ export function recordNavigation(): string {
   } catch { return HOME_HREF; }
 }
 
-export function dayPlanStatus(plan: Pick<DayPlan, 'date'|'status'>, today = vancouverDateKey()) {
+export function dayPlanStatus(plan: Pick<DayPlan, 'date'|'status'> & {id?: string}, today = vancouverDateKey()) {
+  if (plan.id && plan.id === chooseDisplayPlan(listDayPlans(), today).id) return 'Active classroom plan';
   if (plan.status === 'tentative') return 'Tentative plan · review before teaching';
   if (!plan.date) return 'Reusable template';
   if (plan.date === today) return "Today's plan";

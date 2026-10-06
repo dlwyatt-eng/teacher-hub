@@ -277,7 +277,7 @@ function readClassroomLocation(includeSessionFallback = true): ClassroomLocation
   try {
     const searchParams = new URLSearchParams(window.location.search);
     const legacyParams = new URLSearchParams(window.location.hash.replace(/^#/, ""));
-    const routeKeys = ["mode", "view", "subject", "lesson", "socialLesson", "socialScene", "experience"];
+    const routeKeys = ["mode", "view", "subject", "lesson", "socialLesson", "socialScene", "experience", "dayPlan", "plan"];
     const hasSearchRoute = routeKeys.some((key) => searchParams.has(key));
     const hasLegacyRoute = routeKeys.some((key) => legacyParams.has(key));
     const params = hasSearchRoute ? searchParams : legacyParams;
@@ -309,7 +309,9 @@ function readClassroomLocation(includeSessionFallback = true): ClassroomLocation
 
 function writeClassroomLocation(location: ClassroomLocation, action: "push" | "replace") {
   const url = new URL(window.location.href);
-  if (location.active !== "Morning Screen") url.searchParams.delete("dayPlan");
+  // Preserve an explicitly opened day across Home, activities and mode changes.
+  const selectedDay = url.searchParams.get("plan") ?? url.searchParams.get("dayPlan");
+  if (selectedDay) url.searchParams.set("dayPlan", selectedDay);
   if (location.active !== "Day Plans") url.searchParams.delete("plan");
   if (location.active !== "Responsibilities") url.searchParams.delete("essentials");
   if (location.active !== "Games & Activities") url.searchParams.delete("deck");

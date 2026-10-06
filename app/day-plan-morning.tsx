@@ -1,7 +1,7 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
 import {isSafeDayHref,studentDayMaterial,type DayBlock,type DayPlan} from './day-plan-store';
-import {dayPlanStatus,shapeOfDayHref} from './classroom-navigation-state';
+import {dayPlanHref,dayPlanStatus,shapeOfDayHref} from './classroom-navigation-state';
 import ClassroomLiveStatus from './classroom-live-status';
 import './day-plan-morning.css';
 
@@ -26,21 +26,21 @@ function FirstAction({block,koreanSupport}:{block:DayBlock;koreanSupport:boolean
   return <div className="day-first-action"><strong>Start here</strong><p lang="en">{block.firstAction}</p>{koreanSupport&&block.firstActionKo?.trim()&&<p className="day-korean" lang="ko">{block.firstActionKo}</p>}</div>;
 }
 
-function DayMaterialLinks({block,includeReference=true}:{block:DayBlock;includeReference?:boolean}){
+function DayMaterialLinks({block,includeReference=true,planId}:{block:DayBlock;includeReference?:boolean;planId?:string}){
   const activity=studentDayMaterial(block.activity);
   const worksheet=studentDayMaterial(block.worksheet);
   const reference=includeReference&&block.href&&isSafeDayHref(block.href)?block.href:null;
   if(!activity&&!worksheet&&!reference)return null;
   return <nav className="day-material-links" aria-label={`${block.title} materials`}>
-    {activity&&<a className="day-material-link" href={activity.href} target={activity.href.startsWith('https://')?'_blank':undefined} rel={activity.href.startsWith('https://')?'noopener noreferrer':undefined}><span>Open activity <span aria-hidden="true">→</span></span><strong>{activity.label}</strong></a>}
+    {activity&&<a className="day-material-link" href={activity.href.startsWith('?') ? dayPlanHref(activity.href,planId) : activity.href} target={activity.href.startsWith('https://')?'_blank':undefined} rel={activity.href.startsWith('https://')?'noopener noreferrer':undefined}><span>Open activity <span aria-hidden="true">→</span></span><strong>{activity.label}</strong></a>}
     {worksheet&&<a className="day-material-link day-material-worksheet" href={worksheet.href} target="_blank" rel="noopener noreferrer"><span>Open worksheet to print <span aria-hidden="true">↗</span></span><strong>{worksheet.label}</strong></a>}
-    {reference&&<a className="day-full-lesson" href={reference} target={reference.startsWith('https://')?'_blank':undefined} rel={reference.startsWith('https://')?'noopener noreferrer':undefined}>Full lesson / reference <span aria-hidden="true">→</span></a>}
+    {reference&&<a className="day-full-lesson" href={reference.startsWith('?') ? dayPlanHref(reference,planId) : reference} target={reference.startsWith('https://')?'_blank':undefined} rel={reference.startsWith('https://')?'noopener noreferrer':undefined}>Full lesson / reference <span aria-hidden="true">→</span></a>}
   </nav>;
 }
 
-export function DayBlockDetails({block,koreanSupport=false}:{block:DayBlock;koreanSupport?:boolean}){
+export function DayBlockDetails({block,koreanSupport=false,planId}:{block:DayBlock;koreanSupport?:boolean;planId?:string}){
   const steps=block.studentSteps?.filter(s=>s.trim())??[];
-  return <><p>{block.time}</p><h2 id="day-step-title">{block.title}{koreanSupport&&block.titleKo?.trim()&&<span className="day-korean" lang="ko">{block.titleKo}</span>}</h2><FirstAction block={block} koreanSupport={koreanSupport}/><DayMaterialLinks block={block}/>{steps.length>0&&<ol>{steps.map((step,i)=><li key={i}>{step}</li>)}</ol>}{/chess|cribbage|games together/i.test(block.title)&&<><nav className="day-board-links" aria-label="Learn our games"><GameVideoLinks/></nav><p>Pause to try each idea with your board or cards. For cribbage, start with the two-player tutorial.</p></>}</>;
+  return <><p>{block.time}</p><h2 id="day-step-title">{block.title}{koreanSupport&&block.titleKo?.trim()&&<span className="day-korean" lang="ko">{block.titleKo}</span>}</h2><FirstAction block={block} koreanSupport={koreanSupport}/><DayMaterialLinks block={block} planId={planId}/>{steps.length>0&&<ol>{steps.map((step,i)=><li key={i}>{step}</li>)}</ol>}{/chess|cribbage|games together/i.test(block.title)&&<><nav className="day-board-links" aria-label="Learn our games"><GameVideoLinks/></nav><p>Pause to try each idea with your board or cards. For cribbage, start with the two-player tutorial.</p></>}</>;
 }
 
 export default function DayPlanMorning({plan,initialKoreanSupport=false}:{plan:DayPlan;initialKoreanSupport?:boolean}){
@@ -79,13 +79,13 @@ export default function DayPlanMorning({plan,initialKoreanSupport=false}:{plan:D
       const reference=b.href&&isSafeDayHref(b.href)?b.href:null;
       return <li key={i}>
         <span className="day-block-icon" aria-hidden="true">{blockIcon(b.title)}</span>
-        <div className="day-block-content"><span className="day-block-time">{b.time}</span>{hasDetails?<button type="button" className="day-block-title" aria-haspopup="dialog" onClick={()=>setFocused({planKey,index:i})}>{b.title}<span className="day-block-open-hint">What to do →</span></button>:reference?<a className="day-block-title" href={reference} target={reference.startsWith('https://')?'_blank':undefined} rel={reference.startsWith('https://')?'noopener noreferrer':undefined}>{b.title}<span aria-hidden="true"> →</span></a>:<strong className="day-block-title">{b.title}</strong>}{koreanSupport&&b.titleKo?.trim()&&<p className="day-block-korean day-korean" lang="ko">{b.titleKo}</p>}<DayMaterialLinks block={b} includeReference={false}/></div>
+        <div className="day-block-content"><span className="day-block-time">{b.time}</span>{hasDetails?<button type="button" className="day-block-title" aria-haspopup="dialog" onClick={()=>setFocused({planKey,index:i})}>{b.title}<span className="day-block-open-hint">What to do →</span></button>:reference?<a className="day-block-title" href={reference.startsWith('?') ? dayPlanHref(reference,plan.id) : reference} target={reference.startsWith('https://')?'_blank':undefined} rel={reference.startsWith('https://')?'noopener noreferrer':undefined}>{b.title}<span aria-hidden="true"> →</span></a>:<strong className="day-block-title">{b.title}</strong>}{koreanSupport&&b.titleKo?.trim()&&<p className="day-block-korean day-korean" lang="ko">{b.titleKo}</p>}<DayMaterialLinks block={b} includeReference={false} planId={plan.id}/></div>
       </li>;
     })}</ol>
-    <nav className="day-board-links" aria-label="Day activity shortcuts"><GameVideoLinks/><a href="?view=Games+%26+Activities&mode=student">Conversation cards</a><a href="?view=Responsibilities&mode=student">Our responsibilities</a><a href="?subject=English+Language+Arts&experience=werewolf-learn&mode=student">Werewolf · if we choose</a></nav>
+    <nav className="day-board-links" aria-label="Day activity shortcuts"><GameVideoLinks/><a href={dayPlanHref("?view=Games+%26+Activities&mode=student", plan.id)}>Conversation cards</a><a href={dayPlanHref("?view=Responsibilities&mode=student", plan.id)}>Our responsibilities</a><a href={dayPlanHref("?subject=English+Language+Arts&experience=werewolf-learn&mode=student", plan.id)}>Werewolf · if we choose</a></nav>
     <dialog ref={dialog} className="day-step-dialog" aria-labelledby="day-step-title" onClose={()=>setFocused(null)} onClick={e=>{if(e.target===dialog.current)dialog.current?.close();}}>
       <button type="button" className="day-step-close" onClick={()=>dialog.current?.close()} autoFocus>← Back to our day</button>
-      {block&&<DayBlockDetails block={block} koreanSupport={koreanSupport}/>}
+      {block&&<DayBlockDetails block={block} koreanSupport={koreanSupport} planId={plan.id}/>}
     </dialog>
   </section>;
 }

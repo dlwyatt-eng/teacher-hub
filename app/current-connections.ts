@@ -116,7 +116,7 @@ function electionConnectionSource(id: (typeof surreyElectionSources)[number]["id
     organization: source.organization,
     url: source.url,
     sourceKind: "official-page",
-    checkedOn: "2026-08-23",
+    checkedOn: ["surrey-roles", "surrey-candidates", "surrey-board", "digital-democracy"].includes(id) ? "2026-10-06" : "2026-08-23",
     reproduction: "link-only",
     lookFor,
   };
@@ -325,7 +325,7 @@ export const currentConnections: readonly CurrentConnection[] = [
     title: "Can the winner do that alone?",
     question: "How can we test a campaign promise against the real job, the evidence, and the people who must decide together?",
     minutes: "12–20 min",
-    checkedOn: "2026-08-23",
+    checkedOn: "2026-10-06",
     reviewBy: "2026-10-16",
     refreshTriggers: ["The City of Surrey changes its roles or candidate pages", "The class opens this feature before the official candidate list is posted", "A campaign claim is added to the projector comparison"],
     visual: {
@@ -342,7 +342,7 @@ export const currentConnections: readonly CurrentConnection[] = [
     sources: [
       electionConnectionSource("surrey-roles", "Choose one mayor, council, or trustee responsibility. Find the wording that shows whether one person can act alone or a council or board must decide together."),
       electionConnectionSource("surrey-candidates", "Use the official list only after nominations close. Choose one candidate statement from a teacher-opened source, record its exact words and date, and do not infer a position from a name or photograph."),
-      electionConnectionSource("surrey-board", "Find the board's responsibilities and the sentence explaining that trustees act as a board rather than as individuals."),
+      electionConnectionSource("surrey-board", "Find the board’s educational and operational responsibilities. Explain which decisions belong to the seven-member board."),
       electionConnectionSource("digital-democracy", "Use one verification move to separate the campaign claim, the supporting evidence, and a conclusion the source does not yet prove."),
     ],
     stages: sharedStages({

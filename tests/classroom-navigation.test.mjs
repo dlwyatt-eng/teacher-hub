@@ -9,32 +9,41 @@ const store = load('app/day-plan-store.ts');
 const date = '2030-09-18';
 const template = {...store.publishedDayPlans[0], date:''};
 
-test('display selection prefers the requested plan, remembers a projected day, and expires yesterday’s selection', () => {
-  const today = {...template, id:'today', date};
-  const next = {...template, id:'next-year', date:'2027-09-08'};
-  const plans = [template, today, next];
-  assert.equal(nav.chooseDisplayPlan(plans,date,'next-year').id,'next-year');
-  assert.equal(nav.chooseDisplayPlan(plans,date,null,{id:'next-year',date}).id,'next-year');
-  assert.equal(nav.chooseDisplayPlan(plans,date,null,{id:'next-year',date:'2000-01-01'}).id,'today');
-  assert.equal(nav.chooseDisplayPlan(plans,date,'missing').id,'today');
+test('normal entry uses the active plan, excludes tentative drafts and advances only to a reviewed teaching date', () => {
+  const active = store.publishedDayPlans.find(p => p.id === store.DEFAULT_DAY_PLAN_ID);
+  const future = {...active, id:'future', date:'2030-09-19'};
+  const draft = {...active, id:'draft', date, status:'tentative'};
+  assert.equal(nav.chooseDisplayPlan([...store.publishedDayPlans, future, draft], date).id, active.id);
+  assert.equal(nav.chooseDisplayPlan([...store.publishedDayPlans, future], '2030-09-19').id, future.id);
+  assert.equal(nav.chooseDisplayPlan(store.publishedDayPlans, '2026-10-05').id, active.id);
+  assert.equal(nav.chooseDisplayPlan(store.publishedDayPlans, '2026-10-16').id, active.id);
+  assert.equal(nav.chooseDisplayPlan(store.publishedDayPlans, date, 'missing').id, active.id);
+  assert.equal(nav.chooseDisplayPlan([...store.publishedDayPlans, draft], date, 'draft').id, 'draft');
 });
 
-test('projected plan survives activity round trip without changing archived revisions', () => {
+test('explicit archive survives Home, activity, projector and editor routes; stale storage never overrides normal entry', () => {
   const local = new Map(), session = new Map();
-  globalThis.window = {location:{search:'?view=Morning+Screen&mode=student&dayPlan=next-year'},
+  globalThis.window = {location:{search:'?view=Morning+Screen&mode=student&dayPlan=archive'},
     localStorage:{getItem:k=>local.get(k)??null,setItem:(k,v)=>local.set(k,v)},
     sessionStorage:{getItem:k=>session.get(k)??null,setItem:(k,v)=>session.set(k,v)},dispatchEvent:()=>{}};
-  store.saveDayPlan({...template,id:'next-year',date:'2027-09-08'});
+  store.saveDayPlan({...template,id:'archive',date:'2026-09-18'});
   const before = JSON.stringify(store.readDayRevisions());
-  nav.rememberDisplayedDay(nav.displayedDayPlan().id);
+  nav.rememberDisplayedDay('archive');
   const first = window.location.search;
   assert.equal(nav.recordNavigation(),'?view=Home');
-  window.location.search='?view=Games+%26+Activities&mode=student';
-  assert.equal(nav.recordNavigation(),first);
-  assert.equal(nav.shapeOfDayHref(),first);
-  assert.equal(nav.editDayHref(),'?view=Day+Plans&plan=next-year');
-  window.location.search=first;
-  assert.equal(nav.recordNavigation(),'?view=Home');
+  for (const route of ['?view=Home','?view=Games+%26+Activities','?view=Morning+Screen']) {
+    window.location.search=nav.dayPlanHref(route,'archive');
+    assert.equal(nav.displayedDayPlan().id,'archive');
+    window.location.search=nav.classroomRouteForMode(window.location.search,true);
+    assert.equal(nav.displayedDayPlan().id,'archive');
+    assert.equal(nav.shapeOfDayHref(),first);
+  }
+  window.location.search=nav.editDayHref();
+  assert.equal(nav.displayedDayPlan().id,'archive');
+  window.location.search='';
+  assert.equal(nav.displayedDayPlan().id,store.DEFAULT_DAY_PLAN_ID);
+  window.location.search='?view=Home';
+  assert.equal(nav.displayedDayPlan().id,store.DEFAULT_DAY_PLAN_ID);
   assert.equal(JSON.stringify(store.readDayRevisions()),before);
   delete globalThis.window;
 });

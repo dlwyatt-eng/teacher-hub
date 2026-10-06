@@ -543,7 +543,7 @@ test('opening an explicit dated editor plan and another archived day preserves s
   project.props.onClick({preventDefault:() => assert.fail('a valid saved day should project')});
   window.location.search = project.props.href;
   assert.deepEqual(nav.displayedDayPlan(), second);
-  window.location.search = '?view=Games+%26+Activities&mode=student';
+  window.location.search = elements(shortcuts, node => node.type === 'a' && textContent(node) === 'Activities')[0].props.href;
   assert.equal(nav.shapeOfDayHref(), project.props.href, 'the activity round trip keeps the same day');
   window.location.search = nav.editDayHref();
   assert.equal(window.location.search, nav.editDayHref(second.id));

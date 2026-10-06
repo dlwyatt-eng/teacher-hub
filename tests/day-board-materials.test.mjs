@@ -20,7 +20,7 @@ const plan={
   }],
 };
 const renderBoard=(value=plan,props={})=>renderToStaticMarkup(React.createElement(DayPlanMorning,{plan:value,...props}));
-const renderDetails=(block=plan.blocks[0],props={})=>renderToStaticMarkup(React.createElement(DayBlockDetails,{block,...props}));
+const renderDetails=(block=plan.blocks[0],props={})=>renderToStaticMarkup(React.createElement(DayBlockDetails,{block,planId:plan.id,...props}));
 function expectStudentLinks(html,details=false){
   assert.match(html,/href="\.\/activities\/fraction-strips\.html"/);
   assert.match(html,/Open activity/);
@@ -28,7 +28,7 @@ function expectStudentLinks(html,details=false){
   assert.match(html,/href="\.\/worksheets\/fraction-practice\.pdf" target="_blank" rel="noopener noreferrer"/);
   assert.match(html,/Open worksheet to print/);
   assert.match(html,/Fraction practice sheet/);
-  if(details){assert.match(html,/Full lesson \/ reference/);assert.match(html,/href="\?subject=Mathematics&amp;mode=student"/);}
+  if(details){assert.match(html,/Full lesson \/ reference/);assert.match(html,/href="\?subject=Mathematics&amp;mode=student&amp;dayPlan=day-material-test"/);}
   assert.doesNotMatch(html,/PRIVATE|private-teacher-guide/);
 }
 
@@ -76,7 +76,7 @@ test('Korean is opt-in and keeps English title and first action in both producti
 test('older plans keep the optional full lesson route without an invented worksheet',()=>{
   const legacy={time:'10:00',title:'Reading',notes:'PRIVATE LEGACY NOTES',href:'?subject=English+Language+Arts&mode=student'};
   const html=renderBoard({...plan,blocks:[legacy]});
-  assert.match(html,/href="\?subject=English\+Language\+Arts&amp;mode=student"/);
+  assert.match(html,/href="\?subject=English\+Language\+Arts&amp;mode=student&amp;dayPlan=day-material-test"/);
   assert.doesNotMatch(html,/Open worksheet to print|Open activity|PRIVATE/);
 });
 

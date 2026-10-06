@@ -15,7 +15,7 @@ test('two upcoming school weeks keep nine dated plans with confirmed Tuesday, no
   assert.equal(plan.reflection,'');
   assert.ok(!plan.blocks.some(block=>block.title.startsWith('Science')), 'first-half plans focus on Social Studies');
   assert.deepEqual(store.parseDayPlan(plan),plan);
-  assert.match(nav.dayPlanStatus(plan,plan.date),plan.date==='2026-10-06'?/Today's plan/:/Tentative.*review before teaching/);
+  assert.match(nav.dayPlanStatus(plan,plan.date),plan.date==='2026-10-06'?/Active classroom plan/:/Tentative.*review before teaching/);
   for(const block of plan.blocks){
    assert.ok(block.titleKo?.trim(),`${plan.date}: ${block.title} Korean title`);
    assert.ok(block.firstAction?.trim(),`${plan.date}: ${block.title} first action`);
