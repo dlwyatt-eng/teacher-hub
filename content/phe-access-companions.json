@@ -1,0 +1,502 @@
+{
+  "id": "phe-access-companions",
+  "title": "PHE: supported ways to show the same thinking",
+  "subtitle": "Six health companions and two reusable PE cue pages. Read, listen, point, speak, draw or write.",
+  "pages": [
+    {
+      "id": "phe-health-week-1",
+      "title": "A way back into the game",
+      "tag": "PHE health - Week 1",
+      "goal": "Change a barrier while respecting a boundary.",
+      "start": "Listen or read. Point, speak, draw or write. Fictional game: after a mistake, players must run a long loop. One player asks to walk a short return. The captain refuses. Someone starts pulling the player without asking. The goal is passing practice. Barrier: something blocking participation. Boundary: a limit to respect.",
+      "model": {
+        "text": "Example: A partner offers a hand. The learner says no. The partner accepts no and asks, \"What would help?\" Help needs permission."
+      },
+      "tasks": [
+        {
+          "id": "find",
+          "prompt": "Point to a rule or action blocking participation. What boundary matters?",
+          "responseLines": 2,
+          "answer": "The compulsory long return or unasked pulling can block participation. Ask before touching and accept the response."
+        },
+        {
+          "id": "change",
+          "prompt": "Choose or design one change. Show how passing practice continues.",
+          "choices": [
+            "Short return route",
+            "Closer passing space",
+            "Another safe idea"
+          ],
+          "responseLines": 2,
+          "answer": "Accept a feasible change linked to the barrier. The player still has useful passing turns."
+        },
+        {
+          "id": "check",
+          "prompt": "What could the group ask or notice to check whether the change helped?",
+          "choices": [
+            "Could you rejoin?",
+            "Did you have choices?",
+            "Was the space safe?"
+          ],
+          "responseLines": 2,
+          "answer": "Player feedback and a no-name observation can support a decision; touches alone do not prove inclusion."
+        }
+      ],
+      "frames": [
+        "We can change ___ because ___.",
+        "Please ask before ___.",
+        "Pause, please.",
+        "Help, please."
+      ],
+      "teacher": {
+        "when": "Use with Week 1 health, Boundaries and a way back in; offer alongside the original student page.",
+        "alignment": "Same goal as w1-health: identify a participation barrier, respect consent and propose a practical change without losing the passing goal.",
+        "lookFor": "A case detail, an accepted boundary, a workable redesign and a useful check. Accept supported alternatives; choice cards are starting points, not a single-answer test.",
+        "notes": [
+          "Read the case, model and each choice aloud once while pointing; reread on request. Keep cards visible for pointing, speech or AAC. These are word cards with oral support, not independent pictorial access. Pause/help cues are the same across pages.",
+          "Read the supplied case/model aloud and offer pointing, speech, drawing, dictation, home language or AAC. No personal access explanation is required.",
+          "Do not role-play unwanted contact or simulate disability. A learner may pass on public sharing.",
+          "Keep task.answer in the teacher guide only. This page supports reasoning; it is not physical-skill evidence."
+        ]
+      }
+    },
+    {
+      "id": "phe-health-week-2",
+      "title": "Pause, choose, get support",
+      "tag": "PHE health - Week 2",
+      "goal": "Make a flexible reset-and-help plan.",
+      "start": "Listen or read. Point, speak, draw or write. Fictional case: a player misses two passes, grips the ball and says, \"I cannot do this.\" They ask for a pause. A teammate wants to restart now. The teacher is busy.",
+      "model": {
+        "text": "Example: A drawing tears. The learner pauses, tries a quiet count, then asks an adult for help. A strategy can change; returning is not forced.",
+        "visual": {
+          "type": "sequence",
+          "labels": [
+            "Pause",
+            "Choose",
+            "Return or get help"
+          ]
+        }
+      },
+      "tasks": [
+        {
+          "id": "notice",
+          "prompt": "Point to a clue in the case. What should the teammate respect?",
+          "responseLines": 2,
+          "answer": "The words, grip or pause request are observable. Respect the pause; do not diagnose the player."
+        },
+        {
+          "id": "choose",
+          "prompt": "Choose a first action and a strategy. Explain why they fit.",
+          "choices": [
+            "Pause in the agreed place",
+            "Use a quiet count",
+            "Look at one task cue",
+            "Ask a trusted adult"
+          ],
+          "responseLines": 2,
+          "answer": "Several safe plans fit. Connect the choice to the case; no strategy has to work for everyone."
+        },
+        {
+          "id": "backup",
+          "prompt": "The strategy does not help and the teacher is busy. Show a backup.",
+          "choices": [
+            "Another available trusted adult",
+            "More space and adult support"
+          ],
+          "responseLines": 2,
+          "answer": "Seek another available responsible adult. Do not pressure an immediate return or leave the learner without support."
+        }
+      ],
+      "frames": [
+        "The case says ___.",
+        "First ___. If needed, ___.",
+        "Pause, please.",
+        "Help, please."
+      ],
+      "teacher": {
+        "when": "Use with Week 2 health, Pause, choose a strategy, ask for help.",
+        "alignment": "Same w2-health reasoning: notice a cue, protect a pause, choose a strategy/help route and retain a backup.",
+        "lookFor": "A feasible plan with choice and support. Pointing to action cards plus an oral explanation is sufficient; a polished personal story is not needed.",
+        "notes": [
+          "Read the case, model and each choice aloud once while pointing; reread on request. Keep cards visible for pointing, speech or AAC. These are word cards with oral support, not independent pictorial access. Pause/help cues are the same across pages.",
+          "Confirm actual available school adults and where to find them before the lesson. Keep this fictional; do not collect emotional histories.",
+          "The four original strategy choices are supplied on the page. Read them aloud; let learners choose or propose another safe strategy.",
+          "This is strategy practice, not diagnosis or a promise that counting resolves distress. Real concerns use school procedures."
+        ]
+      }
+    },
+    {
+      "id": "phe-health-week-3",
+      "title": "Change one part of a plan",
+      "tag": "PHE health - Week 3",
+      "goal": "Fit a movement plan to the available time and space.",
+      "start": "Listen or read. Point, speak, draw or write. Fictional case: the outdoor route is unavailable. A learner has ten minutes and a clear indoor space. Nothing needs buying. FITT: frequency = how often; intensity = how hard; time = how long; type = which activity.",
+      "model": {
+        "text": "Example: A five-minute walk becomes five minutes of seated reaching and tapping. Type changes; time stays. The learner can pause and adjust."
+      },
+      "tasks": [
+        {
+          "id": "choose",
+          "prompt": "Choose an indoor activity. Why does it fit this case?",
+          "choices": [
+            "Short walk or wheel route",
+            "Seated reach and tap",
+            "Four-move rhythm pattern"
+          ],
+          "responseLines": 2,
+          "answer": "Accept a feasible activity suited to the space/time. No route or body is ranked."
+        },
+        {
+          "id": "fitt",
+          "prompt": "Name one FITT change. Add a private check and a rest, stop or help option.",
+          "responseLines": 2,
+          "answer": "Connect a change to the constraint and include an adjustable check-in. A personal effort number is unnecessary."
+        },
+        {
+          "id": "revise",
+          "prompt": "Now only five minutes remain. Revise the plan and explain your choice.",
+          "responseLines": 2,
+          "answer": "A shorter duration or another feasible activity can fit. Explain the change rather than prescribe a fitness target."
+        }
+      ],
+      "frames": [
+        "I changed ___ because ___.",
+        "If needed, the learner can ___.",
+        "Pause, please.",
+        "Help, please."
+      ],
+      "teacher": {
+        "when": "Use with Week 3 health, A realistic choice for today.",
+        "alignment": "Same w3-health goal: connect one FITT change to a real constraint, include a private check-in, then adapt to a changed day.",
+        "lookFor": "Accurate FITT language and a realistic plan with choice. Different activities can be equally defensible.",
+        "notes": [
+          "Read the case, model and each choice aloud once while pointing; reread on request. Keep cards visible for pointing, speech or AAC. These are word cards with oral support, not independent pictorial access. Pause/help cues are the same across pages.",
+          "This page reasons about a fictional plan. Completing it does not demonstrate physical activity.",
+          "No body measures, effort scores, home activity reports or family equipment purchases are required.",
+          "Demonstrate unfamiliar words or movements only within an appropriate teacher-approved space and support plan."
+        ]
+      }
+    },
+    {
+      "id": "phe-health-week-4",
+      "title": "A claim needs evidence",
+      "tag": "PHE health - Week 4",
+      "goal": "Check a claim and protect private information.",
+      "start": "Listen or read. Point, speak, draw or write. Fictional ad: NeonFocus Gear sells PowerBand. \"Everyone feels calm and scores better after seven days! Proof: 200 likes and one anonymous review. Post your face photo and daily energy score.\" No study is named. Source capsule: BC Women's Hospital + Health Centre (PHSA), Evaluating Online Health Info, paraphrased: check author, qualifications, purpose, review date and research. Start with established health organizations, such as HealthLink BC. This guidance does not test PowerBand. Claim = what a message says is true. Evidence = checkable information supporting a claim.",
+      "model": {
+        "text": "Example: An ad calls a shoe \"best for every sport.\" I can identify the seller. I still need checkable evidence for that claim."
+      },
+      "tasks": [
+        {
+          "id": "separate",
+          "prompt": "Point to the seller, the claim and the offered proof. What is missing?",
+          "responseLines": 2,
+          "answer": "NeonFocus sells it; calmness/scores are claims. Likes/review are not checkable research. Relevant evidence is missing."
+        },
+        {
+          "id": "limit",
+          "prompt": "What does the real source help you check? What can it not prove?",
+          "responseLines": 2,
+          "answer": "It guides source checks. It does not establish whether PowerBand works or fails."
+        },
+        {
+          "id": "respond",
+          "prompt": "Choose a safe next step. What stays private?",
+          "choices": [
+            "Pause",
+            "Ask a trusted adult",
+            "Check a reliable source"
+          ],
+          "responseLines": 2,
+          "answer": "Pause and seek reliable adult-supported information; do not post the requested photo or personal score."
+        }
+      ],
+      "frames": [
+        "The claim is ___. We still need ___.",
+        "Pause, please.",
+        "Help, please."
+      ],
+      "teacher": {
+        "when": "Use with Week 4 health, A confident claim is not enough.",
+        "alignment": "Same w4-health thinking: source/purpose, claim/evidence, missing information, source limits and a privacy-safe response. Both student inputs are supplied offline.",
+        "lookFor": "A distinction between a seller's claim, attention or anecdote, and relevant checkable evidence. Commercial purpose invites scrutiny; it is not automatic disproof.",
+        "notes": [
+          "Read the case, model and each choice aloud once while pointing; reread on request. Keep cards visible for pointing, speech or AAC. These are word cards with oral support, not independent pictorial access. Pause/help cues are the same across pages.",
+          "Authentic capsule is a short paraphrase, not a fabricated study: BC Women's Hospital + Health Centre (PHSA), Evaluating Online Health Info: https://www.bcwomens.ca/health-info/staying-healthy/navigating-the-health-system/evaluating-online-health-info",
+          "Canadian Paediatric Society background for source/privacy checks: https://caringforkids.cps.ca/handouts/behavior-and-development/health_information_on_the_internet",
+          "Read the ad and capsule separately and label the ad fictional. No purchase, health disclosure, product experiment or internet access is required.",
+          "Keep answer text in teacher materials only; the different shoe example models a check without answering the full PowerBand task."
+        ]
+      }
+    },
+    {
+      "id": "phe-health-week-5",
+      "title": "Question the message; respect people",
+      "tag": "PHE health - Week 5",
+      "goal": "Challenge a body-rating message without judging bodies.",
+      "start": "Listen or read. Point, speak, draw or write. Fictional post: a sportswear seller calls an edited picture \"the only athletic look\" and invites body ratings. The small print says the image was edited. A group chat repeats the invitation. No real photograph is needed.",
+      "model": {
+        "text": "Example: A shoe seller says one shoe suits every sport. I ask which sports were tested. Selling something is a reason to check, not proof either way."
+      },
+      "tasks": [
+        {
+          "id": "evidence",
+          "prompt": "Which facts can the post support? Which personal judgments can it not establish?",
+          "choices": [
+            "Clothing is for sale",
+            "The picture was edited",
+            "A person's health",
+            "A person's worth"
+          ],
+          "responseLines": 2,
+          "answer": "Sale/editing are supplied facts. The image cannot establish health or worth; do not rate anyone."
+        },
+        {
+          "id": "rewrite",
+          "prompt": "Replace the rating invitation with two welcoming lines. Explain one word choice.",
+          "responseLines": 3,
+          "answer": "Accept respectful wording that welcomes different participation routes without ranking bodies or appearance."
+        },
+        {
+          "id": "boundary",
+          "prompt": "Targeting continues. Choose a boundary or help response and explain it.",
+          "choices": [
+            "Ask to stop body ratings",
+            "Leave the chat and seek help",
+            "Tell a trusted adult"
+          ],
+          "responseLines": 2,
+          "answer": "Several safe responses fit. Include adult support if targeting continues; the targeted person is not to blame."
+        }
+      ],
+      "frames": [
+        "Our message could say ___.",
+        "If this continues, ___.",
+        "Pause, please.",
+        "Help, please."
+      ],
+      "teacher": {
+        "when": "Use with Week 5 health, Respect bodies; question the message.",
+        "alignment": "Same w5-health reasoning: notice constructed/commercial media, distinguish claims from what an image can establish, and use a respectful boundary/help route.",
+        "lookFor": "A critical message response and practical wording. Do not confuse supportive agreement with evidence; learners can explain different defensible choices.",
+        "notes": [
+          "Read the case, model and each choice aloud once while pointing; reread on request. Keep cards visible for pointing, speech or AAC. These are word cards with oral support, not independent pictorial access. Pause/help cues are the same across pages.",
+          "Background: MediaSmarts, Talking to Kids about Media and Body Image: https://mediasmarts.ca/teacher-resources/talking-kids-about-media-body-image-tip-sheet",
+          "Do not display or rate student bodies, ask for appearance concerns, or role-play insults. Use the supplied fictional description.",
+          "This is partial media/identity work, not complete puberty teaching. Personal concerns go privately through school support procedures."
+        ]
+      }
+    },
+    {
+      "id": "phe-health-week-6",
+      "title": "A help path with a backup",
+      "tag": "PHE health - Week 6",
+      "goal": "Protect first, get adult help and follow up.",
+      "start": "Listen or read. Point, speak, draw or write. Fictional message: an unknown account offers a sports-team place. It asks for a face photo, home address and private health details: \"Keep this secret. Meet alone.\" The teacher will confirm where school helpers can be found.",
+      "model": {
+        "text": "Different case: a practice area is unsafe and someone is hurt. Move away from danger and alert the supervising adult now. Do not investigate or diagnose.",
+        "visual": {
+          "type": "sequence",
+          "labels": [
+            "Protect now",
+            "Get adult help",
+            "Use a backup"
+          ]
+        }
+      },
+      "tasks": [
+        {
+          "id": "protect",
+          "prompt": "For the message case, choose protection now. Explain one choice.",
+          "choices": [
+            "Do not reply or send details",
+            "Do not go to the meeting",
+            "Tell a trusted adult privately"
+          ],
+          "responseLines": 2,
+          "answer": "Avoid replying, sharing or meeting; seek adult support. Several protection actions can work together."
+        },
+        {
+          "id": "help",
+          "prompt": "Choose a helper and confirmed place. Say or show a short help sentence. Who is the backup?",
+          "choices": [
+            "Classroom teacher",
+            "Supervising adult",
+            "School office adult"
+          ],
+          "responseLines": 2,
+          "answer": "Use an available adult/location, a brief request such as \"I need help with a message\", and another adult if needed."
+        },
+        {
+          "id": "urgent",
+          "prompt": "What changes if there is immediate danger?",
+          "responseLines": 2,
+          "answer": "Use adult/emergency help now, following school procedures. Do not delay for proof or a perfect explanation."
+        }
+      ],
+      "frames": [
+        "I need help with ___.",
+        "If ___ is unavailable, I can ___.",
+        "Pause, please.",
+        "Help, please."
+      ],
+      "teacher": {
+        "when": "Use with Week 6 health, Protect first, get help, follow up.",
+        "alignment": "Same w6-health goal: immediate protection, appropriate adult/location, backup and urgency. The model uses the other original low-detail case so the learner transfers the reasoning.",
+        "lookFor": "Safety before investigation or evidence collection; responsibility placed with adults; a reachable backup. No personal disclosure is needed.",
+        "notes": [
+          "Read the case, model and each choice aloud once while pointing; reread on request. Keep cards visible for pointing, speech or AAC. These are word cards with oral support, not independent pictorial access. Pause/help cues are the same across pages.",
+          "Before use, confirm actual school help roles/locations and the emergency route. Learners may point while the teacher records a role, never a classmate's private details.",
+          "Do not ask learners to confront an account, stage an emergency or gather risky evidence. They may use a different low-detail case or pass on public sharing.",
+          "Official support background: https://kidshelpphone.ca/ . For immediate danger use school emergency procedures or 911; non-emergency private support does not replace emergency help."
+        ]
+      }
+    },
+    {
+      "id": "phe-partner-cues",
+      "title": "Ready, send, receive, reset",
+      "tag": "Reusable PE - Partner cues",
+      "goal": "Make the next pass playable and communicate clearly.",
+      "start": "Listen or read. Point, speak, draw or write. Use a teacher-taught partner activity. Teacher supplies safe space and suitable equipment. Fresh problem: both partners signal ready, but the ball keeps going beyond the receiver. Point, speak or draw a plan before practising.",
+      "model": {
+        "text": "Example: a receiver is not ready. The sender waits for a ready signal, then makes a gentle roll. The receiver controls it. They pause before the next turn.",
+        "visual": {
+          "type": "sequence",
+          "labels": [
+            "Ready",
+            "Send",
+            "Receive",
+            "Reset"
+          ]
+        }
+      },
+      "tasks": [
+        {
+          "id": "adjust",
+          "prompt": "For the fresh problem, choose one teacher-approved change. Why?",
+          "choices": [
+            "Move closer",
+            "Send more gently",
+            "Use a suitable larger/light ball",
+            "Another safe idea"
+          ],
+          "responseLines": 2,
+          "answer": "Choose a change that could improve control. The ready signal alone does not solve every distance or force problem."
+        },
+        {
+          "id": "try",
+          "prompt": "Practise three exchanges through your agreed movement route. Name what you actually used.",
+          "choices": [
+            "Roll",
+            "Foot pass",
+            "Catch and send",
+            "Forearm pass"
+          ],
+          "responseLines": 1,
+          "answer": "Observe the actual taught skill. Catch/send is a useful bridge but is not a forearm-pass demonstration."
+        },
+        {
+          "id": "explain",
+          "prompt": "What changed? Show the agreed pause or help signal.",
+          "responseLines": 2,
+          "answer": "Connect an observed difference to the adjustment; use the established safe stop/help routine."
+        }
+      ],
+      "frames": [
+        "The next ball was ___ because ___.",
+        "Please pause. I need ___.",
+        "Pause, please.",
+        "Help, please.",
+        "Stop: freeze safely."
+      ],
+      "teacher": {
+        "when": "Reuse in the six-week PE sequence, especially Weeks 1-2 passing and Weeks 4-6 light-ball practice.",
+        "alignment": "Same physical and strategic goals: controlled sending/receiving, ready signals, safe pauses and evidence-based adjustment. This cue page does not introduce new technique or replace lesson rules.",
+        "lookFor": "Physical control through a suitable movement route plus a reasoned cue/adjustment. Strategy explanations and physical demonstrations are separate evidence.",
+        "notes": [
+          "Read the case, model and each choice aloud once while pointing; reread on request. Keep cards visible for pointing, speech or AAC. These are word cards with oral support, not independent pictorial access. Pause/help cues are the same across pages.",
+          "Teacher chooses the already-taught activity, equipment, clear lanes and stop signal. Keep the original no-contact, retrieval and supervision rules.",
+          "Offer purposeful seated/standing/wheeling movement, distance/ball adaptations and rest/return. No family equipment purchase is required.",
+          "A temporary observer can complete the planning/explanation. This does not demonstrate the physical skill; agree a suitable movement opportunity separately.",
+          "Do not require body data, comparison scores, a photograph or video.",
+          "Teach the shared cues aloud: Stop means follow the existing freeze signal and secure equipment safely; Pause requests rest and a chosen return; Help signals the teacher. Rehearse without turning a request into a public disclosure."
+        ]
+      }
+    },
+    {
+      "id": "phe-captain-cues",
+      "title": "Choose one change, then replay",
+      "tag": "Reusable PE - Captain cues",
+      "goal": "Use clear instructions and evidence to improve familiar practice.",
+      "start": "Listen or read. Point, speak, draw or write. Fictional Gate Pass group: players crowd one gate and spend long periods waiting. They want safe passing turns and choices. Select only a change the teacher approves. Captains lead familiar practice while the teacher supervises.",
+      "model": {
+        "text": "Different example: two receivers chase one ball. The team agrees a receiving signal, replays, then checks whether space stayed clear. One observation does not settle every question.",
+        "visual": {
+          "type": "sequence",
+          "labels": [
+            "Notice",
+            "Choose one change",
+            "Replay",
+            "Decide"
+          ]
+        }
+      },
+      "tasks": [
+        {
+          "id": "choose",
+          "prompt": "Choose or design one change for the gate problem. Predict its effect.",
+          "choices": [
+            "Change gate spacing",
+            "Use smaller practice groups",
+            "Another safe idea"
+          ],
+          "responseLines": 2,
+          "answer": "Accept a feasible change tied to crowding or waiting; preserve purposeful movement, choice and safety."
+        },
+        {
+          "id": "say",
+          "prompt": "Give a short instruction for the changed game. Include a stop and return cue.",
+          "choices": [
+            "Our practice goal is...",
+            "Freeze means...",
+            "You can rejoin by..."
+          ],
+          "responseLines": 2,
+          "answer": "Instructions must match the familiar teacher-approved rules. Captains do not remove support routes or invent safety rules."
+        },
+        {
+          "id": "decide",
+          "prompt": "After replay, choose a decision. Use one observation and player feedback.",
+          "choices": [
+            "Keep",
+            "Revise",
+            "Reject",
+            "Try again"
+          ],
+          "responseLines": 2,
+          "answer": "Several decisions can fit the evidence. Check safety, useful turns and choice; do not rank players."
+        }
+      ],
+      "frames": [
+        "We noticed ___. We changed ___.",
+        "We would ___ because ___.",
+        "Pause, please.",
+        "Help, please.",
+        "Stop: freeze safely."
+      ],
+      "teacher": {
+        "when": "Use during PE1 captain preparation or PE2 familiar practice in any of the six weeks.",
+        "alignment": "Same everyone-in-game/strategy-remix thinking: notice a pattern, test one approved change, communicate and decide from evidence. Use the supplied gate case for planning or an actual familiar replay when feasible.",
+        "lookFor": "Specific instructions, a reasonable prediction and a decision grounded in group evidence plus feedback. More touches alone do not establish choice or enjoyment.",
+        "notes": [
+          "Read the case, model and each choice aloud once while pointing; reread on request. Keep cards visible for pointing, speech or AAC. These are word cards with oral support, not independent pictorial access. Pause/help cues are the same across pages.",
+          "Teacher approves equipment, space, rules and access, remains supervising and manages safety decisions. Rotate leadership jobs without removing movement turns.",
+          "Paper planning shows strategy/communication. An observer or captain explanation does not itself demonstrate physical performance; preserve a suitable movement route and assess it separately.",
+          "Use no-name observations only. No fitness rankings, body disclosures or public performance record is required.",
+          "The choice cards are response starters, not pre-approved rules for every space.",
+          "Teach the shared cues aloud: Stop means follow the existing freeze signal and secure equipment safely; Pause requests rest and a chosen return; Help signals the teacher. Rehearse without turning a request into a public disclosure."
+        ]
+      }
+    }
+  ]
+}

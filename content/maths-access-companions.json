@@ -1,0 +1,363 @@
+{
+  "id": "maths-access-companions",
+  "title": "Show it. Point to it. Explain it.",
+  "subtitle": "Visual and oral companions: choose the page that matches the learning goal.",
+  "pages": [
+    {
+      "id": "same-whole-decimals",
+      "title": "Keep the whole the same",
+      "tag": "Decimal thinking · visual support",
+      "goal": "Compare tenths and hundredths using equal wholes.",
+      "start": "Each complete grid is 1 whole. Each small square is 1 hundredth. Point, speak, draw or write.",
+      "model": {
+        "text": "The first grid shows 40 hundredths: 0.40, or 4 tenths. The second shows 4 hundredths: 0.04. Forty hundredths is greater than four hundredths, so 0.4 > 0.04.",
+        "visual": {
+          "type": "hundred_grid",
+          "values": [40, 4],
+          "labels": ["0.4", "0.04"]
+        }
+      },
+      "tasks": [
+        {
+          "id": "same-whole-equality",
+          "prompt": "Compare 0.6 and 0.60. Point to evidence in the grids. Explain your choice.",
+          "choices": ["<", ">", "="],
+          "visual": {
+            "type": "hundred_grid",
+            "values": [60, 60],
+            "labels": ["0.6", "0.60"]
+          },
+          "responseLines": 1,
+          "answer": "0.6 = 0.60. Each grid has 60 of the same-sized 100 parts shaded. Six tenths is sixty hundredths; the final zero does not change the value."
+        },
+        {
+          "id": "same-whole-units",
+          "prompt": "Compare 0.08 and 0.8. Which shaded amount is greater? Show how the grids help.",
+          "choices": ["<", ">", "="],
+          "visual": {
+            "type": "hundred_grid",
+            "values": [8, 80],
+            "labels": ["0.08", "0.8"]
+          },
+          "responseLines": 1,
+          "answer": "0.08 < 0.8. Eight hundredths is less than eighty hundredths; 0.8 is eight tenths. The second shaded amount is greater."
+        }
+      ],
+      "frames": ["The whole is ___.", "___ tenths is ___ hundredths.", "I can point to ___."],
+      "teacher": {
+        "when": "Use when a learner working on decimal comparison needs the unit relationship made visible or an oral way to explain it. English proficiency alone does not imply a need for smaller whole numbers.",
+        "alignment": "Keeps the place-value and equivalence goals in the existing represent-reteach route. This is visual access to that mathematics, not a separate lower-number assignment.",
+        "lookFor": "The learner identifies an equal whole, relates tenths to hundredths, and supports a comparison or equality. Counting shaded cells is valid, but ask what the counted unit represents.",
+        "notes": [
+          "Render every grid at exactly the same size with 10 rows and 10 columns. Each shaded cell is one hundredth; shade whole rows first so one full row also shows a tenth. Use black-and-white distinguishable shading, not colour alone.",
+          "Read a prompt and name the symbols if needed: less than, greater than, equal to. Do not supply the task's deciding relationship. An adult can record a learner's spoken words or indicate cells as directed.",
+          "The worked model is deliberately complete. Task answers belong only in the teacher key. These companion examples differ from the existing readiness check; use the fresh companion check later to see how the idea transfers.",
+          "Do not infer mastery from two correct symbols. Ask the learner to explain with the grids, then use a fresh example. The existing Korean-language material can remain an optional language support; these diagrams add a different access route."
+        ]
+      }
+    },
+    {
+      "id": "deciding-place-talk",
+      "title": "Point to the place that decides",
+      "tag": "Number comparison · oral support",
+      "goal": "Compare from the greatest place and explain the first difference.",
+      "start": "Read each row from left to right. Point to matching places, then the first place that differs.",
+      "model": {
+        "text": "Compare 4.305 and 4.35. Write 4.35 as 4.350; its value stays the same. The ones and tenths match. The hundredths first differ: 0 < 5. So 4.305 < 4.35.",
+        "visual": {
+          "type": "place_value",
+          "columns": ["Number", "Ones", "Tenths", "Hundredths", "Thousandths"],
+          "rows": [["4.305", "4", "3", "0", "5"], ["4.350", "4", "3", "5", "0"]]
+        }
+      },
+      "tasks": [
+        {
+          "id": "deciding-decimal-place",
+          "prompt": "5.208 __ 5.28. Choose a symbol. Point to the deciding place and explain.",
+          "choices": ["<", ">", "="],
+          "visual": {
+            "type": "place_value",
+            "columns": ["Number", "Ones", "Tenths", "Hundredths", "Thousandths"],
+            "rows": [["5.208", "5", "2", "0", "8"], ["5.280", "5", "2", "8", "0"]]
+          },
+          "responseLines": 1,
+          "answer": "5.208 < 5.28. Ones and tenths match; hundredths first differ: 0 < 8. Writing 5.28 as 5.280 aligns equivalent places without changing its value."
+        },
+        {
+          "id": "deciding-whole-place",
+          "prompt": "3,460 __ 3,406. Choose a symbol. Which place first decides?",
+          "choices": ["<", ">", "="],
+          "visual": {
+            "type": "place_value",
+            "columns": ["Number", "Thousands", "Hundreds", "Tens", "Ones"],
+            "rows": [["3,460", "3", "4", "6", "0"], ["3,406", "3", "4", "0", "6"]]
+          },
+          "responseLines": 1,
+          "answer": "3,460 > 3,406. Thousands and hundreds match; tens first differ: 6 > 0. The later 6 ones in the second number do not outweigh the tens difference."
+        }
+      ],
+      "frames": ["The ___ places match.", "The ___ place decides because ___.", "Please give me time to show you."],
+      "teacher": {
+        "when": "Use when the learner understands the quantities but needs an aligned display, processing time or a short language frame to communicate a comparison.",
+        "alignment": "Supports the existing compare-consolidate route and its whole-number/thousandths comparison goal. No extra rounding or number-line lesson is required.",
+        "lookFor": "The learner attends to place value rather than the largest isolated digit or the number of written digits. A pointing response must identify the relevant place, not just a preferred symbol.",
+        "notes": [
+          "Keep complete numbers as strings so trailing zeros remain visible. Column headings must stay aligned with their digits and be large enough to read.",
+          "Provide the unit words orally or in a familiar language as needed. Treat difficulty saying ‘hundredths’ separately from an accurate gesture and mathematical explanation.",
+          "These tables already align the digits; do not describe success here as evidence that a learner can independently construct the chart. It is evidence about comparing using that support.",
+          "Let a partner listen after an initial attempt. For the fresh check, use the learner's usual access supports without a partner supplying the comparison."
+        ]
+      }
+    },
+    {
+      "id": "decimal-fresh-oral-check",
+      "title": "Show your reason with fresh numbers",
+      "tag": "Number comparison · fresh check",
+      "goal": "Explain a decimal comparison, an equality and a whole-number comparison.",
+      "start": "Try these on your own with your usual supports. You may point, speak, draw or write. Ask for a word to be read if needed.",
+      "model": {
+        "text": "Response model: point to matching places. Then say, ‘The ___ place decides because ___.’ If every place matches, explain why the values are equal. The numbers below are yours to decide."
+      },
+      "tasks": [
+        {
+          "id": "fresh-decimal-comparison",
+          "prompt": "0.407 __ 0.47. Choose a symbol and explain the deciding place.",
+          "choices": ["<", ">", "="],
+          "visual": {
+            "type": "place_value",
+            "columns": ["Number", "Ones", "Tenths", "Hundredths", "Thousandths"],
+            "rows": [["0.407", "0", "4", "0", "7"], ["0.470", "0", "4", "7", "0"]]
+          },
+          "responseLines": 1,
+          "answer": "0.407 < 0.47. Ones and tenths match; hundredths first differ: 0 < 7."
+        },
+        {
+          "id": "fresh-decimal-equivalence",
+          "prompt": "1.8 __ 1.80. Explain what the final zero changes, if anything.",
+          "choices": ["<", ">", "="],
+          "visual": {
+            "type": "place_value",
+            "columns": ["Number", "Ones", "Tenths", "Hundredths"],
+            "rows": [["1.8", "1", "8", "0"], ["1.80", "1", "8", "0"]]
+          },
+          "responseLines": 1,
+          "answer": "1.8 = 1.80. Both have 1 whole and 8 tenths, or 1 whole and 80 hundredths. The final zero does not change the value."
+        },
+        {
+          "id": "fresh-whole-comparison",
+          "prompt": "7,690 __ 7,609. Choose a symbol and name the first unequal place.",
+          "choices": ["<", ">", "="],
+          "visual": {
+            "type": "place_value",
+            "columns": ["Number", "Thousands", "Hundreds", "Tens", "Ones"],
+            "rows": [["7,690", "7", "6", "9", "0"], ["7,609", "7", "6", "0", "9"]]
+          },
+          "responseLines": 1,
+          "answer": "7,690 > 7,609. Thousands and hundreds match; tens first differ: 9 > 0."
+        }
+      ],
+      "frames": ["My evidence is ___.", "I would like this word read: ___."],
+      "teacher": {
+        "when": "Use after the matching visual or oral lesson, choosing only the items that check the intended goal. The check is not a placement score.",
+        "alignment": "Fresh supported evidence for the existing represent-reteach and compare-consolidate pathways. The model gives a response structure and no numerical answer to these tasks.",
+        "lookFor": "A reason based on the place values or equal units, with the supports actually used. Notice a specific idea that has become clearer and any idea still needing a different representation.",
+        "notes": [
+          "Do not reveal this page's answers while the learner is deciding. A scribe can record exactly what the learner directs; a partner should not choose a symbol or place for them.",
+          "The three decisions do not generate a cutoff or a fixed ability group. If a reason is unclear, ask ‘Show me what you mean’ before changing the task.",
+          "If the unit relationship is uncertain, return to equal-whole grids. If units are clear but the order of comparison is uncertain, return to the deciding-place model. An oral explanation is sufficient evidence when writing is not the learning goal.",
+          "Completion of this page does not establish readiness for multiplication. Keep the separate multiplication mini-check in maths-readiness-pathways.json separate."
+        ]
+      }
+    },
+    {
+      "id": "quantity-match-compare",
+      "title": "Match the two collections",
+      "tag": "Quantity comparison · teacher-selected goal",
+      "goal": "Compare collections by matching or counting each dot once.",
+      "start": "Match one left dot with one right dot. You can draw matching lines, point, or use counters. Check for any dots without a partner.",
+      "model": {
+        "text": "There are 3 dots on the left and 5 on the right. Make 3 pairs. Two right dots have no partner, so the right collection has more. The left collection has fewer.",
+        "visual": { "type": "dot_compare", "left": 3, "right": 5 }
+      },
+      "tasks": [
+        {
+          "id": "quantity-practice-right",
+          "prompt": "Match or count. Which collection has more? Show how you know.",
+          "choices": ["Left", "Right", "Same amount"],
+          "visual": { "type": "dot_compare", "left": 4, "right": 7 },
+          "responseLines": 1,
+          "answer": "Right has more: 7 dots compared with 4. One-to-one matching makes 4 pairs with 3 right dots unmatched."
+        },
+        {
+          "id": "quantity-practice-left",
+          "prompt": "Which collection has more now? Match or count to check.",
+          "choices": ["Left", "Right", "Same amount"],
+          "visual": { "type": "dot_compare", "left": 8, "right": 6 },
+          "responseLines": 1,
+          "answer": "Left has more: 8 dots compared with 6. Matching makes 6 pairs with 2 left dots unmatched."
+        }
+      ],
+      "frames": ["This collection has more.", "These dots do not have a partner."],
+      "teacher": {
+        "when": "Choose this page when observed counting or matching shows that quantity comparison within 10 is an appropriate current learning goal. It is not selected merely because a learner is learning English.",
+        "alignment": "This is a different, foundational quantity goal from the Grade 6 decimal-comparison goal. It provides meaningful participation in comparing and explaining while preserving that distinction.",
+        "lookFor": "Matches one to one or counts each object once, connects the final count to the collection, and compares amounts rather than the length of a row or the space occupied.",
+        "notes": [
+          "Use same-sized dots and clearly label Left and Right. Do not print the task counts beneath the pictures; the quantities are the starting evidence. Keep spacing sufficient for pointing and matching.",
+          "The worked model names its amounts and gives its conclusion; the practice collections use different inputs. Accept a complete matching demonstration without requiring spoken number words or comparison symbols.",
+          "If drawing or touching is difficult, provide movable counters or move them as the learner directs. Do not treat a motor or language barrier as a quantity error.",
+          "Numeral recognition up to 40 does not establish counting, comparison or arithmetic within that range. Work from the learner's actual demonstration. Use the fresh comparison page after this model and practice if useful."
+        ]
+      }
+    },
+    {
+      "id": "quantity-fresh-check",
+      "title": "More, fewer or the same?",
+      "tag": "Quantity comparison · fresh check",
+      "goal": "Compare new collections, including equal amounts.",
+      "start": "Use matching or counting. Point to a choice and show your reason. Work on each new pair before someone tells you an answer.",
+      "model": {
+        "text": "The model has 2 dots on each side. Every dot has a partner and none are left unmatched. The collections have the same amount.",
+        "visual": { "type": "dot_compare", "left": 2, "right": 2 }
+      },
+      "tasks": [
+        {
+          "id": "quantity-fresh-right",
+          "prompt": "Which collection has more? Show your comparison.",
+          "choices": ["Left", "Right", "Same amount"],
+          "visual": { "type": "dot_compare", "left": 5, "right": 9 },
+          "responseLines": 1,
+          "answer": "Right has more: 9 compared with 5. Five pairs leave 4 right dots unmatched."
+        },
+        {
+          "id": "quantity-fresh-left",
+          "prompt": "Which collection has fewer? Point, then check.",
+          "choices": ["Left", "Right", "Same amount"],
+          "visual": { "type": "dot_compare", "left": 10, "right": 7 },
+          "responseLines": 1,
+          "answer": "Right has fewer: 7 compared with 10. Seven pairs leave 3 left dots unmatched. The question asks for fewer, not more."
+        },
+        {
+          "id": "quantity-fresh-equal",
+          "prompt": "Do these collections have different amounts or the same amount? Show how you know.",
+          "choices": ["Different amounts", "Same amount"],
+          "visual": { "type": "dot_compare", "left": 6, "right": 6 },
+          "responseLines": 1,
+          "answer": "Same amount: 6 on each side. Six pairs use every dot, with none unmatched."
+        }
+      ],
+      "frames": ["I matched ___.", "This side has fewer.", "Every dot has a partner."],
+      "teacher": {
+        "when": "Use for fresh evidence after practising one-to-one quantity comparison. Introduce the equality model first if ‘same amount’ is new; the later equal pair is a new input.",
+        "alignment": "Continues the foundational quantity goal chosen by the teacher. It does not replace or claim achievement of the class's Grade 6 decimal goal.",
+        "lookFor": "A matching or counting strategy that supports more, fewer or same. Distinguish a misunderstanding of the word ‘fewer’ from a comparison error.",
+        "notes": [
+          "Use the worked 2-and-2 example only as a model. Task quantities 5-and-9, 10-and-7 and 6-and-6 are not demonstrated in advance.",
+          "The second prompt deliberately asks for fewer. Read or paraphrase that word if needed without identifying the side. A learner can show the smaller collection without saying its name.",
+          "Leave the learner's usual pointing, counter or scribe support available. Do not total the choices into a mastery cutoff or compare learners publicly.",
+          "If the learner compares picture size rather than amount, rearrange the same objects together and match them again. Choose a next representation from that evidence; do not automatically increase the number range."
+        ]
+      }
+    },
+    {
+      "id": "optional-tens-ones",
+      "title": "Groups of ten and loose ones",
+      "tag": "Optional · represent numbers to 40",
+      "goal": "Connect groups of ten and single ones to a written number.",
+      "start": "Each long rod contains 10 small units. Each loose square is 1. Count groups and loose ones.",
+      "model": {
+        "text": "The model has 2 tens and 3 ones. Two groups of ten and three loose ones make 23. This is a representation of 23, not an addition or subtraction task.",
+        "visual": { "type": "tens_ones", "values": [23] }
+      },
+      "tasks": [
+        {
+          "id": "tens-ones-build-31",
+          "prompt": "How many tens? How many ones? Say or write the number shown.",
+          "visual": { "type": "tens_ones", "values": [31] },
+          "responseLines": 1,
+          "answer": "3 tens and 1 one represent 31."
+        },
+        {
+          "id": "tens-ones-compare",
+          "prompt": "Which collection shows the greater number? Use the tens and ones to explain.",
+          "visual": { "type": "tens_ones", "values": [24, 32] },
+          "responseLines": 1,
+          "answer": "The second collection, 32, is greater than 24. Three tens is greater than two tens; four loose ones do not make up another whole ten. Thus 24 < 32."
+        },
+        {
+          "id": "tens-ones-fresh-40",
+          "prompt": "Fresh try: name the tens, the ones and the number. What does the empty ones space mean?",
+          "visual": { "type": "tens_ones", "values": [40] },
+          "responseLines": 1,
+          "answer": "4 tens, 0 ones, number 40. The empty ones space means zero loose ones, not a missing ten."
+        }
+      ],
+      "frames": ["I see ___ tens and ___ ones.", "The number is ___."],
+      "teacher": {
+        "when": "Offer when the learner can work with small quantities and a brief demonstration suggests grouped tens would be meaningful. Familiarity with numerals to 40 alone is not sufficient evidence.",
+        "alignment": "An optional foundational place-value representation goal. It does not presume addition or subtraction to 40, regrouping, decimal understanding or independent success with earlier optional arithmetic examples.",
+        "lookFor": "Treats each rod as ten ones, counts rods as tens and loose units as ones, and explains the zero ones in 40.",
+        "notes": [
+          "Every rod must visibly contain ten equal unit squares; make loose ones the same unit size. Keep tens and ones in distinguishable spaces without using colour as the only cue.",
+          "Do not label the practice pictures with their total before the learner interprets them. The visual values are renderer instructions, not student answer labels.",
+          "If grouping ten is not yet meaningful, stay with collections within 10. Do not introduce two-digit arithmetic because the learner recognizes the numeral 40.",
+          "The final 40 task is fresh. Ask the learner to explain or point to the empty ones space; an accurate number name alone gives less evidence than the representation."
+        ]
+      }
+    },
+    {
+      "id": "optional-join-take-away",
+      "title": "Show what changes",
+      "tag": "Optional · join and take away within 10",
+      "goal": "Represent joining and removing objects, then find the amount.",
+      "start": "One dot is one object. Use the frame, draw, or move counters. Add dots when joining; cross out or remove dots when taking away.",
+      "model": {
+        "text": "Outlined dots are added; crossed dots are removed. First frame: start with 4 dots and add 2. There are 6: 4 + 2 = 6. Second frame: start with 6 dots and remove 3. There are 3 left: 6 − 3 = 3.",
+        "visual": { "type": "ten_frame", "values": [4, 6], "added": [2, 0], "removed": [0, 3] }
+      },
+      "tasks": [
+        {
+          "id": "join-practice",
+          "prompt": "Start with 2 dots. Add 5 more. How many altogether? Show the joining.",
+          "visual": { "type": "ten_frame", "values": [2] },
+          "responseLines": 1,
+          "answer": "2 + 5 = 7. Add five dots to the two starting dots; seven objects are present altogether."
+        },
+        {
+          "id": "take-away-practice",
+          "prompt": "Start with 9 dots. Take away 4. How many remain? Show what was removed.",
+          "visual": { "type": "ten_frame", "values": [9] },
+          "responseLines": 1,
+          "answer": "9 − 4 = 5. Cross out or remove exactly four starting dots; five remain."
+        },
+        {
+          "id": "join-fresh-check",
+          "prompt": "Fresh try: start with 3 dots and add 5. Show the change and the total.",
+          "visual": { "type": "ten_frame", "values": [3] },
+          "responseLines": 1,
+          "answer": "3 + 5 = 8. Five joined objects and the three starting objects make eight."
+        },
+        {
+          "id": "take-away-fresh-check",
+          "prompt": "Fresh try: start with 8 dots and take away 1. Show how many remain.",
+          "visual": { "type": "ten_frame", "values": [8] },
+          "responseLines": 1,
+          "answer": "8 − 1 = 7. Removing one from eight leaves seven."
+        }
+      ],
+      "frames": ["I started with ___.", "I added / removed ___.", "Now there are ___."],
+      "teacher": {
+        "when": "Use only when observed counting and handling of quantities within 10 suggest joining/removing is an appropriate current goal. Check that the learner can distinguish the two actions before independent practice.",
+        "alignment": "Optional foundational arithmetic within 10. It is a different learning goal from the class's decimal comparison and from numeral recognition or tens-and-ones representation to 40.",
+        "lookFor": "Tracks the starting amount and the change, joins or removes the stated number, and identifies the resulting amount. A spoken equation is optional when the objects show the reasoning.",
+        "notes": [
+          "Ten-frames have two rows of five cells. Practice and fresh-check frames show only starting dots; leave other cells empty so the learner can make the change. Do not prefill a task's resulting total.",
+          "The worked model shows two outlined added dots after the four starting dots in the first frame, and three crossed removed dots among the six starting dots in the second. Read the legend aloud and demonstrate the same changes with counters if useful.",
+          "For an oral or motor-access route, move counters or make marks exactly as the learner directs. Check mathematical intent without requiring handwriting or rapid counting.",
+          "The two fresh tasks use new inputs and results not given by the worked model. Review the joining and removing evidence separately; one correct action does not establish the other.",
+          "Do not advance to operations beyond 10 from this page alone. Earlier optional 23 + 4 or 28 − 3 examples, or recognition of numerals to 40, are not evidence of independently understood arithmetic in that range."
+        ]
+      }
+    }
+  ]
+}

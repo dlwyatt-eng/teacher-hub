@@ -36,3 +36,7 @@ The PDFs in `public/printables/belonging/` use Font Awesome Free 6 solid icons, 
 ## Nature Today photo bank
 
 The 15 photographs in `public/images/nature-today/` retain their source licences. See [complete photograph credits](docs/NATURE_TODAY_PHOTO_CREDITS.md) and `content/nature-today.json` for original titles, creators, source and licence links, place, date, uncertainty and changes.
+
+## Access companion Korean font
+
+The access companion PDFs embed Nanum Gothic Regular, copyright NHN Corporation, under the SIL Open Font License 1.1. The unchanged font, licence and source checksum are in `assets/fonts/nanum-gothic/`. Source: https://github.com/google/fonts/tree/main/ofl/nanumgothic. The printable activities and diagrams are original to this project.

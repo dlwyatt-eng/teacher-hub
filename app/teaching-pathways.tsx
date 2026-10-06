@@ -3,6 +3,7 @@
 import { useEffect, useId, useState, type KeyboardEvent, type ReactNode } from "react";
 import phe from "../content/phe-six-week-sequence.json";
 import maths from "../content/maths-readiness-pathways.json";
+import { AccessCompanionLinks } from "./access-companion-links";
 import "./teaching-pathways.css";
 
 type Audience = "teacher" | "student";
@@ -130,6 +131,7 @@ export function PheSequence({ audience = "teacher" }: { audience?: Audience }) {
         <a className="teaching-pathway__lesson-link" href={`?subject=Physical+%26+Health+Education&experience=${lesson.existingExperienceId}`}>Open the related full PHE experience →</a>
       </section>
       <Downloads subject="phe" />
+      <AccessCompanionLinks subject="phe" />
       <details className="teaching-pathway__details"><summary>How to use the six-week sequence</summary><p>{phe.intro}</p><Lines items={phe.teacherOverview} /><h3>This week's curriculum connections</h3><Lines items={week.curriculum} /></details>
       <Sources sources={phe.sources} />
     </div>}
@@ -180,6 +182,7 @@ export function MathsReadiness({ audience = "teacher" }: { audience?: Audience }
       {(selected === "bridge" || selected === "bridge-check") && <section className="teaching-pathway__planning"><h2>Decide before teaching the bridge</h2><h3>Ready to try when</h3><Lines items={maths.bridge.readyWhen} /><h3>If the evidence says to pause</h3><Lines items={maths.bridge.ifNotYet} /><button className="teaching-pathway__choose" type="button" onClick={() => choose(selected === "bridge-check" ? "bridge" : "bridge-check")}>{selected === "bridge-check" ? "Choose the partial-products model after review →" : "Return to the independent multiplication check →"}</button><a className="teaching-pathway__lesson-link" href={`?subject=Mathematics&experience=${maths.bridge.existingExperienceId}`}>Open the full whole-number operations lesson →</a></section>}
       <details className="teaching-pathway__details"><summary>Teacher answer key · current route</summary><ol>{answerItems.map(item => <li key={item.id}><p><strong>{item.prompt}</strong></p><p>{item.answer}</p>{"lookFor" in item && <p><em>Look for:</em> {String(item.lookFor)}</p>}</li>)}</ol></details>
       <Downloads subject="maths" />
+      <AccessCompanionLinks subject="maths" />
       <details className="teaching-pathway__details"><summary>Using the checks without fixed groups</summary><Lines items={maths.teacherOverview} /></details>
       <Sources sources={maths.sources} />
     </div>}
