@@ -38,3 +38,11 @@ Rendered PDFs contain 12 maths pages, nine PHE pages, seven bilingual pages and 
 All 57 task prompts were checked in the HTML companions, with no full task keys included. The fresh checks retain their supplied inputs; models are distinguished from practice. The print and HTML diagrams were checked against the numerical content, including counts, shading, place-value alignment and model-only join/remove markings.
 
 Automated verification passed: current learning-window checksum, TypeScript, all 237 tests, the production build and artifact integrity (107 emitted files plus every copied public asset). `git diff --check` passed. Live-browser and publication evidence are recorded separately at release. No learner trial, physical print trial or certified translation review is claimed.
+
+## Published release evidence
+
+Local content commit `57d35b1a19d780c2711b9bb40380fae6debf8b7b` and published GitHub commit `85d78525530422f498b0925baf4d7e8bf360e0e3` have identical source tree `b92ac7e7aa566432df930dbb9555899f82800f47`. GitHub Actions run `37407087418` completed successfully. The ref update used the current parent as a lease and preserved the confirmed October 6 plan.
+
+Live browser review opened the companion disclosure in both teacher pathways, verified all five links in each, and confirmed the new teacher section was absent from the maths projector DOM. The three on-screen companions were opened. Representative decimal grids, Korean text and PHE sequence cards were visually checked; activity-anchor navigation was exercised. All seven published files returned HTTP 200 with the expected content type and SHA-256 equal to the checked local files. A screenshot records the published maths companion disclosure.
+
+This release record is a documentation-only follow-up to the verified content publication. It does not alter the delivered resources or claim additional classroom or mobile-device testing.
