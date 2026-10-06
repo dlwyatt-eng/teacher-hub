@@ -272,7 +272,8 @@ const subscribeToHydration = () => () => {};
 const getClientHydrationSnapshot = () => true;
 const getServerHydrationSnapshot = () => false;
 
-function readClassroomLocation(includeSessionFallback = true): ClassroomLocation {
+// Bare-site entry opens Home; intentional navigation is preserved in the URL.
+function readClassroomLocation(includeSessionFallback = false): ClassroomLocation {
   if (typeof window === "undefined") return {};
   try {
     const searchParams = new URLSearchParams(window.location.search);
