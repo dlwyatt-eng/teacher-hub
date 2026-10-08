@@ -1,16 +1,17 @@
 {
   "id": "day-2026-10-08",
   "date": "2026-10-08",
-  "title": "Thursday, October 8 — Shape of the Day",
+  "status": "tentative",
+  "title": "Tentative · Thursday · library and early dismissal",
   "greeting": "Good morning, Division 8!",
-  "arrival": "Maths, library and Nevermoor this morning. Early dismissal at 1:35 pm.",
-  "note": "Approved Thursday plan. Keep library at 9:20, Nevermoor after library, snack at 10:20, shared gym at 11:10 and early dismissal at 1:35. Resume comparing whole numbers and decimals where the class actually reached; Wednesday completion is unconfirmed. Continue Nevermoor from the actual bookmark; the last known point is chapter 3, with no confirmation that it was finished. No technology booking is confirmed; use the board, paper and available class materials. Use the afternoon work block for unfinished assignments and interim reflections/checkoffs. Record actual outcomes separately.",
+  "arrival": "This is our working plan. We may adjust it to finish learning well.",
+  "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately. Early dismissal is 1:35 pm; finish jobs and community beforehand. Keep regular library and shared gym unless the school revises the timetable. Mr. Eckert teaches Core French only. Mr. Wyatt teaches Physical and Health Education, including classroom health learning and PE.",
   "reflection": "",
   "blocks": [
     {
       "time": "8:35–8:45 am",
       "title": "Arrival and attendance",
-      "notes": "Attendance before form collection. Collect routine forms afterward; preview the day and 1:35 dismissal.",
+      "notes": "Attendance before form collection. Collect routine forms afterward; preview tentative day.",
       "href": "",
       "firstAction": "Settle in and answer attendance.",
       "studentSteps": [
@@ -22,22 +23,22 @@
     },
     {
       "time": "8:45–9:20 am",
-      "title": "Maths · comparing whole numbers and decimals",
-      "notes": "Check where the class actually reached before choosing the next comparison. If needed, begin with 342 > 324: hundreds match; tens decide. For decimals, model 3.4 = 3.40 > 3.35: ones match; tenths decide. Use >, < and =. Practise 506 < 560 and, when ready, 2.7 > 2.65. Independent check: 428 < 482; if decimals have been introduced, 4.08 < 4.8 and 0.6 = 0.60. Ask students to explain the deciding place or why the values are equal. Stay with whole numbers longer if needed. Use the board and paper; stop for library.",
+      "title": "Mathematics · one model, practice and check",
+      "notes": "Choose one concept from the latest check, then one model and two practice items. Comparison option: 4.305 < 4.350, decided by hundredths; rounding option: 7.268 to hundredths is 7.27. Ask for an explanation rather than speed, and stop for library.",
       "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
-      "firstAction": "Compare 342 and 324. Show the place that helps you decide.",
+      "firstAction": "Choose one comparison or rounding question you can explain.",
       "studentSteps": [
-        "Compare from the greatest place first.",
-        "Use >, < or = and explain your choice.",
-        "Try the next class comparison and one check on your own."
+        "Try the model on paper or a whiteboard.",
+        "Explain which place or strategy supports your answer.",
+        "Complete one independent check; use it to choose our next step."
       ],
       "activity": {
         "label": "Number comparison lesson",
         "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
         "studentSafe": true
       },
-      "titleKo": "수학 · 자연수와 소수 비교",
-      "firstActionKo": "342와 324를 비교하세요. 판단에 도움이 된 자릿수를 보여 주세요."
+      "titleKo": "수학 · 예제 하나, 연습과 확인",
+      "firstActionKo": "설명할 수 있는 수 비교 문제나 반올림 문제를 하나 고르세요."
     },
     {
       "time": "9:20–9:35 am",
@@ -51,9 +52,9 @@
     {
       "time": "9:35–10:20 am",
       "title": "English Language Arts · Nevermoor",
-      "notes": "Resume from the actual class bookmark. The last known point is chapter 3; do not assume it was finished or skip ahead. Allow an unhurried listening segment and one idea/detail/explanation response. Use a character recommendation only if the scene offers a meaningful choice; otherwise record a question or prediction. Record the new bookmark.",
+      "notes": "Allow an unhurried listening segment and one idea/detail/explanation response. Use a character recommendation only if the scene offers a meaningful choice; otherwise record a question or prediction. Record the bookmark.",
       "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
-      "firstAction": "Recall the last part we heard, then listen from our bookmark.",
+      "firstAction": "Recall the last part we actually heard, or listen to the opening.",
       "studentSteps": [
         "Listen for a character or setting detail.",
         "Write, draw or say an idea and the detail that supports it.",
@@ -65,7 +66,7 @@
         "studentSafe": true
       },
       "titleKo": "영어 · Nevermoor",
-      "firstActionKo": "지난번에 들은 마지막 부분을 떠올리고 책갈피가 있는 곳부터 들으세요."
+      "firstActionKo": "지난번에 들은 마지막 부분을 떠올리거나 이야기의 시작 부분을 들으세요."
     },
     {
       "time": "10:20–10:35 am",
@@ -138,17 +139,22 @@
     },
     {
       "time": "12:50–1:15 pm",
-      "title": "Work block · unfinished assignments and reflections",
-      "notes": "Choose an unfinished assignment and a manageable next step. Use available class work and materials; no devices are required. Complete any outstanding interim reflection and check off completed work with the teacher. Base reflections on work actually attempted: one example of learning and one next step. Keep individual check-ins private; do not assume an assignment is finished.",
-      "href": "",
-      "firstAction": "Take out unfinished work and choose one next step.",
+      "title": "Career Education · notice a skill in action",
+      "notes": "Point to one action visible in the inquiry work, then independently suggest a skill or kind of work it may connect to. Ask what evidence supports that connection. Finish “At first I thought __; after trying __ I noticed __; next I wonder __”; an unfinished inquiry may end with a question.",
+      "href": "?subject=Career+Education&experience=career-constellation&mode=student",
+      "firstAction": "Look at your activity work and point to one action you actually tried.",
       "studentSteps": [
-        "Work on your chosen assignment.",
-        "Finish any interim reflection: one learning example and one next step.",
-        "Check in and check off completed work."
+        "Find evidence of an action you tried.",
+        "Suggest a skill or kind of work that may connect.",
+        "Record one change in thinking or next question."
       ],
-      "titleKo": "활동 시간 · 미완성 과제와 성찰",
-      "firstActionKo": "끝내지 못한 활동을 꺼내고 다음에 할 일을 하나 고르세요."
+      "activity": {
+        "label": "Career connection lesson",
+        "href": "?subject=Career+Education&experience=career-constellation&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "진로 교육 · 활동 속에서 사용한 능력 찾기",
+      "firstActionKo": "활동한 내용을 살펴보고 직접 해 본 행동 한 가지를 짚어 보세요."
     },
     {
       "time": "1:15–1:25 pm",

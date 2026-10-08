@@ -7,15 +7,15 @@ const nav=load('app/classroom-navigation-state.ts');
 const dates=['2026-10-05','2026-10-06','2026-10-07','2026-10-08','2026-10-09','2026-10-13','2026-10-14','2026-10-15','2026-10-16'];
 const drafts=store.publishedDayPlans.filter(plan=>dates.includes(plan.date));
 
-test('two upcoming school weeks keep nine dated plans with confirmed Tuesday and Wednesday, no holiday lesson, and all bilingual pairs',()=>{
+test('two upcoming school weeks keep nine dated plans with confirmed Tuesday, Wednesday and Thursday, no holiday lesson, and all bilingual pairs',()=>{
  assert.equal(drafts.length,9);
  assert.equal(new Set(drafts.map(plan=>plan.id)).size,9);
  for(const plan of drafts){
-  assert.equal(plan.status,['2026-10-06','2026-10-07'].includes(plan.date)?undefined:'tentative');
+  assert.equal(plan.status,['2026-10-06','2026-10-07','2026-10-08'].includes(plan.date)?undefined:'tentative');
   assert.equal(plan.reflection,'');
   assert.ok(!plan.blocks.some(block=>block.title.startsWith('Science')), 'first-half plans focus on Social Studies');
   assert.deepEqual(store.parseDayPlan(plan),plan);
-  assert.match(nav.dayPlanStatus(plan,plan.date),['2026-10-06','2026-10-07'].includes(plan.date)?/Active classroom plan/:/Tentative.*review before teaching/);
+  assert.match(nav.dayPlanStatus(plan,plan.date),['2026-10-06','2026-10-07','2026-10-08'].includes(plan.date)?/Active classroom plan/:/Tentative.*review before teaching/);
   for(const block of plan.blocks){
    assert.ok(block.titleKo?.trim(),`${plan.date}: ${block.title} Korean title`);
    assert.ok(block.firstAction?.trim(),`${plan.date}: ${block.title} first action`);

@@ -23,7 +23,8 @@ test('normal entry uses the active plan, excludes tentative drafts and advances 
   assert.equal(nav.chooseDisplayPlan([...store.publishedDayPlans, draft], date, 'draft').id, 'draft');
 });
 
-test('explicit archive survives Home, activity, projector and editor routes; stale storage never overrides normal entry', () => {
+test('explicit archive survives Home, activity, projector and editor routes; stale storage never overrides normal entry', (t) => {
+  t.mock.timers.enable({apis:['Date'],now:new Date('2026-10-08T19:00:00Z')});
   const local = new Map(), session = new Map();
   globalThis.window = {location:{search:'?view=Morning+Screen&mode=student&dayPlan=archive'},
     localStorage:{getItem:k=>local.get(k)??null,setItem:(k,v)=>local.set(k,v)},
@@ -43,9 +44,9 @@ test('explicit archive survives Home, activity, projector and editor routes; sta
   window.location.search=nav.editDayHref();
   assert.equal(nav.displayedDayPlan().id,'archive');
   window.location.search='';
-  assert.equal(nav.displayedDayPlan().id,store.DEFAULT_DAY_PLAN_ID);
+  assert.equal(nav.displayedDayPlan().id,'day-2026-10-08');
   window.location.search='?view=Home';
-  assert.equal(nav.displayedDayPlan().id,store.DEFAULT_DAY_PLAN_ID);
+  assert.equal(nav.displayedDayPlan().id,'day-2026-10-08');
   assert.equal(JSON.stringify(store.readDayRevisions()),before);
   delete globalThis.window;
 });
