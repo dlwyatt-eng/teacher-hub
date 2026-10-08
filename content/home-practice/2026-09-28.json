@@ -1,16 +1,16 @@
 {
-  "updatedOn": "October 8, 2026",
+  "updatedOn": "September 30, 2026",
   "policy": "Separate daily homework is not routinely assigned. This is optional practice for families who want a regular routine. Choose what is useful; there is no expectation to complete the whole menu or submit optional practice.",
   "unfinished": "Check your planner and the instructions Mr. Wyatt has given you. Finish only the small piece identified for you, using the support agreed at school. An unfinished class activity is not automatically homework. If you were absent or are unsure, ask where to begin.",
   "routine": "Read or listen for 10–15 minutes, then choose one short activity. Families wanting a longer routine can add a second choice, keeping the total around 30–40 minutes including reading, or less when needed. Spread choices across evenings or select a few for the weekend; do not save up a catch-up pile.",
   "stopRule": "Stop if the work is confusing, upsetting or taking much longer than expected. Let Mr. Wyatt know which part was difficult. Rest, play, family time and activities outside school matter too.",
   "access": "Use paper, drawings, spoken explanations or a language that helps you think. Every menu activity can be done without an online account. No purchase, AI tool or routine portfolio upload is required.",
   "week": {
-    "id": "2026-10-08",
-    "label": "Rounding, comparing numbers and explaining choices",
-    "from": "2026-10-08",
-    "through": "2026-10-18",
-    "connection": "Reusable optional practice: round numbers, compare whole numbers and decimals, and explain your choices. Choose familiar activities and repeat with your own numbers. Use paper, drawings or spoken explanations; no account or home upload is required.",
+    "id": "2026-09-28",
+    "label": "September 28–October 4 · Rounding and explaining choices",
+    "from": "2026-09-28",
+    "through": "2026-10-04",
+    "connection": "Rounding decimals began on September 28. Try the supported example below, or return to familiar place value. Comparing decimals is a planned next step, not assumed completed. Reading can use any chosen book; Nevermoor progress is not assumed. All choices are optional and need no account or upload.",
     "activities": [
       {
         "id": "math",
@@ -26,21 +26,6 @@
         ],
         "check": "6.284 lies between 6.2 and 6.3 and is nearer 6.3. 2.305 is halfway between 2.30 and 2.31, so it rounds to 2.31 using our convention. Place-value alternative: 6 ones, 2 tenths, 8 hundredths, 4 thousandths.",
         "extension": "A measurement of 3.47 m is reported as 3.5 m. When might that be precise enough? When would you want the original measurement? Explain your choice."
-      },
-      {
-        "id": "compare",
-        "subject": "Math",
-        "title": "Compare and explain",
-        "time": "10 minutes",
-        "context": "Optional whole-number and decimal practice",
-        "example": "4.7 = 4.70. Compare 4.70 and 4.65: the ones are equal, but 7 tenths is greater than 6 tenths, so 4.7 > 4.65. Extra decimal digits do not automatically make a number larger.",
-        "steps": [
-          "Compare 48,305 and 48,350 using <, > or =. Start at the greatest place value and find the first differing digit.",
-          "Compare 0.8 and 0.75, then 3.04 and 3.4. Explain with place value, a drawing or a number line.",
-          "Put 2.5, 2.05 and 2.50 in order from least to greatest. Explain any equality."
-        ],
-        "check": "48,305 < 48,350; 0.8 > 0.75; 3.04 < 3.4; 2.05 < 2.5 = 2.50. Explain the value of the first differing digit, rather than counting digits.",
-        "extension": "Choose two different decimals that both round to 3.5 to the nearest tenth. Compare the original numbers and explain why their rounded values match."
       },
       {
         "id": "reading",
