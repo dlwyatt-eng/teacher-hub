@@ -54,5 +54,5 @@ test('specialist times, early dismissal, Friday snack and the Terry Fox block re
   if(weekday===4||weekday===5)assert.equal(plan.blocks.find(block=>/^Physical and Health Education.*gym/.test(block.title)).time,'11:10–11:50 am');
  }
  assert.match(drafts.find(plan=>plan.date==='2026-10-08').blocks.at(-1).time,/1:35 pm$/);
- assert.equal(drafts.find(plan=>plan.date==='2026-10-09').blocks.find(block=>/Education · Terry Fox Run/.test(block.title)).time,'12:35–2:00 pm');
+ assert.equal(drafts.find(plan=>plan.date==='2026-10-09').blocks.find(block=>/Education · Terry Fox Run/.test(block.title)).time,'1:00–2:00 pm');
 });
