@@ -86,9 +86,22 @@
       "firstActionKo": "바깥 놀이와 점심시간에는 정해진 순서대로 하세요."
     },
     {
-      "time": "12:35–2:00 pm",
+      "time": "12:35–1:00 pm",
+      "title": "Quiet time",
+      "notes": "Settle after lunch with quiet reading, drawing or a calm rest. Leave time to get ready for the Terry Fox Run at 1:00 pm.",
+      "href": "",
+      "firstAction": "Choose a quiet activity and settle into your space.",
+      "studentSteps": [
+        "Read, draw quietly or take a calm rest.",
+        "When asked, put materials away and get ready for the Terry Fox Run."
+      ],
+      "titleKo": "조용한 시간",
+      "firstActionKo": "조용한 활동을 고르고 자리에 편안히 앉으세요."
+    },
+    {
+      "time": "1:00–2:00 pm",
       "title": "Physical and Health Education · Terry Fox Run",
-      "notes": "Confirmed school event, 12:35–2:00 pm. Have a full water bottle, running shoes and weather-appropriate clothing ready. Follow the school’s route, supervision and adapted participation directions. Confirm preparation arrangements with the school before the run; use walking, running or another school-approved participation route. Do not rank speed or distance. If rescheduled, use a familiar indoor movement/art continuation.",
+      "notes": "Student staggered start at 1:00 pm; run block ends at 2:00 pm. Volunteers arrive at 12:35 pm. Have a full water bottle, running shoes and weather-appropriate clothing ready. Follow the school’s route, supervision and adapted participation directions. Confirm preparation arrangements with the school before the run; use walking, running or another school-approved participation route. Do not rank speed or distance. If rescheduled, use a familiar indoor movement/art continuation.",
       "href": "",
       "firstAction": "Join the school activity in the agreed safe way.",
       "titleKo": "체육·보건 · Terry Fox Run",
