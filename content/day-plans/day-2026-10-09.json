@@ -23,22 +23,17 @@
     },
     {
       "time": "8:50–9:35 am",
-      "title": "Mathematics · show what makes sense",
-      "notes": "Give a short check on taught ideas only: value of 6 in 3.064 (0.06); 0.70 vs 0.7 (=); 5.376 to hundredths (5.38); explain 5.306 < 5.36. Remove untaught items. Use the remaining time for a conference or targeted practice, and keep a brief next-step summary.",
-      "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
-      "firstAction": "Try the number questions on your own.",
+      "title": "Terry Fox video and discussion",
+      "notes": "Watch a teacher-selected Terry Fox video together. Discuss what students noticed, how Terry showed perseverance and care for others, and how we can bring those qualities to today’s run.",
+      "href": "",
+      "firstAction": "Get ready to watch and listen to Terry Fox’s story.",
       "studentSteps": [
-        "Try the model on paper or a whiteboard.",
-        "Explain which place or strategy supports your answer.",
-        "Complete one independent check; use it to choose our next step."
+        "Watch the Terry Fox video and notice something that stands out.",
+        "Share a detail or question with the class.",
+        "Discuss how we can show perseverance and care for others during today’s run."
       ],
-      "activity": {
-        "label": "Number comparison lesson",
-        "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
-        "studentSafe": true
-      },
-      "titleKo": "수학 · 이해한 내용 보여 주기",
-      "firstActionKo": "수에 관한 문제를 혼자 풀어 보세요."
+      "titleKo": "테리 폭스 영상 시청과 이야기 나누기",
+      "firstActionKo": "테리 폭스의 이야기를 보고 들을 준비를 하세요."
     },
     {
       "time": "9:35–10:35 am",
