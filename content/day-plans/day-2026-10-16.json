@@ -5,7 +5,7 @@
   "title": "Tentative · Friday · French, gym and a small arts share",
   "greeting": "Good morning, Division 8!",
   "arrival": "This is our working plan. We may adjust it to finish learning well.",
-  "note": "Tentative plan: adjust to actual learning and school notices. Resume unfinished work before advancing; use Nevermoor’s actual class bookmark, or begin the opening if needed. Teacher projector plus paper is sufficient. LST and extra device bookings are unconfirmed. Record actual outcomes separately. Keep familiar paper-ready tasks available and check any school timetable changes before teaching. Mr. Eckert teaches Core French only. Mr. Wyatt teaches Physical and Health Education, including classroom health learning and PE.",
+  "note": "Tentative plan for October 13–16: LST times and laptop bookings are unconfirmed. Adjust blocks when the new LST timetable arrives. No inequalities upload is required. Begin factors and factor pairs; introduce prime and composite numbers only when ready. Continue Nevermoor from the actual class bookmark. Mr. Eckert teaches French only; Mr. Wyatt teaches PHE. Monday October 12 is Thanksgiving: no school. Confirm soccer playday coverage; leave familiar activities and the actual novel bookmark for any covering teacher.",
   "reflection": "",
   "blocks": [
     {
@@ -23,22 +23,17 @@
     },
     {
       "time": "8:50–9:35 am",
-      "title": "Mathematics · explain and improve",
-      "notes": "Students explain one current-route example and improve an earlier misunderstanding. Optional matched check: order 0.56, 0.506, 0.65 (0.506 < 0.56 < 0.65), or calculate 32 × 14 = 448 if that strategy was taught. Collect one next-step note rather than launch a new topic.",
-      "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
-      "firstAction": "Choose one piece of this week’s Mathematics that you can explain.",
+      "title": "Maths · factors check and reflection",
+      "notes": "Use a short check on factor pairs for 20 and 24; explain how to know the list is complete. Reteach or extend from the check. No upload required.",
+      "href": "",
+      "firstAction": "Find whole-number pairs that multiply to make 12.",
       "studentSteps": [
-        "Try the model on paper or a whiteboard.",
-        "Explain which place or strategy supports your answer.",
-        "Complete one independent check; use it to choose our next step."
+        "Build or draw an array and name its factor pair.",
+        "Find other factor pairs for the number.",
+        "Show how you checked your list."
       ],
-      "activity": {
-        "label": "Number comparison lesson",
-        "href": "?subject=Mathematics&experience=magnitude-gallery&mode=student",
-        "studentSafe": true
-      },
-      "titleKo": "수학 · 설명하고 보완하기",
-      "firstActionKo": "이번 주에 배운 수학 내용 중 설명할 수 있는 것 하나를 고르세요."
+      "titleKo": "수학 · 약수와 약수의 쌍",
+      "firstActionKo": "곱해서 12가 되는 자연수의 쌍을 찾아보세요."
     },
     {
       "time": "9:35–10:35 am",
@@ -101,7 +96,7 @@
     },
     {
       "time": "1:00–2:00 pm",
-      "title": "Arts Education · visual choices and a small share",
+      "title": "Art · continue and finish existing artwork",
       "notes": "Continue existing art first, or use only the visual-art page of Four Arts Foundations. Demonstrate two original thumbnails with different emphasis, then let students make a small study using line, shape, colour or value. Partners say what they notice first; the artist revises one choice or explains why it works. Keep inquiry content accurate and assess the artistic choice separately.",
       "href": "?subject=Arts+Education&experience=four-arts-languages&mode=student",
       "firstAction": "Choose a work in progress, or sketch two ways to show one idea.",
@@ -121,7 +116,7 @@
     {
       "time": "2:00–2:15 pm",
       "title": "Planners, jobs and cleanup",
-      "notes": "Keep routine cleanup around 2:00; move unfinished learning forward.",
+      "notes": "Keep routine cleanup around 2:00; move unfinished learning forward. Send home interim reports by today.",
       "href": "?view=Responsibilities&mode=student",
       "firstAction": "Restore our room and record any confirmed reminders.",
       "activity": {
@@ -156,7 +151,8 @@
     }
   ],
   "backups": [
-    "Carry unfinished learning into the next suitable block rather than adding a second full lesson.",
-    "If the projector or sign-in fails, use paper, the board and available class materials."
+    "If laptops are unavailable, finish paper work, rehearse a spoken reflection or plan the next Action Pack step.",
+    "Carry unfinished learning into the next suitable block. No inequalities upload is required.",
+    "LST times will be added when confirmed."
   ]
 }
