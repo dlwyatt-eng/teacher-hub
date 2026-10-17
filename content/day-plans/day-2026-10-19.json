@@ -4,7 +4,7 @@
   "title": "Monday · factor pairs, evidence and Nevermoor",
   "greeting": "Good morning, Division 8!",
   "arrival": "Answer attendance, then hand in any forms. Get paper and a pencil ready.",
-  "note": "Our four-day learning week: explain how you know. Friday October 23 is a non-instructional day. No inequalities upload is required. Continue Nevermoor from our actual bookmark.",
+  "note": "Our four-day learning week: explain how you know. Friday October 23 is a non-instructional day. No inequalities upload is required. Continue Nevermoor from our actual bookmark. Provincial Student Vote is Thursday October 22; our voting slot is pending.",
   "reflection": "",
   "blocks": [
     {
@@ -62,15 +62,20 @@
     },
     {
       "time": "10:50–11:20 am",
-      "title": "Social studies · from a promise to a decision",
-      "notes": "Choose one local election promise previously studied. Use verified official results only when available; otherwise investigate the promise without naming a winner. Do not collect or disclose ballot choices.",
+      "title": "Social studies · check our party posters",
+      "notes": "Use posters already underway and original sources; give all parties equal attention. Model: The party proposes ___. Our source is ___. This could affect ___. Assess explanation, not political preference.",
       "href": "",
-      "firstAction": "Choose one promise from a source we have already studied.",
+      "firstAction": "Open your existing poster and check one proposal against its source.",
       "studentSteps": [
-        "Choose one promise from a source we have already studied.",
-        "Identify who makes the decision and what else it may need: a vote, money, staff work, public input or another government.",
-        "Record one thing the source shows and one question to check."
-      ]
+        "Check your party name, leader and three provincial proposals against the original sources.",
+        "Distinguish the party leader from the local candidate. Record sources and clarify uncertain claims.",
+        "Explain one verified proposal in your own words to a partner."
+      ],
+      "activity": {
+        "label": "CIVIX BC resources",
+        "href": "https://studentvote.ca/bc/classroom-resources/",
+        "studentSafe": true
+      }
     },
     {
       "time": "11:20–11:50 am",
@@ -183,7 +188,7 @@
   ],
   "backups": [
     "Use counters and paper if technology is unavailable.",
-    "If election results are not verified, investigate a previously studied promise without reporting winners.",
+    "Use printed poster sources; record unanswered questions instead of guessing.",
     "Carry unfinished learning into the next suitable work block."
   ]
 }
