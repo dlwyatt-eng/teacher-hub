@@ -63,11 +63,11 @@ test('navigation reads published plans when local data is unavailable without ov
   const damaged = '{unreadable';
   let writes = 0;
   globalThis.window = {localStorage:{getItem:()=>damaged,setItem:()=>writes++}};
-  assert.equal(store.listDayPlans().length,store.publishedDayPlans.length);
+  assert.equal(liveStore.listDayPlans().length,liveStore.publishedDayPlans.length);
   assert.throws(()=>store.saveDayPlan(store.publishedDayPlans[0]));
   assert.equal(writes,0);
   window.localStorage.getItem=()=>{throw new Error('Storage blocked');};
-  assert.equal(store.listDayPlans().length,store.publishedDayPlans.length);
+  assert.equal(liveStore.listDayPlans().length,liveStore.publishedDayPlans.length);
   delete globalThis.window;
 });
 
