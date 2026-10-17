@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import {moduleLoader} from './helpers/load-rendered-module.mjs';
 const load=moduleLoader(process.cwd());
 const store=load('app/day-plan-store.ts');
-const nav=load('app/classroom-navigation-state.ts');
+// Preserve the reviewed default used by these historical October 5–16 fixtures.
+const nav=moduleLoader(process.cwd(),{'./day-plan-store':{...store,DEFAULT_DAY_PLAN_ID:'day-2026-10-06',publishedDayPlans:store.publishedDayPlans.filter(p=>!p.date||p.date<='2026-10-16'),listDayPlans:()=>store.publishedDayPlans.filter(p=>!p.date||p.date<='2026-10-16')}})('app/classroom-navigation-state.ts');
 const dates=['2026-10-05','2026-10-06','2026-10-07','2026-10-08','2026-10-09','2026-10-13','2026-10-14','2026-10-15','2026-10-16'];
 const drafts=store.publishedDayPlans.filter(plan=>dates.includes(plan.date));
 

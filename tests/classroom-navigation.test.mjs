@@ -2,8 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {moduleLoader} from './helpers/load-rendered-module.mjs';
 const load = moduleLoader(process.cwd());
-const nav = load('app/classroom-navigation-state.ts');
-const store = load('app/day-plan-store.ts');
+const liveStore = load('app/day-plan-store.ts');
+// Fixed historical fixture: advancing the live default must not rewrite these archive cases.
+const store = {...liveStore, DEFAULT_DAY_PLAN_ID:'day-2026-10-06', publishedDayPlans:liveStore.publishedDayPlans.filter(p=>!p.date || p.date<='2026-10-16')};
+const historicalLoad = moduleLoader(process.cwd(), {'./day-plan-store':store});
+const nav = historicalLoad('app/classroom-navigation-state.ts');
 // Keep the fallback template undated so a published plan cannot collide with
 // the synthetic "today" fixture when this test runs on its teaching date.
 const date = '2030-09-18';
@@ -79,4 +82,11 @@ test('projector Home and Back preserve the student display mode', () => {
   assert.equal(nav.classroomRouteForMode('?view=Home',true),'?view=Home&mode=student');
   assert.equal(nav.classroomRouteForMode('?view=Day+Plans&mode=teacher',true),'?view=Day+Plans&mode=student');
   assert.equal(nav.classroomRouteForMode('?view=Home',false),'?view=Home');
+});
+
+test('the approved October 19 plan is the live default and keeps earlier plans',()=>{
+ const liveNav=load('app/classroom-navigation-state.ts');
+ assert.equal(liveStore.DEFAULT_DAY_PLAN_ID,'day-2026-10-19');
+ assert.equal(liveNav.chooseDisplayPlan(liveStore.publishedDayPlans,'2026-10-19').id,'day-2026-10-19');
+ assert.ok(liveStore.publishedDayPlans.some(p=>p.id==='day-2026-10-06'));
 });
