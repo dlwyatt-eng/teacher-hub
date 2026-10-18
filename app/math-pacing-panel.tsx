@@ -12,6 +12,7 @@ export function MathPacedLesson({ lesson, student = false }: { lesson: MathPacin
   const [step, setStep] = useState(0);
   const stages = [...(lesson.source ? [{title:'Read, notice and discuss',text:lesson.source.prompt}] : []), { title: 'See an example', text: lesson.model }, { title: 'Try and explain', text: lesson.task }, { title: 'Try on your own', text: lesson.check }];
   return <section className={`math-paced-lesson ${student ? 'math-paced-lesson--student' : ''}`}>
+    {lesson.id === "f1" && <p><a href="./math-prime-factorization.html">Open the prime-factorization lesson · Math Antics, two trees, practice and exit check →</a></p>}
     <header><h3>{lesson.title}</h3><p>Use paper, a pencil and a drawing when it helps. Keep your working.</p><button type="button" onClick={e => printClosest(e.currentTarget, '.math-paced-lesson')}>Print student task</button></header>
     {student && <nav aria-label="Focused math lesson stages">{stages.map((s,i)=><button type="button" key={s.title} aria-pressed={step===i} onClick={()=>setStep(i)}>{i+1}. {s.title}</button>)}</nav>}
     {stages.map((s,i)=><article key={s.title} data-current={!student || step===i}><h4>{s.title}</h4>{lesson.source && i===0 && <><p><a href={lesson.source.url} target="_blank" rel="noreferrer">{lesson.source.title} ↗</a></p><p className="math-story-credit">{lesson.source.credit}</p><p>{lesson.source.summary}</p></>}<p>{s.text}</p></article>)}

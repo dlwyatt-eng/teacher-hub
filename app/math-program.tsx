@@ -183,6 +183,7 @@ function TeacherMathPack({ pack }: { pack: MathSupportPack }) {
   return (
     <article className="math-teaching-pack">
       <PackHeader pack={pack} />
+      {pack.id === "factors-multiples-pack" && <p><strong>Prime factorization first?</strong> <a href="./math-prime-factorization.html">Open the Math Antics companion: two trees for 24, practice and exit check →</a> Keep this counter/GCF workshop for the follow-up.</p>}
       <div className="math-readiness-choice" role="group" aria-label={`Readiness route for ${pack.title}`}>
         {(Object.keys(levelCopy) as ReadinessLevel[]).map(item => <button type="button" key={item} className={level === item ? "selected" : ""} aria-pressed={level === item} onClick={() => setLevel(item)}><b>{levelCopy[item].label}</b><small>{levelCopy[item].time}</small><span>{levelCopy[item].description}</span></button>)}
       </div>

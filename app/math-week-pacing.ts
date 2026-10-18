@@ -191,14 +191,14 @@ export const mathPacingLessons: Record<string, MathPacingLesson> = {
   "f1": {
     "id": "f1",
     "unit": "factors",
-    "title": "Prime, composite and divisibility",
+    "title": "Prime factorization · different trees, same primes",
     "packId": "factors-multiples-pack",
     "experienceId": "pack-and-sync",
-    "model": "A prime number has exactly two positive factors; a composite number has more. One is neither. To test divisibility: 2 needs an even last digit; 3 or 9 needs a digit sum divisible by 3 or 9; 5 needs a final 0 or 5; 10 needs a final 0. For 84, the digit sum is 12, so it is divisible by 3. A factor tree gives 84 = 2 × 42 = 2 × 2 × 21 = 2 × 2 × 3 × 7. All the end factors are prime.",
-    "task": "Sort 1, 17 and 24 as neither, prime or composite. Test 270 for divisibility by 2, 3, 5, 9 and 10. Build two factor trees for 60, starting with 6 × 10 and 3 × 20. Compare the prime factors and multiply back to check.",
-    "check": "Which of 2, 3, 5, 9 and 10 divide 126? Write 126 as a product of prime factors.",
-    "answer": "2, 3 and 9 divide 126. Its prime factor product is 2 × 3 × 3 × 7. Practice: 1 neither; 17 prime; 24 composite. All five listed divisors divide 270. Both trees for 60 give 2 × 2 × 3 × 5."
-  },
+    "model": "After Math Antics Prime Factorization, compare 24 = 4 × 6 and 24 = 3 × 8. Split composite end numbers until both trees give 2 × 2 × 2 × 3. Only prime end numbers enter the final product. Multiply back to check.",
+    "task": "Prime-factorize 18, 30 and 36. Compare different starts for 36. If ready, build two trees for 60 starting with 6 × 10 and 3 × 20. Repair the claim that 36 = 2 × 3 × 6 is finished.",
+    "check": "Prime-factorize 42. Explain how you know you are finished, then multiply back to check.",
+    "answer": "42 = 2 × 3 × 7; all three factors are prime and their product is 42. Practice: 18 = 2 × 3 × 3; 30 = 2 × 3 × 5; 36 = 2 × 2 × 3 × 3; 60 = 2 × 2 × 3 × 5. The 6 must split into 2 × 3. Expanded products are enough; exponent notation is optional."
+},
   "f2": {
     "id": "f2",
     "unit": "factors",
@@ -620,7 +620,7 @@ export const mathPacingWeeks: MathPacingWeek[] = [
       "f1",
       "f2"
     ],
-    "note": "Teach the divisibility tests and complete both prime-factor trees in f1 before the equal-kit application. Split sorting and factor trees across teaching and practice if needed.",
+    "note": "Monday: Math Antics Prime Factorization, two trees for 24, practice and the 42 exit check. Use the dedicated companion link. Keep the counter/GCF lesson as the follow-up; revisit divisibility using the existing reference strip as needed.",
     "kind": "teach"
   },
   {

@@ -1,0 +1,194 @@
+{
+  "id": "day-2026-10-19",
+  "date": "2026-10-19",
+  "title": "Monday · factor pairs, evidence and Nevermoor",
+  "greeting": "Good morning, Division 8!",
+  "arrival": "Answer attendance, then hand in any forms. Get paper and a pencil ready.",
+  "note": "Our four-day learning week: explain how you know. Friday October 23 is a non-instructional day. No inequalities upload is required. Continue Nevermoor from our actual bookmark. Provincial Student Vote is Thursday October 22; our voting slot is pending.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:45 am",
+      "title": "Arrival and attendance",
+      "notes": "Attendance before form collection.",
+      "href": "",
+      "firstAction": "Settle in and answer attendance.",
+      "studentSteps": [
+        "Settle in and answer attendance.",
+        "Hand in any forms afterward."
+      ]
+    },
+    {
+      "time": "8:45–9:35 am",
+      "title": "Maths · factors and factor pairs",
+      "notes": "Use counters or squared paper. A factor divides a whole number without a remainder. Model 12: 1 × 12, 2 × 6, 3 × 4. Rotated arrays repeat the same pair. Practise 18 and 24; check 20. Optional extension: compare 16 and 17.",
+      "href": "",
+      "firstAction": "Build or draw an array for 12 and write its multiplication equation.",
+      "studentSteps": [
+        "Build or draw an array for 12 and write its multiplication equation.",
+        "Find every factor pair for 18 and 24. Check possible divisors in order.",
+        "List the factor pairs of 20. Explain why 3 is not a factor."
+      ]
+    },
+    {
+      "time": "9:35–10:20 am",
+      "title": "Literacy · explain with evidence",
+      "notes": "Model: Twenty can be arranged in four equal rows of five, so 4 and 5 are factors of 20. Students may instead explain an idea from a recently read text. Allow oral rehearsal, drawings, labels and scribing.",
+      "href": "",
+      "firstAction": "Explain an array or an idea from a text we have read.",
+      "studentSteps": [
+        "Explain an array or an idea from a text we have read.",
+        "Add one detail that supports your explanation.",
+        "Ask a partner to retell your idea, then improve one unclear sentence."
+      ]
+    },
+    {
+      "time": "10:20–10:35 am",
+      "title": "Snack",
+      "notes": "Protect the usual 10:20 snack start.",
+      "href": "",
+      "firstAction": "Put your work away and have your snack.",
+      "titleKo": "간식",
+      "firstActionKo": "활동을 정리하고 간식을 먹으세요."
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "notes": "",
+      "href": "",
+      "firstAction": "Follow our recess routine.",
+      "titleKo": "쉬는 시간",
+      "firstActionKo": "쉬는 시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "10:50–11:20 am",
+      "title": "Social studies · check our party posters",
+      "notes": "Use posters already underway and original sources; give all parties equal attention. Model: The party proposes ___. Our source is ___. This could affect ___. Assess explanation, not political preference.",
+      "href": "",
+      "firstAction": "Open your existing poster and check one proposal against its source.",
+      "studentSteps": [
+        "Check your party name, leader and three provincial proposals against the original sources.",
+        "Distinguish the party leader from the local candidate. Record sources and clarify uncertain claims.",
+        "Explain one verified proposal in your own words to a partner."
+      ],
+      "activity": {
+        "label": "CIVIX BC resources",
+        "href": "https://studentvote.ca/bc/classroom-resources/",
+        "studentSafe": true
+      }
+    },
+    {
+      "time": "11:20–11:50 am",
+      "title": "Writing and maths workshop",
+      "notes": "Revisit morning explanations and arrays. Five-minute shared model; fifteen-minute targeted practice; ten-minute independent check. Use equal groups, factor pairs and explanations that match representations.",
+      "href": "",
+      "firstAction": "Bring your morning explanation or arrays.",
+      "studentSteps": [
+        "Bring your morning explanation or arrays.",
+        "Practise the next step with your group or revise independently.",
+        "Show one example you can now explain on your own."
+      ]
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "notes": "Usual intermediate routine: outside 11:50–12:12; transition 12:12–12:13; eating 12:13–12:35.",
+      "href": "",
+      "firstAction": "Follow our outside-play and lunch routine.",
+      "titleKo": "점심시간",
+      "firstActionKo": "바깥 놀이와 점심시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "12:35–12:50 pm",
+      "title": "Quiet individual time",
+      "notes": "A calm reset with quiet non-reading choices.",
+      "href": "",
+      "firstAction": "Choose quiet reading, drawing or an unfinished task.",
+      "studentSteps": [
+        "Choose quiet reading, drawing or an unfinished task."
+      ]
+    },
+    {
+      "time": "12:50–1:35 pm",
+      "title": "Work block · Career and Action Packs",
+      "notes": "Finish existing learning; choose one manageable action and identify any adult help or materials needed.",
+      "href": "",
+      "firstAction": "Choose an unfinished task or your next Action Pack step.",
+      "studentSteps": [
+        "Choose an unfinished task or your next Action Pack step.",
+        "Make progress and mark where to continue."
+      ]
+    },
+    {
+      "time": "1:35–2:00 pm",
+      "title": "English Language Arts · Nevermoor",
+      "notes": "Reconstruct the last scene with two reliable details before listening on. Mark uncertainty instead of filling story gaps. Add one new idea/detail response and record the bookmark.",
+      "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+      "firstAction": "Recall the last part we actually heard, or listen to the opening.",
+      "studentSteps": [
+        "Listen for a character or setting detail.",
+        "Write, draw or say an idea and the detail that supports it.",
+        "Keep one question for our next reading."
+      ],
+      "activity": {
+        "label": "Story evidence lesson",
+        "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "영어 · Nevermoor",
+      "firstActionKo": "지난번에 들은 마지막 부분을 떠올리거나 이야기의 시작 부분을 들으세요."
+    },
+    {
+      "time": "2:00–2:10 pm",
+      "title": "Finish and reflect",
+      "notes": "Carry unfinished learning forward.",
+      "href": "",
+      "firstAction": "Save or organize your work.",
+      "studentSteps": [
+        "Save or organize your work.",
+        "Name one thing you can explain better now."
+      ]
+    },
+    {
+      "time": "2:10–2:20 pm",
+      "title": "Planners, jobs and cleanup",
+      "notes": "Keep routine cleanup around 2:00; move unfinished learning forward.",
+      "href": "?view=Responsibilities&mode=student",
+      "firstAction": "Restore our room and record any confirmed reminders.",
+      "activity": {
+        "label": "Class responsibilities",
+        "href": "?view=Responsibilities&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "알림장·맡은 일·정리",
+      "firstActionKo": "교실을 정리하고 확정된 안내 사항을 적으세요."
+    },
+    {
+      "time": "2:20–2:30 pm",
+      "title": "Classroom community",
+      "notes": "Use a short check-in, appreciation or familiar cooperative game. Students may speak, draw, point or pass; keep feedback specific and avoid public rankings.",
+      "href": "",
+      "firstAction": "Notice one helpful action from today.",
+      "studentSteps": [
+        "Offer one specific appreciation or listen.",
+        "Name a small next step for tomorrow."
+      ],
+      "titleKo": "학급 활동",
+      "firstActionKo": "오늘 도움이 된 행동 한 가지를 떠올려 보세요."
+    },
+    {
+      "time": "2:30–2:35 pm",
+      "title": "Pack up and dismissal",
+      "notes": "",
+      "href": "",
+      "firstAction": "Check your belongings and get ready for a calm departure.",
+      "titleKo": "짐 챙기기·하교",
+      "firstActionKo": "자기 물건을 확인하고 차분히 하교할 준비를 하세요."
+    }
+  ],
+  "backups": [
+    "Use counters and paper if technology is unavailable.",
+    "Use printed poster sources; record unanswered questions instead of guessing.",
+    "Carry unfinished learning into the next suitable work block."
+  ]
+}

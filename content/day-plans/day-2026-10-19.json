@@ -1,7 +1,7 @@
 {
   "id": "day-2026-10-19",
   "date": "2026-10-19",
-  "title": "Monday · factor pairs, evidence and Nevermoor",
+  "title": "Monday · prime factorization, evidence and Nevermoor",
   "greeting": "Good morning, Division 8!",
   "arrival": "Answer attendance, then hand in any forms. Get paper and a pencil ready.",
   "note": "Our four-day learning week: explain how you know. Friday October 23 is a non-instructional day. No inequalities upload is required. Continue Nevermoor from our actual bookmark. Provincial Student Vote is Thursday October 22; our voting slot is pending.",
@@ -20,24 +20,30 @@
     },
     {
       "time": "8:45–9:35 am",
-      "title": "Maths · factors and factor pairs",
-      "notes": "Use counters or squared paper. A factor divides a whole number without a remainder. Model 12: 1 × 12, 2 × 6, 3 × 4. Rotated arrays repeat the same pair. Practise 18 and 24; check 20. Optional extension: compare 16 and 17.",
-      "href": "",
-      "firstAction": "Build or draw an array for 12 and write its multiplication equation.",
+      "title": "Maths · prime factorization",
+      "notes": "Math Antics Prime Factorization, then compare trees for 24 starting with 4 × 6 and 3 × 8. Practise 18, 30 and 36; challenge 60. Exit: prime-factorize 42, explain why finished, multiply back. Use paper and pencils; no counters or printing needed. Keep Pack It / Sync It for a later GCF lesson.",
+      "href": "./math-prime-factorization.html",
+      "firstAction": "Decide which of 2, 4, 7 and 9 are prime. Explain how you know.",
       "studentSteps": [
-        "Build or draw an array for 12 and write its multiplication equation.",
-        "Find every factor pair for 18 and 24. Check possible divisors in order.",
-        "List the factor pairs of 20. Explain why 3 is not a factor."
-      ]
+        "Watch Math Antics and predict the next factor split.",
+        "Compare two trees for 24. Split until every end number is prime.",
+        "Prime-factorize 18, 30 and 36; try two trees for 60 if ready.",
+        "Independently prime-factorize 42, explain why you are finished, and multiply back."
+      ],
+      "activity": {
+        "label": "Prime factorization · video, trees and practice",
+        "href": "./math-prime-factorization.html",
+        "studentSafe": true
+      }
     },
     {
       "time": "9:35–10:20 am",
       "title": "Literacy · explain with evidence",
-      "notes": "Model: Twenty can be arranged in four equal rows of five, so 4 and 5 are factors of 20. Students may instead explain an idea from a recently read text. Allow oral rehearsal, drawings, labels and scribing.",
+      "notes": "Model: Both trees for 24 end in 2 × 2 × 2 × 3. These end numbers are prime, and their product is 24. Students may instead explain an idea from a recently read text. Allow oral rehearsal, drawings, labels and scribing.",
       "href": "",
-      "firstAction": "Explain an array or an idea from a text we have read.",
+      "firstAction": "Explain a factor tree or an idea from a text we have read.",
       "studentSteps": [
-        "Explain an array or an idea from a text we have read.",
+        "Explain a factor tree or an idea from a text we have read.",
         "Add one detail that supports your explanation.",
         "Ask a partner to retell your idea, then improve one unclear sentence."
       ]
@@ -80,11 +86,11 @@
     {
       "time": "11:20–11:50 am",
       "title": "Writing and maths workshop",
-      "notes": "Revisit morning explanations and arrays. Five-minute shared model; fifteen-minute targeted practice; ten-minute independent check. Use equal groups, factor pairs and explanations that match representations.",
+      "notes": "Revisit morning explanations and factor trees. Use the exit check to choose targeted practice or further reasoning. Keep repeated prime factors and check by multiplying back. Save the counter/GCF investigation for a later lesson.",
       "href": "",
-      "firstAction": "Bring your morning explanation or arrays.",
+      "firstAction": "Bring your morning explanation or factor trees.",
       "studentSteps": [
-        "Bring your morning explanation or arrays.",
+        "Bring your morning explanation or factor trees.",
         "Practise the next step with your group or revise independently.",
         "Show one example you can now explain on your own."
       ]
@@ -187,7 +193,7 @@
     }
   ],
   "backups": [
-    "Use counters and paper if technology is unavailable.",
+    "Use the on-page factor-tree model or draw both trees for 24 on the board if the video is unavailable. Paper and pencils are enough.",
     "Use printed poster sources; record unanswered questions instead of guessing.",
     "Carry unfinished learning into the next suitable work block."
   ]
