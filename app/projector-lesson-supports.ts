@@ -1234,7 +1234,8 @@ export const projectorLessonSupports: Record<string, ProjectorLessonSupport> = {
   "example": {
     "title": "Pack 24 blue and 36 gold badges; then time two lights",
     "steps": [
-      "List factors of 24: 1, 2, 3, 4, 6, 8, 12, 24. List factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36.",
+      "First predict and share 24 blue and 36 gold counters between two pack circles: 12 blue and 18 gold per pack. Test 3, 4, 5, 6, 8 and 12 packs; record each colour and leftovers. Use the clickable workshop model if counters are unavailable.",
+      "List factors of 24: 1, 2, 3, 4, 6, 8, 12, 24. List factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. Compare the lists with your counter record.",
       "Both lists contain 1, 2, 3, 4, 6 and 12. The greatest is 12. Make 12 identical packs, each with 24 ÷ 12 = 2 blue and 36 ÷ 12 = 3 gold badges.",
       "Check: 12 × 2 = 24 blue and 12 × 3 = 36 gold. Every badge is used. No larger number divides both supplies exactly.",
       "Now two lights flash together at 0 seconds. One repeats every 4 seconds: 4, 8, 12. The other repeats every 6 seconds: 6, 12.",

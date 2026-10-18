@@ -117,7 +117,7 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
     title: "Make equal packs and time flashing lights",
     shortTitle: "Factors, multiples, GCF, and LCM workshop",
     timing: "October · Weeks 7–8",
-    blocks: "3 × 45–55 min",
+    blocks: "2 × 45–55 min + a separate prime-factor/divisibility lesson as needed",
     role: "BC CORE",
     readinessLevel: "full",
     mathUpTopics: ["Factors and Multiples", "BC_Working With Factors and Multiples"],
@@ -131,21 +131,31 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       "The least common multiple is the first positive meeting point. GCF and LCM can use the same numbers but answer different story questions.",
     ],
     teacherMoves: [
-      "Arrange 24 red and 36 blue counters into equal packs; test possible pack counts and record the common factors.",
-      "Use the greatest common factor, 12, to make 12 identical packs with 2 red and 3 blue in each.",
-      "Act out signals every 4 and 6 counts on one timeline; mark 12 as the first shared meeting.",
-      "Place two nearly identical stories side by side and underline the clues ‘greatest identical packs’ and ‘first meet again.’",
-      "Model a divisibility or skip-counting check instead of requiring prime factorization as the only method.",
-    ],
+  "Before class: choose physical or projected counters. For physical work, give each pair 24 blue and 36 gold counters. Use two shapes if colours are hard to distinguish. Students only need plain paper; printing is optional.",
+  "0–8 min: say “A counter stands for one item. Each circle is a pack. Identical means the same number of blue AND gold items.” Draw two circles. Ask students to predict before dealing blue counters one at a time around the circles, then gold. Count 12 blue and 18 gold in each; multiply back. On screen choose 2, then Share after students predict.",
+  "8–20 min: pairs test 3, 4, 5, 6, 8 and 12 packs, predicting before moving counters. Record pack count, each colour per pack and leftovers. Switch builder/checker halfway. For 5 packs there are 4 blue and 1 gold left; for 8, blue divides but 4 gold remain. Never split a counter to force a pack to work.",
+  "20–28 min: collect the successful counts. Use factor pairs to establish all common factors: 1, 2, 3, 4, 6, 12. Ask “How do you know there are no more?” Name greatest common factor only after students see its job. Twelve packs hold 2 blue and 3 gold each. Distinguish number of packs from items per pack.",
+  "28–43 min: move from objects to drawing, division or factor pairs for 48 pencils and 72 erasers; then add 30 rulers. Ask for every possible pack count, not only the largest. The maximum changes from 24 to 6; now each has 8 pencils, 12 erasers and 5 rulers. Students ready sooner begin this task while you support other pairs.",
+  "43–50 min: independent 20/32 check, including contents and why no larger pack count works. If a student can build but cannot explain, ask them to point to the groups while recording the matching division. If secure, move on; do not repeat the introductory model for another period.",
+  "Lesson 2: start with 4- and 6-second signals on a 0–12 timeline. Practise 9/12 and 6/8. Mix packing and timing questions before naming GCF or LCM. Finish with the independent 5/8 signal check and a reason for choosing multiples. Teach prime factors/divisibility separately using the existing kit when needed."
+],
     studentMoves: [
-      "Build several exact pack counts and list the numbers that divide both supplies.",
-      "Choose the greatest common factor and prove what belongs in each pack.",
-      "Tap, step, list, or draw two repeating sequences and circle every meeting point.",
-      "Choose the least positive common multiple and connect it to the first meeting time.",
-      "Compare the supplied packing and flashing-light stories, then explain why each needs factors or multiples.",
-    ],
-    supplied: ["Twelve-pack diagram","Factor lists and flashing-light times","Worked steps, practice and independent check","Separate teacher answers"],
-    gather: ["Two colours of counters or small objects", "Paper plates, hoops, or drawn group circles", "Timeline strips", "Pencils"],
+  "Start with 24 blue and 36 gold counters, or watch the screen model. Predict what belongs in each of two identical packs. Share each colour separately.",
+  "Try 3, 4, 5, 6, 8 and 12 packs. Before building, predict whether each will work. Record: number of packs | blue per pack | gold per pack | leftovers. Partners alternate building and checking.",
+  "List all factor pairs of 24 and 36. Identify every shared factor, including 1. Choose the greatest possible pack count and multiply back.",
+  "With 48 pencils and 72 erasers, find every possible number of identical packs. Then add 30 rulers and require identical contents with no leftovers.",
+  "Independently use 20 red and 32 blue counters to find the greatest number of identical packs. State each pack’s contents and explain why there cannot be more."
+],
+    supplied: [
+  "Clickable counter demonstration: choose a pack count, predict, then share",
+  "Worked packing example and flashing-light times",
+  "Progressive partner questions, independent checks and separate teacher answers"
+],
+    gather: [
+  "Optional: 24 counters of one colour and 36 of another per pair; cubes, buttons or paper squares work",
+  "Plain paper and pencils; draw circles instead of using plates",
+  "One projector can replace all physical counters; students predict and record on paper"
+],
     vocabulary: words(
       ["factor", "a whole number that divides an amount exactly", "6 is a factor of 24 because 24 ÷ 6 = 4"],
       ["multiple", "a number reached by multiplying or skip-counting", "24 is a multiple of 6"],
@@ -154,37 +164,47 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
       ["least common multiple", "the first positive multiple shared by repeating sequences", "LCM(4,6)=12"],
     ),
     model: {
-  "label": "WORKED EXAMPLE · THE SAME NUMBERS, TWO JOBS",
-  "prompt": "How do 24 and 36 help us make packs and time flashing lights?",
+  "label": "WORKED EXAMPLE · BUILD, RECORD, THEN GENERALIZE",
+  "prompt": "How can we share 24 blue and 36 gold counters into identical packs with none left?",
   "steps": [
-    "Packing problem: use 24 blue and 36 gold badges to make as many identical packs as possible, with none left over. Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24. Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36.",
-    "The shared factors are 1, 2, 3, 4, 6 and 12. Choose the greatest, 12. Each pack gets 24 ÷ 12 = 2 blue and 36 ÷ 12 = 3 gold badges.",
-    "Check the supplies: 12 × 2 = 24 blue and 12 × 3 = 36 gold. All badges are used in 12 identical packs.",
-    "Light problem: two lights flash together at 0 seconds. One flashes every 24 seconds: 24, 48, 72. One flashes every 36 seconds: 36, 72.",
-    "The first shared time after 0 is 72 seconds. This is the least common multiple of 24 and 36. The lights next flash together after 72 seconds."
+    "Predict two packs. Share the blue counters one at a time between two circles, then share the gold counters. Each pack has 12 blue and 18 gold. On screen, choose 2 and select Share the counters after predicting.",
+    "Try 3 and 4 packs: each of 3 packs has 8 blue and 12 gold; each of 4 has 6 blue and 9 gold. Record pack count, each colour per pack, and leftovers.",
+    "Test 5 packs: each gets 4 blue and 7 gold, with 4 blue and 1 gold left. It fails the no-leftovers rule. Eight packs also fail: 3 blue and 4 gold each leave 4 gold.",
+    "Use factor pairs to finish the search. Factors of 24: 1,2,3,4,6,8,12,24. Factors of 36: 1,2,3,4,6,9,12,18,36. Shared factors are 1,2,3,4,6,12. The greatest, 12, gives 2 blue and 3 gold per pack. Check 12 × 2 = 24 and 12 × 3 = 36.",
+    "In the next lesson, compare a different job for 24 and 36: lights flash together at 0, then every 24 and 36 seconds. List multiples: 24,48,72 and 36,72. The next shared time is 72 seconds, the least common multiple."
   ],
-  "conclusion": "The pack count must divide both supplies exactly. The shared flash time must be a multiple of both time intervals."
+  "conclusion": "The pack count divides both fixed supplies exactly. A shared flash time is reached by counting repeated intervals. Build first, then use factors or multiples to justify your result."
 },
     partnerCards: [
   {
+    "title": "PREDICT · BUILD · RECORD",
+    "body": "Use 24 blue and 36 gold counters. Test 3, 4, 5, 6, 8 and 12 identical packs. Record each colour per pack and any leftovers. Explain both a successful and an unsuccessful attempt.",
+    "answer": "3: 8/12; 4: 6/9; 5: 4/7 with 4 blue and 1 gold left; 6: 4/6; 8: 3/4 with 4 gold left; 12: 2/3. Only counts dividing BOTH totals work."
+  },
+  {
     "title": "RESCUE PACKS",
-    "body": "Use 18 blue and 30 gold badges to make the greatest possible number of identical kits with none left. List the common factors, then state the number of kits and each kit's contents.",
-    "answer": "Common factors: 1, 2, 3, 6. Make 6 kits, each with 3 blue and 5 gold badges. Check: 6 × 3 = 18 and 6 × 5 = 30."
+    "body": "Use 18 blue and 30 gold badges. Find every possible pack count with no leftovers, then the greatest. State each kit’s contents and prove the maximum.",
+    "answer": "1,2,3,6; greatest 6, each with 3 blue and 5 gold. These are all common factors."
+  },
+  {
+    "title": "CHANGE ONE CONDITION",
+    "body": "A class has 48 pencils and 72 erasers. Find every possible number of identical packs with no leftovers. Now add 30 rulers, shared equally with none left. Which counts still work? Find the new maximum and each pack’s contents.",
+    "answer": "Two supplies: 1,2,3,4,6,8,12,24. With rulers: 1,2,3,6. Maximum 6 packs, each 8 pencils, 12 erasers, 5 rulers."
   },
   {
     "title": "SIGNAL MEETING",
-    "body": "Two lights flash together at 0 seconds. One repeats every 9 seconds and one every 12 seconds. List both sets of flash times until you find their next shared flash.",
-    "answer": "9, 18, 27, 36 and 12, 24, 36. They next flash together at 36 seconds."
+    "body": "Two lights flash together at 0, then every 9 and 12 seconds. Find the next shared flash, prove it is first, and explain why a greatest common factor would answer a different question.",
+    "answer": "36 seconds: 9,18,27,36 and 12,24,36. GCF 3 divides the intervals but is not a positive flash time for either light."
   },
   {
     "title": "CHOOSE THE TOOL",
-    "body": "Use 28 pencils and 42 erasers to make as many identical prize bags as possible, with none left. Do you need common factors or common multiples? Solve and check.",
-    "answer": "Common factors. GCF(28,42) = 14. Make 14 bags with 2 pencils and 3 erasers each. Check: 14 × 2 = 28 and 14 × 3 = 42."
+    "body": "A: Pack 28 pencils and 42 erasers into the greatest number of identical bags. B: Two bells ring together now, then every 6 and 8 minutes. Choose factors or multiples before solving each. Check your answers.",
+    "answer": "A: GCF 14, each bag 2 pencils and 3 erasers. B: LCM 24 minutes."
   },
   {
     "title": "REPAIR THE CLAIM",
-    "body": "A learner says the LCM of 4 and 6 is 24 because both lists include 24. Write the first six positive multiples of 4 and first four of 6. Find and explain the mistake.",
-    "answer": "4: 4, 8, 12, 16, 20, 24. 6: 6, 12, 18, 24. Both include 12 before 24, so the least common multiple is 12."
+    "body": "A student says the LCM of 4 and 6 is 24 because both lists include 24. Find the earlier shared multiple. Another says 8 packs work for 24 blue and 36 gold because 24 divides by 8. Explain what is missing.",
+    "answer": "LCM is 12, not 24. Eight packs leave 4 gold counters; both colours must divide exactly."
   }
 ],
     check: [
@@ -207,7 +227,7 @@ export const mathCoreDepthPacks: MathSupportPack[] = [
     ],
     likelyMisconceptions: ["Calling factors and multiples the same thing", "Choosing any common value instead of the greatest or least one requested", "Using GCF for a repeating meeting story", "Assuming prime factorization is required"],
     supportRoute: "Try 2, 3 and 6 equal packs with 12 blue and 18 gold counters. Divide each colour separately. For multiples, mark every fourth and sixth second on one line from 0 to 12.",
-    extensionRoute: "Design two stories using the same pair of numbers—one requiring GCF and one requiring LCM—and peer-test whether the clues are unambiguous.",
+    extensionRoute: "Find pairs of different numbers between 10 and 40 whose GCF is 6. Can their LCM also be 6? Explain. Then create paired packing and timing stories using the same numbers.",
     spaces: "Keep the packing mat and timeline in class; teacher observation is sufficient evidence.",
   },
   {

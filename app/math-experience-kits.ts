@@ -28,6 +28,10 @@ export const mathExperienceKits: Record<string, ExperienceKit> = {
     gather: ["Counters or linking cubes", "Paper strips", "Pencils", "Optional two-colour markers"],
     shortRoute: "Sort the numbers, build one factor tree, then solve either the equal-pack GCF mission or repeating-event LCM mission and explain why that tool fits.",
     cards: [
+{"title":"COUNTER RECORD · START HERE","body":"24 blue and 36 gold counters, or the projected model. Predict and test 2,3,4,5,6,8,12 packs. Record: packs | blue per pack | gold per pack | blue left | gold left. Explain why both colours must divide exactly. Plain paper is enough."},
+{"title":"NEW CONSTRAINT","body":"Find every possible pack count for 48 pencils and 72 erasers. Add 30 rulers with identical contents and no leftovers. Find every remaining pack count and the new maximum."},
+{"title":"ANSWER KEY · NEW CONSTRAINT","body":"48/72 common factors: 1,2,3,4,6,8,12,24. With 30 rulers: 1,2,3,6; maximum 6 packs with 8 pencils,12 erasers,5 rulers. Five packs with the original 24/36 supplies leave 4 blue and 1 gold; eight leave 4 gold."},
+
   {
     "title": "QUICK SORT",
     "body": "A prime number has exactly two positive factors: 1 and itself. A composite number has more than two. Sort 17, 24, 29, 36, 45 and 51. Show a factor pair other than 1 × the number for each composite."
@@ -79,6 +83,10 @@ export const mathExperienceKits: Record<string, ExperienceKit> = {
     gather: ["Paper strips", "Two colours of counters or pencil crayons", "Pencils"],
     shortRoute: "Build one equivalent-fraction strip, complete one ratio batch, and repair one batch whose parts were scaled by different factors.",
     cards: [
+{"title":"LIMITED TILES","body":"With 20 blue and 24 gold, build the largest 2:3 mix; state leftovers and justify. For a separate 35-tile batch in ratio 2:3, find both colours."},
+{"title":"FRACTION REASONING","body":"Order 7/5, 1 1/2 and 5/3 with evidence. Find a fraction between 9/4 and 2 2/5. Repair 7/4 = 1 1/4."},
+{"title":"ANSWER KEY · DEEPER REMIX","body":"Use 16 blue/24 gold, leaving 4 blue. For 35 tiles: 14 blue/21 gold. Order: 7/5 < 1 1/2 < 5/3. E.g. 23/10 lies between 9/4 and 2 2/5. 7/4 = 1 3/4."},
+
   {
     "title": "FRACTION STRIPS",
     "body": "Fold equal-length strips into halves, fourths, and eighths. Shade 1/2, 2/4, and 4/8. Align the strips and write what the model proves."
@@ -115,6 +123,11 @@ export const mathExperienceKits: Record<string, ExperienceKit> = {
     gather: ["Paper", "Pencils", "Base-ten grids optional", "Calculator after estimating"],
     shortRoute: "Estimate the invoice, calculate each line with a visible decimal model, locate and repair the planted error, then verify the total.",
     cards: [
+{"title":"DECIMAL PRACTICE","body":"Estimate and solve 1.25 × 8, 0.125 × 6, 3.6 × 7, 4.08 × 5; then 4.8 ÷ 6, 9.6 ÷ 8, 12.6 ÷ 3, 3.75 ÷ 5. Explain two methods."},
+{"title":"BUDGET DECISION","body":"With $30, buy 8 notebooks at $2.35 and 6 pens at $1.40. Ignore tax. Can you buy another notebook? Show the money left before and after."},
+{"title":"RIBBON DECISION","body":"Share 7.5 m equally among 6 groups. Each uses 0.85 m. Find what remains per group and check against the original length."},
+{"title":"ANSWER KEY · DEEPER DECIMALS","body":"Products: 10,0.75,25.2,20.4; quotients: 0.8,1.2,4.2,0.75. Purchase: $27.20, leaving $2.80; with extra notebook $29.55, leaving $0.45. Ribbon: 1.25 m per group, 0.40 m remains each."},
+
       { title: "FICTIONAL CLASSROOM INVOICE", body: "4 sketchbooks at $3.75 · 6 marker packs at $2.40 · 3 rolls of tape at $1.85. Estimate first, then calculate each line and the subtotal." },
       { title: "PLACE-VALUE MAT", body: "ONES | TENTHS | HUNDREDTHS. Line up equal place values, not the first digits. Rename across the decimal when needed." },
       { title: "GRID MODEL", body: "Show 2.4 × 6 as 24 tenths × 6. Rename the result in ones and tenths." },

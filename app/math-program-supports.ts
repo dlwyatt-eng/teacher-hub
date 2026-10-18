@@ -246,7 +246,10 @@ export const mathSupportPacks: MathSupportPack[] = [
       { title: "COMPARE", body: "Which is greater: 5/6 or 7/9? Show a fair method.", answer: "5/6; 15/18 > 14/18." },
       { title: "KEEP THE RATIO", body: "A mix uses 2 blue parts for every 3 yellow parts. Complete 2:3 = 6:__.", answer: "9" },
       { title: "FRIENDLY DISCOUNT", body: "$48 is discounted by 25%. Find the discount and sale price.", answer: "$12 discount; $36 sale price." },
-    ],
+{"title":"MISSING AMOUNTS","body":"For blue:gold = 2:3, find gold for 8 blue; blue for 18 gold; and both colours in 35 tiles altogether. Explain why adding 2 to both parts does not preserve the ratio.","answer":"12 gold; 12 blue; 14 blue and 21 gold. Adding gives 4:5, not 4:6."},
+{"title":"LIMITED SUPPLIES","body":"With 20 blue and 24 gold tiles, make the largest 2:3 mix. State what you use and what remains. Can every tile be used?","answer":"Eight batches: 16 blue and 24 gold, 40 total, leaving 4 blue. Gold limits the number of complete batches."},
+{"title":"BETWEEN TWO FRACTIONS","body":"Place 9/4 and 2 2/5 on the same number line. Find a fraction between them and justify. Repair 7/4 = 1 1/4.","answer":"9/4 = 2.25 and 2 2/5 = 2.4; e.g. 23/10 = 2.3 lies between. 7/4 = 1 3/4; 1 1/4 is 5/4."},
+],
     check: [
   {
     "prompt": "Write 7/4 as a mixed number. Then write 1 2/3 as an improper fraction. Show how you grouped the parts.",
@@ -271,7 +274,8 @@ export const mathSupportPacks: MathSupportPack[] = [
   {
     "prompt": "A fictional class saves $6 each week for an art kit with a sale price of $36. How many weeks will it take? How much will be saved after 4 weeks?",
     "answer": "$36 ÷ $6 = 6 weeks. After 4 weeks: 4 × $6 = $24, with $12 still needed."
-  }
+  },
+{"prompt":"A mix is 3 red:2 white, with 35 tiles altogether. Find both quantities and red:all. Explain why red:white differs from red:all.","answer":"7 batches give 21 red and 14 white; red:all = 3:5; red:white = 3:2 compares red with white only."},
 ],
     readinessQuestions: [
       { prompt: "Which equals 25%?", choices: ["1/2", "1/4", "3/4"], answer: 1, feedback: "25 out of 100 simplifies to 1 out of 4." },
@@ -337,13 +341,17 @@ export const mathSupportPacks: MathSupportPack[] = [
     "title": "DECIMAL RESCUE",
     "body": "A card says 4.8 ÷ 6 = 8. Draw 48 tenths shared into six groups and repair the answer.",
     "answer": "0.8; 48 tenths ÷ 6 = 8 tenths."
-  }
+  },
+{"title":"VARIED PRACTICE","body":"Estimate then calculate 1.25 × 8, 0.125 × 6, 3.6 × 7, 4.08 × 5; then 4.8 ÷ 6, 9.6 ÷ 8, 12.6 ÷ 3, 3.75 ÷ 5. Show two methods and check division with multiplication.","answer":"Products: 10, 0.75, 25.2, 20.4. Quotients: 0.8, 1.2, 4.2, 0.75."},
+{"title":"PURCHASE DECISION","body":"Buy 8 notebooks at $2.35 and 6 pens at $1.40 with $30. Ignore tax. Can you add one extra notebook? Calculate the total and remaining money before and after.","answer":"$18.80 + $8.40 = $27.20, leaving $2.80. Another notebook gives $29.55, leaving $0.45."},
+{"title":"SHARE THEN USE","body":"Share 7.5 m of ribbon equally among 6 groups. Each group uses 0.85 m. How much remains per group? Check your result against the original length.","answer":"1.25 m per group; 0.40 m remains each. Six groups use 5.10 m and retain 2.40 m, total 7.50 m."},
 ],
     check: [
       { prompt: "Estimate and solve 3.6 × 4.", answer: "About 4 × 4 = 16; exact 14.4." },
       { prompt: "Solve 5.25 ÷ 5 and check.", answer: "1.05; 1.05 × 5 = 5.25." },
       { prompt: "Explain why 0.4 × 3 cannot equal 0.012.", answer: "Four tenths × 3 is twelve tenths, or 1.2; 0.012 is far below the estimate." },
-    ],
+{"prompt":"Calculate 0.24 × 7. Explain why 16.8 cannot be correct. Then find 5.4 ÷ 4 and check by multiplication.","answer":"1.68, about 7 quarters or 1.75, not 16.8. 5.4 ÷ 4 = 1.35; 1.35 × 4 = 5.4."},
+],
     readinessQuestions: [
       { prompt: "Which is the best estimate for 6 × 2.35?", choices: ["About 1", "About 12–15", "About 140"], answer: 1, feedback: "Six groups of a little more than 2 is a little more than 12." },
       { prompt: "What is 7.2 ÷ 9?", choices: ["8", "0.8", "0.08"], answer: 1, feedback: "72 tenths shared among 9 groups gives 8 tenths." },

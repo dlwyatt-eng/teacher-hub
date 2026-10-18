@@ -25,46 +25,62 @@ export const mathStudentLessonContracts = {
   },
   "pack-and-sync": {
     id: "pack-and-sync", reviewState: "reviewed",
-    challenge: "How many identical packs can you make from 24 red and 36 blue counters, with none left over? When will two flashing lights next flash together?",
+    challenge: "How many identical packs can you make from 24 blue and 36 gold counters, with none left over? When will two flashing lights next flash together?",
     why: "Factors tell us which numbers divide the supplies exactly. Multiples tell us the times reached by counting equal intervals.",
-    firstAction: "Use 24 red counters and 36 blue counters to make two identical kits with no leftovers.",
-    materials: ["24 counters of one colour and 36 of another", "Kit circles or plates", "Mission cards", "Paper timeline strips", "Pencils and markers"],
+    firstAction: "Predict what goes in each of two identical packs made from 24 blue and 36 gold counters. Use objects, sketches, or the projected counter model.",
+    materials: [
+  "Optional: 24 blue and 36 gold counters per pair (buttons, cubes or paper squares work)",
+  "Projector counter model if physical counters are unavailable",
+  "Plain paper or mini-whiteboard and pencil; no special printing required"
+],
     choices: [{ prompt: "How will you make the pattern visible?", options: [
       { label: "Build it", detail: "Move counters or tap the repeating signals." }, { label: "List it", detail: "Record factor pairs or growing multiples." }, { label: "Draw it", detail: "Use group circles, a table, or a number line." },
     ] }],
     steps: [
   {
-    "title": "Make two identical kits",
-    "action": "Share 24 red and 36 blue counters equally between two kits. Use every counter.",
-    "finishCheck": "Each kit has the same amount of each colour. Recombine the kits to check both original totals.",
-    "minutes": "Session 1 · 10 min"
+    "title": "Predict, then build two packs",
+    "action": "Start with 24 blue and 36 gold counters, or watch the screen model. Predict what belongs in each of two identical packs. Share each colour separately.",
+    "finishCheck": "Check that the packs match colour by colour and use all supplies.",
+    "minutes": "Lesson 1 · 8 min"
   },
   {
-    "title": "Find the possible numbers of kits",
-    "action": "List the factors of 24 and the factors of 36. Circle numbers in both lists. Test one circled number with counters.",
-    "finishCheck": "Each circled number divides both supplies exactly. Explain how your lists show you have found every possibility.",
-    "minutes": "Session 1 · 35 min"
+    "title": "Test and record",
+    "action": "Try 3, 4, 5, 6, 8 and 12 packs. Before building, predict whether each will work. Record: number of packs | blue per pack | gold per pack | leftovers. Partners alternate building and checking.",
+    "finishCheck": "Keep failed attempts: explain why 5 and 8 do not work. Use drawings or division once the pattern is clear.",
+    "minutes": "Lesson 1 · 12 min"
   },
   {
-    "title": "Make the most kits",
-    "action": "Choose the greatest shared factor. Divide each colour by that number to find what belongs in one kit.",
-    "finishCheck": "Explain why a larger number of identical kits would not work. Multiply back to check both supplies.",
-    "minutes": "Session 1 · 10 min"
+    "title": "Prove you have them all",
+    "action": "List all factor pairs of 24 and 36. Identify every shared factor, including 1. Choose the greatest possible pack count and multiply back.",
+    "finishCheck": "Explain why equal total size alone is not enough: every pack needs the same number of EACH colour.",
+    "minutes": "Lesson 1 · 8 min"
   },
   {
-    "title": "Find the next shared flash",
-    "action": "Two lights flash together at 0. One flashes every 4 seconds and one every 6 seconds. Write both sets of times until a time appears in both lists.",
-    "finishCheck": "Identify the first shared time after zero and explain why it is first. Then try the 6-second and 8-second kit card.",
-    "minutes": "Session 2 · 55 min"
+    "title": "Change the supplies",
+    "action": "With 48 pencils and 72 erasers, find every possible number of identical packs. Then add 30 rulers and require identical contents with no leftovers.",
+    "finishCheck": "Show how adding a third supply changes the possible pack counts. Explain why your new maximum works.",
+    "minutes": "Lesson 1 · 15 min"
   },
   {
-    "title": "Design + trade",
-    "action": "Create a packing or signal mission. Trade, solve, and repair any unclear clue.",
-    "finishCheck": "The other group chooses factors or multiples and shows why.",
-    "minutes": "Session 3 · 55 min"
+    "title": "Show your own reasoning",
+    "action": "Independently use 20 red and 32 blue counters to find the greatest number of identical packs. State each pack’s contents and explain why there cannot be more.",
+    "finishCheck": "A pack count, both per-pack quantities, and a proof or complete common-factor list.",
+    "minutes": "Lesson 1 · 7 min"
+  },
+  {
+    "title": "Choose factors or multiples",
+    "action": "In the next lesson, model lights flashing every 4 and 6 seconds. Then solve 9/12-second and 6/8-second signals. Mix these with packing stories; decide which relationship each needs before calculating.",
+    "finishCheck": "Explain first shared time versus greatest pack count; repair a claim that any common multiple is the least.",
+    "minutes": "Lesson 2 · 45–55 min"
   }
 ],
-    finishEvidence: ["A correct kit layout", "A common-factor record", "A repeating-signal timeline", "One checked mission", "An explanation of when each idea is useful"],
+    finishEvidence: [
+  "A record of successful and unsuccessful pack counts",
+  "A complete common-factor list and proof of the maximum",
+  "A solution for 48 pencils, 72 erasers and then 30 rulers",
+  "An individual 20/32 packing check",
+  "In Lesson 2: a timeline and explanation distinguishing factors from multiples"
+],
     saveAction: { kind: "keep-in-class", message: "Keep the kit record and signal timeline in class. No SpacesEDU post is needed." }, readiness: "teach",
   },
   "scoreboard-rules": {
@@ -122,37 +138,49 @@ export const mathStudentLessonContracts = {
     ] }],
     steps: [
   {
-    "title": "Build one batch",
-    "action": "Build 2 blue beside 3 gold. Record the comparison as 2:3.",
-    "finishCheck": "The model and labels agree.",
-    "minutes": "Session 1 · 10 min"
+    "title": "Build and distinguish",
+    "action": "Build 2 blue and 3 gold. Label blue:gold and blue:all. Double the batch and explain what changes and what stays the same.",
+    "finishCheck": "Part-to-part and part-to-whole comparisons have different totals.",
+    "minutes": "Lesson 1 · 8 min"
   },
   {
-    "title": "Grow the batch",
-    "action": "Repeat the complete batch to make 4:6 and 6:9. Record the pairs in a table.",
-    "finishCheck": "Both parts use the same multiplier in every row.",
-    "minutes": "Session 1 · 45 min"
+    "title": "Scale and find missing quantities",
+    "action": "For a 2:3 blue:gold mix, find the gold needed for 8 blue; the blue needed for 18 gold; and both quantities for 35 tiles altogether. Explain why adding 2 to both parts changes the balance.",
+    "finishCheck": "Use a ratio table and a multiplier or repeated whole batches.",
+    "minutes": "Lesson 1 · 17 min"
   },
   {
-    "title": "Rename seven quarters",
-    "action": "Build seven quarter pieces. Circle each complete group of four and write 7/4 and 1 3/4.",
-    "finishCheck": "The model shows one whole and three quarters.",
-    "minutes": "Session 2 · 40 min"
+    "title": "Design under a constraint",
+    "action": "You have 20 blue and 24 gold tiles. Build the largest possible 2:3 mix. State what is used and left. Could you use every tile? Justify.",
+    "finishCheck": "Your design keeps the ratio and respects both supplies.",
+    "minutes": "Lesson 1 · 18 min"
   },
   {
-    "title": "Explain what stays the same",
-    "action": "Compare 2:3 with 6:9: the batch is larger but keeps the same colour proportions. Compare 7/4 with 1 3/4: both names describe the same amount.",
-    "finishCheck": "Your explanation distinguishes a larger batch with the same proportions from two names for the same amount.",
-    "minutes": "Session 2 · 15 min"
+    "title": "Independent ratio check",
+    "action": "A mix is 3 red:2 white. There are 35 tiles altogether. Find both colours; give red:all and explain the difference from red:white.",
+    "finishCheck": "Show a calculation or model and label both quantities.",
+    "minutes": "Lesson 1 · 7 min"
   },
   {
-    "title": "Repair the remix",
-    "action": "Explain why 4 blue to 5 gold breaks the pattern, repair it, and finish the combined model.",
-    "finishCheck": "The repaired patch is 4:6 and every label agrees.",
-    "minutes": "Session 3 · 55 min"
+    "title": "Rename and compare fractions",
+    "action": "In Lesson 2, model 7/4, then independently rename 11/4, 13/5 and 2 1/3. Order 7/5, 1 1/2 and 5/3 using equal wholes and benchmarks or common denominators.",
+    "finishCheck": "Explain how you know the order; do not compare denominators alone.",
+    "minutes": "Lesson 2 · 25 min"
+  },
+  {
+    "title": "Reason, repair and check",
+    "action": "Place 9/4 and 2 2/5 on one number line. Find a fraction between them. Repair “7/4 = 1 1/4.” Finish with the independent workshop questions.",
+    "finishCheck": "The model, number names and explanation agree.",
+    "minutes": "Lesson 2 · 25 min"
   }
 ],
-    finishEvidence: ["Models for 2:3, 4:6, and 6:9", "A correct ratio table", "A model proving 7/4 = 1 3/4", "A repaired batch", "An explanation of what stayed equal"],
+    finishEvidence: [
+  "A ratio table with missing quantities",
+  "A constrained tile mix with leftovers explained",
+  "An individual ratio solution",
+  "Improper/mixed conversions and justified ordering",
+  "A repaired fraction error"
+],
     saveAction: { kind: "keep-in-class", message: "Keep the completed models in your Math folder. No post is needed." }, readiness: "teach",
   },
   "decimal-dispatch": {
@@ -166,37 +194,49 @@ export const mathStudentLessonContracts = {
     ] }],
     steps: [
   {
-    "title": "Estimate a range",
-    "action": "Each $2.35 notebook costs between $2 and $3. Calculate 6 × $2 and 6 × $3 to set a range for the total.",
-    "finishCheck": "The total is between $12 and $18, so $141 cannot be correct.",
-    "minutes": "Session 1 · 15 min"
+    "title": "Estimate and model",
+    "action": "Estimate six notebooks at $2.35 each. Split 2.35 into 2 + 0.30 + 0.05 and calculate. Compare the result with the estimate.",
+    "finishCheck": "Explain why $141 cannot fit.",
+    "minutes": "Lesson 1 · 8 min"
   },
   {
-    "title": "Calculate dollars and cents",
-    "action": "Split $2.35 into $2 + $0.30 + $0.05. Multiply each part by 6, then add the three amounts.",
-    "finishCheck": "$12 + $1.80 + $0.30 = $14.10, which is between $12 and $18.",
-    "minutes": "Session 1 · 40 min"
+    "title": "Practise varied quantities",
+    "action": "Estimate then calculate 1.25 × 8, 0.125 × 6, 3.6 × 7 and 4.08 × 5. Show your method for two. Compare a method with your partner.",
+    "finishCheck": "Check place value and explain why the answers have different sizes.",
+    "minutes": "Lesson 1 · 15 min"
   },
   {
-    "title": "Check three invoices",
-    "action": "Estimate each invoice, inspect or calculate its total, and mark it ‘makes sense’ or ‘send back.’",
-    "finishCheck": "Every decision has a size prediction and exact number evidence.",
-    "minutes": "Session 2 · 55 min"
+    "title": "Meet a budget",
+    "action": "A club needs 8 notebooks at $2.35 and 6 pens at $1.40. The budget is $30; ignore tax. Can it afford one extra notebook? Show totals and money left.",
+    "finishCheck": "A recommendation supported by calculations and units.",
+    "minutes": "Lesson 1 · 20 min"
   },
   {
-    "title": "Repair one invoice",
-    "action": "Correct one misplaced decimal point. Show your calculation and label the answer with the correct unit, such as dollars.",
-    "finishCheck": "The repaired total fits the calculation and situation.",
-    "minutes": "Session 3 · 35 min"
+    "title": "Independent multiplication check",
+    "action": "Calculate 0.24 × 7. Use an estimate and explain why 16.8 is unreasonable.",
+    "finishCheck": "An exact product and a size-based explanation.",
+    "minutes": "Lesson 1 · 7 min"
   },
   {
-    "title": "Explain + check",
-    "action": "Complete: ‘I knew ___ could not be right because ___.’ Then use a calculator or opposite operation to check.",
-    "finishCheck": "Your reason names the estimate, place value, or unit that exposed the error.",
-    "minutes": "Session 3 · 20 min"
+    "title": "Share and reverse",
+    "action": "In Lesson 2 model 7.2 ÷ 9. Solve 4.8 ÷ 6, 9.6 ÷ 8, 12.6 ÷ 3 and 3.75 ÷ 5. Check with multiplication.",
+    "finishCheck": "Connect whole-number facts to tenths and hundredths.",
+    "minutes": "Lesson 2 · 20 min"
+  },
+  {
+    "title": "Solve, diagnose and check",
+    "action": "Share 7.5 m of ribbon equally among 6 groups. Each uses 0.85 m; how much remains per group? Repair 8.4 ÷ 4 = 21. Finish with the independent workshop questions.",
+    "finishCheck": "Choose operations, show units and check the result.",
+    "minutes": "Lesson 2 · 30 min"
   }
 ],
-    finishEvidence: ["A useful estimate", "One visible calculation", "Three invoice decisions", "One repaired invoice", "A plain-language explanation and check"],
+    finishEvidence: [
+  "Estimates and varied decimal products",
+  "A checked purchasing decision",
+  "Decimal quotients checked by multiplication",
+  "A ribbon problem with units",
+  "Independent calculation and error explanation"
+],
     saveAction: { kind: "keep-in-class", message: "Keep the repaired invoice in your Math folder. No post is needed." }, readiness: "teach",
   },
   "sale-lab": {

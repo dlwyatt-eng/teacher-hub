@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { MathCounterModel } from "./math-counter-model";
 import { MathPacingPanel } from "./math-pacing-panel";
 import { MathGamesIntro, MathGamesFor, MathGameLaunches } from "./math-games";
 import { MathAnticsQuickLinks, MathAnticsYearIntro, MathAnticsYearPlan, MathEarlyFinisherBonuses } from "./math-antics-year";
@@ -47,10 +48,10 @@ export function WholeNumberWorkedModel({ step }: { step?: number }) {
 function MathModelVisual({ pack, step }: { pack: MathSupportPack; step?: number }) {
   if (pack.id === "magnitude-place-value-pack") return <MagnitudeWorkedModel step={step} />;
   if (pack.id === "factors-multiples-pack") return (
-    <div className="math-model-factors" role="img" aria-label="A packing model uses the greatest common factor of twenty-four and thirty-six to make twelve packs, while timelines show twenty-four and thirty-six first meeting at seventy-two">
+    <><MathCounterModel /><div hidden={step !== undefined && step < 3} className="math-model-factors" role="img" aria-label="A packing model uses the greatest common factor of twenty-four and thirty-six to make twelve packs, while timelines show twenty-four and thirty-six first meeting at seventy-two">
       <section><small>24 BLUE + 36 GOLD BADGES</small><div>{Array.from({ length: 12 }, (_, index) => <i key={index}><b>2</b><b>3</b></i>)}</div><p><strong>24 ÷ 12 = 2 blue</strong><strong>36 ÷ 12 = 3 gold</strong></p><em>12 identical packs. None left over.</em></section>
       <section><small>LIGHTS FLASH TOGETHER AT 0 SECONDS</small><div className="math-cycle-row"><b>Every 24 s</b><span>24</span><span>48</span><mark>72</mark></div><div className="math-cycle-row"><b>Every 36 s</b><span>36</span><mark>72</mark></div><em>The next shared flash is at 72 seconds.</em></section>
-    </div>
+    </div></>
   );
   if (pack.id === "pattern-relations-pack") return (
     <div className="math-model-patterns" role="img" aria-label="An increasing pattern seven, eleven, fifteen, nineteen with rule four n plus three and a decreasing pattern forty-two, thirty-seven, thirty-two, twenty-seven with rule forty-two minus five times n minus one">
@@ -185,6 +186,7 @@ function TeacherMathPack({ pack }: { pack: MathSupportPack }) {
       <div className="math-readiness-choice" role="group" aria-label={`Readiness route for ${pack.title}`}>
         {(Object.keys(levelCopy) as ReadinessLevel[]).map(item => <button type="button" key={item} className={level === item ? "selected" : ""} aria-pressed={level === item} onClick={() => setLevel(item)}><b>{levelCopy[item].label}</b><small>{levelCopy[item].time}</small><span>{levelCopy[item].description}</span></button>)}
       </div>
+      <details className="math-depth-guidance"><summary>Plan a substantial Grade 6 lesson</summary><p>Use 5–10 minutes for a clear model, 10–15 for varied practice, 15–20 for a problem that requires choosing a method, and 5–8 for an independent check. Adjust to evidence; these are guides, not extra mandatory blocks.</p><p>Ask students to explain, compare methods, test a claim or change a condition. A correct copy of the model is not independent evidence. Keep visuals and language supports available while retaining the mathematical problem. Students ready sooner move to reasoning or application.</p><p>Math Antics can supply the explanation. Use AI only after a student attempt, to question a method or diagnose an error; no AI account or upload is needed for the core lesson.</p></details>
       <section className="math-pack-purpose"><div><small>LEARNING GOAL</small><p>{pack.learningGoal}</p></div><div><small>WHY BEFORE THE PROJECT</small><p>{pack.whyBefore}</p></div><div><small>PREREQUISITE</small><p>{pack.prerequisite}</p></div></section>
       {level !== "review" && <><section className="math-pack-model"><header><span>{pack.model.label}</span><h4>{pack.model.prompt}</h4></header><MathModelVisual pack={pack} /><ol>{pack.model.steps.map(step => <li key={step}>{step}</li>)}</ol><p><b>WHAT IT SHOWS:</b> {pack.model.conclusion}</p></section>
       <div className="math-pack-logistics"><section><b>SUPPLIED ON THIS PAGE</b>{pack.supplied.map(item => <span key={item}>✓ {item}</span>)}</section><section><b>GATHER</b>{pack.gather.map(item => <span key={item}>○ {item}</span>)}</section><section><b>RESOURCE SLOTS</b><span>Explanation choice: matching Math Antics video, this Hub model, or both</span><span>MathUP check / games: {pack.mathUpTopics.join(" · ")}</span>{pack.mathUpTopics.map(topic => { const link = mathUpLinkFor(topic); return link && <a key={topic} href={link.url} target="_blank" rel="noreferrer">{topic} · {link.label} ↗</a>; })}<span>Optional: teacher-owned practice or organizer</span><em>Preview MathUP activities for fit. The on-page investigation remains usable with one projector and ordinary classroom materials.</em></section></div></>}

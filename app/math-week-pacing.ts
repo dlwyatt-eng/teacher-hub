@@ -185,8 +185,8 @@ export const mathPacingLessons: Record<string, MathPacingLesson> = {
     "experienceId": "strategy-league",
     "model": "For 36 × 24, 36 × 20 = 720 is correct. The remaining four groups are 144, not 24. The total is 864.",
     "task": "Repair the claim 48 × 12 = 480 + 12. Then solve it a second way. Explain when doubling or breaking apart is helpful.",
-    "check": "A student says 72 ÷ 8 = 8. How can multiplication check this?",
-    "answer": "8 × 8 = 64, so the claim fails. 9 × 8 = 72, so the quotient is 9."
+    "check": "Estimate and solve 1,008 ÷ 28. A student obtains 30 with 168 left and stops. Complete the calculation and check with multiplication.",
+    "answer": "36. After 30 groups, 168 remains, which makes 6 more groups of 28. Check 36 × 28 = 1,008; 30 × 28 = 840 is incomplete."
   },
   "f1": {
     "id": "f1",
