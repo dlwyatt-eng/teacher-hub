@@ -55,6 +55,7 @@ export default function SubjectHub({ subject, mode, onBack, onOpenLesson, initia
       : ["Lessons", "Units", "Resources", "Assessments", "Overview", "Big Ideas", "Competencies", "Content", "Alignment"];
   const [initialLocation] = useState<SubjectHubLocation>(() => {
     const savedLocation = readSubjectHubLocation(subject.name);
+    if (subject.name === "Social Studies" && typeof window !== "undefined" && window.location.hash === "#bc-student-vote-resources") return { ...savedLocation, ...routedLocation, tab: "Resources" };
     if (!routedLocation?.socialLessonId) return { ...savedLocation, ...routedLocation };
     return {
       ...savedLocation,

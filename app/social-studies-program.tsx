@@ -2,6 +2,7 @@
 import { RightsPlanning } from "./rights-planning";
 
 import { LessonExplorations } from "./virtual-explorations";
+import BCStudentVoteResources from "./bc-student-vote-resources";
 import { OptionalTeachingResources } from "./optional-teaching-resources";
 
 import Image from "next/image";
@@ -644,7 +645,7 @@ function SocialPacing() {
 
 function SocialResources() {
   const resources = socialLessons.flatMap((lesson) => lesson.resources.map((resource) => ({ ...resource, lesson: lesson.title })));
-  return <div className="social-program"><section className="social-heading"><div><p className="section-kicker">PURPOSEFUL SOURCES · RECHECK BEFORE TEACHING</p><h2>Every link has a named job.</h2><p>Sources are labelled for intended Grade 6 use, but live pages can move or change. Reopen each assigned source, save the needed excerpt or screenshot, and prepare an offline route before class. Teacher-preview items are not assigned without adaptation.</p></div><span>{resources.length} UNIT 1–4 LINKS</span></section><div className="social-resource-index">{resources.map((resource) => <a href={resource.url} target="_blank" rel="noreferrer" key={`${resource.lesson}-${resource.url}`}><small>{resource.gradeFit} · {resource.lesson}</small><strong>{resource.label}</strong><p>{resource.purpose}</p><b>{resource.source} ↗</b></a>)}</div></div>;
+  return <div className="social-program"><BCStudentVoteResources /><section className="social-heading"><div><p className="section-kicker">PURPOSEFUL SOURCES · RECHECK BEFORE TEACHING</p><h2>Every link has a named job.</h2><p>Sources are labelled for intended Grade 6 use, but live pages can move or change. Reopen each assigned source, save the needed excerpt or screenshot, and prepare an offline route before class. Teacher-preview items are not assigned without adaptation.</p></div><span>{resources.length} UNIT 1–4 LINKS</span></section><div className="social-resource-index">{resources.map((resource) => <a href={resource.url} target="_blank" rel="noreferrer" key={`${resource.lesson}-${resource.url}`}><small>{resource.gradeFit} · {resource.lesson}</small><strong>{resource.label}</strong><p>{resource.purpose}</p><b>{resource.source} ↗</b></a>)}</div></div>;
 }
 
 function EvidenceCareProtocol({ compact = false, student = false }: { compact?: boolean; student?: boolean }) {

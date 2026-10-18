@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { fileURLToPath } from "node:url";
 import { moduleLoader } from "./helpers/load-rendered-module.mjs";
 import test from "node:test";
 import { createElement } from "react";
@@ -12,7 +13,7 @@ const target = pack.calendarProvocations.find((item) => item.id === "truth-recor
 const rehearsal = target.listeningRehearsal;
 
 // Exercise the actual renderer, including the prepared authentic-source sequence.
-const load = moduleLoader(new URL("..", import.meta.url).pathname);
+const load = moduleLoader(fileURLToPath(new URL("..", import.meta.url)));
 const { CalendarListeningRehearsal, CalendarProvocationsPage } = load("app/calendar-provocations-page.tsx");
 const escapedText = (value) => renderToStaticMarkup(createElement("span", null, value)).slice(6, -7);
 

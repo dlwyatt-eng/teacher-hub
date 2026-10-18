@@ -54,7 +54,7 @@ export function NewsroomHub({ audience, onHome, onInquiry, onAiStudio }: { audie
     <div className="page agency-page newsroom-hub">
       <button className="back-link" type="button" onClick={onHome}>← Classroom home</button>
       <header className="agency-hero agency-hero--newsroom">
-        <div><p>{newsroomProgram.shared.eyebrow}</p><h1>{newsroomProgram.shared.title}</h1><h2>{newsroomProgram.shared.bigQuestion}</h2><span>{audience === "student" ? newsroomProgram.student.summary : newsroomProgram.shared.summary}</span></div>
+        <div><p>{newsroomProgram.shared.eyebrow}</p><h1>{newsroomProgram.shared.title}</h1><p><a href="?subject=Social+Studies#bc-student-vote-resources">Party comparison resource shelf</a></p><h2>{newsroomProgram.shared.bigQuestion}</h2><span>{audience === "student" ? newsroomProgram.student.summary : newsroomProgram.shared.summary}</span></div>
         <aside><small>CHOOSE THE DEPTH</small><strong>{newsroomProgram.shared.cadence}</strong><b>ONE VISIBLE SOURCE COMES BEFORE THE QUESTIONS</b></aside>
       </header>
 

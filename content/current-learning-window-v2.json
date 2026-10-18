@@ -761,7 +761,7 @@
         "eyebrow": "OCTOBER · COMPARE, CHECK, PREPARE",
         "title": "Before the vote: claims, responsibilities, and choices",
         "bigQuestion": "How can we compare election choices without confusing a persuasive promise with evidence that it can happen?",
-        "summary": "Tentative October learning: finish current work, then check claims and compare the responsibilities of Surrey local officials and B.C. MLAs. Division 8’s planned Student Vote focus is the B.C. provincial election; its classroom date, registration and arrangements still need confirmation. A civic hearing is an optional next step with no confirmed date. Municipal resources support comparison; a second classroom ballot is not confirmed.",
+        "summary": "Tentative October learning: finish current work, then check claims and compare the responsibilities of Surrey local officials and B.C. MLAs. Division 8’s planned Student Vote focus is the B.C. provincial election; the planned classroom date is Thursday October 22, 2026, exact class time is pending, and registration is not confirmed here. A civic hearing is an optional next step with no confirmed date. Municipal resources support comparison; no municipal Student Vote is planned.",
         "learningArc": [
           {
             "timing": "When ready",
@@ -856,9 +856,9 @@
         ]
       },
       "teacher": {
-        "timing": "Surrey election comparison and Student Vote preparation · Oct. 1–16",
-        "duration": "Five flexible blocks plus the existing Student Vote routine",
-        "grouping": "Whole-class projector launches; pairs for claim tracing; teams of 3–4 for the common comparison board and civic hearing; a private individual ballot only because personal choice is the purpose.",
+        "timing": "Municipal evidence inquiry; provincial Student Vote planned October 22",
+        "duration": "Flexible municipal evidence blocks; provincial ballot preparation is separate",
+        "grouping": "Pairs and teams for municipal claim tracing, comparison and an optional civic hearing. Provincial ballot preparation is separate.",
         "launch": "A campaign promise tells us what someone wants voters to believe or support. What else must we know before deciding whether the promise is possible, supported, and within that office's power?",
         "prepare": [
           "Open the official City of Surrey candidate list and role descriptions through the existing Surrey election source doors; use directly sourced candidate material, not search snippets or unsourced comparison pages.",
@@ -889,9 +889,9 @@
             "teacherAction": "Run the existing Civic Decision Brief. Require sourced reasons and neutral questions; do not ask students to role-play a candidate or reveal a preference."
           },
           {
-            "timing": "By Oct. 16",
+            "timing": "Thursday October 22 — planned; exact time pending",
             "move": "Student Vote",
-            "teacherAction": "Review ballot privacy and election-worker roles, follow CIVIX procedures, and keep individual votes secret. Use the discussion and post-vote reflection as formative evidence, not the chosen name."
+            "teacherAction": "Provincial Student Vote only. Confirm registration, school ballot district, full candidate roster and class slot with the school. Follow CIVIX procedures; keep votes secret. No municipal Student Vote is planned."
           }
         ],
         "scenarios": [],
@@ -911,9 +911,9 @@
         "label": "STUDENT PATH",
         "title": "Check the promise before the vote",
         "why": "Candidates use facts, opinions, claims, and promises to persuade voters. You can check the source, the office's real power, and the trade-offs before making up your own mind.",
-        "summary": "When your teacher chooses this learning, work with a partner to trace a claim and compare statements. A civic hearing is optional. Our planned Student Vote focus is the B.C. provincial election; the classroom date and arrangements are still to be confirmed.",
-        "duration": "October · timing to be confirmed",
-        "grouping": "Pairs and teams for investigation; whole class for the hearing; a private individual ballot",
+        "summary": "When your teacher chooses this learning, work with a partner to trace a claim and compare statements. A civic hearing is optional. Our planned Student Vote focus is the B.C. provincial election; Thursday October 22, 2026 is planned, with exact class time pending and registration not confirmed here.",
+        "duration": "Municipal inquiry is flexible; provincial Student Vote planned October 22, class time pending",
+        "grouping": "Pairs and teams for investigation; whole class for an optional hearing. Provincial voting is private.",
         "routeTitle": "Read, trace, compare, question, decide",
         "bring": [
           "One source detail you can point to",
@@ -950,9 +950,9 @@
       "family": {
         "label": "FAMILY WINDOW",
         "title": "Checking claims and comparing two levels of government",
-        "summary": "Tentative October learning: finish current work, then check claims and compare the responsibilities of Surrey local officials and B.C. MLAs. Division 8’s planned Student Vote focus is the B.C. provincial election; its classroom date, registration and arrangements still need confirmation. A civic hearing is an optional next step with no confirmed date. Municipal resources support comparison; a second classroom ballot is not confirmed.",
+        "summary": "Tentative October learning: finish current work, then check claims and compare the responsibilities of Surrey local officials and B.C. MLAs. Division 8’s planned Student Vote focus is the B.C. provincial election; the planned classroom date is Thursday October 22, 2026, exact class time is pending, and registration is not confirmed here. A civic hearing is an optional next step with no confirmed date. Municipal resources support comparison; no municipal Student Vote is planned.",
         "whyThisMatters": "A promise may sound clear while still requiring a council or Board of Education vote, a budget, provincial action, public input, or time. Students learn to check both the evidence and the limits of an elected role.",
-        "whatStudentsDo": "When selected by the teacher, pairs trace a campaign claim to its source and teams compare statements using the same questions. A civic hearing is proposed. The planned Student Vote focus is the B.C. provincial election, with the classroom date and arrangements still to be confirmed.",
+        "whatStudentsDo": "When selected by the teacher, pairs trace a campaign claim to its source and teams compare statements using the same questions. A civic hearing is proposed. The planned Student Vote focus is the B.C. provincial election, planned for Thursday October 22, 2026, with exact class time pending and registration not confirmed here.",
         "quickReference": {
           "atSchool": "Planned learning: check claims, compare local and provincial responsibilities, and ask questions. A civic hearing and provincial Student Vote remain subject to classroom readiness and confirmed arrangements.",
           "home": "No candidate research, political disclosure, or election homework is required.",
@@ -970,9 +970,9 @@
             "shortLabel": "Check, compare and question · tentative"
           },
           {
-            "date": "Date to be confirmed",
-            "label": "Planned B.C. provincial Student Vote; registration and classroom arrangements still to be confirmed. A municipal classroom ballot is not confirmed.",
-            "shortLabel": "Provincial Student Vote · date and arrangements to be confirmed"
+            "date": "Thursday October 22 — planned; time pending",
+            "label": "B.C. provincial Student Vote planned for Thursday October 22; class time pending and registration not confirmed here. No municipal Student Vote is planned.",
+            "shortLabel": "Provincial Student Vote · October 22 planned; class time pending"
           },
           {
             "date": "Oct. 17",
@@ -1078,7 +1078,8 @@
         "prepare": [
           "Use posters already underway and original sources; give all parties equal attention.",
           "Confirm the district and candidate list on the school ballot; use CIVIX Activity 3.1.",
-          "Prepare CIVIX Lesson 4 and a fictional practice ballot. Confirm the class voting slot with the school."
+          "Prepare CIVIX Lesson 4 and a fictional practice ballot. Confirm the class voting slot with the school.",
+          "Use Social Studies → Resources → From party posters to an informed choice. Five selected BC parties are not a full candidate list; confirm the school ballot district and roster. Record source dates; promises are not guaranteed outcomes and studying a party is not endorsement."
         ],
         "runOfShow": [
           {
