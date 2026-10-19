@@ -1,10 +1,10 @@
 {
   "id": "day-2026-10-19",
   "date": "2026-10-19",
-  "title": "Monday · prime factorization, evidence and Nevermoor",
+  "title": "Monday · laptops, prime factorization and Nevermoor",
   "greeting": "Good morning, Division 8!",
-  "arrival": "Answer attendance, then hand in any forms. Get paper and a pencil ready.",
-  "note": "Our four-day learning week: explain how you know. Friday October 23 is a non-instructional day. No inequalities upload is required. Continue Nevermoor from our actual bookmark. Provincial Student Vote is Thursday October 22; our voting slot is pending.",
+  "arrival": "Answer attendance, then hand in any forms. Get ready for our morning laptop work.",
+  "note": "Laptops are available this morning: finish selected SpacesEDU work before starting another task. Maths follows recess. After lunch: quiet time, Nevermoor, group poster and unfinished work, then a team-captains activity. Friday October 23 is a non-instructional day. No inequalities upload is required. Continue Nevermoor from our actual bookmark. Provincial Student Vote is Thursday October 22; our voting slot is pending.",
   "reflection": "",
   "blocks": [
     {
@@ -19,43 +19,27 @@
       ]
     },
     {
-      "time": "8:45–9:35 am",
-      "title": "Maths · prime factorization",
-      "notes": "Math Antics Prime Factorization, then compare trees for 24 starting with 4 × 6 and 3 × 8. Practise 18, 30 and 36; challenge 60. Exit: prime-factorize 42, explain why finished, multiply back. Use paper and pencils; no counters or printing needed. Keep Pack It / Sync It for a later GCF lesson.",
-      "href": "./math-prime-factorization.html",
-      "firstAction": "Decide which of 2, 4, 7 and 9 are prime. Explain how you know.",
-      "studentSteps": [
-        "Watch Math Antics and predict the next factor split.",
-        "Compare two trees for 24. Split until every end number is prime.",
-        "Prime-factorize 18, 30 and 36; try two trees for 60 if ready.",
-        "Independently prime-factorize 42, explain why you are finished, and multiply back."
-      ],
-      "activity": {
-        "label": "Prime factorization · video, trees and practice",
-        "href": "./math-prime-factorization.html",
-        "studentSafe": true
-      }
-    },
-    {
-      "time": "9:35–10:20 am",
-      "title": "Literacy · explain with evidence",
-      "notes": "Model: Both trees for 24 end in 2 × 2 × 2 × 3. These end numbers are prime, and their product is 24. Students may instead explain an idea from a recently read text. Allow oral rehearsal, drawings, labels and scribing.",
+      "time": "8:45–10:20 am",
+      "title": "Laptops · SpacesEDU catch-up",
+      "notes": "Morning laptops confirmed. Prioritize outstanding learning and selected SpacesEDU posts; check existing teacher feedback and improve one piece before moving on. Use photos, audio or supported text where appropriate. Then continue a teacher-approved Bloxels or Action Pack task. No inequalities upload; no new home upload is assigned.",
       "href": "",
-      "firstAction": "Explain a factor tree or an idea from a text we have read.",
+      "firstAction": "Open SpacesEDU and choose one unfinished task or post to finish.",
       "studentSteps": [
-        "Explain a factor tree or an idea from a text we have read.",
-        "Add one detail that supports your explanation.",
-        "Ask a partner to retell your idea, then improve one unclear sentence."
-      ]
+        "Finish one outstanding task or selected SpacesEDU post.",
+        "Check the instructions and feedback; improve or explain your work before submitting.",
+        "Ask for help if needed. When finished, follow your teacher’s next-task direction."
+      ],
+      "titleKo": "노트북 · SpacesEDU 활동 마무리",
+      "firstActionKo": "SpacesEDU를 열고 끝내지 못한 활동이나 게시물 하나를 골라 마무리하세요."
     },
     {
       "time": "10:20–10:35 am",
-      "title": "Snack",
+      "title": "Save work, put laptops away and snack",
       "notes": "Protect the usual 10:20 snack start.",
       "href": "",
-      "firstAction": "Put your work away and have your snack.",
-      "titleKo": "간식",
-      "firstActionKo": "활동을 정리하고 간식을 먹으세요."
+      "firstAction": "Save your work and put your laptop away before snack.",
+      "titleKo": "작업 저장·노트북 정리·간식",
+      "firstActionKo": "작업을 저장하고 노트북을 정리한 뒤 간식을 먹으세요."
     },
     {
       "time": "10:35–10:50 am",
@@ -68,31 +52,31 @@
     },
     {
       "time": "10:50–11:20 am",
-      "title": "Social studies · check our party posters",
-      "notes": "Use posters already underway and original sources; give all parties equal attention. Model: The party proposes ___. Our source is ___. This could affect ___. Assess explanation, not political preference.",
-      "href": "",
-      "firstAction": "Open your existing poster and check one proposal against its source.",
+      "title": "Maths · prime factorization",
+      "notes": "Math Antics Prime Factorization, then compare trees for 24 starting with 4 × 6 and 3 × 8. Begin practice with 18 and continue in the workshop. Use paper and pencils; no counters or printing needed. Keep Pack It / Sync It for a later GCF lesson.",
+      "href": "./math-prime-factorization.html",
+      "firstAction": "Decide which of 2, 4, 7 and 9 are prime. Explain how you know.",
       "studentSteps": [
-        "Check your party name, leader and three provincial proposals against the original sources.",
-        "Distinguish the party leader from the local candidate. Record sources and clarify uncertain claims.",
-        "Explain one verified proposal in your own words to a partner."
+        "Watch Math Antics and predict the next factor split.",
+        "Compare two trees for 24. Split until every end number is prime.",
+        "Start a factor tree for 18 and explain why each end number is prime."
       ],
       "activity": {
-        "label": "CIVIX BC resources",
-        "href": "https://studentvote.ca/bc/classroom-resources/",
+        "label": "Prime factorization · video, trees and practice",
+        "href": "./math-prime-factorization.html",
         "studentSafe": true
       }
     },
     {
       "time": "11:20–11:50 am",
-      "title": "Writing and maths workshop",
-      "notes": "Revisit morning explanations and factor trees. Use the exit check to choose targeted practice or further reasoning. Keep repeated prime factors and check by multiplying back. Save the counter/GCF investigation for a later lesson.",
+      "title": "Maths workshop · practise and explain",
+      "notes": "Continue the prime-factorization lesson with targeted practice or further reasoning. Practise 18, 30 and 36; challenge 60. Exit: independently prime-factorize 42, explain why finished, and multiply back. Model: Both trees for 24 end in 2 × 2 × 2 × 3; these numbers are prime and their product is 24. Allow oral rehearsal, drawings, labels and scribing. Keep repeated prime factors. Save the counter/GCF investigation for a later lesson.",
       "href": "",
-      "firstAction": "Bring your morning explanation or factor trees.",
+      "firstAction": "Continue your factor trees and check by multiplying back.",
       "studentSteps": [
-        "Bring your morning explanation or factor trees.",
-        "Practise the next step with your group or revise independently.",
-        "Show one example you can now explain on your own."
+        "Prime-factorize 18, 30 and 36; try two trees for 60 if ready.",
+        "Explain why your tree is finished and check by multiplying back.",
+        "Independently prime-factorize 42. Write, draw or say your explanation."
       ]
     },
     {
@@ -115,18 +99,7 @@
       ]
     },
     {
-      "time": "12:50–1:35 pm",
-      "title": "Work block · Career and Action Packs",
-      "notes": "Finish existing learning; choose one manageable action and identify any adult help or materials needed.",
-      "href": "",
-      "firstAction": "Choose an unfinished task or your next Action Pack step.",
-      "studentSteps": [
-        "Choose an unfinished task or your next Action Pack step.",
-        "Make progress and mark where to continue."
-      ]
-    },
-    {
-      "time": "1:35–2:00 pm",
+      "time": "12:50–1:15 pm",
       "title": "English Language Arts · Nevermoor",
       "notes": "Reconstruct the last scene with two reliable details before listening on. Mark uncertainty instead of filling story gaps. Add one new idea/detail response and record the bookmark.",
       "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
@@ -145,20 +118,38 @@
       "firstActionKo": "지난번에 들은 마지막 부분을 떠올리거나 이야기의 시작 부분을 들으세요."
     },
     {
-      "time": "2:00–2:10 pm",
-      "title": "Finish and reflect",
-      "notes": "Carry unfinished learning forward.",
+      "time": "1:15–2:00 pm",
+      "title": "Work block · group posters and unfinished work",
+      "notes": "Continue the group poster sets already underway; give all parties equal attention. Check proposals against original sources and distinguish party leaders from local candidates. Model: The party proposes ___. Our source is ___. This could affect ___. Reserve time to finish the group set and record individual contributions. Prepare a poster photo/reflection if the teacher requests it; voting-process reflection comes after participation, never ballot disclosure. Other unfinished Career/Action Pack work can follow.",
       "href": "",
-      "firstAction": "Save or organize your work.",
+      "firstAction": "Find your group’s poster set and agree on the next piece to finish.",
       "studentSteps": [
-        "Save or organize your work.",
-        "Name one thing you can explain better now."
+        "Continue your group’s poster set and check a proposal against its source.",
+        "Explain one verified proposal and identify your own contribution.",
+        "Mark what remains. Then continue another unfinished task if directed."
+      ],
+      "activity": {
+        "label": "CIVIX BC resources",
+        "href": "https://studentvote.ca/bc/classroom-resources/",
+        "studentSafe": true
+      }
+    },
+    {
+      "time": "2:00–2:20 pm",
+      "title": "Team-captains activity",
+      "notes": "Use a familiar teacher-approved cooperative activity. Captains explain or demonstrate the first step, check that everyone has a way to participate and adjust unclear instructions. Teacher supervises. Finish with one specific example of helpful teamwork; avoid public rankings.",
+      "href": "",
+      "firstAction": "Listen to the captains’ instructions and check how to join safely.",
+      "studentSteps": [
+        "Listen to the first step or watch the demonstration.",
+        "Take part, share roles and help your team include everyone.",
+        "Name one action that helped the team."
       ]
     },
     {
-      "time": "2:10–2:20 pm",
+      "time": "2:20–2:30 pm",
       "title": "Planners, jobs and cleanup",
-      "notes": "Keep routine cleanup around 2:00; move unfinished learning forward.",
+      "notes": "Restore the room after the team-captains activity and record confirmed reminders.",
       "href": "?view=Responsibilities&mode=student",
       "firstAction": "Restore our room and record any confirmed reminders.",
       "activity": {
@@ -168,19 +159,6 @@
       },
       "titleKo": "알림장·맡은 일·정리",
       "firstActionKo": "교실을 정리하고 확정된 안내 사항을 적으세요."
-    },
-    {
-      "time": "2:20–2:30 pm",
-      "title": "Classroom community",
-      "notes": "Use a short check-in, appreciation or familiar cooperative game. Students may speak, draw, point or pass; keep feedback specific and avoid public rankings.",
-      "href": "",
-      "firstAction": "Notice one helpful action from today.",
-      "studentSteps": [
-        "Offer one specific appreciation or listen.",
-        "Name a small next step for tomorrow."
-      ],
-      "titleKo": "학급 활동",
-      "firstActionKo": "오늘 도움이 된 행동 한 가지를 떠올려 보세요."
     },
     {
       "time": "2:30–2:35 pm",
@@ -193,6 +171,7 @@
     }
   ],
   "backups": [
+    "If a laptop or login is unavailable, finish paper work or rehearse a spoken reflection; ask for help rather than sharing account details.",
     "Use the on-page factor-tree model or draw both trees for 24 on the board if the video is unavailable. Paper and pencils are enough.",
     "Use printed poster sources; record unanswered questions instead of guessing.",
     "Carry unfinished learning into the next suitable work block."
