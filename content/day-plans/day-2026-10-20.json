@@ -1,0 +1,171 @@
+{
+  "id": "day-2026-10-20",
+  "date": "2026-10-20",
+  "title": "Tuesday · laptops, party posters, maths and Nevermoor",
+  "greeting": "Good morning, Division 8!",
+  "arrival": "Answer attendance, then hand in any forms. Get ready for our morning laptop work.",
+  "note": "Morning laptops are confirmed. Use the morning for selected SpacesEDU work and a 30-minute party-poster comparison. Maths follows recess. After lunch: French with Mr. Eckert, a quiet reset and Nevermoor from our printed Chapter 6 passage. No inequalities upload is required. Provincial Student Vote is planned for Thursday October 22; our voting slot is pending. Friday October 23 is a non-instructional day.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:45 am",
+      "title": "Arrival and attendance",
+      "notes": "Attendance before form collection.",
+      "href": "",
+      "firstAction": "Settle in and answer attendance.",
+      "studentSteps": [
+        "Settle in and answer attendance.",
+        "Hand in any forms afterward."
+      ],
+      "titleKo": "등교·출석 확인",
+      "firstActionKo": "자리에 앉고 출석을 부르면 대답하세요."
+    },
+    {
+      "time": "8:45–10:20 am",
+      "title": "Laptops · SpacesEDU and party-poster comparison",
+      "notes": "Laptops confirmed. Finish or improve selected existing SpacesEDU work, using the instructions and teacher feedback. Reserve 30 minutes within this block for comparing the group poster sets: visit all parties, record a proposal, who it could affect and a question, then compare two parties on the same issue using sources. Give every party equal attention. Keep individual ballot choices private and complete the voting-process reflection only after participating. No new home upload or inequalities upload is assigned.",
+      "href": "",
+      "firstAction": "Open SpacesEDU and choose one unfinished task or post to improve.",
+      "studentSteps": [
+        "Finish one selected task or post; check its instructions and feedback.",
+        "When your teacher signals, spend 30 minutes comparing the group poster sets.",
+        "Record one proposal, who it might affect and a question. Compare two parties on the same issue using sources.",
+        "Save your work and ask for help if needed."
+      ],
+      "titleKo": "노트북 · SpacesEDU와 정당 포스터 비교",
+      "firstActionKo": "SpacesEDU를 열고 끝내지 못한 활동이나 게시물 하나를 골라 개선하세요.",
+      "activity": {
+        "label": "CIVIX BC resources",
+        "href": "https://studentvote.ca/bc/classroom-resources/",
+        "studentSafe": true
+      }
+    },
+    {
+      "time": "10:20–10:35 am",
+      "title": "Save work, put laptops away and snack",
+      "notes": "Protect the usual 10:20 snack start.",
+      "href": "",
+      "firstAction": "Save your work and put your laptop away before snack.",
+      "titleKo": "작업 저장·노트북 정리·간식",
+      "firstActionKo": "작업을 저장하고 노트북을 정리한 뒤 간식을 먹으세요."
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "notes": "",
+      "href": "",
+      "firstAction": "Follow our recess routine.",
+      "titleKo": "쉬는 시간",
+      "firstActionKo": "쉬는 시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "10:50–11:50 am",
+      "title": "Maths · factors and prime factorization",
+      "notes": "Continue the current factors and prime-factorization work using paper and pencils. Use the existing companion if a model is needed: compare trees for 24 beginning with 4 × 6 and 3 × 8. Keep repeated prime factors and check by multiplying back. Practise the teacher-selected examples from 18, 30 and 36; 60 is an optional challenge. Show and explain one tree independently. Do not assume all previous work is finished or introduce a new GCF investigation automatically.",
+      "href": "./math-prime-factorization.html",
+      "firstAction": "Get your current maths work, paper and a pencil ready.",
+      "studentSteps": [
+        "Continue the maths practice your teacher selects.",
+        "Split factor trees until each end number is prime.",
+        "Check by multiplying all the prime factors back together.",
+        "Show one example you can explain independently."
+      ],
+      "titleKo": "수학 · 약수와 소인수분해",
+      "firstActionKo": "현재 수학 활동과 종이, 연필을 준비하세요.",
+      "activity": {
+        "label": "Prime factorization · video, trees and practice",
+        "href": "./math-prime-factorization.html",
+        "studentSafe": true
+      }
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "notes": "Usual intermediate routine: outside 11:50–12:12; transition 12:12–12:13; eating 12:13–12:35.",
+      "href": "",
+      "firstAction": "Follow our outside-play and lunch routine.",
+      "titleKo": "점심시간",
+      "firstActionKo": "바깥 놀이와 점심시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "12:35–1:35 pm",
+      "title": "Core French · Mr. Eckert",
+      "notes": "French-only specialist block with Mr. Eckert.",
+      "href": "",
+      "firstAction": "Get your French materials ready and follow Mr. Eckert’s directions.",
+      "titleKo": "프랑스어 · Eckert 선생님",
+      "firstActionKo": "프랑스어 준비물을 꺼내고 Eckert 선생님의 안내를 따르세요."
+    },
+    {
+      "time": "1:35–1:45 pm",
+      "title": "Quiet reset",
+      "notes": "A calm transition after French; quiet non-reading choices are available.",
+      "href": "",
+      "firstAction": "Choose quiet reading, drawing or an unfinished task.",
+      "titleKo": "조용한 개인 활동 시간",
+      "firstActionKo": "조용히 책 읽기, 그림 그리기, 끝내지 못한 활동 중 하나를 고르세요."
+    },
+    {
+      "time": "1:45–2:10 pm",
+      "title": "English Language Arts · Nevermoor",
+      "notes": "Continue the printed Chapter 6 Nevermoor passage from the actual class bookmark. Briefly recall the last part actually read; do not invent story events or assume the chapter is finished. Read or listen, identify a character or setting detail, and give an idea supported by that detail.",
+      "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+      "firstAction": "Find our place in the printed Chapter 6 passage.",
+      "studentSteps": [
+        "Read or listen from our actual Chapter 6 stopping point.",
+        "Notice a character or setting detail.",
+        "Write, draw or say an idea and the detail that supports it.",
+        "Mark where we stop and keep one question for next time."
+      ],
+      "activity": {
+        "label": "Story evidence lesson",
+        "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "영어 · Nevermoor",
+      "firstActionKo": "인쇄된 6장 자료에서 지난번에 읽다가 멈춘 곳을 찾으세요."
+    },
+    {
+      "time": "2:10–2:20 pm",
+      "title": "Planners, jobs and cleanup",
+      "notes": "Restore our room and record confirmed reminders.",
+      "href": "?view=Responsibilities&mode=student",
+      "firstAction": "Restore our room and record any confirmed reminders.",
+      "activity": {
+        "label": "Class responsibilities",
+        "href": "?view=Responsibilities&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "알림장·맡은 일·정리",
+      "firstActionKo": "교실을 정리하고 확정된 안내 사항을 적으세요."
+    },
+    {
+      "time": "2:20–2:30 pm",
+      "title": "Classroom community",
+      "notes": "Use a short check-in, appreciation or familiar cooperative game. Students may speak, draw, point or pass; keep feedback specific and avoid public rankings.",
+      "href": "",
+      "firstAction": "Notice one helpful action from today.",
+      "studentSteps": [
+        "Offer one specific appreciation or listen.",
+        "Name a small next step for tomorrow."
+      ],
+      "titleKo": "학급 활동",
+      "firstActionKo": "오늘 도움이 된 행동 한 가지를 떠올려 보세요."
+    },
+    {
+      "time": "2:30–2:35 pm",
+      "title": "Pack up and dismissal",
+      "notes": "",
+      "href": "",
+      "firstAction": "Check your belongings and get ready for a calm departure.",
+      "titleKo": "짐 챙기기·하교",
+      "firstActionKo": "자기 물건을 확인하고 차분히 하교할 준비를 하세요."
+    }
+  ],
+  "backups": [
+    "If a laptop or login is unavailable, finish paper work or rehearse a spoken reflection. Ask for help rather than sharing account details.",
+    "Use printed poster sources for the comparison and record unanswered questions instead of guessing.",
+    "Use the on-page factor-tree model or draw trees for 24 on the board if the video is unavailable. Paper and pencils are enough.",
+    "Carry unfinished learning forward. No inequalities upload is required."
+  ]
+}
