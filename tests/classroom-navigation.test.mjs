@@ -91,5 +91,6 @@ test('the approved October 20 plan advances on Tuesday and keeps Monday and earl
  assert.equal(liveNav.chooseDisplayPlan(liveStore.publishedDayPlans,'2026-10-19').id,'day-2026-10-19');
  assert.equal(liveNav.chooseDisplayPlan(liveStore.publishedDayPlans,'2026-10-19','day-2026-10-20').id,'day-2026-10-20');
  assert.equal(liveNav.chooseDisplayPlan(liveStore.publishedDayPlans,'2026-10-20','day-2026-10-19').id,'day-2026-10-19');
+ assert.equal(liveNav.chooseDisplayPlan(liveStore.publishedDayPlans,'2026-10-21').id,'day-2026-10-21');
  assert.ok(liveStore.publishedDayPlans.some(p=>p.id==='day-2026-10-06'));
 });
