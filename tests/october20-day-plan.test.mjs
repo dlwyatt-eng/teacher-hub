@@ -28,5 +28,5 @@ test('October 20 has concrete student directions without private meeting or supp
 test('October 20 is registered alongside the preserved Monday plan',()=>{
  assert.match(registry,/import october20 from '..\/content\/day-plans\/day-2026-10-20.json'/);
  assert.match(registry,/import october19 from '..\/content\/day-plans\/day-2026-10-19.json'/);
- assert.match(registry,/october19,october20(?:,october21)?\]/);
+ assert.match(registry,/october19,october20(?:,october\d+)*\]/);
 });

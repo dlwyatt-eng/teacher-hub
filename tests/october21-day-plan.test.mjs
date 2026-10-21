@@ -53,8 +53,9 @@ test('Wednesday projector, detail and print renderers contain the actual approve
 test('current public summary removes the cancelled Wednesday candidate lesson and stays family-focused',()=>{
  const text=JSON.stringify(source);
  assert.doesNotMatch(text,/Wednesday: use the district|25 min Wednesday|local-candidate table/);
- assert.match(source.classroomWelcome.next,/first prime factorization lesson/);
- assert.match(source.classroomWelcome.next,/Halloween.*Wednesday.*Thursday/);
+ // Wednesday's archived plan remains fixed; the current family summary can advance.
+ assert.match(plan.blocks[4].title,/first prime-factorization lesson/);
+ assert.match(plan.note,/Halloween.*Thursday/);
  assert.doesNotMatch(source.classroomWelcome.next,/laptops|devices|\d:\d|staffing|support room/i);
  assert.deepEqual(manifest.classroomWelcome,source.classroomWelcome);
  assert.doesNotMatch(JSON.stringify(plan),/\bIEP\b|pull-out|support room|parking lot|meeting coverage/i);
