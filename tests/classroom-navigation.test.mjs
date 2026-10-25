@@ -84,9 +84,10 @@ test('projector Home and Back preserve the student display mode', () => {
   assert.equal(nav.classroomRouteForMode('?view=Home',false),'?view=Home');
 });
 
-test('the approved October 20 plan advances on Tuesday and keeps Monday and earlier plans',()=>{
+test('approved dated plans advance on their teaching date and keep earlier plans',()=>{
  const liveNav=load('app/classroom-navigation-state.ts');
  assert.equal(liveStore.DEFAULT_DAY_PLAN_ID,'day-2026-10-19');
+ assert.equal(liveNav.chooseDisplayPlan(liveStore.publishedDayPlans,'2026-10-26').id,'day-2026-10-26');
  assert.equal(liveNav.chooseDisplayPlan(liveStore.publishedDayPlans,'2026-10-20').id,'day-2026-10-20');
  assert.equal(liveNav.chooseDisplayPlan(liveStore.publishedDayPlans,'2026-10-19').id,'day-2026-10-19');
  assert.equal(liveNav.chooseDisplayPlan(liveStore.publishedDayPlans,'2026-10-19','day-2026-10-20').id,'day-2026-10-20');

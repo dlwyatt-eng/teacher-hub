@@ -48,14 +48,14 @@ test('Thursday board, activity details and teacher print render the actual stude
  assert.match(print,/next school day/);
 });
 
-test('Thursday family summary stays learning-focused and public projection remains aligned',()=>{
- assert.equal(source.contentVersion,'2026-10-21-thursday-plan');
- assert.match(source.classroomWelcome.next,/Thursday October 22/);
- for(const term of ['Nevermoor','Halloween decorations','Career Education','Student Vote','carried over from Wednesday','non-instructional'])assert.ok(source.classroomWelcome.next.includes(term),term);
+test('current family summary stays learning-focused and preserves Thursday history',()=>{
+ assert.equal(source.contentVersion,manifest.contentVersion);
+ assert.match(source.classroomWelcome.next,/Monday October 26/);
+ for(const term of ['Nevermoor','Halloween art','Career work','actual stopping point'])assert.ok(source.classroomWelcome.next.includes(term),term);
  assert.doesNotMatch(source.classroomWelcome.next,/laptops|computers|devices|\d:\d|staffing|support room|completed maths/i);
  assert.deepEqual(manifest.classroomWelcome,source.classroomWelcome);
  assert.deepEqual(manifest.classSchedule,source.classSchedule);
- assert.match(source.classSchedule.note,/computers for finishing current Career work 1:10–2:00/);
+ assert.match(source.classSchedule.note,/Student laptops are optional extras/);
  // Updating the classroom SOD does not silently cancel an unrelated school event.
  assert.ok(source.schoolEvents.some(e=>e.id==='provincial-student-vote'&&e.date==='2026-10-22'));
  assert.match(source.schoolEvents.find(e=>e.id==='provincial-student-vote').detail,/12:50 pm/);

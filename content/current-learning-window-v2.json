@@ -1,7 +1,7 @@
 {
   "schemaVersion": "classroom-os-current-window/v2",
-  "contentVersion": "2026-10-21-thursday-plan",
-  "sourceUpdatedAt": "2026-10-21",
+  "contentVersion": "2026-10-25-monday-plan",
+  "sourceUpdatedAt": "2026-10-25",
   "window": {
     "id": "september-opening",
     "effectiveFrom": "2026-09-08",
@@ -1428,7 +1428,7 @@
     }
   ],
   "classroomWelcome": {
-    "updatedOn": "October 21, 2026",
+    "updatedOn": "October 25, 2026",
     "classLabel": "Division 8",
     "location": "Room 112 · Annex · Walnut Road Elementary",
     "title": "Welcome to our Division 8 community",
@@ -1436,20 +1436,12 @@
     "recapTitle": "Our class learning",
     "recap": "Our class is building number sense, reading and responding to stories, exploring community questions, and creating and sharing ideas.",
     "nextTitle": "Our learning themes",
-    "next": "Thursday October 22 will include Nevermoor, protected time for Halloween decorations, provincial Student Vote, and finishing the Career Education task already underway. Nevermoor and art are carried over from Wednesday; reading will resume from our actual stopping point. Unfinished decorations may need more time next week. Friday October 23 is a non-instructional day.",
-    "later": "Learning plans may adjust as students need more time. Check the planner and school notices for take-home reminders.",
+    "next": "Monday October 26: planned learning includes prime factorization from the class’s actual stopping point, respectful food-drive messages, comparing immediate help with longer-term community responses, Nevermoor from our actual bookmark, and continued Halloween art or Career work. Planned activities are not a record of completed learning.",
+    "later": "We Scare Hunger runs October 26–30. Families who wish to contribute should follow the school’s collection instructions. Everyone can take part in class learning without donating. Learning plans may adjust as students need more time.",
     "reminders": [
       {
-        "title": "Thursday, October 22 · Provincial Student Vote",
-        "text": "Students prepare through party posters and ballot practice. The class voting time is confirmed. No municipal Student Vote is planned."
-      },
-      {
-        "title": "Friday, October 23 · Non-instructional day",
-        "text": "No classes for students."
-      },
-      {
-        "title": "Wednesday, October 21 · Photo retakes",
-        "text": "Students needing retakes will be called during the school day. Follow school notices for details."
+        "title": "October 26–30 · We Scare Hunger",
+        "text": "The food drive launches Monday. Follow school notices for accepted items and collection details. Contributions are optional; there is no class donation quota."
       },
       {
         "title": "Volunteer and driver registration · each school year",
@@ -1643,11 +1635,11 @@
     },
     {
       "id": "food-drive",
-      "date": null,
+      "date": "2026-10-26",
       "month": "2026-10",
       "dateLabel": "October 26–30",
       "title": "We Scare Hunger food drive",
-      "detail": "We Scare Hunger Food Drive Week is listed on the school calendar. Collection instructions will follow from the school."
+      "detail": "Food-drive week is confirmed for October 26–30. Follow school notices for accepted items and collection instructions. Contributions are optional."
     },
     {
       "id": "national-child-day",
@@ -1689,9 +1681,9 @@
     }
   },
   "classSchedule": {
-    "updatedOn": "October 21, 2026",
-    "weekOf": "October 19–23",
-    "through": "2026-10-23",
+    "updatedOn": "October 25, 2026",
+    "weekOf": "October 26–30",
+    "through": "2026-10-30",
     "days": [],
     "regular": [
       {
@@ -1725,6 +1717,6 @@
         "time": "11:10–11:50 am"
       }
     ],
-    "note": "Four-day learning week: Friday October 23 is non-instructional. Thursday October 22: Nevermoor 8:45–9:15 am; library 9:20–9:35; Halloween decorations 9:35–10:20 and 10:50–11:10; snack 10:20 and recess 10:35–10:50; PE 11:10–11:50; lunch 11:50–12:35; quiet reset 12:35–12:45; Student Vote preparation 12:45–12:50 and voting 12:50–1:10 (12:50 school start confirmed); computers for finishing current Career work 1:10–2:00; cleanup and community before dismissal at 2:35. Regular Friday blocks do not run October 23. Mr. Eckert teaches French only; Mr. Wyatt teaches PHE. Learning blocks may adjust."
+    "note": "Monday October 26: maths 8:45–9:45; food-drive message writing 9:45–10:20; snack 10:20; recess 10:35–10:50; Social Studies/Career food-drive launch 10:50–11:35; cooperative movement 11:35–11:50; lunch 11:50–12:35; quiet time 12:35–12:50; Nevermoor 12:50–1:20; art/Career work 1:20–2:00; cleanup 2:00–2:15; community 2:15–2:30; dismissal 2:35. Student laptops are optional extras only if available. Resume maths and reading from actual stopping points. Other days retain regular routines; specific learning plans may adjust."
   }
 }
