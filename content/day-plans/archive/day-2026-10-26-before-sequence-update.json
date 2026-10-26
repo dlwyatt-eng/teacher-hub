@@ -1,0 +1,202 @@
+{
+  "id": "day-2026-10-26",
+  "date": "2026-10-26",
+  "title": "Monday · prime factorization, Nevermoor and We Scare Hunger",
+  "greeting": "Good morning, Division 8!",
+  "arrival": "Answer attendance, then hand in forms. Get a pencil and maths paper ready. Today we resume our learning and launch We Scare Hunger week.",
+  "note": "Monday after the October 23 non-instructional day. Prepare the actual maths work and Nevermoor bookmark before teaching; Thursday’s plan is not evidence that either lesson was completed. Core learning uses paper, discussion, the board and teacher projection. Student laptops are an optional extra, with no reservation assumed. Bring paper, pencils, available art materials, the book/audio and the school food-drive notice if available. The food drive runs October 26–30, as confirmed by Daryl’s calendar context; verify accepted items and collection procedures from the school before giving logistics. Everyone can contribute to class learning without donating or sharing family circumstances. Preserve snack 10:20, recess 10:35–10:50, lunch 11:50–12:35, quiet time after lunch, cleanup around 2:00 and dismissal 2:35. This plan creates no new home upload or donation deadline. Record actual maths and reading stopping points after teaching.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:45 am",
+      "title": "Arrival and attendance",
+      "firstAction": "Settle in and answer attendance.",
+      "studentSteps": [
+        "Answer attendance, then hand in any forms.",
+        "Have a pencil and maths paper ready."
+      ],
+      "notes": "Attendance before forms. Welcome students after Friday’s non-instructional day. Briefly preview the food-drive launch; follow school collection directions for any donations already arriving. Do not announce amounts or identify donors.",
+      "href": "",
+      "titleKo": "등교·출석 확인",
+      "firstActionKo": "자리에 앉고 출석을 부르면 대답하세요."
+    },
+    {
+      "time": "8:45–9:45 am",
+      "title": "Maths · resume prime factorization",
+      "firstAction": "Look at your last maths work. Show where you stopped.",
+      "studentSteps": [
+        "Explain which of 2, 4, 7 and 9 are prime. A prime number has exactly two positive factors: 1 and itself.",
+        "Follow the next step your teacher chooses. In a factor tree, split a composite number into two factors until every end number is prime.",
+        "Try 18, then 30 and 36 when ready. Keep repeated prime factors; multiply them back to check.",
+        "Show one tree and explain why it is finished. Your teacher will choose a final check."
+      ],
+      "notes": "0–8 min: inspect actual saved work and ask the prime-number question; 2 and 7 are prime, 4 and 9 composite, and 1 is neither. Resume the first unfinished step, not the date-based sequence. If introduction is needed, spend 12 minutes modelling 24 via 4 × 6 and 3 × 8: both give 2 × 2 × 2 × 3. Explain factors as whole numbers multiplied to make the original number. The existing companion supplies models and optional Math Antics explanation; a board model is a complete non-video route. Use 25 minutes for supported practice 18=2×3×3, 30=2×3×5, 36=2×2×3×3. If this is already secure, compare two trees for 60=2×2×3×5 and explain why the prime end factors agree, even when their order differs. Use 10 minutes for discussion and an independent check: 42=2×3×7 only after the method has been taught; use 20=2×2×5 if 42 was already completed independently. If still introducing the method, collect the current tree and ask for the next split instead. Final 5 minutes: record the exact last example, remaining misconception and next step privately. Oral explanation, pointing, drawing and scribing are valid. Do not advance to GCF/LCM automatically.",
+      "href": "./math-prime-factorization.html",
+      "titleKo": "수학 · 소인수분해 이어 하기",
+      "firstActionKo": "지난 수학 활동을 보고 어디에서 멈췄는지 알려 주세요.",
+      "activity": {
+        "label": "Prime factorization · model and practice",
+        "href": "./math-prime-factorization.html",
+        "studentSafe": true
+      }
+    },
+    {
+      "time": "9:45–10:20 am",
+      "title": "Language Arts · a respectful food-drive message",
+      "firstAction": "Read this model: “We Scare Hunger runs October 26–30. If your family wishes to contribute, follow the school’s collection instructions. Everyone can help make our community welcoming.”",
+      "studentSteps": [
+        "Notice the purpose, dates and respectful invitation in the model.",
+        "Draft a short announcement with the event name, October 26–30 dates, and a kind invitation. Add one reason for helping without blaming anyone.",
+        "With a partner, check: Is it accurate? Is the action clear? Could anyone feel pressured or singled out?",
+        "Revise one sentence. Write, draw with labels, or dictate your draft."
+      ],
+      "notes": "Use the supplied model in the student steps on the projector or board. Model replacing “Everyone must bring five cans” with an optional invitation; this is an editing example, not a school rule. Explain audience and purpose. Students produce a 3–5-sentence announcement or labelled draft; extension: compare how two openings affect a reader. Do not invent accepted items, collection locations, targets or a recipient organization. If the school notice is available, verify and add its precise instructions; otherwise leave logistics out. Assess accuracy, reasons, audience awareness and revision, not donations. These are classroom drafts, not messages to send automatically. Stop at 10:20 for snack.",
+      "href": "",
+      "titleKo": "국어 · 존중하는 기부 행사 안내문",
+      "firstActionKo": "예시 안내문을 읽고 행사 날짜와 친절한 초대 표현을 찾아보세요."
+    },
+    {
+      "time": "10:20–10:35 am",
+      "title": "Snack",
+      "notes": "Protect the usual 10:20 snack start.",
+      "href": "",
+      "firstAction": "Have your snack and tidy your space.",
+      "titleKo": "간식 시간",
+      "firstActionKo": "간식을 먹고 자기 자리를 정리하세요."
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "notes": "",
+      "href": "",
+      "firstAction": "Follow our recess routine.",
+      "titleKo": "쉬는 시간",
+      "firstActionKo": "쉬는 시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "10:50–11:35 am",
+      "title": "Social Studies & Career · We Scare Hunger launch",
+      "firstAction": "Think about this fictional situation: food costs rise, but a household’s income stays the same. What might help now, and what might help over time?",
+      "studentSteps": [
+        "Make two columns: “Help now” and “Help over time.” Suggest one action for each and explain how it could help.",
+        "Compare your ideas: Who could act? What would the action help with? What might it leave unresolved?",
+        "Choose a useful class role: revise a message, make a sign, or help organize materials with permission. Contributing food is optional.",
+        "Share one reason for your choice and one question we still need to check."
+      ],
+      "notes": "5 min: establish the confirmed October 26–30 dates; confirm collection procedures from the actual school notice before collecting or sorting. 8 min: model the fictional scenario. A food donation may help with food today; affordable food, adequate income or accessible services may address continuing barriers. These are proposals to examine, not proof of any family’s circumstances. 15 min: pairs create the two-column action comparison, including who can act, one benefit and one limitation. Ask how a class, community organization and government have different responsibilities; accept competing proposals supported by reasoning. 12 min: choose a feasible classroom contribution and relate it to planning, strengths and collaboration. No public rankings, donation quotas or disclosure of family food needs. 5 min: check whether students can distinguish an immediate response from a longer-term proposal. Drawn, spoken and scribed responses count. Do not add a Student Vote assessment or ask how anyone voted.",
+      "href": "",
+      "titleKo": "사회·진로 · 식품 기부 행사 시작",
+      "firstActionKo": "가상의 상황을 생각해 보세요. 식비는 오르지만 가정의 수입은 그대로라면, 지금과 앞으로 어떤 도움이 필요할까요?"
+    },
+    {
+      "time": "11:35–11:50 am",
+      "title": "Movement · cooperative challenge",
+      "firstAction": "Watch the demonstration and choose a safe way to take part.",
+      "studentSteps": [
+        "Work together to send a soft ball to each person using a roll, pass or agreed signal.",
+        "Change one rule or distance so everyone can take an active turn.",
+        "Explain how your change helped the group."
+      ],
+      "notes": "Use a clear classroom space or an available outdoor area; no gym booking assumed. Demonstrate a slow roll/pass and agreed stop signal. Offer seated movement, reachable targets and suitable equipment. Use a soft ball if available or a no-equipment mirror-movement circle. Compare the original and adjusted rules, then settle for lunch.",
+      "href": "",
+      "titleKo": "움직임 · 협동 활동",
+      "firstActionKo": "시범을 보고 안전하게 참여할 방법을 고르세요."
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "notes": "Usual intermediate routine: outside 11:50–12:12; transition 12:12–12:13; eating 12:13–12:35.",
+      "href": "",
+      "firstAction": "Follow our outside-play and lunch routine.",
+      "titleKo": "점심시간",
+      "firstActionKo": "바깥 놀이와 점심시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "12:35–12:50 pm",
+      "title": "Quiet individual time",
+      "firstAction": "Choose quiet reading, drawing or a calm seated activity.",
+      "studentSteps": [
+        "Settle into your quiet choice.",
+        "At the signal, put materials away and get ready for Nevermoor."
+      ],
+      "notes": "Preserve the usual quiet reset after lunch. Quiet non-reading choices are available.",
+      "href": "",
+      "titleKo": "조용히 쉬기",
+      "firstActionKo": "조용히 책 읽기, 그림 그리기, 자리에 앉아서 쉬기 중 하나를 고르세요."
+    },
+    {
+      "time": "12:50–1:20 pm",
+      "title": "Nevermoor · read, infer and predict",
+      "firstAction": "Find our actual book or audio bookmark. Recall only the last part we really read.",
+      "studentSteps": [
+        "Listen or read from our bookmark. Notice a character’s action or a setting detail.",
+        "Say, draw or write: “I think ___ because the story shows ___.”",
+        "Make one possible prediction using that detail. Another prediction may also fit the evidence.",
+        "Keep one question and mark where we stop."
+      ],
+      "notes": "Before teaching, locate the physical bookmark or audio timestamp; do not infer progress from Thursday’s plan or audio chapter numbers. 4 min: reconstruct the last confirmed scene; label uncertain memories. 18 min: read or listen from that point, stopping naturally rather than targeting a presumed chapter. 6 min: select one detail from the passage just heard and model the student sentence stem with that actual detail. Distinguish an observation, an inference and a prediction; invite a different plausible interpretation. Assess evidence and reasoning, not whether a prediction later comes true. 2 min: record book chapter/page or audio timestamp plus last sentence/scene for next time. No spoilers, invented plot events or required upload.",
+      "href": "",
+      "titleKo": "Nevermoor · 읽고 추론하고 예상하기",
+      "firstActionKo": "책이나 오디오에서 실제로 멈춘 곳을 찾고 마지막으로 읽은 부분을 떠올려 보세요."
+    },
+    {
+      "time": "1:20–2:00 pm",
+      "title": "Work block · Halloween art and Career next steps",
+      "firstAction": "Find your unfinished work and choose one clear next step with your teacher.",
+      "studentSteps": [
+        "Continue an unfinished decoration, or use paper to plan one if you have not started. Choose line, shape, colour or pattern on purpose.",
+        "Explain how one design choice creates a mood or communicates an idea. Improve it after feedback.",
+        "If directed to Career work, follow the original task instructions and finish or revise one part.",
+        "Label and store your work. Record what is finished and what comes next."
+      ],
+      "notes": "Check the actual state of Thursday’s art and Career work. Prioritize unfinished Halloween decorations; offer an autumn design as an equivalent choice. Model a design decision: repeated zigzag lines can suggest energy or tension; students may justify a different effect. Use available materials and demonstrate safe tool use. Career students use their original directions and available paper notes; no invented completion, new assignment or upload deadline. Student laptops are an optional extra only if available and approved: reopen existing Career work, save it in its existing location, and record a next step. No reservation is assumed and no core task depends on a student device. If work exists only online and devices are unavailable, use art or revise the morning message instead of recreating the task from memory. Stop at 1:55 to store wet work and tools.",
+      "href": "",
+      "titleKo": "활동 시간 · 미술과 진로 과제 이어 하기",
+      "firstActionKo": "끝내지 못한 활동을 찾고 선생님과 다음 단계를 정하세요."
+    },
+    {
+      "time": "2:00–2:15 pm",
+      "title": "Planners, jobs and cleanup",
+      "notes": "Restore the room at 2:00. Planner reminder: We Scare Hunger, October 26–30; follow school collection instructions if your family chooses to contribute. No donation quota or new homework deadline.",
+      "href": "?view=Responsibilities&mode=student",
+      "firstAction": "Restore our room and record any confirmed reminders.",
+      "activity": {
+        "label": "Class responsibilities",
+        "href": "?view=Responsibilities&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "알림장·맡은 일·정리",
+      "firstActionKo": "교실을 정리하고 확정된 안내 사항을 적으세요."
+    },
+    {
+      "time": "2:15–2:30 pm",
+      "title": "Community · team-captains activity",
+      "firstAction": "Listen to the first step and check how everyone can join.",
+      "studentSteps": [
+        "Join a familiar cooperative activity; share roles and listen.",
+        "Name one helpful action from today, or pass.",
+        "Tell or show one learning step you want to continue tomorrow."
+      ],
+      "notes": "Use a familiar teacher-approved cooperative game with a brief captain demonstration. Check access and shared turns, without public rankings. Finish with an appreciation and a next-learning step. Keep the class book bookmark and maths stopping note ready for Tuesday planning.",
+      "href": "",
+      "titleKo": "학급 활동 · 함께 협동하기",
+      "firstActionKo": "첫 번째 안내를 듣고 모두가 참여할 수 있는지 확인하세요."
+    },
+    {
+      "time": "2:30–2:35 pm",
+      "title": "Pack up and dismissal",
+      "notes": "",
+      "href": "",
+      "firstAction": "Check your belongings and get ready for a calm departure.",
+      "titleKo": "짐 챙기기·하교",
+      "firstActionKo": "자기 물건을 확인하고 차분히 하교할 준비를 하세요."
+    }
+  ],
+  "backups": [
+    "If maths needs more time, keep the current model/practice and collect a next-step check; do not treat the scheduled end as lesson completion.",
+    "If the book/audio bookmark cannot be verified, use choice reading with an idea and supporting detail. Do not invent Nevermoor progress.",
+    "If food-drive logistics are unavailable, use the confirmed dates and respectful message draft; check with the school before adding collection instructions.",
+    "Student laptops are optional extras. Paper, discussion and teacher projection support the core plan; no student booking is assumed.",
+    "If time runs short, carry art or Career forward. Keep breaks, lunch and dismissal; do not turn unfinished work into a new home deadline."
+  ]
+}
