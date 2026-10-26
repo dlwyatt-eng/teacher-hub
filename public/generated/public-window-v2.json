@@ -1,7 +1,7 @@
 {
   "schemaVersion": "classroom-os-public-window/v2",
-  "contentVersion": "2026-10-25-monday-plan",
-  "sourceUpdatedAt": "2026-10-25",
+  "contentVersion": "2026-10-26-family-refresh",
+  "sourceUpdatedAt": "2026-10-26",
   "window": {
     "id": "september-opening",
     "effectiveFrom": "2026-09-08",
@@ -1347,7 +1347,7 @@
     "email": "mailto:wyatt_daryl@surreyschools.ca"
   },
   "classroomWelcome": {
-    "updatedOn": "October 25, 2026",
+    "updatedOn": "October 26, 2026",
     "classLabel": "Division 8",
     "location": "Room 112 · Annex · Walnut Road Elementary",
     "title": "Welcome to our Division 8 community",
@@ -1355,7 +1355,7 @@
     "recapTitle": "Our class learning",
     "recap": "Our class is building number sense, reading and responding to stories, exploring community questions, and creating and sharing ideas.",
     "nextTitle": "Our learning themes",
-    "next": "Monday October 26: planned learning includes prime factorization from the class’s actual stopping point, respectful food-drive messages, comparing immediate help with longer-term community responses, Nevermoor from our actual bookmark, and continued Halloween art or Career work. Planned activities are not a record of completed learning.",
+    "next": "Monday October 26: planned learning continues Boo Bash art and includes a maths work block and in-class SpacesEDU work. Prime factorization, Nevermoor and Bloxels remain ongoing; resume from actual stopping points and follow class instructions. Planned activities are not a record of completed learning.",
     "later": "We Scare Hunger runs October 26–30. Families who wish to contribute should follow the school’s collection instructions. Everyone can take part in class learning without donating. Learning plans may adjust as students need more time.",
     "reminders": [
       {
@@ -1586,7 +1586,7 @@
     }
   ],
   "classSchedule": {
-    "updatedOn": "October 25, 2026",
+    "updatedOn": "October 26, 2026",
     "weekOf": "October 26–30",
     "through": "2026-10-30",
     "days": [],
@@ -1622,20 +1622,20 @@
         "time": "11:10–11:50 am"
       }
     ],
-    "note": "Monday October 26: maths 8:45–9:45; food-drive message writing 9:45–10:20; snack 10:20; recess 10:35–10:50; Social Studies/Career food-drive launch 10:50–11:35; cooperative movement 11:35–11:50; lunch 11:50–12:35; quiet time 12:35–12:50; Nevermoor 12:50–1:20; art/Career work 1:20–2:00; cleanup 2:00–2:15; community 2:15–2:30; dismissal 2:35. Student laptops are optional extras only if available. Resume maths and reading from actual stopping points. Other days retain regular routines; specific learning plans may adjust."
+    "note": "Monday October 26: planned learning includes continued Boo Bash art, a maths work block and in-class SpacesEDU work. Follow classroom directions; plans may adjust. Other days retain regular routines."
   },
   "homePractice": {
-    "updatedOn": "October 21, 2026",
+    "updatedOn": "October 26, 2026",
     "policy": "Separate daily homework is not routinely assigned. This is optional practice for families who want a regular routine. Choose what is useful; there is no expectation to complete the whole menu or submit optional practice.",
     "unfinished": "Check your planner and the instructions Mr. Wyatt has given you. Finish only the small piece identified for you, using the support agreed at school. An unfinished class activity is not automatically homework. If you were absent or are unsure, ask where to begin.",
     "routine": "Read or listen for 10–15 minutes, then choose one short activity. Families wanting a longer routine can add a second choice, keeping the total around 30–40 minutes including reading, or less when needed. Spread choices across evenings or select a few for the weekend; do not save up a catch-up pile.",
     "stopRule": "Stop if the work is confusing, upsetting or taking much longer than expected. Let Mr. Wyatt know which part was difficult. Rest, play, family time and activities outside school matter too.",
     "access": "Use paper, drawings, spoken explanations or a language that helps you think. Every menu activity can be done without an online account. No purchase, AI tool or routine portfolio upload is required.",
     "week": {
-      "id": "2026-10-19",
+      "id": "2026-10-26",
       "label": "Read, practise factor trees and create",
-      "from": "2026-10-19",
-      "through": "2026-10-25",
+      "from": "2026-10-26",
+      "through": "2026-11-01",
       "connection": "This week’s optional choices connect to reading, the factor trees we are using in class, and explaining creative choices. Pick one that is useful. These are not new assignments, and there is no routine upload or hand-in deadline.",
       "activities": [
         {
@@ -3052,5 +3052,5 @@
       }
     }
   ],
-  "checksum": "sha256:65d29a76ee312d11c776b2086b0e511aec437796aa59e5c1677cb82395a1661d"
+  "checksum": "sha256:48c32cfac963d59dc45156d9163afa77dbc804b12aa71c44b92ca597fe78b17a"
 }
