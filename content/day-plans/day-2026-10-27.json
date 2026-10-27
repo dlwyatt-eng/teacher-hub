@@ -1,0 +1,166 @@
+{
+  "id": "day-2026-10-27",
+  "date": "2026-10-27",
+  "title": "Tuesday · SpacesEDU, order of operations and Nevermoor",
+  "greeting": "Good morning, Division 8!",
+  "arrival": "Answer attendance, then hand in any forms. Get ready to continue your existing SpacesEDU work.",
+  "note": "Teacher-confirmed Tuesday plan: continue existing SpacesEDU work in the morning, introduce order of operations after recess, and keep the usual Tuesday afternoon. Prime-factorization teaching is finished; this does not mean every individual task or post is complete. Use existing posting instructions and feedback. This day plan adds no new SpacesEDU assignment or deadline. Preserve snack at 10:20, recess 10:35–10:50, lunch 11:50–12:35, French with Mr. Eckert 12:35–1:35, quiet reset 1:35–1:45, Nevermoor 1:45–2:10, planners and jobs 2:10–2:20, community 2:20–2:30 and dismissal at 2:35. Continue Nevermoor from the actual class bookmark; do not infer reading progress.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:45 am",
+      "title": "Arrival and attendance",
+      "notes": "Attendance before form collection.",
+      "href": "",
+      "firstAction": "Settle in and answer attendance.",
+      "studentSteps": [
+        "Settle in and answer attendance.",
+        "Hand in any forms afterward."
+      ],
+      "titleKo": "등교·출석 확인",
+      "firstActionKo": "자리에 앉고 출석을 부르면 대답하세요."
+    },
+    {
+      "time": "8:45–10:20 am",
+      "title": "SpacesEDU · continue existing work",
+      "notes": "Continue existing tasks and posts using the original instructions and teacher feedback. Check actual unfinished work rather than assuming that finishing prime-factorization teaching means every post is complete. Explain the learning in your own words and review the selected content and audience through the usual class routine. If access is unavailable, prepare the same existing work on paper or rehearse an explanation and save it for later. Begin saving and tidying before snack. No new posting task, post count or home-upload deadline is assigned here.",
+      "href": "",
+      "firstAction": "Open your existing SpacesEDU work and check the instructions and feedback.",
+      "studentSteps": [
+        "Continue the unfinished task or post your teacher identifies.",
+        "Use the original directions and feedback to explain or improve your work.",
+        "Check your work with your teacher as directed. Ask for help if needed.",
+        "Save your progress and tidy your space before snack."
+      ],
+      "titleKo": "SpacesEDU · 하던 활동 이어 하기",
+      "firstActionKo": "SpacesEDU에서 하던 과제를 열고 안내와 피드백을 확인하세요."
+    },
+    {
+      "time": "10:20–10:35 am",
+      "title": "Snack",
+      "notes": "Protect the usual 10:20 snack start.",
+      "href": "",
+      "firstAction": "Have your snack and tidy your space.",
+      "titleKo": "간식 시간",
+      "firstActionKo": "간식을 먹고 자기 자리를 정리하세요."
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "notes": "",
+      "href": "",
+      "firstAction": "Follow our recess routine.",
+      "titleKo": "쉬는 시간",
+      "firstActionKo": "쉬는 시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "10:50–11:50 am",
+      "title": "Maths · introduce order of operations",
+      "notes": "Introduce the agreed order for whole-number expressions. An expression is a calculation written with numbers and operation signs. Model 6 + 4 × 3 = 6 + 12 = 18, then (6 + 4) × 3 = 10 × 3 = 30. Brackets change which calculation happens first. Work inside brackets first, then multiplication and division from left to right, then addition and subtraction from left to right. Multiplication is not always before division. Practise 8 + 2 × 5 = 18, (8 + 2) × 5 = 50 and 18 ÷ 3 × 2 = 12, recording one step per line and explaining the first step. Check independently with 24 ÷ (2 + 4) × 3 = 24 ÷ 6 × 3 = 4 × 3 = 12. The existing Math Antics Order of Operations lesson is optional explanation support; the board model and paper practice provide the complete non-video route. Keep exponents for a later lesson or optional extension, not this introduction.",
+      "href": "https://mathantics.com/lesson/order-of-operations",
+      "firstAction": "Get paper and a pencil ready. Which operation comes first in 6 + 4 × 3?",
+      "studentSteps": [
+        "Compare 6 + 4 × 3 with (6 + 4) × 3. Explain what the brackets change.",
+        "Try 8 + 2 × 5, (8 + 2) × 5 and 18 ÷ 3 × 2. Show one step per line.",
+        "Work inside brackets first; then × and ÷ from left to right; then + and − from left to right.",
+        "On your own, solve 24 ÷ (2 + 4) × 3. Explain your first step and check your calculation."
+      ],
+      "titleKo": "수학 · 계산 순서 알아보기",
+      "firstActionKo": "종이와 연필을 준비하세요. 6 + 4 × 3에서 무엇을 먼저 계산할까요?",
+      "activity": {
+        "label": "Math Antics · Order of Operations (optional)",
+        "href": "https://mathantics.com/lesson/order-of-operations",
+        "studentSafe": true
+      }
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "notes": "Usual intermediate routine: outside 11:50–12:12; transition 12:12–12:13; eating 12:13–12:35.",
+      "href": "",
+      "firstAction": "Follow our outside-play and lunch routine.",
+      "titleKo": "점심시간",
+      "firstActionKo": "바깥 놀이와 점심시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "12:35–1:35 pm",
+      "title": "Core French · Mr. Eckert",
+      "notes": "French-only specialist block with Mr. Eckert.",
+      "href": "",
+      "firstAction": "Get your French materials ready and follow Mr. Eckert’s directions.",
+      "titleKo": "프랑스어 · Eckert 선생님",
+      "firstActionKo": "프랑스어 준비물을 꺼내고 Eckert 선생님의 안내를 따르세요."
+    },
+    {
+      "time": "1:35–1:45 pm",
+      "title": "Quiet reset",
+      "notes": "A calm transition after French; quiet non-reading choices are available.",
+      "href": "",
+      "firstAction": "Choose quiet reading, drawing or an unfinished task.",
+      "titleKo": "조용한 개인 활동 시간",
+      "firstActionKo": "조용히 책 읽기, 그림 그리기, 끝내지 못한 활동 중 하나를 고르세요."
+    },
+    {
+      "time": "1:45–2:10 pm",
+      "title": "English Language Arts · Nevermoor",
+      "notes": "Continue Nevermoor from the actual class bookmark. Briefly recall the last part actually read; do not invent story events or assume a chapter is finished. Read or listen, identify a character or setting detail, and give an idea supported by that detail.",
+      "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+      "firstAction": "Find our actual stopping point in Nevermoor.",
+      "studentSteps": [
+        "Read or listen from our actual stopping point.",
+        "Notice a character or setting detail.",
+        "Write, draw or say an idea and the detail that supports it.",
+        "Mark where we stop and keep one question for next time."
+      ],
+      "activity": {
+        "label": "Story evidence lesson",
+        "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "영어 · Nevermoor",
+      "firstActionKo": "Nevermoor에서 지난번에 읽다가 멈춘 곳을 찾으세요."
+    },
+    {
+      "time": "2:10–2:20 pm",
+      "title": "Planners, jobs and cleanup",
+      "notes": "Restore our room and record confirmed reminders.",
+      "href": "?view=Responsibilities&mode=student",
+      "firstAction": "Restore our room and record any confirmed reminders.",
+      "activity": {
+        "label": "Class responsibilities",
+        "href": "?view=Responsibilities&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "알림장·맡은 일·정리",
+      "firstActionKo": "교실을 정리하고 확정된 안내 사항을 적으세요."
+    },
+    {
+      "time": "2:20–2:30 pm",
+      "title": "Classroom community",
+      "notes": "Use a short check-in, appreciation or familiar cooperative game. Students may speak, draw, point or pass; keep feedback specific and avoid public rankings.",
+      "href": "",
+      "firstAction": "Notice one helpful action from today.",
+      "studentSteps": [
+        "Offer one specific appreciation or listen.",
+        "Name a small next step for tomorrow."
+      ],
+      "titleKo": "학급 활동",
+      "firstActionKo": "오늘 도움이 된 행동 한 가지를 떠올려 보세요."
+    },
+    {
+      "time": "2:30–2:35 pm",
+      "title": "Pack up and dismissal",
+      "notes": "",
+      "href": "",
+      "firstAction": "Check your belongings and get ready for a calm departure.",
+      "titleKo": "짐 챙기기·하교",
+      "firstActionKo": "자기 물건을 확인하고 차분히 하교할 준비를 하세요."
+    }
+  ],
+  "backups": [
+    "If SpacesEDU access is unavailable, prepare the same existing work on paper or rehearse an explanation. Save it for a later class session; do not share account details.",
+    "If the optional Math Antics video is unavailable, use the board model and paper practice in the maths block. No special printing is needed.",
+    "Carry unfinished work forward without inventing a new homework or upload deadline.",
+    "Keep the usual Tuesday afternoon and record the actual Nevermoor stopping point."
+  ]
+}
