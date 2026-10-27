@@ -1,0 +1,190 @@
+{
+  "id": "day-2026-10-28",
+  "date": "2026-10-28",
+  "title": "Wednesday · storytelling, order of operations and Nevermoor",
+  "greeting": "Good morning, Division 8!",
+  "arrival": "Settle in and answer attendance before handing in forms. Get ready for our storytelling routine.",
+  "note": "Teacher-confirmed Wednesday plan: oral storytelling / Werewolf in the morning, order of operations after recess, then quiet time and Nevermoor, writing or unfinished work, and a flexible art / work block. Start maths from the actual class stopping point; Tuesday’s planned introduction is not proof it was completed. Continue Nevermoor from the actual bookmark. No student devices or uploads are assumed. Health has no fixed slot or new assignment in this plan; the teacher may introduce it when appropriate. Preserve snack at 10:20, recess 10:35–10:50, lunch 11:50–12:35 and dismissal at 2:35. Carry unfinished work forward without creating a new deadline.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–9:00 am",
+      "title": "Arrival and check-in",
+      "notes": "Attendance before form collection. Settle in with a brief check-in and prepare for storytelling.",
+      "href": "",
+      "firstAction": "Settle in and answer attendance.",
+      "studentSteps": [
+        "Hand in any forms after attendance.",
+        "Get ready to listen and take turns."
+      ],
+      "titleKo": "등교·출석 확인",
+      "firstActionKo": "자리에 앉고 출석을 부르면 대답하세요."
+    },
+    {
+      "time": "9:00–10:20 am",
+      "title": "Oral storytelling · Werewolf",
+      "notes": "Use the familiar oral storytelling / Werewolf routine. Model respectful listening and turn-taking. Distinguish a detail observed in the round from a guess; explain an idea with evidence, listen to another explanation, and revise when warranted. Keep fictional roles separate from judgments about classmates.",
+      "href": "?subject=English+Language+Arts&experience=werewolf-learn&mode=student",
+      "firstAction": "Listen to the opening story and the rules.",
+      "studentSteps": [
+        "Listen to the opening story and follow the agreed rules.",
+        "Take turns and explain an idea using a detail from the story or round.",
+        "Listen to other explanations and be ready to revise your idea."
+      ],
+      "titleKo": "말로 이야기하기 · Werewolf",
+      "firstActionKo": "이야기와 게임 규칙을 주의 깊게 들으세요.",
+      "activity": {
+        "label": "Werewolf · story and listening routine",
+        "href": "?subject=English+Language+Arts&experience=werewolf-learn&mode=student",
+        "studentSafe": true
+      }
+    },
+    {
+      "time": "10:20–10:35 am",
+      "title": "Snack",
+      "notes": "Protect the usual 10:20 snack start.",
+      "href": "",
+      "firstAction": "Put materials away and get your snack ready.",
+      "titleKo": "간식",
+      "firstActionKo": "준비물을 정리하고 간식을 준비하세요."
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "notes": "",
+      "href": "",
+      "firstAction": "Follow our recess routine.",
+      "titleKo": "쉬는 시간",
+      "firstActionKo": "쉬는 시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "10:50–11:50 am",
+      "title": "Maths · order of operations",
+      "notes": "Begin by checking the actual class stopping point and a brief student explanation of 6 + 4 × 3. If the introduction was not completed, teach the model below; if it was, use the examples to check understanding and select practice where needed. Do not assume Tuesday’s planned lesson happened. Introduce the agreed order for whole-number expressions. An expression is a calculation written with numbers and operation signs. Model 6 + 4 × 3 = 6 + 12 = 18, then (6 + 4) × 3 = 10 × 3 = 30. Brackets change which calculation happens first. Work inside brackets first, then multiplication and division from left to right, then addition and subtraction from left to right. Multiplication is not always before division. Practise 8 + 2 × 5 = 18, (8 + 2) × 5 = 50 and 18 ÷ 3 × 2 = 12, recording one step per line and explaining the first step. Check independently with 24 ÷ (2 + 4) × 3 = 24 ÷ 6 × 3 = 4 × 3 = 12. The existing Math Antics Order of Operations lesson is optional explanation support; the board model and paper practice provide the complete non-video route. Keep exponents for a later lesson or optional extension, not this introduction.",
+      "href": "https://mathantics.com/lesson/order-of-operations",
+      "firstAction": "Get paper and a pencil ready. Show where we stopped and explain the first step in 6 + 4 × 3.",
+      "studentSteps": [
+        "Explain the first step in 6 + 4 × 3. Compare it with (6 + 4) × 3.",
+        "Try the practice your teacher selects from 8 + 2 × 5, (8 + 2) × 5 and 18 ÷ 3 × 2. Show one step per line.",
+        "Work inside brackets first; then × and ÷ from left to right; then + and − from left to right.",
+        "On your own, solve 24 ÷ (2 + 4) × 3. Explain your first step and check your calculation."
+      ],
+      "titleKo": "수학 · 계산 순서",
+      "firstActionKo": "종이와 연필을 준비하세요. 지난번에 배운 내용을 확인하고 6 + 4 × 3에서 무엇을 먼저 계산하는지 설명하세요.",
+      "activity": {
+        "label": "Math Antics · Order of Operations (optional)",
+        "href": "https://mathantics.com/lesson/order-of-operations",
+        "studentSafe": true
+      }
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "notes": "Usual intermediate routine: outside 11:50–12:12; transition 12:12–12:13; eating 12:13–12:35.",
+      "href": "",
+      "firstAction": "Follow our outside-play and lunch routine.",
+      "titleKo": "점심시간",
+      "firstActionKo": "바깥 놀이와 점심시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "12:35–1:05 pm",
+      "title": "Quiet reset and Nevermoor",
+      "notes": "Begin with a brief calm reset; quiet non-reading choices are available. Then continue Nevermoor from the actual class bookmark. Briefly recall only the last part actually read. Do not assume a chapter or story event. Read or listen, notice a character or setting detail, and explain an idea supported by that detail. Mark the new stopping point.",
+      "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+      "firstAction": "Settle quietly, then find where our class actually stopped in Nevermoor.",
+      "studentSteps": [
+        "Listen or read from our actual stopping point.",
+        "Notice one character or setting detail.",
+        "Say, draw or write an idea and the detail that supports it.",
+        "Mark where we stop and keep one question for next time."
+      ],
+      "titleKo": "조용히 쉬기와 Nevermoor",
+      "firstActionKo": "조용히 자리를 잡고 지난번에 읽다가 멈춘 곳을 찾으세요.",
+      "activity": {
+        "label": "Story evidence lesson",
+        "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+        "studentSafe": true
+      }
+    },
+    {
+      "time": "1:05–1:30 pm",
+      "title": "Supported writing and work time",
+      "notes": "Use paper-based writing or selected unfinished work. Start with one manageable next step and offer a model, word bank, partner rehearsal, drawing or an adult scribe as appropriate. A Nevermoor response can use: I think ___. A detail that supports my idea is ___. Keep individual support arrangements private. No devices or uploads are assumed.",
+      "href": "",
+      "firstAction": "Choose the writing or unfinished task your teacher has selected.",
+      "studentSteps": [
+        "Say your idea before writing, or start with a sketch.",
+        "Complete one clear next step and ask for help if needed.",
+        "Check your work and show what you have finished."
+      ],
+      "titleKo": "도움을 받으며 글쓰기·활동하기",
+      "firstActionKo": "선생님과 정한 글쓰기나 끝내지 못한 활동을 시작하세요."
+    },
+    {
+      "time": "1:30–1:35 pm",
+      "title": "Pause and transition",
+      "notes": "Short movement and materials transition before the flexible afternoon block.",
+      "href": "",
+      "firstAction": "Save your place, stretch and listen for the next activity.",
+      "titleKo": "잠깐 쉬기·다음 활동 준비",
+      "firstActionKo": "하던 곳을 표시하고 몸을 가볍게 움직인 뒤 다음 안내를 들으세요."
+    },
+    {
+      "time": "1:35–2:10 pm",
+      "title": "Flexible art and unfinished work",
+      "notes": "Check what actually needs finishing. If decoration work remains and materials are ready, choose a manageable next step and model safe tool use. Otherwise use selected unfinished work or continue Nevermoor. Do not assume decorations still need work or require completion today. Keep unfinished pieces together and allow time to tidy.",
+      "href": "",
+      "firstAction": "Check which art or unfinished task your teacher has selected.",
+      "studentSteps": [
+        "Choose one manageable next step in the selected task.",
+        "Use materials safely and ask for help when needed.",
+        "Check your progress, keep unfinished work together and tidy your space."
+      ],
+      "titleKo": "미술·끝내지 못한 활동",
+      "firstActionKo": "선생님이 정한 미술 활동이나 끝내지 못한 과제를 확인하세요."
+    },
+    {
+      "time": "2:10–2:20 pm",
+      "title": "Planners, jobs and cleanup",
+      "notes": "Restore our room and record confirmed reminders.",
+      "href": "?view=Responsibilities&mode=student",
+      "firstAction": "Restore our room and record any confirmed reminders.",
+      "activity": {
+        "label": "Class responsibilities",
+        "href": "?view=Responsibilities&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "알림장·맡은 일·정리",
+      "firstActionKo": "교실을 정리하고 확정된 안내 사항을 적으세요."
+    },
+    {
+      "time": "2:20–2:30 pm",
+      "title": "Classroom community",
+      "notes": "Use a short check-in, appreciation or familiar cooperative game. Students may speak, draw, point or pass; keep feedback specific and avoid public rankings.",
+      "href": "",
+      "firstAction": "Notice one helpful action from today.",
+      "studentSteps": [
+        "Offer one specific appreciation or listen.",
+        "Name a small next step for tomorrow."
+      ],
+      "titleKo": "학급 활동",
+      "firstActionKo": "오늘 도움이 된 행동 한 가지를 떠올려 보세요."
+    },
+    {
+      "time": "2:30–2:35 pm",
+      "title": "Pack up and dismissal",
+      "notes": "",
+      "href": "",
+      "firstAction": "Check your belongings and get ready for a calm departure.",
+      "titleKo": "짐 챙기기·하교",
+      "firstActionKo": "자기 물건을 확인하고 차분히 하교할 준비를 하세요."
+    }
+  ],
+  "backups": [
+    "Use paper, pencils, oral rehearsal and existing materials. No student device booking, login or upload is assumed.",
+    "If the optional Math Antics video is unavailable, use the board model and paper practice in the maths block. Select the entry point from actual understanding.",
+    "If no decoration work remains or materials are unavailable, use selected unfinished work or continue Nevermoor from the actual bookmark.",
+    "Health remains flexible and unscheduled; no new Health posting or deadline is assigned here.",
+    "Record actual progress and carry unfinished work forward without inventing a home deadline."
+  ]
+}
