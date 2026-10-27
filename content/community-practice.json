@@ -143,6 +143,14 @@
       {
         "label": "CNVC · feelings and needs inventory",
         "url": "https://www.cnvc.org/store/feelings-and-needs-inventory"
+      },
+      {
+        "label": "CNVC · free feelings and needs inventory PDF",
+        "url": "https://www.cnvc.org/images/pdf/Feelings-Needs-CNVC.pdf"
+      },
+      {
+        "label": "BC Grade 6 PHE · relationships, boundaries and consent",
+        "url": "https://curriculum.gov.bc.ca/curriculum/physical-health-education/6/core"
       }
     ],
     "cards": [
@@ -175,6 +183,13 @@
         "teacher": "Use these original short word banks or suitable cards. Feelings are not accusations: “ignored” can imply what another person did; help a child explore whether sad, lonely or frustrated fits, without correcting or dismissing their own wording."
       },
       {
+        "title": "A shared need is not a demand",
+        "prompt": "Two friends both want connection. One wants a game; the other wants quiet company.",
+        "action": "Name the shared need. Offer two different ways they could connect without making either person join an unwanted activity.",
+        "model": "“We both want time together. We could talk while drawing, or choose a game another time.”",
+        "teacher": "Distinguish a shared human need from one particular strategy. Nobody owes access to their body, belongings, images or private information to meet another person’s need. Use the visual set below; do not assume a feeling from facial expression alone."
+      },
+      {
         "title": "Try a clear request",
         "prompt": "Two people reach for the same marker.",
         "action": "With a partner, practise naming what happened and asking for a turn. Then swap roles.",
@@ -187,6 +202,13 @@
         "action": "Respond to the marker request. Show that you heard the other person and offer a workable next step.",
         "model": "“You want a turn to finish your picture. I need two more minutes. Would that work?”",
         "teacher": "Listening does not require eye contact. Encourage a brief check of understanding rather than guessing motives. If repeated exclusion or intimidation appears, the adult intervenes; this is not a substitute for support."
+      },
+      {
+        "title": "Healthy boundaries · stop, respect, get help",
+        "prompt": "Sam asks a classmate to stop using a nickname. The classmate keeps using it. What boundary needs respecting?",
+        "action": "Choose a respectful response. Practise “Stop. Please use my name.” Explain when Sam or a bystander should get help from a trusted adult. Use a fictional example, not a personal story.",
+        "model": "“Sam asked for their name to be used. Stop the nickname. If it continues or feels unsafe, step away safely and tell a trusted adult.”",
+        "teacher": "Personal boundaries protect body, space, privacy, time and emotional well-being. Consent must be freely given and can change; ask before touch, taking a photo or sharing private information. A clear stop does not require a perfect NVC sentence or explanation. Ordinary preferences can be negotiated; consent and safety are not voted away. Do not require confrontation, forgiveness or disclosure. If someone crosses a boundary, it is not the affected child’s fault. Adults must respond to harm and explain necessary care respectfully."
       },
       {
         "title": "Two needs can both matter",

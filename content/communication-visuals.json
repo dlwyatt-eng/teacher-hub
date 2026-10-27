@@ -1,0 +1,103 @@
+{
+  "posters": [
+    {
+      "id": "agreements",
+      "title": "Five Agreements for communication",
+      "image": "images/health-communication/01_five_agreements.png",
+      "alt": "Five classroom agreement adaptations with illustrations of careful words, self-worth, checking assumptions, practice and listening.",
+      "text": [
+        "Classroom adaptations, not rules about what to believe.",
+        "1. Use words with care. Be honest. Avoid insults. Repair harm.",
+        "2. Remember your worth. Other people’s words do not define you.",
+        "3. Check your assumptions. Ask before deciding what someone meant.",
+        "4. Practise, don’t seek perfection. Your best can change. Rest and support matter.",
+        "5. Question and listen. Check your interpretation. Listen to understand.",
+        "Hurtful behaviour is not okay. You can say stop and get help.",
+        "Inspired by The Four Agreements by don Miguel Ruiz and The Fifth Agreement by don Miguel Ruiz and don Jose Ruiz."
+      ]
+    },
+    {
+      "id": "feelings-needs",
+      "title": "Feelings and shared human needs",
+      "image": "images/health-communication/02_feelings_and_shared_needs.png",
+      "alt": "Feelings and shared human needs illustrated separately, with examples of different strategies and the distinction between a need and a demand.",
+      "text": [
+        "Different feelings. Needs we all share.",
+        "Feelings are clues: calm, excited, worried, frustrated, lonely, curious.",
+        "Needs are what matter to us: safety and respect; connection and belonging; rest and care; choice and space; learning and meaning; play and joy.",
+        "Same need, different ways: We can both need belonging and choose different activities.",
+        "A need is not a demand: “I need connection” is different from “You must play my game.”",
+        "All feelings are welcome. Not every action is okay.",
+        "Classroom adaptation inspired by Marshall Rosenberg’s NVC and CNVC feelings and needs resources."
+      ]
+    },
+    {
+      "id": "message",
+      "title": "Say what matters",
+      "image": "images/health-communication/03_say_what_matters.png",
+      "alt": "Four illustrated steps for a clear message: notice, feel, need and request, followed by listening and accessible communication options.",
+      "text": [
+        "Notice · Feel · Need · Request.",
+        "1. Notice: Describe what happened, not a guessed intention. “When you use that nickname…”",
+        "2. Feel: Name a feeling, not a label for the other person. “…I feel embarrassed.”",
+        "3. Need: Say what matters to you. “Respect matters to me.”",
+        "4. Request: Ask for a clear, doable action. “Please use my name.”",
+        "Then listen: “What did you hear me asking?” “Did I understand you?”",
+        "Words, writing, pictures and AAC all count.",
+        "You can simply say “Stop,” leave, or seek adult help. No perfect sentence is required.",
+        "Classroom adaptation of Marshall Rosenberg’s Nonviolent Communication."
+      ]
+    },
+    {
+      "id": "strategies",
+      "title": "One need, many possible ways",
+      "image": "images/health-communication/04_one_need_many_ways.png",
+      "alt": "Two friends seek connection through different activities; possible plans, listening checks, requests and safety boundaries are shown.",
+      "text": [
+        "We can care about both people’s needs.",
+        "The situation: Two friends want to spend time together, but prefer different games. Shared need: connection.",
+        "Possible strategies: Take turns choosing. Find a third activity. Plan time together later.",
+        "Listen and check: “Are you wanting some choice?” “Would taking turns work?” A guess is not a fact. Let the person tell you.",
+        "Requests are not demands. Someone can say no to a proposed activity.",
+        "Boundaries still matter. “Stop” means stop. No one owes unwanted touch or participation. If you feel unsafe, move away and get adult help.",
+        "Classroom example inspired by NVC needs and strategies."
+      ]
+    },
+    {
+      "id": "healthy-boundaries",
+      "title": "Healthy boundaries",
+      "image": "images/health-communication/05_healthy_boundaries.png",
+      "alt": "Healthy boundaries infographic: personal limits, asking and respecting consent, boundaries versus control, words to use, and getting help.",
+      "text": [
+        "My limits matter. Yours do too.",
+        "Boundaries protect our bodies, personal space, privacy, time and feelings. Different people can have different limits. Those limits can change.",
+        "Ask before touching, borrowing, taking a photo or sharing it. A yes must be freely given. Someone can change their mind. No thanks → Okay. Stop when someone says stop.",
+        "Boundary: I will step away if the teasing continues. Control: You are not allowed to have other friends. You can explain your limit without deciding someone else’s friendships.",
+        "Words you can use: Stop. Please give me space. Do not share my photo. I need help. You may speak, point, use AAC or ask someone to help you communicate.",
+        "If you feel unsafe, move to safety and tell a trusted adult. Keep asking for help. You do not need perfect words. It is not your fault if someone ignores your boundary."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "The Four Agreements — don Miguel Ruiz",
+      "url": "https://www.miguelruiz.com/the-four-agreements/"
+    },
+    {
+      "label": "The Fifth Agreement — don Miguel Ruiz and don Jose Ruiz",
+      "url": "https://www.miguelruiz.com/the-fifth-agreement/"
+    },
+    {
+      "label": "CNVC feelings and needs inventory — The Center for Nonviolent Communication © 2023",
+      "url": "https://www.cnvc.org/images/pdf/Feelings-Needs-CNVC.pdf"
+    },
+    {
+      "label": "NVC purpose and process — approach developed by Marshall Rosenberg",
+      "url": "https://www.cnvc.org/about/purpose-of-nvc"
+    },
+    {
+      "label": "BC Grade 6 Physical and Health Education",
+      "url": "https://curriculum.gov.bc.ca/curriculum/physical-health-education/6/core"
+    }
+  ]
+}
