@@ -1,0 +1,202 @@
+{
+  "id": "day-2026-10-30",
+  "date": "2026-10-30",
+  "title": "Friday · spooky writing, pumpkins, French and the parade",
+  "greeting": "Good morning, Division 8!",
+  "arrival": "Settle in, answer attendance and get ready for our Friday plan.",
+  "note": "Friday plan follows the current TOC sequence with the latest teacher correction: the parade starts at 1:30 pm. Morning: spooky writing, pumpkin viewing, French, recess, snack and Four Corners or Werewolf. After lunch and quiet time, use optional story sharing, PE self-assessment and the Core Competency checklist or colouring as time allows before parade preparation. Parade return time is unknown. Prioritize cleanup and packing on return; add a separate short movement break only if time allows, without delaying 2:35 dismissal. No private TOC details are included.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:45 am",
+      "title": "Welcome and attendance",
+      "notes": "Take attendance before collecting forms. Preview the Friday plan and the confirmed 1:30 pm parade start.",
+      "href": "",
+      "firstAction": "Settle in and answer attendance.",
+      "studentSteps": [
+        "Answer attendance, then hand in any forms.",
+        "Look at our Friday plan."
+      ],
+      "titleKo": "등교·출석 확인",
+      "firstActionKo": "자리에 앉고 출석을 부르면 대답하세요."
+    },
+    {
+      "time": "8:45–9:15 am",
+      "title": "Spooky writing",
+      "notes": "Use the prepared spooky-writing materials. Offer spooky, autumn, nature or adventure stories. Model a setting, an unusual detail and a character reaction. The prepared prompt is The Door Between the Shelves: A familiar place suddenly had one detail that did not belong. For a new story, make a three-box plan (beginning, problem, ending), then write. For an existing draft, reread, finish or revise. Drawing with captions is available. No minimum length or deadline; sharing later is optional.",
+      "href": "",
+      "firstAction": "Choose your story idea and plan a beginning, a problem and an ending.",
+      "studentSteps": [
+        "Choose a spooky, autumn, nature or adventure story.",
+        "Plan three parts: beginning, problem and ending; or reread your existing draft.",
+        "Write your story or draw with captions.",
+        "Reread, add one useful detail and mark your next step."
+      ],
+      "titleKo": "으스스한 이야기 쓰기",
+      "firstActionKo": "이야기 소재를 고르고 시작, 문제, 끝을 계획하세요."
+    },
+    {
+      "time": "9:15–9:20 am",
+      "title": "Prepare for pumpkin viewing",
+      "notes": "Save writing and prepare for the scheduled pumpkin viewing.",
+      "href": "",
+      "firstAction": "Put your writing away and get ready to move with the class.",
+      "studentSteps": [
+        "Save your place.",
+        "Follow the class transition directions."
+      ],
+      "titleKo": "호박 구경 준비",
+      "firstActionKo": "글쓰기를 정리하고 반 친구들과 이동할 준비를 하세요."
+    },
+    {
+      "time": "9:20–9:35 am",
+      "title": "Pumpkin viewing",
+      "notes": "Booked pumpkin viewing before French; use this planned visit window and return for French at 9:35.",
+      "href": "",
+      "firstAction": "Stay with the class and look carefully at the pumpkins.",
+      "studentSteps": [
+        "Look respectfully and follow the viewing directions.",
+        "Be ready to return for French."
+      ],
+      "titleKo": "호박 구경",
+      "firstActionKo": "반 친구들과 함께 호박을 주의 깊게 살펴보세요."
+    },
+    {
+      "time": "9:35–10:35 am",
+      "title": "French",
+      "notes": "Preserve the scheduled French block. Follow the French teacher’s plan.",
+      "href": "",
+      "firstAction": "Get ready for French and listen to the teacher.",
+      "studentSteps": [
+        "Follow the French activity directions.",
+        "Take part respectfully and ask for help when needed."
+      ],
+      "titleKo": "프랑스어",
+      "firstActionKo": "프랑스어 수업을 준비하고 선생님의 말씀을 들으세요."
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "notes": "Friday snack follows recess.",
+      "href": "",
+      "firstAction": "Follow our recess routine.",
+      "studentSteps": [],
+      "titleKo": "쉬는 시간",
+      "firstActionKo": "쉬는 시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "10:50–11:10 am",
+      "title": "Snack",
+      "notes": "Preserve snack after recess on Friday.",
+      "href": "",
+      "firstAction": "Wash your hands and get your snack ready.",
+      "studentSteps": [],
+      "titleKo": "간식",
+      "firstActionKo": "손을 씻고 간식을 준비하세요."
+    },
+    {
+      "time": "11:10–11:50 am",
+      "title": "Four Corners or Werewolf",
+      "notes": "Choose one familiar game, Four Corners or Werewolf, rather than promising both. Review safe movement, fair participation and the agreed rules.",
+      "href": "",
+      "firstAction": "Listen to which game we are playing and review the rules.",
+      "studentSteps": [
+        "Follow the agreed rules.",
+        "Take turns and include others.",
+        "Finish calmly and get ready for lunch."
+      ],
+      "titleKo": "Four Corners 또는 Werewolf",
+      "firstActionKo": "오늘 할 게임과 규칙을 주의 깊게 들으세요."
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "notes": "Follow the usual outside-play and lunch routine.",
+      "href": "",
+      "firstAction": "Follow our outside-play and lunch routine.",
+      "studentSteps": [],
+      "titleKo": "점심시간",
+      "firstActionKo": "바깥 놀이와 점심시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "12:35–12:45 pm",
+      "title": "Quiet time",
+      "notes": "Keep a calm reset after lunch. The parade starts at 1:30 pm, not during this reset.",
+      "href": "",
+      "firstAction": "Choose quiet reading, drawing or a calm seated activity.",
+      "studentSteps": [],
+      "titleKo": "조용히 쉬기",
+      "firstActionKo": "조용히 책 읽기, 그림 그리기, 자리에 앉아서 쉬기 중 하나를 고르세요."
+    },
+    {
+      "time": "12:45–1:20 pm · as time allows",
+      "title": "Story sharing, reflection and colouring",
+      "notes": "Flexible choices before parade preparation: optional spooky-story sharing, then the PE self-assessment, then the Core Competency checklist or colouring if time allows. Use the prepared materials. Do not require every activity to fit or add a deadline. Students may pass on sharing.",
+      "href": "",
+      "firstAction": "Listen for the next activity; story sharing is optional.",
+      "studentSteps": [
+        "Share a story only if you choose, or listen respectfully.",
+        "Complete the PE self-assessment when directed.",
+        "If there is time, work on the Core Competency checklist or colouring."
+      ],
+      "titleKo": "이야기 나누기·돌아보기·색칠하기",
+      "firstActionKo": "다음 활동 안내를 들으세요. 이야기를 발표하지 않아도 괜찮아요."
+    },
+    {
+      "time": "1:20–1:30 pm",
+      "title": "Prepare for the parade",
+      "notes": "Allow a calm transition for the confirmed 1:30 pm parade. Adjust preparation to school directions; no return time is assumed.",
+      "href": "",
+      "firstAction": "Save your work and listen to the parade directions.",
+      "studentSteps": [
+        "Put materials away.",
+        "Get ready and stay with the class."
+      ],
+      "titleKo": "퍼레이드 준비",
+      "firstActionKo": "활동을 정리하고 퍼레이드 안내를 들으세요."
+    },
+    {
+      "time": "1:30 pm · return time flexible",
+      "title": "Parade",
+      "notes": "Latest teacher correction: parade starts at 1:30 pm. Follow school directions. Return time is unknown; shorten or omit later optional activities as needed.",
+      "href": "",
+      "firstAction": "Stay with the class and follow the parade directions.",
+      "studentSteps": [
+        "Take part respectfully.",
+        "Listen for directions when we return."
+      ],
+      "titleKo": "퍼레이드",
+      "firstActionKo": "반 친구들과 함께하며 퍼레이드 안내를 따르세요."
+    },
+    {
+      "time": "After return · aim for 2:10–2:35 pm",
+      "title": "Cleanup, pack up and a short movement break",
+      "notes": "After the parade, prioritize cleanup, packing and readiness for 2:35 dismissal. Aim to begin the closing routine around 2:10 if back in time. After cleanup and packing, keep a separate short DPA movement break only if time allows; it is not part of cleanup and must not delay dismissal.",
+      "href": "",
+      "firstAction": "When we return, listen for cleanup and packing directions.",
+      "studentSteps": [
+        "Restore the room and pack your belongings.",
+        "After packing, join a separate short movement break if there is time.",
+        "Be ready for dismissal at 2:35."
+      ],
+      "titleKo": "정리·짐 챙기기·짧게 몸 움직이기",
+      "firstActionKo": "돌아오면 정리와 짐 챙기기 안내를 들으세요."
+    },
+    {
+      "time": "2:35 pm",
+      "title": "Dismissal",
+      "notes": "Preserve the 2:35 dismissal time.",
+      "href": "",
+      "firstAction": "Check your belongings and follow the dismissal routine.",
+      "studentSteps": [],
+      "titleKo": "하교",
+      "firstActionKo": "자기 물건을 확인하고 정해진 순서대로 하교하세요."
+    }
+  ],
+  "backups": [
+    "The parade starts at 1:30 pm. Follow school directions for return and adjust flexibly.",
+    "Story sharing is opt-in. Shorten or omit optional activities rather than rushing or inventing a deadline.",
+    "Use prepared paper materials; no device access, login or upload is assumed.",
+    "After the parade, protect cleanup, packing and 2:35 dismissal. A separate short movement break follows packing only if time allows."
+  ]
+}
