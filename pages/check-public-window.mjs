@@ -20,6 +20,7 @@ assert.equal(published.contentVersion, source.contentVersion, "Public-window con
 assert.equal(published.sourceUpdatedAt, source.sourceUpdatedAt, "Public-window source date is stale.");
 assert.deepEqual(published.schoolEvents, source.schoolEvents, "School dates differ from their canonical source.");
 assert.deepEqual(published.classroomWelcome, source.classroomWelcome, "Family welcome differs from its canonical source.");
+assert.deepEqual(published.learningUpdates, source.learningUpdates, "Subject updates differ from their canonical source.");
 assert.deepEqual(published.window, projectPublicWindow(source.window), "Public-window primary window differs from the safe canonical projection.");
 assert.deepEqual(published.windows, [source.window, ...source.phaseOverrides].map(projectPublicWindow), "Public-window phase list differs from the safe canonical projection.");
 

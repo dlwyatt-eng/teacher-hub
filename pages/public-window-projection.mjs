@@ -37,6 +37,11 @@ export function projectPublicWindow(window) {
   };
 }
 
+export function projectLearningUpdates(updates) {
+  return { ...pick(updates, ["updatedOn", "title", "summary", "note"]),
+    subjects: updates.subjects.map(subject => pick(subject, ["subject", "status", "focus", "detail"])) };
+}
+
 export function manifestChecksum(manifest) {
   const body = { ...manifest };
   delete body.checksum;
@@ -51,6 +56,7 @@ export function buildPublicManifest(existing, source, homePractice) {
     window: projectPublicWindow(source.window),
     ...pick(existing, PUBLIC_MANIFEST_KEYS),
     ...pick(source, ["classroomWelcome", "schoolEvents", "classSchedule"]),
+    ...(source.learningUpdates ? { learningUpdates: projectLearningUpdates(source.learningUpdates) } : {}),
     ...(homePractice ? { homePractice } : {}),
     yearMonths: existing.yearMonths.map(month => {
       const update = source.publicMonthUpdates?.[month.month];
