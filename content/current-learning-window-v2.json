@@ -1,7 +1,7 @@
 {
   "schemaVersion": "classroom-os-current-window/v2",
-  "contentVersion": "2026-10-26-family-refresh",
-  "sourceUpdatedAt": "2026-10-26",
+  "contentVersion": "2026-11-02-family-refresh",
+  "sourceUpdatedAt": "2026-11-02",
   "window": {
     "id": "september-opening",
     "effectiveFrom": "2026-09-08",
@@ -1428,7 +1428,7 @@
     }
   ],
   "classroomWelcome": {
-    "updatedOn": "October 26, 2026",
+    "updatedOn": "November 2, 2026",
     "classLabel": "Division 8",
     "location": "Room 112 · Annex · Walnut Road Elementary",
     "title": "Welcome to our Division 8 community",
@@ -1436,13 +1436,9 @@
     "recapTitle": "Our class learning",
     "recap": "Our class is building number sense, reading and responding to stories, exploring community questions, and creating and sharing ideas.",
     "nextTitle": "Our learning themes",
-    "next": "Monday October 26: planned learning continues Boo Bash art and includes a maths work block and in-class SpacesEDU work. Prime factorization, Nevermoor and Bloxels remain ongoing; resume from actual stopping points and follow class instructions. Planned activities are not a record of completed learning.",
-    "later": "We Scare Hunger runs October 26–30. Families who wish to contribute should follow the school’s collection instructions. Everyone can take part in class learning without donating. Learning plans may adjust as students need more time.",
+    "next": "Our ongoing learning includes prime factorization and order of operations, reading and discussing Nevermoor, Career/SpacesEDU work, and original-story Bloxels projects. Follow classroom instructions and continue from actual stopping points.",
+    "later": "Learning plans may adjust as students need more time. The home-practice menu offers a few optional choices for families who find them useful; no new home submission is required.",
     "reminders": [
-      {
-        "title": "October 26–30 · We Scare Hunger",
-        "text": "The food drive launches Monday. Follow school notices for accepted items and collection details. Contributions are optional; there is no class donation quota."
-      },
       {
         "title": "Volunteer and driver registration · each school year",
         "text": "Please re-register with the school office each school year. Parents driving students need their annual driver’s abstract, licence verification and insurance verification completed together through the office. These driver documents apply to transporting students, not helping on foot. Criminal record checks are normally renewed every five years; the office confirms your status and any earlier requirement.",
@@ -1717,6 +1713,6 @@
         "time": "11:10–11:50 am"
       }
     ],
-    "note": "Monday October 26: planned learning includes continued Boo Bash art, a maths work block and in-class SpacesEDU work. Follow classroom directions; plans may adjust. Other days retain regular routines."
+    "note": "Follow classroom directions for current learning; plans may adjust. Regular classroom routines continue."
   }
 }

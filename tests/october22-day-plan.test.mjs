@@ -50,12 +50,12 @@ test('Thursday board, activity details and teacher print render the actual stude
 
 test('current family summary stays learning-focused and preserves Thursday history',()=>{
  assert.equal(source.contentVersion,manifest.contentVersion);
- assert.match(source.classroomWelcome.next,/Monday October 26/);
- for(const term of ['Nevermoor','Boo Bash art','Bloxels','actual stopping points'])assert.ok(source.classroomWelcome.next.includes(term),term);
+ assert.match(source.classroomWelcome.next,/Our ongoing learning/);
+ for(const term of ['Nevermoor','order of operations','Bloxels','actual stopping points'])assert.ok(source.classroomWelcome.next.includes(term),term);
  assert.doesNotMatch(source.classroomWelcome.next,/laptops|computers|devices|\d:\d|staffing|support room|completed maths/i);
  assert.deepEqual(manifest.classroomWelcome,source.classroomWelcome);
  assert.deepEqual(manifest.classSchedule,source.classSchedule);
- assert.match(source.classSchedule.note,/in-class SpacesEDU work/);
+ assert.match(source.classSchedule.note,/Regular classroom routines continue/);
  // Updating the classroom SOD does not silently cancel an unrelated school event.
  assert.ok(source.schoolEvents.some(e=>e.id==='provincial-student-vote'&&e.date==='2026-10-22'));
  assert.match(source.schoolEvents.find(e=>e.id==='provincial-student-vote').detail,/12:50 pm/);
