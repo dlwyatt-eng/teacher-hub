@@ -12,12 +12,12 @@ test('dated subject updates cover the full class without turning plans into comp
  assert.deepEqual(updates.subjects.map(x=>x.subject),['Mathematics','Language Arts','Career Education','Physical Education','Health','Social Studies','Arts Education','ADST','Science','French']);
  assert.equal(new Set(updates.subjects.map(x=>x.focus)).size,10);
  const by=Object.fromEntries(updates.subjects.map(x=>[x.subject,x]));
- for(const key of ['Physical Education','Health','Arts Education'])assert.equal(by[key].status,'Planned');
- for(const key of ['Science','French'])assert.equal(by[key].status,'Update pending');
- assert.match(by['Physical Education'].detail,/unfinished last week/);
- assert.match(by['Arts Education'].detail,/assembly date and time are not confirmed/);
- assert.match(by['Language Arts'].detail,/no chapter is assumed/);
- assert.match(by['Social Studies'].detail,/voting preferences remain private/);
+ for(const key of ['Physical Education','Health','Arts Education'])assert.equal(by[key].status,'Coming up');
+ for(const key of ['Science','French'])assert.equal(by[key].status,'Class materials');
+ assert.match(by['Physical Education'].detail,/Monday, November 2/);
+ assert.match(by['Arts Education'].detail,/Thursday, November 5/);
+ assert.match(by['Language Arts'].detail,/details from the story/);
+ assert.match(by['Social Studies'].detail,/voting preferences stay private/);
  assert.doesNotMatch(JSON.stringify(updates),/laptop|booking|mastered|completed the lesson|support schedule/i);
 });
 test('subject update projection exports only the public fields',()=>{

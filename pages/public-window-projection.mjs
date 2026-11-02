@@ -55,7 +55,7 @@ export function buildPublicManifest(existing, source, homePractice) {
     sourceUpdatedAt: source.sourceUpdatedAt,
     window: projectPublicWindow(source.window),
     ...pick(existing, PUBLIC_MANIFEST_KEYS),
-    ...pick(source, ["classroomWelcome", "schoolEvents", "classSchedule"]),
+    ...pick(source, ["classroomWelcome", "schoolEvents", "classSchedule", "guideSections"]),
     ...(source.learningUpdates ? { learningUpdates: projectLearningUpdates(source.learningUpdates) } : {}),
     ...(homePractice ? { homePractice } : {}),
     yearMonths: existing.yearMonths.map(month => {
