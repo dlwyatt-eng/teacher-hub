@@ -1,0 +1,169 @@
+{
+  "id": "day-2026-11-02",
+  "date": "2026-11-02",
+  "title": "Monday · work block, Nevermoor, Health and SpacesEDU",
+  "greeting": "Good morning, Division 8!",
+  "arrival": "Settle in and answer attendance before handing in forms. Get ready to continue your PE self-assessment and maths work.",
+  "note": "Monday begins with a flexible work block: prioritize the existing PE self-assessment, then continue assigned maths. Nevermoor has focused reading and discussion time from 9:30, followed by familiar breaks and feelings, needs and healthy boundaries. After lunch and quiet time, use SpacesEDU for reviewed PE reflections, existing Career work and feedback, and assigned maths as directed. Keep snack at 10:20, recess 10:35–10:50, lunch 11:50–12:35, quiet time 12:35–12:50, cleanup at 2:00 and dismissal at 2:35. Check actual progress rather than treating earlier plans as completed learning. No new homework or posting deadline is added.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:45 am",
+      "title": "Welcome and attendance",
+      "notes": "Take attendance before collecting forms. Preview the Monday sequence and settle into familiar routines.",
+      "href": "",
+      "firstAction": "Settle in and answer attendance.",
+      "studentSteps": [
+        "Answer attendance, then hand in any forms.",
+        "Look at today's plan and get your existing work ready."
+      ],
+      "titleKo": "등교·출석 확인",
+      "firstActionKo": "자리에 앉고 출석을 부르면 대답하세요."
+    },
+    {
+      "time": "8:45–9:30 am",
+      "title": "Work block · PE self-assessment and maths",
+      "href": "",
+      "notes": "Begin with the prepared PE self-assessment and its original criteria. Protect time to describe real evidence of participation and learning and choose a realistic next step; do not invent a new rubric or require a particular rating. Offer established response options and keep reflections about the student’s own learning, not classmates. Then continue the assigned maths task from the actual stopping point. Use the existing MathUP order-of-operations lesson for a brief teacher-led explanation only if useful; it is not a separate mandatory whole-class block. Students can respond on paper without their own device or account. A helpful model compares 6 + 4 × 3 with (6 + 4) × 3: brackets first, then multiplication and division from left to right, then addition and subtraction from left to right. Show one step per line and explain the choice. Use a brief check where helpful to decide the next step; do not require every activity to fit. Save unfinished work at 9:30 for focused Nevermoor time; assigned maths can continue during the afternoon work block.",
+      "firstAction": "Get your prepared PE self-assessment and think of one real example from your participation.",
+      "studentSteps": [
+        "Work on the existing PE self-assessment first, using an example and a realistic next step.",
+        "Then continue the maths work your teacher has assigned.",
+        "Show your thinking and ask for help with the next step.",
+        "Save your work at the signal and get ready to focus on Nevermoor."
+      ],
+      "titleKo": "활동 시간 · 체육 자기 평가와 수학",
+      "firstActionKo": "준비된 체육 자기 평가지를 꺼내고 자신이 참여한 실제 사례를 떠올려 보세요."
+    },
+    {
+      "time": "9:30–10:20 am",
+      "title": "Nevermoor · old life, new life",
+      "href": "",
+      "notes": "Locate the actual book or audio bookmark and recall only what the class has read. Continue reading or listening without assuming a chapter or inventing events. Explore death and rebirth as a literary pattern of an old life ending and a new life beginning, not as a claim about anyone's beliefs. Use only events already encountered: What changes? What remains? Make a before-and-after comparison and support an interpretation with a precise story detail. Invite more than one supported interpretation. Students may discuss the fictional character without sharing personal experiences of death, grief or change; no disclosure is required. Offer a character/setting evidence response instead if preferred. Mark the new stopping point before snack.",
+      "firstAction": "Find our actual Nevermoor stopping point and get ready to listen or read.",
+      "studentSteps": [
+        "Listen or read from our class bookmark.",
+        "Notice evidence of what changes and what stays the same in the character's life.",
+        "Say, draw or write a before-and-after idea supported by a detail from the story.",
+        "Listen to another interpretation and mark our stopping point."
+      ],
+      "titleKo": "Nevermoor · 이전 삶과 새로운 삶",
+      "firstActionKo": "지난번에 읽다가 멈춘 곳을 찾고 이야기를 듣거나 읽을 준비를 하세요."
+    },
+    {
+      "time": "10:20–10:35 am",
+      "title": "Snack",
+      "notes": "Keep the usual snack time before recess.",
+      "href": "",
+      "firstAction": "Have your snack and tidy your space.",
+      "titleKo": "간식 시간",
+      "firstActionKo": "간식을 먹고 자기 자리를 정리하세요."
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "notes": "",
+      "href": "",
+      "firstAction": "Follow our recess routine.",
+      "titleKo": "쉬는 시간",
+      "firstActionKo": "쉬는 시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "10:50–11:50 am",
+      "title": "Health · feelings, needs and boundaries",
+      "href": "",
+      "notes": "Use the existing communication visuals and prepared Health resources. Start by checking what the class has already explored; continue rather than assuming a new unit. Use fictional, low-stakes situations such as friends preferring different games. Distinguish a feeling, a shared need and a possible strategy. Model noticing what happened without guessing intentions, naming a feeling and need, and making a clear request. A request is not a demand: someone can say no. Practise respecting personal space and stopping when asked. No unwanted touch, role-play of actual conflict or personal disclosure is required. Students can speak, write, draw, observe or pass on performance. Being safe matters more than using a perfect sentence: stop, step away and ask a trusted adult for help. Close with a fictional scenario: identify a respectful request, an alternative strategy and a boundary to respect. Use paper and the existing posters; do not create a new upload task.",
+      "firstAction": "Look at the fictional situation and notice a possible feeling and need.",
+      "studentSteps": [
+        "Separate what happened from a guess about someone's intention.",
+        "Suggest a feeling, a need and more than one respectful way to respond.",
+        "Practise a clear request or show your idea with words or pictures.",
+        "Respect a no or stop, and know when to step away and get help."
+      ],
+      "titleKo": "보건 · 감정·필요·건강한 경계",
+      "firstActionKo": "가상의 상황을 보고 어떤 감정과 필요가 있을지 생각해 보세요.",
+      "worksheet": {
+        "label": "Feelings, needs and healthy boundaries",
+        "href": "./printables/communication-feelings-needs-boundaries.pdf",
+        "studentSafe": true
+      }
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "notes": "Usual intermediate routine: outside 11:50–12:12; transition 12:12–12:13; eating 12:13–12:35.",
+      "href": "",
+      "firstAction": "Follow our outside-play and lunch routine.",
+      "titleKo": "점심시간",
+      "firstActionKo": "바깥 놀이와 점심시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "12:35–12:50 pm",
+      "title": "Quiet reading and reset",
+      "notes": "Keep a calm reset after lunch. Quiet drawing or another calm seated choice is available. Prepare to continue existing work after quiet time.",
+      "href": "",
+      "firstAction": "Settle with quiet reading or a calm seated choice.",
+      "titleKo": "조용히 읽기·쉬기",
+      "firstActionKo": "조용히 책을 읽거나 자리에 앉아서 차분하게 쉬세요."
+    },
+    {
+      "time": "12:50–2:00 pm",
+      "title": "SpacesEDU and work time · reflections, Career and maths",
+      "href": "",
+      "notes": "Use the established class sign-in and posting workflow. Finish and review the PE reflection, then upload or post it as directed. Continue existing Career work, respond to teacher feedback, or continue assigned maths according to the selected next step. Prepare or share existing maths evidence only if already directed; this block does not assign a new maths post or number of posts. Model a useful next step with a non-private example and check the intended audience before sharing. Device availability does not guarantee successful sign-in or upload; help with access privately. If access fails, prepare the same reflection or response on paper or continue assigned maths. If selected work is complete, choose quiet reading rather than a new task. Begin saving, signing out and returning equipment by 1:55 so cleanup starts at 2:00.",
+      "firstAction": "Follow the class directions and choose your next step in PE reflections, Career work or assigned maths.",
+      "studentSteps": [
+        "Finish and review your PE reflection, then post it using the class directions.",
+        "Continue existing Career work, respond to feedback, or work on assigned maths as directed.",
+        "Check what saved successfully; ask for help if access is not working.",
+        "If finished, read quietly. Save, sign out and return equipment when directed."
+      ],
+      "titleKo": "SpacesEDU·활동 시간 · 성찰·진로·수학",
+      "firstActionKo": "선생님 안내에 따라 체육 성찰, 진로 활동, 정해진 수학 과제에서 다음 단계를 고르세요."
+    },
+    {
+      "time": "2:00–2:15 pm",
+      "title": "Planners, jobs and cleanup",
+      "notes": "Restore the room and record confirmed reminders. Carry unfinished learning forward without adding a home deadline.",
+      "href": "?view=Responsibilities&mode=student",
+      "firstAction": "Restore our room and record any confirmed reminders.",
+      "titleKo": "알림장·맡은 일·정리",
+      "firstActionKo": "교실을 정리하고 확정된 안내 사항을 적으세요.",
+      "activity": {
+        "label": "Class responsibilities",
+        "href": "?view=Responsibilities&mode=student",
+        "studentSafe": true
+      }
+    },
+    {
+      "time": "2:15–2:30 pm",
+      "title": "Community and movement",
+      "notes": "Use a brief familiar cooperative movement activity or community check-in after cleanup. Keep participation accessible, review safe space and stop signals, and end calmly before packing. Students may pass on verbal sharing.",
+      "href": "",
+      "firstAction": "Listen to the directions and choose a safe way to join.",
+      "studentSteps": [
+        "Help everyone take part safely.",
+        "Notice one helpful action from today.",
+        "Settle and prepare to pack."
+      ],
+      "titleKo": "학급 활동·몸 움직이기",
+      "firstActionKo": "안내를 듣고 안전하게 참여할 방법을 고르세요."
+    },
+    {
+      "time": "2:30–2:35 pm",
+      "title": "Pack up and dismissal",
+      "notes": "Preserve dismissal at 2:35.",
+      "href": "",
+      "firstAction": "Check your belongings and get ready for a calm departure.",
+      "titleKo": "짐 챙기기·하교",
+      "firstActionKo": "자기 물건을 확인하고 차분히 하교할 준비를 하세요."
+    }
+  ],
+  "backups": [
+    "Use a brief MathUP explanation only if useful during the morning work block. If access fails, use a board model and paper responses for the same assigned maths learning.",
+    "Continue Nevermoor only from the actual bookmark; use a character or setting evidence response if the old-life/new-life discussion does not fit the passage already read.",
+    "If SpacesEDU access fails, prepare the same existing reflection or Career response on paper and save it for later.",
+    "Prioritize PE self-assessment during the morning work block; carry unfinished work into afternoon time. If selected work is finished, choose quiet reading rather than adding a new task.",
+    "Keep breaks, lunch, cleanup and dismissal on time. Record actual progress and carry unfinished work forward without inventing a homework deadline."
+  ]
+}
