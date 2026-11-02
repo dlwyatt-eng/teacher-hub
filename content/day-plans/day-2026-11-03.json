@@ -1,0 +1,173 @@
+{
+  "id": "day-2026-11-03",
+  "date": "2026-11-03",
+  "title": "Tuesday · maths, Health, French and Nevermoor",
+  "greeting": "Good morning, Division 8!",
+  "arrival": "Answer attendance, then hand in forms. Get paper and a pencil ready for maths.",
+  "note": "Start with order of operations and continue the existing Class Game Afternoon task. Use the rest of the morning work block for unfinished maths or existing portfolio work. After recess, practise feelings, needs and boundaries with a fictional situation. French is 12:35–1:35, followed by a quiet reset and Nevermoor from the actual class bookmark. Finish with a short work-and-tidy block. Keep snack at 10:20, recess 10:35–10:50, lunch 11:50–12:35 and dismissal at 2:35. Check what students actually need to finish; this plan adds no new homework or posting deadline.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:45 am",
+      "title": "Welcome and attendance",
+      "notes": "Take attendance before collecting forms. Preview the Tuesday sequence and settle into familiar routines.",
+      "href": "",
+      "firstAction": "Settle in and answer attendance.",
+      "studentSteps": [
+        "Answer attendance, then hand in any forms.",
+        "Get paper and a pencil ready for maths."
+      ],
+      "titleKo": "등교·출석 확인",
+      "firstActionKo": "자리에 앉고 출석을 부르면 대답하세요."
+    },
+    {
+      "time": "8:45–9:35 am",
+      "title": "Maths · order of operations",
+      "href": "",
+      "notes": "Use 20–30 minutes for a model and discussion, then continue the existing Class Game Afternoon task. First check the current stopping point and what students can already explain. Prompt: Our class has $60. We buy 4 packs of game cards at $6 each and 3 packs of pencils at $4 each. Share the money left equally between 2 activity stations. How much does each station receive? Model [60 − (4 × 6 + 3 × 4)] ÷ 2: purchases cost $24 + $12 = $36; $24 remains, so each station receives $12. Explain what each part means and record one step per line. Accept equivalent correct expressions, such as (60 − 4 × 6 − 3 × 4) ÷ 2. Work within brackets first, including multiplication before addition; multiplication/division share priority and go left to right, as do addition/subtraction. Ask students to explain why dividing the whole $60 first would not describe this situation. Continue the already-assigned task and use an explanation of the first step as a quick understanding check. Do not turn the teacher model into a claim of independent assessment evidence. Paper and a board provide the complete route; an existing MathUP example is optional support.",
+      "firstAction": "Read the game-afternoon problem and identify what must be paid for before sharing.",
+      "studentSteps": [
+        "Find the cost of the cards and pencils.",
+        "Write a calculation that shows spending first, then sharing the money left.",
+        "Show one step per line and explain what your numbers mean.",
+        "Continue your assigned maths work and ask about any step you cannot explain."
+      ],
+      "titleKo": "수학 · 계산 순서",
+      "firstActionKo": "게임 활동 문제를 읽고 돈을 나누기 전에 무엇을 사야 하는지 찾아보세요."
+    },
+    {
+      "time": "9:35–10:20 am",
+      "title": "Work time · maths and existing posts",
+      "href": "",
+      "notes": "Continue maths from the actual stopping point. If ready, improve or prepare existing Career, Student Vote, maths or PE work using the original instructions and feedback. The PE reflection has been handed out, but completion is not assumed. Read and explain difficult wording together; language help is not evidence of a lower proficiency. Use pointing, oral explanation, drawing or scribing where appropriate. Follow the usual private review and audience checks before posting. Devices and successful access are not assumed: prepare the same work on paper if needed. This is completion time, not a new posting assignment. Save work before snack.",
+      "firstAction": "Choose the next step your teacher identifies in your existing work.",
+      "studentSteps": [
+        "Continue your maths or the existing task your teacher identifies.",
+        "Use feedback to explain or improve your work.",
+        "Ask for help with instructions, access or a next step.",
+        "Save your work and tidy before snack."
+      ],
+      "titleKo": "활동 시간 · 수학과 하던 과제",
+      "firstActionKo": "선생님과 함께 하던 과제에서 다음에 할 일을 고르세요."
+    },
+    {
+      "time": "10:20–10:35 am",
+      "title": "Snack",
+      "notes": "Keep the usual snack time before recess.",
+      "href": "",
+      "firstAction": "Have your snack and tidy your space.",
+      "titleKo": "간식 시간",
+      "firstActionKo": "간식을 먹고 자기 자리를 정리하세요."
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "notes": "",
+      "href": "",
+      "firstAction": "Follow our recess routine.",
+      "titleKo": "쉬는 시간",
+      "firstActionKo": "쉬는 시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "10:50–11:50 am",
+      "title": "Health · feelings, needs and boundaries",
+      "href": "",
+      "notes": "Use the existing agreements and feelings/needs visuals; start with what the class has actually discussed. Keep one manageable fictional scenario: two friends want to play different games. Model a possible feeling (disappointed), a need (choice or belonging) and a respectful request ('Could we take turns choosing?'). These are possibilities, not guesses about a real person's feelings. Explore another strategy, such as agreeing on a different game. Link to using words carefully and checking assumptions where useful, without making the Agreements rules that excuse harm. A request allows a no; respect personal space and stop signals. Students may speak, draw, point, write, observe or pass on performance. Ask for one possible feeling/need, one request and what to do if the answer is no. No personal conflict or sensitive disclosure is required. For unsafe situations, step away and seek a trusted adult; a perfect sentence is not required. Use the existing poster/PDF and paper response; no new Health upload is assigned.",
+      "firstAction": "Look at the fictional situation and notice a possible feeling and need.",
+      "studentSteps": [
+        "Listen to the made-up situation about choosing a game.",
+        "Suggest a feeling and a need; more than one answer may fit.",
+        "Say, draw or write a respectful request and another way to solve the problem.",
+        "Explain how to respect a no or stop."
+      ],
+      "titleKo": "보건 · 감정·필요·건강한 경계",
+      "firstActionKo": "가상의 상황을 보고 어떤 감정과 필요가 있을지 생각해 보세요.",
+      "worksheet": {
+        "label": "Feelings, needs and healthy boundaries",
+        "href": "./printables/communication-feelings-needs-boundaries.pdf",
+        "studentSafe": true
+      }
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "notes": "Usual intermediate routine: outside 11:50–12:12; transition 12:12–12:13; eating 12:13–12:35.",
+      "href": "",
+      "firstAction": "Follow our outside-play and lunch routine.",
+      "titleKo": "점심시간",
+      "firstActionKo": "바깥 놀이와 점심시간에는 정해진 순서대로 하세요."
+    },
+    {
+      "time": "12:35–1:35 pm",
+      "title": "Core French · Mr. Eckert",
+      "notes": "French-only specialist block with Mr. Eckert.",
+      "href": "",
+      "firstAction": "Get your French materials ready and follow Mr. Eckert’s directions.",
+      "titleKo": "프랑스어 · Eckert 선생님",
+      "firstActionKo": "프랑스어 준비물을 꺼내고 Eckert 선생님의 안내를 따르세요."
+    },
+    {
+      "time": "1:35–1:45 pm",
+      "title": "Quiet reset",
+      "notes": "A calm transition after French; quiet non-reading choices are available.",
+      "href": "",
+      "firstAction": "Choose quiet reading, drawing or an unfinished task.",
+      "titleKo": "조용한 개인 활동 시간",
+      "firstActionKo": "조용히 책 읽기, 그림 그리기, 끝내지 못한 활동 중 하나를 고르세요."
+    },
+    {
+      "time": "1:45–2:10 pm",
+      "title": "English Language Arts · Nevermoor",
+      "notes": "Continue Nevermoor from the actual class bookmark. Briefly recall the last part actually read; do not invent story events or assume a chapter is finished. Read or listen, identify a character or setting detail, and give an idea supported by that detail. If it fits the passage actually read, compare what has changed and stayed the same in the character's life. Treat death/rebirth as a literary interpretation, not a required belief or personal disclosure. Accept other interpretations supported by story evidence.",
+      "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+      "firstAction": "Find our actual stopping point in Nevermoor.",
+      "studentSteps": [
+        "Read or listen from our actual stopping point.",
+        "Notice a character or setting detail.",
+        "Write, draw or say an idea and the detail that supports it.",
+        "Mark where we stop and keep one question for next time."
+      ],
+      "activity": {
+        "label": "Story evidence lesson",
+        "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+        "studentSafe": true
+      },
+      "titleKo": "영어 · Nevermoor",
+      "firstActionKo": "Nevermoor에서 지난번에 읽다가 멈춘 곳을 찾으세요."
+    },
+    {
+      "time": "2:10–2:30 pm",
+      "title": "Finish, save and tidy",
+      "href": "?view=Responsibilities&mode=student",
+      "notes": "Use the opening minutes for one small step in existing work or recording what to continue next time. Do not rush a new upload. Save, sign out if needed, complete classroom jobs and tidy by 2:30. Record only confirmed reminders; no new home deadline.",
+      "firstAction": "Finish a small next step, then save and tidy.",
+      "studentSteps": [
+        "Finish or mark the next step in your existing work.",
+        "Save your progress and return materials.",
+        "Complete your classroom job and record confirmed reminders."
+      ],
+      "titleKo": "마무리·저장·정리",
+      "firstActionKo": "하던 일을 조금 더 마무리한 뒤 저장하고 정리하세요.",
+      "activity": {
+        "label": "Class responsibilities",
+        "href": "?view=Responsibilities&mode=student",
+        "studentSafe": true
+      }
+    },
+    {
+      "time": "2:30–2:35 pm",
+      "title": "Pack up and dismissal",
+      "notes": "",
+      "href": "",
+      "firstAction": "Check your belongings and get ready for a calm departure.",
+      "titleKo": "짐 챙기기·하교",
+      "firstActionKo": "자기 물건을 확인하고 차분히 하교할 준비를 하세요."
+    }
+  ],
+  "backups": [
+    "If online access is unavailable, use the board model and paper for the same maths or existing reflection.",
+    "Read and clarify difficult PE reflection wording together; preserve students’ own examples and choices.",
+    "Continue Nevermoor from the actual bookmark. Use character or setting evidence if a change/rebirth discussion does not fit.",
+    "Shorten the work block rather than moving French, snack, recess, lunch or dismissal. Carry unfinished work forward without adding a homework deadline."
+  ]
+}

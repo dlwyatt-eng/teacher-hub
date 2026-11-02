@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { printClosest } from "./print-support";
 
 export const scoreboardRuleExperienceId = "scoreboard-rules";
 
@@ -138,6 +139,23 @@ export default function ScoreboardRuleLab({ audience = "student" }: { audience?:
         <ol><li><b>1</b><span>Write the scoring story in everyday words.</span></li><li><b>2</b><span>Write the matching number rule. Use brackets only if a whole package repeats.</span></li><li><b>3</b><span>Trade papers. If the other group reads it differently, fix the words or the brackets.</span></li></ol>
         <button type="button" aria-pressed={remixReady} onClick={() => setRemixReady(value => !value)}>{remixReady ? "✓ We can explain our remix" : "We made a rule and tested it"}</button>
       </section>}
+
+      <section className="game-budget-bridge" aria-labelledby="game-budget-title">
+        <header><div><small>OPTIONAL CONNECTION</small><h3 id="game-budget-title">From a game score to a game-afternoon budget</h3></div><button type="button" onClick={event => printClosest(event.currentTarget, ".game-budget-bridge")}>Print model + practice</button></header>
+        <p>Your teacher may use this with the existing lesson. It is not a new assignment or posting requirement. Use paper, a sketch, pointing, or an oral explanation.</p>
+        <article><h4>Read the story. What happens first?</h4><p>Our class has $60 for a game afternoon. We buy 4 packs of game cards at $6 each and 3 packs of pencils at $4 each. We share the money left equally between 2 activity stations. How much money does each station receive?</p>
+          <p>First find both costs. Subtract the whole cost from $60. Then share what is left.</p>
+          <ol className="game-budget-model">
+            <li><b>[60 − (4 × 6 + 3 × 4)] ÷ 2</b><span>The inner brackets hold both costs. The outer brackets hold the money left.</span></li>
+            <li><b>= [60 − (24 + 12)] ÷ 2</b><span>Cards cost $24; pencils cost $12. Multiply inside the brackets first.</span></li>
+            <li><b>= [60 − 36] ÷ 2</b><span>The total cost is $36.</span></li>
+            <li><b>= 24 ÷ 2 = 12</b><span>$24 is left, so each station receives <strong>$12</strong>.</span></li>
+          </ol>
+          <p><b>Check:</b> $24 + $12 spent + $12 + $12 shared = $60. Why would 60 ÷ 2 alone not answer this question?</p>
+        </article>
+        <article className="game-budget-practice"><h4>A quick check on your own—if your teacher chooses</h4><p>A class has $50. It buys 3 packs of cards at $6 each and 2 packs of pencils at $4 each. It shares the money left equally among 3 stations. How much does each station receive?</p><ol><li>Write one number sentence with brackets, or draw and label the costs and shares.</li><li>Show one calculation step at a time. Label the amount each station receives.</li><li>Explain what the brackets keep together. Check that spending and shares add back to $50.</li></ol><div className="game-budget-answer-space" aria-label="Space for the number sentence, working and explanation" /></article>
+        {audience === "teacher" && <aside className="game-budget-teacher"><h4>Teacher check</h4><p>[50 − (3 × 6 + 2 × 4)] ÷ 3 = [50 − (18 + 8)] ÷ 3 = 24 ÷ 3 = $8 per station. Check: $18 + $8 + 3 × $8 = $50.</p><p>Accept an equivalent expression or labelled model. If a student divides too early, ask them to mark the money that has already been spent. Keep this as optional practice; use the original criteria for any existing assessment.</p></aside>}
+      </section>
 
       {audience === "teacher" && <aside className="scoreboard-rule-teacher"><b>Teacher move</b><p>Have every group sketch or hold up A, B, or C before anyone taps the screen. Ask “What repeats?” and “What happens once?” before naming order of operations.</p></aside>}
       <footer><button type="button" onClick={reset}>Reset all rounds</button><p>The screen holds the shared game. Students do the mathematics with talk, quick sketches, cards, or paper.</p></footer>

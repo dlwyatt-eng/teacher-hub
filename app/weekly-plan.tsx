@@ -474,13 +474,13 @@ export function WeeklyPlanPresetSelector({ presets, value, onChange, heading = "
         <div>
           <small>WEEK LAUNCHER · EACH WEEK SAVES SEPARATELY</small>
           <h2 id={headingId}>{heading}</h2>
-          <p>Open the seeded week, then adjust the timetable. Every edit stays with that week on this computer.</p>
+          <p>Open a week, then adjust the timetable. Every edit stays with that week on this computer.</p>
         </div>
       </header>
       <PlanningPrivacyNote id={privacyId} />
       <div className="weekly-plan__setup">
         <label>
-          <span>WEEK PRESET</span>
+          <span>TEACHING WEEK</span>
           <select value={selected.id} aria-describedby={detailId} onChange={(event) => onChange(event.target.value)}>
             {presets.map((preset) => <option key={preset.id} value={preset.id}>{preset.label} · {preset.dateRange}</option>)}
           </select>
@@ -493,6 +493,41 @@ export function WeeklyPlanPresetSelector({ presets, value, onChange, heading = "
       </div>
     </section>
   );
+}
+
+/** A shared start-time axis; untimed lessons stay visible without inventing bell times. */
+export function weeklyTimetableRows(blocks: readonly WeeklyPlanBlock[]) {
+  const times = [...new Set(blocks.map(block => block.startTime).filter(time => timePattern.test(time)))].sort();
+  if (blocks.some(block => !timePattern.test(block.startTime))) times.push("");
+  return times.map(time => ({ time, days: WEEKDAYS.map(day => blocks.filter(block => block.day === day && (time ? block.startTime === time : !timePattern.test(block.startTime)))) }));
+}
+
+function timetableTime(time: string) {
+  if (!time) return "Time to choose";
+  const [hour, minute] = time.split(":").map(Number);
+  return `${hour % 12 || 12}:${String(minute).padStart(2, "0")} ${hour < 12 ? "am" : "pm"}`;
+}
+
+export function WeeklyTimetable({ plan }: { plan: WeeklyPlanData }) {
+  const rows = weeklyTimetableRows(plan.blocks);
+  return <section className="weekly-timetable" aria-label="Week at a glance">
+    <h3>Week at a glance</h3>
+    <p className="weekly-timetable__help">Start times run down the left; days run across. Each activity appears at its start time, with its length below. Blank cells mean no new activity starts then—not necessarily free time. Edit times and lesson details below.</p>
+    <div className="weekly-timetable__scroll" tabIndex={0} role="region" aria-label="Weekly timetable; scroll horizontally on a small screen">
+      <table>
+        <caption>{plan.title || "Teaching week"} · Week of {plan.weekOf || "date not set"}</caption>
+        <thead><tr><th scope="col">Start</th>{WEEKDAYS.map(day => <th scope="col" key={day}>{day}<small>{dayLabel(plan.weekOf || mondayOfWeek(), day)}</small></th>)}</tr></thead>
+        <tbody>{rows.map(row => <tr key={row.time || "untimed"}>
+          <th scope="row">{timetableTime(row.time)}</th>
+          {row.days.map((blocks, dayIndex) => <td key={WEEKDAYS[dayIndex]}>{blocks.map(block => <div className="weekly-timetable__activity" key={block.id} data-kind={block.kind}>
+            <strong>{block.title}</strong><span>{block.subject}{block.subject && block.timing ? " · " : ""}{block.timing || "Length flexible"}</span>
+          </div>)}</td>)}
+        </tr>)}</tbody>
+      </table>
+    </div>
+    {!rows.length && <p>No activities yet. Add a lesson to this week to begin.</p>}
+    <p className="weekly-timetable__print-note">Activities are shown at their start time. Full teaching steps and notes are in the detailed plan. Untimed activities have not been assigned a start time.</p>
+  </section>;
 }
 
 export function WeeklyPlan({ seed = EMPTY_SEED, storageKey = WEEKLY_PLAN_STORAGE_KEY, legacyStorageKey, heading = "Build the teaching week" }: WeeklyPlanProps) {
@@ -609,15 +644,15 @@ export function WeeklyPlan({ seed = EMPTY_SEED, storageKey = WEEKLY_PLAN_STORAGE
     setStatus("The week was rebuilt from the selected curriculum lessons.");
   };
 
-  const printWholeWeek = () => {
+  const printWholeWeek = (layout: "grid" | "details") => {
     if (!planRef.current || !plan.blocks.length) return;
     document.body.classList.add("print-target-active");
-    planRef.current.classList.add("print-target");
+    planRef.current.classList.add("print-target", `weekly-plan--print-${layout}`);
     try {
       window.print();
       setStatus("The complete weekly plan is ready to print or save as a PDF.");
     } finally {
-      planRef.current.classList.remove("print-target");
+      planRef.current.classList.remove("print-target", `weekly-plan--print-${layout}`);
       document.body.classList.remove("print-target-active");
     }
   };
@@ -630,8 +665,9 @@ export function WeeklyPlan({ seed = EMPTY_SEED, storageKey = WEEKLY_PLAN_STORAGE
           <h2 id={headingId}>{heading}</h2>
         </div>
         <div className="weekly-plan__hero-actions">
-          <button type="button" disabled={!plan.blocks.length} onClick={printWholeWeek}>Print week</button>
-          <a href="/printables/grade-6-weekly-desk-plan-legal.xlsx" download>Download legal Excel</a>
+          <button type="button" disabled={!plan.blocks.length} onClick={() => printWholeWeek("grid")}>Print timetable</button>
+          <button type="button" disabled={!plan.blocks.length} onClick={() => printWholeWeek("details")}>Print full details</button>
+          <a href="printables/grade-6-weekly-desk-plan-legal.xlsx" download>Download legal Excel</a>
         </div>
       </header>
 
@@ -655,6 +691,8 @@ export function WeeklyPlan({ seed = EMPTY_SEED, storageKey = WEEKLY_PLAN_STORAGE
         </label>
       </section>
 
+      <WeeklyTimetable plan={plan} />
+      <h3 className="weekly-plan__details-heading">Edit activities and teaching details</h3>
       <div className="weekly-plan__days">
         {WEEKDAYS.map((day) => {
           const dayBlocks = plan.blocks.filter((block) => block.day === day);
@@ -693,7 +731,7 @@ export function WeeklyPlan({ seed = EMPTY_SEED, storageKey = WEEKLY_PLAN_STORAGE
                         <label><span>LENGTH</span><input type="text" value={block.timing} maxLength={80} onChange={(event) => updateBlock(block.id, { timing: event.target.value })} /><b className="weekly-plan__print-value">{block.timing || "Flexible"}</b></label>
                       </div>
 
-                      {block.runSteps.length > 0 && <section className="weekly-plan__route"><small>QUICK TEACHING ROUTE</small><ol>{block.runSteps.map((step, stepIndex) => <li key={`${block.id}-${stepIndex}`}>{step}</li>)}</ol></section>}
+                      {block.runSteps.length > 0 && <section className="weekly-plan__route"><small>TEACHING STEPS</small><ol>{block.runSteps.map((step, stepIndex) => <li key={`${block.id}-${stepIndex}`}>{step}</li>)}</ol></section>}
 
                       <label className="weekly-plan__notes">
                         <span>{block.kind === "lesson" ? "NOTES FOR THE TTOC" : "DETAILS / DUTY / WHERE TO GO"}</span>

@@ -529,3 +529,40 @@
 .recurring-timetable tbody tr:nth-child(even){background:#f0f6f2}
 .recurring-timetable__note{font-size:.9rem}
 @media print{.recurring-timetable{border:0;padding:0;background:white;color:black}.recurring-timetable table{min-width:0;font-size:9pt}.recurring-timetable th,.recurring-timetable td{padding:5pt 4pt}}
+
+/* Compact timetable and full teaching cards share the same saved blocks. */
+.weekly-timetable { padding: 1rem; color: #19392f; background: #fff; }
+.weekly-timetable h3, .weekly-plan__details-heading { margin: .25rem 0 .5rem; font-size: 1.2rem; }
+.weekly-plan__details-heading { padding: 1rem 1rem 0; }
+.weekly-timetable__help, .weekly-timetable__print-note { max-width: 100ch; font-size: .9rem; line-height: 1.5; }
+.weekly-timetable__scroll { overflow-x: auto; border: 1px solid #a7bdb2; border-radius: 8px; }
+.weekly-timetable__scroll:focus-visible { outline: 3px solid #376f59; outline-offset: 3px; }
+.weekly-timetable table { width: 100%; min-width: 780px; table-layout: fixed; border-collapse: collapse; font-size: .85rem; }
+.weekly-timetable caption { padding: .6rem; text-align: left; font-weight: 700; }
+.weekly-timetable th, .weekly-timetable td { border: 1px solid #bdcec5; padding: .55rem; vertical-align: top; text-align: left; overflow-wrap: anywhere; }
+.weekly-timetable thead th { background: #e4f0e9; text-transform: capitalize; }
+.weekly-timetable th:first-child { width: 90px; }
+.weekly-timetable thead small { display: block; font-weight: 400; margin-top: .2rem; }
+.weekly-timetable tbody th { background: #f1f6f3; }
+.weekly-timetable__activity + .weekly-timetable__activity { border-top: 1px dashed #a7bdb2; margin-top: .5rem; padding-top: .5rem; }
+.weekly-timetable__activity strong, .weekly-timetable__activity span { display: block; }
+.weekly-timetable__activity span { margin-top: .25rem; font-size: .8em; }
+.weekly-timetable__print-note { display: none; }
+@media print {
+  .weekly-timetable, .weekly-plan__details-heading { display: none; }
+  .weekly-plan--print-grid .weekly-plan__days,
+  .weekly-plan--print-grid .weekly-plan__setup,
+  .weekly-plan--print-grid .weekly-plan__hero { display: none !important; }
+  .weekly-plan--print-grid .weekly-timetable { display: block; padding: 0; color: #111; }
+  .weekly-plan--print-grid .weekly-timetable h3,
+  .weekly-plan--print-grid .weekly-timetable__help { display: none; }
+  .weekly-plan--print-grid .weekly-timetable__scroll { overflow: visible; border: 0; border-radius: 0; }
+  .weekly-plan--print-grid .weekly-timetable table { min-width: 0; width: 100%; font-size: 8.5pt; line-height: 1.2; }
+  .weekly-plan--print-grid .weekly-timetable caption { font-size: 14pt; padding: 0 0 3mm; }
+  .weekly-plan--print-grid .weekly-timetable th,
+  .weekly-plan--print-grid .weekly-timetable td { padding: 2mm; border-color: #555; }
+  .weekly-plan--print-grid .weekly-timetable th:first-child { width: 19mm; }
+  .weekly-plan--print-grid .weekly-timetable tr { break-inside: avoid; }
+  .weekly-plan--print-grid .weekly-timetable thead { display: table-header-group; }
+  .weekly-plan--print-grid .weekly-timetable__print-note { display: block; font-size: 7pt; margin: 2mm 0 0; }
+}
