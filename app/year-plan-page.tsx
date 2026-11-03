@@ -48,7 +48,7 @@ export default function YearPlanPage({ mode, onHome, onAssessment, onWeeklyPlan,
       <RightsPlanning />
       <section className="calendar-reality" aria-label="School year timing notes">
         <article><small>SCHOOL OPENS</small><strong>Tuesday, Sept. 8</strong><p>Use the first two weeks for belonging, routines, learning profiles, and inquiry habits.</p></article>
-        <article><small>WINTER BREAK</small><strong>Dec. 21–Jan. 1</strong><p>Finish a coherent Human Rights Day product before the break; restart inquiry roles Jan. 4.</p></article>
+        <article><small>WINTER BREAK</small><strong>Dec. 21–Jan. 1</strong><p>Save the country-inquiry question, source trail and next step before the break. Resume in class; no holiday homework is built in.</p></article>
         <article><small>SPRING INTERRUPTION</small><strong>Mar. 15–29</strong><p>Complete one Science evidence cycle before the break and use retrieval on return.</p></article>
         <article><small>LAST STUDENT DAY</small><strong>Thursday, June 24</strong><p>Finish showcases early enough to protect portfolio reflection and closure.</p></article>
       </section>

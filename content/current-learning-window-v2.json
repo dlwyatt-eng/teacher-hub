@@ -1,7 +1,7 @@
 {
   "schemaVersion": "classroom-os-current-window/v2",
-  "contentVersion": "2026-11-02-family-copy-refresh",
-  "sourceUpdatedAt": "2026-11-02",
+  "contentVersion": "2026-11-03-country-inquiry-reconciliation",
+  "sourceUpdatedAt": "2026-11-03",
   "window": {
     "id": "september-opening",
     "effectiveFrom": "2026-09-08",
@@ -1643,7 +1643,7 @@
       "month": "2026-11",
       "dateLabel": "Fri, November 20",
       "title": "National Child Day / World Children’s Day",
-      "detail": "Learning milestone: children’s voice, equal treatment and adult responsibility. Planned sharing details will follow; this is not a school closure."
+      "detail": "Planned connection to human and children’s rights as we begin a two-country inquiry. November 20 is a starting connection, not a submission deadline or school closure."
     },
     {
       "id": "human-rights-day",
@@ -1651,7 +1651,7 @@
       "month": "2026-12",
       "dateLabel": "Thu, December 10",
       "title": "Human Rights Day",
-      "detail": "Planned rights case gallery or teach-back, connecting racism, equality and freedom of expression. This is not a school closure."
+      "detail": "An optional connection to rights within the same two-country inquiry. No separate rights gallery or submission is required; this is not a school closure."
     },
     {
       "id": "provincial-student-vote",
@@ -1668,12 +1668,73 @@
       "highlight": "October · Whose stories shape a community? Latin American Heritage Month + Women’s History Month, connected to representation, rights and evidence."
     },
     "November": {
-      "focus": "Government, human rights, media, systems, and respectful disagreement; children’s rights and National Child Day on November 20",
-      "highlight": "Nov. 9–20 · Rights scenarios and proposals; share for National Child Day Nov. 20."
+      "phase": "Launch a rights-led country inquiry",
+      "focus": "Human and children’s rights, student questions, two countries, and careful source searching",
+      "learning": "Students begin with short class challenges, choose a question and two countries, and practise finding and comparing sources with support.",
+      "subjects": [
+        "Social Studies",
+        "ELA",
+        "Career",
+        "Arts"
+      ],
+      "highlights": [
+        "Around November 20 · launch with human and children’s rights; National Child Day is a starting connection, not a deadline",
+        "Choose two countries and one question; model searching and check the question and source plan",
+        "Teach short class challenges alongside the inquiry; Juniper Park and earlier government lessons are optional practice"
+      ],
+      "anticipatedShare": "Share questions and emerging evidence when useful; no fixed November presentation or separate rights product."
     },
     "December": {
-      "focus": "Root causes, affected perspectives, existing responses, and possible leverage points; racism, equality and freedom of expression for Human Rights Day on December 10",
-      "highlight": "Dec. 10 · Rights gallery: racism, equality, expression and fair responses."
+      "phase": "Investigate both countries",
+      "focus": "Rights in practice, news checking, perspectives, connections, and change over time",
+      "learning": "Students use the same question in both countries, compare evidence and news, and distinguish supported claims from opinions and inferences.",
+      "subjects": [
+        "Social Studies",
+        "ELA",
+        "ADST",
+        "Math"
+      ],
+      "highlights": [
+        "Continue class challenges and connect fictional examples to age-appropriate real sources",
+        "Use the news routine and comparison pages; December 10 can connect to rights within the same inquiry",
+        "Save sources, a working answer and one next step before the break; resume in class without holiday homework"
+      ],
+      "anticipatedShare": "Optional in-class discussion of work in progress; January presentations are proposed and remain flexible."
+    },
+    "January": {
+      "phase": "Move toward independent inquiry",
+      "focus": "Focused inquiry plus an original story students turn into a tested game",
+      "learning": "Students develop and share their two-country comparison when ready; January presentations are proposed, with timing and format flexible. The separate ELA/ADST story-game studio continues as planned.",
+      "subjects": [
+        "Social Studies",
+        "ELA",
+        "ADST",
+        "Arts"
+      ],
+      "highlights": [
+        "Week 1 · revisit the country-inquiry question and evidence; continue the Bloxels story blueprint",
+        "Week 2 · paper level map, Bloxels tool practice, and minimum playable build",
+        "Week 3 · prepare and rehearse the country comparison when ready while game teams continue their working version",
+        "Week 4 · silent playtest, one story revision, one game/access revision, and private class arcade"
+      ],
+      "anticipatedShare": "January · country-inquiry presentations when ready, with flexible timing and accessible formats; the private class arcade remains a separate ELA/ADST opportunity."
+    },
+    "February": {
+      "phase": "Share and bridge into Science",
+      "focus": "Social Studies teaching experiences, reflection, and scientific ways of knowing",
+      "learning": "Use any needed country-inquiry follow-up and individual reflection. Plan the Science transition from evidence of learning; the proposed January presentations do not establish a fixed Science start date.",
+      "subjects": [
+        "Social Studies",
+        "ELA",
+        "Science",
+        "Career"
+      ],
+      "highlights": [
+        "Feb. 1–11 · Black History Month learning woven into source, power, and resistance analysis",
+        "As needed · country-inquiry follow-up, audience questions, Pink Shirt connection, and revision",
+        "When ready · selected inquiry evidence and Science inquiry launch; no additional presentation or post is required"
+      ],
+      "anticipatedShare": "Flexible follow-up only if needed after the proposed January sharing; keep selected learning available for reflection."
     }
   },
   "classSchedule": {
@@ -1753,9 +1814,9 @@
       },
       {
         "subject": "Social Studies",
-        "status": "Recent learning",
-        "focus": "Student Vote: views, evidence and civic understanding",
-        "detail": "Our recent Student Vote work explored political views, evidence and public decisions. Students’ voting preferences stay private."
+        "status": "Recent learning and coming next",
+        "focus": "Student Vote and a rights-led country inquiry",
+        "detail": "Our recent Student Vote work explored political views, evidence and public decisions. Students’ voting preferences stay private. Coming next: Two Countries Shared Questions, starting with human and children’s rights around November 20. Students will choose a question and two countries, investigate sources and news, and prepare for proposed January sharing with flexible timing. No holiday homework is built in."
       },
       {
         "subject": "Arts Education",
@@ -1813,5 +1874,33 @@
         "Use school email to ask about learning, arrange a conversation or get help after an absence. For time-sensitive matters, contact the school office."
       ]
     }
-  ]
+  ],
+  "publicPortfolioUpdate": {
+    "majorAnchorCount": 11,
+    "explanation": "The named anchors organize selected evidence, with shorter posts when they show useful learning. The country inquiry reuses an existing inquiry anchor when ready; it does not add a separate civic brief, rights gallery or post for every page."
+  },
+  "publicProjectUpdates": {
+    "civic-rights-showcase": {
+      "timing": "Optional practice during the country inquiry",
+      "title": "Optional civic decision practice",
+      "format": "Reuse useful evidence in the country inquiry; no separate required product or post"
+    },
+    "expert-teach-back": {
+      "timing": "Proposed January · flexible",
+      "title": "Two Countries Shared Questions",
+      "question": "How do decisions in different places affect people our age?",
+      "subjects": [
+        "Social Studies",
+        "ELA"
+      ],
+      "evidence": [
+        "A student-chosen question investigated in two countries",
+        "Traceable sources and a meaningful comparison",
+        "A news connection, different perspectives, and rights in practice",
+        "A supported answer, a limit, a realistic next step and individual reflection"
+      ],
+      "format": "Individual, pair or group comparison; accessible presentation and selected inquiry evidence when ready",
+      "reflection": "What changed my thinking, what can I explain using evidence, and what needs checking?"
+    }
+  }
 }

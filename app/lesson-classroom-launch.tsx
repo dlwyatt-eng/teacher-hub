@@ -1,6 +1,6 @@
 "use client";
 
-import { comparisonPractice, comparisonSort, libraryVoteCase, type ClassroomLaunch } from "./lesson-classroom-launches";
+import { comparisonPractice, comparisonSort, libraryVoteCase, libraryVoteChangeModel, type ClassroomLaunch } from "./lesson-classroom-launches";
 import { printClosest } from "./print-support";
 
 function LaunchVisual({ id, model = false }: { id: string; model?: boolean }) {
@@ -8,7 +8,7 @@ function LaunchVisual({ id, model = false }: { id: string; model?: boolean }) {
     <table><thead><tr><th scope="col">Number</th><th scope="col">Ones</th><th scope="col">Tenths</th><th scope="col">Hundredths</th><th scope="col">Thousandths</th></tr></thead><tbody>{[["0.50", "0", "5", "0", "0"], ["0.45", "0", "4", "5", "0"]].map(row => <tr key={row[0]}>{row.map((cell, index) => index === 0 ? <th scope="row" key={index}>{cell}</th> : <td key={index} data-deciding={index === 2 || undefined}>{cell}</td>)}</tr>)}</tbody></table>
     <p>First unequal place: <b>tenths</b> · 0.50 &gt; 0.45</p>
   </div> : <div className="classroom-number-pair" aria-label="Compare 0.50 with 0.405"><strong>0.50</strong><span>?</span><strong>0.405</strong></div>;
-  if (id === "character-council") return model ? <blockquote className="classroom-fictional-case"><small>ORIGINAL FICTIONAL CASE</small><p>{libraryVoteCase}</p></blockquote> : <div className="classroom-choice-line"><strong>Keep a promise</strong><span>or</span><strong>Rethink a choice</strong></div>;
+  if (id === "character-council") return model ? <blockquote className="classroom-fictional-case"><small>ORIGINAL FICTIONAL CASE</small><p>{libraryVoteCase}</p></blockquote> : <div className="classroom-choice-line" aria-label="Compare before and after a turning point"><strong>Before</strong><span>turning point →</span><strong>After / so far</strong></div>;
   return <div className="classroom-role-line" aria-label="Three connected roles"><span><b>Observe</b><small>What is happening?</small></span><i aria-hidden="true">→</i><span><b>Design</b><small>What could change?</small></span><i aria-hidden="true">→</i><span><b>Check</b><small>Would it help?</small></span></div>;
 }
 
@@ -29,7 +29,7 @@ export function ClassroomResponseSheet({ launch }: { launch: ClassroomLaunch }) 
     <header><div><small>{launch.subject.toUpperCase()} · STUDENT RESPONSE SHEET</small><h3>{launch.title}</h3></div><button type="button" onClick={event => printClosest(event.currentTarget, ".classroom-response-sheet")}>Print response sheet</button></header>
     <p className="classroom-sheet-goal">{launch.goal}</p>
     {launch.id === "magnitude-gallery" && <p className="classroom-sheet-case"><b>Model:</b> 0.50 = 0.500 and 0.45 = 0.450. The ones match; 5 tenths &gt; 4 tenths, so 0.50 &gt; 0.45. Compare from the greatest place and stop at the first unequal digit.</p>}
-    {launch.id === "character-council" && <p className="classroom-sheet-case"><b>Offline model · original fiction:</b> {libraryVoteCase}</p>}
+    {launch.id === "character-council" && <><p className="classroom-sheet-case"><b>Offline model · original fiction:</b> {libraryVoteCase}</p><p className="classroom-sheet-case"><b>Model thinking:</b> {libraryVoteChangeModel.join(" ")}</p></>}
     {launch.id === "career-constellation" && <p className="classroom-sheet-case"><b>Offline input · fictional case:</b> A refill-station queue blocks a school doorway. How could a queue leave a clear route? Start with observer, designer and checker. Example: designer → sketches two layouts → planning. Connect the other roles to an action and a skill.</p>}
     <div>{launch.paperPrompts.map(item => <section key={item.title}><h4>{item.title}</h4><p>{item.prompt}</p><div className="classroom-writing-space" aria-hidden="true" /></section>)}</div>
     <footer>Write, draw + label, or explain to a scribe. Keep in class; no upload required.</footer>

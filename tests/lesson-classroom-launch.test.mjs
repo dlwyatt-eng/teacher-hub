@@ -7,7 +7,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { moduleLoader } from './helpers/load-rendered-module.mjs';
 const root = path.resolve(import.meta.dirname, '..');
 const load = moduleLoader(root);
-const { classroomLaunches, classroomLaunchFor, comparisonPractice, comparisonSort, comparisonExit, libraryVoteCase } = load('app/lesson-classroom-launches.ts');
+const { classroomLaunches, classroomLaunchFor, comparisonPractice, comparisonSort, comparisonExit, libraryVoteCase, libraryVoteChangeModel } = load('app/lesson-classroom-launches.ts');
 const { ClassroomLaunchStage, ClassroomResponseSheet, TeacherClassroomLaunch } = load('app/lesson-classroom-launch.tsx');
 const render = (component, props) => renderToStaticMarkup(React.createElement(component, props));
 
@@ -73,6 +73,49 @@ test('every real student sheet retains every prompt and its offline starting inp
   assert.match(career, /A refill-station queue blocks a school doorway/);
   assert.match(career, /planned \/ tried/);
   assert.match(career, /Teacher approval if needed/);
+});
+
+test('novel comparison works with any book and keeps interpretations open', () => {
+  const launch = classroomLaunchFor('character-council');
+  assert.equal(launch.duration, '30–40 min');
+  assert.match(launch.materials, /Any class novel or approved audio/);
+  assert.match(launch.preparation.join(' '), /actual class bookmark/);
+  assert.match(launch.preparation.join(' '), /earlier moment already read/);
+  assert.match(launch.preparation.join(' '), /Nevermoor is an optional example/);
+  assert.match(launch.preparation.join(' '), /Death and rebirth.*never a required interpretation/);
+  const core = JSON.stringify([launch.title, launch.question, launch.goal, launch.materials, launch.stages, launch.paperPrompts]);
+  assert.doesNotMatch(core, /Nevermoor|death and rebirth/i);
+  assert.match(core, /changed \/ unchanged \/ unclear/);
+  assert.match(core, /not enough information yet/);
+  assert.match(core, /predictions, not events that happened/);
+  assert.match(core, /No homework or upload needed/);
+  assert.match(launch.teacherCheck.join(' '), /do not force a transformation/);
+});
+
+test('novel model and printable organizer share evidence, uncertainty and theme thinking', () => {
+  const launch = classroomLaunchFor('character-council');
+  const model = render(ClassroomLaunchStage, { launch, stageIndex: 1 });
+  const sheet = render(ClassroomResponseSheet, { launch });
+  assert.deepEqual(launch.stages[1].moves, [...libraryVoteChangeModel]);
+  assert.deepEqual(launch.paperPrompts.map(item => item.title), [
+    '1 · Before', '2 · Turning point', '3 · After / so far', '4 · Theme + check',
+  ]);
+  for (const html of [model, sheet]) {
+    assert.ok(html.includes(libraryVoteCase));
+    for (const line of libraryVoteChangeModel) assert.ok(html.includes(line));
+    assert.match(html, /no decision is shown/);
+    assert.match(html, /predictions, not facts/);
+    assert.match(html, /Possible theme:/);
+    for (const note of launch.teacherCheck) assert.ok(!html.includes(note));
+  }
+  assert.match(sheet, /Earlier text detail \+ page, audio point or moment/);
+  assert.match(sheet, /Another reading or complicating detail/);
+  assert.match(sheet, /not just a topic/);
+  assert.match(sheet, /changed or kept my idea/);
+  const teacher = render(TeacherClassroomLaunch, { launch });
+  for (const heading of launch.paperPrompts.map(item => item.title)) assert.ok(teacher.includes(heading));
+  assert.match(teacher, /Nevermoor is an optional example/);
+  assert.match(teacher, /No homework or upload needed|not new homework or a SpacesEDU post/);
 });
 
 test('focused lessons reuse outer navigation and keep original sequence recoverable', async () => {

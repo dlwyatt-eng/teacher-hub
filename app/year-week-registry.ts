@@ -286,11 +286,16 @@ function weekRange(weekOf: string) {
 const rightsWeekNotes: Record<string, string> = {
   "2026-10-05": "Rights strand: plan a 25-minute Can I disagree? introduction alongside evidence work. Open Rights & expression in the planning panel for teaching screens.",
   "2026-10-19": "Leadership & Spirit Club pathway begins October 21: Rights, Respect & Responsibility. Use the planning panel for the sponsor-guided project.",
-  "2026-11-09": "Rights strand: Where Is the Line? Use a 35-minute block for fictional scenarios, overlapping categories and evidence. Open the planning panel inquiry link.",
-  "2026-11-16": "National Child Day is Friday November 20. Plan a 35-minute children’s-rights proposal and share a tested scenario; exact sharing arrangements remain flexible.",
-  "2026-11-23": "Rights gallery: revise a case using a source, a fair response and a remaining question for December 10.",
-  "2026-12-07": "Human Rights Day is Thursday December 10. Share the rights case gallery or teach-back; include racism, equality, expression and adult responsibility.",
-  "2026-12-14": "Return to the rights action: what changed, what did adults do, and what should we revisit after the break?",
+  "2026-11-09": "Prepare Two Countries Shared Questions: invite student interests, model a source search and try a question about both countries. The student booklet and teacher guide are linked in the planning panel.",
+  "2026-11-16": "Launch the country inquiry with human and children’s rights around National Child Day, November 20. Use booklet pages 2–3; November 20 is a starting connection, not a submission deadline.",
+  "2026-11-23": "Country inquiry: continue short class challenges on booklet pages 3–8 and student-led source searching. Starter links and printed sources are optional supports; each learner studies both countries.",
+  "2026-11-30": "Country inquiry: practise checking news on page 9; use pages 10–12 to compare evidence, perspectives and change. Check publication and event dates and keep a traceable source trail.",
+  "2026-12-07": "Human Rights Day, December 10, can connect to the same two-country inquiry. Revisit rights using evidence and news; no parallel rights gallery or separate post is required.",
+  "2026-12-14": "Country inquiry: save the question, source trail and one next step before the break. Continue in class afterward; no holiday homework is built in.",
+  "2027-01-04": "Country inquiry: revisit the question and check what evidence is still needed from both countries. January presentations are proposed and flexible, not a fixed deadline.",
+  "2027-01-11": "Country inquiry: build an evidence-supported answer and realistic response with booklet page 13. Keep sources, perspectives and uncertainty visible.",
+  "2027-01-18": "Country inquiry: rehearse an accessible presentation with page 14, ask a classmate what needs explanation, and revise. Timing remains flexible.",
+  "2027-01-25": "Country inquiry: share when ready and gather individual explanations. Select useful evidence for the existing inquiry portfolio; no extra post for every page or practice lesson.",
 };
 
 function buildYearWeekLaunches(): YearWeekLaunch[] {

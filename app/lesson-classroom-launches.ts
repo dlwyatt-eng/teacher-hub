@@ -31,6 +31,14 @@ export const comparisonPractice = [
 export const comparisonSort = ["0.5", "0.45", "0.405", "0.50"] as const;
 export const comparisonExit = { left: "6.08", right: "6.8", relation: "<", place: "tenths" } as const;
 
+// The same original-fiction thinking is shown in the model and on the response sheet.
+export const libraryVoteChangeModel = [
+  "Before: Lina promised to support mystery night. The promise is a text detail.",
+  "Turning point: the survey adds new information. 18 of 25 younger readers prefer comics.",
+  "After / so far: no decision is shown. Asking for discussion or keeping the promise are predictions, not facts.",
+  "Possible theme: new information can make a promise difficult to keep. Another reading is welcome if details support it.",
+] as const;
+
 export const classroomLaunches: ClassroomLaunch[] = [
   {
     id: "magnitude-gallery",
@@ -67,32 +75,35 @@ export const classroomLaunches: ClassroomLaunch[] = [
   {
     id: "character-council",
     subject: "English Language Arts",
-    title: "A clue changes the choice",
+    title: "What changes at a turning point?",
     duration: "30–40 min",
-    question: "What makes this character’s choice difficult, and what does the text let us infer?",
-    goal: "Separate a story detail from a prediction, then revise using evidence.",
-    materials: "Class copy or approved audio of Nevermoor, current bookmark, pencil + paper or response sheet. Speaking with a scribe works too.",
+    question: "Does a new situation change the character, and what might the story suggest about life?",
+    goal: "Compare a character before and after a turning point, then support a possible theme with text evidence.",
+    materials: "Any class novel or approved audio, current bookmark, pencil + paper or response sheet. Speaking with a scribe works too.",
     preparation: [
-      "Check the actual Nevermoor bookmark. Select a 5–8 minute section with a clear action, problem or choice; do not assume a chapter has been taught.",
-      "Name the start and stop point aloud. Read or use approved audio, then revisit one useful detail. If access is unavailable, use the complete original fictional case on the Model screen.",
-      "The Lina case is invented for this lesson, not a Nevermoor extract. Students paraphrase short details; do not upload or reproduce the novel or audiobook.",
+      "Use any novel. Check the actual class bookmark and select a 5–8 minute section with a possible turning point. Identify an earlier moment already read for the before comparison; do not assume a chapter has been taught or reveal unread events.",
+      "Name the book and start/stop point aloud. Read or use approved audio, then revisit the before and after details. If no response is shown yet, record ‘not enough information yet’. If access is unavailable, use the complete original Lina case on the Model screen.",
+      "A turning point changes the situation, choices or understanding. Character change means a difference in what someone believes, wants or does; a new setting alone does not prove it. A theme is an idea about life developed by a story, not just a topic such as friendship.",
+      "Nevermoor is an optional example if it is the current class novel. Death and rebirth can be one possible theme to explore when the reading supports it, never a required interpretation. Students may support other themes or explain why more evidence is needed.",
+      "The Lina case is original fiction, not an extract from a novel. Students paraphrase short details and note their location; do not upload or reproduce the novel or audiobook. This is an in-class response, not new homework or a SpacesEDU post.",
     ],
     stages: [
-      { label: "Notice", minutes: "3 min", title: "Your first idea is allowed to change.", prompt: "A promise points one way. New information points another.", moves: ["Should a character stick to a promise or reconsider? Think first, then compare ideas.", "Before deciding, name one thing you would need to know."] },
-      { label: "Model", minutes: "6–8 min", title: "A detail is evidence. A prediction is your thinking.", prompt: "Original fictional case · Lina and the library vote", moves: ["Detail: 18 of 25 younger readers chose the comics workshop in the survey.", "Prediction: Lina might ask for another discussion because the survey adds new information.", "Another view: her promise matters too. She could explain the survey to her friend before the vote."] },
-      { label: "Try", minutes: "15–20 min", title: "Listen for a clue. Build two possibilities.", prompt: "Read or listen from our actual bookmark to the teacher's stopping point.", moves: ["On paper, name the character and problem. Paraphrase one exact detail and note where it occurred.", "Suggest two possible actions. For each, name a clue and something the character could gain, lose, or misunderstand.", "Trade ideas. Ask: ‘Which detail makes your choice harder?’ Revise or defend your idea after checking the text."] },
-      { label: "Check", minutes: "5 min", title: "What changed your thinking?", prompt: "Write or say: ‘I think ___ because the text shows ___.’", moves: ["Add: ‘Another possibility is ___. I would need to know ___.’", "Point to the difference between the text detail and your prediction.", "Keep your response in your reading journal. No upload needed."] },
+      { label: "Notice", minutes: "3 min", title: "A changed situation. A changed character?", prompt: "A turning point changes a character's situation, choices or understanding.", moves: ["Imagine a character gets surprising news. Does that prove the character has changed? Think first, then compare ideas.", "Name what you would need to know about the character before and after. Changed, unchanged and not enough information are all possible."] },
+      { label: "Model", minutes: "6–8 min", title: "Separate text details from predictions.", prompt: "Original fictional case · Lina and the library vote", moves: [...libraryVoteChangeModel] },
+      { label: "Try", minutes: "15–20 min", title: "Before → turning point → after / so far", prompt: "Read or listen from our actual bookmark to the teacher's stopping point. Use the four-part response sheet.", moves: ["Before: name the book, character and reading points. Revisit an earlier detail showing what the character wanted, believed or did.", "Turning point + after: locate the event and the character's response. What changed or stayed the same? Paraphrase evidence and note its page, audio point or moment. If the response is not shown, say so.", "Theme: suggest an idea about life, not just a topic. Explain how the character's change, lack of change or difficult choice supports it.", "Trade ideas. Ask: ‘Which detail supports or challenges that reading?’ Revise or defend your interpretation. Label possible next actions as predictions, not events that happened."] },
+      { label: "Check", minutes: "5 min", title: "What does your comparison support?", prompt: "Write or say: ‘Before ___; after / so far ___. This suggests ___ because ___.’", moves: ["Give a possible theme in a sentence and link it to a text detail. ‘Not enough information yet’ is useful when you explain what is missing.", "Name another possible reading or a detail that complicates yours. Explain why you changed or kept your idea after the partner check.", "Keep your response in your reading journal. No homework or upload needed."] },
     ],
     paperPrompts: [
-      { title: "1 · Our reading", prompt: "Text + start/stop point: ____. Character + problem: ____. No book today? Use the Lina case above." },
-      { title: "2 · A clue I can locate", prompt: "Paraphrase one exact detail. Note its page, audio point or moment. What does it show?" },
-      { title: "3 · Two possible choices", prompt: "The character might __ because __, but risks __. Another choice is __. Which clue makes deciding difficult? What is unknown?" },
-      { title: "4 · Check + revise", prompt: "After my partner's question, I think __ because the text shows __. I changed or kept my idea because __." },
+      { title: "1 · Before", prompt: "Book + start/stop point: __. Character: __. Before, they wanted / believed / did __. Earlier text detail + page, audio point or moment: __. No book today? Use the Lina case above." },
+      { title: "2 · Turning point", prompt: "An event changes the situation, choices or understanding: __. Text detail + location: __. Why might this moment matter? If no turning point is clear yet, say what you still need to find." },
+      { title: "3 · After / so far", prompt: "The character responds by __. Text detail + location: __. Compared with before: changed / unchanged / unclear, because __. If a response is not shown, write ‘not enough information yet’; label possible next actions as predictions." },
+      { title: "4 · Theme + check", prompt: "A possible theme (an idea about life, not just a topic) is __. The comparison supports it because __. Another reading or complicating detail: __. After my partner's question, I changed or kept my idea because __." },
     ],
     teacherCheck: [
-      "Accept different predictions when a student can locate and accurately paraphrase a supporting detail. Do not mark one imagined next event as the answer.",
-      "In the fictional case, the promise and survey are facts; what Lina will do is not. Asking for discussion or keeping the promise can both be defended if the tension is acknowledged.",
-      "If evidence is thin at this bookmark, record ‘not enough information yet’ and a question. Revisit after further reading rather than inventing a clue.",
+      "Look for a before/after comparison with accurately paraphrased, located details. Distinguish a change in circumstances from a change in beliefs, wants or actions. A supported ‘unchanged’ or ‘unclear’ is valid; do not force a transformation.",
+      "A theme is a defensible idea about life, not a prescribed moral or a one-word topic. Ask how the comparison supports the theme and which detail complicates it. Accept different supported readings and provisional themes from an unfinished novel.",
+      "In the fictional case, the promise and survey are facts; Lina's final decision and personal change are unknown. Asking for discussion or keeping the promise can both be defended as predictions if the tension is acknowledged.",
+      "If evidence is thin at this bookmark, record ‘not enough information yet’ and a question. Revisit after further reading rather than inventing a clue or future event. Assess the reasoning, not whether every box is full.",
     ],
   },
   {

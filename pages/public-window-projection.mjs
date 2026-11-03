@@ -58,9 +58,20 @@ export function buildPublicManifest(existing, source, homePractice) {
     ...pick(source, ["classroomWelcome", "schoolEvents", "classSchedule", "guideSections"]),
     ...(source.learningUpdates ? { learningUpdates: projectLearningUpdates(source.learningUpdates) } : {}),
     ...(homePractice ? { homePractice } : {}),
+    portfolioSummary: {
+      ...existing.portfolioSummary,
+      ...pick(source.publicPortfolioUpdate ?? {}, ["majorAnchorCount", "explanation"]),
+    },
+    projects: existing.projects.map(project => ({
+      ...project,
+      ...pick(source.publicProjectUpdates?.[project.id] ?? {}, ["timing", "title", "question", "subjects", "evidence", "assessment", "format", "reflection"]),
+    })),
     yearMonths: existing.yearMonths.map(month => {
       const update = source.publicMonthUpdates?.[month.month];
-      return update ? { ...month, focus: update.focus, highlights: [...new Set([...month.highlights, update.highlight])] } : month;
+      if (!update) return month;
+      // Explicit replacement removes superseded plans; legacy single highlights still append.
+      const highlights = update.highlights ?? [...new Set([...month.highlights, ...(update.highlight ? [update.highlight] : [])])];
+      return { ...month, ...pick(update, ["phase", "focus", "learning", "subjects", "anticipatedShare"]), highlights };
     }),
     windows: [source.window, ...source.phaseOverrides].map(projectPublicWindow),
   };

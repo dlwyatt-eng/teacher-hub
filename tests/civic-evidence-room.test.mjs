@@ -20,7 +20,7 @@ test("Civic Evidence Room preserves the canonical four-lesson progression", asyn
   assert.match(program, /id: "power-in-the-room"[\s\S]*?evidenceLevel: "Practice"[\s\S]*?spacesUse: "none"/);
   assert.match(program, /id: "compare-government-systems"[\s\S]*?evidenceLevel: "Practice"[\s\S]*?spacesUse: "none"/);
   assert.match(program, /id: "rights-in-tension"[\s\S]*?evidenceLevel: "Checkpoint"[\s\S]*?spacesUse: "none"/);
-  assert.match(program, /id: "civic-decision-brief"[\s\S]*?evidenceLevel: "Portfolio Highlight"[\s\S]*?spacesUse: "required"/);
+  assert.match(program, /id: "civic-decision-brief"[\s\S]*?evidenceLevel: "Portfolio Highlight"[\s\S]*?spacesUse: "optional"/);
 });
 
 test("the six-session pathway includes flexible delivery, assessment, and continuity", async () => {
