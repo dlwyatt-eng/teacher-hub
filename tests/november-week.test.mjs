@@ -20,7 +20,7 @@ test('new public window is current, safe and synchronized without inventing comp
  const x=read('../content/current-learning-window-v2.json'),p=read('../public/generated/public-window-v2.json');
  const w=x.phaseOverrides.find(w=>w.id==='november-peace-rights-and-inquiry');
  assert.equal(w.effectiveFrom,'2026-11-09');assert.equal(w.effectiveTo,'2026-11-13');
- assert.match(w.shared.summary,/Planned learning/);assert.equal(p.classSchedule.days.length,5);
+ assert.match(w.shared.summary,/Students will work in groups/);assert.equal(p.classSchedule.days.length,5);
  assert.ok(p.classSchedule.days.every(d=>/^2026-11-\d\d$/.test(d.date)&&d.label));
  assert.deepEqual(p.classroomWelcome,x.classroomWelcome);
  assert.match(x.classroomWelcome.next,/school is closed Wednesday/i);
