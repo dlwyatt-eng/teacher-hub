@@ -26,7 +26,7 @@ test("the rendered country-inquiry overview opens the actual booklet, guide and 
     assert.equal(readFileSync(path.join(root, "public/printables", file)).subarray(0, 5).toString(), "%PDF-");
   }
   assert.match(html, /Two Countries Shared Questions/);
-  assert.match(html, /Choose a question you care about and two countries/);
+  assert.match(html, /Work in groups to explore an issue you care about, compare two countries/);
   assert.match(html, /starting connection, not a submission deadline/);
   assert.match(html, /January presentations are proposed/);
   assert.match(html, /Students find and compare sources with class guidance/);

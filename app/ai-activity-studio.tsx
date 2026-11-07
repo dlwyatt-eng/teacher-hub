@@ -10,6 +10,7 @@ export default function AiActivityStudio({ onHome, initialActivityId }: { onHome
   const [selectedId, setSelectedId] = useState(initialId);
   const [copyMessage, setCopyMessage] = useState("");
   const activity = schoolAIActivities.find((item) => item.id === selectedId) ?? schoolAIActivities[0];
+  const isCountryInquiry = activity.id === "schoolai-country-inquiry-challenge-adviser";
   const promptReadyCount = schoolAIActivities.filter((item) => item.status === "prompt-ready").length;
   const liveStudentLinkCount = schoolAIActivities.filter((item) => Boolean(item.studentLaunchUrl)).length;
   const activityStatus = `${activity.status.replaceAll("-", " ").toUpperCase()} · ${activity.studentLaunchUrl ? "TESTED STUDENT LINK READY" : "STUDENT LINK NEEDED"}`;
@@ -30,6 +31,7 @@ export default function AiActivityStudio({ onHome, initialActivityId }: { onHome
       <aside><small>PILOT READINESS</small><strong>{promptReadyCount} prompt-ready {promptReadyCount === 1 ? "pack" : "packs"}</strong><span>{liveStudentLinkCount} tested student {liveStudentLinkCount === 1 ? "link" : "links"}</span></aside>
     </header>
 
+    <details key={`${activity.id}-workflow`} open={isCountryInquiry ? undefined : true}><summary>SchoolAI setup and teaching workflow</summary>
     <AiEvidenceWorkflow />
     <section className="ai-workflow" aria-label="Manual SchoolAI workflow">
       {[
@@ -41,6 +43,7 @@ export default function AiActivityStudio({ onHome, initialActivityId }: { onHome
       ].map(([number, title, detail]) => <article key={number}><b>{number}</b><div><strong>{title}</strong><p>{detail}</p></div></article>)}
     </section>
 
+    </details>
     <div className="ai-studio-layout">
       <nav aria-label="SchoolAI pilot activities">
         {schoolAIActivities.map((item) => <button key={item.id} className={item.id === activity.id ? "selected" : ""} onClick={() => { setSelectedId(item.id); setCopyMessage(""); }}><small>{item.outcome} · {item.status.replace("-", " ")}</small><strong>{item.title}</strong><span>{item.participation.label} · {item.duration}</span></button>)}
@@ -51,9 +54,10 @@ export default function AiActivityStudio({ onHome, initialActivityId }: { onHome
 
         <section className="ai-decision-grid">
           <article><small>PARTICIPATION</small><strong>{activity.participation.label}</strong><p>{activity.participation.rationale}</p><ul>{activity.participation.roles.map((role) => <li key={role}>{role}</li>)}</ul></article>
-          <article><small>BEFORE SCHOOLAI</small><strong>Authentic evidence first</strong><p>{activity.prerequisiteExperience}</p><ol>{activity.preAiTask.map((item) => <li key={item}>{item}</li>)}</ol></article>
+          <article><small>BEFORE SCHOOLAI</small><strong>{isCountryInquiry ? "Start with curiosity" : "Authentic evidence first"}</strong><p>{activity.prerequisiteExperience}</p><ol>{activity.preAiTask.map((item) => <li key={item}>{item}</li>)}</ol></article>
         </section>
 
+        <details key={`${activity.id}-setup`} open={isCountryInquiry ? undefined : true}><summary>View or copy setup prompt</summary>
         <section className="ai-copy-panel">
           <div><small>SPACE CREATION PACK</small><h3>Copy, preview, then revise from the test.</h3><p>The full instructions include the learning purpose, one-question-at-a-time behaviour, privacy boundaries, stop condition, and exact handoff.</p></div>
           <div className="ai-copy-actions">
@@ -67,6 +71,8 @@ export default function AiActivityStudio({ onHome, initialActivityId }: { onHome
           <label><span>SPACE INSTRUCTIONS · SELECTABLE BACKUP</span><textarea readOnly value={activity.spaceInstructions} rows={18} /></label>
         </section>
 
+        </details>
+        <details key={`${activity.id}-notes`} open={isCountryInquiry ? undefined : true}><summary>Teaching and assessment notes</summary>
         <section className="ai-after-grid">
           <article><small>TEACHER LOOK-FORS</small><ul>{activity.teacherLookFors.map((item) => <li key={item}>{item}</li>)}</ul></article>
           <article><small>STOP</small><p>{activity.stopCondition}</p><small>VERIFY</small><p>{activity.verificationMove}</p></article>
@@ -74,6 +80,7 @@ export default function AiActivityStudio({ onHome, initialActivityId }: { onHome
         </section>
 
         <section className="ai-safety-row"><div><small>PRIVACY</small><p>{activity.privacyNote}</p></div><div><small>ASSESSMENT BOUNDARY</small><p>{activity.assessmentBoundary}</p></div><div><small>PRINT / SHARED-DEVICE ROUTE</small><p>{activity.offlineAlternative}</p></div></section>
+        </details>
       </main>
     </div>
   </div>;

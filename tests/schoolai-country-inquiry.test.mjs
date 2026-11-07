@@ -16,5 +16,12 @@ test('country inquiry coach is usable but never claims a live Space',()=>{
 test('inquiry overview actually renders the complete coach and offline route',()=>{
  const {RightsPlanning}=load('app/rights-planning.tsx');
  const html=renderToStaticMarkup(React.createElement(RightsPlanning));
- for(const phrase of ['Challenge the Adviser','FINISH WITH STUDENT-OWNED EVIDENCE','Without AI','not a live student Space','rights-evidence-bridge.html']) assert.ok(html.includes(phrase),phrase);
+ for(const phrase of ['A Better World','FINISH WITH STUDENT-OWNED EVIDENCE','Without AI','not a live student Space','rights-evidence-bridge.html']) assert.ok(html.includes(phrase),phrase);
+});
+
+test('country inquiry keeps group agency and allows early ideas',()=>{
+ assert.equal(a.participation.mode,'small-group');
+ assert.match(a.spaceInstructions,/Invite provisional ideas early/);
+ assert.match(a.spaceInstructions,/individual reflection/);
+ assert.doesNotMatch(a.spaceInstructions,/Only once there is enough evidence/);
 });
