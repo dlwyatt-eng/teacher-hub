@@ -1,0 +1,116 @@
+{
+  "id": "day-2026-11-13",
+  "date": "2026-11-13",
+  "title": "Friday · inquiry questions and purposeful art",
+  "greeting": "Good morning, Division 8!",
+  "arrival": "Answer attendance, then hand in any forms. Get your materials ready.",
+  "note": "French 9:35–10:35, snack after recess, PE 11:10–11:50. Friday inquiry/art prepares for next week and the November 20 children’s-rights connection. No fixed inquiry submission deadline. Leadership work meeting after school 2:45–3:30 for participating students.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:45 am",
+      "title": "Welcome and attendance",
+      "firstAction": "Answer attendance, then hand in forms.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "8:45–9:35 am",
+      "title": "Maths · two names for one amount",
+      "firstAction": "Draw equal wholes divided into fourths.",
+      "notes": "Begin with Monday’s actual learning. Show 9/4 = 2 1/4: two groups of four fourths and one fourth remain. Reverse with 2 2/3 = 8/3. Practise 7/2 = 3 1/2 and 3 1/4 = 13/4. Keep the whole and denominator unchanged. Exit: model 8/3 and explain 2 2/3. Provide counters/strips and oral explanation; not a dedicated GCF/LCM lesson.",
+      "href": "",
+      "studentSteps": [
+        "Build or draw the amount.",
+        "Group the fractional parts into wholes.",
+        "Write both names and explain why they match."
+      ]
+    },
+    {
+      "time": "9:35–10:35 am",
+      "title": "French",
+      "firstAction": "Follow your French teacher’s directions.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "firstAction": "Follow our recess routine.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "10:50–11:10 am",
+      "title": "Snack",
+      "firstAction": "Have your snack and tidy your space.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "11:10–11:50 am",
+      "title": "PE",
+      "firstAction": "Listen to today’s activity and safety directions.",
+      "notes": "Use the current teacher-selected activity and clear non-contact rules; do not assume dodgeball.",
+      "href": ""
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "firstAction": "Follow our outside-play and lunch routine.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "12:35–12:50 pm",
+      "title": "Quiet reset",
+      "firstAction": "Choose quiet reading or another calm activity.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "12:50–1:30 pm",
+      "title": "Inquiry · two countries, one question",
+      "firstAction": "Choose a question about a decision affecting people your age.",
+      "notes": "Open the country inquiry overview. Today’s small goal: a question, two countries and a plan for checking sources. SchoolAI coaching is optional only after teacher setup and device booking are confirmed; teacher/partner questioning on paper is a full route. Suggested device window 12:45–1:45 is not booked. Extend only if the next slot is genuinely free.",
+      "href": "?subject=Social+Studies",
+      "studentSteps": [
+        "Choose a question and two countries.",
+        "Explain why the comparison matters.",
+        "Plan where to look and one way to check information.",
+        "Save the question and next step."
+      ]
+    },
+    {
+      "time": "1:30–2:00 pm",
+      "title": "Art · a fair chance",
+      "firstAction": "Choose one right or access issue from our discussion.",
+      "notes": "Make a small labelled sketch showing a fair-community design: for example, a play space with a usable entrance and quiet area. Explain who a design choice helps and a limit or trade-off. This is a short inquiry connection, not a new major project or compulsory display. May continue existing artwork instead when needed.",
+      "href": "",
+      "studentSteps": [
+        "Sketch one practical design choice.",
+        "Add a label explaining who it helps.",
+        "Name one improvement or unanswered question."
+      ]
+    },
+    {
+      "time": "2:00–2:30 pm",
+      "title": "Save, tidy and move",
+      "firstAction": "Save your work, complete classroom jobs and join a short movement break when directed.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "2:30–2:35 pm",
+      "title": "Pack up and dismissal",
+      "firstAction": "Check your belongings and prepare for dismissal.",
+      "notes": "",
+      "href": ""
+    }
+  ],
+  "backups": [
+    "Use paper, oral explanation or drawings when devices are unavailable. Technology bookings are proposed, not confirmed.",
+    "Continue from actual class progress; this plan is not a claim that earlier lessons were completed.",
+    "No new homework or posting deadline is added."
+  ]
+}

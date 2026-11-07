@@ -1,0 +1,103 @@
+{
+  "id": "day-2026-11-10",
+  "date": "2026-11-10",
+  "title": "Tuesday · fractions, rights and French",
+  "greeting": "Good morning, Division 8!",
+  "arrival": "Answer attendance, then hand in any forms. Get your materials ready.",
+  "note": "French is 12:35–1:35. Tomorrow is Remembrance Day: school is closed. Resume maths and reading from confirmed progress. The rights bridge has a complete paper route.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:45 am",
+      "title": "Welcome and attendance",
+      "firstAction": "Answer attendance, then hand in forms.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "8:45–9:35 am",
+      "title": "Maths · two names for one amount",
+      "firstAction": "Draw equal wholes divided into fourths.",
+      "notes": "Begin with Monday’s actual learning. Show 9/4 = 2 1/4: two groups of four fourths and one fourth remain. Reverse with 2 2/3 = 8/3. Practise 7/2 = 3 1/2 and 3 1/4 = 13/4. Keep the whole and denominator unchanged. Exit: model 8/3 and explain 2 2/3. Provide counters/strips and oral explanation; not a dedicated GCF/LCM lesson.",
+      "href": "",
+      "studentSteps": [
+        "Build or draw the amount.",
+        "Group the fractional parts into wholes.",
+        "Write both names and explain why they match."
+      ]
+    },
+    {
+      "time": "9:35–10:20 am",
+      "title": "Nevermoor and evidence",
+      "firstAction": "Recall our actual stopping point.",
+      "notes": "Resume the real bookmark. Students give one interpretation and one supporting detail. Other supported readings are welcome; record the new bookmark.",
+      "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+      "studentSteps": [
+        "Listen or read.",
+        "Choose one detail and explain what it suggests.",
+        "Save a question for next time."
+      ]
+    },
+    {
+      "time": "10:20–10:35 am",
+      "title": "Snack",
+      "firstAction": "Have your snack and tidy your space.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "firstAction": "Follow our recess routine.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "10:50–11:50 am",
+      "title": "Social Studies · rights and real access",
+      "firstAction": "Read the fictional source cards.",
+      "notes": "Use the linked 35-minute rights bridge, then discuss or finish existing work. Fictional sources are practice, not evidence about a real country. Distinguish what a right promises from what makes it possible to use.",
+      "href": "./activities/rights-evidence-bridge.html"
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "firstAction": "Follow our outside-play and lunch routine.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "12:35–1:35 pm",
+      "title": "French",
+      "firstAction": "Follow your French teacher’s directions.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "1:35–2:00 pm",
+      "title": "Quiet work and reflection",
+      "firstAction": "Choose one useful next step in existing work.",
+      "notes": "Improve a detail, explanation or reflection using the original instructions. Save progress without adding a new upload.",
+      "href": ""
+    },
+    {
+      "time": "2:00–2:30 pm",
+      "title": "Save, tidy and move",
+      "firstAction": "Save your work, complete classroom jobs and join a short movement break when directed.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "2:30–2:35 pm",
+      "title": "Pack up and dismissal",
+      "firstAction": "Check your belongings and prepare for dismissal.",
+      "notes": "",
+      "href": ""
+    }
+  ],
+  "backups": [
+    "Use paper, oral explanation or drawings when devices are unavailable. Technology bookings are proposed, not confirmed.",
+    "Continue from actual class progress; this plan is not a claim that earlier lessons were completed.",
+    "No new homework or posting deadline is added."
+  ]
+}

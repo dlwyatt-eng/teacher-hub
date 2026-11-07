@@ -1,0 +1,150 @@
+{
+  "id": "day-2026-11-09",
+  "date": "2026-11-09",
+  "title": "Monday · Diwali, peace artwork and fraction models",
+  "greeting": "Good morning, Division 8!",
+  "arrival": "Settle in and answer attendance, then hand in any forms. Get your existing work ready.",
+  "note": "School Diwali observance is Monday; follow the confirmed school schedule and move flexible blocks around it. Remembrance assembly timing remains unconfirmed. Check actual progress after the TTOC days before choosing the next step. Prioritize remembrance artwork, resume Nevermoor at the real bookmark and use equal-part models for mixed numbers and improper fractions. Assembly time still needs school confirmation: move flexible work around it. Keep snack at 10:20, recess 10:35–10:50, lunch 11:50–12:35, cleanup around 2:00 and dismissal at 2:35. No new homework or posting deadline is added.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:45 am",
+      "title": "Welcome and attendance",
+      "notes": "Take attendance before forms. Check TTOC notes, artwork and the book/audio bookmark before deciding where to continue.",
+      "href": "",
+      "firstAction": "Settle in and answer attendance.",
+      "studentSteps": [
+        "Answer attendance, then hand in any forms.",
+        "Look at today's plan and get your existing work ready."
+      ]
+    },
+    {
+      "time": "8:45–9:05 am",
+      "title": "Find your next step",
+      "notes": "Privately check what is complete, ready for feedback or still needs work. Brief practice check: 18 − 3 × 4 = 6 and (18 − 3) × 4 = 60. Use responses to decide support, not a new test or upload. Continue the existing order-of-operations task where needed.",
+      "href": "",
+      "firstAction": "Open your existing work and find where you stopped.",
+      "studentSteps": [
+        "Show your teacher what is finished and what needs help.",
+        "Explain which operation comes first in each practice expression.",
+        "Choose one useful next step."
+      ]
+    },
+    {
+      "time": "9:05–9:35 am",
+      "title": "Nevermoor",
+      "notes": "Resume at the actual bookmark. Ask for an idea and a story detail supporting it. Use an old-life/new-life interpretation only when the passage supports it; other supported interpretations count. No new assessment or personal disclosure. Record the new stopping point.",
+      "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+      "firstAction": "Recall the last part we actually read.",
+      "studentSteps": [
+        "Listen or read from our bookmark.",
+        "Choose a detail and explain what it suggests about a character or a change.",
+        "Keep one question for next time."
+      ]
+    },
+    {
+      "time": "9:35–10:20 am",
+      "title": "Remembering and building peace",
+      "notes": "Continue existing peace artwork. Four students may finish the large poster; others finish individual versions. Do not assume work began with the TTOC. Use the prepared two-voice reading if the organizer has confirmed a place for it. Keep private experiences of war, grief and loss optional. Make room for the school Diwali observance when its timing is known. Do not ask students to represent a whole religion or share personal family practices.",
+      "href": "",
+      "firstAction": "Get your existing peace artwork and decide what to finish.",
+      "studentSteps": [
+        "Finish the part of the artwork your teacher identifies.",
+        "Add a specific idea about building peace.",
+        "Check your work and help prepare it for sharing."
+      ]
+    },
+    {
+      "time": "10:20–10:35 am",
+      "title": "Snack",
+      "notes": "Usual snack before recess.",
+      "href": "",
+      "firstAction": "Have your snack and tidy your space."
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "notes": "",
+      "href": "",
+      "firstAction": "Follow our recess routine."
+    },
+    {
+      "time": "10:50–11:50 am",
+      "title": "Maths with fraction models",
+      "notes": "Check equal wholes and equal parts first. Draw two equal strips split into fourths; shade seven parts. 7/4 is 1 3/4 because four fourths make one whole. Model 9/4 = 2 1/4 and 2 1/3 = 7/3. Practice examples: 5/2 = 2 1/2, 11/3 = 3 2/3, 3 2/5 = 17/5. Exit: draw 5/4 and explain 1 1/4, keeping the denominator 4. Use a smaller set, oral explanation or manipulatives as needed. Math Antics optional; board and paper are a complete route. No dedicated GCF/LCM bridge and no new posting.",
+      "href": "",
+      "firstAction": "Make equal-size wholes and divide each one into four equal parts.",
+      "studentSteps": [
+        "Show seven fourths with strips or a drawing.",
+        "Count whole units and the parts left over.",
+        "Write a fraction and a mixed number for the same amount.",
+        "Explain why both names describe the same amount."
+      ]
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "notes": "Outside 11:50–12:12; transition 12:12–12:13; eating 12:13–12:35.",
+      "href": "",
+      "firstAction": "Follow our outside-play and lunch routine."
+    },
+    {
+      "time": "12:35–12:50 pm",
+      "title": "Quiet reset",
+      "notes": "Established quiet choices.",
+      "href": "",
+      "firstAction": "Choose quiet reading, drawing or another calm activity."
+    },
+    {
+      "time": "12:50–1:35 pm",
+      "title": "Diwali connection or existing work",
+      "notes": "Follow school Diwali arrangements. If no shared activity fills this block, use a brief respectful discussion: celebrations differ among communities and families; not everyone celebrates. Students may offer a question without sharing personal beliefs. Then continue existing work using feedback. No device booking is assumed.",
+      "href": "",
+      "firstAction": "Find the next step your teacher identifies in your existing work.",
+      "studentSteps": [
+        "Read or listen to the instructions and feedback.",
+        "Improve one part of your work.",
+        "Save it or mark where to continue."
+      ]
+    },
+    {
+      "time": "1:35–2:00 pm",
+      "title": "Bloxels or art finishing",
+      "notes": "If art is ready, revise one connection between story and gameplay, then test with a partner. Use a paper storyboard or level map when devices are unavailable. Keep this block for art if the display needs more time.",
+      "href": "",
+      "firstAction": "Follow your teacher's direction for the next part of your project.",
+      "studentSteps": [
+        "Finish the art step or choose one story-to-game connection to improve.",
+        "Show or test the change.",
+        "Save your progress."
+      ]
+    },
+    {
+      "time": "2:00–2:30 pm",
+      "title": "Save, tidy and move",
+      "notes": "Save work and complete classroom jobs. Take a separate short movement break after tidying; movement is not labelled cleanup. Record only confirmed reminders.",
+      "href": "?view=Responsibilities&mode=student",
+      "firstAction": "Save your work and complete your classroom job.",
+      "studentSteps": [
+        "Return materials and tidy your space.",
+        "Join the separate movement break when directed.",
+        "Record confirmed reminders."
+      ]
+    },
+    {
+      "time": "2:30–2:35 pm",
+      "title": "Pack up and dismissal",
+      "notes": "Preserve 2:35 dismissal.",
+      "href": "",
+      "firstAction": "Check your belongings and get ready for a calm departure."
+    }
+  ],
+  "backups": [
+    "Diwali observance is Monday November 9 at our school, not a claim about the festival date everywhere. Timing is to be confirmed; keep planned blocks flexible.",
+    "The Remembrance assembly time must be confirmed with school; move flexible work or Bloxels around it rather than inventing a time.",
+    "If fraction language is unfamiliar, use concrete halves, quarters and thirds before a conversion rule.",
+    "If students already had a mixed-number introduction, use the same model briefly and continue from what they can explain.",
+    "Paper provides the route when laptops or video access are unavailable.",
+    "Carry unfinished work forward at school without adding a homework or upload deadline."
+  ]
+}

@@ -8,16 +8,18 @@ const manifest=read('../public/generated/public-window-v2.json');
 test('dated subject updates cover the full class without turning plans into completed work',()=>{
  const updates=source.learningUpdates;
  assert.deepEqual(manifest.learningUpdates,updates);
- assert.equal(updates.updatedOn,'November 2, 2026');
+ assert.equal(updates.updatedOn,'November 7, 2026');
  assert.deepEqual(updates.subjects.map(x=>x.subject),['Mathematics','Language Arts','Career Education','Physical Education','Health','Social Studies','Arts Education','ADST','Science','French']);
  assert.equal(new Set(updates.subjects.map(x=>x.focus)).size,10);
  const by=Object.fromEntries(updates.subjects.map(x=>[x.subject,x]));
- for(const key of ['Physical Education','Health','Arts Education'])assert.equal(by[key].status,'Coming up');
+ assert.equal(by['Physical Education'].status,'Coming up');
+ assert.equal(by['Health'].status,'Ongoing learning');
+ assert.equal(by['Arts Education'].status,'Planned next steps');
  for(const key of ['Science','French'])assert.equal(by[key].status,'Class materials');
- assert.match(by['Physical Education'].detail,/Monday, November 2/);
- assert.match(by['Arts Education'].detail,/Thursday, November 5/);
+ assert.match(by['Physical Education'].detail,/Thursday/);
+ assert.match(by['Arts Education'].detail,/Friday/);
  assert.match(by['Language Arts'].detail,/details from the story/);
- assert.match(by['Social Studies'].detail,/voting preferences stay private/);
+ assert.match(by['Social Studies'].detail,/not a submission deadline/);
  assert.doesNotMatch(JSON.stringify(updates),/laptop|booking|mastered|completed the lesson|support schedule/i);
 });
 test('subject update projection exports only the public fields',()=>{

@@ -463,6 +463,8 @@ export function CivicCaseWorkbench({ sceneIndex, audience }: CivicCaseWorkbenchP
         </div>
       )}
 
+      {scene === 3 && <aside className="civic-rights-note" aria-label="Connect to the country inquiry"><strong>FROM A CITY DECISION TO A COUNTRY QUESTION</strong><span>Ask the same questions in your country inquiry: what is promised, what happens, who is heard, and what evidence is still missing? <a href="activities/rights-evidence-bridge.html">Try the 35-minute rights-to-evidence bridge</a> with fictional sources before researching your own two countries. This is optional practice, not another required product.</span></aside>}
+
       <footer className="civic-workbench-footer"><div><strong>ONE SHARED SCREEN</strong><span>Talk, point, move, or use paper A/B/C cards. One person can tap for the class. No student device or personal disclosure is needed.</span></div><div><strong>NO WINNING OPINION</strong><span>Strong civic thinking shows evidence, affected people, possible harm, and what could make us change our minds.</span></div><button type="button" onClick={resetWorkbench}>Reset class choices</button></footer>
     </section>
   );

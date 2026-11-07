@@ -1,0 +1,98 @@
+{
+  "id": "day-2026-11-12",
+  "date": "2026-11-12",
+  "title": "Thursday · library and swimming",
+  "greeting": "Good morning, Division 8!",
+  "arrival": "Answer attendance, then hand in any forms. Get your materials ready.",
+  "note": "Swimming: leave school 11:30, pool time noon–2, approximate return 2:30. Library 9:20–9:35 remains planned. Confirm early lunch and trip arrangements; normal Thursday PE is replaced.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:45 am",
+      "title": "Welcome and attendance",
+      "firstAction": "Answer attendance, then hand in forms.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "8:45–9:20 am",
+      "title": "Maths retrieval",
+      "firstAction": "Show 5/4 with a drawing.",
+      "notes": "Check 5/4 = 1 1/4 and 2 1/2 = 5/2. Ask students to explain the equal parts rather than race through conversions.",
+      "href": ""
+    },
+    {
+      "time": "9:20–9:35 am",
+      "title": "Library",
+      "firstAction": "Bring your library books for exchange.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "9:35–10:20 am",
+      "title": "Nevermoor and evidence",
+      "firstAction": "Recall our actual stopping point.",
+      "notes": "Resume the real bookmark. Students give one interpretation and one supporting detail. Other supported readings are welcome; record the new bookmark.",
+      "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+      "studentSteps": [
+        "Listen or read.",
+        "Choose one detail and explain what it suggests.",
+        "Save a question for next time."
+      ]
+    },
+    {
+      "time": "10:20–10:35 am",
+      "title": "Snack",
+      "firstAction": "Have your snack and tidy your space.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "firstAction": "Follow our recess routine.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "10:50–11:30 am",
+      "title": "Swimming preparation and early lunch",
+      "firstAction": "Follow your teacher’s directions for lunch and trip readiness.",
+      "notes": "Confirm early lunch, staffing, support handoffs, permissions and packing arrangements before departure. This flexible preparation block is not a confirmed early-lunch time. Check the trip notice; do not substitute the later skating plan.",
+      "href": ""
+    },
+    {
+      "time": "11:30 am–12:00 pm",
+      "title": "Travel to swimming",
+      "firstAction": "Stay with your assigned group and follow adult directions.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "12:00–2:00 pm",
+      "title": "Swimming",
+      "firstAction": "Listen to pool staff and follow safety instructions.",
+      "notes": "Swimming replaces normal PE and afternoon classroom blocks. Participation follows permissions and pool directions; do not publish private support details.",
+      "href": ""
+    },
+    {
+      "time": "2:00–about 2:30 pm",
+      "title": "Return to school",
+      "firstAction": "Gather your belongings and return with your group.",
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "About 2:30–2:35 pm",
+      "title": "Return check and dismissal",
+      "firstAction": "Check your belongings and prepare for dismissal.",
+      "notes": "Return is approximate. Follow school procedures if travel runs late.",
+      "href": ""
+    }
+  ],
+  "backups": [
+    "Use paper, oral explanation or drawings when devices are unavailable. Technology bookings are proposed, not confirmed.",
+    "Continue from actual class progress; this plan is not a claim that earlier lessons were completed.",
+    "No new homework or posting deadline is added."
+  ]
+}

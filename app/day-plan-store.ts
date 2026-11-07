@@ -1,3 +1,7 @@
+import november09 from '../content/day-plans/day-2026-11-09.json';
+import november10 from '../content/day-plans/day-2026-11-10.json';
+import november12 from '../content/day-plans/day-2026-11-12.json';
+import november13 from '../content/day-plans/day-2026-11-13.json';
 import november03 from '../content/day-plans/day-2026-11-03.json';
 import november02 from '../content/day-plans/day-2026-11-02.json';
 import october30 from '../content/day-plans/day-2026-10-30.json';
@@ -32,7 +36,7 @@ import flexibleFirstDay from '../content/day-plans/first-full-day-flexible.json'
 import firstDay from '../content/day-plans/first-full-day.json';
 import {parseDayPlan,readDayRevisions,type DayPlan} from './day-plan-storage';
 export * from './day-plan-storage';
-export const publishedDayPlans:DayPlan[]=[thursdayDay,octoberFriday,octoberThursday,septemberTuesday,septemberMonday,wednesdayDay,tuesdayDay,mondayDay,thirdDay,secondDay,flexibleFirstDay,firstDay,october05,october06,october07,october08,october09,october13,october14,october15,october16,october19,october20,october21,october22,october26,october27,october28,october29,october30,november02,november03].map(plan=>{const clean=parseDayPlan(plan);if(!clean)throw new Error('Invalid published day plan');return clean;});
+export const publishedDayPlans:DayPlan[]=[thursdayDay,octoberFriday,octoberThursday,septemberTuesday,septemberMonday,wednesdayDay,tuesdayDay,mondayDay,thirdDay,secondDay,flexibleFirstDay,firstDay,october05,october06,october07,october08,october09,october13,october14,october15,october16,october19,october20,october21,october22,october26,october27,october28,october29,october30,november02,november03,november09,november10,november12,november13].map(plan=>{const clean=parseDayPlan(plan);if(!clean)throw new Error('Invalid published day plan');return clean;});
 // Explicit teacher-approved active plan. Advance this only after approval, never to the latest tentative draft.
 export const DEFAULT_DAY_PLAN_ID=october19.id;
 export function listDayPlans():DayPlan[]{
