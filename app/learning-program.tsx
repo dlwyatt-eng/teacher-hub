@@ -45,6 +45,7 @@ import ProjectorCaseDeck from "./projector-case-deck";
 import SourceMosaicLab, { SourceMosaicStaticPack, sourceMosaicExperienceId } from "./ela-source-mosaic-lab";
 import GeometryScreenLab from "./math-geometry-screen-lab";
 import ScoreboardRuleLab, { scoreboardRuleExperienceId } from "./math-scoreboard-lab";
+import FractionExplorer, { fractionExplorerExperienceId } from "./fraction-explorer";
 import MathNumberScaleLab, { magnitudeScaleLabExperienceId } from "./math-number-scale-lab";
 import EditRoomLab, { editRoomExperienceId } from "./ela-edit-room-lab";
 import FourArtsLab, { fourArtsExperienceId } from "./four-arts-lab";
@@ -613,6 +614,7 @@ function TeacherExperienceDetail({ experience, arc, record, program }: { experie
         </div>
       </details>)}
 
+      {experience.id === fractionExplorerExperienceId && <FractionExplorer teacher />}
       {experience.id === sourceMosaicExperienceId && <SourceMosaicStaticPack />}
 
       <details className="teacher-planning-details">
@@ -869,7 +871,7 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
     ...selected,
     steps: steps.map((step) => step.action),
   });
-  const usesInteractiveLab = selected.id === "pattern-forecast" || selected.id === "equation-balance" || selected.id === "source-mosaic" || selected.id === "geometry-field-lab" || selected.id === scoreboardRuleExperienceId || selected.id === magnitudeScaleLabExperienceId || selected.id === editRoomExperienceId;
+  const usesInteractiveLab = selected.id === fractionExplorerExperienceId || selected.id === "pattern-forecast" || selected.id === "equation-balance" || selected.id === "source-mosaic" || selected.id === "geometry-field-lab" || selected.id === scoreboardRuleExperienceId || selected.id === magnitudeScaleLabExperienceId || selected.id === editRoomExperienceId;
   const resolvedProjectorSupport = resolveProjectorLessonSupport(selected);
   const projectorSupport = resolvedProjectorSupport.support;
   const useMathConceptPack = program.subject === "Mathematics" && !resolvedProjectorSupport.isCustom;
@@ -900,7 +902,7 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
     const experience = program.experiences.find((item) => item.id === id);
     return { id, title: experience ? studentTitleFor(experience) : id, label: experience?.kind };
   });
-  const interactiveLab: ReactNode = selected.id === "pattern-forecast" ? <PatternTrailLab />
+  const interactiveLab: ReactNode = selected.id === fractionExplorerExperienceId ? <FractionExplorer /> : selected.id === "pattern-forecast" ? <PatternTrailLab />
     : selected.id === "equation-balance" ? <EquationBalanceLab />
       : selected.id === "source-mosaic" ? <SourceMosaicLab />
         : selected.id === "geometry-field-lab" ? <GeometryScreenLab />
@@ -928,6 +930,8 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
     // lab. Other interactive labs teach their idea inside the interaction.
     if (learnStage) parts.push({ label: "Learn", verb: "See it", content: learnStage });
     parts.push({ label: "Explore", verb: "Try", content: <div id="mission-path" className="student-interactive-mission projector-active-object">{interactiveLab}</div> });
+    // Predict and build before the explanatory workshop for the fraction entry.
+    if (selected.id === fractionExplorerExperienceId) parts.unshift(parts.pop()!);
   } else {
     if (showLook) parts.push({ label: "Look", verb: "Notice", content: selected.id === "decimal-dispatch" ? <DecimalInvoiceLaunch /> : hasExploration ? <LessonExplorations lessonId={selected.id} initiallyOpen /> : <section className="projector-active-object projector-look-stage"><ExactAnchorVisual experience={selected} media={media} /><ExperienceInfographic experienceId={selected.id} />{program.subject === "Arts Education" && <MediaStrip items={media} student />}<LocalIndigenousResourceDock experienceId={selected.id} student />{selected.id === "graph-story-lab" && <><LocalRestorationInfographic /><ResponsibleDataInfographic /></>}</section> });
     if (selected.id === "three-voices") parts.push({ label: "Reason", verb: "Think", content: <EvidenceInferenceLaunch /> });
