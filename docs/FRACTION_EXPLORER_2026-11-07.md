@@ -14,3 +14,8 @@ All controls have labels and native keyboard operation; no dragging, animation, 
 
 ## Verification
 Automated model tests exhaust all supported numerators and denominators; actual TSX initial render is checked, alongside integration and paper-content tests. Run `npm test` for the final release. Local Chromium screenshot execution was attempted but blocked by the environment's `socket() failed: Operation not permitted`; no visual browser QA or classroom use is claimed. Review live desktop/mobile and interaction states after deployment when the supported browser is available.
+
+## Four-whole capacity repair
+The Monday plan includes 11/3 = 3 2/3 and 3 2/5 = 17/5. The initial three-whole ceiling prevented building those examples. Model validation, Add-button bound, drawn strip count and accessible label now consistently allow four wholes, sharing a single capacity constant. Denominators, task choices, reset and the paper sequence are unchanged. Regression tests cover both plan examples, exact four-whole values, and rejection beyond four wholes.
+
+Prior published version: Teacher commit 2fb8fc68e5644595bf73da4ebf2d3c4e0c2f6115; Pages CI 42355777581 passed. Release worker verified desktop live interaction, reset and paper route. No actual mobile viewport review was completed. This repair needs its own post-deployment verification.
