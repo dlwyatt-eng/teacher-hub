@@ -5,6 +5,7 @@ export function RightsPlanning() {
     <small>PROPOSED NOVEMBER–JANUARY · SOCIAL STUDIES</small>
     <h2 id="rights-plan-title">Two Countries Shared Questions</h2>
     <p>How can we create a better world? Work in groups to explore an issue you care about, compare two countries and develop your own ideas for change. Begin with human and children’s rights around November 20, National Child Day. This is a starting connection, not a submission deadline.</p>
+    <p><a href="activities/better-world-journey.html">Open the inquiry journey · group choices, six flexible moves and teacher planning</a></p>
     <p><a href="printables/two-countries-shared-questions-student.pdf" target="_blank" rel="noreferrer">Open the student inquiry booklet · 15 printable pages ↗</a><br /><a href="printables/two-countries-shared-questions-teacher.pdf" target="_blank" rel="noreferrer">Open the teacher guide · sequence, source support and assessment ↗</a></p>
     <aside aria-label="Rights and evidence bridge" style={{background:"#f0f6f3",padding:18,borderRadius:10}}>
       <h3>A right on paper. A chance in real life.</h3>

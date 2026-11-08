@@ -9,6 +9,7 @@ export function AiEvidenceWorkflow() {
   const [message, setMessage] = useState("");
   return <section className="ready-made-activities" aria-label="AI tools and selected evidence">
     <h2>Use each tool for a clear job</h2>
+    <p><a href="activities/feedback-workbench.html">Open Feedback Workbench · fictional examples, next steps and review checklist</a></p>
     <p><strong>Classroom OS:</strong> curriculum and lesson launch. <strong>SchoolAI:</strong> selected thinking support. <strong>SpacesEDU:</strong> student work, reflection and portfolio. <strong>District Microsoft 365 Copilot:</strong> a teacher-workflow pilot using approved evidence.</p>
     <details><summary>Try a small evidence-to-feedback workflow</summary>
       <ol>
