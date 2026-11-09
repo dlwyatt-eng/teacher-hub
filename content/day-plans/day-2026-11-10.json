@@ -1,10 +1,10 @@
 {
   "id": "day-2026-11-10",
   "date": "2026-11-10",
-  "title": "Tuesday · fractions, rights and French",
+  "title": "Tuesday · Remembrance assembly, SpacesEDU and French",
   "greeting": "Good morning, Division 8!",
-  "arrival": "Answer attendance, then hand in any forms. Get your materials ready.",
-  "note": "French is 12:35–1:35. Tomorrow is Remembrance Day: school is closed. Resume maths and reading from confirmed progress. The rights bridge has a complete paper route.",
+  "arrival": "Answer attendance, then hand in any forms. Get ready for our 9:00 am assembly.",
+  "note": "Remembrance Day assembly starts at 9:00 am; its end time is not confirmed. After the assembly, use any time before snack/recess for Nevermoor and/or continuing Health feelings and needs. Keep the morning flexible; no morning fraction lesson. After recess, continue existing SpacesEDU work if laptops are available; otherwise prepare the same work on paper. French remains 12:35–1:35. If the class is ready, begin a short introduction to fractions after French; do not assume Monday’s deferred fraction lesson was taught. Preserve snack at 10:20, recess 10:35–10:50, lunch 11:50–12:35, cleanup around 2:00 and dismissal at 2:35. Tomorrow is Remembrance Day: school is closed. No new homework or posting deadline.",
   "reflection": "",
   "blocks": [
     {
@@ -15,27 +15,34 @@
       "href": ""
     },
     {
-      "time": "8:45–9:35 am",
-      "title": "Maths · two names for one amount",
-      "firstAction": "Draw equal wholes divided into fourths.",
-      "notes": "Begin with Monday’s actual learning. Show 9/4 = 2 1/4: two groups of four fourths and one fourth remain. Reverse with 2 2/3 = 8/3. Practise 7/2 = 3 1/2 and 3 1/4 = 13/4. Keep the whole and denominator unchanged. Exit: model 8/3 and explain 2 2/3. Provide counters/strips and oral explanation; not a dedicated GCF/LCM lesson.",
-      "href": "",
-      "studentSteps": [
-        "Build or draw the amount.",
-        "Group the fractional parts into wholes.",
-        "Write both names and explain why they match."
-      ]
+      "time": "8:45–9:00 am",
+      "title": "Get ready for the assembly",
+      "firstAction": "Follow directions to prepare and move to the assembly.",
+      "notes": "Use the school’s transition arrangements and arrive ready for the 9:00 am start.",
+      "href": ""
     },
     {
-      "time": "9:35–10:20 am",
-      "title": "Nevermoor and evidence",
-      "firstAction": "Recall our actual stopping point.",
-      "notes": "Resume the real bookmark. Students give one interpretation and one supporting detail. Other supported readings are welcome; record the new bookmark.",
+      "time": "9:00 am · end time to be confirmed",
+      "title": "Remembrance Day assembly",
+      "firstAction": "Listen respectfully and follow the assembly directions.",
+      "notes": "Start time is confirmed by Daryl. Follow the actual assembly ending; do not assume a fixed duration. Adjust the optional follow-up rather than rushing.",
+      "href": ""
+    },
+    {
+      "time": "After assembly · if time before snack/recess",
+      "title": "Nevermoor and/or Health · if time",
+      "firstAction": "Follow your teacher’s choice: continue Nevermoor or practise feelings and needs.",
+      "notes": "Choose Nevermoor, Health or a short part of each according to the actual time available. Nevermoor: resume the actual class bookmark, listen/read, and invite one idea supported by a story detail; record the stopping point. Health: continue the existing feelings-and-needs work, not a new assignment. Use a fictional situation such as two friends wanting different games. Model a possible feeling (disappointed), a need (choice or belonging) and a request (Could we take turns choosing?). More than one feeling or need may fit. A request allows a no; respect stop signals and seek a trusted adult if unsafe. Students may speak, draw, point, write, observe or pass. Do not require personal conflict, grief or war disclosures. Stop for the usual break routine; carry unfinished learning forward.",
       "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
+      "worksheet": {
+        "label": "Feelings, needs and healthy boundaries",
+        "href": "./printables/communication-feelings-needs-boundaries.pdf",
+        "studentSafe": true
+      },
       "studentSteps": [
-        "Listen or read.",
-        "Choose one detail and explain what it suggests.",
-        "Save a question for next time."
+        "If reading: start at our bookmark and explain one idea using a detail from the story.",
+        "If doing Health: use the made-up situation to suggest a feeling, a need and a respectful request.",
+        "Explain how to respect a no or stop. You may speak, draw, point, write or pass."
       ]
     },
     {
@@ -54,10 +61,16 @@
     },
     {
       "time": "10:50–11:50 am",
-      "title": "Social Studies · rights and real access",
-      "firstAction": "Read the fictional source cards.",
-      "notes": "Use the linked 35-minute rights bridge, then discuss or finish existing work. Fictional sources are practice, not evidence about a real country. Distinguish what a right promises from what makes it possible to use.",
-      "href": "./activities/rights-evidence-bridge.html"
+      "title": "SpacesEDU · if laptops are available",
+      "firstAction": "Find the existing work or posting your teacher identifies.",
+      "notes": "Laptops are proposed, not booked or confirmed. If available, continue unfinished SpacesEDU postings and respond to existing feedback. Check instructions, work quality and the intended private audience before posting. Do not assume all Monday postings are complete. If devices or access are unavailable, prepare or improve the same existing work on paper; upload later at school. This is continuation time, not a new assignment or posting deadline.",
+      "href": "",
+      "studentSteps": [
+        "Read the existing instructions and feedback.",
+        "Continue or improve the work and reflection for that activity.",
+        "If laptops are unavailable, prepare the same work on paper.",
+        "Ask for help where needed and save your progress."
+      ]
     },
     {
       "time": "11:50 am–12:35 pm",
@@ -75,10 +88,15 @@
     },
     {
       "time": "1:35–2:00 pm",
-      "title": "Quiet work and reflection",
-      "firstAction": "Choose one useful next step in existing work.",
-      "notes": "Improve a detail, explanation or reflection using the original instructions. Save progress without adding a new upload.",
-      "href": ""
+      "title": "Fractions introduction · if ready",
+      "firstAction": "If we begin fractions, get paper and a pencil ready to make equal parts.",
+      "notes": "Optional first introduction after French, not a follow-up to an assumed Monday lesson. Begin by checking what equal parts and one whole mean. Use identical paper strips: one strip is one whole. Fold or draw each into four equal parts, name each part one fourth, then build five fourths with two strips. Group four fourths as one whole, leaving one fourth: 5/4 = 1 1/4. If ready, students build six fourths with the same-size whole and explain 6/4 = 1 2/4. Check understanding by asking what stays the same (the whole and size of each part) and why both names show the same amount. If equal parts need more work, stay with halves and fourths rather than pushing mixed numbers. If the class is not ready to start, continue existing quiet work or reading instead and carry the introduction forward.",
+      "href": "",
+      "studentSteps": [
+        "Make equal parts in identical paper strips; keep the whole the same size.",
+        "Build or draw the amount your teacher models and explain what one part means.",
+        "If ready, show six fourths and explain how many wholes and extra fourths you have."
+      ]
     },
     {
       "time": "2:00–2:30 pm",
@@ -96,8 +114,10 @@
     }
   ],
   "backups": [
-    "Use paper, oral explanation or drawings when devices are unavailable. Technology bookings are proposed, not confirmed.",
-    "Continue from actual class progress; this plan is not a claim that earlier lessons were completed.",
-    "No new homework or posting deadline is added."
+    "The assembly ends when the school programme finishes; no precise ending or reading/Health duration is assumed.",
+    "Use any time after the assembly for Nevermoor and/or the existing feelings-and-needs work. Carry unfinished learning forward without rushing.",
+    "Laptops after recess are not confirmed. Prepare existing SpacesEDU work on paper if devices or access are unavailable.",
+    "Fractions may begin after French. Monday’s fraction lesson was deferred, not recorded as taught; start from what students can actually show.",
+    "No new homework, upload or posting deadline is added."
   ]
 }

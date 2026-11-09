@@ -1960,7 +1960,7 @@
     }
   },
   "classSchedule": {
-    "updatedOn": "November 7, 2026",
+    "updatedOn": "November 9, 2026",
     "weekOf": "November 9–13",
     "through": "2026-11-13",
     "days": [
@@ -1973,9 +1973,9 @@
       },
       {
         "date": "2026-11-10",
-        "morning": "Fraction models, Nevermoor and rights-and-access source cards.",
-        "later": "French 12:35–1:35, then quiet work and reflection.",
-        "reminder": "No school Wednesday.",
+        "morning": "Remembrance Day assembly at 9:00 am; Nevermoor and/or feelings and needs afterwards if time. Continue existing SpacesEDU work after recess if laptops are available.",
+        "later": "French 12:35–1:35, then an optional first introduction to fractions if ready.",
+        "reminder": "Assembly end time and laptops are not confirmed. No school Wednesday.",
         "label": "Tuesday, November 10"
       },
       {
@@ -2032,7 +2032,7 @@
         "time": "11:10–11:50 am"
       }
     ],
-    "note": "Wednesday November 11: school closed. Thursday swimming replaces normal PE and afternoon blocks. Monday observance and assembly timing follow school confirmation. Technology bookings are not confirmed."
+    "note": "Wednesday November 11: school closed. Thursday swimming replaces normal PE and afternoon blocks. Tuesday Remembrance Day assembly starts at 9:00 am; its end time is not confirmed. Technology bookings are not confirmed."
   },
   "learningUpdates": {
     "updatedOn": "November 7, 2026",
