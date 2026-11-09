@@ -1,11 +1,11 @@
 {
   "id": "day-2026-11-09",
   "date": "2026-11-09",
-  "title": "Monday · Diwali, peace artwork and fraction models",
-  "greeting": "Good morning, Division 8!",
-  "arrival": "Settle in and answer attendance, then hand in any forms. Get your existing work ready.",
-  "note": "School Diwali observance is Monday; follow the confirmed school schedule and move flexible blocks around it. Remembrance assembly timing remains unconfirmed. Check actual progress after the TTOC days before choosing the next step. Prioritize remembrance artwork, resume Nevermoor at the real bookmark and use equal-part models for mixed numbers and improper fractions. Assembly time still needs school confirmation: move flexible work around it. Keep snack at 10:20, recess 10:35–10:50, lunch 11:50–12:35, cleanup around 2:00 and dismissal at 2:35. No new homework or posting deadline is added.",
-  "reflection": "",
+  "title": "Monday · SpacesEDU postings and afternoon finishing",
+  "greeting": "Good afternoon, Division 8!",
+  "arrival": "Settle in after lunch and get your existing work ready.",
+  "note": "Updated from Daryl’s classroom report on November 9: the morning was used for SpacesEDU postings, and the planned mathematics lesson is deferred to allow extended posting time. Afternoon: quiet reset, continue existing SpacesEDU postings, then finish peace artwork or Bloxels as directed. Follow school Diwali arrangements without inventing an event time. Keep cleanup around 2:00 and dismissal at 2:35. No new homework or posting deadline is added. Remembrance assembly timing remains unconfirmed.",
+  "reflection": "Morning: SpacesEDU postings. Mathematics deferred in favour of extended posting time.",
   "blocks": [
     {
       "time": "8:35–8:45 am",
@@ -19,40 +19,11 @@
       ]
     },
     {
-      "time": "8:45–9:05 am",
-      "title": "Find your next step",
-      "notes": "Privately check what is complete, ready for feedback or still needs work. Brief practice check: 18 − 3 × 4 = 6 and (18 − 3) × 4 = 60. Use responses to decide support, not a new test or upload. Continue the existing order-of-operations task where needed.",
+      "time": "8:45–10:20 am",
+      "title": "SpacesEDU postings",
+      "notes": "Daryl confirmed the morning was used for SpacesEDU. Do not infer that every posting was completed.",
       "href": "",
-      "firstAction": "Open your existing work and find where you stopped.",
-      "studentSteps": [
-        "Show your teacher what is finished and what needs help.",
-        "Explain which operation comes first in each practice expression.",
-        "Choose one useful next step."
-      ]
-    },
-    {
-      "time": "9:05–9:35 am",
-      "title": "Nevermoor",
-      "notes": "Resume at the actual bookmark. Ask for an idea and a story detail supporting it. Use an old-life/new-life interpretation only when the passage supports it; other supported interpretations count. No new assessment or personal disclosure. Record the new stopping point.",
-      "href": "?subject=English+Language+Arts&experience=character-council&mode=student",
-      "firstAction": "Recall the last part we actually read.",
-      "studentSteps": [
-        "Listen or read from our bookmark.",
-        "Choose a detail and explain what it suggests about a character or a change.",
-        "Keep one question for next time."
-      ]
-    },
-    {
-      "time": "9:35–10:20 am",
-      "title": "Remembering and building peace",
-      "notes": "Continue existing peace artwork. Four students may finish the large poster; others finish individual versions. Do not assume work began with the TTOC. Use the prepared two-voice reading if the organizer has confirmed a place for it. Keep private experiences of war, grief and loss optional. Make room for the school Diwali observance when its timing is known. Do not ask students to represent a whole religion or share personal family practices.",
-      "href": "",
-      "firstAction": "Get your existing peace artwork and decide what to finish.",
-      "studentSteps": [
-        "Finish the part of the artwork your teacher identifies.",
-        "Add a specific idea about building peace.",
-        "Check your work and help prepare it for sharing."
-      ]
+      "firstAction": "Continue your existing SpacesEDU work."
     },
     {
       "time": "10:20–10:35 am",
@@ -70,15 +41,15 @@
     },
     {
       "time": "10:50–11:50 am",
-      "title": "Maths with fraction models",
-      "notes": "Check equal wholes and equal parts first. Draw two equal strips split into fourths; shade seven parts. 7/4 is 1 3/4 because four fourths make one whole. Model 9/4 = 2 1/4 and 2 1/3 = 7/3. Practice examples: 5/2 = 2 1/2, 11/3 = 3 2/3, 3 2/5 = 17/5. Exit: draw 5/4 and explain 1 1/4, keeping the denominator 4. Use a smaller set, oral explanation or manipulatives as needed. Math Antics optional; board and paper are a complete route. No dedicated GCF/LCM bridge and no new posting.",
+      "title": "Extended SpacesEDU postings",
+      "notes": "Replaces the planned mathematics block at Daryl’s direction. Finish existing work and use feedback; no new assignment or deadline.",
       "href": "",
-      "firstAction": "Make equal-size wholes and divide each one into four equal parts.",
+      "firstAction": "Find the existing posting you need to finish.",
       "studentSteps": [
-        "Show seven fourths with strips or a drawing.",
-        "Count whole units and the parts left over.",
-        "Write a fraction and a mixed number for the same amount.",
-        "Explain why both names describe the same amount."
+        "Read the instructions and feedback.",
+        "Add the work and reflection requested for that activity.",
+        "Check your pages are clear and ask for help where needed.",
+        "Save your progress."
       ]
     },
     {
@@ -97,14 +68,15 @@
     },
     {
       "time": "12:50–1:35 pm",
-      "title": "Diwali connection or existing work",
-      "notes": "Follow school Diwali arrangements. If no shared activity fills this block, use a brief respectful discussion: celebrations differ among communities and families; not everyone celebrates. Students may offer a question without sharing personal beliefs. Then continue existing work using feedback. No device booking is assumed.",
+      "title": "SpacesEDU: finish and check",
+      "notes": "Continue the existing postings begun in the morning. Support students with the next unfinished part rather than adding new work. Make space for confirmed school Diwali arrangements. If finished, follow the teacher’s direction for existing art or project work.",
       "href": "",
-      "firstAction": "Find the next step your teacher identifies in your existing work.",
+      "firstAction": "Open your unfinished posting and choose the next part to complete.",
       "studentSteps": [
-        "Read or listen to the instructions and feedback.",
-        "Improve one part of your work.",
-        "Save it or mark where to continue."
+        "Read the activity instructions and any feedback.",
+        "Add the requested work and reflection.",
+        "Check that your photos are readable and the pages are in order.",
+        "Save your progress and check with your teacher."
       ]
     },
     {
@@ -140,11 +112,9 @@
     }
   ],
   "backups": [
-    "Diwali observance is Monday November 9 at our school, not a claim about the festival date everywhere. Timing is to be confirmed; keep planned blocks flexible.",
-    "The Remembrance assembly time must be confirmed with school; move flexible work or Bloxels around it rather than inventing a time.",
-    "If fraction language is unfamiliar, use concrete halves, quarters and thirds before a conversion rule.",
-    "If students already had a mixed-number introduction, use the same model briefly and continue from what they can explain.",
-    "Paper provides the route when laptops or video access are unavailable.",
+    "Follow confirmed school Diwali arrangements; no event time is assumed.",
+    "The planned fraction lesson is deferred, not recorded as taught.",
+    "Use paper or an oral explanation with teacher support if a device or upload is unavailable.",
     "Carry unfinished work forward at school without adding a homework or upload deadline."
   ]
 }
