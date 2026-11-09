@@ -2,15 +2,15 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import test from 'node:test';
 const read = async path => JSON.parse(await readFile(new URL(path,import.meta.url),'utf8'));
-test('November 2 home practice retains confirmed factor trees without new homework',async()=>{
+test('November 9 home practice retains confirmed factor trees without new homework',async()=>{
  const current=await read('../content/home-practice.json');
  const previous=await read('../content/home-practice/2026-10-26.json');
  const manifest=await read('../public/generated/public-window-v2.json');
  for(const field of ['policy','unfinished','routine','access','stopRule','familyCheck','districtResources']) assert.deepEqual(current[field],previous[field],field);
  assert.equal(previous.updatedOn,'October 26, 2026');
- assert.equal(current.updatedOn,'November 2, 2026');
- assert.equal(current.week.from,'2026-11-02');
- assert.equal(current.week.through,'2026-11-08');
+ assert.equal(current.updatedOn,'November 9, 2026');
+ assert.equal(current.week.from,'2026-11-09');
+ assert.equal(current.week.through,'2026-11-15');
  assert.deepEqual(current.week.featuredIds,['reading','math','arts']);
  assert.equal(current.week.activities.length,11);
  assert.ok(current.week.featuredIds.every(id=>current.week.activities.some(item=>item.id===id)));
