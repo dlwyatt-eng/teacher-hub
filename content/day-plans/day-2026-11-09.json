@@ -1,10 +1,10 @@
 {
   "id": "day-2026-11-09",
   "date": "2026-11-09",
-  "title": "Monday · SpacesEDU postings and afternoon finishing",
+  "title": "Monday · Peace artwork and a no-laptop afternoon",
   "greeting": "Good afternoon, Division 8!",
-  "arrival": "Settle in after lunch and get your existing work ready.",
-  "note": "Updated from Daryl’s classroom report on November 9: the morning was used for SpacesEDU postings, and the planned mathematics lesson is deferred to allow extended posting time. Afternoon: quiet reset, continue existing SpacesEDU postings, then finish peace artwork or Bloxels as directed. Follow school Diwali arrangements without inventing an event time. Keep cleanup around 2:00 and dismissal at 2:35. No new homework or posting deadline is added. Remembrance assembly timing remains unconfirmed.",
+  "arrival": "Settle in after lunch and get your peace artwork or existing paper work ready.",
+  "note": "Updated from Daryl’s classroom reports on November 9: the morning was used for SpacesEDU postings, and the planned mathematics lesson was deferred to allow extended posting time. No laptops are available this afternoon. Afternoon: quiet reset, finish existing peace artwork, then existing paper work or quiet reading. Carry unfinished SpacesEDU postings and digital Bloxels work forward to a later school device session; no new homework or posting deadline is added. Follow school Diwali arrangements without inventing an event time. Keep cleanup around 2:00 and dismissal at 2:35. Remembrance assembly timing remains unconfirmed.",
   "reflection": "Morning: SpacesEDU postings. Mathematics deferred in favour of extended posting time.",
   "blocks": [
     {
@@ -68,35 +68,35 @@
     },
     {
       "time": "12:50–1:35 pm",
-      "title": "SpacesEDU: finish and check",
-      "notes": "Continue the existing postings begun in the morning. Support students with the next unfinished part rather than adding new work. Make space for confirmed school Diwali arrangements. If finished, follow the teacher’s direction for existing art or project work.",
+      "title": "Finish peace artwork",
+      "notes": "Continue the existing peace artwork with paper and art materials. Finish the large poster or individual version as directed; do not start a new art project. Keep personal experiences of war, grief and loss optional. Make room for confirmed school Diwali arrangements. Students whose art is finished may continue existing paper work or read quietly. No laptops or uploads are needed.",
       "href": "",
-      "firstAction": "Open your unfinished posting and choose the next part to complete.",
+      "firstAction": "Get your existing peace artwork and choose the part you need to finish.",
       "studentSteps": [
-        "Read the activity instructions and any feedback.",
-        "Add the requested work and reflection.",
-        "Check that your photos are readable and the pages are in order.",
-        "Save your progress and check with your teacher."
+        "Finish the part of your artwork your teacher identifies.",
+        "Check that your words, images and details communicate your idea about peace.",
+        "Show your progress and put the artwork where your teacher directs.",
+        "If finished, choose existing paper work or quiet reading."
       ]
     },
     {
       "time": "1:35–2:00 pm",
-      "title": "Bloxels or art finishing",
-      "notes": "If art is ready, revise one connection between story and gameplay, then test with a partner. Use a paper storyboard or level map when devices are unavailable. Keep this block for art if the display needs more time.",
+      "title": "Quiet work and reading",
+      "notes": "Continue existing paper work using feedback, finish the peace artwork if needed, or read quietly. Check in with students who need help choosing a manageable next step. Defer digital Bloxels work and SpacesEDU uploads until a later school device session; do not add a new task or deadline.",
       "href": "",
-      "firstAction": "Follow your teacher's direction for the next part of your project.",
+      "firstAction": "Choose existing paper work to finish or a book to read.",
       "studentSteps": [
-        "Finish the art step or choose one story-to-game connection to improve.",
-        "Show or test the change.",
-        "Save your progress."
+        "Find where you stopped and choose one useful next step.",
+        "Work quietly, or read your chosen book.",
+        "Mark where to continue and put your work away safely."
       ]
     },
     {
       "time": "2:00–2:30 pm",
-      "title": "Save, tidy and move",
-      "notes": "Save work and complete classroom jobs. Take a separate short movement break after tidying; movement is not labelled cleanup. Record only confirmed reminders.",
+      "title": "Tidy and movement break",
+      "notes": "Put paper work and artwork away safely and complete classroom jobs. Take a separate short movement break after tidying; movement is not labelled cleanup. Record only confirmed reminders.",
       "href": "?view=Responsibilities&mode=student",
-      "firstAction": "Save your work and complete your classroom job.",
+      "firstAction": "Put your work away safely and complete your classroom job.",
       "studentSteps": [
         "Return materials and tidy your space.",
         "Join the separate movement break when directed.",
@@ -114,7 +114,7 @@
   "backups": [
     "Follow confirmed school Diwali arrangements; no event time is assumed.",
     "The planned fraction lesson is deferred, not recorded as taught.",
-    "Use paper or an oral explanation with teacher support if a device or upload is unavailable.",
+    "No laptops this afternoon: use existing artwork, paper work and books. Continue unfinished SpacesEDU postings and digital Bloxels work during a later school device session.",
     "Carry unfinished work forward at school without adding a homework or upload deadline."
   ]
 }
