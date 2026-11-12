@@ -48,6 +48,7 @@ import "./ai-tensions-lab.css";
 import "./teacher-home-operations.css";
 import "./monthly-calendar.css";
 import "./visual-review-studio.css";
+import "./hub-visual-theme.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

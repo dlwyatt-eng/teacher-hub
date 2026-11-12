@@ -1,0 +1,107 @@
+/* First-stage visual system. Existing routes, storage, lesson players and print scopes remain unchanged.
+   Shell tokens are shared; component rules below target the home entrance only. */
+.hub-visual-theme {
+  --hub-paper: #faf7ee;
+  --hub-surface: #fffdf7;
+  --hub-forest: #173f35;
+  --hub-ink: #183f34;
+  --hub-muted: #56665c;
+  --hub-line: #d5d9cd;
+  --hub-lime: #d9ef92;
+  --hub-coral: #f5b096;
+  --paper: var(--hub-paper);
+  --ink: var(--hub-ink);
+  --muted: var(--hub-muted);
+  --green: var(--hub-forest);
+  --line: var(--hub-line);
+  background: var(--hub-paper);
+}
+.hub-visual-theme > .sidebar { background: var(--hub-surface); border-color: var(--hub-line); }
+.hub-visual-theme .brand strong { font-size: 1.3rem; letter-spacing: -.035em; }
+.hub-visual-theme .brand small { color: var(--hub-muted); }
+.hub-visual-theme .nav-label { color: var(--hub-muted); }
+.hub-visual-theme .nav-item { color: var(--hub-ink); min-height: 44px; }
+.hub-visual-theme .nav-item.active { color: var(--hub-surface); background: var(--hub-forest); }
+.hub-visual-theme .nav-item.active > .nav-icon:not(.mini) { color: inherit; }
+.hub-visual-theme .nav-item:hover:not(.active) { background: #e9eddf; transform: none; }
+.hub-visual-theme .main-area > .topbar { background: var(--hub-paper); border-color: var(--hub-line); }
+.hub-visual-theme .breadcrumbs span { color: var(--hub-muted); }
+.hub-visual-theme .main-area > .classroom-nav { background: var(--hub-surface); border-color: var(--hub-line); }
+.hub-visual-theme .classroom-nav a:hover,
+.hub-visual-theme .classroom-nav a[aria-current="page"] { background: #e7edda; color: var(--hub-forest); }
+.hub-visual-theme .dashboard { max-width: 1600px; }
+.hub-welcome { display: grid; grid-template-columns: .95fr 1.05fr; align-items: center; gap: 32px; padding: 6px 0 32px; border-bottom: 1px solid var(--hub-line); }
+.hub-welcome h1 { margin: 20px 0; color: var(--hub-ink); font: 500 clamp(2.8rem, 4.5vw, 4.25rem)/1.03 Georgia, "Times New Roman", serif; letter-spacing: -.045em; }
+.hub-welcome .section-kicker { color: var(--hub-muted); font-size: .75rem; line-height: 1.6; }
+.hub-welcome-copy > p:not(.section-kicker) { margin: 0; font-size: 1.125rem; line-height: 1.6; color: var(--hub-ink); }
+.hub-welcome-orientation { display: block; margin-top: 16px; font-size: .875rem; line-height: 1.6; color: var(--hub-muted); }
+.hub-welcome-art { margin: 0; min-width: 0; }
+.hub-welcome-art img { width: 100%; height: auto; aspect-ratio: 1.65; object-fit: cover; object-position: center; border-radius: 80px 16px 80px 16px; display: block; }
+.hub-welcome-art figcaption { margin-top: 9px; font-size: .75rem; line-height: 1.5; color: var(--hub-muted); text-align: right; }
+.hub-visual-theme .dashboard > .classroom-launch { margin-top: 28px; }
+.hub-visual-theme .dashboard .classroom-launch-grid > a { background: var(--hub-surface); border-color: var(--hub-line); }
+.hub-visual-theme .dashboard .classroom-launch-grid > .classroom-launch-primary { background: var(--hub-forest); color: var(--hub-surface); border-color: var(--hub-forest); }
+.hub-visual-theme .dashboard .classroom-launch-primary b { color: var(--hub-lime); }
+.hub-visual-theme .dashboard .subject-card { background: var(--hub-surface); border: 1px solid var(--hub-line); border-top: 4px solid var(--subject); border-radius: 4px 4px 16px 16px; box-shadow: none; }
+.hub-visual-theme .dashboard .subject-card:hover { background: #eeeedf; transform: translateY(-2px); }
+.hub-visual-theme .dashboard .subject-copy strong { color: var(--hub-ink); }
+.hub-visual-theme .dashboard .subject-copy small { color: var(--hub-muted); }
+.hub-visual-theme .dashboard .teaching-guide { background: #eaf0dc; border-color: var(--hub-line); }
+.hub-inquiry-invitation { display: grid; grid-template-columns: 1fr 1fr; min-height: 320px; margin: 34px 0; background: var(--hub-forest); color: var(--hub-surface); border-radius: 22px; overflow: hidden; }
+.hub-inquiry-invitation > div { padding: 34px; }
+.hub-inquiry-invitation .section-kicker { font-size: .6875rem; line-height: 1.7; color: var(--hub-lime); }
+.hub-inquiry-invitation h2 { margin: 16px 0; font: 500 clamp(2rem, 3.2vw, 2.75rem)/1.1 Georgia, "Times New Roman", serif; letter-spacing: -.035em; }
+.hub-inquiry-invitation p:not(.section-kicker) { font-size: 1rem; line-height: 1.65; max-width: 40ch; margin: 0; }
+.hub-inquiry-invitation a { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; margin-top: 24px; padding: 12px 22px; border-radius: 26px; background: var(--hub-lime); color: var(--hub-forest); text-decoration: none; font-size: .9375rem; line-height: 1.5; font-weight: 700; }
+.hub-inquiry-invitation a:hover { background: #e9f5bd; text-decoration: underline; text-underline-offset: 4px; }
+.hub-inquiry-invitation a:focus-visible { outline: 3px solid var(--hub-coral); outline-offset: 5px; }
+.hub-inquiry-invitation > img { width: 100%; height: 100%; min-height: 320px; object-fit: cover; object-position: center; }
+.hub-visual-theme.large-text-mode .hub-welcome .section-kicker,
+.hub-visual-theme.large-text-mode .hub-inquiry-invitation .section-kicker,
+.hub-visual-theme.large-text-mode .hub-welcome-art figcaption { font-size: 1rem; }
+.hub-visual-theme.large-text-mode .hub-welcome-copy > p:not(.section-kicker),
+.hub-visual-theme.large-text-mode .hub-inquiry-invitation p:not(.section-kicker) { font-size: 1.375rem; }
+.hub-visual-theme.large-text-mode .hub-welcome-orientation,
+.hub-visual-theme.large-text-mode .hub-inquiry-invitation a { font-size: 1.125rem; }
+@media (max-width: 1100px) {
+  .hub-welcome { grid-template-columns: 1fr 1fr; gap: 22px; }
+  .hub-welcome h1 { font-size: 3.25rem; }
+  .hub-inquiry-invitation > div { padding: 28px; }
+}
+@media (max-width: 700px) {
+  .hub-welcome { grid-template-columns: 1fr; gap: 24px; padding-bottom: 26px; }
+  .hub-welcome h1 { font-size: clamp(2.8rem, 11vw, 3.75rem); }
+  .hub-welcome-art img { max-height: 260px; border-radius: 60px 12px 60px 12px; }
+  .hub-welcome-art figcaption { text-align: left; }
+  .hub-inquiry-invitation { grid-template-columns: 1fr; }
+  .hub-inquiry-invitation > img { min-height: 0; height: 220px; }
+  .hub-inquiry-invitation > div { padding: 26px; }
+}
+/* Two rows keep every toolbar control usable at small phone widths. */
+@media (max-width: 520px) {
+  .hub-visual-theme .main-area > .topbar { display: grid; grid-template-columns: 44px minmax(0, 1fr); height: auto; min-height: 61px; gap: 8px 12px; padding: 10px 14px; }
+  .hub-visual-theme .topbar .menu-button { width: 44px; min-height: 44px; }
+  .hub-visual-theme .topbar .breadcrumbs { min-width: 0; overflow-wrap: anywhere; }
+  .hub-visual-theme.projector-shell .topbar .breadcrumbs { grid-column: 1 / -1; }
+  .hub-visual-theme .topbar .top-actions { grid-column: 1 / -1; min-width: 0; max-width: 100%; flex-wrap: wrap; justify-content: flex-start; gap: 8px; }
+  .hub-visual-theme .topbar :is(.site-search__open, .large-text-toggle, .context-curriculum-link, .mode-switch) { flex-shrink: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hub-visual-theme .dashboard .subject-card:hover { transform: none; }
+}
+@media (forced-colors: active) {
+  .hub-inquiry-invitation, .hub-visual-theme .nav-item.active { background: Canvas; color: CanvasText; border: 1px solid CanvasText; }
+  .hub-inquiry-invitation a { background: ButtonFace; color: ButtonText; border: 1px solid ButtonText; }
+  .hub-inquiry-invitation .section-kicker { color: CanvasText; }
+}
+@media print {
+  .hub-welcome-art, .hub-inquiry-invitation { display: none !important; }
+  .hub-welcome { display: block; padding: 0; }
+  .hub-welcome h1 { font-size: 26pt; color: black; }
+  .hub-visual-theme .hub-welcome-copy > p,
+  .hub-visual-theme.large-text-mode .hub-welcome-copy > p:not(.section-kicker),
+  .hub-visual-theme.large-text-mode .hub-welcome .section-kicker { font-size: 11pt; color: black; }
+  .hub-visual-theme .hub-welcome-orientation,
+  .hub-visual-theme.large-text-mode .hub-welcome-orientation { font-size: 10pt; color: black; }
+  .hub-visual-theme { --paper: white; --ink: black; background: white; color: black; }
+}

@@ -29,6 +29,7 @@ const ClassroomNavigation = lazy(() => import("./classroom-navigation").then(m =
 const openShapeOfDay = () => import("./classroom-navigation-state").then(({shapeOfDayHref}) => window.location.assign(shapeOfDayHref()));
 import "./teaching-workspace.css";
 import OpeningWelcome from "./opening-welcome";
+import { HubWelcome, HubInquiryInvitation } from "./hub-welcome";
 import { currentLearningWindow } from "./current-learning-phase";
 import { subjects, type Subject } from "./subject-catalog";
 import type { SubjectHubLocation } from "./subject-hub";
@@ -705,7 +706,7 @@ function ClassroomHome() {
   const contextCurriculumLabel = selectedSubject?.short ?? (selectedScienceLessonId || active === "Science Lesson" ? "Science" : "Grade 6");
 
   return (
-    <div className={`app-shell ${mode === "projector" ? "projector-shell" : ""} ${largeText ? "large-text-mode" : ""}`}>
+    <div className={`app-shell hub-visual-theme ${mode === "projector" ? "projector-shell" : ""} ${largeText ? "large-text-mode" : ""}`}>
       <a className="skip-link" href="#main-content" tabIndex={sidebarOpen ? -1 : undefined}>Skip to main content</a>
       <aside ref={sidebarRef} id="primary-sidebar" className={`sidebar ${sidebarOpen ? "open" : ""}`}>
         <div className="brand" aria-label="Mr. Wyatt's Teacher Hub">
@@ -870,10 +871,7 @@ function Dashboard({ onSubject, onNavigate, onOpenScienceLesson, onProjectMornin
 
   return (
     <div className="page dashboard">
-      <header className="teaching-home-header">
-        <div><p className="section-kicker">BC GRADE 6 · PLAN, PROJECT, TEACH</p><h1>Your classroom, ready to begin.</h1><p>Start the day here. The same shortcuts stay with you on every screen.</p></div>
-
-      </header>
+      <HubWelcome />
 
       <ClassroomLaunch />
       <section className="subjects-section">
@@ -890,6 +888,8 @@ function Dashboard({ onSubject, onNavigate, onOpenScienceLesson, onProjectMornin
           ))}
         </div>
       </section>
+
+      <HubInquiryInvitation />
 
       <details className="teaching-guide">
         <summary>New here? Prepare a lesson in three steps</summary>

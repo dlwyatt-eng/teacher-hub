@@ -1,7 +1,7 @@
 {
   "schemaVersion": "classroom-os-current-window/v2",
-  "contentVersion": "2026-11-07-week-november-9",
-  "sourceUpdatedAt": "2026-11-07",
+  "contentVersion": "2026-11-12-family-invitation-friday",
+  "sourceUpdatedAt": "2026-11-12",
   "window": {
     "id": "september-opening",
     "effectiveFrom": "2026-09-08",
@@ -1579,7 +1579,7 @@
           "atSchool": "Group exploration of two countries and ideas for a better world.",
           "home": "No routine homework or new upload is required.",
           "assessment": "Each child explains their thinking and what they are discovering.",
-          "spaces": "Family access instructions will follow when ready."
+          "spaces": "Family invitations have been sent. Look for your SpacesEDU invitation email, including in junk or spam. Contact Mr. Wyatt if you cannot find it."
         },
         "product": "Questions and early ideas now, growing into a group proposal as the inquiry develops.",
         "assessment": "Students will explain their ideas, show what they learned from sources and reflect on their own contributions.",
@@ -1603,8 +1603,8 @@
           },
           {
             "date": "Nov. 13",
-            "label": "Inquiry questions and purposeful art",
-            "shortLabel": "Inquiry and art"
+            "label": "Finish first-term work and introduce the inquiry",
+            "shortLabel": "Finish work and inquiry"
           }
         ],
         "homework": "No new routine homework or fixed inquiry deadline.",
@@ -1616,12 +1616,12 @@
           "What could we learn from how people do things elsewhere?",
           "Has anything you discovered changed your idea?"
         ],
-        "spacesNote": "Selected work is a snapshot of progress, with more learning and posts still to come. Family invitations have not been assumed complete."
+        "spacesNote": "Selected work is a snapshot of progress, with more learning and posts still to come. Family invitations have been sent; joining is a separate step for each family."
       }
     }
   ],
   "classroomWelcome": {
-    "updatedOn": "November 7, 2026",
+    "updatedOn": "November 12, 2026",
     "classLabel": "Division 8",
     "location": "Room 112 · Annex · Walnut Road Elementary",
     "title": "Welcome to our Division 8 community",
@@ -1629,8 +1629,8 @@
     "recapTitle": "What we’re working on",
     "recap": "Our learning includes Nevermoor, mathematical explanations, creative projects and thoughtful reflection. We will check where everyone stopped and continue from there.",
     "nextTitle": "Coming up",
-    "next": "November 9–13: school Diwali observance on Monday, peace artwork and reflection, and swimming on Thursday. School is closed Wednesday, November 11 for Remembrance Day.",
-    "later": "We plan to explore mixed numbers with models and begin questions for a two-country inquiry. Friday’s art can connect to children’s rights and a fair community. Plans may adjust as we check class progress.",
+    "next": "November 12–13: swimming on Thursday; time to finish first-term work, prepare SpacesEDU postings and begin the inquiry on Friday.",
+    "later": "Friday’s priorities are finishing first-term work and SpacesEDU postings, alongside an introduction to our inquiry. We also plan to continue Nevermoor. Fractions will likely begin next week, depending on class progress.",
     "reminders": [
       {
         "title": "Volunteer and driver registration · each school year",
@@ -1650,9 +1650,9 @@
       }
     ],
     "spaces": {
-      "status": "pending",
+      "status": "invited",
       "title": "SpacesEDU and family access",
-      "message": "Students are using SpacesEDU at school. Family access instructions will follow when ready. No home upload is due.",
+      "message": "Students are using SpacesEDU at school. Family invitations have been sent. Look for your SpacesEDU invitation email, including in junk or spam. Contact Mr. Wyatt if you cannot find it. No home upload is due.",
       "purpose": "SpacesEDU brings together selected work, reflections and teacher feedback. Individual work stays in the secure portfolio."
     },
     "familyLinks": [
@@ -2121,7 +2121,7 @@
       "title": "SpacesEDU",
       "lead": "SpacesEDU and family access",
       "items": [
-        "Students are using SpacesEDU at school. Family access instructions will follow when ready. No home upload is due.",
+        "Students are using SpacesEDU at school. Family invitations have been sent. Look for your SpacesEDU invitation email, including in junk or spam. Contact Mr. Wyatt if you cannot find it. No home upload is due.",
         "SpacesEDU brings together selected work, reflections and teacher feedback. Individual work stays in the secure portfolio."
       ]
     },

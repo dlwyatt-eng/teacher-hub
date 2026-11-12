@@ -15,6 +15,7 @@ import "../app/subject-alignment.css";
 import "../app/classroom-audit.css";
 import "../app/teacher-home-operations.css";
 import "../app/teaching-workspace.css";
+import "../app/hub-visual-theme.css";
 
 document.documentElement.style.setProperty("--font-geist-sans", "Inter, ui-sans-serif, system-ui, sans-serif");
 document.documentElement.style.setProperty("--font-geist-mono", "ui-monospace, SFMono-Regular, Menlo, monospace");

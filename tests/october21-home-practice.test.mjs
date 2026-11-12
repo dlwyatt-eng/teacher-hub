@@ -8,7 +8,7 @@ test('November 9 home practice retains confirmed factor trees without new homewo
  const manifest=await read('../public/generated/public-window-v2.json');
  for(const field of ['policy','unfinished','routine','access','stopRule','familyCheck','districtResources']) assert.deepEqual(current[field],previous[field],field);
  assert.equal(previous.updatedOn,'October 26, 2026');
- assert.equal(current.updatedOn,'November 9, 2026');
+ assert.equal(current.updatedOn,'November 12, 2026');
  assert.equal(current.week.from,'2026-11-09');
  assert.equal(current.week.through,'2026-11-15');
  assert.deepEqual(current.week.featuredIds,['reading','math','arts']);

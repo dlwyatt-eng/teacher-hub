@@ -50,7 +50,7 @@ test('Thursday board, activity details and teacher print render the actual stude
 
 test('current family summary stays learning-focused and preserves Thursday history',()=>{
  assert.equal(source.contentVersion,manifest.contentVersion);
- assert.match(source.classroomWelcome.next,/November 9–13/);
+ assert.match(source.classroomWelcome.next,/November 12–13/);
  for(const term of ['Nevermoor','mathematical explanations','creative projects'])assert.ok(source.classroomWelcome.recap.includes(term),term);
  assert.doesNotMatch(source.classroomWelcome.next,/laptops|computers|devices|\d:\d|staffing|support room|completed maths/i);
  assert.deepEqual(manifest.classroomWelcome,source.classroomWelcome);
