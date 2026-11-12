@@ -8,7 +8,7 @@ const manifest=read('../public/generated/public-window-v2.json');
 test('dated subject updates cover the full class without turning plans into completed work',()=>{
  const updates=source.learningUpdates;
  assert.deepEqual(manifest.learningUpdates,updates);
- assert.equal(updates.updatedOn,'November 7, 2026');
+ assert.equal(updates.updatedOn,'November 12, 2026');
  assert.deepEqual(updates.subjects.map(x=>x.subject),['Mathematics','Language Arts','Career Education','Physical Education','Health','Social Studies','Arts Education','ADST','Science','French']);
  assert.equal(new Set(updates.subjects.map(x=>x.focus)).size,10);
  const by=Object.fromEntries(updates.subjects.map(x=>[x.subject,x]));
