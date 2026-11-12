@@ -13,7 +13,8 @@ test('November week preserves actual progress, closure, fixed commitments and un
  assert.match(tue.note,/12:35–1:35/);assert.match(tue.note,/school is closed/);
  assert.match(thu.note,/11:30/);assert.match(thu.note,/noon–2/);assert.match(thu.note,/approximate return 2:30/);
  assert.match(fri.note,/9:35–10:35/);assert.match(fri.note,/11:10–11:50/);
- assert.match(JSON.stringify(fri),/not booked/);assert.match(JSON.stringify(fri),/not a new major project/);
+ assert.match(fri.note,/Afternoon laptops are booked/);assert.match(fri.note,/finish first-term work and SpacesEDU postings first/);
+ assert.match(fri.note,/only if enough students are ready/);assert.doesNotMatch(fri.blocks.map(b=>b.title).join(' '),/Maths|Art ·/);
  for(const day of days)for(const block of day.blocks)if(block.href.startsWith('./'))assert.ok(existsSync(new URL('../public/'+block.href.slice(2),import.meta.url)));
 });
 test('new public window is current, safe and synchronized without inventing completed learning',()=>{
@@ -47,3 +48,4 @@ test('all four dated plans select and render real student routes without teacher
   }
  }
 });
+

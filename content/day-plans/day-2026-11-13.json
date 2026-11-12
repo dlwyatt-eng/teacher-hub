@@ -1,10 +1,10 @@
 {
   "id": "day-2026-11-13",
   "date": "2026-11-13",
-  "title": "Friday · inquiry questions and purposeful art",
+  "title": "Friday · feelings, needs and finishing our learning",
   "greeting": "Good morning, Division 8!",
   "arrival": "Answer attendance, then hand in any forms. Get your materials ready.",
-  "note": "French 9:35–10:35, snack after recess, PE 11:10–11:50. Friday inquiry/art prepares for next week and the November 20 children’s-rights connection. No fixed inquiry submission deadline. Leadership work meeting after school 2:45–3:30 for participating students.",
+  "note": "Health: feelings and needs before French, with Nevermoor only if time. French 9:35–10:35, snack after recess, PE 11:10–11:50. Afternoon laptops are booked: finish first-term work and SpacesEDU postings first. Introduce the inquiry briefly only if enough students are ready. No separate art or fractions lesson today, and no new inquiry submission deadline. Leadership work meeting after school 2:45–3:30 for participating students.",
   "reflection": "",
   "blocks": [
     {
@@ -16,14 +16,14 @@
     },
     {
       "time": "8:45–9:35 am",
-      "title": "Maths · two names for one amount",
-      "firstAction": "Draw equal wholes divided into fourths.",
-      "notes": "Begin with Monday’s actual learning. Show 9/4 = 2 1/4: two groups of four fourths and one fourth remain. Reverse with 2 2/3 = 8/3. Practise 7/2 = 3 1/2 and 3 1/4 = 13/4. Keep the whole and denominator unchanged. Exit: model 8/3 and explain 2 2/3. Provide counters/strips and oral explanation; not a dedicated GCF/LCM lesson.",
-      "href": "",
+      "title": "Health · feelings and needs",
+      "firstAction": "Open your feelings-and-needs work and find where you stopped.",
+      "notes": "Continue and finish the current Health work before starting anything new. Use fictional situations to name a feeling and a need, practise a respectful request, and consider what to do when someone says no or stop. Personal sharing is optional. Use talk, drawing or writing as appropriate. If the Health work leaves time before French, continue Nevermoor from our actual stopping point. Maths is not scheduled today; fractions will likely begin next week.",
+      "href": "./printables/communication-feelings-needs-boundaries.pdf",
       "studentSteps": [
-        "Build or draw the amount.",
-        "Group the fractional parts into wholes.",
-        "Write both names and explain why they match."
+        "Finish your current feelings-and-needs work.",
+        "Show a feeling, a need and a respectful request.",
+        "Check your work and ask for help if needed."
       ]
     },
     {
@@ -70,27 +70,26 @@
     },
     {
       "time": "12:50–1:30 pm",
-      "title": "Inquiry · two countries, one question",
-      "firstAction": "Choose a question about a decision affecting people your age.",
-      "notes": "Open the country inquiry overview. Today’s small goal: a question, two countries and a plan for checking sources. SchoolAI coaching is optional only after teacher setup and device booking are confirmed; teacher/partner questioning on paper is a full route. Suggested device window 12:45–1:45 is not booked. Extend only if the next slot is genuinely free.",
-      "href": "?subject=Social+Studies",
+      "title": "SpacesEDU · finish first-term work",
+      "firstAction": "Open the unfinished work your teacher has asked you to complete.",
+      "notes": "Friday afternoon laptops are confirmed booked. Prioritise required first-term work and existing SpacesEDU postings. Finish the work, choose clear evidence, improve the reflection and check the existing instructions. Support students to complete their next useful step rather than starting a new major task.",
+      "href": "",
       "studentSteps": [
-        "Choose a question and two countries.",
-        "Explain why the comparison matters.",
-        "Plan where to look and one way to check information.",
-        "Save the question and next step."
+        "Finish your current work.",
+        "Add clear evidence and explain your learning.",
+        "Check the instructions, then save or submit as your teacher directs."
       ]
     },
     {
       "time": "1:30–2:00 pm",
-      "title": "Art · a fair chance",
-      "firstAction": "Choose one right or access issue from our discussion.",
-      "notes": "Make a small labelled sketch showing a fair-community design: for example, a play space with a usable entrance and quiet area. Explain who a design choice helps and a limit or trade-off. This is a short inquiry connection, not a new major project or compulsory display. May continue existing artwork instead when needed.",
-      "href": "",
+      "title": "Continue postings · inquiry if ready",
+      "firstAction": "Continue your SpacesEDU work until your next step is complete.",
+      "notes": "SpacesEDU remains the priority. Only if enough students are ready, give a short introduction to the better-world inquiry: explore issues students care about, show how two countries can be compared and collect questions. No full inquiry launch, new compulsory post or new deadline. Do not require a SchoolAI Space or assume one exists. Otherwise use the whole block to finish existing work.",
+      "href": "./activities/better-world-journey.html",
       "studentSteps": [
-        "Sketch one practical design choice.",
-        "Add a label explaining who it helps.",
-        "Name one improvement or unanswered question."
+        "Keep working on your current posting.",
+        "If your teacher starts the inquiry introduction, notice an issue you care about.",
+        "Share a question and keep it for a later lesson."
       ]
     },
     {
@@ -109,8 +108,9 @@
     }
   ],
   "backups": [
-    "Use paper, oral explanation or drawings when devices are unavailable. Technology bookings are proposed, not confirmed.",
+    "If laptops or SpacesEDU are unavailable, finish existing work or draft reflections on paper; Friday afternoon laptops are booked.",
     "Continue from actual class progress; this plan is not a claim that earlier lessons were completed.",
     "No new homework or posting deadline is added."
   ]
 }
+
