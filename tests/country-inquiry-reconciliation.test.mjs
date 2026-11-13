@@ -97,7 +97,7 @@ test("public summaries replace superseded gallery plans and remain idempotent an
   const rightsDay = manifest.schoolEvents.find(event => event.id === "human-rights-day");
   assert.equal(rightsDay.date, "2026-12-10");
   assert.match(rightsDay.detail, /No separate rights gallery/);
-  assert.match(manifest.learningUpdates.subjects.find(item => item.subject === "Social Studies").detail, /Groups will explore an issue they care about/);
+  assert.match(manifest.learningUpdates.subjects.find(item => item.subject === "Social Studies").detail, /government, migration, resources, cooperation and rights/);
   const privateSource = structuredClone(source);
   privateSource.publicMonthUpdates.November.teacher = "private teacher record";
   privateSource.publicProjectUpdates["expert-teach-back"].teacher = "private teacher record";
