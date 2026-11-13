@@ -3,7 +3,8 @@
 import { SchoolAISupport } from "./schoolai-support";
 import { ReadyMadeActivities } from "./ready-made-activity-panel";
 import { readyMadeForLesson } from "./ready-made-activities";
-import { useId } from "react";
+import { useId, useState } from "react";
+import { TeacherFocusMove } from "./teacher-focus-move";
 import { AddToDayPlanButton, type TtocDayPlanLesson } from "./ttoc-day-plan";
 import { AddToWeekButton, SEPTEMBER_FORMED_CLASS_WEEK_STORAGE_KEY, septemberFormedWeekDayForSourceId, type WeekPlanSeedLesson } from "./weekly-plan";
 import { printClosest } from "./print-support";
@@ -129,6 +130,14 @@ function prepItems(props: TeacherRunSheetProps) {
 }
 
 export function TeacherRunSheet(props: TeacherRunSheetProps) {
+  // Remount on lesson/content changes, never carry a move from a previous lesson.
+  const lessonKey = JSON.stringify([props.dayPlanLesson?.sourceId, props.title, props.learningQuestion, props.steps]);
+  return <TeacherRunSheetLesson key={lessonKey} {...props} />;
+}
+
+function TeacherRunSheetLesson(props: TeacherRunSheetProps) {
+  const [focusMode, setFocusMode] = useState(false);
+  const [activeMove, setActiveMove] = useState(0);
   const {
     title,
     duration,
@@ -179,17 +188,23 @@ export function TeacherRunSheet(props: TeacherRunSheetProps) {
   const schoolAIExtensions = preparedDayPlanLesson ? schoolAIActivitiesForLesson(preparedDayPlanLesson.sourceId) : [];
 
   return (
-    <section className="teacher-run-sheet" aria-labelledby={headingId}>
+    <section className="teacher-run-sheet" data-focus-mode={focusMode} aria-labelledby={headingId}>
       <header className="teacher-run-sheet__header">
         <div><p>PLAN / TTOC</p><h2 id={headingId}>{title}</h2><strong>{duration} · {route.length} moves</strong></div>
         <div className="teacher-run-sheet__plan-actions">
           {dayPlanLesson && <a className="open-student-screens" href={`?${new URLSearchParams(dayPlanLesson.subject === "Science" ? { lesson: dayPlanLesson.sourceId, mode: "student" } : dayPlanLesson.subject === "Social Studies" ? { subject: "Social Studies", socialLesson: dayPlanLesson.sourceId, mode: "student" } : { subject: dayPlanLesson.subject, experience: dayPlanLesson.sourceId, mode: "student" })}`}>Open student screens →</a>}
           {preparedDayPlanLesson && preparedWeekPlanLesson && <><AddToDayPlanButton lesson={preparedDayPlanLesson} /><AddToWeekButton lesson={preparedWeekPlanLesson} storageKey={weekStorageKey} label={weekStorageKey ? `Add to week · ${formedWeekDay}` : "Add to week"} /></>}
-          <button type="button" onClick={event => { const panel = event.currentTarget.closest(".teacher-run-sheet")?.querySelector<HTMLElement>(".schoolai-support"); panel?.scrollIntoView({ block: "center", behavior: "smooth" }); panel?.querySelector<HTMLElement>("summary")?.focus({ preventScroll: true }); }}>Optional SchoolAI ↓</button>
+          <button type="button" onClick={event => { const panel = event.currentTarget.closest(".teacher-run-sheet")?.querySelector<HTMLElement>(".schoolai-support"); panel?.scrollIntoView({ block: "center", behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); panel?.querySelector<HTMLElement>("summary")?.focus({ preventScroll: true }); }}>Optional SchoolAI ↓</button>
           {readyMadeForLesson(dayPlanLesson?.sourceId).length > 0 && <button type="button" onClick={event => { const panel = event.currentTarget.closest(".teacher-run-sheet")?.querySelector<HTMLElement>(".ready-made-activities"); panel?.scrollIntoView({ block: "start" }); panel?.focus({ preventScroll: true }); }}>Ready-made activities ↓</button>}
           <button type="button" onClick={(event) => printClosest(event.currentTarget, ".teacher-run-sheet")}>Print / PDF</button>
         </div>
       </header>
+
+      <div className="teacher-run-sheet__view-switch" role="group" aria-label="Run-sheet view">
+        <div><strong>Teach from your run sheet</strong><p>Focus on one move, or scan the complete lesson. Printing always includes every move.</p></div>
+        <button type="button" aria-pressed={!focusMode} onClick={() => setFocusMode(false)}>All moves</button>
+        <button type="button" aria-pressed={focusMode} onClick={() => setFocusMode(true)}>Focus · one move</button>
+      </div>
 
       <div className="teacher-run-sheet__launch">
         {learningPurpose && <section><small>LEARN</small><p>{learningPurpose}</p></section>}
@@ -203,6 +218,8 @@ export function TeacherRunSheet(props: TeacherRunSheetProps) {
         <section><small>PREP</small>{prep.length ? <ul>{prep.map((item) => <li key={item}>{item}</li>)}</ul> : <p>No special preparation.</p>}</section>
         {launchResource && <section className="teacher-run-sheet__media"><small>OPEN</small><strong>{launchResource.title}</strong><p>{launchResource.pausePrompt}</p><div><a href={launchResource.url} target="_blank" rel="noreferrer">Play ↗</a>{launchResource.secondary && <a href={launchResource.secondary.url} target="_blank" rel="noreferrer">Also useful ↗</a>}</div><TeacherMediaPreparation urls={[launchResource.url, launchResource.secondary?.url]} /></section>}
       </div>
+
+      {focusMode && <TeacherFocusMove route={route} activeMove={activeMove} onMove={setActiveMove} offline={routes.offline} studentScreensAvailable={Boolean(dayPlanLesson)} />}
 
       <ol className="teacher-run-sheet__route" aria-label="Lesson route">
         {route.map((step, index) => <li key={`${step.label}-${index}`}><b>{index + 1}</b><time>{step.minutes}</time><div><strong>{step.label}</strong><p>{step.action}</p></div><span><small>DONE WHEN</small>{step.doneWhen}</span></li>)}
