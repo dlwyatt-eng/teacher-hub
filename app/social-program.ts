@@ -652,9 +652,9 @@ export const unit4SocialLessons = socialLessons.filter((lesson) => lesson.unitId
 
 export const socialInquiryProject = {
   title: "Two Countries Shared Questions",
-  question: "How do decisions in different places affect people our age?",
+  question: "How do choices in different places shape people’s lives and our shared world?",
   teamSize: "Individual, pair or group",
-  promise: "Choose a question that matters to you and investigate it in two countries. Learn through short class challenges, student-led searching and news checking. January presentations are proposed, with flexible timing and format; November 20 is a rights connection, not a deadline.",
+  promise: "Choose a question that matters to you and investigate it in two countries. Learn through short class challenges, student-led searching and news checking. January presentations are proposed, with flexible timing and format; November 20 is an optional rights connection, not a deadline.",
   topicFamilies: [
     { title: "Can everyone get to school and take part?", examples: "Education, transport, disability access, gender and money" },
     { title: "Who gets a say in decisions?", examples: "Government, rights, young people and media" },
@@ -663,7 +663,7 @@ export const socialInquiryProject = {
     { title: "What happens when people move?", examples: "New homes, growing cities, services and belonging; or suggest your own question" },
   ],
   checkpoints: [
-    { when: "Launch around November 20 · booklet pages 2–3", action: "Connect human and children’s rights to everyday barriers. Choose two countries and one question; try a search and check the plan with your teacher.", evidence: "A question about both countries, locator map and search plan" },
+    { when: "Launch around November 20 · booklet pages 2–3", action: "Use the supplied four-scene map, survey and headline opening with its one-page starter. Choose a question through governance, migration, resources/trade, cooperation/conflict or rights/fairness. Then select two countries and check a source-search plan; National Child Day is optional.", evidence: "A question about both countries, locator map and search plan" },
     { when: "Short shared lessons across the inquiry · pages 3–8", action: "Discuss class challenges about opportunities, government, migration, trade, resources and cooperation. Follow invented examples with real sources; talk or sketch when helpful.", evidence: "Individual explanations and questions, not a requirement to fill every blank" },
     { when: "Investigate in class · pages 9–12", action: "Find and compare sources and follow a suitable news story. Check authors, purposes, evidence and dates. Every learner studies both countries; optional starter links and printed sources provide support.", evidence: "Traceable source notes, a meaningful comparison, perspectives and change" },
     { when: "Before winter break · flexible checkpoint", action: "Keep the question, source trail, working answer and a next step so the inquiry can resume in class.", evidence: "Saved work in progress; no holiday homework" },
@@ -673,7 +673,7 @@ export const socialInquiryProject = {
   requirements: [
     "Show the two countries and the question you chose",
     "Explain a meaningful similarity and difference using traceable evidence from both places",
-    "Use a news example and more than one perspective; explain a connection to rights",
+    "Use a news example and more than one perspective; explain a connection to the selected inquiry lens",
     "Show change over time or explain a cause and consequence",
     "Give a supported answer, an honest limit and a sensible next step",
     "Credit sources and give your audience something to think about",
@@ -695,7 +695,7 @@ export const socialPacing = [
   ["Oct. 5–16 · Claims, comparison, and participation", "Verify promises and prepare an optional civic hearing", "Trace checkable candidate claims to original sources, compare responsibilities and trade-offs, and explain a local decision using evidence. No municipal Student Vote is planned. Provincial Student Vote is planned for Thursday October 22; the class voting start is confirmed for 12:50 pm and registration is not confirmed here."],
   ["Oct. 19–23 · Election reflection", "Results, limits, and what happens next", "Use the Newsroom for a short source-based reflection: compare results and student priorities, then ask what winners can actually do and how people can continue to influence decisions."],
   ["Nov. 2–6 · Unit 1 synthesis", "Fleetwood case file", "Combine sources, consequences, stakeholder perspectives, and ethical judgment in the first substantial case file."],
-  ["November · launch around National Child Day", "Two Countries Shared Questions", "Start with human and children’s rights, choose two countries and a student-led question, and model a source search. November 20 is not a submission deadline; earlier rights and government lessons are optional practice."],
+  ["November · launch around National Child Day", "Two Countries Shared Questions", "Start with the supplied map, survey and headline opening, choose a broad inquiry lens and two countries, and model a source search. National Child Day is an optional rights connection. November 20 is not a submission deadline; earlier rights and government lessons are optional practice."],
   ["November–December · flexible investigation", "Class challenges, sources and news", "Teach shared concepts alongside student-led research. Compare evidence from both countries and check news; use optional starter sources when helpful. December 10 connects to the same inquiry, not a second gallery. Pause without holiday homework."],
   ["January · proposed, flexible sharing", "Explain the comparison and a realistic response", "Use booklet pages 13–14 to build an answer, credit sources, name a limit, rehearse and revise. Choose an accessible format and selected inquiry evidence when ready; no extra post for each page."],
   ["After inquiry · timing to be confirmed", "Reflect and plan the Science transition", "Use actual evidence of learning to decide what needs follow-up. The proposed January sharing does not establish that Social Studies is complete or fix a Science start date."],

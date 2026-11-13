@@ -1,0 +1,30 @@
+.inquiry-launch{scroll-margin-top:20px}.launch-toolbar,.launch-navigation{display:flex;gap:16px;align-items:center;flex-wrap:wrap}.launch-toolbar a{font-weight:700}.launch-source,.launch-key{font-size:.88rem}.launch-split{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:center}.launch-map{margin:0}.launch-map img{width:100%;height:auto}.launch-map figcaption{font-size:.85rem}.launch-scene h2{font-size:clamp(2rem,3.7vw,3.5rem);margin:16px 0}.launch-task{font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:750;line-height:1.4}.launch-data,.launch-headlines{display:grid;grid-template-columns:1fr 1fr;gap:24px}.launch-data>div{padding:20px;background:#eef4ee;border-radius:16px}.launch-data h3{margin:0}.launch-data strong{font-size:3rem}.launch-dots{display:grid;grid-template-columns:repeat(10,1fr);gap:8px;max-width:430px}.launch-dots i{aspect-ratio:1;border:2px solid #346557;border-radius:50%;background:white}.launch-dots i.yes{background:#346557}.launch-headlines blockquote{margin:0;padding:24px;background:#f8ecd1;border-left:5px solid #ac701e;font:1.6rem/1.4 Georgia}.launch-question{padding:24px;background:#edf3ed;font-size:1.6rem}.launch-lenses{font-weight:700}.launch-navigation{justify-content:space-between;border-top:1px solid #bdccc1;margin-top:24px;padding-top:16px}.launch-navigation[hidden],.launch-scene[hidden]{display:none}.launch-navigation button:disabled{opacity:.4;cursor:default}.inquiry-design.launch-projecting .inquiry-topbar,.launch-projecting main> :not(#begin){display:none!important}.inquiry-design.launch-projecting main{max-width:1500px;padding:18px}.launch-projecting #begin{margin:0;min-height:calc(100vh - 36px)}.launch-projecting .launch-scene{font-size:clamp(20px,1.8vw,28px)}.launch-projecting .launch-source{font-size:15px}.launch-projecting .launch-toolbar .tag{display:none}.launch-projecting .launch-model p{font-size:1.15rem}.launch-projecting .launch-toolbar button{font-size:16px}@media(max-width:720px){.launch-split,.launch-data,.launch-headlines{grid-template-columns:1fr}.launch-toolbar{align-items:flex-start}.launch-dots{max-width:360px}}@media print{.launch-scene[hidden]{display:block!important}.launch-scene{break-inside:avoid;page-break-inside:avoid;margin-bottom:24px}.launch-model{display:none}.launch-navigation,.launch-toolbar{display:none!important}.launch-task{font-size:14pt}.launch-scene h2{font-size:20pt}.launch-data strong{font-size:22pt}}
+/* One source and one move per projected screen, with navigation always nearby. */
+@media(min-width:901px){
+ .inquiry-design.launch-projecting main{padding:14px;max-width:1440px}
+ .launch-projecting section.panel#begin{padding:16px 24px;min-height:calc(100dvh - 28px)}
+ .launch-projecting .launch-toolbar{gap:14px}
+ .launch-projecting .launch-toolbar button{padding:6px 15px;min-height:38px}
+ .launch-projecting .launch-toolbar a{font-size:15px}
+ .launch-projecting .launch-source{margin:10px 0 8px;font-size:13px}
+ .launch-projecting .launch-scene{font-size:18px;line-height:1.4}
+ .launch-projecting .launch-scene>.eyebrow{margin:8px 0 4px;font-size:12px}
+ .launch-projecting .launch-scene h2{font-size:clamp(30px,3.2vw,44px);line-height:1.1;margin:8px 0 14px}
+ .launch-projecting .launch-scene p{margin:10px 0}
+ .launch-projecting .launch-task{font-size:24px;line-height:1.35}
+ .launch-projecting .launch-map img{max-height:330px}
+ .launch-projecting .launch-map figcaption{font-size:13px}
+ .launch-projecting .launch-data{gap:20px}
+ .launch-projecting .launch-data>div{padding:10px 18px}
+ .launch-projecting .launch-data h3{font-size:18px;line-height:1.3}
+ .launch-projecting .launch-data strong{font-size:32px}
+ .launch-projecting .launch-dots{max-width:300px;gap:6px}
+ .launch-projecting .launch-key{font-size:14px}
+ .launch-projecting .launch-model{padding:9px 0}
+ .launch-projecting .launch-model summary{font-size:16px}
+ .launch-projecting .launch-model p{font-size:17px;line-height:1.35;margin:8px 0}
+ .launch-projecting .launch-navigation{margin-top:14px;padding-top:10px;font-size:16px}
+ .launch-projecting .launch-navigation button{padding:6px 18px;min-height:38px}
+ .launch-projecting .launch-headlines blockquote{font-size:24px;padding:18px}
+ .launch-projecting .launch-question{font-size:24px;padding:16px}
+}

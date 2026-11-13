@@ -37,7 +37,7 @@ test('equivalent fractions land at the same point; boundary examples stay inside
 
 // Exercise production handlers with a deterministic hook runner. This is component
 // state coverage; it does not claim DOM, browser layout, focus or pointer testing.
-function harness() {
+function harness(props = {}) {
   const states = [];
   let cursor = 0;
   const hooks = { ...React, useId: () => 'fraction-test', useState(initial) {
@@ -46,7 +46,7 @@ function harness() {
     return [states[index], value => { states[index] = typeof value === 'function' ? value(states[index]) : value; }];
   } };
   const Explorer = moduleLoader(process.cwd(), { react: hooks })('app/fraction-explorer.tsx').default;
-  const render = () => { cursor = 0; return Explorer({}); };
+  const render = () => { cursor = 0; return Explorer(props); };
   const nodes = node => !node || typeof node !== 'object' ? [] : [node, ...React.Children.toArray(node.props?.children).flatMap(nodes)];
   const text = node => node == null || typeof node === 'boolean' ? '' : typeof node !== 'object' ? String(node) : React.Children.toArray(node.props?.children).map(text).join('');
   const find = predicate => { const node = nodes(render()).find(predicate); assert.ok(node, 'Expected control or component'); return node; };
@@ -117,4 +117,38 @@ test('regrouping on the number line outlines full wholes without moving the poin
   const small = renderToStaticMarkup(React.createElement(NumberLine, { numerator: 1, denominator: 3, regrouped: true }));
   assert.match(small, /There is no complete whole yet/);
   assert.doesNotMatch(small, / is-grouped/);
+});
+
+
+test('presentation is the student entry; exiting and reopening retains the live model', () => {
+  const h = harness({startPresented: true});
+  const presentation = () => h.find(n => typeof n.type === 'function' && n.type.name === 'FractionPresentation');
+  assert.match(h.text(h.render()), /Build seven quarters/);
+  assert.equal(h.nodes(h.render()).filter(n => n.props?.className === 'fraction-explorer__strip-row').length, 4);
+  h.find(n => n.type === 'select').props.onChange({target:{value:'3'}});
+  h.amount().props.onChange({target:{value:'11'}});
+  h.button('Compare both').props.onClick();
+  h.button('Regroup into wholes').props.onClick();
+  h.button('Compare the number names').props.onClick();
+  assert.match(h.text(h.render()), /11\/3 = 3 2\/3/);
+  for (let i=0; i<3; i++) {
+    presentation().props.onExit();
+    assert.equal(h.amount().props.value,11);
+    h.button('Present model ↗').props.onClick();
+    assert.deepEqual([h.line().props.numerator,h.line().props.denominator,h.line().props.regrouped],[11,3,true]);
+    assert.match(h.text(h.render()),/11\/3 = 3 2\/3/);
+  }
+  assert.equal(h.find(n=>n.type==='details' && n.props.className==='fraction-explorer__check').props.open,undefined);
+});
+
+test('presentation uses native modal focus and Escape, with a re-entry focus target', () => {
+  const source=readFileSync('app/fraction-presentation.tsx','utf8');
+  assert.match(source,/current.showModal\(\)/);
+  assert.match(source,/onCancel=.*event.preventDefault\(\); exit\(\)/);
+  assert.match(source,/autoFocus onClick=\{exit\}/);
+  assert.match(source,/document.getElementById\(returnFocusId\)\?\.focus\(\)/);
+  const css=readFileSync('app/fraction-explorer.css','utf8');
+  assert.match(css,/height:100dvh/);
+  assert.match(css,/\[data-representation=both\]/);
+  assert.match(css,/@media\(max-width:620px\)/);
 });

@@ -4,8 +4,8 @@ export function RightsPlanning() {
   return <section className="simple-callout" aria-labelledby="rights-plan-title" style={{padding:24,border:"1px solid #abc7be",borderLeft:"6px solid #b88a24",borderRadius:12,margin:"24px 0",lineHeight:1.6}}>
     <small>PROPOSED NOVEMBER–JANUARY · SOCIAL STUDIES</small>
     <h2 id="rights-plan-title">Two Countries Shared Questions</h2>
-    <p>How can we create a better world? Work in groups to explore an issue you care about, compare two countries and develop your own ideas for change. Begin with human and children’s rights around November 20, National Child Day. This is a starting connection, not a submission deadline.</p>
-    <p><a href="activities/better-world-journey.html">Open the inquiry journey · group choices, six flexible moves and teacher planning</a></p>
+    <p>How do choices in different places shape people’s lives and our shared world? Work in groups to explore an issue you care about, compare two countries and develop your own ideas for change. Choose a lens: government, migration, resources and trade, cooperation and conflict, or rights and fairness. November 20, National Child Day, is an optional starting connection, not a submission deadline.</p>
+    <p><a href="activities/better-world-journey.html#begin">Teach the 15-minute opening · four projector scenes with map, survey and headlines</a><br /><a href="printables/country-inquiry-starter.pdf" target="_blank" rel="noreferrer">Print the matching student starter · one page ↗</a><br /><a href="activities/better-world-journey.html">Open the inquiry journey · group choices, six flexible moves and teacher planning</a></p>
     <p><a href="printables/two-countries-shared-questions-student.pdf" target="_blank" rel="noreferrer">Open the student inquiry booklet · 15 printable pages ↗</a><br /><a href="printables/two-countries-shared-questions-teacher.pdf" target="_blank" rel="noreferrer">Open the teacher guide · sequence, source support and assessment ↗</a></p>
     <aside aria-label="Rights and evidence bridge" style={{background:"#f0f6f3",padding:18,borderRadius:10}}>
       <h3>A right on paper. A chance in real life.</h3>
@@ -24,7 +24,7 @@ export function RightsPlanning() {
       <p><strong>Without AI:</strong> use printed sources and a partner who asks what supports your claim, whose voice is missing and who your proposal might miss. Write your own reflection.</p>
     </aside>
     <ol>
-      <li><b>Start together:</b> use the fair-chance challenge on page 3 and a child-friendly rights source. Choose two countries and try a shared question on page 2, such as how children can get to school and take part.</li>
+      <li><b>Start together:</b> use the supplied map, survey and headlines in the four-scene opening. Students notice, compare, question a message and propose a real-world question. Then choose two countries and plan on booklet page 2; select a lens rather than completing every challenge.</li>
       <li><b>Build understanding:</b> explore the short class challenges on pages 3–8. Connect rights, government, migration, trade, land and resources, and cooperation to real examples.</li>
       <li><b>Investigate:</b> learn the news-checking routine on page 9, then use pages 10–12 to follow a story, compare evidence from both countries, and hear different perspectives. Check authors, purposes, evidence, publication and event dates.</li>
       <li><b>Explain and share:</b> use pages 13–14 to build a supported answer, consider a realistic response, rehearse and reflect. January presentations are proposed; timing and format remain flexible.</li>

@@ -10,7 +10,7 @@ test('anchor, reverse, zero and whole-number cases', () => {
  for(const [n,d] of [[-1,4],[17,4],[2,0],[2.5,4]]) assert.throws(()=>fractionModel(n,d),RangeError);
 });
 test('teacher and projector route include explorer; printable has actual equal strips',()=>{
- const source=readFileSync('app/learning-program.tsx','utf8'); assert.match(source,/<FractionExplorer teacher/); assert.match(source,/<FractionExplorer \/>/);
+ const source=readFileSync('app/learning-program.tsx','utf8'); assert.match(source,/<FractionExplorer teacher/); assert.match(source,/<FractionExplorer startPresented \/>/);
  const paper=readFileSync('public/printables/fraction-explorer-paper.html','utf8'); assert.match(paper,/seven quarters/); assert.match(paper,/Work backwards/); assert.match(paper,/11\/4 and 8\/4/); assert.equal((paper.match(/<div class="strip/g)||[]).length,7);
 });
 

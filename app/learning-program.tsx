@@ -902,7 +902,7 @@ export function StudentLearningProgram({ program, record, selectedExperienceId, 
     const experience = program.experiences.find((item) => item.id === id);
     return { id, title: experience ? studentTitleFor(experience) : id, label: experience?.kind };
   });
-  const interactiveLab: ReactNode = selected.id === fractionExplorerExperienceId ? <FractionExplorer /> : selected.id === "pattern-forecast" ? <PatternTrailLab />
+  const interactiveLab: ReactNode = selected.id === fractionExplorerExperienceId ? <FractionExplorer startPresented /> : selected.id === "pattern-forecast" ? <PatternTrailLab />
     : selected.id === "equation-balance" ? <EquationBalanceLab />
       : selected.id === "source-mosaic" ? <SourceMosaicLab />
         : selected.id === "geometry-field-lab" ? <GeometryScreenLab />
