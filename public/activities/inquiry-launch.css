@@ -28,3 +28,13 @@
  .launch-projecting .launch-headlines blockquote{font-size:24px;padding:18px}
  .launch-projecting .launch-question{font-size:24px;padding:16px}
 }
+
+/* Fast teacher navigation without revealing the model on a return visit. */
+.launch-jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.launch-jump[hidden],.launch-shortcuts[hidden]{display:none}
+.launch-jump button{font-size:14px;padding:5px 12px;min-height:36px}
+.launch-jump button[aria-pressed="true"]{background:#203f3d;color:white;border-color:#203f3d}
+.launch-shortcuts{font-size:13px;color:#48645b;margin:8px 0}
+.launch-projecting .launch-jump{margin-top:12px}
+.launch-projecting .launch-navigation{margin-top:8px}
+@media print{.launch-jump,.launch-shortcuts{display:none!important}}
