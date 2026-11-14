@@ -152,3 +152,43 @@ test('presentation uses native modal focus and Escape, with a re-entry focus tar
   assert.match(css,/\[data-representation=both\]/);
   assert.match(css,/@media\(max-width:620px\)/);
 });
+
+test('three-to-four whole challenges reset, build, reveal and validate real answers', () => {
+  const h = harness();
+  h.button('Eleven thirds').props.onClick();
+  assert.equal(h.amount().props.value, 0);
+  assert.equal(h.amount().props.max, 12);
+  h.amount().props.onChange({target:{value:'11'}});
+  h.button('Compare both').props.onClick();
+  assert.deepEqual([h.line().props.numerator,h.line().props.denominator],[11,3]);
+  h.button('Compare the number names').props.onClick();
+  assert.match(h.text(h.render()), /11\/3 = 3 2\/3/);
+  h.button('Three and two fifths').props.onClick();
+  assert.equal(h.amount().props.value, 0);
+  assert.equal(h.amount().props.max, 20);
+  assert.equal(h.button('Compare the number names').props['aria-expanded'], false);
+  h.amount().props.onChange({target:{value:'17'}});
+  h.find(n => n.type === 'input' && n.props.inputMode === 'numeric').props.onChange({target:{value:'17'}});
+  h.button('Check my idea').props.onClick();
+  assert.match(h.text(h.render()), /How many fifths altogether in 3⅖/);
+  assert.match(h.text(h.render()), /That matches/);
+  h.button('Regroup into wholes').props.onClick();
+  assert.deepEqual([h.line().props.numerator,h.line().props.denominator],[17,5]);
+  h.button('Compare the number names').props.onClick();
+  assert.match(h.text(h.render()), /17\/5 = 3 2\/5/);
+  h.button('Reset to 7/4').props.onClick();
+  assert.equal(h.amount().props.value, 7);
+  assert.match(h.text(h.render()), /Build seven quarters/);
+});
+
+test('extended paper practice supplies four equal wholes for thirds and fifths', () => {
+ const paper=readFileSync('public/printables/fraction-explorer-paper.html','utf8');
+ const extension=paper.slice(paper.indexOf('<section class="extension">'));
+ assert.equal((extension.match(/class="strip thirds"/g)||[]).length,4);
+ assert.equal((extension.match(/class="strip fifths"/g)||[]).length,4);
+ assert.equal((extension.match(/<span><\/span>/g)||[]).length,32);
+ assert.match(extension,/11\/3 = ______/);
+ assert.match(extension,/3 2\/5 = ______/);
+ assert.match(extension,/Which amount is greater/);
+ assert.doesNotMatch(extension,/3 2\/3|17 \/ 5/);
+});
