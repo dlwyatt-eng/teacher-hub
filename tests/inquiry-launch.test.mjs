@@ -61,3 +61,8 @@ test('teacher entry and canonical inquiry summary use the broad question and sup
  assert.match(planning,/better-world-journey.html#begin/);assert.match(planning,/country-inquiry-starter.pdf/);
  assert.match(program,/connection to the selected inquiry lens/);
 });
+
+ test('updated controls request versioned script and style assets',()=>{
+ assert.match(html,/inquiry-launch\.js\?v=20261114-controls/);
+ assert.match(html,/inquiry-launch\.css\?v=20261114-controls/);
+ });

@@ -8,7 +8,7 @@
   const progress = document.getElementById('launch-progress');
   const project = document.getElementById('launch-project');
   const jump = document.getElementById('launch-jump');
-  const sceneButtons = Array.from(jump.querySelectorAll('button'));
+  const sceneButtons = Array.from(jump?.querySelectorAll('button') || []);
   const shortcuts = document.getElementById('launch-shortcuts');
   let current = 0;
   function show(index, focus = true) {
@@ -43,7 +43,7 @@
     }
   });
   navigation.hidden = false;
-  jump.hidden = false;
-  shortcuts.hidden = false;
+  if (jump) jump.hidden = false;
+  if (shortcuts) shortcuts.hidden = false;
   show(0, false);
 })();
