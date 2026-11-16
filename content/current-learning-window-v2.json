@@ -461,7 +461,7 @@
           "What small next step would you like to try?"
         ],
         "groupAndIndividualEvidence": "Conversations, games, class work and observation help Mr. Wyatt get to know each student. Private Discovery originals stay private. The How I Learn Best page is never copied for display.",
-        "homework": "No routine homework is assigned for these opening activities. Please check the planner and return the device-use form when it comes home.",
+        "homework": "Please check the planner and return the device-use form when it comes home.",
         "label": "FOR FAMILIES",
         "milestones": [
           {
@@ -739,7 +739,7 @@
             "shortLabel": "B.C. provincial election"
           }
         ],
-        "homework": "No special supplies, candidate research, or routine homework are expected.",
+        "homework": "No special supplies or candidate research are expected.",
         "supportAtHome": [
           "Ask which Surrey decision the class sorted and who actually has authority.",
           "Ask what made one source more useful or limited than another.",
@@ -985,7 +985,7 @@
             "shortLabel": "B.C. public election"
           }
         ],
-        "homework": "No routine homework or family political discussion is expected.",
+        "homework": "Family political discussion is optional.",
         "supportAtHome": [
           "Ask what part of a campaign statement was checkable and which source helped.",
           "Ask whether the promise could be completed by one winner or required other people, money, approvals, or time.",
@@ -1173,7 +1173,7 @@
             "shortLabel": "Practise and vote"
           }
         ],
-        "homework": "No routine homework is assigned for this reflection.",
+        "homework": "Your child can choose what to share about this reflection.",
         "supportAtHome": [
           "Ask which issue students compared and what their sources showed.",
           "Discuss why each person makes their own choice privately."
@@ -1412,7 +1412,7 @@
             "shortLabel": "Keep participating"
           }
         ],
-        "homework": "No routine homework is assigned for this reflection.",
+        "homework": "Your child can choose what to share about this reflection.",
         "supportAtHome": [
           "Ask what one result showed and what it could not explain.",
           "Ask which people, votes, budgets, approvals, or time one promise would need next.",
@@ -1577,7 +1577,7 @@
         "whatStudentsDo": "Explore an issue together, learn about two countries and test ideas for making things better.",
         "quickReference": {
           "atSchool": "Group exploration of two countries and ideas for a better world.",
-          "home": "No routine homework or new upload is required.",
+          "home": "Ask your child what they are exploring and what they would like to find out next.",
           "assessment": "Each child explains their thinking and what they are discovering.",
           "spaces": "Family invitations have been sent. Look for your SpacesEDU invitation email, including in junk or spam. Contact Mr. Wyatt if you cannot find it."
         },
@@ -1607,7 +1607,7 @@
             "shortLabel": "Finish work first"
           }
         ],
-        "homework": "No new routine homework or fixed inquiry deadline.",
+        "homework": "Follow the class instructions for the inquiry.",
         "supportAtHome": [
           "Ask what your child would like to make better in the world.",
           "Talk about an idea they are exploring and what they would like to find out."
@@ -1704,7 +1704,7 @@
       {
         "title": "Rights and real access · classroom activity",
         "url": "https://dlwyatt-eng.github.io/teacher-hub/activities/rights-evidence-bridge.html",
-        "description": "The short fictional source-card activity supporting our inquiry. A classroom resource, not extra homework."
+        "description": "The short fictional source-card activity supporting our classroom inquiry."
       }
     ],
     "hotLunchNotice": "Check current school or PAC notices for hot-lunch dates and ordering instructions.",
@@ -2112,7 +2112,7 @@
     },
     {
       "title": "Homework",
-      "lead": "Separate daily homework is not routinely assigned.",
+      "lead": "Check the planner for class work to finish, or choose an optional practice activity.",
       "items": [
         "If homework is regularly causing distress, conflict, sleep loss, or taking far longer than expected, stop and contact the teacher."
       ]

@@ -1313,7 +1313,7 @@
     },
     {
       "title": "Homework",
-      "lead": "Separate daily homework is not routinely assigned.",
+      "lead": "Check the planner for class work to finish, or choose an optional practice activity.",
       "items": [
         "If homework is regularly causing distress, conflict, sleep loss, or taking far longer than expected, stop and contact the teacher."
       ]
@@ -1425,7 +1425,7 @@
       {
         "title": "Rights and real access · classroom activity",
         "url": "https://dlwyatt-eng.github.io/teacher-hub/activities/rights-evidence-bridge.html",
-        "description": "The short fictional source-card activity supporting our inquiry. A classroom resource, not extra homework."
+        "description": "The short fictional source-card activity supporting our classroom inquiry."
       }
     ],
     "hotLunchNotice": "Check current school or PAC notices for hot-lunch dates and ordering instructions.",
@@ -1750,8 +1750,8 @@
   },
   "homePractice": {
     "updatedOn": "November 15, 2026",
-    "policy": "Separate daily homework is not routinely assigned. This is optional practice for families who want a regular routine. Choose what is useful; there is no expectation to complete the whole menu or submit optional practice.",
-    "unfinished": "Check your planner and the instructions Mr. Wyatt has given you. Finish only the small piece identified for you, using the support agreed at school. An unfinished class activity is not automatically homework. If you were absent or are unsure, ask where to begin.",
+    "policy": "Choose a short optional activity that suits your family.",
+    "unfinished": "Check your planner and the instructions Mr. Wyatt has given you. Finish only the small piece identified for you, using the support agreed at school. If you were absent or are unsure, ask where to begin.",
     "routine": "Read or listen for 10–15 minutes, then choose one short activity. Families wanting a longer routine can add a second choice, keeping the total around 30–40 minutes including reading, or less when needed. Spread choices across evenings or select a few for the weekend; do not save up a catch-up pile.",
     "stopRule": "Stop if the work is confusing, upsetting or taking much longer than expected. Let Mr. Wyatt know which part was difficult. Rest, play, family time and activities outside school matter too.",
     "access": "Use paper, drawings, spoken explanations or a language that helps you think. Every menu activity can be done without an online account. No purchase, AI tool or routine portfolio upload is required.",
@@ -1760,7 +1760,7 @@
       "label": "Read, revisit familiar maths and explore fairness",
       "from": "2026-11-16",
       "through": "2026-11-22",
-      "connection": "These optional choices revisit reading, factor trees and fair participation in games. At school, the priority remains finishing first-term work and SpacesEDU postings, with more Nevermoor and a planned start to fractions as the class is ready. November 20 offers a children’s-rights connection. Choose what helps, not the whole menu. These are not new assignments, and there is no routine upload or hand-in deadline.",
+      "connection": "These optional choices revisit reading, factor trees and fair participation in games. At school, the priority remains finishing first-term work and SpacesEDU postings, with more Nevermoor and a planned start to fractions as the class is ready. November 20 offers a children’s-rights connection. Choose what helps, not the whole menu.",
       "activities": [
         {
           "id": "math",
@@ -2408,7 +2408,7 @@
           "What small next step would you like to try?"
         ],
         "groupAndIndividualEvidence": "Conversations, games, class work and observation help Mr. Wyatt get to know each student. Private Discovery originals stay private. The How I Learn Best page is never copied for display.",
-        "homework": "No routine homework is assigned for these opening activities. Please check the planner and return the device-use form when it comes home.",
+        "homework": "Please check the planner and return the device-use form when it comes home.",
         "label": "FOR FAMILIES",
         "milestones": [
           {
@@ -2631,7 +2631,7 @@
             "shortLabel": "B.C. provincial election"
           }
         ],
-        "homework": "No special supplies, candidate research, or routine homework are expected.",
+        "homework": "No special supplies or candidate research are expected.",
         "supportAtHome": [
           "Ask which Surrey decision the class sorted and who actually has authority.",
           "Ask what made one source more useful or limited than another.",
@@ -2826,7 +2826,7 @@
             "shortLabel": "B.C. public election"
           }
         ],
-        "homework": "No routine homework or family political discussion is expected.",
+        "homework": "Family political discussion is optional.",
         "supportAtHome": [
           "Ask what part of a campaign statement was checkable and which source helped.",
           "Ask whether the promise could be completed by one winner or required other people, money, approvals, or time.",
@@ -2975,7 +2975,7 @@
             "shortLabel": "Practise and vote"
           }
         ],
-        "homework": "No routine homework is assigned for this reflection.",
+        "homework": "Your child can choose what to share about this reflection.",
         "supportAtHome": [
           "Ask which issue students compared and what their sources showed.",
           "Discuss why each person makes their own choice privately."
@@ -3168,7 +3168,7 @@
             "shortLabel": "Keep participating"
           }
         ],
-        "homework": "No routine homework is assigned for this reflection.",
+        "homework": "Your child can choose what to share about this reflection.",
         "supportAtHome": [
           "Ask what one result showed and what it could not explain.",
           "Ask which people, votes, budgets, approvals, or time one promise would need next.",
@@ -3301,7 +3301,7 @@
         "whatStudentsDo": "Explore an issue together, learn about two countries and test ideas for making things better.",
         "quickReference": {
           "atSchool": "Group exploration of two countries and ideas for a better world.",
-          "home": "No routine homework or new upload is required.",
+          "home": "Ask your child what they are exploring and what they would like to find out next.",
           "assessment": "Each child explains their thinking and what they are discovering.",
           "spaces": "Family invitations have been sent. Look for your SpacesEDU invitation email, including in junk or spam. Contact Mr. Wyatt if you cannot find it."
         },
@@ -3331,7 +3331,7 @@
             "shortLabel": "Finish work first"
           }
         ],
-        "homework": "No new routine homework or fixed inquiry deadline.",
+        "homework": "Follow the class instructions for the inquiry.",
         "supportAtHome": [
           "Ask what your child would like to make better in the world.",
           "Talk about an idea they are exploring and what they would like to find out."
@@ -3344,5 +3344,5 @@
       }
     }
   ],
-  "checksum": "sha256:df9c627888770c19d09e88bbaa95f3c480afed82724f5f20b1d6e4e5780ebe4c"
+  "checksum": "sha256:d153e7f3111469e26a0e2b504d14b9d3ada73f14a48dba63e27a8c42c6f10ad7"
 }

@@ -6,7 +6,7 @@ test('November 16 home practice retains confirmed factor trees without new homew
  const current=await read('../content/home-practice.json');
  const previous=await read('../content/home-practice/2026-11-09.json');
  const manifest=await read('../public/generated/public-window-v2.json');
- for(const field of ['policy','unfinished','routine','access','stopRule','familyCheck','districtResources']) assert.deepEqual(current[field],previous[field],field);
+ for(const field of ['routine','access','stopRule','familyCheck','districtResources']) assert.deepEqual(current[field],previous[field],field);
  assert.equal(previous.updatedOn,'November 12, 2026');
  assert.equal(current.updatedOn,'November 15, 2026');
  assert.equal(current.week.from,'2026-11-16');
@@ -22,6 +22,9 @@ test('November 16 home practice retains confirmed factor trees without new homew
  assert.match(math.check,/18 = 2 × 3 × 3/);
  assert.match(math.check,/24 = 2 × 2 × 2 × 3/);
  assert.equal(2*3*3,18);assert.equal(2*2*2*3,24);
- assert.match(current.week.connection,/not new assignments/);
+ assert.match(current.policy,/optional activity/);
+ assert.match(current.unfinished,/Finish only the small piece identified for you/);
+ assert.doesNotMatch(current.policy + current.unfinished + current.week.connection,/routine homework|not routinely assigned|not automatically homework/i);
+ assert.doesNotMatch(JSON.stringify(manifest),/routine homework|not routinely assigned/i);
  assert.deepEqual(manifest.homePractice,current);
 });
