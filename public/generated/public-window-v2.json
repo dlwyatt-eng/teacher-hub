@@ -1,7 +1,7 @@
 {
   "schemaVersion": "classroom-os-public-window/v2",
-  "contentVersion": "2026-11-13-student-learning-preview",
-  "sourceUpdatedAt": "2026-11-13",
+  "contentVersion": "2026-11-16-family-practice",
+  "sourceUpdatedAt": "2026-11-15",
   "window": {
     "id": "september-opening",
     "effectiveFrom": "2026-09-08",
@@ -1342,7 +1342,7 @@
     "email": "mailto:wyatt_daryl@surreyschools.ca"
   },
   "classroomWelcome": {
-    "updatedOn": "November 13, 2026",
+    "updatedOn": "November 15, 2026",
     "classLabel": "Division 8",
     "location": "Room 112 · Annex · Walnut Road Elementary",
     "title": "Welcome to our Division 8 community",
@@ -1350,8 +1350,8 @@
     "recapTitle": "What we’re working on",
     "recap": "Our learning includes Nevermoor, mathematical explanations, creative projects and thoughtful reflection. We will check where everyone stopped and continue from there.",
     "nextTitle": "Coming up",
-    "next": "Friday November 13: feelings and needs, time to finish first-term work and prepare SpacesEDU postings.",
-    "later": "Friday begins with feelings and needs, with Nevermoor if time. The main priority is finishing first-term work and SpacesEDU postings; a brief inquiry introduction may follow if students are ready. Fractions will likely begin next week, depending on class progress.",
+    "next": "November 16–20: finish first-term work and SpacesEDU postings, continue Nevermoor and begin fractions when ready.",
+    "later": "Our next priorities are finishing first-term work and SpacesEDU postings, making more time for Nevermoor and beginning fractions as the class is ready. A two-country inquiry can begin if students are ready; November 20 offers a children’s-rights connection. Documentary viewing and reflections are being considered for later learning, not assigned for home.",
     "reminders": [
       {
         "title": "Volunteer and driver registration · each school year",
@@ -1681,16 +1681,16 @@
     "note": "These are our usual weekly routines. Check the Shape of the Day and your teacher’s instructions for changes."
   },
   "learningUpdates": {
-    "updatedOn": "November 13, 2026",
-    "title": "Feelings, needs and finishing first-term learning",
-    "summary": "Friday’s plan prioritises feelings and needs, finishing first-term work and SpacesEDU postings. Continue Nevermoor if time; introduce the inquiry briefly only if students are ready. We will continue from actual class progress.",
+    "updatedOn": "November 15, 2026",
+    "title": "Finishing first-term work and looking ahead",
+    "summary": "For November 16–20, prioritise finishing first-term work and SpacesEDU postings, continue Nevermoor and begin fractions as the class is ready. Children’s rights offer one connection to our broader inquiry. These plans will follow class progress.",
     "note": "Planned next steps, not a record of completed lessons.",
     "subjects": [
       {
         "subject": "Mathematics",
         "status": "Planned next steps",
         "focus": "Mixed numbers and improper fractions",
-        "detail": "Fractions will likely begin next week, depending on class progress. We plan to use equal-part models to show that a mixed number and an improper fraction can name the same amount, revisiting earlier maths where needed."
+        "detail": "Fractions are planned for the week of November 16, depending on class progress. We plan to use equal-part models to show that a mixed number and an improper fraction can name the same amount, revisiting earlier maths where needed."
       },
       {
         "subject": "Language Arts",
@@ -1707,26 +1707,26 @@
       {
         "subject": "Physical Education",
         "status": "Class focus",
-        "focus": "Swimming, safe participation and reflection",
-        "detail": "Our November 12 swimming trip connects movement, safe participation and reflection. Continue the PE work identified by your teacher."
+        "focus": "Safe participation and reflection",
+        "detail": "Continue the PE work identified by your teacher, using examples of movement, safe participation and reflection."
       },
       {
         "subject": "Health",
         "status": "Ongoing learning",
         "focus": "Feelings, needs and healthy boundaries",
-        "detail": "Friday’s planned focus is finishing our feelings-and-needs work. Use fictional situations to practise respectful requests, accepting a no or stop, and asking a trusted adult for help as needed. Personal sharing is optional."
+        "detail": "Continue our feelings-and-needs work from where the class stopped. Use fictional situations to practise respectful requests, accepting a no or stop, and asking a trusted adult for help as needed. Personal sharing is optional."
       },
       {
         "subject": "Social Studies",
         "status": "Planned next steps",
         "focus": "Two countries, shared questions",
-        "detail": "A brief inquiry introduction may begin on Friday if students are ready after their first-term work. We will compare how choices in different places shape people’s lives and our shared world, exploring government, migration, resources, cooperation and rights. We will check sources and consider different perspectives. November 20 offers a children’s-rights connection, not a submission deadline."
+        "detail": "Begin our two-country inquiry when students are ready after their first-term work. We will compare how choices in different places shape people’s lives and our shared world, exploring government, migration, resources, cooperation and rights. We will check sources and consider different perspectives. November 20 offers a children’s-rights connection, not a submission deadline."
       },
       {
         "subject": "Arts Education",
         "status": "Planned next steps",
         "focus": "Creative choices across our learning",
-        "detail": "No separate art activity is planned for Friday. Keep space for purposeful creative work as future lessons and themes develop."
+        "detail": "Keep space for purposeful creative work as future lessons and themes develop. Follow the activity introduced in class."
       },
       {
         "subject": "ADST",
@@ -1749,18 +1749,18 @@
     ]
   },
   "homePractice": {
-    "updatedOn": "November 12, 2026",
+    "updatedOn": "November 15, 2026",
     "policy": "Separate daily homework is not routinely assigned. This is optional practice for families who want a regular routine. Choose what is useful; there is no expectation to complete the whole menu or submit optional practice.",
     "unfinished": "Check your planner and the instructions Mr. Wyatt has given you. Finish only the small piece identified for you, using the support agreed at school. An unfinished class activity is not automatically homework. If you were absent or are unsure, ask where to begin.",
     "routine": "Read or listen for 10–15 minutes, then choose one short activity. Families wanting a longer routine can add a second choice, keeping the total around 30–40 minutes including reading, or less when needed. Spread choices across evenings or select a few for the weekend; do not save up a catch-up pile.",
     "stopRule": "Stop if the work is confusing, upsetting or taking much longer than expected. Let Mr. Wyatt know which part was difficult. Rest, play, family time and activities outside school matter too.",
     "access": "Use paper, drawings, spoken explanations or a language that helps you think. Every menu activity can be done without an online account. No purchase, AI tool or routine portfolio upload is required.",
     "week": {
-      "id": "2026-11-09",
-      "label": "Read, revisit familiar maths and create",
-      "from": "2026-11-09",
-      "through": "2026-11-15",
-      "connection": "These optional choices revisit reading, factor trees and creative work. Fractions will likely begin next week, depending on class progress; the optional fraction explorer below is available when useful. Choose what helps, not the whole menu. These are not new assignments, and there is no routine upload or hand-in deadline.",
+      "id": "2026-11-16",
+      "label": "Read, revisit familiar maths and explore fairness",
+      "from": "2026-11-16",
+      "through": "2026-11-22",
+      "connection": "These optional choices revisit reading, factor trees and fair participation in games. At school, the priority remains finishing first-term work and SpacesEDU postings, with more Nevermoor and a planned start to fractions as the class is ready. November 20 offers a children’s-rights connection. Choose what helps, not the whole menu. These are not new assignments, and there is no routine upload or hand-in deadline.",
       "activities": [
         {
           "id": "math",
@@ -1931,7 +1931,7 @@
       "featuredIds": [
         "reading",
         "math",
-        "arts"
+        "fairness"
       ]
     },
     "districtResources": {
@@ -3344,5 +3344,5 @@
       }
     }
   ],
-  "checksum": "sha256:490ff61a6baa37c6a7ccb24676a03052d7e4bba9ec0afacdfd0ddc0453b6d9b2"
+  "checksum": "sha256:df9c627888770c19d09e88bbaa95f3c480afed82724f5f20b1d6e4e5780ebe4c"
 }
