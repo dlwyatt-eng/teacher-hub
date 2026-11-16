@@ -1,0 +1,140 @@
+{
+  "id": "day-2026-11-16",
+  "date": "2026-11-16",
+  "title": "Monday · learning, creating and sharing",
+  "greeting": "Good morning, Division 8!",
+  "arrival": "Answer attendance, then hand in forms and get your work ready.",
+  "note": "Flexible subject blocks with time to finish current work and improve existing SpacesEDU postings. Continue from the actual class stopping points. Prioritise first-term work already assigned; new learning can become second-term evidence later, without a new posting deadline today. Keep snack, recess, lunch, cleanup and dismissal routines.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:45 am",
+      "title": "Welcome and attendance",
+      "firstAction": "Settle in and answer attendance.",
+      "studentSteps": [
+        "Answer attendance, then hand in forms.",
+        "Check today’s plan and choose your first useful task."
+      ],
+      "href": "",
+      "notes": ""
+    },
+    {
+      "time": "8:45–9:30 am",
+      "title": "Mathematics",
+      "firstAction": "Open your current math work and find your next step.",
+      "studentSteps": [
+        "Finish or correct your current work.",
+        "Show your steps and explain one strategy.",
+        "If ready, model the same amount as a mixed number and an improper fraction."
+      ],
+      "href": "?subject=Mathematics&experience=fraction-ratio-remix&mode=student",
+      "notes": "Prioritise current math evidence and feedback. If ready, use equal-sized wholes to show 7/4 = 1 3/4. Do not assume previous work is finished or require a new submission."
+    },
+    {
+      "time": "9:30–10:20 am",
+      "title": "Language Arts · Nevermoor and writing",
+      "firstAction": "Find where we stopped in Nevermoor.",
+      "studentSteps": [
+        "Listen or read from our bookmark.",
+        "Use a detail from the story to explain a character’s choice or make a prediction.",
+        "Continue your current reading or writing response."
+      ],
+      "href": "",
+      "notes": "Use the actual book/audio bookmark, not a guessed chapter. Allow time for current Language Arts work and its existing SpacesEDU evidence."
+    },
+    {
+      "time": "10:20–10:35 am",
+      "title": "Snack",
+      "firstAction": "Have your snack and tidy your space.",
+      "studentSteps": [],
+      "href": "",
+      "notes": ""
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "firstAction": "Follow our recess routine.",
+      "studentSteps": [],
+      "href": "",
+      "notes": ""
+    },
+    {
+      "time": "10:50–11:50 am",
+      "title": "Social Studies · country inquiry",
+      "firstAction": "Open your current inquiry notes or choose a question with your teacher.",
+      "studentSteps": [
+        "Choose one question about people’s lives, rights or access.",
+        "Find a useful source detail and record where it came from.",
+        "Compare what you know with what you still need to find out."
+      ],
+      "href": "./activities/inquiry-fieldnotes.html",
+      "notes": "Continue or introduce the existing two-country inquiry according to readiness. Use one manageable question. Avoid ranking whole countries from one example. Fieldnotes does not autosave: download or print notes before closing. This is preparation for later second-term evidence, not a new deadline."
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "firstAction": "Follow our outside-play and lunch routine.",
+      "studentSteps": [],
+      "href": "",
+      "notes": "Outside 11:50–12:12; transition 12:12–12:13; eating 12:13–12:35."
+    },
+    {
+      "time": "12:35–12:50 pm",
+      "title": "Quiet reset",
+      "firstAction": "Choose quiet reading, drawing or another calm activity.",
+      "studentSteps": [],
+      "href": "",
+      "notes": ""
+    },
+    {
+      "time": "12:50–1:30 pm",
+      "title": "ADST · Bloxels design",
+      "firstAction": "Open your existing Bloxels project or planning page.",
+      "studentSteps": [
+        "Choose one part of your game or story to improve.",
+        "Build or revise it, then test whether it works as intended.",
+        "Record one change you made and why."
+      ],
+      "href": "",
+      "notes": "Continue the existing project rather than inventing a new assignment. Use planning on paper where helpful; connect changes to the intended player experience."
+    },
+    {
+      "time": "1:30–2:00 pm",
+      "title": "SpacesEDU · finish and share learning",
+      "firstAction": "Open the unfinished posting your teacher has asked you to work on.",
+      "studentSteps": [
+        "Finish the work and choose clear evidence.",
+        "Explain what you learned using a specific example.",
+        "Check the existing instructions and feedback.",
+        "Save or submit as your teacher directs."
+      ],
+      "href": "",
+      "notes": "Prioritise the current first-term postings. Additional completion time can be used within subject blocks. Do not create new assignments or infer teacher assessment/publication."
+    },
+    {
+      "time": "2:00–2:30 pm",
+      "title": "Tidy, movement and community",
+      "firstAction": "Save your work, put materials away and complete your classroom job.",
+      "studentSteps": [
+        "Save your progress and return materials.",
+        "Join a short movement break when directed.",
+        "Share a useful learning moment and record confirmed reminders."
+      ],
+      "href": "?view=Responsibilities&mode=student",
+      "notes": ""
+    },
+    {
+      "time": "2:30–2:35 pm",
+      "title": "Pack up and dismissal",
+      "firstAction": "Check your belongings and get ready for a calm departure.",
+      "studentSteps": [],
+      "href": "",
+      "notes": ""
+    }
+  ],
+  "backups": [
+    "Adjust subject-block lengths to the work students need to complete; retain the fixed breaks and dismissal.",
+    "Use notebooks, paper plans and teacher-guided discussion when useful.",
+    "Keep existing deadlines and allow unfinished work to continue in school; no new posting deadline is added."
+  ]
+}
