@@ -1,0 +1,123 @@
+{
+  "id": "day-2026-11-17",
+  "date": "2026-11-17",
+  "title": "Tuesday · share, explore and connect",
+  "greeting": "Good morning, Division 8!",
+  "arrival": "Answer attendance, then hand in forms and get your work ready.",
+  "note": "SpacesEDU postings before recess, fractions with Math Antics after recess, then French, Nevermoor, preparation for tomorrow and a community activity. Afternoon blocks follow this order with flexible lengths. Continue existing assignments and the actual novel bookmark; no new submission deadline is added.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:45 am",
+      "title": "Welcome and attendance",
+      "firstAction": "Settle in and answer attendance.",
+      "studentSteps": [
+        "Answer attendance, then hand in forms.",
+        "Check today’s plan and choose your first useful task."
+      ],
+      "href": "",
+      "notes": ""
+    },
+    {
+      "time": "8:45–10:20 am",
+      "title": "SpacesEDU · postings",
+      "firstAction": "Open the posting your teacher has asked you to work on.",
+      "studentSteps": [
+        "Use the morning laptop time to finish or improve your current postings.",
+        "Choose clear evidence and explain what you learned.",
+        "Read the instructions and feedback, then save or submit as directed."
+      ],
+      "notes": "Laptops available until recess. Save work and return devices as directed before going outside.",
+      "href": ""
+    },
+    {
+      "time": "10:20–10:35 am",
+      "title": "Snack",
+      "firstAction": "Have your snack and tidy your space.",
+      "studentSteps": [],
+      "href": "",
+      "notes": ""
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "firstAction": "Follow our recess routine.",
+      "studentSteps": [],
+      "href": "",
+      "notes": ""
+    },
+    {
+      "time": "10:50–11:50 am",
+      "title": "Mathematics · fractions with Math Antics",
+      "firstAction": "Get your math materials ready for our fractions lesson.",
+      "studentSteps": [
+        "Watch the teacher-selected Math Antics fractions explanation.",
+        "Pause to model an example and explain what the parts represent.",
+        "Try the practice your teacher selects and show your thinking."
+      ],
+      "notes": "Continue from the class’s current fractions work. Select the appropriate Math Antics explanation; if video is unavailable, model the same examples on the board with equal-sized wholes. No specific video or worksheet is assumed.",
+      "href": ""
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "firstAction": "Follow our outside-play and lunch routine.",
+      "studentSteps": [],
+      "href": "",
+      "notes": "Outside 11:50–12:12; transition 12:12–12:13; eating 12:13–12:35."
+    },
+    {
+      "time": "After lunch",
+      "title": "French",
+      "firstAction": "Get ready for French and follow the lesson directions.",
+      "studentSteps": [],
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "After French",
+      "title": "Language Arts · Nevermoor",
+      "firstAction": "Listen from our class bookmark.",
+      "studentSteps": [
+        "Listen for an important event or character choice.",
+        "Share a detail that supports your thinking."
+      ],
+      "notes": "Use the actual audiobook stopping point; do not assume a chapter.",
+      "href": ""
+    },
+    {
+      "time": "Then",
+      "title": "Prepare for tomorrow",
+      "firstAction": "Save your work and check what you need for the next day.",
+      "studentSteps": [
+        "Organize materials and record confirmed reminders.",
+        "Tidy your workspace and complete your classroom job."
+      ],
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "Before pack-up",
+      "title": "Community activity",
+      "firstAction": "Join our class community activity.",
+      "studentSteps": [
+        "Listen to others and take turns.",
+        "Help make the activity welcoming for everyone."
+      ],
+      "notes": "Choose the community activity with the class; do not promise a specific game.",
+      "href": ""
+    },
+    {
+      "time": "2:30–2:35 pm",
+      "title": "Pack up and dismissal",
+      "firstAction": "Check your belongings and get ready for a calm departure.",
+      "studentSteps": [],
+      "href": "",
+      "notes": ""
+    }
+  ],
+  "backups": [
+    "Keep snack, recess, lunch and dismissal at their usual times; adjust afternoon activity lengths without changing their order.",
+    "If technology is unavailable, prepare posting text or evidence on paper and use a teacher-modelled fractions example."
+  ]
+}
