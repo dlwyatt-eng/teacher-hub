@@ -4,7 +4,7 @@
   "title": "Wednesday · listen, learn and choose",
   "greeting": "Good morning, Division 8!",
   "arrival": "Answer attendance, then hand in forms and get your work ready.",
-  "note": "Listen to Nevermoor before the 9:15 workshop. Begin fractions after recess if time allows. Keep the afternoon flexible for current SpacesEDU work, Werewolf or another teacher-selected option, around regular in-class support (1:05–1:30) and Health/Career (1:35–2:10). No new assignment or deadline is added.",
+  "note": "Listen to Nevermoor before the 9:15 workshop. Begin fractions after recess if time allows. Plan Werewolf in the afternoon, with flexible timing around regular in-class support (1:05–1:30) and Health/Career (1:35–2:10). No new assignment or deadline is added.",
   "reflection": "",
   "blocks": [
     {
@@ -86,14 +86,14 @@
     },
     {
       "time": "Afternoon · flexible",
-      "title": "Learning choices and current work",
-      "firstAction": "Listen for the afternoon plan before choosing your task.",
+      "title": "Community · Werewolf",
+      "firstAction": "Get ready for Werewolf when your teacher starts the game.",
       "studentSteps": [
-        "Finish or improve current SpacesEDU work when directed.",
-        "We may choose Werewolf or another class activity if time allows.",
-        "Save your work and organize what you need for tomorrow."
+        "Listen carefully, explain your reasoning and take turns.",
+        "Keep the game respectful and welcoming.",
+        "Save time to organize what you need for tomorrow."
       ],
-      "notes": "Keep activity lengths and choices flexible around regular in-class support 1:05–1:30 and Health/Career 1:35–2:10. Do not promise a game or assume devices are booked.",
+      "notes": "Werewolf is the planned afternoon activity. Keep its timing flexible around regular in-class support 1:05–1:30 and Health/Career 1:35–2:10. No new homework assignment or device booking is added.",
       "href": ""
     },
     {
