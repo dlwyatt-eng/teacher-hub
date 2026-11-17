@@ -1,3 +1,4 @@
+import november18 from '../content/day-plans/day-2026-11-18.json';
 import november17 from '../content/day-plans/day-2026-11-17.json';
 import november16 from '../content/day-plans/day-2026-11-16.json';
 import november09 from '../content/day-plans/day-2026-11-09.json';
@@ -38,7 +39,7 @@ import flexibleFirstDay from '../content/day-plans/first-full-day-flexible.json'
 import firstDay from '../content/day-plans/first-full-day.json';
 import {parseDayPlan,readDayRevisions,type DayPlan} from './day-plan-storage';
 export * from './day-plan-storage';
-export const publishedDayPlans:DayPlan[]=[thursdayDay,octoberFriday,octoberThursday,septemberTuesday,septemberMonday,wednesdayDay,tuesdayDay,mondayDay,thirdDay,secondDay,flexibleFirstDay,firstDay,october05,october06,october07,october08,october09,october13,october14,october15,october16,october19,october20,october21,october22,october26,october27,october28,october29,october30,november02,november03,november09,november10,november12,november13,november16,november17].map(plan=>{const clean=parseDayPlan(plan);if(!clean)throw new Error('Invalid published day plan');return clean;});
+export const publishedDayPlans:DayPlan[]=[thursdayDay,octoberFriday,octoberThursday,septemberTuesday,septemberMonday,wednesdayDay,tuesdayDay,mondayDay,thirdDay,secondDay,flexibleFirstDay,firstDay,october05,october06,october07,october08,october09,october13,october14,october15,october16,october19,october20,october21,october22,october26,october27,october28,october29,october30,november02,november03,november09,november10,november12,november13,november16,november17,november18].map(plan=>{const clean=parseDayPlan(plan);if(!clean)throw new Error('Invalid published day plan');return clean;});
 // Explicit teacher-approved active plan. Advance this only after approval, never to the latest tentative draft.
 export const DEFAULT_DAY_PLAN_ID=october19.id;
 export function listDayPlans():DayPlan[]{

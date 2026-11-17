@@ -1,0 +1,113 @@
+{
+  "id": "day-2026-11-18",
+  "date": "2026-11-18",
+  "title": "Wednesday · listen, learn and choose",
+  "greeting": "Good morning, Division 8!",
+  "arrival": "Answer attendance, then hand in forms and get your work ready.",
+  "note": "Listen to Nevermoor before the 9:15 workshop. Begin fractions after recess if time allows. Keep the afternoon flexible for current SpacesEDU work, Werewolf or another teacher-selected option, around regular in-class support (1:05–1:30) and Health/Career (1:35–2:10). No new assignment or deadline is added.",
+  "reflection": "",
+  "blocks": [
+    {
+      "time": "8:35–8:45 am",
+      "title": "Welcome and attendance",
+      "firstAction": "Settle in and answer attendance.",
+      "studentSteps": [
+        "Answer attendance, then hand in forms.",
+        "Check today’s plan and choose your first useful task."
+      ],
+      "href": "",
+      "notes": ""
+    },
+    {
+      "time": "8:45–9:15 am",
+      "title": "Language Arts · Nevermoor",
+      "firstAction": "Listen from our class bookmark.",
+      "studentSteps": [
+        "Listen for an important event or character choice.",
+        "Be ready to share a detail you noticed."
+      ],
+      "notes": "Stop in time to be ready for the workshop. Use the actual audiobook stopping point; do not assume a chapter.",
+      "href": ""
+    },
+    {
+      "time": "9:15–10:15 am",
+      "title": "Racial-equity workshop",
+      "firstAction": "Get ready to listen and take part respectfully.",
+      "studentSteps": [
+        "Follow the presenter’s directions.",
+        "Listen thoughtfully and respect different experiences."
+      ],
+      "notes": "Replaces the usual morning Werewolf block.",
+      "href": ""
+    },
+    {
+      "time": "10:15–10:20 am",
+      "title": "Transition",
+      "firstAction": "Return to our classroom routine and get ready for snack.",
+      "studentSteps": [],
+      "notes": "",
+      "href": ""
+    },
+    {
+      "time": "10:20–10:35 am",
+      "title": "Snack",
+      "firstAction": "Have your snack and tidy your space.",
+      "studentSteps": [],
+      "href": "",
+      "notes": ""
+    },
+    {
+      "time": "10:35–10:50 am",
+      "title": "Recess",
+      "firstAction": "Follow our recess routine.",
+      "studentSteps": [],
+      "href": "",
+      "notes": ""
+    },
+    {
+      "time": "After recess · 10:50–11:50 am",
+      "title": "Mathematics · fractions, if time allows",
+      "firstAction": "Get your math materials ready when directed.",
+      "studentSteps": [
+        "Begin or continue the fractions work selected by your teacher.",
+        "Use a visual model and explain your thinking.",
+        "Try the selected practice at a pace that helps you understand."
+      ],
+      "notes": "Start fractions if time allows. Continue from what has actually been taught; do not assume mixed numbers or comparison work is complete. Math Antics can support the lesson; use board models with equal-sized wholes if video is unavailable.",
+      "href": ""
+    },
+    {
+      "time": "11:50 am–12:35 pm",
+      "title": "Lunch",
+      "firstAction": "Follow our outside-play and lunch routine.",
+      "studentSteps": [],
+      "href": "",
+      "notes": "Outside 11:50–12:12; transition 12:12–12:13; eating 12:13–12:35."
+    },
+    {
+      "time": "Afternoon · flexible",
+      "title": "Learning choices and current work",
+      "firstAction": "Listen for the afternoon plan before choosing your task.",
+      "studentSteps": [
+        "Finish or improve current SpacesEDU work when directed.",
+        "We may choose Werewolf or another class activity if time allows.",
+        "Save your work and organize what you need for tomorrow."
+      ],
+      "notes": "Keep activity lengths and choices flexible around regular in-class support 1:05–1:30 and Health/Career 1:35–2:10. Do not promise a game or assume devices are booked.",
+      "href": ""
+    },
+    {
+      "time": "2:30–2:35 pm",
+      "title": "Pack up and dismissal",
+      "firstAction": "Check your belongings and get ready for a calm departure.",
+      "studentSteps": [],
+      "href": "",
+      "notes": ""
+    }
+  ],
+  "backups": [
+    "Keep snack, recess, lunch and dismissal at their usual times.",
+    "If fractions cannot begin after recess, continue at the next available lesson without treating the planned work as completed.",
+    "If devices are unavailable, prepare posting text or evidence on paper."
+  ]
+}
