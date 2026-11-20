@@ -137,6 +137,37 @@ export default function TocResourceLibrary({ onHome, onOpenTtocPlan }: TocResour
         </footer>
       </section>
 
+      <section className="toc-capsule-home" aria-labelledby="low-ink-missions-title">
+        <header>
+          <div>
+            <p>REUSABLE · LOW-INK STUDENT COPIES</p>
+            <h2 id="low-ink-missions-title">Two paper-first mission booklets</h2>
+            <span>Choose a booklet or selected missions. Both are undated, need no student account, and work around the actual timetable.</span>
+          </div>
+        </header>
+        <div className="toc-capsule-slots">
+          <article>
+            <small>8 PAGES · PENCIL + PAPER</small>
+            <h3>Night Market Rescue</h3>
+            <p>Solve a helper schedule and grid route, weigh evidence, write a scene, then design and test an accessible stall. About 3–3½ hours for the full sequence; select pages for a shorter block.</p>
+            <a href={`${import.meta.env.BASE_URL}printables/night-market-rescue-low-ink.pdf`} target="_blank" rel="noreferrer">Open Night Market student booklet (PDF) ↗</a>
+          </article>
+          <article>
+            <small>9 PAGES · PENCIL + LOOSE PAPER</small>
+            <h3>The Midnight Museum</h3>
+            <p>Decode a message, model improper fractions, test a paper tower, question a headline, and create an exhibit. Choose independent missions; some take 10–30 minutes. White headers replace the original dark banners.</p>
+            <a href={`${import.meta.env.BASE_URL}printables/midnight-museum-low-ink.pdf`} target="_blank" rel="noreferrer">Open Midnight Museum student booklet (PDF) ↗</a>
+          </article>
+        </div>
+        <footer>
+          <ul>
+            <li>Print Night Market single-sided for its back-page drawings, or supply two extra blank sheets. Museum needs a loose sheet for the tower; fold or roll, without scissors or glue.</li>
+            <li>Use labelled drawings or oral explanations when appropriate. These are optional resources, not new assignments or evidence that a lesson has been taught.</li>
+            <li>Student PDFs only. Keep matching teacher guides and answer keys in private staff storage; this public-facing download route is not access-controlled.</li>
+          </ul>
+        </footer>
+      </section>
+
       <section className="toc-opening-resources" aria-labelledby="opening-resources-title">
         <p>OPENING LESSONS · PRINT ONLY WHAT YOU NEED</p>
         <h2 id="opening-resources-title">A small paper toolkit for the first teaching blocks</h2>
