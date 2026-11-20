@@ -10,6 +10,18 @@ export default function SavedResourceLibrary({onHome}:{onHome:()=>void}) {
  return <div className="page saved-resource-library">
   <button className="back-link" onClick={onHome}>← Teacher Home</button>
   <header><p className="eyebrow">YOUR TEACHING MATERIALS</p><h1>Saved Resources</h1><p>Find the file, see where it fits, and open your teaching copy.</p><a href="?subject=Mathematics">Open math lessons, worksheets &amp; games →</a><nav className="saved-resource-downloads" aria-label="Reviewed resource downloads"><a href="https://drive.google.com/file/d/1iOMu49HqdI5EqpvdFHSHKVTFL3FvCIbC/view" target="_blank" rel="noreferrer">My Math Antics archive · 174 PDFs ↗</a><a href="https://drive.google.com/file/d/1t5B7pw-utGH-pRD5tVnZ_Ro-QfpDpruP/view" target="_blank" rel="noreferrer">Resource review &amp; page-selection guide ↗</a></nav></header>
+  <section className="saved-resource-worksheet-bank" aria-labelledby="worksheet-bank-title">
+   <p className="eyebrow">LOW-INK STUDENT PRINTABLES</p>
+   <h2 id="worksheet-bank-title">Six-page worksheet bank</h2>
+   <p>Choose one undated page for a short block. White backgrounds, name/date blanks and space to explain thinking. Pencil only; a ruler is optional.</p>
+   <ul>
+    <li><strong>Fractions reasoning</strong> · PDF pages 1–2 · 12–18 minutes each: benchmarks and explaining an addition error.</li>
+    <li><strong>Reading with evidence</strong> · PDF pages 3–4 · 15–20 minutes each: a short story and a library-trial report.</li>
+    <li><strong>Independent practice</strong> · PDF pages 5–6 · 8–12 minutes each: fraction constraints and precise drawing directions.</li>
+   </ul>
+   <a className="saved-resource-open" href="/printables/worksheet-bank-1-student.pdf" download>Download six student worksheets (PDF)</a>
+   <p className="worksheet-bank-print-note">Print selected pages at actual size on Letter paper, or Fit on A4. Student pages only. For the fraction tasks, review equivalent fractions first if needed.</p>
+  </section>
   <div className="saved-resource-filters"><label>Search resources<input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Try ratios, drawing, division or sub plans" /></label><label>Subject<select value={category} onChange={e=>setCategory(e.target.value)}>{['All subjects',...new Set(savedResourceIndex.map(r=>r.category))].map(c=><option key={c}>{c}</option>)}</select></label></div>
   <p role="status">{items.length} of {savedResourceIndex.length} resources</p>
   <details className="saved-resource-review-note"><summary>About this review and file access</summary><p>Reviewed September 13, 2026 using the supplied files’ extractable content. Image-heavy or unreadable files are marked “Preview needed.” This is not a claim that every page or answer has been visually checked.</p><p>Google Drive controls access to these teaching copies. Opening a link does not change sharing. Other teachers should use their own licensed copies.</p></details>
