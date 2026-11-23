@@ -24,7 +24,7 @@ test('new public window is current, safe and synchronized without inventing comp
  assert.match(w.shared.summary,/Students will work in groups/);assert.equal(p.classSchedule.days.length,5);
  assert.ok(p.classSchedule.days.every(d=>/^2026-11-\d\d$/.test(d.date)&&d.label));
  assert.deepEqual(p.classroomWelcome,x.classroomWelcome);
- assert.match(x.classroomWelcome.next,/finish first-term work/i);
+ assert.match(x.classroomWelcome.next,/finish fractions and other class work/i);
  assert.equal(x.classroomWelcome.spaces.status,'invited');
  assert.doesNotMatch(JSON.stringify(w),/Nolan|Sarang|IEP|password|support room/);
 });

@@ -29,7 +29,7 @@ test('Friday public summaries match priorities without family-facing device logi
   assert.match(day.later, /only if|optional if/);
   assert.deepEqual(published.classSchedule, source.classSchedule);
   assert.deepEqual(published.classroomWelcome, source.classroomWelcome);
-  assert.match(source.classroomWelcome.later, /if students are ready/);
+  assert.match(source.classroomWelcome.later, /work your teacher has already identified/);
   assert.doesNotMatch(source.classroomWelcome.next + source.classroomWelcome.later, /laptops|booked|12:50|prep block/i);
   assert.equal(source.classroomWelcome.spaces.status, 'invited');
   assert.equal(published.contentVersion, source.contentVersion);

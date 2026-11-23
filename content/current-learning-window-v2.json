@@ -1,7 +1,7 @@
 {
   "schemaVersion": "classroom-os-current-window/v2",
-  "contentVersion": "2026-11-16-family-practice",
-  "sourceUpdatedAt": "2026-11-15",
+  "contentVersion": "2026-11-23-family-practice",
+  "sourceUpdatedAt": "2026-11-22",
   "window": {
     "id": "september-opening",
     "effectiveFrom": "2026-09-08",
@@ -1621,7 +1621,7 @@
     }
   ],
   "classroomWelcome": {
-    "updatedOn": "November 15, 2026",
+    "updatedOn": "November 22, 2026",
     "classLabel": "Division 8",
     "location": "Room 112 · Annex · Walnut Road Elementary",
     "title": "Welcome to our Division 8 community",
@@ -1629,8 +1629,8 @@
     "recapTitle": "What we’re working on",
     "recap": "Our learning includes Nevermoor, mathematical explanations, creative projects and thoughtful reflection. We will check where everyone stopped and continue from there.",
     "nextTitle": "Coming up",
-    "next": "November 16–20: finish first-term work and SpacesEDU postings, continue Nevermoor and begin fractions when ready.",
-    "later": "Our next priorities are finishing first-term work and SpacesEDU postings, making more time for Nevermoor and beginning fractions as the class is ready. A two-country inquiry can begin if students are ready; November 20 offers a children’s-rights connection. Documentary viewing and reflections are being considered for later learning, not assigned for home.",
+    "next": "Week of November 23: finish fractions and other class work, prepare Bloxels presentations and begin or continue the two-country inquiry.",
+    "later": "Follow the instructions for work your teacher has already identified. The optional home-practice menu offers fractions, reading and fairness choices without a hand-in deadline.",
     "reminders": [
       {
         "title": "Volunteer and driver registration · each school year",
@@ -2035,16 +2035,16 @@
     "note": "These are our usual weekly routines. Check the Shape of the Day and your teacher’s instructions for changes."
   },
   "learningUpdates": {
-    "updatedOn": "November 15, 2026",
+    "updatedOn": "November 22, 2026",
     "title": "Finishing first-term work and looking ahead",
-    "summary": "For November 16–20, prioritise finishing first-term work and SpacesEDU postings, continue Nevermoor and begin fractions as the class is ready. Children’s rights offer one connection to our broader inquiry. These plans will follow class progress.",
+    "summary": "This week, the plan is to finish fractions and other first-term work and SpacesEDU postings, prepare Bloxels presentations and begin or continue the two-country inquiry.",
     "note": "Planned next steps, not a record of completed lessons.",
     "subjects": [
       {
         "subject": "Mathematics",
-        "status": "Planned next steps",
+        "status": "Class focus",
         "focus": "Mixed numbers and improper fractions",
-        "detail": "Fractions are planned for the week of November 16, depending on class progress. We plan to use equal-part models to show that a mixed number and an improper fraction can name the same amount, revisiting earlier maths where needed."
+        "detail": "Use equal-part models to show that mixed numbers and improper fractions can name the same amount. At school, finish the fractions work your teacher has identified."
       },
       {
         "subject": "Language Arts",
@@ -2072,9 +2072,9 @@
       },
       {
         "subject": "Social Studies",
-        "status": "Planned next steps",
+        "status": "Getting started",
         "focus": "Two countries, shared questions",
-        "detail": "Begin our two-country inquiry when students are ready after their first-term work. We will compare how choices in different places shape people’s lives and our shared world, exploring government, migration, resources, cooperation and rights. We will check sources and consider different perspectives. November 20 offers a children’s-rights connection, not a submission deadline."
+        "detail": "Begin or continue our two-country inquiry as you are ready. Compare how choices in different places shape people’s lives and our shared world, exploring government, migration, resources, cooperation and rights. Check sources and consider different perspectives."
       },
       {
         "subject": "Arts Education",
@@ -2086,7 +2086,7 @@
         "subject": "ADST",
         "status": "Ongoing",
         "focus": "Original-story games in Bloxels",
-        "detail": "We’re turning original stories into Bloxels games, connecting storytelling with design and creative choices."
+        "detail": "We’re turning original stories into Bloxels games. Students are preparing to share their games and explain their design choices."
       },
       {
         "subject": "Science",

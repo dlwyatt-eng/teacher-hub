@@ -1,7 +1,7 @@
 {
   "schemaVersion": "classroom-os-public-window/v2",
-  "contentVersion": "2026-11-16-family-practice",
-  "sourceUpdatedAt": "2026-11-15",
+  "contentVersion": "2026-11-23-family-practice",
+  "sourceUpdatedAt": "2026-11-22",
   "window": {
     "id": "september-opening",
     "effectiveFrom": "2026-09-08",
@@ -1342,7 +1342,7 @@
     "email": "mailto:wyatt_daryl@surreyschools.ca"
   },
   "classroomWelcome": {
-    "updatedOn": "November 15, 2026",
+    "updatedOn": "November 22, 2026",
     "classLabel": "Division 8",
     "location": "Room 112 · Annex · Walnut Road Elementary",
     "title": "Welcome to our Division 8 community",
@@ -1350,8 +1350,8 @@
     "recapTitle": "What we’re working on",
     "recap": "Our learning includes Nevermoor, mathematical explanations, creative projects and thoughtful reflection. We will check where everyone stopped and continue from there.",
     "nextTitle": "Coming up",
-    "next": "November 16–20: finish first-term work and SpacesEDU postings, continue Nevermoor and begin fractions when ready.",
-    "later": "Our next priorities are finishing first-term work and SpacesEDU postings, making more time for Nevermoor and beginning fractions as the class is ready. A two-country inquiry can begin if students are ready; November 20 offers a children’s-rights connection. Documentary viewing and reflections are being considered for later learning, not assigned for home.",
+    "next": "Week of November 23: finish fractions and other class work, prepare Bloxels presentations and begin or continue the two-country inquiry.",
+    "later": "Follow the instructions for work your teacher has already identified. The optional home-practice menu offers fractions, reading and fairness choices without a hand-in deadline.",
     "reminders": [
       {
         "title": "Volunteer and driver registration · each school year",
@@ -1681,16 +1681,16 @@
     "note": "These are our usual weekly routines. Check the Shape of the Day and your teacher’s instructions for changes."
   },
   "learningUpdates": {
-    "updatedOn": "November 15, 2026",
+    "updatedOn": "November 22, 2026",
     "title": "Finishing first-term work and looking ahead",
-    "summary": "For November 16–20, prioritise finishing first-term work and SpacesEDU postings, continue Nevermoor and begin fractions as the class is ready. Children’s rights offer one connection to our broader inquiry. These plans will follow class progress.",
+    "summary": "This week, the plan is to finish fractions and other first-term work and SpacesEDU postings, prepare Bloxels presentations and begin or continue the two-country inquiry.",
     "note": "Planned next steps, not a record of completed lessons.",
     "subjects": [
       {
         "subject": "Mathematics",
-        "status": "Planned next steps",
+        "status": "Class focus",
         "focus": "Mixed numbers and improper fractions",
-        "detail": "Fractions are planned for the week of November 16, depending on class progress. We plan to use equal-part models to show that a mixed number and an improper fraction can name the same amount, revisiting earlier maths where needed."
+        "detail": "Use equal-part models to show that mixed numbers and improper fractions can name the same amount. At school, finish the fractions work your teacher has identified."
       },
       {
         "subject": "Language Arts",
@@ -1718,9 +1718,9 @@
       },
       {
         "subject": "Social Studies",
-        "status": "Planned next steps",
+        "status": "Getting started",
         "focus": "Two countries, shared questions",
-        "detail": "Begin our two-country inquiry when students are ready after their first-term work. We will compare how choices in different places shape people’s lives and our shared world, exploring government, migration, resources, cooperation and rights. We will check sources and consider different perspectives. November 20 offers a children’s-rights connection, not a submission deadline."
+        "detail": "Begin or continue our two-country inquiry as you are ready. Compare how choices in different places shape people’s lives and our shared world, exploring government, migration, resources, cooperation and rights. Check sources and consider different perspectives."
       },
       {
         "subject": "Arts Education",
@@ -1732,7 +1732,7 @@
         "subject": "ADST",
         "status": "Ongoing",
         "focus": "Original-story games in Bloxels",
-        "detail": "We’re turning original stories into Bloxels games, connecting storytelling with design and creative choices."
+        "detail": "We’re turning original stories into Bloxels games. Students are preparing to share their games and explain their design choices."
       },
       {
         "subject": "Science",
@@ -1749,18 +1749,18 @@
     ]
   },
   "homePractice": {
-    "updatedOn": "November 15, 2026",
-    "policy": "Choose a short optional activity that suits your family.",
-    "unfinished": "Check your planner and the instructions Mr. Wyatt has given you. Finish only the small piece identified for you, using the support agreed at school. If you were absent or are unsure, ask where to begin.",
+    "updatedOn": "November 22, 2026",
+    "policy": "There is no daily homework assignment. Choose a short optional activity that suits your family.",
+    "unfinished": "Use your planner or the instructions Mr. Wyatt gave you. Finish only the small piece identified for you. That might be part of your fractions work or a specific SpacesEDU post. If nothing was identified for home, there is nothing to catch up on from this menu.",
     "routine": "Read or listen for 10–15 minutes, then choose one short activity. Families wanting a longer routine can add a second choice, keeping the total around 30–40 minutes including reading, or less when needed. Spread choices across evenings or select a few for the weekend; do not save up a catch-up pile.",
     "stopRule": "Stop if the work is confusing, upsetting or taking much longer than expected. Let Mr. Wyatt know which part was difficult. Rest, play, family time and activities outside school matter too.",
     "access": "Use paper, drawings, spoken explanations or a language that helps you think. Every menu activity can be done without an online account. No purchase, AI tool or routine portfolio upload is required.",
     "week": {
-      "id": "2026-11-16",
-      "label": "Read, revisit familiar maths and explore fairness",
-      "from": "2026-11-16",
-      "through": "2026-11-22",
-      "connection": "These optional choices revisit reading, factor trees and fair participation in games. At school, the priority remains finishing first-term work and SpacesEDU postings, with more Nevermoor and a planned start to fractions as the class is ready. November 20 offers a children’s-rights connection. Choose what helps, not the whole menu.",
+      "id": "2026-11-23",
+      "label": "Show a fraction, read for a clue or make a game fairer",
+      "from": "2026-11-23",
+      "through": "2026-11-29",
+      "connection": "This week’s optional choices connect to fractions, reading and fairness. At school, the plan is to finish fractions and other class work, prepare Bloxels presentations and begin or continue the two-country inquiry. Choose what helps, not the whole menu.",
       "activities": [
         {
           "id": "math",
@@ -1926,11 +1926,26 @@
           ],
           "check": "Can you find the item you need? Choose one small next step; do not share private family information.",
           "extension": ""
+        },
+        {
+          "id": "fractions",
+          "subject": "Math",
+          "title": "Show the same fraction two ways",
+          "time": "10 minutes",
+          "context": "Optional practice · mixed numbers and improper fractions",
+          "example": "Draw two equal-size rectangles and split each into quarters. Shade all of the first and three quarters of the second. Seven quarter-pieces show 7/4, or 1 3/4.",
+          "steps": [
+            "Draw equal-size wholes. Show 5/3 using thirds. Write the same amount as a mixed number.",
+            "Draw equal-size wholes to show 2 1/4. Count the quarter-pieces and write an improper fraction.",
+            "Explain why the number of pieces per whole stays the same when you change how you write the fraction."
+          ],
+          "check": "5/3 = 1 2/3. 2 1/4 = 9/4. Each third or quarter must be the same size as the other pieces of its kind.",
+          "extension": "Place 5/3 on a number line between 1 and 2. Start by marking the thirds."
         }
       ],
       "featuredIds": [
         "reading",
-        "math",
+        "fractions",
         "fairness"
       ]
     },
@@ -2002,8 +2017,8 @@
         "title": "Fraction explorer",
         "subject": "Math · optional visual exploration",
         "href": "https://dlwyatt-eng.github.io/teacher-hub/?subject=Mathematics&experience=fraction-ratio-remix&mode=student",
-        "description": "An optional connection to our planned mixed-number and improper-fraction learning. Explore equal parts and whole amounts when you are ready. There is no required activity or submission; ask at school if the idea is unfamiliar.",
-        "offline": "Draw equal-sized wholes on paper, divide each into the same number of equal parts, and explain what the parts represent. Familiar factor-tree practice above is also available."
+        "description": "Explore equal parts and whole amounts with mixed numbers and improper fractions. There is no required activity or submission.",
+        "offline": "Draw equal-size wholes, split each into the same number of equal parts and explain what the parts represent. You can use the fraction choice above without a screen."
       },
       {
         "title": "Matific",
@@ -3344,5 +3359,5 @@
       }
     }
   ],
-  "checksum": "sha256:d153e7f3111469e26a0e2b504d14b9d3ada73f14a48dba63e27a8c42c6f10ad7"
+  "checksum": "sha256:62e5fab0d9c9542ff309868c6fde955b747202c91d690e6283d3d048926b0e40"
 }

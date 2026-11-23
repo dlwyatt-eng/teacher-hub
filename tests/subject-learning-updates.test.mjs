@@ -8,7 +8,7 @@ const manifest=read('../public/generated/public-window-v2.json');
 test('dated subject updates cover the full class without turning plans into completed work',()=>{
  const updates=source.learningUpdates;
  assert.deepEqual(manifest.learningUpdates,updates);
- assert.equal(updates.updatedOn,'November 15, 2026');
+ assert.equal(updates.updatedOn,'November 22, 2026');
  assert.deepEqual(updates.subjects.map(x=>x.subject),['Mathematics','Language Arts','Career Education','Physical Education','Health','Social Studies','Arts Education','ADST','Science','French']);
  assert.equal(new Set(updates.subjects.map(x=>x.focus)).size,10);
  const by=Object.fromEntries(updates.subjects.map(x=>[x.subject,x]));
@@ -20,7 +20,8 @@ test('dated subject updates cover the full class without turning plans into comp
  assert.match(by['Arts Education'].detail,/creative work/);
  assert.doesNotMatch(JSON.stringify(updates),/Friday|begin next week/);
  assert.match(by['Language Arts'].detail,/details from the story/);
- assert.match(by['Social Studies'].detail,/not a submission deadline/);
+ assert.match(by['Social Studies'].detail,/Check sources and consider different perspectives/);
+ assert.match(updates.note,/not a record of completed lessons/);
  assert.doesNotMatch(JSON.stringify(updates),/laptop|booking|mastered|completed the lesson|support schedule/i);
 });
 test('subject update projection exports only the public fields',()=>{
