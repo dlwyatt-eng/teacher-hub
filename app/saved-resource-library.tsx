@@ -22,6 +22,26 @@ export default function SavedResourceLibrary({onHome}:{onHome:()=>void}) {
    <a className="saved-resource-open" href="/printables/worksheet-bank-1-student.pdf" download>Download six student worksheets (PDF)</a>
    <p className="worksheet-bank-print-note">Print selected pages at actual size on Letter paper, or Fit on A4. Student pages only. For the fraction tasks, review equivalent fractions first if needed.</p>
   </section>
+  <section className="saved-resource-colouring" aria-labelledby="colouring-puzzles-title">
+   <p className="eyebrow">CHOOSE A PAGE · KEEP A COPY</p>
+   <h2 id="colouring-puzzles-title">Colouring &amp; Puzzles</h2>
+   <p>Ready-to-download student pages. Open a PDF, pick the pages you want, and print only those.</p>
+   <div className="saved-resource-grid">
+    <article>
+     <p className="eyebrow">20 PAGES · LETTER · PORTRAIT</p>
+     <h3>Otherworlds colouring collection</h3>
+     <p>Explore ocean depths, future neighbourhoods, tiny habitats and imagined worlds. Twenty detailed, low-ink colouring scenes for older kids.</p>
+     <a className="saved-resource-open" href="/printables/otherworlds-colouring.pdf" download>Download Otherworlds (PDF)</a>
+    </article>
+    <article>
+     <p className="eyebrow">8 PAGES · LETTER · PORTRAIT</p>
+     <h3>Winter Puzzle Club</h3>
+     <p>Five puzzle and design pages, then three colouring pages. Try a logic grid, picture puzzle, cipher, route challenge or fraction design.</p>
+     <a className="saved-resource-open" href="/printables/winter-puzzle-club.pdf" download>Download Winter Puzzle Club (PDF)</a>
+    </article>
+   </div>
+   <p className="worksheet-bank-print-note">Both PDFs: Letter (8½ × 11 in). Print selected pages at actual size on Letter, or choose Fit on A4. Student pages only; no answer keys.</p>
+  </section>
   <div className="saved-resource-filters"><label>Search resources<input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Try ratios, drawing, division or sub plans" /></label><label>Subject<select value={category} onChange={e=>setCategory(e.target.value)}>{['All subjects',...new Set(savedResourceIndex.map(r=>r.category))].map(c=><option key={c}>{c}</option>)}</select></label></div>
   <p role="status">{items.length} of {savedResourceIndex.length} resources</p>
   <details className="saved-resource-review-note"><summary>About this review and file access</summary><p>Reviewed September 13, 2026 using the supplied files’ extractable content. Image-heavy or unreadable files are marked “Preview needed.” This is not a claim that every page or answer has been visually checked.</p><p>Google Drive controls access to these teaching copies. Opening a link does not change sharing. Other teachers should use their own licensed copies.</p></details>
